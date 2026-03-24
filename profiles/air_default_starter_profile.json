@@ -1,0 +1,130 @@
+{
+  "title": "AIR Default Project Starter",
+  "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V1",
+  "PROFILE_KIND": "TASK_COMPOSITE",
+  "STATUS": "LIVE_EXPERIMENT",
+  "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1",
+  "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context.",
+
+  "compiler_mode": "VECTOR_PRIMARY",
+  "referential_policy": "ANCHORS_NOT_OPERATORS",
+  "trace_mode_default": "ON",
+
+  "project_center": {
+    "persistent_task": "Compile the current project into a machine-native AIR artifact using only attached evidence and explicit gap surfacing.",
+    "success_conditions": [
+      "Identify the operative vectors for the project.",
+      "Surface missing vectors, obligations, blockers, and degraded modes explicitly.",
+      "Fail closed on unsupported claims.",
+      "Produce an AIR artifact suitable for downstream execution."
+    ]
+  },
+
+  "source_layer": {
+    "provenance_policy": "EVIDENCE_FIRST_WITH_EXPLICIT_GAPS",
+    "anchor_evidence": []
+  },
+
+  "task_input": {
+    "task_statement": "Compile the attached project input into an AIR artifact.",
+    "task_scope": [],
+    "out_of_scope": [
+      "inventing unsupported infrastructure",
+      "role-based fluff instead of vector compilation",
+      "narrative-first analysis"
+    ]
+  },
+
+  "evidence_known_present": [],
+  "known_missing_or_uncertain": [],
+
+  "preferred_geometry": {
+    "primary": "GRID_LATTICE",
+    "secondary": "POLYTOPE_CORE",
+    "reason": "Prefer deterministic, auditable compilation over broad speculation."
+  },
+
+  "vm4ai_config": {
+    "lambda_pressure": "HIGH_MODERATE",
+    "archetype_class": "LOGICAL_COMPOSITE",
+    "bias": [
+      "deterministic reasoning",
+      "fail-closed behavior",
+      "traceable decisions",
+      "explicit gap surfacing"
+    ]
+  },
+
+  "vector_family_preferences": {
+    "active": [
+      "core",
+      "systems_runtime",
+      "architecture",
+      "security_privacy",
+      "evidence_integrity"
+    ],
+    "promotable": [
+      "deployment_platform",
+      "regulatory_governance"
+    ],
+    "quarantined_unless_explicitly_licensed": [
+      "blockchain",
+      "cloud_deployment"
+    ]
+  },
+
+  "required_vectors": [],
+  "preferred_vectors": [],
+
+  "blocking_conditions": [
+    "If critical assumptions are unsupported by evidence, mark them as blockers.",
+    "Fail closed on unsupported high-confidence claims."
+  ],
+
+  "execution_constraints": [
+    "Do not hallucinate infrastructure that is not evidenced.",
+    "Do not rewrite certified or observed facts.",
+    "Prefer explicit missing coverage over optimistic filler."
+  ],
+
+  "deliverables": [
+    "task_center",
+    "candidate_vector_pool",
+    "selected_vectors",
+    "capability_clusters",
+    "missing_vectors",
+    "obligations",
+    "blockers",
+    "degraded_execution_mode",
+    "dependency_edges",
+    "vector_family_state_summary",
+    "referential_trace",
+    "objective",
+    "implementation_notes_for_executor"
+  ],
+
+  "output_contract": {
+    "mode": "AIR_ARTIFACT_FIRST",
+    "required_sections": [
+      "task_center",
+      "candidate_vector_pool",
+      "selected_vectors",
+      "capability_clusters",
+      "missing_vectors",
+      "obligations",
+      "blockers",
+      "degraded_execution_mode",
+      "dependency_edges",
+      "vector_family_state_summary",
+      "referential_trace",
+      "objective",
+      "implementation_notes_for_executor"
+    ],
+    "rules": [
+      "Do not answer with narrative-first analysis.",
+      "Do not substitute role titles for vectors as the operative layer.",
+      "If evidence is insufficient, express uncertainty through missing_vectors, obligations, blockers, or degraded_execution_mode.",
+      "Narrative explanation may only appear after the AIR artifact is fully emitted."
+    ]
+  }
+}

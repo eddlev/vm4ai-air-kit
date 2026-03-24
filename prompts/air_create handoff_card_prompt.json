@@ -1,0 +1,48 @@
+Create an AIR handoff card from the currently active AIR session.
+
+Do not hardcode the project domain.
+Derive the handoff card from:
+- active_orbit_0_contract
+- topic
+- persistent_task
+- task_key
+- parent_contract
+- supporting_outer_orbit_contracts
+- current degraded_execution_mode
+- selected_vectors
+- missing_vectors
+- blockers
+- dependency_edges
+- vector_family_state_summary
+- next recommended step
+
+Return exactly one top-level JSON object with this root key: {
+  "AIR_HANDOFF_CARD": { ...
+  }
+}
+
+Inside AIR_HANDOFF_CARD, emit these fields in this exact order:
+
+1. "project"
+2. "active_orbit_0_contract"
+3. "task_key"
+4. "topic"
+5. "topic_type"
+6. "parent_contract"
+7. "supporting_outer_orbit_contracts"
+8. "persistent_task"
+9. "current_degraded_mode"
+10. "selected_vectors"
+11. "key_known_present"
+12. "key_missing_vectors"
+13. "current_blockers"
+14. "dependency_edges"
+15. "vector_family_state_summary"
+16. "next_recommended_step"
+17. "runtime_law"
+
+Rules:
+- Derive all fields from the active AIR session and active AIR artifact.
+- If a field is unknown, emit null or an empty list; do not invent values.
+- Keep the handoff card compact and execution-oriented.
+- Do not include narrative explanation unless explicitly requested.

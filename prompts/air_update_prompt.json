@@ -1,0 +1,12 @@
+Fold this AIR contract into the current AIR runtime session.
+
+If it governs the active topic, promote it to active_orbit_0_contract immediately.
+If it is narrower than the active task, attach it as a SUB_CONTRACT under the current parent contract.
+Do not answer in prose-first format.
+Emit AIR_SESSION only, showing:
+- contract_activation
+- orbit_state
+- task_binding
+- superseded_contracts
+- retired_contracts
+- conflict_policy
