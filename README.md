@@ -1,6 +1,6 @@
 # AIR
 
-AIR is a prompt-based project compiler for AI work.
+AIR is a prompt-based AI project runtime.
 
 In simple terms, AIR helps an AI stop acting like a generic chatbot and start acting like a structured project runtime:
 - it starts a project in a controlled way
@@ -11,6 +11,48 @@ In simple terms, AIR helps an AI stop acting like a generic chatbot and start ac
 
 AIR is not roleplay and not a simulation shell.
 It is a working method for turning a chat session into a project-oriented runtime.
+
+## Quick Start
+
+1. Attach the following files in a new session:
+   - AIR CORE RUNTIME PROMPT.md
+   - air_default_starter_profile.json
+
+2. Type in message:
+   Start a new AIR project.
+
+3. Answer onboarding.
+
+Thatâ€™s it.
+
+## Why AIR exists
+
+Most AI usage is still chat-based:
+- no persistent structure.
+- no clear active step.
+- no explicit blockers.
+- no continuity across sessions
+
+AIR introduces a different model:
+
+- **Explicit workflow**  
+  Every session starts with onboarding, activation, and a defined execution path.
+
+- **Map-first execution**  
+  AIR creates a project execution map before generating artifacts.
+
+- **Active-step discipline**  
+  Only the current step is executed. Future steps stay in the roadmap.
+
+- **Orbit model (context governance)**  
+  The active task (Orbit 0) governs execution. Older context is retained but cannot silently override the current step.
+
+- **Handoff continuity**  
+  Project state can be transferred cleanly across sessions without losing alignment.
+
+AIR is not a better chatbot.
+
+It is a different way to run AI work.
 
 ## What AIR does
 
@@ -27,6 +69,27 @@ The current AIR stack is built around four files:
 - `air_default_starter_profile.json`
 - `AIR CONTROL SURFACE PROMPT.md`
 - `air_handoff_card_template.json`
+
+## Orbit model (context governance)
+
+AIR uses an orbit-based model to control context:
+
+- **Orbit 0 â€” Active Task Kernel**  
+  The current step. This governs execution.
+
+- **Orbit 1 â€” Hot Context**  
+  Recent, relevant context supporting the current step.
+
+- **Orbit 2 â€” Warm Memory**  
+  Prior decisions and useful references.
+
+- **Orbit 3 â€” Cold Archive**  
+  Deferred or historical material.
+
+Rule:
+**Orbit 0 governs. Outer context cannot override the active task silently.**
+
+This prevents drift and keeps execution aligned.
 
 ## What each file does
 
@@ -128,7 +191,7 @@ It should not immediately generate the entire future artifact chain unless you e
 
 When AIR starts a new project, it asks five onboarding questions.
 
-### Q1 — What are you doing today?
+### Q1 â€” What are you doing today?
 Options:
 - A. New project
 - B. Import project
@@ -163,7 +226,7 @@ AIR will:
 - restore the active step
 - continue from the last known project state
 
-### Q2 — How strictly should AIR check your work?
+### Q2 â€” How strictly should AIR check your work?
 Options:
 - A. Light
 - B. Balanced
@@ -195,7 +258,7 @@ Use this when:
 - you want hard discipline
 - you do not want the model smoothing over gaps
 
-### Q3 — When something is unclear, how should AIR handle it?
+### Q3 â€” When something is unclear, how should AIR handle it?
 Options:
 - A. Resolve it early
 - B. Keep it open for now
@@ -227,7 +290,7 @@ Use this when:
 - the domain is intentionally open-ended
 - you do not want premature closure
 
-### Q4 — What should AIR keep consistent as you work?
+### Q4 â€” What should AIR keep consistent as you work?
 Options:
 - A. Structure and logic
 - B. Structure and tone
@@ -261,7 +324,7 @@ Best for:
 - symbolic or relational systems
 - companion-style or identity-sensitive projects
 
-### Q5 — Describe your project and attach initial supporting sources
+### Q5 â€” Describe your project and attach initial supporting sources
 This is the actual project input.
 
 What to provide:
@@ -430,7 +493,7 @@ Keep the roadmap live and generate only the artifact for the current active step
 
 ## What a handoff is
 
-A handoff card is AIR’s continuation object.
+A handoff card is AIRâ€™s continuation object.
 
 It is the compact state AIR uses to continue a project in a new session without rerunning full onboarding.
 
@@ -553,6 +616,43 @@ For most users, the default working stack is:
 - `AIR CORE RUNTIME PROMPT.md`
 - previous `AIR_HANDOFF_CARD`
 - optionally `AIR CONTROL SURFACE PROMPT.md`
+
+## Agent integration (optional|experimental|untested)
+
+AIR can be used together with external AI agent runtimes (e.g. OpenClaw).
+
+AIR does not execute tools itself.
+
+Instead:
+- AIR defines the current active step
+- AIR determines when a step is ready for execution
+- AIR emits a structured execution specification
+
+The agent runtime then:
+- executes tools
+- performs actions
+- returns outputs and evidence
+
+This separation keeps AIR as the planning and control layer, and the agent as the execution layer.
+
+### Agent execution bridge
+
+When a step is ready, AIR can emit an:
+
+`AGENT_EXECUTION_SPEC`
+
+This includes:
+- objective
+- inputs
+- instructions
+- constraints
+- validation conditions
+
+See:
+- `AIR_AGENT_EXECUTION_BRIDGE.md`
+- `agent_execution_spec_template.json`
+
+for the full schema and usage.
 
 ## Notes
 
