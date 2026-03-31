@@ -1,6 +1,6 @@
 # AIR
 
-AIR is a prompt-based project compiler for AI work.
+AIR is a prompt-based AI project runtime.
 
 In simple terms, AIR helps an AI stop acting like a generic chatbot and start acting like a structured project runtime:
 - it starts a project in a controlled way
@@ -14,7 +14,7 @@ It is a working method for turning a chat session into a project-oriented runtim
 
 ## Quick Start
 
-1. Attach the following files to the message a new session:
+1. Attach the following files in a new session:
    - AIR CORE RUNTIME PROMPT.md
    - air_default_starter_profile.json
 
@@ -24,6 +24,35 @@ It is a working method for turning a chat session into a project-oriented runtim
 3. Answer onboarding.
 
 That’s it.
+
+## Why AIR exists
+
+Most AI usage is still chat-based:
+- no persistent structure.
+- no clear active step.
+- no explicit blockers.
+- no continuity across sessions
+
+AIR introduces a different model:
+
+- **Explicit workflow**  
+  Every session starts with onboarding, activation, and a defined execution path.
+
+- **Map-first execution**  
+  AIR creates a project execution map before generating artifacts.
+
+- **Active-step discipline**  
+  Only the current step is executed. Future steps stay in the roadmap.
+
+- **Orbit model (context governance)**  
+  The active task (Orbit 0) governs execution. Older context is retained but cannot silently override the current step.
+
+- **Handoff continuity**  
+  Project state can be transferred cleanly across sessions without losing alignment.
+
+AIR is not a better chatbot.
+
+It is a different way to run AI work.
 
 ## What AIR does
 
@@ -40,6 +69,27 @@ The current AIR stack is built around four files:
 - `air_default_starter_profile.json`
 - `AIR CONTROL SURFACE PROMPT.md`
 - `air_handoff_card_template.json`
+
+## Orbit model (context governance)
+
+AIR uses an orbit-based model to control context:
+
+- **Orbit 0 — Active Task Kernel**  
+  The current step. This governs execution.
+
+- **Orbit 1 — Hot Context**  
+  Recent, relevant context supporting the current step.
+
+- **Orbit 2 — Warm Memory**  
+  Prior decisions and useful references.
+
+- **Orbit 3 — Cold Archive**  
+  Deferred or historical material.
+
+Rule:
+**Orbit 0 governs. Outer context cannot override the active task silently.**
+
+This prevents drift and keeps execution aligned.
 
 ## What each file does
 
