@@ -617,6 +617,43 @@ For most users, the default working stack is:
 - previous `AIR_HANDOFF_CARD`
 - optionally `AIR CONTROL SURFACE PROMPT.md`
 
+## Agent integration (optional|experimental|untested)
+
+AIR can be used together with external AI agent runtimes (e.g. OpenClaw).
+
+AIR does not execute tools itself.
+
+Instead:
+- AIR defines the current active step
+- AIR determines when a step is ready for execution
+- AIR emits a structured execution specification
+
+The agent runtime then:
+- executes tools
+- performs actions
+- returns outputs and evidence
+
+This separation keeps AIR as the planning and control layer, and the agent as the execution layer.
+
+### Agent execution bridge
+
+When a step is ready, AIR can emit an:
+
+`AGENT_EXECUTION_SPEC`
+
+This includes:
+- objective
+- inputs
+- instructions
+- constraints
+- validation conditions
+
+See:
+- `AIR_AGENT_EXECUTION_BRIDGE.md`
+- `agent_execution_spec_template.json`
+
+for the full schema and usage.
+
 ## Notes
 
 - AIR is prompt-based. It is not backend-compiled unless you have an actual AIR backend connected.
