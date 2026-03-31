@@ -12,6 +12,19 @@ In simple terms, AIR helps an AI stop acting like a generic chatbot and start ac
 AIR is not roleplay and not a simulation shell.
 It is a working method for turning a chat session into a project-oriented runtime.
 
+## Quick Start
+
+1. Attach the following files to the message a new session:
+   - AIR CORE RUNTIME PROMPT.md
+   - air_default_starter_profile.json
+
+2. Type in message:
+   Start a new AIR project.
+
+3. Answer onboarding.
+
+Thatâ€™s it.
+
 ## What AIR does
 
 AIR gives the model a way to:
@@ -128,7 +141,7 @@ It should not immediately generate the entire future artifact chain unless you e
 
 When AIR starts a new project, it asks five onboarding questions.
 
-### Q1 — What are you doing today?
+### Q1 â€” What are you doing today?
 Options:
 - A. New project
 - B. Import project
@@ -163,7 +176,7 @@ AIR will:
 - restore the active step
 - continue from the last known project state
 
-### Q2 — How strictly should AIR check your work?
+### Q2 â€” How strictly should AIR check your work?
 Options:
 - A. Light
 - B. Balanced
@@ -195,7 +208,7 @@ Use this when:
 - you want hard discipline
 - you do not want the model smoothing over gaps
 
-### Q3 — When something is unclear, how should AIR handle it?
+### Q3 â€” When something is unclear, how should AIR handle it?
 Options:
 - A. Resolve it early
 - B. Keep it open for now
@@ -227,7 +240,7 @@ Use this when:
 - the domain is intentionally open-ended
 - you do not want premature closure
 
-### Q4 — What should AIR keep consistent as you work?
+### Q4 â€” What should AIR keep consistent as you work?
 Options:
 - A. Structure and logic
 - B. Structure and tone
@@ -261,7 +274,7 @@ Best for:
 - symbolic or relational systems
 - companion-style or identity-sensitive projects
 
-### Q5 — Describe your project and attach initial supporting sources
+### Q5 â€” Describe your project and attach initial supporting sources
 This is the actual project input.
 
 What to provide:
@@ -430,7 +443,7 @@ Keep the roadmap live and generate only the artifact for the current active step
 
 ## What a handoff is
 
-A handoff card is AIR’s continuation object.
+A handoff card is AIRâ€™s continuation object.
 
 It is the compact state AIR uses to continue a project in a new session without rerunning full onboarding.
 
