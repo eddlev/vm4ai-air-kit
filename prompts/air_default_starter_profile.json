@@ -5,11 +5,29 @@
   "STATUS": "LIVE_EXPERIMENT",
   "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1",
   "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context.",
-
   "compiler_mode": "VECTOR_PRIMARY",
   "referential_policy": "ANCHORS_NOT_OPERATORS",
   "trace_mode_default": "ON",
-
+  "activation_orientation": {
+    "required_before_deep_artifact_emission": [
+      "AIR_PROJECT_INITIALIZATION_BRIEF",
+      "AIR_PROJECT_EXECUTION_MAP"
+    ],
+    "startup_phase_default": "FOUNDATION",
+    "orientation_rule": "Explain what AIR is doing, why artifacts come before execution, what the current phase is, and what the next active step is before deep artifact generation."
+  },
+  "artifact_emission_policy": {
+    "mode": "MINIMAL_ACTIVE_STEP_ONLY",
+    "activation_emissions": [
+      "AIR_RUNTIME_BRIDGE",
+      "AIR_SESSION",
+      "AIR_PROJECT_INITIALIZATION_BRIEF",
+      "AIR_PROJECT_EXECUTION_MAP",
+      "AIR_ARTIFACT",
+      "AIR_VALIDATION_REPORT_WHEN_NEEDED"
+    ],
+    "rule": "Generate only the current active-step artifact by default. Future-step artifacts remain listed in the project execution map until they become active or are explicitly requested."
+  },
   "project_center": {
     "persistent_task": "Compile the current project into a machine-native AIR artifact using only attached evidence and explicit gap surfacing.",
     "success_conditions": [
@@ -19,12 +37,10 @@
       "Produce an AIR artifact suitable for downstream execution."
     ]
   },
-
   "source_layer": {
     "provenance_policy": "EVIDENCE_FIRST_WITH_EXPLICIT_GAPS",
     "anchor_evidence": []
   },
-
   "task_input": {
     "task_statement": "Compile the attached project input into an AIR artifact.",
     "task_scope": [],
@@ -34,16 +50,13 @@
       "narrative-first analysis"
     ]
   },
-
   "evidence_known_present": [],
   "known_missing_or_uncertain": [],
-
   "preferred_geometry": {
     "primary": "GRID_LATTICE",
     "secondary": "POLYTOPE_CORE",
     "reason": "Prefer deterministic, auditable compilation over broad speculation."
   },
-
   "vm4ai_config": {
     "lambda_pressure": "HIGH_MODERATE",
     "archetype_class": "LOGICAL_COMPOSITE",
@@ -54,7 +67,6 @@
       "explicit gap surfacing"
     ]
   },
-
   "vector_family_preferences": {
     "active": [
       "core",
@@ -72,21 +84,17 @@
       "cloud_deployment"
     ]
   },
-
   "required_vectors": [],
   "preferred_vectors": [],
-
   "blocking_conditions": [
     "If critical assumptions are unsupported by evidence, mark them as blockers.",
     "Fail closed on unsupported high-confidence claims."
   ],
-
   "execution_constraints": [
     "Do not hallucinate infrastructure that is not evidenced.",
     "Do not rewrite certified or observed facts.",
     "Prefer explicit missing coverage over optimistic filler."
   ],
-
   "deliverables": [
     "task_center",
     "candidate_vector_pool",
@@ -102,7 +110,6 @@
     "objective",
     "implementation_notes_for_executor"
   ],
-
   "output_contract": {
     "mode": "AIR_ARTIFACT_FIRST",
     "required_sections": [

@@ -1,298 +1,565 @@
-# vm4ai-air-kit
+# AIR
 
-`vm4ai-air-kit` is the public live-session framework layer of AIR.
+AIR is a prompt-based project compiler for AI work.
 
-AIR is a **vector-primary compiler/runtime contract** for structured AI work. It makes contract activation, orbit-based state handling, fail-closed evidence discipline, artifact-first outputs, and handoff continuity explicit.
+In simple terms, AIR helps an AI stop acting like a generic chatbot and start acting like a structured project runtime:
+- it starts a project in a controlled way
+- it defines what the current step is
+- it makes blockers explicit
+- it keeps the work aligned to a project map
+- it supports handoff between sessions without losing the active state
 
-This repository contains the **live AIR session kit** only.
+AIR is not roleplay and not a simulation shell.
+It is a working method for turning a chat session into a project-oriented runtime.
 
-It includes:
-- activation prompts
-- in-session update and patch prompts
-- a default starter profile
-- handoff-card generation instructions and template
-- public documentation for using AIR in live sessions
+## What AIR does
 
-It does **not** include:
-- the private backend/runtime implementation
-- internal product code
-- raw experiment logs or unsanitized transcripts
+AIR gives the model a way to:
+- start a project with a defined onboarding flow
+- bind a starter profile as the governing contract
+- create a project map
+- generate only the artifact needed for the current active step
+- keep future work visible without generating everything at once
+- preserve continuity across sessions using a handoff card
 
----
+The current AIR stack is built around four files:
+- `AIR CORE RUNTIME PROMPT.md`
+- `air_default_starter_profile.json`
+- `AIR CONTROL SURFACE PROMPT.md`
+- `air_handoff_card_template.json`
 
-## Why AIR exists
+## What each file does
 
-Normal prompting is often:
-- prose-first,
-- state-implicit,
-- weak at handoff,
-- and prone to silent drift when context changes.
+### AIR Core Runtime Prompt
+Use this to start a project or restore a project from a handoff card.
 
-AIR exists to make live AI work more explicit and controllable by requiring:
-- active contract selection,
-- Orbit 0 / outer-orbit state,
-- vector-primary compilation,
-- fail-closed behavior under uncertainty,
-- artifact-first outputs,
-- and compact, reusable handoff artifacts.
+It handles:
+- onboarding
+- routing
+- contract binding
+- first activation
+- first artifact creation
+- project initialization brief
+- project execution map
 
----
+This is the entry prompt.
 
-## Core AIR principles
+### AIR Default Starter Profile
+Use this together with the Core Runtime Prompt.
 
-### Vector-primary
-Vectors are the operative layer.  
-Roles are referential anchors only.
+It is the default governing profile for a new project when no specialized AIR profile is attached.
 
-### Fail-closed
-If evidence is incomplete, AIR must not smooth over it.  
-Missing or uncertain parts must surface explicitly through:
-- `missing_vectors`
-- `obligations`
-- `blockers`
-- `degraded_execution_mode`
-- `dependency_edges`
-- `vector_family_state_summary`
+It defines:
+- compiler mode
+- referential policy
+- geometry bias
+- evidence posture
+- default artifact behavior
+- orientation behavior
+- minimal active-step emission behavior
 
-### Orbit-based state
-AIR uses a four-orbit model:
+### AIR Control Surface Prompt
+Use this after AIR Core Runtime is already active.
 
-- **Orbit 0** = active contract / active task kernel
-- **Orbit 1** = hot recent verified context
-- **Orbit 2** = warm prior relevant design decisions
-- **Orbit 3** = cold archive / deferred alternatives
+It governs:
+- how AIR behaves during the live session
+- when to stay conversational
+- when to become structured
+- how to preserve the project map
+- how to generate only the artifact for the current step
+- how to create a handoff card
 
-Rules:
-- a new active-topic contract goes to Orbit 0
-- earlier relevant contracts remain in outer orbits unless retired
-- Orbit 0 governs on conflict
-- promotion, supersession, and retirement must never happen silently
+This is the session-management prompt.
 
-### Session state before artifact
-A proper AIR live session should emit:
-- `AIR_SESSION` first
-- then `AIR_ARTIFACT`
+### AIR Handoff Card Template
+This is the template for continuation state.
 
-This is what turns AIR from ‚Äúagreed policy‚Äù into explicit runtime behavior.
+It is used when:
+- ending a session
+- moving to a new session
+- restoring the current project state later
 
----
+It does not replace the runtime prompts.
+It is the object that carries active state forward.
 
-## What is in this repo
+## Tested models
+
+The current version has been tested successfully on:
+- ChatGPT 5.4
+- Claude Sonnet 4.6
+- Gemini Thinking
+
+Gemini 3.1 Pro is currently underperforming and prone to hallucinations, so Gemini Thinking is the preferred Google option at the moment.
+
+## Gemini Thinking: add this when booting a new AIR project
+
+When starting a new AIR project in Gemini Thinking, add this instruction together with the runtime prompt:
 
 ```text
-prompts/
-profiles/
-templates/
-docs/
+If the user explicitly says they are starting a new AIR project, treat Q1 as already answered:
 
-prompts/
+Q1 = A. New project
 
-Contains the live-session prompt layer:
+Do not ask Q1 again in that case.
+Proceed directly to Q2.
+```
 
-activation prompt
-in-session update prompt
-in-session patch prompt
-create handoff-card prompt
-profiles/
+Why this is needed:
 
-Contains the default AIR starter profile for new projects.
+Gemini Thinking can otherwise spend extra effort trying to reconcile instructions and may ask Q1 again even when the user already answered it implicitly by saying they are starting a new project.
 
-templates/
+This small addition stabilizes boot behavior.
 
-Contains the generic AIR handoff-card template.
+## How AIR starts
 
-docs/
+When you boot a new AIR project correctly, AIR should do this:
+1. recognize this is a new project
+2. run onboarding
+3. bind the starter profile
+4. create AIR session state
+5. orient you with:
+   - a project initialization brief
+   - a project execution map
+6. generate only the artifact for the current active step
 
-Contains public framework documentation, including:
+It should not immediately generate the entire future artifact chain unless you explicitly ask it to.
 
-use-cases
-case studies
-concept papers / whitepapers
-roadmap material
-Quick start
-1. Starting a brand-new project
+## The onboarding rubric
 
-Paste in this order:
+When AIR starts a new project, it asks five onboarding questions.
 
-one-line lead-in
-activation prompt
-default starter profile
-project evidence/input
+### Q1 ó What are you doing today?
+Options:
+- A. New project
+- B. Import project
+- C. Continue project from handoff card
 
-Use this lead-in:
+#### What each answer means
 
-Activate this as an AIR runtime session and compile explicit AIR session state before any analysis.
+**A. New project**  
+Use this when the project is starting from scratch.
 
-Use this when:
+AIR will:
+- treat this as first activation
+- bind the starter profile
+- build the initial project map
+- generate the first active-step artifact
 
-there is no project-specific AIR contract yet
-you want AIR to discover the initial machine-native project shape
-2. Starting with a custom AIR profile
+**B. Import project**  
+Use this when the project already exists outside AIR and you want AIR to take it over.
 
-Paste in this order:
+AIR will:
+- treat your project materials as imported sources
+- infer project structure from what you provide
+- still start with onboarding and a project map
+- generate the first active-step artifact based on the imported material
 
-one-line lead-in
-activation prompt
-project-specific AIR profile
-live evidence/input
+**C. Continue project from handoff card**  
+Use this when you already have an AIR handoff card from an earlier session.
 
-Use this when:
+AIR will:
+- restore the project from the handoff
+- not re-run onboarding
+- restore the active step
+- continue from the last known project state
 
-you already know the domain
-the work needs a specialized AIR contract
+### Q2 ó How strictly should AIR check your work?
+Options:
+- A. Light
+- B. Balanced
+- C. Strict
 
-If exactly one AIR profile is attached, the activation prompt should promote that contract directly to Orbit 0 unless explicitly instructed otherwise.
+#### What each answer means
 
-3. Continuing a project in a new session
-
-Paste in this order:
-
-one-line lead-in
-activation prompt
-AIR handoff card
-active contract
-new evidence/input for the next step
-
-This is the cleanest way to continue without dragging whole transcripts into the next session.
-
-4. Adding a new contract mid-session
-
-Attach:
-
-the new contract file
-then use the in-session update prompt
+**A. Light**  
+AIR keeps things moving and only flags major issues.
 
 Use this when:
+- you want speed
+- you are brainstorming
+- you do not want heavy friction
 
-a narrower sub-problem appears
-a new contract is created
-a more specific active task now governs the topic
-5. Realigning a drifting session
+**B. Balanced**  
+AIR flags important issues without blocking progress unnecessarily.
 
-Use the in-session patch prompt when:
+Use this when:
+- you want structure
+- you want guardrails
+- you still want momentum
 
-the model starts narrating instead of compiling
-the active contract becomes muddy
-outer-orbit context starts blending into Orbit 0
-the current task binding is being lost
-6. Creating a handoff card
+**C. Strict**  
+AIR pushes hard on unresolved important issues.
+
+Use this when:
+- correctness matters
+- you want hard discipline
+- you do not want the model smoothing over gaps
+
+### Q3 ó When something is unclear, how should AIR handle it?
+Options:
+- A. Resolve it early
+- B. Keep it open for now
+- C. Keep it open on purpose
+
+#### What each answer means
+
+**A. Resolve it early**  
+AIR will try to reduce ambiguity fast.
+
+Use this when:
+- you want convergence
+- the project is technical or compliance-heavy
+- open ambiguity is expensive
+
+**B. Keep it open for now**  
+AIR leaves uncertainty unresolved unless it blocks the current step.
+
+Use this when:
+- you want progress without fake certainty
+- you are still shaping the project
+- some ambiguity is acceptable
+
+**C. Keep it open on purpose**  
+AIR avoids closing ambiguity even if it could.
+
+Use this when:
+- exploration matters more than early narrowing
+- the domain is intentionally open-ended
+- you do not want premature closure
+
+### Q4 ó What should AIR keep consistent as you work?
+Options:
+- A. Structure and logic
+- B. Structure and tone
+- C. Voice, identity, or relationships
+
+#### What each answer means
+
+**A. Structure and logic**  
+AIR prioritizes coherence, architecture, and reasoning shape.
+
+Best for:
+- technical work
+- systems design
+- policy/compliance
+- implementation planning
+
+**B. Structure and tone**  
+AIR protects both the work structure and the way it sounds.
+
+Best for:
+- brand work
+- product writing
+- creative strategy
+- polished documents
+
+**C. Voice, identity, or relationships**  
+AIR preserves continuity of voice and relational identity.
+
+Best for:
+- continuity-sensitive work
+- symbolic or relational systems
+- companion-style or identity-sensitive projects
+
+### Q5 ó Describe your project and attach initial supporting sources
+This is the actual project input.
+
+What to provide:
+- what you are working on
+- your goal
+- important constraints
+- pain points
+- priorities
+- attached files, if you have them
+
+If you have no sources yet, say so.
+AIR can still start in source-light mode.
+
+What AIR does with Q5:
+- infers the project domain
+- determines initial task center
+- sets provisional vector bias
+- builds the first project map
+- generates the active-step artifact
+
+## What happens after the project starts
+
+Once onboarding is complete, AIR should give you:
+
+### 1. AIR Runtime Bridge
+This is the routing summary.
+It shows how AIR interpreted the onboarding.
+
+### 2. AIR Session
+This is the active runtime state.
+
+### 3. AIR Project Initialization Brief
+This is the human-readable orientation layer.
+
+It should tell you:
+- yes, the project has started
+- which phase you are in
+- why AIR is generating artifacts before direct execution
+- what the next step is
+
+### 4. AIR Project Execution Map
+This is the roadmap.
+
+It should show:
+- current phase
+- current active step
+- current active-step artifact
+- critical path
+- blockers
+- next best step
+- what completion means
+
+### 5. Current Active-Step Artifact
+This is the only full artifact AIR should generate by default.
+
+Future steps should stay in the project map until they become active.
+
+## The key AIR operating rule
+
+AIR should generate:
+- the project map
+- the current active-step artifact
+
+It should not generate the entire future workflow as full artifacts by default.
+
+That is intentional.
+
+Why:
+- preserves tokens
+- keeps focus
+- avoids overwhelm
+- keeps Orbit 0 clean
+- makes the session easier to steer
+
+## Step-by-step: starting a new AIR project
+
+Use these two files together:
+- `AIR CORE RUNTIME PROMPT.md`
+- `air_default_starter_profile.json`
+
+### Step 1
+Open a new session in the model you want to use.
+
+### Step 2
+Paste the contents of:
+- `AIR CORE RUNTIME PROMPT.md`
+- `air_default_starter_profile.json`
+
+If you are using Gemini Thinking for a new project, also add the Gemini-specific Q1 instruction shown earlier.
+
+### Step 3
+Start the project with a clear message such as:
+
+```text
+Start a new AIR project.
+```
+
+Or, if you want to skip ambiguity:
+
+```text
+Start a new AIR project.
+
+Q1 = A. New project
+```
+
+### Step 4
+Answer the onboarding questions.
+
+### Step 5
+Provide the project description and any initial sources.
+
+### Step 6
+AIR should then:
+- bind the starter profile
+- create the session
+- orient you
+- create the project map
+- emit the current active-step artifact
+
+If AIR starts producing many future-step artifacts immediately, steer it back by saying:
+
+```text
+Generate only the current active-step artifact. Keep future steps in the project map.
+```
+
+## Using AIR during a live project
+
+Once the project is active, use:
+- `AIR CONTROL SURFACE PROMPT.md`
+
+This prompt is for the ongoing session after AIR is already running.
+
+Use it to keep AIR aligned while you work.
+
+It helps AIR:
+- stay focused on the current step
+- keep the roadmap live
+- avoid generating unnecessary future artifacts
+- preserve blockers and next-step clarity
+- produce a handoff card when needed
+
+## Step-by-step: using AIR Control Surface
+
+### Step 1
+Make sure AIR has already been started with Core Runtime.
+
+### Step 2
+Paste `AIR CONTROL SURFACE PROMPT.md` into the same session.
+
+### Step 3
+Continue working normally.
+
+You can ask things like:
+- what is the current active step
+- what is blocking this step
+- update the project execution map
+- generate the artifact for the current active step
+- create a handoff card
+
+### Step 4
+If AIR starts drifting or generating too much, steer it back with:
+
+```text
+Keep the roadmap live and generate only the artifact for the current active step.
+```
+
+## What a handoff is
+
+A handoff card is AIRís continuation object.
+
+It is the compact state AIR uses to continue a project in a new session without rerunning full onboarding.
+
+A handoff card carries things like:
+- active contract
+- task key
+- topic
+- blockers
+- selected vectors
+- dependency edges
+- next recommended step
+- runtime origin
+- artifact presence
+- project phase
+- current active step
+- current active-step artifact
+
+It is not narrative memory.
+It is not a summary essay.
+It is a restoration object.
+
+## When to create a handoff
+
+Create a handoff when:
+- ending a session
+- moving platforms
+- switching to a fresh chat
+- wanting a clean restart without losing project state
+
+## How to create a handoff
 
 Use:
+- `AIR CONTROL SURFACE PROMPT.md`
+- `air_handoff_card_template.json`
 
-Create an AIR handoff card from the currently active AIR session.
+Then ask AIR for a handoff card.
 
-The handoff-card flow is generic and should derive from the active AIR session rather than hardcoding a project.
+Example:
 
-Output discipline
+```text
+Generate an AIR handoff card for this project.
+```
 
-To reduce token waste, use minimal execution mode:
+AIR should emit one JSON object with root key:
 
-Output mode: MINIMAL_EXECUTION
-Do not restate the activation prompt, attached profile text, or uploaded evidence unless explicitly asked.
-Emit only AIR_SESSION and AIR_ARTIFACT unless I request explanation.
-Keep any post-artifact narrative under 5 sentences.
-Use cases
+```json
+AIR_HANDOFF_CARD
+```
 
-AIR is suitable for:
+based on the active session state.
 
-technical / security / architecture compilation
-research synthesis
-planning and structured ideation
-domain-specific live-session work using specialized profiles
+## Step-by-step: booting a new session from a handoff card
 
-The default starter profile is only a bootstrap profile.
-Longer-running or domain-specific work should move to dedicated AIR contracts.
+To continue an existing AIR project in a new chat:
 
-See docs/use-cases/.
+### Step 1
+Open a fresh session.
 
-Case studies
+### Step 2
+Paste:
+- `AIR CORE RUNTIME PROMPT.md`
+- the handoff card from the last session
 
-The best way to understand AIR is by comparing:
+You do not need to rerun onboarding when using a valid handoff card.
 
-baseline prompting
-AIR-guided compilation
-resulting differences in state clarity, blocker surfacing, and handoff quality
+### Step 3
+Start continuation with a clear message such as:
 
-See docs/case-studies/.
+```text
+Continue project from handoff card.
+```
 
-Papers and design notes
+### Step 4
+AIR should:
+- detect the handoff card
+- restore the active project state
+- restore the active step
+- restore blockers and next step
+- continue from the restored state
 
-Concept papers, whitepapers, and design notes live under docs/.
+### Step 5
+Paste `AIR CONTROL SURFACE PROMPT.md` if you want the live session-management layer active in that continuation session too.
 
-Suggested topics:
+## Practical usage patterns
 
-why vector-first
-AIR vs normal prompting
-explicit contract activation
-orbit state handling
-fail-closed reasoning in live sessions
+### To start a new project
+Use:
+- Core Runtime Prompt
+- Starter Profile
 
-See docs/papers/.
+### To keep the session aligned
+Add:
+- Control Surface Prompt
 
-Roadmap
+### To end cleanly
+Generate:
+- Handoff Card
 
-This repo currently focuses on the live-session kit.
+### To resume later
+Use:
+- Core Runtime Prompt
+- Handoff Card
+- optionally Control Surface Prompt again
 
-Planned expansion includes:
+## Minimal recommended stack
 
-more domain-specific AIR profiles
-more public case studies
-comparative model runs
-geometry-specific AIR patterns
-broader documentation of AIR operating laws
+For most users, the default working stack is:
 
-See docs/ROADMAP.md for planned profiles, geometry expansion and evaluation work.
+### New session
+- `AIR CORE RUNTIME PROMPT.md`
+- `air_default_starter_profile.json`
 
-Geometry note
+### While working
+- `AIR CONTROL SURFACE PROMPT.md`
 
-The public kit does not assume a single universal geometry for all AIR use cases.
+### Before ending
+- generate a handoff card
 
-Different domains may require different geometries and pressure profiles.
-Current and experimental AIR geometry work includes modes such as:
+### New continuation session
+- `AIR CORE RUNTIME PROMPT.md`
+- previous `AIR_HANDOFF_CARD`
+- optionally `AIR CONTROL SURFACE PROMPT.md`
 
-Polytope
-Sphere
-Torus
-Flux
-Grid
-Hive
-Fork
-M√∂bius
-Klein Bottle
-Rhizome
-Tesseract
+## Notes
 
-These belong to the broader experimental framework and should be documented as such rather than treated as all equally stable.
+- AIR is prompt-based. It is not backend-compiled unless you have an actual AIR backend connected.
+- Prompt-compiled AIR should remain explicit about being provisional when backend validation does not exist.
+- The current default behavior is designed to preserve focus by keeping future work in the project map and generating only the active-step artifact.
 
-What good AIR behavior looks like
+## License
 
-A good AIR session should:
-
-emit AIR_SESSION first
-activate the correct Orbit 0 contract explicitly
-keep older relevant contracts in outer orbits
-preserve vector-primary structure
-fail closed on unsupported claims
-keep handoff compact and state-derived
-avoid prose-first explanation
-
-A bad AIR session usually:
-
-replies in narrative prose first
-says ‚Äúcandidate‚Äù or ‚Äúready for promotion‚Äù when the governing contract is obvious
-silently blends contracts
-substitutes roles for vectors
-uses outer-orbit material as if it were Orbit 0
-echoes the whole prompt back and wastes tokens
-End-of-session best practice
-
-Before ending a session:
-
-ensure Orbit 0 is correct
-request a handoff card
-carry only:
-handoff card
-active contract
-new evidence/input
-
-This keeps continuity clean and reduces transcript dependence.
+See `LICENSE`.
