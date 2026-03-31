@@ -1,0 +1,29 @@
+{
+  "AGENT_EXECUTION_SPEC": {
+    "spec_version": "1.0",
+    "runtime_origin": "PROMPT_COMPILED",
+    "project_id": null,
+    "task_id": null,
+    "active_step_id": null,
+    "active_step_label": null,
+    "objective": null,
+    "execution_mode": "SINGLE_STEP",
+    "agent_target": null,
+    "inputs": [],
+    "required_context": [],
+    "instructions": [],
+    "constraints": [],
+    "dependencies": [],
+    "blockers": [],
+    "assumptions": [],
+    "tools_allowed": [],
+    "tools_disallowed": [],
+    "expected_outputs": [],
+    "output_format": null,
+    "validation_checks": [],
+    "failure_conditions": [],
+    "handoff_on_completion": [],
+    "evidence_requirements": [],
+    "notes_for_operator": []
+  }
+}
