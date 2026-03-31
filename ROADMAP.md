@@ -151,7 +151,3 @@ AIR should continue to operate as:
 4. optional agent execution bridge
 5. state handoff
 6. continuation
-
-That is the spine.
-
-Everything added to the prompt-version repo should strengthen that flow, not blur it.
