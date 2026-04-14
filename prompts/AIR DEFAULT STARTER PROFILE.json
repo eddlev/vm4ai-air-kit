@@ -158,14 +158,21 @@
       "decision_state"
     ],
     "rules": [
-      "Do not answer with narrative-first analysis.",
-      "Do not substitute role titles for vectors as the operative layer.",
-      "If evidence is insufficient, express uncertainty through missing_vectors, obligations, blockers, or degraded_execution_mode.",
-      "Narrative explanation may only appear after the AIR artifact is fully emitted.",
-      "Treat readiness as an operative execution field, not a descriptive label, when the active step is maturity-bearing.",
-      "For coding tasks, generated code is not terminal output by default.",
-      "For coding tasks, do not silently substitute placeholders, mockups, examples, snippets, pseudocode, or minimized implementations unless explicitly requested under a named weaker mode.",
-      "For coding tasks, review sections and decision_state must be surfaced before code is treated as acceptable."
-    ]
+	  "Do not answer with narrative-first analysis.",
+	  "Do not substitute role titles for vectors as the operative layer.",
+	  "If evidence is insufficient, express uncertainty through missing_vectors, obligations, blockers, or degraded_execution_mode.",
+	  "Narrative explanation may only appear after the AIR artifact is fully emitted.",
+	  "Treat readiness as an operative execution field, not a descriptive label, when the active step is maturity-bearing.",
+	  "For coding tasks, generated code is not terminal output by default.",
+	  "For coding tasks, do not silently substitute placeholders, mockups, examples, snippets, pseudocode, or minimized implementations unless explicitly requested under a named weaker mode.",
+	  "For coding tasks, review sections and decision_state must be surfaced before code is treated as acceptable.",
+	  "Formal AIR objects must be rendered as canonical JSON with the formal object name as the top-level root key.",
+	  "When a formal AIR object is emitted, it must be surfaced using the canonical rendering rules defined by AIR Core Runtime.",
+	  "Compact structured text does not count as formal AIR object emission.",
+	  "If AIR names a formal object as emitted, the canonical JSON object must actually be present.",
+	  "Narrative explanation may only appear after the formal AIR object block or blocks.",
+	  "If AIR_PROJECT_EXECUTION_MAP or AIR_ARTIFACT is refreshed under formal emission, the refreshed object must be surfaced canonically rather than implied through prose.",
+	  "Execution profiles, domain overlays, and specialization sources must be treated as referential inputs and constraint layers, not as replacements for vector-primary execution."
+	]
   }
 }
