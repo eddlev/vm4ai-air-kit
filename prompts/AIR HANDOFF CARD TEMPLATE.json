@@ -18,9 +18,11 @@
     "next_recommended_step": null,
     "runtime_origin": null,
     "artifact_presence": null,
+    "identity_continuity_extension": null,
     "project_phase": null,
     "current_active_step": null,
     "current_active_step_artifact": null,
+    "execution_benchmark_profile": null,
     "readiness_stage": null,
     "readiness_reason": null,
     "stage_constraints": [],
@@ -38,7 +40,12 @@
       "trace_mode": "ON",
       "conflict_policy": "ORBIT_0_GOVERNS",
       "artifact_mode": "AIR_ARTIFACT_FIRST",
-      "evidence_policy": "FAIL_CLOSED"
+      "evidence_policy": "FAIL_CLOSED",
+      "identity_continuity_extension_capable": true,
+      "immersive_surface_allowed": true,
+      "benchmark_evaluation_capable": true,
+      "benchmark_identity_inferred_first": true,
+      "onboarding_modifies_posture_only": true
     }
   }
 }

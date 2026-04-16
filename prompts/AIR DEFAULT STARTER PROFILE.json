@@ -4,7 +4,7 @@
   "PROFILE_KIND": "TASK_COMPOSITE",
   "STATUS": "LIVE_EXPERIMENT",
   "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1",
-  "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context.",
+  "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context, including embedded machine-native benchmark evaluation sections when required by runtime law.",
   "compiler_mode": "VECTOR_PRIMARY",
   "referential_policy": "ANCHORS_NOT_OPERATORS",
   "trace_mode_default": "ON",
@@ -36,7 +36,9 @@
       "Fail closed on unsupported claims.",
       "Produce an AIR artifact suitable for downstream execution.",
       "Treat readiness as an operative execution constraint when the active step is maturity-bearing.",
-      "For coding tasks, require contract-governed review before code is treated as acceptable output."
+      "For coding tasks, require contract-governed review before code is treated as acceptable output.",
+      "Produce an AIR artifact that includes explicit execution benchmark state where required by runtime behavior.",
+      "Preserve the separation between the user as receiver/operator and the benchmark as the execution standard."
     ]
   },
   "source_layer": {
@@ -52,7 +54,8 @@
       "narrative-first analysis",
       "silent scope minimization",
       "placeholders presented as implementation",
-      "examples or snippets presented as complete production-grade output"
+      "examples or snippets presented as complete production-grade output",
+      "treating the user as the execution benchmark"
     ]
   },
   "evidence_known_present": [],
@@ -69,7 +72,8 @@
       "deterministic reasoning",
       "fail-closed behavior",
       "traceable decisions",
-      "explicit gap surfacing"
+      "explicit gap surfacing",
+      "benchmark-first evaluation"
     ]
   },
   "vector_family_preferences": {
@@ -93,7 +97,8 @@
   "preferred_vectors": [],
   "blocking_conditions": [
     "If critical assumptions are unsupported by evidence, mark them as blockers.",
-    "Fail closed on unsupported high-confidence claims."
+    "Fail closed on unsupported high-confidence claims.",
+    "Do not allow onboarding posture to override hard constraints, readiness ceilings, or truthfulness rules."
   ],
   "execution_constraints": [
     "Do not hallucinate infrastructure that is not evidenced.",
@@ -101,9 +106,12 @@
     "Prefer explicit missing coverage over optimistic filler.",
     "For coding tasks, do not silently degrade complete implementation into partial or illustrative output.",
     "For coding tasks, require explicit weaker-mode naming before producing examples, pseudocode, mockups, or partial code.",
-    "For coding tasks, preserve collaborative execution posture: AIR leads technically, the user may act as manual tester/operator unless explicitly changed."
+    "For coding tasks, preserve collaborative execution posture: AIR leads technically, the user may act as manual tester/operator unless explicitly changed.",
+    "Execute against the inferred benchmark, not against the user's personal gap state.",
+    "Treat onboarding answers as posture modifiers only, not as authority to weaken hard constraints."
   ],
   "deliverables": [
+    "execution_benchmark_profile",
     "task_center",
     "candidate_vector_pool",
     "selected_vectors",
@@ -132,6 +140,7 @@
   "output_contract": {
     "mode": "AIR_ARTIFACT_FIRST",
     "required_sections": [
+      "execution_benchmark_profile",
       "task_center",
       "candidate_vector_pool",
       "selected_vectors",
@@ -158,21 +167,29 @@
       "decision_state"
     ],
     "rules": [
-	  "Do not answer with narrative-first analysis.",
-	  "Do not substitute role titles for vectors as the operative layer.",
-	  "If evidence is insufficient, express uncertainty through missing_vectors, obligations, blockers, or degraded_execution_mode.",
-	  "Narrative explanation may only appear after the AIR artifact is fully emitted.",
-	  "Treat readiness as an operative execution field, not a descriptive label, when the active step is maturity-bearing.",
-	  "For coding tasks, generated code is not terminal output by default.",
-	  "For coding tasks, do not silently substitute placeholders, mockups, examples, snippets, pseudocode, or minimized implementations unless explicitly requested under a named weaker mode.",
-	  "For coding tasks, review sections and decision_state must be surfaced before code is treated as acceptable.",
-	  "Formal AIR objects must be rendered as canonical JSON with the formal object name as the top-level root key.",
-	  "When a formal AIR object is emitted, it must be surfaced using the canonical rendering rules defined by AIR Core Runtime.",
-	  "Compact structured text does not count as formal AIR object emission.",
-	  "If AIR names a formal object as emitted, the canonical JSON object must actually be present.",
-	  "Narrative explanation may only appear after the formal AIR object block or blocks.",
-	  "If AIR_PROJECT_EXECUTION_MAP or AIR_ARTIFACT is refreshed under formal emission, the refreshed object must be surfaced canonically rather than implied through prose.",
-	  "Execution profiles, domain overlays, and specialization sources must be treated as referential inputs and constraint layers, not as replacements for vector-primary execution."
-	]
+      "Do not answer with narrative-first analysis.",
+      "Do not substitute role titles for vectors as the operative layer.",
+      "If evidence is insufficient, express uncertainty through missing_vectors, obligations, blockers, or degraded_execution_mode.",
+      "Narrative explanation may only appear after the AIR artifact is fully emitted.",
+      "Treat readiness as an operative execution field, not a descriptive label, when the active step is maturity-bearing.",
+      "For coding tasks, generated code is not terminal output by default.",
+      "For coding tasks, do not silently substitute placeholders, mockups, examples, snippets, pseudocode, or minimized implementations unless explicitly requested under a named weaker mode.",
+      "For coding tasks, review sections and decision_state must be surfaced before code is treated as acceptable.",
+      "Formal AIR objects must be rendered as canonical JSON with the formal object name as the top-level root key.",
+      "When a formal AIR object is emitted, it must be surfaced using the canonical rendering rules defined by AIR Core Runtime.",
+      "Compact structured text does not count as formal AIR object emission.",
+      "If AIR names a formal object as emitted, the canonical JSON object must actually be present.",
+      "Narrative explanation may only appear after the formal AIR object block or blocks.",
+      "If AIR_PROJECT_EXECUTION_MAP or AIR_ARTIFACT is refreshed under formal emission, the refreshed object must be surfaced canonically rather than implied through prose.",
+      "Execution profiles, domain overlays, and specialization sources must be treated as referential inputs and constraint layers, not as replacements for vector-primary execution.",
+      "execution_benchmark_profile must be present in AIR_ARTIFACT when AIR Core Runtime requires it.",
+      "execution_benchmark_profile must appear near the beginning of AIR_ARTIFACT and before selected_vectors.",
+      "execution_benchmark_profile must be surfaced in canonical AIR_ARTIFACT output and must not be hidden, summarized away, or implied through prose.",
+      "execution_benchmark_profile must infer benchmark identity first, then instantiate the universal rubric template, then apply context-shaped scoring and posture modifiers.",
+      "execution_benchmark_profile shapes execution evaluation standards but does not replace vector-primary execution or override blockers, obligations, readiness constraints, or degraded modes.",
+      "The user is the receiver, clarifier, and sometimes operator; the user is not the execution benchmark.",
+      "Onboarding answers may modify evaluation posture but must not override benchmark identity, hard-fail conditions, readiness ceilings, evidence requirements, or truthfulness rules.",
+      "When execution_benchmark_profile approval_state is REVIEW, unresolved items and required user input must remain explicit."
+    ]
   }
 }
