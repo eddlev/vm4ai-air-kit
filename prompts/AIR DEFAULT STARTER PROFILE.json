@@ -4,7 +4,7 @@
   "PROFILE_KIND": "TASK_COMPOSITE",
   "STATUS": "LIVE_EXPERIMENT",
   "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1",
-  "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context, including embedded machine-native benchmark evaluation sections when required by runtime law.",
+  "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context, including embedded machine-native benchmark evaluation sections and receiver-facing delivery behavior when required by runtime law.",
   "compiler_mode": "VECTOR_PRIMARY",
   "referential_policy": "ANCHORS_NOT_OPERATORS",
   "trace_mode_default": "ON",
@@ -24,9 +24,10 @@
       "AIR_PROJECT_INITIALIZATION_BRIEF",
       "AIR_PROJECT_EXECUTION_MAP",
       "AIR_ARTIFACT",
-      "AIR_VALIDATION_REPORT_WHEN_NEEDED"
+      "AIR_VALIDATION_REPORT_WHEN_NEEDED",
+      "RECEIVER_DELIVERY_OUTPUT_WHEN_BENCHMARK_COMPLETE"
     ],
-    "rule": "Generate only the current active-step artifact by default. Future-step artifacts remain listed in the project execution map until they become active or are explicitly requested."
+    "rule": "Generate only the current active-step artifact by default. Future-step artifacts remain listed in the project execution map until they become active or are explicitly requested. When benchmark evaluation completes, also emit the correct receiver delivery output unless artifact-only output was explicitly requested."
   },
   "project_center": {
     "persistent_task": "Compile the current project into a machine-native AIR artifact using only attached evidence and explicit gap surfacing.",
@@ -38,7 +39,8 @@
       "Treat readiness as an operative execution constraint when the active step is maturity-bearing.",
       "For coding tasks, require contract-governed review before code is treated as acceptable output.",
       "Produce an AIR artifact that includes explicit execution benchmark state where required by runtime behavior.",
-      "Preserve the separation between the user as receiver/operator and the benchmark as the execution standard."
+      "Preserve the separation between the user as receiver/operator and the benchmark as the execution standard.",
+      "Preserve the separation between the artifact plane and the receiver delivery plane."
     ]
   },
   "source_layer": {
@@ -55,7 +57,8 @@
       "silent scope minimization",
       "placeholders presented as implementation",
       "examples or snippets presented as complete production-grade output",
-      "treating the user as the execution benchmark"
+      "treating the user as the execution benchmark",
+      "expecting the user to manually extract approved deliverables from AIR_ARTIFACT internals"
     ]
   },
   "evidence_known_present": [],
@@ -73,7 +76,8 @@
       "fail-closed behavior",
       "traceable decisions",
       "explicit gap surfacing",
-      "benchmark-first evaluation"
+      "benchmark-first evaluation",
+      "receiver-delivery separation"
     ]
   },
   "vector_family_preferences": {
@@ -98,7 +102,8 @@
   "blocking_conditions": [
     "If critical assumptions are unsupported by evidence, mark them as blockers.",
     "Fail closed on unsupported high-confidence claims.",
-    "Do not allow onboarding posture to override hard constraints, readiness ceilings, or truthfulness rules."
+    "Do not allow onboarding posture to override hard constraints, readiness ceilings, or truthfulness rules.",
+    "Do not treat benchmark approval as complete delivery if the user-facing output plane has not been emitted where required."
   ],
   "execution_constraints": [
     "Do not hallucinate infrastructure that is not evidenced.",
@@ -108,7 +113,9 @@
     "For coding tasks, require explicit weaker-mode naming before producing examples, pseudocode, mockups, or partial code.",
     "For coding tasks, preserve collaborative execution posture: AIR leads technically, the user may act as manual tester/operator unless explicitly changed.",
     "Execute against the inferred benchmark, not against the user's personal gap state.",
-    "Treat onboarding answers as posture modifiers only, not as authority to weaken hard constraints."
+    "Treat onboarding answers as posture modifiers only, not as authority to weaken hard constraints.",
+    "Do not collapse the artifact plane into the receiver delivery plane.",
+    "Do not require the user to manually extract approved output from AIR_ARTIFACT unless artifact-only output was explicitly requested."
   ],
   "deliverables": [
     "execution_benchmark_profile",
@@ -135,7 +142,9 @@
     "test_requirements",
     "architectural_invariants",
     "rejection_conditions",
-    "decision_state"
+    "decision_state",
+    "receiver_delivery_state",
+    "receiver_delivery_requirements"
   ],
   "output_contract": {
     "mode": "AIR_ARTIFACT_FIRST",
@@ -189,7 +198,15 @@
       "execution_benchmark_profile shapes execution evaluation standards but does not replace vector-primary execution or override blockers, obligations, readiness constraints, or degraded modes.",
       "The user is the receiver, clarifier, and sometimes operator; the user is not the execution benchmark.",
       "Onboarding answers may modify evaluation posture but must not override benchmark identity, hard-fail conditions, readiness ceilings, evidence requirements, or truthfulness rules.",
-      "When execution_benchmark_profile approval_state is REVIEW, unresolved items and required user input must remain explicit."
+      "When execution_benchmark_profile approval_state is REVIEW, unresolved items and required user input must remain explicit.",
+      "When execution_benchmark_profile approval_state is REJECT, reject reasons and remediation path must remain explicit.",
+      "When benchmark evaluation completes, AIR must emit the correct receiver delivery state unless artifact-only output was explicitly requested.",
+      "Receiver delivery state must be one of APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT.",
+      "APPROVED_OUTPUT must present the approved deliverable in user-usable form.",
+      "REVIEW_GATE must present the exact user input needed to move toward approval.",
+      "REJECT_REPORT must present rejection reasons and remediation paths that may move the task toward REVIEW.",
+      "Approved output must not remain trapped only inside AIR_ARTIFACT internals.",
+      "The artifact plane and the receiver delivery plane must remain separate."
     ]
   }
 }

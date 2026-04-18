@@ -23,6 +23,8 @@
     "current_active_step": null,
     "current_active_step_artifact": null,
     "execution_benchmark_profile": null,
+    "receiver_delivery_state": null,
+    "receiver_delivery_requirements": [],
     "readiness_stage": null,
     "readiness_reason": null,
     "stage_constraints": [],
@@ -45,7 +47,9 @@
       "immersive_surface_allowed": true,
       "benchmark_evaluation_capable": true,
       "benchmark_identity_inferred_first": true,
-      "onboarding_modifies_posture_only": true
+      "onboarding_modifies_posture_only": true,
+      "receiver_delivery_capable": true,
+      "artifact_plane_separate_from_receiver_plane": true
     }
   }
 }

@@ -49,7 +49,7 @@ Continue project from handoff card.
 
 If you want the live session-management layer active in that continuation session too, also attach:
 
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 
 ## Why AIR exists
 
@@ -287,7 +287,7 @@ Attach:
 
 Optionally also attach:
 
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 
 ## Working with files
 
@@ -431,6 +431,31 @@ In short:
 **Q2 and Q3 may tune posture.  
 They must not tune truth.**
 
+### Receiver delivery after benchmark evaluation
+
+Benchmark evaluation is not the final visible step.
+
+After AIR evaluates the active task, it must emit a receiver-facing delivery state for the user.
+
+Receiver delivery states:
+
+- `APPROVED_OUTPUT`
+- `REVIEW_GATE`
+- `REJECT_REPORT`
+
+These states mean:
+
+- `APPROVED_OUTPUT` — the task has passed the inferred benchmark and AIR emits the approved user-facing deliverable in a usable form
+- `REVIEW_GATE` — the task is not yet approvable and AIR asks the user only for the clarification needed to move toward approval
+- `REJECT_REPORT` — the task failed benchmark passage and AIR explains why, then guides the user toward remediation, narrowing, or an alternative path
+
+This means AIR now operates with two distinct planes:
+
+- the **artifact plane** — the formal AIR runtime object layer
+- the **receiver plane** — the user-facing delivery layer
+
+The user should not be expected to manually extract approved deliverables from `AIR_ARTIFACT` unless artifact-only output was explicitly requested.
+
 ## What happens after the project starts
 
 Once onboarding is complete, AIR should produce:
@@ -505,6 +530,14 @@ It may include:
 - provisional status
 
 It shapes execution evaluation, but it does **not** replace vector-primary execution, blockers, obligations, readiness constraints, or degraded modes.
+
+The active artifact is the formal execution object.
+
+It is not the same thing as the user-facing deliverable.
+
+If benchmark evaluation completes, AIR must emit the appropriate receiver-facing delivery state after the artifact unless artifact-only output was explicitly requested.
+
+That means approved code, file contents, copy, instructions, or other deliverables should not remain trapped only inside `AIR_ARTIFACT` internals.
 
 ## Next-task guidance
 
@@ -592,6 +625,7 @@ The coding sequence is:
 4. code generation under contract
 5. contract-governed review
 6. decision state
+7. receiver-facing code delivery state
 
 That means coding output should be shaped by:
 
@@ -612,6 +646,10 @@ For coding tasks, AIR should surface:
 - architectural invariants
 - rejection conditions
 - decision state
+
+If benchmark approval permits delivery, AIR must emit the user-facing code output in usable form.
+
+For file-based tasks, that means AIR should print the file contents and the next action instructions directly for the user, rather than expecting the user to extract them from the artifact.
 
 ## Coding workflow in practice
 
@@ -643,7 +681,7 @@ If AIR cannot complete the requested implementation safely, it should surface th
 
 Once AIR is active, keep using:
 
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 
 This is the live session-management layer.
 
@@ -658,7 +696,7 @@ It is especially useful for:
 
 ### Important rule
 
-You do not need to attach `AIR CONTROL_SURFACE.md` on every single turn if the session is already behaving correctly.
+You do not need to attach `AIR CONTROL SURFACE.md` on every single turn if the session is already behaving correctly.
 
 Use it:
 
@@ -722,12 +760,14 @@ A handoff can now carry:
 - test requirements
 - architectural invariants
 - rejection conditions
+- receiver delivery state
+- receiver delivery requirements
 
 ### How to create a handoff
 
 Use:
 
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 - `AIR HANDOFF CARD TEMPLATE.json`
 
 Then ask:
@@ -765,7 +805,7 @@ Continue project from handoff card.
 
 If you want the live interaction layer too, also attach:
 
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 
 AIR should restore the project state and continue from the restored active step.
 
@@ -776,7 +816,7 @@ AIR should restore the project state and continue from the restored active step.
 Attach:
 
 - `AIR CORE RUNTIME.md`
-- `AIR CONTROL_SURFACE.md`
+- `AIR CONTROL SURFACE.md`
 - `AIR DEFAULT STARTER PROFILE.json`
 
 ### To continue working in-session
@@ -785,7 +825,7 @@ Keep using:
 
 - the live session
 - latest working files when needed
-- `AIR CONTROL_SURFACE.md` only if behavior needs to be restored or mode changes
+- `AIR CONTROL SURFACE.md` only if behavior needs to be restored or mode changes
 
 ### To end cleanly
 
@@ -799,7 +839,7 @@ Attach:
 
 - `AIR CORE RUNTIME.md`
 - previous `AIR_HANDOFF_CARD`
-- optionally `AIR CONTROL_SURFACE.md`
+- optionally `AIR CONTROL SURFACE.md`
 
 ## Tested models
 
@@ -807,13 +847,13 @@ The current version has been tested successfully on:
 
 - ChatGPT 5.4
 - Claude Sonnet 4.6
-- Gemini Thinking
+- Gemini 3 Thinking
 
-Gemini 3.1 Pro is currently underperforming and prone to hallucinations, so Gemini Thinking is the preferred Google option at the moment.
+Gemini 3.1 Pro is currently underperforming and prone to hallucinations, so Gemini 3 Thinking is the preferred Google option at the moment.
 
 ### Gemini Thinking: add this when booting a new AIR project
 
-When starting a new AIR project in Gemini Thinking, add this instruction together with the runtime prompt:
+When starting a new AIR project in Gemini 3 Thinking, add this instruction together with the runtime prompt:
 
 ```text
 If the user explicitly says they are starting a new AIR project, treat Q1 as already answered:
@@ -824,7 +864,7 @@ Do not ask Q1 again in that case.
 Proceed directly to Q2.
 ```
 
-This stabilizes boot behavior for Gemini Thinking.
+This stabilizes boot behavior for Gemini 3 Thinking.
 
 ## Agent integration (optional / experimental / untested)
 
