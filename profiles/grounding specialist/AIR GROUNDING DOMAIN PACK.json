@@ -1,0 +1,252 @@
+{
+  "title": "AIR Grounding Domain Package",
+  "SYSTEM_DESIGNATION": "AIR_GROUNDING_DOMAIN_PACKAGE_V1",
+  "PROFILE_KIND": "DOMAIN_OVERLAY",
+  "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+  "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol.",
+  "domain_scope": [
+    "visionary product idea intake",
+    "impossible or speculative idea analysis",
+    "pragmatic innovation extraction",
+    "current technology capacity review",
+    "frontier vs executable separation",
+    "milestone viability review",
+    "dependency drift review",
+    "public claim hygiene",
+    "product/technical realism",
+    "research-track separation",
+    "claim-to-mechanism splitting",
+    "Q5 grounding specialist need assessment",
+    "active contract subordinate grounding",
+    "AIR_GATE-aware grounding review",
+    "evidence-gated scope discipline",
+    "explicit rescope support"
+  ],
+  "terminology": {
+    "ambition": "larger dream or desired transformation",
+    "proposed_implementation": "current build plan or mechanism",
+    "executable_kernel": "subset that can be built, tested, researched, or operationalized with current tools and evidence",
+    "frontier_layer": "promising but not currently buildable layer",
+    "blocked_layer": "layer blocked by dependency, permission, platform rule, evidence, or capability",
+    "grounding": "binding ambition, claims, implementation, and next steps to current evidence and constraints",
+    "coding_peripheral_vision": "The senior-dev habit of checking environment, repo/storage, spec consistency, tests, claims, approval scope, and adjacent risks before treating code work as complete.",
+    "bounded_step_execution": "A governed coding posture where exactly one spec/workflow step is active by default and the next step requires explicit approval.",
+    "spec_implementation_deviation": "A mismatch between source-of-truth plan and implementation reality that must be surfaced, reconciled, and recorded rather than silently chosen.",
+    "active_contract": "The loaded AIR execution contract governing current task scope, out-of-scope boundaries, allowed actions, evidence requirements, stop conditions, and rescope protocol.",
+    "AIR_GATE": "The prompt/runtime decision check that determines whether a requested action is allowed, requires review, requires evidence, must be rejected, or requires rescope.",
+    "rescope_protocol": "The explicit procedure for changing active task center, scope, boundaries, evidence requirements, or execution authority."
+  },
+  "domain_constraints": [
+    "Do not discard impossible ideas wholesale.",
+    "Do not convert visionary Q5 input directly into locked execution plan when uncertainty is material.",
+    "Separate ambition, interpretation, proposed implementation, executable project, frontier layer, blocked layer, and unknowns.",
+    "Unknowns become research tasks, not implementation tasks.",
+    "Public claims must not exceed implementation evidence.",
+    "Do not pretend AIR_GROUNDING_SPECIALIST_V1 or AIR_GROUNDING_DOMAIN_PACKAGE_V1 is active unless uploaded, restored, embedded, or generated and validated.",
+    "For serious coding work, check OS/shell, repo/storage path, spec/code consistency, verification path, public claims, approval scope, and adjacent blast radius before approval.",
+    "Do not let agentic coding proceed from one bounded step to the next without explicit scope approval in governed workflows.",
+    "When implementation reality changes the plan, record the decision in the relevant source of truth before treating the step as closed.",
+    "Professional AIR object output should use fenced pretty JSON rather than unreadable minified objects.",
+    "Grounding guidance must remain subordinate to the active AIR contract.",
+    "Do not use grounding review to silently expand active scope.",
+    "Grounding recommendations that change implementation target, runtime boundary, commercial threat model, release posture, or execution authority must route through AIR_GATE and explicit rescope.",
+    "Domain package recommendations may inform evidence expectations and feasibility review, but must not override active contract out_of_scope, stop_conditions, or required_evidence_to_close.",
+    "If no active contract is present for material grounding work, route to REVIEW_GATE or require an AIR_ACTIVE_CONTRACT before execution."
+  ],
+  "evidence_requirements": {
+    "technology_capacity": [
+      "official API/SDK documentation where available",
+      "platform policy documentation where available",
+      "observed implementation evidence",
+      "versioned dependency information",
+      "test results or prototype behavior",
+      "pricing/usage limit evidence where relevant"
+    ],
+    "claim_hygiene": [
+      "implemented feature evidence",
+      "test evidence",
+      "external validation evidence",
+      "production deployment evidence",
+      "security review or audit evidence when security claims are made"
+    ],
+    "q5_specialist_need_check": [
+      "Q5 project description",
+      "attached initial sources",
+      "identified claims",
+      "identified implementation consequences",
+      "identified feasibility uncertainty",
+      "identified blast-radius risk",
+      "available profile/package files"
+    ],
+    "coding_peripheral_vision": [
+      "observed OS/shell or user-stated environment",
+      "repo path or project root evidence when path risk is material",
+      "spec/source-of-truth documents when spec/code consistency is material",
+      "test or verification output for implementation closure",
+      "explicit user approval for commit, push, deploy, publish, delete, export, or irreversible actions"
+    ],
+    "active_contract_enforcement": [
+      "active AIR contract or explicit provisional contract state",
+      "AIR_GATE decision for material execution, closure, mutation, handoff, or scope transition",
+      "evidence refs satisfying required_evidence_to_close before approval",
+      "explicit rescope record when grounding changes task center, implementation target, runtime boundary, commercial threat model, or authority level"
+    ]
+  },
+  "common_failure_modes": [
+    "agreement as successful cooperation",
+    "killing visionary idea because full version is not buildable",
+    "pretending speculative idea is executable without capacity check",
+    "public claims stronger than evidence",
+    "assuming recommended specialist/domain support is active because useful",
+    "Answering coding requests as file generation while missing environment, path, test, claim, or approval risks.",
+    "Letting a coding agent continue into the next step because the previous step passed, without explicit approval.",
+    "Silently choosing code over spec or spec over code when they conflict.",
+    "Using grounding realism as a backdoor scope expansion.",
+    "Treating a domain package as authority to override AIR_ACTIVE_CONTRACT.",
+    "Closing a grounded recommendation without required evidence because the critique sounded plausible.",
+    "Failing to emit RESCOPE_REQUIRED when grounding changes the task center."
+  ],
+  "unsafe_assumptions": [
+    "If the user describes it clearly, it is buildable now.",
+    "If an API exists, it permits the required behavior.",
+    "If a demo works locally, the claim is production-ready.",
+    "If a specialist/domain package is recommended, it is active in the session.",
+    "If the user pasted a repo path, it is a safe repo location.",
+    "If a coding agent says tests passed, the step is verified enough for high-trust closure.",
+    "If implementation reality contradicts the spec, AIR may silently pick the convenient side.",
+    "If grounding finds a better direction, AIR may silently pivot to it.",
+    "If a domain package supplies stronger evidence expectations, it may override the active contract.",
+    "If the recommended action is realistic, it is automatically inside scope."
+  ],
+  "recommended_sources": [
+    {
+      "source_type": "REQUIRED_SOURCE",
+      "use_when": "Project feasibility depends on external API, SDK, platform policy, OS permissions, package ecosystem, or pricing limits."
+    },
+    {
+      "source_type": "CLAIM_SOURCE",
+      "use_when": "README, website, package page, investor material, security claims, AI capability claims, or production-readiness claims are being reviewed."
+    },
+    {
+      "source_type": "INTERNAL_SOURCE",
+      "use_when": "Project doctrine, spec, architecture, handoff, or implementation history affects output."
+    }
+  ],
+  "claim_boundaries": {
+    "allowed_claim_classes": [
+      "idea",
+      "hypothesis",
+      "design intent",
+      "planned feature",
+      "stubbed feature",
+      "partially implemented",
+      "tested locally",
+      "externally validated",
+      "production proven"
+    ],
+    "blocked_without_evidence": [
+      "guarantees",
+      "eliminates",
+      "secure",
+      "production-ready",
+      "validated",
+      "machine-native",
+      "proven superior",
+      "fully automated",
+      "compliant",
+      "audited"
+    ],
+    "mechanism_claim_boundary": "Prompt-side doctrine can shape behavior and output discipline; it cannot prove backend validation, latent-space changes, or empirical improvement without evidence.",
+    "active_contract_boundary": "Grounding domain guidance can strengthen evidence discipline and feasibility review, but it cannot override AIR_ACTIVE_CONTRACT scope, out_of_scope boundaries, AIR_GATE decisions, stop conditions, or rescope requirements."
+  },
+  "compatible_specialist_profiles": [
+    "AIR_GROUNDING_SPECIALIST_V1"
+  ],
+  "output_influence": {
+    "ambition_intake": [
+      "identify original ambition",
+      "real underlying problem",
+      "intended value",
+      "users/beneficiaries",
+      "current executable kernel",
+      "frontier/research layer",
+      "blocked layer",
+      "unknowns",
+      "minimum viable direction",
+      "questions before execution"
+    ],
+    "technology_capacity_review": [
+      "classify as available now, available with constraints, research/frontier, blocked, or unknown"
+    ],
+    "q5_specialist_need_check": [
+      "infer material need",
+      "request missing files when material",
+      "offer degraded Default Starter fallback when safe"
+    ],
+    "coding_peripheral_vision": [
+      "state material environment/repo assumptions",
+      "surface path/storage warnings when relevant",
+      "require one bounded step unless scope expanded",
+      "record spec/implementation deviations",
+      "classify verification grade",
+      "check claim/release surface",
+      "confirm approval scope for mutations"
+    ],
+    "active_contract_enforcement": [
+      "identify whether grounding recommendation is inside active contract scope",
+      "surface AIR_GATE decision when recommendation affects material execution",
+      "route to RESCOPE_REQUIRED when grounding changes active task center or execution boundary",
+      "preserve required evidence before closure or approval"
+    ]
+  },
+  "non_goals": [
+    "governing AIR as Orbit 0 by itself",
+    "replacing specialist profiles",
+    "providing expert legal/medical/financial/regulatory authority",
+    "proving AIR improved without eval or ablation",
+    "overriding AIR_ACTIVE_CONTRACT",
+    "silently rescoping the active task",
+    "treating AIR_GATE as optional when grounding changes execution"
+  ],
+  "binding_rules": {
+    "may_bind_as": [
+      "domain_overlay",
+      "source_pack",
+      "referential_constraint_layer"
+    ],
+    "must_not_bind_as": [
+      "active_orbit_0_contract",
+      "governing specialist profile",
+      "backend validation evidence",
+      "empirical improvement proof"
+    ],
+    "fallback_when_missing": "AIR_DEFAULT_STARTER_V1 may proceed in source-light/provisional mode and should surface missing domain overlay coverage where material.",
+    "active_contract_subordination": "This domain package is referential and subordinate to AIR_ACTIVE_CONTRACT. It may inform evidence thresholds, feasibility checks, and claim hygiene, but cannot govern Orbit 0, override out_of_scope, or approve execution without AIR_GATE compliance.",
+    "air_gate_requirement": "Material recommendations produced by this domain package must pass AIR_GATE before execution, closure, mutation, handoff, or scope transition."
+  },
+  "active_contract_enforcement_extension": {
+    "patch_marker": "AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+    "status": "ACTIVE_PROMPT_SIDE",
+    "role": "DOMAIN_OVERLAY_SUBORDINATE_TO_ACTIVE_CONTRACT",
+    "core_rule": "Grounding domain guidance informs feasibility, evidence, and claim discipline, but AIR_ACTIVE_CONTRACT governs execution.",
+    "must_not_override": [
+      "scope",
+      "out_of_scope",
+      "allowed_actions",
+      "stop_conditions",
+      "required_evidence_to_close",
+      "rescope_protocol",
+      "AIR_GATE decision"
+    ],
+    "air_gate_decision_effect": {
+      "ALLOW": "Proceed only within active contract scope.",
+      "REVIEW": "Surface missing evidence, ambiguity, or authority gap.",
+      "REJECT": "Do not execute the recommendation.",
+      "RESCOPE_REQUIRED": "Create or request explicit rescope before proceeding.",
+      "EVIDENCE_REQUIRED": "Do not close or approve until evidence requirements are met."
+    },
+    "backend_validation_claimed": false
+  }
+}
