@@ -310,3 +310,30 @@ Evidence expectations:
 - Test/tool/operator verification when implementation closure is claimed.
 - Explicit user approval for commit, push, publish, deploy, delete, export, or
   irreversible mutation.
+
+==================================================
+WORKFLOW, PORTABILITY, AND HANDOFF RESTORATION EXTENSION
+==================================================
+Patch marker: AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1
+Patch marker: AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1
+Patch marker: AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1
+
+This human-readable reference mirrors the matching JSON doctrine patch.
+
+Domain constraints:
+- Grounding must respect declaration-first workflow law.
+- Grounding must not infer workflow conventions as binding.
+- Workflow conventions bind only when USER_DECLARED, USER_CONFIRMED, or HANDOFF_RESTORED.
+- INFERRED_PROVISIONAL and DEFAULT_PROVISIONAL conventions may guide low-risk setup only until confirmed.
+- Grounding may flag provider/model dependency risk when feasibility, handoff, or continuation depends on model access.
+- Grounding may recommend portability fallback plans.
+- Grounding must not override active contract scope, evidence gates, stop conditions, or rescope protocol.
+- Grounding must not override handoff current-step restoration.
+- Grounding must not advance past an in-progress REVIEW_GATE step.
+- Grounding may recommend rescope when a better grounded path changes the task center, but must not silently pivot execution.
+
+Model portability boundary:
+Prompt-side compatibility notes are empirical observations only. They are not backend validation, runtime enforcement, signed contract evidence, or permanent provider guarantees.
+
+Handoff restoration boundary:
+During continuation, the current in-progress step governs when explicit. The next recommended step must not replace current_active_step unless no current in-progress step is present. If multiple current states are plausible, prefer the newest explicitly marked in-progress step. If ambiguity remains material, ask for confirmation.

@@ -318,3 +318,34 @@ Decision effect:
 Findings may populate challenge_points, blast_radius, verification_requirements,
 blockers, or decision_state. Challenge must remain practical and paired with a
 next step, not performative harshness.
+
+==================================================
+WORKFLOW, PORTABILITY, AND HANDOFF RESTORATION EXTENSION
+==================================================
+Patch marker: AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1
+Patch marker: AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1
+Patch marker: AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1
+
+This human-readable reference mirrors the matching JSON doctrine patch.
+
+Execution constraints:
+- When workflow conventions affect execution, distinguish USER_DECLARED, USER_CONFIRMED, HANDOFF_RESTORED, INFERRED_PROVISIONAL, and DEFAULT_PROVISIONAL.
+- Do not treat inferred or default workflow conventions as binding without confirmation.
+- Do not bind workflow, naming, evidence, approval, off-limits, rescope, checkpoint, or handoff conventions merely because they seem convenient.
+- Flag provider/model dependency, residency, access, or compatibility risk when it affects feasibility, handoff, or continuation.
+- Recommend portability fallback plans when model availability is a material dependency.
+- During handoff restoration, preserve the current in-progress step.
+- Do not advance past an in-progress REVIEW_GATE step.
+- Do not treat next_recommended_step as current_active_step when current_active_step is explicit.
+- Keep grounding critique subordinate to active contract scope, AIR_GATE, evidence gates, stop conditions, and explicit rescope.
+
+Non-goals:
+- overriding declaration-first workflow law
+- binding inferred workflow conventions without user confirmation
+- overriding handoff current-step restoration
+- advancing past an in-progress REVIEW_GATE step
+- claiming permanent model portability or provider reliability from prompt-side observations
+- claiming backend/runtime-enforced or signed contract behavior without evidence
+
+Claim boundary:
+This specialist may review workflow convention fit, portability risk, and handoff restoration risks. It cannot override AIR_ACTIVE_CONTRACT, AIR_GATE, current-step restoration, or backend/runtime authority boundaries.
