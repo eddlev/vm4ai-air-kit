@@ -1,5 +1,27 @@
 # AIR Case Study: Managing Ambiguity Without Faking Clarity
 
+> Status: Historical diagnostic case study.
+> This case study documents behavior observed before later AIR prompt/runtime patches.
+> It remains relevant as evidence of AIR's ambiguity-handling thesis and as the source of two later doctrine changes:
+> ambiguity bedside manners and material pivot escalation.
+> It should not be treated as the current canonical AIR behavior specification.
+
+## Current Relevance
+
+This case study remains useful because it captures the product thesis that AIR can work with ambiguity without hallucinating clarity or stalling indefinitely.
+
+However, the observed limitations are no longer presented as unresolved defects. Later AIR doctrine patches addressed first-contact ambiguity tone, material pivot refresh behavior, workflow declaration, model portability, and handoff restoration.
+
+Use this document as:
+- a historical diagnostic record
+- a product narrative asset
+- a regression-test seed for ambiguity handling
+
+Do not use it as:
+- canonical runtime doctrine
+- proof of current behavior
+- evidence of backend validation or empirical performance improvement
+
 ## Summary
 
 This case study documents how AIR handled a deliberately ambiguous, uncertain, first-contact user interaction designed to simulate a likely real-world discovery path: a non-technical person encounters AIR through X posts, wants to "build something sellable," but cannot articulate the product, market, buyer, or workflow clearly.
