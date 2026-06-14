@@ -1,23 +1,51 @@
 # AIR Prompt Runtime Roadmap
 
-This roadmap is for the prompt-version AIR repository.
+This roadmap is for the public prompt-based AIR Kit.
 
-It does not cover the private backend implementation except where prompt-side compatibility or public documentation requires mention.
+It does not cover the private AIR backend/client runtime.
+
+## Scope
+
+This repository is limited to prompt-native AIR.
+
+In scope:
+
+- AIR prompt files
+- starter profiles
+- optional specialist profiles
+- handoff templates
+- public documentation
+- prompt-side usage guidance
+- prompt-side model portability notes
+- examples and case studies for prompt-native AIR
+
+Out of scope:
+
+- backend validation
+- runtime enforcement
+- signed or tamper-evident contracts
+- autonomous agent execution
+- private AIR backend/client features
+- speculative backend-connected public roadmap
 
 ## Roadmap principles
 
-- keep the prompt-version repo honest about scope
+- keep the public prompt kit honest about scope
 - strengthen AIR as a prompt-native runtime
 - preserve map-first, active-step-only execution
-- add agent-bridge capability without turning AIR into the agent runtime
-- improve usability before increasing complexity
+- improve first-use clarity
+- preserve model portability
+- avoid speculative feature promises
+- avoid prompt sprawl unless a profile has concrete public value
 
 ## Current status
 
-### v0.1.0 — Initial public prompt runtime
+### v0.1.0 - Initial public prompt runtime
+
 Status: released
 
 Delivered:
+
 - AIR Core Runtime Prompt
 - AIR Control Surface Prompt
 - AIR Default Starter Profile
@@ -27,127 +55,136 @@ Delivered:
 - project execution map
 - active-step-only artifact discipline
 - handoff continuity
-- tested behavior on ChatGPT 5.4, Claude Sonnet 4.6, and Gemini Thinking
 
-## Near-term roadmap
+## Current objective
 
-### v0.1.1 — Prompt/runtime polish
+### v0.1.1 - Public prompt-kit clarity and portability patch
+
 Goal:
-Tighten the public prompt kit and improve first-use clarity.
+
+Make the public AIR Kit easier to boot, easier to understand, and more honest about prompt-only scope.
 
 Planned:
-- improve README and quick-start clarity
-- add cleaner visual assets for repo and posts
-- standardize repo description and topics
-- refine release notes and public-facing language
-- document Gemini Thinking boot note clearly
+
+- remove obsolete agent bridge material from the public kit
+- update README with prompt-only scope
+- add AIR User Guide
+- add model portability notes
+- add strict boot guidance for models that reinterpret AIR
+- add Q1 tutorial path documentation
+- document declaration-first workflow conventions
+- document cross-model handoff testing results
+- keep backend/runtime claims out of public prompt-kit documentation
 
 Success criteria:
+
 - new users can boot AIR from the README without extra explanation
-- repo clearly reads as prompt-version only
-- no ambiguity between public prompt kit and private backend
+- README clearly describes AIR Kit as prompt-based only
+- docs explain what AIR is and is not
+- model portability notes give practical boot and handoff guidance
+- no public documentation implies backend validation, runtime enforcement, signed contracts, or autonomous agent execution
 
-### v0.2.0 — Agent Execution Bridge
-Goal:
-Allow prompt-version AIR to generate structured execution specs for external agent runtimes like OpenClaw.
+## Candidate prompt-only improvements
 
-Planned:
-- define `AGENT_EXECUTION_SPEC`
-- add rules for when AIR may emit agent-ready instructions
-- keep agent execution external to AIR
-- add documentation and examples
-- add operator guidance for AIR -> agent -> AIR loop
+These are concrete prompt-kit improvements that may be worth adding if they remain useful and non-speculative.
 
-Success criteria:
-- AIR can produce one clean, active-step-specific agent execution spec
-- the spec is concrete enough for an external agent to act on
-- AIR remains the planning/control layer, not the execution runtime
+### Better examples
 
-### v0.3.0 — Stronger continuation and governance
-Goal:
-Make continuation, orbit discipline, and state handoff more robust.
+Possible additions:
 
-Planned:
-- refine handoff card semantics
-- make orbit model more visible in docs
-- improve restoration flow for continuation sessions
-- add guidance for multi-session project progression
-- document conflict handling and degraded state more explicitly
+- example new-project boot
+- example import flow
+- example handoff card
+- example continuation session
+- example AIR help response
+- example AIR compact vs verbose response
+- example REVIEW_GATE and REJECT_REPORT
 
-Success criteria:
-- continuation works reliably with less operator correction
-- handoff cards feel like real restoration objects
-- orbit model is understandable to new users
+Value:
 
-## Mid-term roadmap
+Examples make AIR easier to understand without adding new runtime claims.
 
-### v0.4.0 — Specialized prompt profiles
-Goal:
-Add specialized public prompt profiles for distinct project classes while keeping the default starter simple.
+### Compatibility test log
 
-Potential additions:
-- technical / architecture profile
-- research synthesis profile
-- GTM / narrative profile
-- compliance / evidence-heavy profile
+Possible additions:
+
+- small public table of tested model behavior
+- status labels for boot and handoff tests
+- recommended prompt variants per model class
+- known failure modes
+
+Value:
+
+This supports model portability without pretending compatibility is permanent.
+
+### Prompt-kit release checklist
+
+Possible additions:
+
+- README check
+- prompt file consistency check
+- Q1-Q5 check
+- handoff template check
+- model portability note check
+- claim boundary check
+- mojibake/encoding check
+
+Value:
+
+This helps keep the public kit clean after prompt changes.
+
+### Lightweight case studies
+
+Possible additions:
+
+- small project planning case
+- coding-planning case
+- research synthesis case
+- handoff continuation case
+- ambiguity handling case
+
+Value:
+
+Case studies demonstrate AIR behavior without requiring backend features.
+
+### Additional specialist profiles
+
+Possible additions only if clearly useful:
+
+- research synthesis specialist
+- technical architecture review specialist
+- product strategy specialist
+- documentation/rewrite specialist
 
 Rules:
-- keep starter profile as the default
-- do not fragment the public repo into prompt sprawl
-- specialized profiles must remain compatible with the same AIR runtime laws
 
-Success criteria:
-- specialized profiles improve fit without breaking the common runtime model
-- users can still understand the default path quickly
+- do not add profiles just to fill the repo
+- each profile must have a clear public prompt-side use case
+- each profile must remain compatible with AIR Core Runtime
+- each profile must preserve prompt/backend claim boundaries
 
-### v0.5.0 — Public evaluation and examples
-Goal:
-Show how AIR behaves in practice across real project scenarios.
+## Non-goals
 
-Planned:
-- example project boots
-- example handoff flow
-- example active-step artifact progression
-- example agent execution bridge output
-- comparison between generic chat workflow vs AIR runtime workflow
+The public prompt-version repo will not aim to:
 
-Success criteria:
-- users can see AIR in action without guessing how it works
-- examples reinforce the actual workflow rather than abstract theory
-
-## Longer-term direction
-
-### Backend-connected AIR
-This remains outside the public prompt-only repo for now.
-
-Longer-term goals may include:
-- backend compilation of AIR artifacts
-- stronger typed state and validation
-- automated project map updates
-- direct agent orchestration
-- runtime persistence beyond prompt-only continuity
-
-Public prompt repo role in that future:
-- remain the public prompt-native layer
-- remain useful even without backend access
-- stay honest about what is prompt-only vs backend-backed
-
-## Non-goals for the prompt-version repo
-
-These are not current goals for this repository:
-- publishing an SDK
-- pretending the prompt kit is a backend runtime
-- turning AIR into an autonomous agent executor
-- bloating the repo with too many profiles too early
-- replacing the private backend repo with markdown abstractions
+- publish an SDK
+- pretend the prompt kit is a backend runtime
+- provide runtime enforcement
+- provide signed or tamper-evident artifacts
+- act as an autonomous agent executor
+- promise provider-independent reliability
+- bloat the repo with too many profiles too early
+- replace the private backend/client implementation
 
 ## Working model
 
 AIR should continue to operate as:
 
 1. project activation
-2. roadmap creation
-3. active-step artifact generation
-4. optional agent execution bridge
-5. state handoff
+2. project map creation
+3. current active-step artifact generation
+4. review and receiver delivery
+5. handoff
 6. continuation
+
+The public kit should remain useful without backend access.
