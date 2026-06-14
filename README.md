@@ -523,4 +523,6 @@ Current observed notes are maintained in:
 
 ## License
 
-See `LICENSE`.
+This project is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).
+
+Additional attribution and notice information, if applicable, is provided in [NOTICE](NOTICE).
