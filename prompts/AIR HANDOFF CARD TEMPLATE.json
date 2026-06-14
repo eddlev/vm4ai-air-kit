@@ -34,7 +34,11 @@
       "generated_profiles_pending_validation": [],
       "generated_domain_packages_pending_validation": [],
       "validated_available_profiles": [],
-      "validated_available_domain_packages": []
+      "validated_available_domain_packages": [],
+      "recommended_method_packs": [],
+      "generated_method_packs_pending_validation": [],
+      "validated_available_method_packs": [],
+      "active_method_pack": null
     },
     "persistent_task": null,
     "current_degraded_mode": null,
@@ -75,7 +79,10 @@
       "AIR must not redefine itself as a generic acronym when uploaded AIR files govern the session.",
       "Workflow conventions bind only when user-declared, user-confirmed, or handoff-restored; inferred/default conventions remain provisional until confirmed.",
       "Model/provider compatibility notes are empirical prompt-side observations, not permanent guarantees or backend validation.",
-      "During continuation, current in-progress step governs; next_recommended_step must not override an explicit current_active_step or in-progress REVIEW_GATE."
+      "During continuation, current in-progress step governs; next_recommended_step must not override an explicit current_active_step or in-progress REVIEW_GATE.",
+      "Deterministic onboarding answers must not be inferred from activation prompts alone; Q1 must be user-explicit, user-approved inference, or handoff-restored.",
+      "Capability layer need detection must preserve recommended, missing, optional, active, generated, stale, or blocking specialist/domain/method layer states.",
+      "AIR_ARTIFACT.method is the default task-local procedure layer; AIR_METHOD_PACK is a promoted reusable procedure layer only when reuse, low variance, portability, templates, or defect history justify it."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -185,7 +192,17 @@
       "workflow_declaration_first_capable": true,
       "model_portability_sovereignty_capable": true,
       "handoff_current_step_restoration_capable": true,
-      "handoff_must_not_advance_past_in_progress_review_gate": true
+      "handoff_must_not_advance_past_in_progress_review_gate": true,
+      "deterministic_onboarding_non_inference_capable": true,
+      "q1_inference_from_activation_prompt_allowed": false,
+      "q1_inference_requires_user_approval": true,
+      "capability_layer_need_detection_capable": true,
+      "method_layer_capable": true,
+      "artifact_method_block_capable": true,
+      "method_pack_promotion_capable": true,
+      "method_pack_can_bind_as_orbit_0_by_itself": false,
+      "method_pack_generation_requires_user_approval": true,
+      "method_pack_binding_requires_validation": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -678,6 +695,57 @@
       "current_in_progress_step_governs": true,
       "do_not_advance_past_review_gate": true,
       "prefer_newest_explicit_in_progress_step": true
+    },
+    "deterministic_onboarding_state": {
+      "patch_marker": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V1",
+      "q1_state": "UNRESOLVED",
+      "q1_answer_source": null,
+      "q1_inference_from_activation_prompt_allowed": false,
+      "tutorial_flow_state": null,
+      "pending_q5_input": null
+    },
+    "capability_layer_need_state": {
+      "patch_marker": "AIR_CAPABILITY_LAYER_NEED_DETECTION_V1",
+      "specialist_need_state": null,
+      "domain_package_need_state": null,
+      "method_pack_need_state": null,
+      "trigger_reasons": [],
+      "missing_layers": [],
+      "blocking_layers": [],
+      "degraded_fallback_mode": null
+    },
+    "method_layer_state": {
+      "patch_marker": "AIR_METHOD_LAYER_V1",
+      "method_origin": null,
+      "artifact_method_block": null,
+      "promotion_candidate": null,
+      "active_method_pack": null,
+      "recommended_method_packs": [],
+      "generated_method_packs_pending_validation": [],
+      "validated_available_method_packs": [],
+      "stale_method_packs_needing_reground": []
+    },
+    "deterministic_onboarding_handoff_guidance": {
+      "preserve_when": [
+        "onboarding incomplete",
+        "Q1-D tutorial flow selected",
+        "Q1-Q5 answer inferred or deferred",
+        "pending Q5 input exists",
+        "handoff occurs during onboarding"
+      ],
+      "compact_handoff_rule": "Carry Q1-Q5 answer source, unresolved questions, tutorial-flow state, and pending Q5 input.",
+      "claim_boundary": "Restored onboarding answers are valid only when explicitly recorded in the handoff card."
+    },
+    "capability_layer_handoff_guidance": {
+      "preserve_when": [
+        "specialist/domain/method layer is active",
+        "layer has been recommended but not generated",
+        "layer is missing and blocks or degrades current work",
+        "method promotion candidate exists",
+        "method pack is stale and needs reground"
+      ],
+      "compact_handoff_rule": "Carry need state, trigger reason, blocking/degraded state, generated pending validation, validated available layers, and active bindings.",
+      "claim_boundary": "Recommended layers are not active unless attached, restored, generated and validated, or explicitly bound according to routing law."
     }
   }
 }

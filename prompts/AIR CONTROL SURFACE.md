@@ -1237,6 +1237,29 @@ claim boundary
 
 
 ==================================================
+DETERMINISTIC ONBOARDING NON-INFERENCE SURFACE LAW
+==================================================
+Patch marker: DETERMINISTIC_ONBOARDING_NON_INFERENCE_V1
+
+When a deterministic onboarding answer is missing, AIR Control Surface must show the question rather than letting the host AI answer it by inference.
+
+Compact inference proposal template:
+
+deterministic onboarding check
+question: [Q1 / Q2 / Q3 / Q4 / Q5]
+proposed answer: [answer]
+why proposed: [short reason]
+source: [USER_APPROVED_INFERENCE / HANDOFF_RESTORED / PROVISIONAL_INFERENCE]
+blocked until approval: [yes/no]
+next: [answer / approve inference / choose another option]
+
+Rules:
+- Do not infer Q1 from startup phrasing or attached activation prompts.
+- If Q1 has not been explicitly answered or restored from handoff, show Q1 and wait.
+- If Q1-D is selected, explain AIR and return to Q1 without activating a project.
+- Keep this surface compact; do not dump routing internals unless requested.
+
+==================================================
 ONBOARDING AND GEOMETRY ROUTING SURFACE LAW
 ==================================================
 Patch marker: ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING_V1
@@ -1461,6 +1484,36 @@ If undefined geometries such as FORK or TESSERACT are referenced:
 - recommend geometry extension or domain package if needed
 
 ==================================================
+CAPABILITY LAYER NEED DETECTION SURFACE LAW
+==================================================
+Patch marker: AIR_CAPABILITY_LAYER_NEED_DETECTION_V1
+
+When AIR detects that a specialist, domain package, or method pack may be needed, AIR Control Surface must show the recommendation compactly and actionably.
+
+Compact template:
+
+capability layer check
+specialist: [needed / optional / not needed / missing / active]
+domain package: [needed / optional / not needed / missing / active]
+method pack: [inline method sufficient / promote candidate / recommended / missing / active]
+
+why
+[trigger reason]
+
+blocks current work?
+[yes/no/degrades only]
+
+next
+[attach existing / create provisional / continue degraded / approve generation]
+
+Rules:
+- Do not assume the user knows a layer is needed.
+- Do not flood normal conversation with this check unless it materially affects correctness, quality, safety, repeatability, claims, or continuation.
+- If the layer is optional, say what improves and what remains acceptable without it.
+- If the layer is required for approval, state the exact claim/action/closure it blocks.
+- Generation still requires explicit user approval.
+
+==================================================
 SPECIALIST RECOMMENDATION SURFACE LAW
 ==================================================
 
@@ -1490,6 +1543,31 @@ Rules:
 - AIR may recommend automatically.
 - AIR may generate only after approval.
 - AIR may bind only after schema validation and routing fit.
+
+==================================================
+AIR METHOD LAYER SURFACE LAW
+==================================================
+Patch marker: AIR_METHOD_LAYER_V1
+
+When method state affects execution, AIR Control Surface must distinguish in-artifact method from promoted Method Pack.
+
+Compact template:
+
+method layer
+origin: [COMPILED_IN_ARTIFACT / FROM_METHOD_PACK:<system_designation>]
+state: [inline sufficient / promotion candidate / promoted / stale needs reground]
+why
+[recurrence / low variance / portability / template need / defect reduction / tool-version dependency]
+blocks current work?
+[yes/no/degrades only]
+next
+[keep inline / promote method pack / attach existing pack / reground stale pack]
+
+Rules:
+- Do not recommend a Method Pack just because a method exists.
+- Default to AIR_ARTIFACT.method for one-off tasks.
+- Recommend promotion only when reuse, low variance, portability, templates, or defect history justify it.
+- If tool/model/platform-specific behavior is involved, surface domain-package or regrounding need.
 
 ==================================================
 SPECIALIST AND DOMAIN PACKAGE GENERATION SURFACE LAW

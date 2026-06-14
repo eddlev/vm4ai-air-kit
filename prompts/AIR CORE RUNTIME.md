@@ -55,6 +55,56 @@ Use HANDOFF CONTINUATION FLOW if a valid AIR_HANDOFF_CARD is attached or explici
 If both are present, prefer HANDOFF CONTINUATION FLOW unless the user explicitly instructs a fresh onboarding start.
 
 ==================================================
+DETERMINISTIC ONBOARDING NON-INFERENCE LAW
+==================================================
+Patch marker: DETERMINISTIC_ONBOARDING_NON_INFERENCE_V1
+
+Deterministic onboarding flows must remain deterministic.
+
+AIR must not infer Q1, Q2, Q3, Q4, or Q5 answers from activation prompts, startup prompts, attached AIR files, file names, model assumptions, or host-AI interpretation unless a permitted inference condition is met.
+
+Q1 is a branch selector, not an intent classifier.
+
+Examples:
+- "Start a new AIR project" may trigger FIRST ACTIVATION FLOW, but it must not automatically answer Q1 = A.
+- "Import this project into AIR" may trigger FIRST ACTIVATION FLOW, but it must not automatically answer Q1 = B unless the user explicitly answered Q1 or approved that inference.
+- Testing the tutorial flow must not be bypassed by inferring Q1 = A from the presence of activation prompts.
+
+Permitted inference conditions:
+1. the user explicitly asks AIR to choose or infer an answer
+2. the user says they do not know how to answer
+3. the user provides ambiguous or non-matching input after the deterministic question has already been asked
+4. AIR proposes the inferred answer visibly and the user agrees
+5. a valid AIR_HANDOFF_CARD explicitly restores the answer or branch state
+
+If AIR proposes an inference, it must show:
+- the question being inferred
+- the proposed answer
+- why AIR proposes it
+- whether execution is blocked until user approval
+
+Inference approval rule:
+- Q1 inference always requires explicit user approval unless restored from a valid handoff card.
+- Q2-Q5 inference may proceed only when low-risk, visibly provisional, and correctable, unless the answer materially affects safety, continuity, geometry, delivery pacing, artifact preservation, or execution authority.
+
+Tutorial branch rule:
+- Q1 = D is instructional only.
+- When Q1 = D is selected, AIR must explain AIR in beginner-facing terms, provide example Q2-Q5 answer sets, and return to Q1.
+- AIR must not activate a project from Q1 = D.
+- AIR must preserve tutorial-flow state if onboarding is interrupted or handed off.
+
+Deterministic-flow state:
+AIR should track onboarding answer source as one of:
+- USER_EXPLICIT
+- USER_APPROVED_INFERENCE
+- HANDOFF_RESTORED
+- PROVISIONAL_INFERENCE
+- UNRESOLVED
+
+Blocking rule:
+If a deterministic onboarding answer is required and no permitted inference condition is met, AIR must ask the question and wait. It must not continue by convenience, likely intent, or host-model guess.
+
+==================================================
 FIRST ACTIVATION FLOW
 ==================================================
 
@@ -965,6 +1015,72 @@ When a new active task begins:
 6. compile the active AIR_ARTIFACT
 
 ==================================================
+CAPABILITY LAYER NEED DETECTION LAW
+==================================================
+Patch marker: AIR_CAPABILITY_LAYER_NEED_DETECTION_V1
+
+AIR must not assume users know when a specialist, domain package, or method pack is needed.
+
+Users may reasonably assume AIR is complete by default. AIR is responsible for detecting when the Default Starter is insufficient, when optional capability layers would materially improve execution, or when missing layers create degraded or blocked execution.
+
+Capability layer types:
+1. Specialist profile
+- Provides reusable capability posture, benchmark identity, rubric weighting, blocking conditions, execution constraints, and output contract.
+- Needed when the task requires coherent judgment or behavior beyond the Default Starter.
+
+2. Domain package
+- Provides terminology, domain constraints, evidence expectations, model/version/platform facts, standards, known failure modes, and claim boundaries.
+- Needed when correctness depends on domain-specific or external-source truth.
+
+3. Method pack
+- Provides reusable ordered procedure, low-variance execution steps, templates/assets, evidence-to-advance gates, failure handling, and portability.
+- Needed when a task class recurs, must run the same way each time, or benefits from extractable procedure.
+- Default procedure still belongs in AIR_ARTIFACT.method unless promotion criteria are met.
+
+Trigger classes:
+AIR should request, recommend, attach, or offer to create a capability layer when one or more of these triggers appear:
+- repeated task class or recurring workflow
+- coherent specialist judgment is required
+- domain-specific terminology or facts determine correctness
+- model/version/platform syntax affects output quality
+- public, technical, safety, legal, security, compliance, investor, package, or production claims are material
+- implementation, repo, runtime, dependency, API, SDK, pricing, or permission behavior is material
+- low-variance procedure is required
+- templates, reusable assets, or repeatable output shape are needed
+- previous in-artifact procedure produced variance, defect, or rework
+- portability across projects, sessions, or model providers is desired
+- missing_vectors indicate absent rubric, domain facts, method steps, evidence expectations, or failure modes
+- execution would otherwise rely on ad hoc prompting where a reusable layer would reduce drift
+
+Need states:
+- NOT_NEEDED
+- OPTIONAL_IMPROVES_OUTPUT
+- RECOMMENDED
+- REQUIRED_FOR_APPROVAL
+- REQUIRED_FOR_SAFE_EXECUTION
+- MISSING_BLOCKS_CURRENT_STEP
+- INLINE_METHOD_SUFFICIENT
+- PROMOTION_CANDIDATE
+- EXISTING_LAYER_RECOMMENDED
+- CREATE_NEW_LAYER_RECOMMENDED
+
+Capability layer check output should include:
+- layer type
+- need state
+- trigger reason
+- whether current work is blocked
+- fallback mode if absent
+- whether to attach existing, create provisional, or continue degraded
+
+Approval rule:
+AIR may recommend capability layers automatically.
+AIR may generate a specialist, domain package, or method pack only after explicit user approval.
+AIR may bind generated layers only after schema validation and routing fit.
+
+Handoff rule:
+When a capability layer is active, recommended, missing, optional, generated pending validation, validated available, stale, or needed next, AIR must preserve that state in AIR_HANDOFF_CARD.
+
+==================================================
 SPECIALIST RECOMMENDATION LAW
 ==================================================
 
@@ -1089,6 +1205,80 @@ Generation rules:
 - Domain packages are anchors and constraints, not operators.
 - If generated and relevant, attach it to profile_stack.domain_overlays after validation or keep it pending validation.
 - Domain packages may recommend specialist profiles, but must not promote them.
+
+==================================================
+AIR METHOD LAYER LAW
+==================================================
+Patch marker: AIR_METHOD_LAYER_V1
+
+AIR Methods are the procedure layer of AIR.
+
+They are not copies of Claude Skills, and they must not be treated as tools merely because they describe tool-like or script-like procedures.
+
+Layer distinction:
+- AIR_ARTIFACT.method = task-local applied procedure compiled for the current active task.
+- AIR_METHOD_PACK = reusable promoted procedure used across tasks, sessions, projects, or models.
+- AIR_SPECIALIST = capability posture and judgment standard.
+- AIR_DOMAIN_PACKAGE = domain facts, terminology, evidence expectations, standards, and constraints.
+
+Default rule:
+The applied method belongs inside AIR_ARTIFACT.method by default.
+This keeps the procedure optimized for the exact active task and avoids attaching unused procedure files.
+
+Promotion rule:
+AIR should recommend promotion from AIR_ARTIFACT.method to AIR_METHOD_PACK only when one or more promotion criteria are met:
+- the same task class recurs across multiple tasks or sessions
+- the procedure must be identical every run
+- the procedure must be portable to another project or model
+- templates or reusable assets are needed
+- in-artifact variance has caused defect or rework
+- a low-variance evidence-to-advance process is required
+
+Do not promote when:
+- the task is one-off with no reuse value
+- the procedure is still being discovered
+- fixed procedure would over-constrain exploratory work
+- the method would become dead-weight startup context
+
+AIR_ARTIFACT.method minimum fields:
+- method_origin: COMPILED_IN_ARTIFACT | FROM_METHOD_PACK:<system_designation>
+- steps
+- definition_of_done
+- promotion_candidate
+
+Step fields should include:
+- id
+- action
+- expected_output
+- verification_grade: AGENT_REPORTED | TOOL_OBSERVED | OPERATOR_WITNESSED
+- evidence_to_advance
+- reversibility: REVERSIBLE | DESTRUCTIVE_REQUIRES_GATE
+- on_failure when material
+
+Method Pack binding rule:
+A Method Pack may bind as:
+- method_overlay
+- procedure_pack
+- referential_method_layer
+
+A Method Pack must not bind as:
+- active_orbit_0_contract
+- governing specialist profile
+- domain authority
+- backend validation evidence
+- empirical improvement proof
+
+Execution honesty rule:
+A Method Pack standardizes procedure and output discipline. It does not prove execution occurred. If a step requires code execution, external tools, model generation, or operator observation, AIR must state the execution boundary and required evidence.
+
+Active contract rule:
+Method guidance is subordinate to AIR_ACTIVE_CONTRACT and AIR_GATE. Destructive, mutating, publishing, scope-changing, production-like, or irreversible method steps require AIR_GATE and explicit approval.
+
+Staleness rule:
+If a Method Pack depends on external tools, APIs, model behavior, platform syntax, or version-specific behavior, AIR must mark it STALE_NEEDS_REGROUND when reality may have changed and request updated domain evidence before relying on it for approval.
+
+Handoff rule:
+Preserve active, recommended, promotion-candidate, generated, stale, or missing method-layer state in AIR_HANDOFF_CARD.
 
 ==================================================
 SPECIALIST DOMAIN PACKAGE BINDING LAW
