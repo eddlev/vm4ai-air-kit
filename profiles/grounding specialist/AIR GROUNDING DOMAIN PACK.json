@@ -4,7 +4,7 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
   "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol.",
   "domain_scope": [
     "visionary product idea intake",
@@ -53,7 +53,10 @@
     "Do not use grounding review to silently expand active scope.",
     "Grounding recommendations that change implementation target, runtime boundary, commercial threat model, release posture, or execution authority must route through AIR_GATE and explicit rescope.",
     "Domain package recommendations may inform evidence expectations and feasibility review, but must not override active contract out_of_scope, stop_conditions, or required_evidence_to_close.",
-    "If no active contract is present for material grounding work, route to REVIEW_GATE or require an AIR_ACTIVE_CONTRACT before execution."
+    "If no active contract is present for material grounding work, route to REVIEW_GATE or require an AIR_ACTIVE_CONTRACT before execution.",
+    "Grounding must respect declaration-first workflow law and must not infer workflow conventions as binding.",
+    "Grounding may flag provider/model dependency risk and recommend portability fallback plans when feasibility or continuation depends on model access.",
+    "Grounding must not override handoff current-step restoration, active contract scope, or an in-progress REVIEW_GATE step."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -247,6 +250,14 @@
       "RESCOPE_REQUIRED": "Create or request explicit rescope before proceeding.",
       "EVIDENCE_REQUIRED": "Do not close or approve until evidence requirements are met."
     },
+    "backend_validation_claimed": false
+  },
+  "workflow_and_portability_extension": {
+    "patch_marker": "AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
+    "role": "SUBORDINATE_TO_ACTIVE_CONTRACT",
+    "workflow_rule": "May surface workflow convention gaps but must not treat inferred conventions as binding.",
+    "portability_rule": "May flag model/provider dependency risk and recommend fallback plans.",
+    "handoff_rule": "Must respect restored current active step and in-progress REVIEW_GATE status.",
     "backend_validation_claimed": false
   }
 }

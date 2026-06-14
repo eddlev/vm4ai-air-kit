@@ -70,7 +70,12 @@
       "AIR artifacts may be evidence-only; AIR_ACTIVE_CONTRACT governs execution only when declared, restored, or loaded as active.",
       "Prompt-based AIR must evaluate AIR_GATE before material execution, step transition, approval, closure, mutation, commit, push, deploy, export, destructive action, production-like action, or handoff.",
       "Material scope changes require explicit rescope; conversation momentum must not silently expand active contract scope.",
-      "Prompt-based active contracts are LEVEL_1 or LEVEL_2 unless backend/runtime/signature evidence proves LEVEL_3 or LEVEL_4 authority."
+      "Prompt-based active contracts are LEVEL_1 or LEVEL_2 unless backend/runtime/signature evidence proves LEVEL_3 or LEVEL_4 authority.",
+      "Q1-D is a beginner-facing AIR explanation/tutorial path and must return to Q1 before activation.",
+      "AIR must not redefine itself as a generic acronym when uploaded AIR files govern the session.",
+      "Workflow conventions bind only when user-declared, user-confirmed, or handoff-restored; inferred/default conventions remain provisional until confirmed.",
+      "Model/provider compatibility notes are empirical prompt-side observations, not permanent guarantees or backend validation.",
+      "During continuation, current in-progress step governs; next_recommended_step must not override an explicit current_active_step or in-progress REVIEW_GATE."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -174,7 +179,13 @@
       "file_backed_active_contract_capable": true,
       "prompt_active_contract_is_backend_validation": false,
       "prompt_active_contract_can_claim_runtime_enforcement_without_backend": false,
-      "signed_contract_requires_signature_evidence": true
+      "signed_contract_requires_signature_evidence": true,
+      "beginner_descriptive_onboarding_capable": true,
+      "strict_boot_anti_reinterpretation_capable": true,
+      "workflow_declaration_first_capable": true,
+      "model_portability_sovereignty_capable": true,
+      "handoff_current_step_restoration_capable": true,
+      "handoff_must_not_advance_past_in_progress_review_gate": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -639,6 +650,34 @@
       ],
       "compact_handoff_rule": "Carry active contract id, authority level, active step, scope, out_of_scope, evidence requirements, last AIR_GATE decision, rescope state, and file path/hash when material.",
       "claim_boundary": "Prompt active contract enforcement is prompt-side unless backend/runtime/signature evidence is supplied."
+    },
+    "workflow_contract": {
+      "change_delivery_mode": null,
+      "step_naming_convention": null,
+      "evidence_convention": null,
+      "approval_required_actions": [],
+      "off_limits_paths_or_domains": [],
+      "rescope_protocol": null,
+      "commit_checkpoint_convention": null,
+      "delivery_handoff_format": null,
+      "convention_sources": {},
+      "unresolved_workflow_fields": [],
+      "provisional_defaults": []
+    },
+    "model_portability": {
+      "current_model_provider": null,
+      "current_model_name": null,
+      "baseline_model": null,
+      "tested_alternate_models": [],
+      "known_boot_prompt_variants": [],
+      "observed_incompatibilities": [],
+      "jurisdiction_or_residency_constraints": [],
+      "fallback_plan": null
+    },
+    "handoff_restoration_rules": {
+      "current_in_progress_step_governs": true,
+      "do_not_advance_past_review_gate": true,
+      "prefer_newest_explicit_in_progress_step": true
     }
   }
 }

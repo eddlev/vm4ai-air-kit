@@ -4,7 +4,7 @@
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "DEFAULT_STARTER_PROFILE",
   "STATUS": "LIVE_EXPERIMENT",
-  "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1.PROMPT_NATIVE_EMULATION.GEOMETRY_EFFECT_BINDING.ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING.Q4D_DUAL_GEOMETRY_FAMILIAR_ARTIFACT.FORMAL_LABEL_RESERVATION_Q4D_TEST_SURFACE.AIR_GENERAL_OBJECTS_CONTROL_HELP_SOURCE_REFS_V1.AIR_OBJECT_DEFAULT_PRECEDENCE_ONBOARDING_LOCK_V1.AIR_GROUNDING_Q5_SPECIALIST_NEED_CHECK_V1.AIR_OBJECT_VISIBILITY_BOOT_EVIDENCE_V1.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+  "STANDARD_CODE": "AIR.DEFAULT.STARTER.V1.PROMPT_NATIVE_EMULATION.GEOMETRY_EFFECT_BINDING.ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING.Q4D_DUAL_GEOMETRY_FAMILIAR_ARTIFACT.FORMAL_LABEL_RESERVATION_Q4D_TEST_SURFACE.AIR_GENERAL_OBJECTS_CONTROL_HELP_SOURCE_REFS_V1.AIR_OBJECT_DEFAULT_PRECEDENCE_ONBOARDING_LOCK_V1.AIR_GROUNDING_Q5_SPECIALIST_NEED_CHECK_V1.AIR_OBJECT_VISIBILITY_BOOT_EVIDENCE_V1.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_HELP_INTRO_DESCRIPTIVE_ONBOARDING_V1.AIR_BOOT_ANTI_REINTERPRETATION_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_BEGINNER_SURFACE_BEFORE_INTERNALS_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_HANDOFF_PORTABILITY_TEST_V1",
   "description": "Default AIR starter profile for compiling a new project from sparse or zero prior context, including embedded machine-native benchmark evaluation sections and receiver-facing delivery behavior when required by runtime law. Includes prompt-native runtime emulation for backend-inspired qualitative native-axis, NMA-lite, agent-governance-lite, smoke-check, basis-gap, calibration-ledger, contract-pin, and emulation-trace behavior when backend AIR is unavailable. Includes geometry effect binding so selected geometries and lambda pressure must bind to concrete decomposition behavior, artifact obligations, judge criteria, review posture, receiver delivery constraints, and ablation metrics rather than remaining decorative labels. Adds optimized onboarding geometry routing, active-task geometry rebinding, task-local lambda pressure, Flux Controller routing, geometry force-vs-fit scoring, and gated specialist/domain-package generation. Adds Q4-D emotional-safety/familiar-continuity routing, dual geometry binding (execution geometry plus delivery geometry), familiar artifact preservation, small-step surface, and voice-to-text ambiguity protection. Adds formal label reservation so reserved AIR object names are used only for canonical formal JSON emission, plus one-time Q4-D test posture surfacing. Adds general AIR object default surfacing, AIR control/help commands, and task source/reference support so AIR can surface compact state by default, accept CLI-style control commands, and attach sources to task rows when they reduce execution risk or search burden. Adds object-default precedence, onboarding lock, and source-check visibility so compact AIR state is not suppressed by legacy full-object compression, Q4 cannot be silently skipped, and claimed source grounding must be visible or provisional. Adds AIR Grounding Specialist / AIR Grounding Domain Package routing, Q5 Specialist Need Check, startup profile availability handling, cooperative challenge, ambition-to-executable-kernel grounding, doctrine coverage reconciliation, and degraded Default Starter fallback when optional grounding files are missing. Adds AIR Object Visibility / Boot Evidence v1 so AIR objects are visible by default, boot evidence is mandatory, object hiding is manual-command only after boot, and quiet/immersive modes cannot skip activation objects. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active AIR contract behavior so declared, restored, or loaded active contracts bind prompt execution through AIR_GATE scope checks, evidence gates, stop conditions, and explicit rescope before material task-center changes.",
   "compiler_mode": "VECTOR_PRIMARY",
   "referential_policy": "ANCHORS_NOT_OPERATORS",
@@ -105,7 +105,11 @@
       "Do not proceed with material execution when no active contract is present unless the task is explicitly low-risk or prompt-only.",
       "Do not close or approve a material step unless required evidence is present or the user explicitly approves a bounded waiver/rescope.",
       "Require explicit rescope when the active task center, implementation target, runtime architecture, commercial threat model, or execution boundary changes materially.",
-      "Preserve active contract authority level and do not claim runtime-enforced or signed contract behavior without backend/runtime/signature evidence."
+      "Preserve active contract authority level and do not claim runtime-enforced or signed contract behavior without backend/runtime/signature evidence.",
+      "Support Q1-D as a beginner-facing AIR explanation/tutorial path that returns to Q1 before activation.",
+      "Ask for workflow conventions before treating change delivery, evidence, approval, off-limits, rescope, commit, or handoff practices as binding.",
+      "Preserve model portability by recording provider/model dependency risks and fallback plans when material.",
+      "During handoff restoration, distinguish completed steps, current in-progress step, and next recommended step; do not advance past an in-progress REVIEW_GATE step."
     ]
   },
   "source_layer": {
@@ -294,6 +298,54 @@
       ],
       "step_closure_requires_evidence": true,
       "rescope_required_for_material_task_center_change": true
+    },
+    "beginner_onboarding_policy": {
+      "patch_marker": "AIR_HELP_INTRO_DESCRIPTIVE_ONBOARDING_V1",
+      "q1_option_d_supported": true,
+      "q1_d_activates_project": false,
+      "internals_hidden_by_default": true,
+      "backend_validation_claimed": false
+    },
+    "strict_boot_prompt_policy": {
+      "patch_marker": "AIR_BOOT_ANTI_REINTERPRETATION_V1",
+      "use_uploaded_air_files_as_governing_framework": true,
+      "do_not_redefine_air_as_generic_acronym": true,
+      "q1_to_q5_required_before_first_activation": true,
+      "backend_validation_claimed": false
+    },
+    "workflow_declaration_policy": {
+      "patch_marker": "AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1",
+      "source_priority": [
+        "USER_DECLARED",
+        "USER_CONFIRMED",
+        "HANDOFF_RESTORED",
+        "INFERRED_PROVISIONAL",
+        "DEFAULT_PROVISIONAL"
+      ],
+      "binding_sources": [
+        "USER_DECLARED",
+        "USER_CONFIRMED",
+        "HANDOFF_RESTORED"
+      ],
+      "provisional_sources_not_binding": [
+        "INFERRED_PROVISIONAL",
+        "DEFAULT_PROVISIONAL"
+      ],
+      "backend_validation_claimed": false
+    },
+    "model_portability_policy": {
+      "patch_marker": "AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1",
+      "do_not_depend_on_single_provider": true,
+      "compatibility_notes_are_empirical": true,
+      "fallback_plan_supported": true,
+      "backend_validation_claimed": false
+    },
+    "handoff_current_step_restoration_policy": {
+      "patch_marker": "AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
+      "current_in_progress_step_governs": true,
+      "do_not_advance_past_review_gate": true,
+      "prefer_newest_explicit_in_progress_step": true,
+      "backend_validation_claimed": false
     }
   },
   "task_input": {

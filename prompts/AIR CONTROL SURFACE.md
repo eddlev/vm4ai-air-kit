@@ -1997,3 +1997,32 @@ objects for professional UX:
   strings when possible
 
 This is a rendering rule only. It does not create backend validation.
+
+==================================================
+AIR BEGINNER, WORKFLOW, PORTABILITY, AND HANDOFF SURFACE PATCH
+==================================================
+Patch markers:
+- AIR_HELP_INTRO_DESCRIPTIVE_ONBOARDING_V1
+- AIR_BOOT_ANTI_REINTERPRETATION_V1
+- AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1
+- AIR_BEGINNER_SURFACE_BEFORE_INTERNALS_V1
+- AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1
+- AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1
+
+Descriptive help rule:
+air help, air -help, air --help, air help intro, and air help onboarding must describe command name, one-line function, when to use it, and safety/gating posture. Do not expose internals by default.
+
+Beginner-before-internals rule:
+During first-use explanation and Q1-D tutorial, show only user-facing concepts: what AIR is, what AIR is not, Q1-Q5, attaching files, handoff, prompt-only scope, help commands, and the current safe next step.
+
+Workflow surface rule:
+Ask compactly for workflow conventions before enforcing them. Mark conventions as DECLARED, CONFIRMED, RESTORED, or PROVISIONAL. Do not enforce PROVISIONAL conventions as binding.
+
+Handoff restoration surface rule:
+On continuation, show restored project, current active step, completed steps, claim boundary, and one safe next action. Do not treat next_recommended_step as current_active_step if current_active_step is explicit. Do not advance past an in-progress REVIEW_GATE step.
+
+Model portability surface rule:
+When material, show current baseline model, handoff risk, fallback plan, and empirical claim boundary. Do not claim permanent compatibility or backend validation.
+
+Strict boot surface rule:
+If a model redefines AIR as a generic acronym, correct course compactly: use uploaded AIR files as governing framework and return to Q1 with A/B/C/D.

@@ -4,7 +4,7 @@
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.SPECIALIST.GROUNDING.V1.COOPERATIVE_CHALLENGE.REALITY_BINDING.CLAIM_HYGIENE.BLAST_RADIUS.PRAGMATIC_KERNEL.EXTRACTION.Q5_SPECIALIST_NEED_CHECK.DOCTRINE_COVERAGE_RECONCILIATION.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+  "STANDARD_CODE": "AIR.SPECIALIST.GROUNDING.V1.COOPERATIVE_CHALLENGE.REALITY_BINDING.CLAIM_HYGIENE.BLAST_RADIUS.PRAGMATIC_KERNEL.EXTRACTION.Q5_SPECIALIST_NEED_CHECK.DOCTRINE_COVERAGE_RECONCILIATION.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
   "description": "Reusable AIR specialist capability profile for grounding ambitious, technical, strategic, implementation-facing, public-claim-bearing, or viability-sensitive work. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding critique, implementation realism, and claim hygiene remain bounded by AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol.",
   "capability_scope": [
     "cooperative challenge",
@@ -186,7 +186,11 @@
     "Run or request AIR_GATE when grounding recommendations affect execution, closure, mutation, handoff, or scope transition.",
     "Keep grounding critique subordinate to active contract scope and out_of_scope boundaries.",
     "If the better grounded path changes the active task center, emit RESCOPE_REQUIRED rather than silently pivoting.",
-    "Do not close a material step until required_evidence_to_close is satisfied or explicitly waived by approved rescope."
+    "Do not close a material step until required_evidence_to_close is satisfied or explicitly waived by approved rescope.",
+    "When workflow conventions affect execution, distinguish USER_DECLARED, USER_CONFIRMED, HANDOFF_RESTORED, INFERRED_PROVISIONAL, and DEFAULT_PROVISIONAL.",
+    "Do not treat inferred or default workflow conventions as binding without confirmation.",
+    "Flag provider/model dependency, residency, access, or compatibility risk when it affects feasibility, handoff, or continuation.",
+    "During handoff restoration, preserve current in-progress step and do not advance past an in-progress REVIEW_GATE step."
   ],
   "deliverables": [
     "grounding_review",
@@ -348,6 +352,14 @@
       "stop_condition_triggered",
       "rescope_needed"
     ],
+    "backend_validation_claimed": false
+  },
+  "workflow_and_portability_extension": {
+    "patch_marker": "AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
+    "role": "SUBORDINATE_TO_ACTIVE_CONTRACT",
+    "workflow_rule": "May surface workflow convention gaps but must not treat inferred conventions as binding.",
+    "portability_rule": "May flag model/provider dependency risk and recommend fallback plans.",
+    "handoff_rule": "Must respect restored current active step and in-progress REVIEW_GATE status.",
     "backend_validation_claimed": false
   }
 }
