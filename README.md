@@ -12,10 +12,12 @@ It helps an AI session behave less like a loose chatbot and more like a structur
 - it helps the user understand the next step
 - it evaluates work against an inferred execution benchmark instead of the user's gap state
 - it keeps claims bounded to available evidence
+- it detects when a task needs a specialist, domain package, or reusable method layer
+- it keeps deterministic onboarding deterministic instead of letting the host model guess branch answers
 
 AIR is not roleplay and not a simulation shell.
 
-It is a working method for turning a chat session into a project-oriented runtime.
+It is a working method for turning a chat session into a project-oriented prompt runtime.
 
 ## Public scope
 
@@ -26,7 +28,7 @@ It does not include the private AIR backend/client runtime.
 This kit does not provide:
 
 - backend validation
-- runtime enforcement
+- runtime enforcement outside the model session
 - signed contracts
 - tamper-evident artifacts
 - tool execution
@@ -53,7 +55,9 @@ Then type:
 Start a new AIR project.
 ```
 
-AIR should run onboarding, bind the starter profile, orient the user, emit the project map, and generate only the current active-step artifact by default.
+AIR should begin the onboarding flow. It should not skip Q1.
+
+Important: `Start a new AIR project` may trigger the first activation flow, but it must not silently answer Q1 as `A. New project`. Q1 is a branch selector. AIR must ask it unless a valid handoff restores the answer or the user explicitly approves an inference.
 
 ### Continuation boot bundle
 
@@ -74,14 +78,14 @@ If you want the live session-management layer active in that continuation sessio
 
 ## Strict boot prompt
 
-Some models may misunderstand AIR or redefine it as a generic acronym. If that happens, use this stricter boot prompt:
+Some models may misunderstand AIR, redefine it as a generic acronym, or try to infer onboarding answers from the boot prompt. If that happens, use this stricter boot prompt:
 
 ```text
 Use the uploaded AIR files as the governing framework. Do not redefine AIR as a generic acronym.
 
 Start AIR Core Runtime, attach AIR Control Surface only as required by the uploaded runtime, and load the default starter profile.
 
-Important: do not explain internal runtime machinery, geometry binding, lambda pressure, specialist routing, or profile laws unless I ask for internals.
+Important: do not explain internal runtime machinery, geometry binding, lambda pressure, specialist routing, profile laws, capability-layer routing, or method-pack doctrine unless I ask for internals.
 
 Begin with the user-facing AIR onboarding flow only.
 
@@ -93,7 +97,10 @@ B. Import project
 C. Continue project from handoff card
 D. Explain AIR first / show onboarding tutorial
 
-Do not skip Q1-Q5. Do not ask for a "first task or activation goal" before Q1-Q5.
+Do not infer Q1 from this prompt.
+Do not skip Q1-Q5.
+Do not ask for a "first task" or "activation goal" before Q1-Q5.
+If Q1-D is selected, explain AIR and then return to Q1 without activating a project.
 ```
 
 ## Why AIR exists
@@ -106,8 +113,10 @@ Most AI usage is still chat-based:
 - no project map
 - no continuity across sessions
 - no stable distinction between discussion, execution, review, and delivery
+- no clear boundary between model confidence and actual evidence
+- no reliable way to know when the task needs a sharper capability layer
 
-AIR introduces a different model:
+AIR introduces a different model.
 
 ### Explicit workflow
 
@@ -131,6 +140,18 @@ AIR does not treat the user as the execution benchmark.
 
 AIR infers a benchmark identity for the active task, instantiates a rubric, and evaluates output against that benchmark before receiver-facing delivery.
 
+### Capability-layer routing
+
+AIR can detect when the Default Starter is not enough.
+
+When needed, AIR may recommend:
+
+- a specialist profile
+- a domain package
+- a method pack
+
+AIR may recommend these automatically, but it may not silently generate or bind them. Generation requires explicit user approval. Binding requires validation and routing fit.
+
 ### Handoff continuity
 
 AIR can transfer compact project state across sessions without rerunning the whole project from scratch.
@@ -147,6 +168,9 @@ AIR is useful for work that benefits from:
 - controlled execution instead of vague drift
 - evidence-aware review
 - careful claim boundaries
+- capability-specific judgment
+- domain-specific evidence expectations
+- repeatable procedure when a task recurs
 
 Typical use cases include:
 
@@ -159,6 +183,7 @@ Typical use cases include:
 - operational planning
 - policy and compliance-adjacent work
 - long-running multi-step projects that need continuity
+- prompt-kit and documentation patch workflows
 
 If the work benefits from structure, sequencing, clarity, and explicit next-step control, AIR is a good fit.
 
@@ -230,6 +255,7 @@ Use this to:
 It handles:
 
 - onboarding
+- deterministic onboarding answer handling
 - routing
 - contract binding
 - activation
@@ -237,6 +263,8 @@ It handles:
 - project execution map
 - active-step artifact creation
 - readiness framing
+- capability-layer need detection
+- method-layer routing
 - benchmark identity inference
 - receiver delivery state
 - handoff restoration
@@ -259,6 +287,9 @@ It governs:
 - compact review escalation
 - visibility commands
 - help commands
+- deterministic onboarding check rendering
+- capability-layer recommendation rendering
+- method-layer state rendering
 - receiver delivery rendering
 
 This is the live session-management layer.
@@ -276,6 +307,9 @@ It defines:
 - active-step artifact behavior
 - readiness and coding-governance requirements
 - benchmark support
+- deterministic onboarding protection
+- capability-layer need detection
+- method-layer defaults
 - prompt-side claim boundaries
 
 This is the default governing profile.
@@ -303,6 +337,9 @@ It carries:
 - receiver delivery state
 - benchmark state when relevant
 - workflow and portability state when relevant
+- deterministic onboarding state when relevant
+- capability-layer recommendation state when relevant
+- method-layer state when relevant
 
 It does not replace the runtime prompts.
 
@@ -311,6 +348,22 @@ It is the continuity object.
 ## Onboarding
 
 When AIR starts a new project, it asks onboarding questions.
+
+### Deterministic onboarding rule
+
+Q1-Q5 are deterministic onboarding questions.
+
+AIR must not infer their answers from activation prompts, attached AIR files, file names, model assumptions, or host-model interpretation unless a permitted inference condition is met.
+
+Q1 has the strictest rule: Q1 is a branch selector, not an intent classifier. It must be user-explicit, user-approved inference, or handoff-restored.
+
+Permitted inference conditions:
+
+- the user explicitly asks AIR to choose or infer an answer
+- the user says they do not know how to answer
+- the user gives ambiguous or non-matching input after the question has already been asked
+- AIR proposes an inference visibly and the user approves it
+- a valid handoff card restores the answer
 
 ### Q1 - What are you doing today?
 
@@ -371,6 +424,81 @@ Provide:
 - attached files, if you have them
 
 If you have no sources yet, say so. AIR can still start in provisional source-light mode.
+
+## Capability layers
+
+AIR has a layered prompt-runtime model.
+
+### Specialist profile
+
+A specialist profile provides reusable capability posture.
+
+Use a specialist when the task needs a coherent judgment standard, rubric, blocking conditions, capability-specific behavior, or output contract beyond the Default Starter.
+
+Examples:
+
+- grounding and viability review
+- architecture review
+- research synthesis
+- documentation/rewrite review
+- product strategy review
+
+Specialists may govern capability posture when validly matched and bound. They must not silently redefine the live project purpose.
+
+### Domain package
+
+A domain package provides referential domain knowledge.
+
+Use a domain package when correctness depends on terminology, standards, model/version syntax, external platform behavior, evidence expectations, known failure modes, or claim boundaries.
+
+Domain packages inform. They do not become Orbit 0 by themselves.
+
+### Method layer
+
+AIR Methods are the procedure layer.
+
+The default method location is:
+
+```text
+AIR_ARTIFACT.method
+```
+
+This keeps the applied procedure fitted to the current active task.
+
+A reusable `AIR_METHOD_PACK` should be promoted only when justified by:
+
+- recurring task class
+- low-variance procedure requirement
+- portability across sessions, projects, or models
+- reusable templates or assets
+- evidence-to-advance gates
+- previous variance, defect, or rework
+
+A Method Pack standardizes procedure. It does not prove execution occurred and must not be treated as backend validation.
+
+## Capability layer checks
+
+AIR should tell the user when a task needs additional capability support.
+
+A compact check may look like:
+
+```text
+capability layer check
+specialist: needed
+domain package: optional
+method pack: inline method sufficient
+
+why
+The task requires grounded implementation review and claim hygiene.
+
+blocks current work?
+no, but output remains degraded without the specialist.
+
+next
+attach existing / create provisional / continue degraded / approve generation
+```
+
+Users should not be expected to know when a specialist, domain package, or method pack is needed. AIR should detect the trigger and ask.
 
 ## Workflow declaration
 
@@ -488,6 +616,8 @@ Then continue only from the next recommended step.
 
 If the handoff contains an in-progress REVIEW_GATE step, AIR should not advance past it to a later recommended step without explicit user approval.
 
+Handoff cards may also preserve deterministic onboarding state, capability-layer recommendations, generated profiles pending validation, domain overlays, method-layer state, and method-pack promotion candidates.
+
 ## Model portability
 
 AIR is designed to be prompt-native and portable across capable LLM platforms, but boot quality and handoff restoration vary by model and interface.
@@ -519,6 +649,8 @@ Current observed notes are maintained in:
 - Prompt-compiled AIR should remain explicit about being provisional when backend validation does not exist.
 - The default behavior is designed to preserve focus by generating only the active-step artifact by default.
 - Specialized profiles may be attached when relevant, but the default starter remains the normal starting point.
+- AIR may recommend specialists, domain packages, or method packs when the task calls for them.
+- AIR may generate capability layers only after explicit user approval.
 - AIR is machine-first. Human-role language may be useful as shorthand, but benchmark evaluation, vectors, readiness, and fail-closed constraints remain the operative layer.
 
 ## License

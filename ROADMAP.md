@@ -13,6 +13,8 @@ In scope:
 - AIR prompt files
 - starter profiles
 - optional specialist profiles
+- optional domain packages
+- optional method packs
 - handoff templates
 - public documentation
 - prompt-side usage guidance
@@ -22,7 +24,7 @@ In scope:
 Out of scope:
 
 - backend validation
-- runtime enforcement
+- runtime enforcement outside the model session
 - signed or tamper-evident contracts
 - autonomous agent execution
 - private AIR backend/client features
@@ -36,7 +38,8 @@ Out of scope:
 - improve first-use clarity
 - preserve model portability
 - avoid speculative feature promises
-- avoid prompt sprawl unless a profile has concrete public value
+- avoid prompt sprawl unless a profile, domain package, or method pack has concrete public value
+- keep capability layers explicit, approved, validated, and routed
 
 ## Current status
 
@@ -56,33 +59,50 @@ Delivered:
 - active-step-only artifact discipline
 - handoff continuity
 
-## Current objective
+### v0.2.0 - Public prompt-kit refresh
 
-### v0.1.1 - Public prompt-kit clarity and portability patch
+Status: released
+
+Delivered:
+
+- refreshed public README and documentation
+- obsolete agent-bridge material removed
+- prompt-only scope clarified
+- licensing and notice metadata clarified
+- onboarding and ambiguity handling docs improved
+- grounding profile doctrine aligned across canonical JSON and human-readable Markdown references
+- workflow declaration, model portability, and handoff restoration doctrine added
+- AIR Core Runtime, Control Surface, starter profile, and handoff template updated
+
+### v0.2.1 - Deterministic onboarding and capability-layer routing patch
+
+Status: in progress
 
 Goal:
 
-Make the public AIR Kit easier to boot, easier to understand, and more honest about prompt-only scope.
+Make AIR's prompt-runtime behavior more deterministic, easier to trust across models, and clearer about when additional capability layers are needed.
 
 Planned:
 
-- remove obsolete agent bridge material from the public kit
-- update README with prompt-only scope
-- add AIR User Guide
-- add model portability notes
-- add strict boot guidance for models that reinterpret AIR
-- add Q1 tutorial path documentation
-- document declaration-first workflow conventions
-- document cross-model handoff testing results
-- keep backend/runtime claims out of public prompt-kit documentation
+- document deterministic onboarding non-inference
+- clarify that Q1 is a branch selector, not an intent classifier
+- document that Q1-D tutorial flow must return to Q1 and must not activate a project
+- document capability-layer need detection
+- explain specialists, domain packages, and method packs in public-facing language
+- document AIR Method Layer behavior
+- clarify that `AIR_ARTIFACT.method` is the default task-local procedure layer
+- clarify that `AIR_METHOD_PACK` is promoted only on reuse, low variance, portability, template need, or defect history
+- update README and User Guide with the new behavior
+- preserve prompt/backend claim boundaries in all documentation
+- create release notes for v0.2.1
 
 Success criteria:
 
-- new users can boot AIR from the README without extra explanation
-- README clearly describes AIR Kit as prompt-based only
-- docs explain what AIR is and is not
-- model portability notes give practical boot and handoff guidance
-- no public documentation implies backend validation, runtime enforcement, signed contracts, or autonomous agent execution
+- new users understand that onboarding choices cannot be guessed from the boot prompt
+- README describes specialists, domain packages, and method packs without implying backend tooling
+- User Guide explains when AIR should request capability layers
+- release notes describe the patch clearly
+- no public documentation implies backend validation, runtime enforcement, signed contracts, tool execution, or autonomous agent execution
 
 ## Candidate prompt-only improvements
 
@@ -93,12 +113,16 @@ These are concrete prompt-kit improvements that may be worth adding if they rema
 Possible additions:
 
 - example new-project boot
+- example Q1-D tutorial flow
+- example deterministic onboarding correction
 - example import flow
 - example handoff card
 - example continuation session
 - example AIR help response
 - example AIR compact vs verbose response
 - example REVIEW_GATE and REJECT_REPORT
+- example capability-layer check
+- example method promotion decision
 
 Value:
 
@@ -112,6 +136,7 @@ Possible additions:
 - status labels for boot and handoff tests
 - recommended prompt variants per model class
 - known failure modes
+- deterministic onboarding regression notes
 
 Value:
 
@@ -124,6 +149,9 @@ Possible additions:
 - README check
 - prompt file consistency check
 - Q1-Q5 check
+- deterministic onboarding check
+- capability-layer routing check
+- method-layer check
 - handoff template check
 - model portability note check
 - claim boundary check
@@ -142,6 +170,8 @@ Possible additions:
 - research synthesis case
 - handoff continuation case
 - ambiguity handling case
+- deterministic onboarding failure/regression case
+- capability-layer recommendation case
 
 Value:
 
@@ -162,6 +192,8 @@ Rules:
 - each profile must have a clear public prompt-side use case
 - each profile must remain compatible with AIR Core Runtime
 - each profile must preserve prompt/backend claim boundaries
+- each profile should have a matching domain package only when domain facts or evidence expectations materially matter
+- method packs should be promoted only after recurring procedure value is established
 
 ## Non-goals
 
@@ -169,11 +201,12 @@ The public prompt-version repo will not aim to:
 
 - publish an SDK
 - pretend the prompt kit is a backend runtime
-- provide runtime enforcement
+- provide runtime enforcement outside the model session
 - provide signed or tamper-evident artifacts
 - act as an autonomous agent executor
 - promise provider-independent reliability
 - bloat the repo with too many profiles too early
+- create method packs for one-off tasks
 - replace the private backend/client implementation
 
 ## Working model
@@ -181,10 +214,12 @@ The public prompt-version repo will not aim to:
 AIR should continue to operate as:
 
 1. project activation
-2. project map creation
-3. current active-step artifact generation
-4. review and receiver delivery
-5. handoff
-6. continuation
+2. deterministic onboarding
+3. project map creation
+4. current active-step artifact generation
+5. capability-layer need detection when material
+6. review and receiver delivery
+7. handoff
+8. continuation
 
 The public kit should remain useful without backend access.
