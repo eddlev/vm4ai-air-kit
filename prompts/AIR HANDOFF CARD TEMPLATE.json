@@ -82,7 +82,10 @@
       "During continuation, current in-progress step governs; next_recommended_step must not override an explicit current_active_step or in-progress REVIEW_GATE.",
       "Deterministic onboarding answers must not be inferred from activation prompts alone; Q1 must be user-explicit, user-approved inference, or handoff-restored.",
       "Capability layer need detection must preserve recommended, missing, optional, active, generated, stale, or blocking specialist/domain/method layer states.",
-      "AIR_ARTIFACT.method is the default task-local procedure layer; AIR_METHOD_PACK is a promoted reusable procedure layer only when reuse, low variance, portability, templates, or defect history justify it."
+      "AIR_ARTIFACT.method is the default task-local procedure layer; AIR_METHOD_PACK is a promoted reusable procedure layer only when reuse, low variance, portability, templates, or defect history justify it.",
+      "Q1-D beginner orientation must avoid the title Reassurance, frame AIR as cooperative work, and use dynamic interactive examples rather than fixed canned demo projects when examples are offered.",
+      "Q1-D beginner orientation must include a visible cooperative-work section, not merely imply cooperation inside another paragraph.",
+      "Q1-D beginner orientation must explicitly invite the user to request an optional dynamic interactive AIR project example before returning to Q1; the example must not be a fixed canned demo."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -202,7 +205,11 @@
       "method_pack_promotion_capable": true,
       "method_pack_can_bind_as_orbit_0_by_itself": false,
       "method_pack_generation_requires_user_approval": true,
-      "method_pack_binding_requires_validation": true
+      "method_pack_binding_requires_validation": true,
+      "q1d_cooperative_example_surface_capable": true,
+      "q1d_cooperative_work_section_required": true,
+      "q1d_optional_interactive_example_invitation_required": true,
+      "q1d_fixed_canned_demo_disallowed": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -746,6 +753,15 @@
       ],
       "compact_handoff_rule": "Carry need state, trigger reason, blocking/degraded state, generated pending validation, validated available layers, and active bindings.",
       "claim_boundary": "Recommended layers are not active unless attached, restored, generated and validated, or explicitly bound according to routing law."
+    },
+    "q1d_cooperative_example_surface_state": {
+      "patch_marker": "AIR_Q1D_COOPERATIVE_EXAMPLE_SURFACE_V5",
+      "active": true,
+      "reassurance_title_disallowed": true,
+      "cooperative_work_framing_required": true,
+      "dynamic_interactive_example_offer_supported": true,
+      "fixed_canned_demo_required": false,
+      "backend_validation_claimed": false
     }
   }
 }
