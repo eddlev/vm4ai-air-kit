@@ -76,22 +76,26 @@ Delivered:
 
 ### v0.2.1 - Deterministic onboarding and capability-layer routing patch
 
-Status: in progress
+Status: released
 
 Goal:
 
 Make AIR's prompt-runtime behavior more deterministic, easier to trust across models, and clearer about when additional capability layers are needed.
 
-Planned:
+Delivered:
 
 - document deterministic onboarding non-inference
 - clarify that Q1 is a branch selector, not an intent classifier
-- document that Q1-D tutorial flow must return to Q1 and must not activate a project
+- document that Q1-D beginner orientation must return to Q1 and must not activate a project
 - document capability-layer need detection
 - explain specialists, domain packages, and method packs in public-facing language
 - document AIR Method Layer behavior
 - clarify that `AIR_ARTIFACT.method` is the default task-local procedure layer
 - clarify that `AIR_METHOD_PACK` is promoted only on reuse, low variance, portability, template need, or defect history
+- harden Q1-D beginner orientation ordering and first-contact tone
+- rename tutorial-facing language toward beginner orientation
+- require Q1-D cooperative-work framing
+- require Q1-D to visibly offer an optional dynamic interactive example AIR project before returning to Q1
 - update README and User Guide with the new behavior
 - preserve prompt/backend claim boundaries in all documentation
 - create release notes for v0.2.1
@@ -100,9 +104,35 @@ Success criteria:
 
 - new users understand that onboarding choices cannot be guessed from the boot prompt
 - README describes specialists, domain packages, and method packs without implying backend tooling
+- README describes Q1-D as beginner orientation, not project activation
+- Q1-D orientation explains cooperative work and optional interactive examples
 - User Guide explains when AIR should request capability layers
 - release notes describe the patch clearly
 - no public documentation implies backend validation, runtime enforcement, signed contracts, tool execution, or autonomous agent execution
+
+### v0.2.2 - Documentation examples and release hygiene
+
+Status: proposed
+
+Goal:
+
+Turn the newly hardened onboarding behavior into easy-to-follow public examples and release hygiene.
+
+Candidate scope:
+
+- add a short Q1-D beginner orientation example
+- add a dynamic interactive example project transcript
+- add a deterministic onboarding regression example
+- add a prompt-kit release checklist
+- add release notes for v0.2.1
+- update user guide language from tutorial to beginner orientation where needed
+
+Success criteria:
+
+- users can understand Q1-D without reading runtime internals
+- examples demonstrate cooperative work without implying backend validation
+- release checklist catches stale roadmap/README wording after prompt patches
+- documentation stays prompt-native and does not imply private backend features
 
 ## Candidate prompt-only improvements
 
@@ -113,7 +143,8 @@ These are concrete prompt-kit improvements that may be worth adding if they rema
 Possible additions:
 
 - example new-project boot
-- example Q1-D tutorial flow
+- example Q1-D beginner orientation flow
+- example dynamic interactive AIR project from Q1-D
 - example deterministic onboarding correction
 - example import flow
 - example handoff card

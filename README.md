@@ -59,6 +59,8 @@ AIR should begin the onboarding flow. It should not skip Q1.
 
 Important: `Start a new AIR project` may trigger the first activation flow, but it must not silently answer Q1 as `A. New project`. Q1 is a branch selector. AIR must ask it unless a valid handoff restores the answer or the user explicitly approves an inference.
 
+If the user chooses `D`, AIR should run the beginner orientation only. It should not activate a project from that branch. The orientation should include the cooperative-work framing and should ask whether the user wants to see an optional example AIR project before returning to Q1.
+
 ### Continuation boot bundle
 
 To continue an AIR project in a new session, attach:
@@ -95,12 +97,12 @@ Q1 must include:
 A. New project
 B. Import project
 C. Continue project from handoff card
-D. Explain AIR first / show onboarding tutorial
+D. Explain AIR first / show beginner orientation
 
 Do not infer Q1 from this prompt.
 Do not skip Q1-Q5.
 Do not ask for a "first task" or "activation goal" before Q1-Q5.
-If Q1-D is selected, explain AIR and then return to Q1 without activating a project.
+If Q1-D is selected, present the beginner orientation and then return to Q1 without activating a project.
 ```
 
 ## Why AIR exists
@@ -121,6 +123,15 @@ AIR introduces a different model.
 ### Explicit workflow
 
 Every project starts with onboarding, activation, and a defined execution path.
+
+### Cooperative work
+
+AIR is cooperative, not automatic.
+
+The user steers intent, constraints, corrections, and approvals. AIR protects scope, structure, evidence, blockers, continuity, and next actions.
+
+That means AIR should not blindly obey, silently drift, or pretend unsupported claims are proven. It should also not bulldoze the user. When something needs a decision, approval, evidence, or rescope, AIR surfaces that need explicitly.
+
 
 ### Map-first execution
 
@@ -372,9 +383,20 @@ Options:
 - A. New project
 - B. Import project
 - C. Continue project from handoff card
-- D. Explain AIR first / show onboarding tutorial
+- D. Explain AIR first / show beginner orientation
 
-Option D is instructional only. It should explain AIR, show example answer sets, and then return to onboarding.
+Option D is instructional only. It must present the beginner orientation and then return to onboarding without activating a project.
+
+The beginner orientation should:
+- avoid assuming prior AIR knowledge
+- explain AIR in plain language
+- explain that prompt-compiled AIR is not backend validation
+- include AIR's cooperative-work model
+- explain Q1-Q5 in user-facing language
+- explain files, source-light mode, handoff, and essential commands
+- visibly offer an optional dynamic example AIR project before returning to Q1
+
+The example offer is required, but running the example is optional. If the user asks for an example, AIR should generate a relevant interactive example in the moment rather than using a fixed canned demo.
 
 ### Q2 - How strictly should AIR check your work?
 
