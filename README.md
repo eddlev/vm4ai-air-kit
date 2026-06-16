@@ -57,9 +57,18 @@ Start a new AIR project.
 
 AIR should begin the onboarding flow. It should not skip Q1.
 
-Important: `Start a new AIR project` may trigger the first activation flow, but it must not silently answer Q1 as `A. New project`. Q1 is a branch selector. AIR must ask it unless a valid handoff restores the answer or the user explicitly approves an inference.
+A minimal boot header may appear after required boot evidence:
 
-If the user chooses `D`, AIR should run the beginner orientation only. It should not activate a project from that branch. The orientation should include the cooperative-work framing and should ask whether the user wants to see an optional example AIR project before returning to Q1.
+```text
+AIR boot active.
+
+Prompt-compiled from uploaded AIR materials.
+Not backend-validated.
+```
+
+Important: `Start a new AIR project` may trigger the first activation flow, but it must not silently answer Q1 as `A. New project`. Q1 is a branch selector. AIR must ask it unless a valid handoff restores the answer or the user explicitly approves an inference. If the user asks a question during Q1, AIR should answer the question and return to Q1 rather than treating the question as a branch choice.
+
+If the user chooses `D`, AIR should run the beginner orientation only. It should not activate a project from that branch. The orientation should include the cooperative-work framing and should ask whether the user wants to see an optional example project showing how AIR works before returning to Q1.
 
 ### Continuation boot bundle
 
@@ -151,6 +160,8 @@ AIR does not treat the user as the execution benchmark.
 
 AIR infers a benchmark identity for the active task, instantiates a rubric, and evaluates output against that benchmark before receiver-facing delivery.
 
+The benchmark identity is a **synthetic role**. It is not a normal human job title. It is a task-fitted blend of vectors, constraints, evidence expectations, and relevant professional taxonomies selected for the current active step.
+
 ### Capability-layer routing
 
 AIR can detect when the Default Starter is not enough.
@@ -162,6 +173,33 @@ When needed, AIR may recommend:
 - a method pack
 
 AIR may recommend these automatically, but it may not silently generate or bind them. Generation requires explicit user approval. Binding requires validation and routing fit.
+
+### Visionary grounding
+
+AIR should not reject ambitious or impossible-sounding ideas merely because the
+first proposed mechanism is not currently evidenced.
+
+Current infeasibility is a routing state, not a dismissal state.
+
+For visionary, speculative, frontier, or unsupported ideas, AIR should preserve
+the ambition, separate current claims from future targets, ask grounding
+questions, and extract realistic research, product, creative, or implementation
+kernels when possible.
+
+### Regulatory pressure discovery
+
+AIR may detect when a project touches surfaces that could create regulatory or
+compliance pressure, such as cloud storage, user accounts, personal data,
+payments, analytics, AI processing, health, finance, identity, children,
+cross-border users, public launch, or company deployment.
+
+AIR should ask narrow jurisdiction, user, data, deployment, and release-context
+questions before treating the project as release-ready, compliant, safe to
+publish, or publicly claimable.
+
+AIR does not provide legal advice and must not claim compliance without
+authoritative sources, legal review, or user-supplied jurisdiction-specific
+evidence.
 
 ### Handoff continuity
 
@@ -356,6 +394,8 @@ It does not replace the runtime prompts.
 
 It is the continuity object.
 
+When AIR emits a handoff card, the handoff should be copyable as a strict JSON restoration object. AIR should not add greetings, narrative framing, or commentary around the JSON unless the user explicitly asks for an explanatory version.
+
 ## Onboarding
 
 When AIR starts a new project, it asks onboarding questions.
@@ -367,6 +407,8 @@ Q1-Q5 are deterministic onboarding questions.
 AIR must not infer their answers from activation prompts, attached AIR files, file names, model assumptions, or host-model interpretation unless a permitted inference condition is met.
 
 Q1 has the strictest rule: Q1 is a branch selector, not an intent classifier. It must be user-explicit, user-approved inference, or handoff-restored.
+
+Use B when you are bringing an existing non-AIR project into AIR. Use C only when you have a valid AIR handoff card.
 
 Permitted inference conditions:
 
@@ -522,6 +564,23 @@ attach existing / create provisional / continue degraded / approve generation
 
 Users should not be expected to know when a specialist, domain package, or method pack is needed. AIR should detect the trigger and ask.
 
+Before approval, AIR should show a compact capability brief:
+
+```text
+capability brief
+authorization required
+
+• detected trigger: task requires implementation-grounded review and public claim hygiene
+• recommended layer: AIR Grounding Specialist
+• primary constraint: unsupported production or validation claims will be blocked
+• output effect: review becomes stricter, with evidence gates, blast-radius notes, and practical next-step recommendations
+
+approve one:
+bind validated / continue degraded
+```
+
+Specialist profiles change evaluation posture. Domain packages change terminology, constraints, evidence expectations, and claim boundaries. Method packs change repeatable procedure, templates, and evidence-to-advance gates.
+
 ## Workflow declaration
 
 AIR should ask for project workflow conventions before assuming them.
@@ -545,7 +604,7 @@ Workflow convention source priority:
 4. INFERRED_PROVISIONAL
 5. DEFAULT_PROVISIONAL
 
-Only declared, confirmed, or restored workflow conventions should become binding. Inferred or default values should stay provisional until confirmed.
+Only declared, confirmed, or restored workflow conventions should become prompt-binding. Inferred or default values should stay provisional until confirmed. Prompt-binding does not mean backend enforcement; it means AIR should follow the convention inside the prompt session unless the user changes it.
 
 ## AIR commands
 

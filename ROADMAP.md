@@ -134,6 +134,42 @@ Success criteria:
 - release checklist catches stale roadmap/README wording after prompt patches
 - documentation stays prompt-native and does not imply private backend features
 
+
+### v0.2.3 - Prompt runtime mechanics and usability hardening
+
+Status: proposed
+
+Goal:
+
+Harden prompt-side mechanics discovered through critique review without implying backend validation.
+
+Candidate scope:
+
+- clarify Q1 selection detours and Q1-B import-project behavior
+- add prompt-side Orbit 0 anchoring and compact benchmark visibility when material
+- add capability brief permission gates with output-effect explanations
+- clarify prompt-binding vs provisional workflow convention authority
+- require strict JSON-only handoff output when emitting handoff cards
+- bound Q1-D examples as example-project loops rather than single-feature demos
+- add a minimal boot orientation header after required boot evidence
+- clarify benchmark identity as a synthetic role scoped to the active step
+- add visionary grounding question-loop behavior
+- add regulatory pressure discovery gates
+
+Success criteria:
+
+- Q1 remains deterministic while allowing user questions during onboarding
+- users can distinguish import from handoff continuation
+- active-step anchoring is visible when drift risk is material
+- capability-layer approval explains what output behavior changes
+- workflow assumptions are not silently treated as binding
+- handoff cards remain clean restoration objects
+- Q1-D examples demonstrate the AIR loop without bloating context or implying backend features
+- benchmark labels are understandable as synthetic roles rather than ordinary human job titles
+- ambitious/frontier ideas are grounded through questions and kernel extraction rather than blanket rejection
+- possible regulatory pressure triggers jurisdiction/data/release discovery without legal-advice claims
+- all documentation preserves prompt/backend claim boundaries
+
 ## Candidate prompt-only improvements
 
 These are concrete prompt-kit improvements that may be worth adding if they remain useful and non-speculative.

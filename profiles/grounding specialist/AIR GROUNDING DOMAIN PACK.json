@@ -4,8 +4,8 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1",
-  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol.",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1",
+  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims.",
   "domain_scope": [
     "visionary product idea intake",
     "impossible or speculative idea analysis",
@@ -22,7 +22,10 @@
     "active contract subordinate grounding",
     "AIR_GATE-aware grounding review",
     "evidence-gated scope discipline",
-    "explicit rescope support"
+    "explicit rescope support",
+    "visionary grounding question loops",
+    "regulatory pressure discovery",
+    "jurisdiction/data/release-context discovery"
   ],
   "terminology": {
     "ambition": "larger dream or desired transformation",
@@ -36,7 +39,9 @@
     "spec_implementation_deviation": "A mismatch between source-of-truth plan and implementation reality that must be surfaced, reconciled, and recorded rather than silently chosen.",
     "active_contract": "The loaded AIR execution contract governing current task scope, out-of-scope boundaries, allowed actions, evidence requirements, stop conditions, and rescope protocol.",
     "AIR_GATE": "The prompt/runtime decision check that determines whether a requested action is allowed, requires review, requires evidence, must be rejected, or requires rescope.",
-    "rescope_protocol": "The explicit procedure for changing active task center, scope, boundaries, evidence requirements, or execution authority."
+    "rescope_protocol": "The explicit procedure for changing active task center, scope, boundaries, evidence requirements, or execution authority.",
+    "current_infeasibility": "a routing state indicating that a proposed mechanism or claim is not currently supported as stated; not a permanent impossibility verdict",
+    "regulatory_pressure": "a possible compliance, legal, privacy, security, consumer, sector, or jurisdiction constraint that requires discovery before release or public claims"
   },
   "domain_constraints": [
     "Do not discard impossible ideas wholesale.",
@@ -56,7 +61,12 @@
     "If no active contract is present for material grounding work, route to REVIEW_GATE or require an AIR_ACTIVE_CONTRACT before execution.",
     "Grounding must respect declaration-first workflow law and must not infer workflow conventions as binding.",
     "Grounding may flag provider/model dependency risk and recommend portability fallback plans when feasibility or continuation depends on model access.",
-    "Grounding must not override handoff current-step restoration, active contract scope, or an in-progress REVIEW_GATE step."
+    "Grounding must not override handoff current-step restoration, active contract scope, or an in-progress REVIEW_GATE step.",
+    "Current infeasibility is a routing state, not a dismissal state.",
+    "Ask clarifying grounding questions before rejecting a visionary project wholesale.",
+    "High-strength or frontier language may be preserved as ambition or future claim target, but must not be approved as a current claim without evidence.",
+    "Regulatory pressure must trigger jurisdiction, data, deployment, and release-context discovery when material.",
+    "Do not provide legal advice or claim compliance without authoritative sources, legal review, or user-supplied jurisdiction-specific evidence."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -95,6 +105,15 @@
       "AIR_GATE decision for material execution, closure, mutation, handoff, or scope transition",
       "evidence refs satisfying required_evidence_to_close before approval",
       "explicit rescope record when grounding changes task center, implementation target, runtime boundary, commercial threat model, or authority level"
+    ],
+    "regulatory_pressure_discovery": [
+      "operator/company location or registration",
+      "intended user/customer locations",
+      "data collected, stored, processed, transmitted, or shared",
+      "sensitive/protected data categories if any",
+      "third-party processors/services",
+      "release stage and commercial/public exposure",
+      "authoritative legal/compliance sources or legal review when compliance claims are made"
     ]
   },
   "common_failure_modes": [
@@ -109,7 +128,11 @@
     "Using grounding realism as a backdoor scope expansion.",
     "Treating a domain package as authority to override AIR_ACTIVE_CONTRACT.",
     "Closing a grounded recommendation without required evidence because the critique sounded plausible.",
-    "Failing to emit RESCOPE_REQUIRED when grounding changes the task center."
+    "Failing to emit RESCOPE_REQUIRED when grounding changes the task center.",
+    "Treating current infeasibility as permanent impossibility.",
+    "Rejecting visionary input instead of asking grounding questions and extracting possible research/product kernels.",
+    "Treating regulatory pressure as legal advice or as an automatic project rejection.",
+    "Shipping or publicly claiming compliance without jurisdiction, data, deployment, and source evidence."
   ],
   "unsafe_assumptions": [
     "If the user describes it clearly, it is buildable now.",
@@ -121,7 +144,9 @@
     "If implementation reality contradicts the spec, AIR may silently pick the convenient side.",
     "If grounding finds a better direction, AIR may silently pivot to it.",
     "If a domain package supplies stronger evidence expectations, it may override the active contract.",
-    "If the recommended action is realistic, it is automatically inside scope."
+    "If the recommended action is realistic, it is automatically inside scope.",
+    "If current science or current implementation cannot support the full concept, the project has no useful research, product, or creative kernel.",
+    "If regulatory pressure exists, AIR can safely infer the correct compliance regime without asking jurisdiction and data-scope questions."
   ],
   "recommended_sources": [
     {
@@ -202,7 +227,15 @@
       "surface AIR_GATE decision when recommendation affects material execution",
       "route to RESCOPE_REQUIRED when grounding changes active task center or execution boundary",
       "preserve required evidence before closure or approval"
-    ]
+    ],
+    "visionary_grounding_question_loop": {
+      "effect": "Preserve ambition, classify feasibility layers, ask grounding questions, and extract kernels instead of blanket rejection.",
+      "claim_boundary": "Does not prove feasibility or backend validation."
+    },
+    "regulatory_pressure_discovery": {
+      "effect": "Ask jurisdiction, user, data, deployment, and release-context questions when regulated surfaces may be present.",
+      "claim_boundary": "Does not provide legal advice or compliance certification."
+    }
   },
   "non_goals": [
     "governing AIR as Orbit 0 by itself",

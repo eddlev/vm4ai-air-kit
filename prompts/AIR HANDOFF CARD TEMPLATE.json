@@ -85,7 +85,18 @@
       "AIR_ARTIFACT.method is the default task-local procedure layer; AIR_METHOD_PACK is a promoted reusable procedure layer only when reuse, low variance, portability, templates, or defect history justify it.",
       "Q1-D beginner orientation must avoid the title Reassurance, frame AIR as cooperative work, and use dynamic interactive examples rather than fixed canned demo projects when examples are offered.",
       "Q1-D beginner orientation must include a visible cooperative-work section, not merely imply cooperation inside another paragraph.",
-      "Q1-D beginner orientation must explicitly invite the user to request an optional dynamic interactive AIR project example before returning to Q1; the example must not be a fixed canned demo."
+      "Q1-D beginner orientation must explicitly invite the user to request an optional dynamic interactive AIR project example before returning to Q1; the example must not be a fixed canned demo.",
+      "AIR handoff output should be emitted as exactly one top-level JSON object with root key AIR_HANDOFF_CARD when strict handoff output is requested.",
+      "Q1 questions or objections are onboarding detours, not selected Q1 branches.",
+      "Q1-B imports existing non-AIR project material; Q1-C restores from a valid AIR_HANDOFF_CARD.",
+      "Orbit 0 prompt-side anchoring should be preserved when it affected material execution, review, closure, handoff, mutation, or rescope.",
+      "Capability brief decisions should preserve detected trigger, recommended layer, primary constraint, output effect, and approval state when material.",
+      "Workflow conventions are prompt-binding only when user-declared, user-confirmed, or handoff-restored; inferred/default conventions remain provisional.",
+      "Q1-D optional examples should be example-project loops showing the whole AIR flow, not single-feature demos.",
+      "Minimal boot orientation header may be used after boot evidence, but it must not replace AIR_SESSION.",
+      "Benchmark identity is a synthetic role: a task-fitted blend of vectors, constraints, evidence expectations, and relevant professional taxonomies scoped to the current active step.",
+      "Current infeasibility is a routing state, not a dismissal state; visionary ideas should preserve ambition while separating proposed mechanism, current feasibility, research path, executable kernels, and future claim targets.",
+      "Regulatory uncertainty is a routing/evidence state, not legal advice or automatic rejection; release and compliance claims remain gated until jurisdiction, data, deployment, and evidence facts are supplied."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -209,7 +220,27 @@
       "q1d_cooperative_example_surface_capable": true,
       "q1d_cooperative_work_section_required": true,
       "q1d_optional_interactive_example_invitation_required": true,
-      "q1d_fixed_canned_demo_disallowed": true
+      "q1d_fixed_canned_demo_disallowed": true,
+      "q1_selection_import_clarity_capable": true,
+      "q1_question_detour_must_return_to_q1": true,
+      "q1_b_imports_non_air_project": true,
+      "q1_c_requires_valid_handoff": true,
+      "orbit0_prompt_side_anchoring_capable": true,
+      "capability_brief_permission_gate_capable": true,
+      "capability_layer_output_effects_capable": true,
+      "handoff_strict_json_output_capable": true,
+      "workflow_convention_authority_flag_capable": true,
+      "prompt_binding_is_backend_enforcement": false,
+      "q1d_accelerated_micro_project_example_capable": true,
+      "boot_minimal_orientation_header_capable": true,
+      "boot_header_replaces_boot_evidence": false,
+      "benchmark_synthetic_role_clarity_capable": true,
+      "benchmark_synthetic_role_is_human_job_title": false,
+      "visionary_grounding_question_loop_capable": true,
+      "current_infeasibility_is_dismissal_state": false,
+      "regulatory_pressure_discovery_gate_capable": true,
+      "regulatory_discovery_is_legal_advice": false,
+      "q1d_example_project_loop_capable": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -762,6 +793,30 @@
       "dynamic_interactive_example_offer_supported": true,
       "fixed_canned_demo_required": false,
       "backend_validation_claimed": false
-    }
+    },
+    "workflow_convention_authority": {
+      "prompt_binding_sources": [
+        "USER_DECLARED",
+        "USER_CONFIRMED",
+        "HANDOFF_RESTORED"
+      ],
+      "provisional_sources": [
+        "INFERRED_PROVISIONAL",
+        "DEFAULT_PROVISIONAL"
+      ],
+      "active_conventions": [],
+      "provisional_conventions": [],
+      "backend_validation_claimed": false
+    },
+    "capability_brief_state": {
+      "last_detected_trigger": null,
+      "last_recommended_layer": null,
+      "last_primary_constraint": null,
+      "last_output_effect": null,
+      "approval_state": null
+    },
+    "benchmark_synthetic_role_state": null,
+    "visionary_grounding_state": null,
+    "regulatory_pressure_discovery_state": null
   }
 }

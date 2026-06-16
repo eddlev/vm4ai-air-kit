@@ -52,6 +52,15 @@ Start a new AIR project.
 
 AIR should start onboarding. It should ask Q1 first.
 
+A minimal boot header may appear after required boot evidence:
+
+```text
+AIR boot active.
+
+Prompt-compiled from uploaded AIR materials.
+Not backend-validated.
+```
+
 ## The most important first-use rule
 
 Do not let the model skip onboarding.
@@ -63,9 +72,9 @@ Q1 is a branch selector:
 - A. New project
 - B. Import project
 - C. Continue project from handoff card
-- D. Explain AIR first / show onboarding tutorial
+- D. Explain AIR first / show beginner orientation
 
-A model may be tempted to infer that "start a new AIR project" means Q1=A. AIR should not do that.
+A model may be tempted to infer that "start a new AIR project" means Q1=A. AIR should not do that. If the user asks a question during Q1, AIR should answer the question and return to Q1 rather than treating the question as a branch choice.
 
 Q1 must be one of:
 
@@ -94,7 +103,7 @@ Q1 must include:
 A. New project
 B. Import project
 C. Continue project from handoff card
-D. Explain AIR first / show onboarding tutorial
+D. Explain AIR first / show beginner orientation
 
 Do not infer Q1 from this prompt.
 Do not skip Q1-Q5.
@@ -113,9 +122,21 @@ Options:
 - A. New project
 - B. Import project
 - C. Continue project from handoff card
-- D. Explain AIR first / show onboarding tutorial
+- D. Explain AIR first / show beginner orientation
 
-Q1-D is instructional only. AIR should explain itself, show examples, and return to Q1. It must not activate a project from Q1-D.
+Q1-D is instructional only. AIR should explain itself, then ask an explicit yes/no question such as:
+
+```text
+Would you like to see an example project showing how AIR works?
+
+Reply:
+- yes — show a short example project
+- no — return to Q1
+```
+
+It must not activate a project from Q1-D.
+
+Choose B when you already have an existing non-AIR project, repo, spec, transcript, notes, or file set that you want AIR to structure. Choose C only when you have a valid AIR handoff card.
 
 ### Q2 - How strictly should AIR check your work?
 
@@ -173,6 +194,8 @@ AIR may infer an onboarding answer only when:
 - AIR proposes an inference and the user approves it
 - a valid handoff card restores the answer
 
+If you are asked Q1 and are unsure which option to choose, you can ask a question. AIR should answer briefly and then show Q1 again. Asking a question is not the same as choosing D; D is the full beginner orientation path.
+
 If AIR proposes an inference, it should show:
 
 ```text
@@ -184,6 +207,24 @@ source: PROVISIONAL_INFERENCE
 blocked until approval: yes
 next: approve inference / choose another option
 ```
+
+## Benchmark identity as a synthetic role
+
+AIR does not treat the user as the benchmark, and it does not simply choose a
+normal human job title.
+
+AIR uses a **synthetic role** for benchmark review. A synthetic role is a
+task-fitted blend of vectors, constraints, evidence expectations, and relevant
+professional taxonomies selected for the current active step.
+
+This means a benchmark label may sound blended or unusual. That is intentional:
+AIR is trying to create the ideal review standard for the step, not hire a
+predefined human employee role.
+
+The benchmark is scoped to the current active step unless the active contract or
+artifact explicitly carries it forward. A product-claim review step, a landing
+page design step, and a security architecture step may each need different
+synthetic benchmark roles.
 
 ## Capability layers
 
@@ -263,7 +304,13 @@ Do not promote a Method Pack just because the task has steps. One-off tasks shou
 
 ## Capability layer checks
 
-Users should not have to know when AIR needs extra layers. AIR should detect the trigger.
+Capability layers change different parts of the output:
+
+- Specialist profiles change evaluation posture, review strictness, benchmark defaults, blocking conditions, and output contracts.
+- Domain packages change terminology, constraints, evidence expectations, unsafe-assumption checks, failure-mode scanning, and claim boundaries.
+- Method packs change repeatable procedure, templates, evidence-to-advance gates, failure handling, and handoff portability.
+
+Users should not have to know when AIR needs extra layers. AIR should detect the trigger and explain what output behavior changes before asking for approval.
 
 A capability layer check may look like this:
 
@@ -289,6 +336,61 @@ AIR may generate a specialist, domain package, or method pack only after explici
 
 Generated layers must be validated before binding.
 
+Before approval, AIR should show a compact capability brief:
+
+```text
+capability brief
+authorization required
+
+• detected trigger: task requires OAuth 2.0 integration
+• recommended layer: OAuth 2.0 domain overlay
+• primary constraint: adds token-flow terminology, security assumptions, and source requirements
+• output effect: AIR will constrain wording, flag unsafe assumptions, and block security claims without evidence
+
+approve one:
+attach existing / generate provisional / continue degraded
+```
+
+A domain package is an overlay. It informs constraints and evidence expectations; it does not govern Orbit 0 by itself.
+
+## Visionary grounding
+
+AIR should not flatten ambitious ideas into "impossible" just because the first
+mechanism is not currently evidenced.
+
+For visionary, speculative, frontier, or impossible-sounding ideas, AIR should:
+
+- preserve the ambition
+- separate current feasibility from future possibility
+- identify unsupported present-tense claims
+- ask grounding questions
+- extract realistic research, product, creative, or implementation kernels
+- distinguish current safe wording from future claim targets
+
+Current infeasibility is a routing state, not a dismissal state.
+
+## Regulatory pressure discovery
+
+Some projects create regulatory or compliance pressure before the user realizes
+it. Examples include cloud storage, user accounts, authentication, personal
+data, payments, analytics, AI processing, health, finance, identity, children,
+cross-border users, public launch, or company deployment.
+
+When AIR detects this, it should ask narrow discovery questions such as:
+
+- where the operator or company is located or registered
+- where intended users or customers are located
+- what data is collected, stored, processed, transmitted, or shared
+- whether sensitive or protected data categories are involved
+- which third-party services process the data
+- whether the project is a prototype, internal tool, beta, public release, or
+  commercial product
+
+AIR can help identify likely compliance pressure and implementation questions.
+It does not provide legal advice and should not claim compliance without
+authoritative sources, legal review, or user-supplied jurisdiction-specific
+evidence.
+
 ## Active step discipline
 
 AIR should keep one current active step.
@@ -309,7 +411,7 @@ Possible gate results:
 - RESCOPE_REQUIRED
 - EVIDENCE_REQUIRED
 
-Prompt-side AIR may behave as if a declared active contract is binding inside the conversation. That does not mean backend enforcement exists.
+Prompt-side AIR may behave as if a declared active contract or workflow convention is binding inside the conversation. That does not mean backend enforcement exists. Inferred or default workflow conventions should be visibly marked as provisional when they affect execution, evidence, closure, mutation, or handoff.
 
 For high-trust closure, AIR should ask for evidence such as:
 
@@ -444,3 +546,10 @@ AIR does not prove:
 - provider-independent reliability
 
 Keep public claims inside the evidence.
+
+
+## Strict handoff output
+
+When AIR emits a handoff card, it should output the handoff as a strict JSON restoration object.
+
+It should not add greetings, narrative explanation, markdown wrapping, sign-offs, or follow-up commentary unless the user explicitly asks for an explanatory version.
