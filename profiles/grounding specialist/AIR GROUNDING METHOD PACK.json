@@ -1,0 +1,141 @@
+{
+  "title": "AIR Grounding Method Pack - Method Execution State Review",
+  "SYSTEM_DESIGNATION": "AIR_GROUNDING_METHOD_PACK_METHOD_EXECUTION_STATE_REVIEW_V1",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "EXECUTION_METHOD_PACK",
+  "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
+  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement.",
+  "method_pack_type": "procedure_pack",
+  "may_bind_as": [
+    "method_overlay",
+    "procedure_pack",
+    "referential_method_layer"
+  ],
+  "must_not_bind_as": [
+    "active_orbit_0_contract",
+    "governing_specialist_profile",
+    "domain_authority",
+    "backend_validation_evidence",
+    "empirical_improvement_proof",
+    "execution_proof"
+  ],
+  "activation_conditions": [
+    "method-governed work is being reviewed for approval, closure, handoff, mutation, or rescope",
+    "AIR_ARTIFACT.method_execution_state is present or required",
+    "a Method Pack is used and may be stale or dependency-sensitive",
+    "method promotion is proposed",
+    "method_step_gate conflicts with AIR_GATE or active contract requirements",
+    "method-governed output is being delivered in a form controlled by user_execution_workflow",
+    "delivery-form mismatch could affect method closure, user implementation, handoff, or approval"
+  ],
+  "non_activation_conditions": [
+    "single low-risk conversational answer with no method-governed advancement",
+    "one-off exploratory work where method state does not affect closure or approval",
+    "creative brainstorming with no execution, evidence, claim, handoff, or rescope pressure"
+  ],
+  "procedure": [
+    {
+      "id": "S1",
+      "action": "Identify whether method_execution_state is required for the active task.",
+      "expected_output": "Decision: required / optional / not needed, with reason.",
+      "evidence_to_advance": "Task involves method-governed execution, review, approval, closure, handoff, mutation, rescope, Method Pack use, staleness, or promotion; otherwise mark not needed.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If unclear, route to REVIEW and ask what action is being approved or closed."
+    },
+    {
+      "id": "S2",
+      "action": "Inspect method origin, active method id, active step, and step states.",
+      "expected_output": "Method state summary with active, pending, completed, blocked, skipped, failed, invalidated, or stale states.",
+      "evidence_to_advance": "method_execution_state fields or explicit statement that the field is missing but required.",
+      "verification_grade": "SOURCE_CITED_OR_AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If required state is missing, return EVIDENCE_REQUIRED or REVIEW."
+    },
+    {
+      "id": "S3",
+      "action": "Review evidence_log against evidence_to_advance.",
+      "expected_output": "Evidence sufficiency classification: sufficient / partial / missing / waived / invalid.",
+      "evidence_to_advance": "Evidence entries with type, reference, summary, satisfies field, limitations, and turn/time when available.",
+      "verification_grade": "TOOL_OBSERVED_OR_OPERATOR_WITNESSED_WHEN_REQUIRED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If evidence is missing or too weak for the active contract, return EVIDENCE_REQUIRED."
+    },
+    {
+      "id": "S4",
+      "action": "Evaluate method_step_gate and AIR_GATE interaction.",
+      "expected_output": "Gate decision and stricter-gate consequence.",
+      "evidence_to_advance": "method_step_gate, AIR_GATE decision if required, active contract scope/evidence requirements.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If gates conflict, apply stricter gate and surface conflict."
+    },
+    {
+      "id": "S5",
+      "action": "Review Method Pack staleness when method_origin is FROM_METHOD_PACK or dependencies are material.",
+      "expected_output": "Staleness classification and approval effect.",
+      "evidence_to_advance": "dependency list, freshness requirement, last grounded evidence, re-ground trigger, and current evidence if approval depends on it.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED_WHEN_EXTERNAL_DEPENDENCY_MATERIAL",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If stale or ungrounded, allow rough orientation only and block approval/closure/high-trust claims."
+    },
+    {
+      "id": "S6",
+      "action": "Review Method Pack promotion if promotion is proposed.",
+      "expected_output": "Promotion recommendation: keep inline / promotion candidate / promote / do not promote.",
+      "evidence_to_advance": "recurrence, low-variance need, portability need, template/asset need, defect/rework history, startup context cost, exploration constraint risk.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If promotion is not justified, keep inline and record why."
+    },
+    {
+      "id": "S7",
+      "action": "Produce closure, review, rejection, or rescope decision.",
+      "expected_output": "Decision: ALLOW / REVIEW / EVIDENCE_REQUIRED / REJECT / RESCOPE_REQUIRED, with next allowed action.",
+      "evidence_to_advance": "All method-state, evidence, gate, staleness, promotion, AIR_GATE, and active contract checks are reconciled.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Do not approve; surface the blocking check and next allowed action."
+    },
+    {
+      "id": "S8",
+      "action": "Review output delivery form against user_execution_workflow when material.",
+      "expected_output": "Delivery-form decision: matches workflow / review required / approval required to change / not material.",
+      "evidence_to_advance": "user_execution_workflow mode and source authority, working agreement summary, or explicit skip/defer/provisional state.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If delivery form conflicts with binding workflow, return REVIEW or regenerate in workflow-compliant form."
+    }
+  ],
+  "definition_of_done": [
+    "Method execution state requirement was classified.",
+    "Active method step and step states were reviewed when material.",
+    "Evidence log was checked against evidence_to_advance.",
+    "method_step_gate and AIR_GATE interaction was reconciled.",
+    "Method Pack staleness was reviewed when material.",
+    "Method Pack promotion was reviewed only when proposed or materially relevant.",
+    "Decision posture and next allowed method action were produced.",
+    "Delivery form was checked against user_execution_workflow when material.",
+    "Working agreement mismatch was routed to REVIEW or corrected before closure."
+  ],
+  "failure_modes_prevented": [
+    "treating a written method as proof that execution occurred",
+    "using stale Method Packs for approval or claims",
+    "skipping method evidence gates",
+    "promoting one-off methods into dead-weight context",
+    "allowing method-step gates to replace AIR_GATE",
+    "losing active method state during handoff",
+    "approving method-governed output in the wrong delivery form for the user workflow",
+    "treating delivery mode as a user competence label",
+    "losing user execution workflow during method-governed handoff"
+  ],
+  "claim_boundary": "This Method Pack standardizes review procedure only. It does not prove execution, backend validation, empirical improvement, compliance, safety, production readiness, or tool execution. It also does not classify the user or override user-approved working agreements, AIR_GATE, active contracts, or evidence requirements.",
+  "backend_validation_claimed": false,
+  "user_alignment_and_execution_workflow_review": {
+    "patch_marker": "AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+    "status": "ACTIVE_WHEN_MATERIAL",
+    "core_rule": "When this Method Pack reviews method-governed output, it must check delivery-form fit against user_execution_workflow if that workflow materially affects implementation, approval, closure, or handoff.",
+    "backend_validation_claimed": false
+  }
+}

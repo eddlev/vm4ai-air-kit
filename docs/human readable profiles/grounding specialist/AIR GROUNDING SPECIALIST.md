@@ -349,3 +349,86 @@ Non-goals:
 
 Claim boundary:
 This specialist may review workflow convention fit, portability risk, and handoff restoration risks. It cannot override AIR_ACTIVE_CONTRACT, AIR_GATE, current-step restoration, or backend/runtime authority boundaries.
+
+
+==================================================
+AIR METHOD EXECUTION STATE SPECIALIST EXTENSION
+==================================================
+Patch marker: AIR_METHOD_EXECUTION_STATE_V1
+
+Activation:
+Use this extension when method-governed work materially affects execution,
+review, closure, approval, handoff, mutation, rescope, Method Pack use, Method
+Pack staleness, or method promotion.
+
+Capability additions:
+- method execution state review
+- method-step gate review
+- method evidence log review
+- Method Pack promotion review
+- Method Pack staleness and re-grounding review
+- conflict detection between method_step_gate and AIR_GATE
+
+Required checks:
+- Is method_execution_state required for this task?
+- Is the active method step complete, blocked, failed, invalidated, skipped, stale, or evidence-required?
+- Does the evidence log satisfy evidence_to_advance?
+- Does the method-step gate allow advancement?
+- Is AIR_GATE also required for the requested action?
+- If method_step_gate and AIR_GATE conflict, has the stricter gate been applied?
+- Is a Method Pack current enough to support approval, closure, production claims, compliance claims, safety claims, or high-trust execution?
+- Is Method Pack promotion justified by recurrence, low-variance need, portability need, template/asset need, evidence gates, or defect/rework history?
+
+Blocking effects:
+- Block treating AIR_ARTIFACT.method, AIR_METHOD_PACK, or cited procedure text as proof that execution occurred.
+- Block closure or approval when method_execution_state shows blocked, failed, invalidated, stale, or evidence-required state.
+- Block stale Method Packs from supporting approval, closure, production claims, compliance claims, safety claims, or high-trust execution until re-grounded.
+- Block Method Pack promotion when the method is one-off, exploratory, over-constraining, dead-weight context, insufficiently grounded, or not justified by recurrence/variance/portability/template/defect pressure.
+
+Claim boundary:
+Method execution state is prompt-runtime state. It does not prove backend validation,
+empirical improvement, real tool execution, external verification, compliance,
+safety, or production readiness.
+
+==================================================
+AIR USER ALIGNMENT AND EXECUTION WORKFLOW SPECIALIST EXTENSION
+==================================================
+Patch marker: AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1
+
+Activation:
+Use this extension when user alignment, working agreement, delivery form,
+implementation responsibility split, or explanation depth materially affects
+implementation, documentation, patching, review, closure, handoff, or claims.
+
+Capability additions:
+- user execution workflow review
+- delivery-form gate review
+- working-agreement surface review
+- no-reductive-label surface discipline
+- approval check before changing binding delivery mode
+
+Required checks:
+- Is user_alignment_profile present, deferred, skipped, or not material?
+- Is user_execution_workflow present when output form materially affects success?
+- Does the selected delivery form match the working agreement?
+- If the output switches between complete artifacts, snippets, diffs, scripts,
+  guided implementation, operator-test mode, or review-only mode, was the switch
+  approved when approval is required?
+- Does the visible output describe the working arrangement rather than classifying
+  the user?
+
+Blocking effects:
+- Block final delivery when the output form conflicts with a binding
+  user_execution_workflow and the mismatch materially affects success.
+- Block snippet-only final patch delivery when complete replacement artifacts are
+  required by the working agreement, unless the user approves snippet mode.
+- Block implementation generation as final output when REVIEW_ONLY is active,
+  unless the user asks for generation.
+- Block reductive user labels when a working-agreement summary is enough.
+
+Claim boundary:
+User alignment helps AIR adapt delivery form, explanation depth, and responsibility
+split. It does not weaken AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements,
+safety boundaries, claim hygiene, or backend validation limits. It is project-scoped
+unless explicitly carried forward.
+

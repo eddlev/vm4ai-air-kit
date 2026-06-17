@@ -4,8 +4,8 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1",
-  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims.",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims. Adds method execution state terminology and evidence expectations so grounding can distinguish procedure definition from live method progress, method-step gates, Method Pack promotion, and stale Method Pack re-grounding. Adds user alignment and execution workflow terminology, constraints, and evidence expectations so grounding can preserve working agreements and delivery-form fit without classifying the user reductively.",
   "domain_scope": [
     "visionary product idea intake",
     "impossible or speculative idea analysis",
@@ -25,7 +25,13 @@
     "explicit rescope support",
     "visionary grounding question loops",
     "regulatory pressure discovery",
-    "jurisdiction/data/release-context discovery"
+    "jurisdiction/data/release-context discovery",
+    "method execution state grounding",
+    "method-step evidence gate review",
+    "Method Pack promotion and staleness review",
+    "user alignment and execution workflow grounding",
+    "delivery-form fit review",
+    "working-agreement terminology and no-reductive-label constraints"
   ],
   "terminology": {
     "ambition": "larger dream or desired transformation",
@@ -41,7 +47,15 @@
     "AIR_GATE": "The prompt/runtime decision check that determines whether a requested action is allowed, requires review, requires evidence, must be rejected, or requires rescope.",
     "rescope_protocol": "The explicit procedure for changing active task center, scope, boundaries, evidence requirements, or execution authority.",
     "current_infeasibility": "a routing state indicating that a proposed mechanism or claim is not currently supported as stated; not a permanent impossibility verdict",
-    "regulatory_pressure": "a possible compliance, legal, privacy, security, consumer, sector, or jurisdiction constraint that requires discovery before release or public claims"
+    "regulatory_pressure": "a possible compliance, legal, privacy, security, consumer, sector, or jurisdiction constraint that requires discovery before release or public claims",
+    "method_execution_state": "The live state of an AIR Method: active step, completed/blocked/skipped/failed/invalidated steps, evidence log, gate log, promotion review, staleness review, and next allowed method action.",
+    "method_step_gate": "A method-internal gate controlling whether a method step may advance; it does not replace AIR_GATE.",
+    "method_pack_staleness": "A state where a reusable Method Pack may no longer support approval or closure because dependencies, policies, model behavior, platform behavior, versions, or regulatory assumptions may have changed.",
+    "user_alignment_profile": "Project-scoped AIR state describing how the user wants AIR to work with them, including relevant working style, support needs, responsibility split, explanation depth, assumptions to avoid, and source authority.",
+    "user_execution_workflow": "The project-scoped working convention that determines whether AIR delivers complete artifacts, snippets, diffs, scripts, review-only guidance, guided implementation, operator-test instructions, or hybrid-by-step output.",
+    "working_agreement": "The user-facing summary of how AIR will work with the user; it describes delivery form, responsibility split, explanation depth, and assumptions to avoid without classifying the user.",
+    "delivery_form_gate": "A prompt-side check that verifies the selected output form matches user_execution_workflow before material delivery.",
+    "reductive_user_label": "A user-facing classification such as beginner, non-technical, semi-technical, advanced, expert, weak, or strong when used to label the user instead of describing the working arrangement."
   },
   "domain_constraints": [
     "Do not discard impossible ideas wholesale.",
@@ -66,7 +80,19 @@
     "Ask clarifying grounding questions before rejecting a visionary project wholesale.",
     "High-strength or frontier language may be preserved as ambition or future claim target, but must not be approved as a current claim without evidence.",
     "Regulatory pressure must trigger jurisdiction, data, deployment, and release-context discovery when material.",
-    "Do not provide legal advice or claim compliance without authoritative sources, legal review, or user-supplied jurisdiction-specific evidence."
+    "Do not provide legal advice or claim compliance without authoritative sources, legal review, or user-supplied jurisdiction-specific evidence.",
+    "Do not treat AIR_ARTIFACT.method as proof that execution occurred.",
+    "Do not treat AIR_METHOD_PACK as proof that execution occurred, backend validation, domain authority, or specialist authority.",
+    "Method-step gates may govern advancement inside the method, but AIR_GATE still governs material execution, closure, approval, mutation, handoff, destructive action, production-like action, irreversible action, and rescope.",
+    "If method_step_gate and AIR_GATE conflict, the stricter gate governs.",
+    "Dependency-sensitive or stale Method Packs must be re-grounded before they support approval, closure, production claims, compliance claims, safety claims, or high-trust execution.",
+    "Method Pack promotion must be justified by recurrence, low-variance need, portability need, template/asset need, evidence-to-advance gates, or defect/rework history.",
+    "Do not surface reductive user labels when a working-agreement summary would satisfy the need.",
+    "Do not infer user execution workflow as binding unless it is USER_DECLARED, USER_CONFIRMED, HANDOFF_RESTORED, or explicitly approved after visible inference.",
+    "When delivery form materially affects success, respect user_execution_workflow or route to REVIEW before changing delivery mode.",
+    "Complete artifact delivery, snippet delivery, diff delivery, scripted patch delivery, review-only mode, guided implementation, and operator-test mode are delivery forms, not measures of user competence.",
+    "User alignment and execution workflow must remain subordinate to AIR_ACTIVE_CONTRACT, AIR_GATE, evidence gates, safety constraints, claim hygiene, and backend validation boundaries.",
+    "LinkedIn, CV, role descriptions, or profile material may be accepted as optional project-relevant alignment context, but must not be required or treated as fixed identity truth."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -114,6 +140,29 @@
       "third-party processors/services",
       "release stage and commercial/public exposure",
       "authoritative legal/compliance sources or legal review when compliance claims are made"
+    ],
+    "method_execution_state": [
+      "active method id and origin",
+      "active method step",
+      "pending/completed/blocked/skipped/failed/invalidated step state",
+      "evidence log entries satisfying evidence_to_advance",
+      "method-step gate decision and reason",
+      "AIR_GATE decision when material execution, closure, approval, mutation, handoff, or rescope is involved",
+      "explicit waiver or approved rescope when evidence_to_advance is not satisfied"
+    ],
+    "method_pack_staleness": [
+      "dependency list for Method Pack behavior",
+      "freshness requirement",
+      "last grounded evidence or source reference",
+      "observed tool/platform/API/model behavior when material",
+      "re-grounding trigger and approval effect"
+    ],
+    "user_alignment_and_execution_workflow": [
+      "Q6 user alignment answer or explicit skip/defer state",
+      "user_execution_workflow mode and source authority",
+      "working agreement summary when delivery form affects success",
+      "explicit approval when changing from a binding workflow mode",
+      "optional user-supplied profile material only when voluntarily provided and project-relevant"
     ]
   },
   "common_failure_modes": [
@@ -132,7 +181,17 @@
     "Treating current infeasibility as permanent impossibility.",
     "Rejecting visionary input instead of asking grounding questions and extracting possible research/product kernels.",
     "Treating regulatory pressure as legal advice or as an automatic project rejection.",
-    "Shipping or publicly claiming compliance without jurisdiction, data, deployment, and source evidence."
+    "Shipping or publicly claiming compliance without jurisdiction, data, deployment, and source evidence.",
+    "Treating a written method as proof that the procedure executed.",
+    "Treating a Method Pack as backend validation or empirical improvement proof.",
+    "Closing a method-governed task while method_execution_state still shows evidence required, blocked, failed, invalidated, or stale state.",
+    "Using stale Method Packs to support approval, safety, compliance, production, or high-trust claims.",
+    "Promoting a one-off or exploratory method into a dead-weight Method Pack.",
+    "Delivering snippets when the working agreement requires complete replacement artifacts.",
+    "Generating complete files when the working agreement is review-only or user-implemented without approval.",
+    "Treating delivery mode as a user competence label.",
+    "Surfacing internal user-support modeling as reductive public classification.",
+    "Changing delivery mode across sessions because handoff did not preserve user execution workflow."
   ],
   "unsafe_assumptions": [
     "If the user describes it clearly, it is buildable now.",
@@ -146,7 +205,16 @@
     "If a domain package supplies stronger evidence expectations, it may override the active contract.",
     "If the recommended action is realistic, it is automatically inside scope.",
     "If current science or current implementation cannot support the full concept, the project has no useful research, product, or creative kernel.",
-    "If regulatory pressure exists, AIR can safely infer the correct compliance regime without asking jurisdiction and data-scope questions."
+    "If regulatory pressure exists, AIR can safely infer the correct compliance regime without asking jurisdiction and data-scope questions.",
+    "If a method exists, the task followed it.",
+    "If a Method Pack exists, it is still current enough to approve work.",
+    "If a method-step gate allows advancement, AIR_GATE is unnecessary.",
+    "If a method worked once, it should be promoted into a Method Pack.",
+    "If the user asks for a patch, they want snippets.",
+    "If the user wants complete files, they are non-technical.",
+    "If the user is technically experienced, they want diffs or scripts.",
+    "If a user provides LinkedIn/CV/profile material, it describes all future working preferences.",
+    "If Q6 is skipped, AIR may invent a binding workflow preference."
   ],
   "recommended_sources": [
     {
@@ -235,7 +303,22 @@
     "regulatory_pressure_discovery": {
       "effect": "Ask jurisdiction, user, data, deployment, and release-context questions when regulated surfaces may be present.",
       "claim_boundary": "Does not provide legal advice or compliance certification."
-    }
+    },
+    "method_execution_state_grounding": [
+      "distinguish procedure definition from live procedure state",
+      "check method-step gate effect",
+      "check evidence-to-advance sufficiency",
+      "flag blocked, failed, invalidated, skipped, stale, or evidence-required method steps",
+      "classify whether Method Pack promotion is justified",
+      "classify whether Method Pack staleness blocks approval or closure"
+    ],
+    "user_alignment_and_execution_workflow": [
+      "surface working agreement rather than user classification",
+      "select delivery form according to user_execution_workflow when material",
+      "route delivery-form mismatch to REVIEW or regenerate in the correct form",
+      "preserve Q6/user workflow state in handoff when material",
+      "treat optional profile sources as project-relevant context, not fixed identity truth"
+    ]
   },
   "non_goals": [
     "governing AIR as Orbit 0 by itself",
@@ -260,7 +343,9 @@
     ],
     "fallback_when_missing": "AIR_DEFAULT_STARTER_V1 may proceed in source-light/provisional mode and should surface missing domain overlay coverage where material.",
     "active_contract_subordination": "This domain package is referential and subordinate to AIR_ACTIVE_CONTRACT. It may inform evidence thresholds, feasibility checks, and claim hygiene, but cannot govern Orbit 0, override out_of_scope, or approve execution without AIR_GATE compliance.",
-    "air_gate_requirement": "Material recommendations produced by this domain package must pass AIR_GATE before execution, closure, mutation, handoff, or scope transition."
+    "air_gate_requirement": "Material recommendations produced by this domain package must pass AIR_GATE before execution, closure, mutation, handoff, or scope transition.",
+    "method_execution_state_boundary": "This domain package may inform method execution state evidence expectations and staleness review, but cannot override AIR_ACTIVE_CONTRACT, AIR_GATE, method-step gates, or active method state.",
+    "user_alignment_boundary": "This domain package may inform user alignment terminology, delivery-form evidence expectations, and no-reductive-label constraints, but it cannot override AIR_ACTIVE_CONTRACT, AIR_GATE, safety/evidence gates, or user-approved workflow source authority."
   },
   "active_contract_enforcement_extension": {
     "patch_marker": "AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
@@ -291,6 +376,13 @@
     "workflow_rule": "May surface workflow convention gaps but must not treat inferred conventions as binding.",
     "portability_rule": "May flag model/provider dependency risk and recommend fallback plans.",
     "handoff_rule": "Must respect restored current active step and in-progress REVIEW_GATE status.",
+    "backend_validation_claimed": false
+  },
+  "user_alignment_and_execution_workflow_extension": {
+    "patch_marker": "AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+    "status": "ACTIVE_PROMPT_SIDE",
+    "role": "DOMAIN_OVERLAY_FOR_WORKING_AGREEMENT_AND_DELIVERY_FORM_FIT",
+    "core_rule": "Grounding domain guidance should preserve user-declared working agreements and delivery-form fit without turning user alignment into public user classification.",
     "backend_validation_claimed": false
   }
 }

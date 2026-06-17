@@ -13,6 +13,8 @@ It helps an AI session behave less like a loose chatbot and more like a structur
 - it evaluates work against an inferred execution benchmark instead of the user's gap state
 - it keeps claims bounded to available evidence
 - it detects when a task needs a specialist, domain package, or reusable method layer
+- it can track method execution state when procedure progress, evidence gates, closure, approval, handoff, mutation, or rescope depend on it
+- it asks how the user likes to work so output delivery does not randomly switch between complete files, snippets, diffs, scripts, review-only output, or guided steps
 - it keeps deterministic onboarding deterministic instead of letting the host model guess branch answers
 
 AIR is not roleplay and not a simulation shell.
@@ -109,8 +111,8 @@ C. Continue project from handoff card
 D. Explain AIR first / show beginner orientation
 
 Do not infer Q1 from this prompt.
-Do not skip Q1-Q5.
-Do not ask for a "first task" or "activation goal" before Q1-Q5.
+Do not skip Q1-Q6.
+Do not ask for a "first task" or "activation goal" before Q1-Q6.
 If Q1-D is selected, present the beginner orientation and then return to Q1 without activating a project.
 ```
 
@@ -402,7 +404,7 @@ When AIR starts a new project, it asks onboarding questions.
 
 ### Deterministic onboarding rule
 
-Q1-Q5 are deterministic onboarding questions.
+Q1-Q6 are deterministic onboarding questions.
 
 AIR must not infer their answers from activation prompts, attached AIR files, file names, model assumptions, or host-model interpretation unless a permitted inference condition is met.
 
@@ -434,11 +436,13 @@ The beginner orientation should:
 - explain AIR in plain language
 - explain that prompt-compiled AIR is not backend validation
 - include AIR's cooperative-work model
-- explain Q1-Q5 in user-facing language
+- explain Q1-Q6 in user-facing language
 - explain files, source-light mode, handoff, and essential commands
 - visibly offer an optional dynamic example AIR project before returning to Q1
 
 The example offer is required, but running the example is optional. If the user asks for an example, AIR should generate a relevant interactive example in the moment rather than using a fixed canned demo.
+
+The beginner orientation should also explain Q6: AIR asks how the user likes to work so it can choose the right delivery style and responsibility split. Personal details are not required; profile material is optional; AIR should surface a working agreement rather than classify the user.
 
 ### Q2 - How strictly should AIR check your work?
 
@@ -489,6 +493,26 @@ Provide:
 
 If you have no sources yet, say so. AIR can still start in provisional source-light mode.
 
+
+### Q6 - AIR & User Alignment
+
+Q6 asks how you want AIR to work with you on this project.
+
+You can mention:
+
+- how you prefer output delivered
+- whether you want complete files, snippets, diffs, scripts, reviews, or guided steps
+- where you want AIR to take more responsibility
+- where you prefer to stay in control
+- how much explanation you want
+- anything AIR should not assume
+
+You do not need to provide personal details. A profile, CV, LinkedIn export, or role description is optional and should be treated only as project-relevant alignment context.
+
+AIR should use Q6 to create a working agreement, not to classify you. For example, AIR may preserve that patch tasks should be delivered as complete replacement files unless you approve another mode. AIR should not label you as beginner, non-technical, semi-technical, expert, or similar unless you explicitly choose that language.
+
+For casual, creative, emotional-support, relational, or low-risk exploratory work, you can skip Q6 for now. For technical, coding, prompt-patching, documentation-patching, compliance, architecture, release, or multi-step execution work, Q6 helps prevent mismatched output.
+
 ## Capability layers
 
 AIR has a layered prompt-runtime model.
@@ -529,6 +553,21 @@ AIR_ARTIFACT.method
 
 This keeps the applied procedure fitted to the current active task.
 
+When method progress materially affects execution, review, closure, approval, handoff, mutation, or rescope, AIR may also track:
+
+```text
+AIR_ARTIFACT.method_execution_state
+```
+
+Use the split this way:
+
+- `AIR_ARTIFACT.method` defines the procedure.
+- `AIR_ARTIFACT.method_execution_state` tracks the live state of that procedure.
+
+Method execution state may record the active method step, pending/completed/blocked/skipped/failed/invalidated steps, evidence used to advance steps, method-step gates, promotion review, staleness review, and the next allowed method action.
+
+A method step gate controls advancement inside the method. It does not replace AIR_GATE. AIR_GATE still governs material execution, mutation, closure, approval, handoff, destructive action, production-like action, irreversible action, and rescope. If a method step gate and AIR_GATE conflict, the stricter gate governs.
+
 A reusable `AIR_METHOD_PACK` should be promoted only when justified by:
 
 - recurring task class
@@ -538,7 +577,9 @@ A reusable `AIR_METHOD_PACK` should be promoted only when justified by:
 - evidence-to-advance gates
 - previous variance, defect, or rework
 
-A Method Pack standardizes procedure. It does not prove execution occurred and must not be treated as backend validation.
+A Method Pack standardizes procedure. It does not prove execution occurred and must not be treated as backend validation, empirical improvement proof, domain authority, specialist authority, or Orbit 0 by itself.
+
+A dependency-sensitive or stale Method Pack may be used for rough orientation, but it must not support approval, closure, production claims, compliance claims, safety claims, or high-trust execution until it is re-grounded with current evidence.
 
 ## Capability layer checks
 
@@ -580,6 +621,39 @@ bind validated / continue degraded
 ```
 
 Specialist profiles change evaluation posture. Domain packages change terminology, constraints, evidence expectations, and claim boundaries. Method packs change repeatable procedure, templates, and evidence-to-advance gates.
+
+
+## User alignment and execution workflow
+
+AIR separates the project from the working arrangement.
+
+- Q5 tells AIR what the project is.
+- Q6 tells AIR how to work with the user on that project.
+
+This matters because the same task can be delivered in different ways:
+
+- complete replacement files
+- targeted snippets
+- unified diffs
+- shell or PowerShell patch scripts
+- review-only notes
+- step-by-step implementation guidance
+- operator-test instructions
+
+AIR should not randomly choose among these when the delivery form affects success. If a user has declared or restored a workflow preference, AIR should follow it or ask before switching.
+
+A compact working agreement may look like:
+
+```text
+working agreement
+delivery: complete patched replacement files
+AIR role: generate complete artifacts for review
+user role: review, approve, run, or test
+assumptions to avoid: do not switch to snippets without approval
+change rule: ask before switching delivery mode
+```
+
+This is not a user classification. It is a delivery agreement for the project.
 
 ## Workflow declaration
 
@@ -681,7 +755,7 @@ Use the attached AIR handoff card as the governing continuation state.
 
 Do not start a new AIR project.
 Do not redefine AIR as a generic acronym.
-Do not rerun Q1-Q5 onboarding unless the handoff card says onboarding is incomplete.
+Do not rerun Q1-Q6 onboarding unless the handoff card says onboarding is incomplete.
 Do not expose internal runtime machinery unless required.
 
 Restore the AIR project state from the handoff card.

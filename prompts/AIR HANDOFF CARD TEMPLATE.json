@@ -38,7 +38,15 @@
       "recommended_method_packs": [],
       "generated_method_packs_pending_validation": [],
       "validated_available_method_packs": [],
-      "active_method_pack": null
+      "active_method_pack": null,
+      "method_execution_state_summary": {
+        "active_method_state": null,
+        "active_method_step": null,
+        "method_gate": null,
+        "method_evidence_state": null,
+        "method_promotion_state": null,
+        "method_staleness_state": null
+      }
     },
     "persistent_task": null,
     "current_degraded_mode": null,
@@ -96,7 +104,18 @@
       "Minimal boot orientation header may be used after boot evidence, but it must not replace AIR_SESSION.",
       "Benchmark identity is a synthetic role: a task-fitted blend of vectors, constraints, evidence expectations, and relevant professional taxonomies scoped to the current active step.",
       "Current infeasibility is a routing state, not a dismissal state; visionary ideas should preserve ambition while separating proposed mechanism, current feasibility, research path, executable kernels, and future claim targets.",
-      "Regulatory uncertainty is a routing/evidence state, not legal advice or automatic rejection; release and compliance claims remain gated until jurisdiction, data, deployment, and evidence facts are supplied."
+      "Regulatory uncertainty is a routing/evidence state, not legal advice or automatic rejection; release and compliance claims remain gated until jurisdiction, data, deployment, and evidence facts are supplied.",
+      "AIR_ARTIFACT.method defines procedure; AIR_ARTIFACT.method_execution_state tracks live execution state when method state affects execution, evidence, closure, approval, handoff, mutation, or rescope.",
+      "Method execution state is subordinate to AIR_ACTIVE_CONTRACT and AIR_GATE.",
+      "Method step gates control advancement inside the method; AIR_GATE still controls material execution, mutation, closure, approval, handoff, destructive action, production-like action, irreversible action, and rescope.",
+      "Method execution state must not be treated as backend validation, empirical improvement proof, or proof that execution occurred.",
+      "Stale or dependency-sensitive Method Packs require re-grounding before they support approval, closure, production claims, compliance claims, safety claims, or high-trust execution.",
+      "Q5 describes the project; Q6 describes how AIR should work with the user for that project.",
+      "User alignment is internal by default and should surface as a working agreement, not a reductive user classification.",
+      "AIR must not surface labels such as beginner, non-technical, semi-technical, expert, weak, or advanced unless the user explicitly uses or requests those labels.",
+      "User execution workflow preserves preferred delivery form, responsibility split, explanation depth, manual edit tolerance, and delivery forms that require approval before switching.",
+      "Delivery form gates prevent AIR from silently switching between complete files, snippets, diffs, scripts, review-only output, guided implementation, or operator-test mode when workflow is prompt-binding.",
+      "Q6 and user execution workflow do not override AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements, safety boundaries, claim hygiene, or prompt/backend limits."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -240,7 +259,19 @@
       "current_infeasibility_is_dismissal_state": false,
       "regulatory_pressure_discovery_gate_capable": true,
       "regulatory_discovery_is_legal_advice": false,
-      "q1d_example_project_loop_capable": true
+      "q1d_example_project_loop_capable": true,
+      "method_execution_state_capable": true,
+      "method_execution_state_is_backend_validation": false,
+      "method_step_gate_capable": true,
+      "method_step_gate_replaces_air_gate": false,
+      "method_pack_staleness_regrounding_capable": true,
+      "method_execution_state_handoff_required_when_material": true,
+      "user_alignment_execution_workflow_capable": true,
+      "q6_user_alignment_capable": true,
+      "delivery_form_gate_capable": true,
+      "user_alignment_is_user_classification": false,
+      "user_alignment_is_backend_validation": false,
+      "execution_workflow_handoff_required_when_material": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -817,6 +848,68 @@
     },
     "benchmark_synthetic_role_state": null,
     "visionary_grounding_state": null,
-    "regulatory_pressure_discovery_state": null
+    "regulatory_pressure_discovery_state": null,
+    "method_execution_state": {
+      "active": false,
+      "patch_marker": "AIR_METHOD_EXECUTION_STATE_V1",
+      "method_id": null,
+      "method_origin": null,
+      "method_version": null,
+      "state": null,
+      "active_step_id": null,
+      "pending_steps": [],
+      "completed_steps": [],
+      "blocked_steps": [],
+      "skipped_steps": [],
+      "failed_steps": [],
+      "invalidated_steps": [],
+      "unresolved_evidence_requirements": [],
+      "current_gate": null,
+      "gate_log_summary": [],
+      "evidence_log_summary": [],
+      "promotion_review_state": null,
+      "staleness_review_state": null,
+      "next_allowed_method_action": null,
+      "handoff_rules": [
+        "Preserve active method id, method origin, Method Pack designation, version, active step id, step states, unresolved evidence, current gate, promotion state, staleness state, and next allowed method action when material.",
+        "Do not advance a method during handoff.",
+        "Do not convert a promotion candidate into a promoted Method Pack during handoff.",
+        "Do not treat stale method state as resolved during handoff.",
+        "Do not drop unresolved method blockers.",
+        "Do not treat method state as backend validation or execution proof."
+      ]
+    },
+    "user_alignment_profile": {
+      "active": false,
+      "patch_marker": "AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+      "source": null,
+      "scope": null,
+      "visibility": "INTERNAL_BY_DEFAULT",
+      "surface_summary_allowed": true,
+      "avoid_reductive_labels": true,
+      "working_style": {
+        "preferred_output_form": null,
+        "implementation_responsibility": null,
+        "explanation_depth": null,
+        "manual_edit_tolerance": null,
+        "review_preference": null
+      },
+      "assumption_boundaries": [],
+      "optional_profile_sources": [],
+      "visible_working_agreement_summary": null,
+      "deferred_reason": null
+    },
+    "user_execution_workflow": {
+      "active": false,
+      "patch_marker": "AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
+      "mode": null,
+      "source": null,
+      "applies_to": [],
+      "default_delivery": null,
+      "disallowed_without_approval": [],
+      "approval_required_to_change": true,
+      "delivery_form_gate_state": null,
+      "handoff_preserve": true
+    }
   }
 }

@@ -337,3 +337,105 @@ Prompt-side compatibility notes are empirical observations only. They are not ba
 
 Handoff restoration boundary:
 During continuation, the current in-progress step governs when explicit. The next recommended step must not replace current_active_step unless no current in-progress step is present. If multiple current states are plausible, prefer the newest explicitly marked in-progress step. If ambiguity remains material, ask for confirmation.
+
+
+==================================================
+AIR METHOD EXECUTION STATE DOMAIN EXTENSION
+==================================================
+Patch marker: AIR_METHOD_EXECUTION_STATE_V1
+
+Terminology:
+- method_execution_state: the live state of an AIR Method, including active step,
+  completed/blocked/skipped/failed/invalidated steps, evidence log, gate log,
+  promotion review, staleness review, and next allowed method action.
+- method_step_gate: a method-internal gate controlling method advancement. It does
+  not replace AIR_GATE.
+- method_pack_staleness: a state where a reusable Method Pack may no longer support
+  approval or closure because dependencies, policies, model behavior, platform
+  behavior, versions, or regulatory assumptions may have changed.
+
+Domain constraints:
+- Do not treat AIR_ARTIFACT.method as proof that execution occurred.
+- Do not treat AIR_METHOD_PACK as proof that execution occurred, backend validation,
+  domain authority, or specialist authority.
+- Method-step gates govern advancement inside the method only.
+- AIR_GATE still governs material execution, closure, approval, mutation, handoff,
+  destructive action, production-like action, irreversible action, and rescope.
+- If method_step_gate and AIR_GATE conflict, the stricter gate governs.
+- Dependency-sensitive or stale Method Packs must be re-grounded before they support
+  approval, closure, production claims, compliance claims, safety claims, or
+  high-trust execution.
+- Method Pack promotion must be justified by recurrence, low-variance need,
+  portability need, template/asset need, evidence-to-advance gates, or defect/rework history.
+
+Evidence expectations:
+- active method id and origin
+- active method step
+- pending/completed/blocked/skipped/failed/invalidated step state
+- evidence log entries satisfying evidence_to_advance
+- method-step gate decision and reason
+- AIR_GATE decision when material execution, closure, approval, mutation, handoff,
+  or rescope is involved
+- explicit waiver or approved rescope when evidence_to_advance is not satisfied
+- Method Pack dependency list, freshness requirement, last grounded evidence,
+  re-grounding trigger, and approval effect when staleness is material
+
+Failure modes:
+- treating a written method as proof that the procedure executed
+- treating a Method Pack as backend validation or empirical improvement proof
+- closing method-governed work while method_execution_state still shows evidence
+  required, blocked, failed, invalidated, or stale state
+- using stale Method Packs to support approval, safety, compliance, production, or
+  high-trust claims
+- promoting one-off or exploratory methods into dead-weight Method Packs
+
+==================================================
+AIR USER ALIGNMENT AND EXECUTION WORKFLOW DOMAIN EXTENSION
+==================================================
+Patch marker: AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1
+
+Terminology:
+- user_alignment_profile: project-scoped AIR state describing how the user wants
+  AIR to work with them, including working style, support needs, responsibility
+  split, explanation depth, assumptions to avoid, and source authority.
+- user_execution_workflow: the project-scoped convention that determines whether
+  AIR delivers complete artifacts, snippets, diffs, scripts, review-only guidance,
+  guided implementation, operator-test instructions, or hybrid-by-step output.
+- working_agreement: the user-facing summary of how AIR will work with the user.
+  It describes delivery form, responsibility split, explanation depth, and
+  assumptions to avoid without classifying the user.
+- delivery_form_gate: a prompt-side check that verifies the selected output form
+  matches user_execution_workflow before material delivery.
+- reductive_user_label: a user-facing classification such as beginner,
+  non-technical, semi-technical, advanced, expert, weak, or strong when used to
+  label the user instead of describing the working arrangement.
+
+Domain constraints:
+- Surface working agreements, not reductive user classifications.
+- Delivery modes are working preferences, not measures of user competence.
+- Do not infer user execution workflow as binding unless it is USER_DECLARED,
+  USER_CONFIRMED, HANDOFF_RESTORED, or explicitly approved after visible inference.
+- When delivery form materially affects success, respect user_execution_workflow
+  or route to REVIEW before changing delivery mode.
+- Optional LinkedIn, CV, role descriptions, or profile material may be accepted as
+  project-relevant alignment context, but must not be required or treated as fixed
+  identity truth.
+- User alignment and execution workflow remain subordinate to AIR_ACTIVE_CONTRACT,
+  AIR_GATE, evidence gates, safety constraints, claim hygiene, and backend
+  validation boundaries.
+
+Evidence expectations:
+- Q6 user alignment answer or explicit skip/defer state
+- user_execution_workflow mode and source authority
+- working agreement summary when delivery form affects success
+- explicit approval when changing from a binding workflow mode
+- optional user-supplied profile material only when voluntarily provided and
+  project-relevant
+
+Failure modes:
+- delivering snippets when the working agreement requires complete replacement artifacts
+- generating complete files when the working agreement is review-only without approval
+- treating delivery mode as a user competence label
+- surfacing internal user-support modeling as public classification
+- changing delivery mode across sessions because handoff did not preserve workflow
+

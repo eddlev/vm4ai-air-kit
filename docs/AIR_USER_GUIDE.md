@@ -106,14 +106,14 @@ C. Continue project from handoff card
 D. Explain AIR first / show beginner orientation
 
 Do not infer Q1 from this prompt.
-Do not skip Q1-Q5.
-Do not ask for a "first task" or "activation goal" before Q1-Q5.
+Do not skip Q1-Q6.
+Do not ask for a "first task" or "activation goal" before Q1-Q6.
 If Q1-D is selected, explain AIR and then return to Q1 without activating a project.
 ```
 
 ## Onboarding
 
-AIR asks five questions.
+AIR asks six questions.
 
 ### Q1 - What are you doing today?
 
@@ -135,6 +135,8 @@ Reply:
 ```
 
 It must not activate a project from Q1-D.
+
+The beginner orientation should also explain Q6: AIR asks how the user likes to work so it can choose the right delivery style and responsibility split. Personal details are not required; profile material is optional; AIR should surface a working agreement rather than classify the user.
 
 Choose B when you already have an existing non-AIR project, repo, spec, transcript, notes, or file set that you want AIR to structure. Choose C only when you have a valid AIR handoff card.
 
@@ -181,6 +183,37 @@ Give AIR:
 - any files or sources that should anchor the project
 
 If you have no sources, say that. AIR can start in source-light/provisional mode.
+
+
+### Q6 - AIR & User Alignment
+
+Q6 asks how you want AIR to work with you on the project.
+
+You can mention:
+
+- how you prefer output delivered
+- whether you want AIR to generate complete artifacts, snippets, diffs, scripts, reviews, or guidance
+- where you want AIR to take more responsibility
+- where you prefer to stay in control
+- how much explanation you want
+- anything AIR should not assume
+
+You do not need to provide personal details. You may answer casually, skip for now, or optionally paste or attach a short profile, CV, LinkedIn export, role description, or project-relevant background.
+
+AIR should use this to create a working agreement. It should not classify you with labels such as beginner, non-technical, semi-technical, expert, weak, or advanced unless you explicitly choose that language.
+
+For example:
+
+```text
+working agreement
+delivery: complete patched replacement files
+AIR role: generate complete artifacts for review
+user role: review, approve, run, or test
+assumptions to avoid: do not switch to snippets without approval
+change rule: ask before switching delivery mode
+```
+
+Q6 may be skipped or deferred for casual, creative, emotional-support, relational, or low-risk exploratory work. It is more important for technical, coding, documentation patching, prompt patching, JSON/profile patching, compliance, architecture, release, or multi-step execution work.
 
 ## Deterministic onboarding
 
@@ -289,6 +322,29 @@ AIR_ARTIFACT.method
 
 This keeps the method fitted to the current task.
 
+When method progress materially affects execution, review, closure, approval, handoff, mutation, or rescope, AIR may also track:
+
+```text
+AIR_ARTIFACT.method_execution_state
+```
+
+Use the split this way:
+
+- `AIR_ARTIFACT.method` defines the procedure.
+- `AIR_ARTIFACT.method_execution_state` tracks where AIR is inside that procedure.
+
+Method execution state may include:
+
+- active method step
+- pending, completed, blocked, skipped, failed, or invalidated steps
+- evidence used to advance each step
+- method-step gate decisions
+- promotion review
+- staleness or re-grounding review
+- next allowed method action
+
+A method-step gate controls advancement inside the method. It does not replace AIR_GATE. AIR_GATE still controls material execution, mutation, closure, approval, handoff, destructive action, production-like action, irreversible action, and rescope. If the method-step gate and AIR_GATE disagree, the stricter gate governs.
+
 A reusable `AIR_METHOD_PACK` is promoted only when the method should be reused.
 
 Promote a Method Pack when:
@@ -300,7 +356,9 @@ Promote a Method Pack when:
 - evidence-to-advance gates matter
 - previous variation caused defects or rework
 
-Do not promote a Method Pack just because the task has steps. One-off tasks should usually keep the method inside the artifact.
+Do not promote a Method Pack just because the task has steps. One-off tasks should usually keep the method inside the artifact. A written method or Method Pack is not evidence that execution happened.
+
+If a Method Pack depends on external tools, APIs, SDKs, model behavior, platform syntax, package versions, policies, pricing, operating systems, file systems, runtime/container behavior, or regulatory assumptions, AIR should check whether the pack is still current enough before using it for approval or closure. A stale Method Pack can orient work, but it must not support high-trust approval, production claims, compliance claims, safety claims, or closure until re-grounded.
 
 ## Capability layer checks
 
@@ -391,6 +449,30 @@ It does not provide legal advice and should not claim compliance without
 authoritative sources, legal review, or user-supplied jurisdiction-specific
 evidence.
 
+
+## User alignment and execution workflow
+
+AIR separates the project from the working arrangement.
+
+Q5 describes the project. Q6 describes how AIR should work with you on that project.
+
+This prevents the same kind of task from producing inconsistent delivery forms across sessions. For example, one session should not generate complete files while another gives snippets or a patch script unless the workflow was changed or approved.
+
+Possible execution workflow modes include:
+
+- complete artifact delivery
+- patch snippet delivery
+- diff/patch delivery
+- scripted patch delivery
+- review only
+- pair implementation guidance
+- operator test mode
+- hybrid by step
+
+If AIR is about to deliver material work in a form that conflicts with your declared or restored workflow, it should stop and ask before switching.
+
+Q6 and workflow preferences do not override correctness, evidence, AIR_GATE, active contract scope, safety boundaries, or prompt/backend limits.
+
 ## Active step discipline
 
 AIR should keep one current active step.
@@ -448,6 +530,7 @@ Handoff may include:
 - recommended method packs
 - deterministic onboarding state
 - method-layer state
+- method execution state when method progress, evidence gates, staleness, promotion, or rescope are material
 - capability-layer state
 
 ### Creating a handoff
@@ -487,7 +570,7 @@ Use the attached AIR handoff card as the governing continuation state.
 
 Do not start a new AIR project.
 Do not redefine AIR as a generic acronym.
-Do not rerun Q1-Q5 onboarding unless the handoff card says onboarding is incomplete.
+Do not rerun Q1-Q6 onboarding unless the handoff card says onboarding is incomplete.
 
 Restore the AIR project state from the handoff card.
 Identify the current active step and continue only from there.
@@ -523,7 +606,7 @@ A normal AIR project looks like this:
 
 1. Attach boot files.
 2. Start AIR.
-3. Answer Q1-Q5.
+3. Answer Q1-Q6.
 4. Let AIR create the project map.
 5. Work only the current active step.
 6. Let AIR surface blockers and capability-layer needs.

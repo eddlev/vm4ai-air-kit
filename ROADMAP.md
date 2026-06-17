@@ -170,6 +170,69 @@ Success criteria:
 - possible regulatory pressure triggers jurisdiction/data/release discovery without legal-advice claims
 - all documentation preserves prompt/backend claim boundaries
 
+
+
+### v0.2.4 - Method execution state and grounded method-pack hygiene
+
+Status: proposed
+
+Goal:
+
+Make AIR Methods more trackable without turning prompt-side methods into tools, backend validation, or proof that execution occurred.
+
+Candidate scope:
+
+- add `AIR_METHOD_EXECUTION_STATE_V1` to Core Runtime, Control Surface, Default Starter, handoff template, and public documentation
+- clarify that `AIR_ARTIFACT.method` defines procedure while `AIR_ARTIFACT.method_execution_state` tracks live procedure state
+- add method-step states for pending, active, complete, blocked, review, evidence-required, skipped-approved, failed, invalidated, and rescope-required states
+- add method-step gates that control method-internal advancement without replacing AIR_GATE
+- add evidence logs and gate logs for method advancement
+- add promotion review criteria for deciding whether an inline method should become an `AIR_METHOD_PACK`
+- add staleness and re-grounding rules for dependency-sensitive Method Packs
+- add handoff preservation of active method id, method origin, active step, step states, unresolved evidence, gate state, promotion state, staleness state, and next allowed method action
+- update README and User Guide to explain method execution state without implying backend validation
+- update Grounding Specialist and Grounding Domain Package so grounding review can detect method-state, method-pack staleness, and evidence-gate problems when material
+- add a reusable grounded Method Pack only if recurrence, low-variance, portability, evidence-gate, or defect-prevention pressure justifies it
+
+Success criteria:
+
+- users can distinguish a method definition from live method execution state
+- AIR does not treat written methods, Method Packs, or cited instructions as evidence that execution occurred
+- stale Method Packs cannot support approval, closure, production claims, compliance claims, safety claims, or high-trust execution without re-grounding
+- method-step gates and AIR_GATE remain distinct, with the stricter gate governing when they conflict
+- handoff cards can restore method progress without silently advancing, resolving stale state, or promoting candidates
+- public documentation preserves prompt/backend claim boundaries
+
+
+### v0.2.5 - User alignment and execution workflow
+
+Status: proposed
+
+Goal:
+
+Make AIR's output execution workflow explicit and handoff-preserved so prompt-based sessions do not randomly switch between complete files, snippets, diffs, scripts, review-only output, or guided implementation.
+
+Candidate scope:
+
+- add `AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1` to Core Runtime, Control Surface, Default Starter, handoff template, and public documentation
+- add Q6 — AIR & User Alignment after Q5
+- update Q1-D beginner orientation so new users understand why AIR asks how they like to work
+- compile Q6 into internal `user_alignment_profile` and `user_execution_workflow` state
+- surface working agreements instead of reductive user labels
+- forbid labels such as beginner, non-technical, semi-technical, expert, weak, or advanced unless the user explicitly chooses that language
+- allow Q6 to be skipped or deferred for casual, creative, emotional-support, relational, or low-risk exploratory work
+- strongly prefer explicit or restored Q6 for technical, coding, prompt-patching, documentation-patching, JSON/profile patching, compliance, architecture, release, or multi-step execution work
+- add delivery-form gates before material receiver delivery when planned output conflicts with declared, confirmed, or handoff-restored workflow
+- preserve user alignment and execution workflow in handoff when material
+
+Success criteria:
+
+- users understand Q6 as a working-arrangement question, not a personal classification step
+- AIR can distinguish complete artifact delivery, snippet delivery, diff delivery, scripted patch delivery, review-only, guided implementation, operator-test mode, and hybrid-by-step workflows
+- AIR does not silently change delivery form across sessions when workflow state is declared, confirmed, or restored
+- tutorial/beginner orientation explains that personal details and LinkedIn/CV material are optional
+- public documentation preserves prompt/backend claim boundaries and does not imply user identity truth, professional qualification, or backend enforcement
+
 ## Candidate prompt-only improvements
 
 These are concrete prompt-kit improvements that may be worth adding if they remain useful and non-speculative.
@@ -190,6 +253,9 @@ Possible additions:
 - example REVIEW_GATE and REJECT_REPORT
 - example capability-layer check
 - example method promotion decision
+- example method execution state and stale Method Pack review
+- example Q6 user alignment and working agreement
+- example delivery-form gate
 
 Value:
 
@@ -282,11 +348,12 @@ AIR should continue to operate as:
 
 1. project activation
 2. deterministic onboarding
-3. project map creation
-4. current active-step artifact generation
-5. capability-layer need detection when material
-6. review and receiver delivery
-7. handoff
-8. continuation
+3. user alignment / execution workflow when material
+4. project map creation
+5. current active-step artifact generation
+6. capability-layer need detection when material
+7. review and receiver delivery
+8. handoff
+9. continuation
 
 The public kit should remain useful without backend access.
