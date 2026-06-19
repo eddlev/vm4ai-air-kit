@@ -4,8 +4,8 @@
   "PROFILE_KIND": "METHOD_PACK",
   "profile_function_class": "EXECUTION_METHOD_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
-  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement.",
+  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement. Adds Executor-vs-Method boundary review so small bounded callable operations remain AIR_EXECUTOR units unless evidence gates, method state, staleness, portability, handoff preservation, templates, or defect history justify Method Pack promotion.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches.",
   "method_pack_type": "procedure_pack",
   "may_bind_as": [
     "method_overlay",
@@ -90,6 +90,15 @@
       "on_failure": "If promotion is not justified, keep inline and record why."
     },
     {
+      "id": "S6B",
+      "action": "Review whether the procedure should remain an Executor-level callable operation or justify Method Pack treatment.",
+      "expected_output": "Classification: EXECUTOR_SUFFICIENT / METHOD_PACK_JUSTIFIED / KEEP_INLINE, with reason.",
+      "evidence_to_advance": "Recurrence, evidence-gate need, method_execution_state need, staleness/dependency sensitivity, portability need, handoff preservation, template/asset need, or defect/rework history.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If Method Pack justification is missing, keep the operation as an Executor or inline task-local procedure."
+    },
+    {
       "id": "S7",
       "action": "Produce closure, review, rejection, or rescope decision.",
       "expected_output": "Decision: ALLOW / REVIEW / EVIDENCE_REQUIRED / REJECT / RESCOPE_REQUIRED, with next allowed action.",
@@ -106,6 +115,24 @@
       "verification_grade": "AGENT_REPORTED",
       "reversibility": "REVERSIBLE",
       "on_failure": "If delivery form conflicts with binding workflow, return REVIEW or regenerate in workflow-compliant form."
+    },
+    {
+      "id": "S9",
+      "action": "Review whether AIR_DISCOVERY_EXECUTOR or unknown-unknown discovery is required before approval, closure, mutation, or rescope.",
+      "expected_output": "Decision: required / optional / not needed, with reason and minimal next questions if required.",
+      "evidence_to_advance": "Decision frame, constraints, source/dependency state, and risk surfaces are sufficient for the requested method outcome, or missing items are routed to REVIEW/EVIDENCE_REQUIRED/PROVISIONAL_ALLOW.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If material unknown unknowns remain, do not approve closure; return REVIEW, EVIDENCE_REQUIRED, or RESCOPE_REQUIRED."
+    },
+    {
+      "id": "S10",
+      "action": "For patching or documentation mutation, verify the patch source upload gate was satisfied.",
+      "expected_output": "Patch source gate decision: satisfied / missing files / mismatched files / memory-based patch rejected.",
+      "evidence_to_advance": "Current-session uploaded files were inspected or parsed before patching; expected files are present or missing files are surfaced as a gate.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Reject memory-based patching and request the current files to patch."
     }
   ],
   "definition_of_done": [
@@ -117,7 +144,11 @@
     "Method Pack promotion was reviewed only when proposed or materially relevant.",
     "Decision posture and next allowed method action were produced.",
     "Delivery form was checked against user_execution_workflow when material.",
-    "Working agreement mismatch was routed to REVIEW or corrected before closure."
+    "Working agreement mismatch was routed to REVIEW or corrected before closure.",
+    "Executor-vs-Method boundary was reviewed when method promotion or reusable callable operations were material.",
+    "Non-agent layer boundary was preserved; Method Packs and Executors were not described as agents.",
+    "Unknown-unknown discovery requirement reviewed when material.",
+    "Patch source upload gate reviewed when patching or documentation mutation is material."
   ],
   "failure_modes_prevented": [
     "treating a written method as proof that execution occurred",
@@ -128,7 +159,11 @@
     "losing active method state during handoff",
     "approving method-governed output in the wrong delivery form for the user workflow",
     "treating delivery mode as a user competence label",
-    "losing user execution workflow during method-governed handoff"
+    "losing user execution workflow during method-governed handoff",
+    "promoting small bounded Executors into Method Packs without justification",
+    "treating Executors or Method Packs as autonomous agents",
+    "patching from memory instead of current uploaded source files",
+    "approving method-governed output while material unknown unknowns remain undiscovered"
   ],
   "claim_boundary": "This Method Pack standardizes review procedure only. It does not prove execution, backend validation, empirical improvement, compliance, safety, production readiness, or tool execution. It also does not classify the user or override user-approved working agreements, AIR_GATE, active contracts, or evidence requirements.",
   "backend_validation_claimed": false,
@@ -137,5 +172,94 @@
     "status": "ACTIVE_WHEN_MATERIAL",
     "core_rule": "When this Method Pack reviews method-governed output, it must check delivery-form fit against user_execution_workflow if that workflow materially affects implementation, approval, closure, or handoff.",
     "backend_validation_claimed": false
+  },
+  "executor_method_boundary_review": {
+    "executor": "small bounded callable operation with light/local state burden",
+    "method_pack": "governed repeatable procedure with evidence gates, method execution state, staleness, portability, templates, or handoff relevance",
+    "promote_executor_to_method_when": [
+      "recurrence requires consistency",
+      "evidence gates are needed",
+      "method_execution_state matters",
+      "staleness review matters",
+      "handoff preservation matters",
+      "portability across sessions/models/projects matters",
+      "templates/assets are needed",
+      "defect or rework history justifies promotion"
+    ]
+  },
+  "source_layer": {
+    "air_discovery_executor_policy": {
+      "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
+      "core_principle": "AIR must help discover missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution when the user cannot reasonably know them yet.",
+      "executor_name": "AIR_DISCOVERY_EXECUTOR",
+      "executor_is_agent": false,
+      "trigger_when": [
+        "user objective is broad, underdefined, exploratory, or source-light",
+        "decision context is missing or unclear",
+        "market, jurisdiction, audience, product stage, budget, time horizon, release posture, or claim boundary may materially affect output",
+        "source authority, tool access, repo state, API access, credential state, or dependency availability is unclear",
+        "user likely cannot know which specialist, domain package, method, executor, source, or external skill/tool is needed",
+        "execution would otherwise require silent assumptions"
+      ],
+      "outputs": [
+        "likely_decision_frames",
+        "missing_constraints",
+        "unknown_unknown_candidates",
+        "required_sources",
+        "optional_sources",
+        "dependency_state",
+        "risk_gates",
+        "minimal_next_questions",
+        "safe_provisional_path"
+      ],
+      "gate_outcomes": [
+        "ALLOW",
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "PROVISIONAL_ALLOW"
+      ],
+      "dependency_boundary": "AIR does not depend on the user finding the correct prebuilt external skill. AIR may infer the needed capability/source map and generate retrieval instructions. AIR is not data-independent: external evidence, repositories, files, APIs, tools, connectors, credentials, or current data may still be required for execution, approval, or claims.",
+      "backend_validation_claimed": false
+    },
+    "patch_source_upload_gate_policy": {
+      "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+      "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
+      "uploaded_files_as_security_gate": true,
+      "requirements": [
+        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "use only the uploaded/current-session files as patch source of truth",
+        "inspect or parse the uploaded files before patching",
+        "preserve complete replacement file delivery when the working agreement requires it",
+        "validate machine-readable outputs when possible",
+        "report which uploaded source files were used",
+        "do not claim repo alignment unless uploaded files or tool-observed repo state prove it"
+      ],
+      "gate_effects": {
+        "missing_required_patch_files": "EVIDENCE_REQUIRED",
+        "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
+        "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
+        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+      },
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
+      "backend_validation_claimed": false
+    }
+  },
+  "evidence_requirements": {
+    "unknown_unknown_discovery": [
+      "user objective or active task statement",
+      "candidate decision frames",
+      "material constraints that may change output",
+      "required and optional source classes",
+      "dependency state where material",
+      "minimal next questions or retrieval instructions"
+    ],
+    "patch_source_upload_gate": [
+      "current-session uploaded files to patch",
+      "inspection or parse evidence for uploaded files",
+      "machine-readable validation output when applicable",
+      "list of output replacement files generated from uploaded sources",
+      "explicit REVIEW/EVIDENCE_REQUIRED state for missing expected files"
+    ]
   }
 }

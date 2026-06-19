@@ -4,8 +4,8 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1",
-  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims. Adds method execution state terminology and evidence expectations so grounding can distinguish procedure definition from live method progress, method-step gates, Method Pack promotion, and stale Method Pack re-grounding. Adds user alignment and execution workflow terminology, constraints, and evidence expectations so grounding can preserve working agreements and delivery-form fit without classifying the user reductively.",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims. Adds method execution state terminology and evidence expectations so grounding can distinguish procedure definition from live method progress, method-step gates, Method Pack promotion, and stale Method Pack re-grounding. Adds user alignment and execution workflow terminology, constraints, and evidence expectations so grounding can preserve working agreements and delivery-form fit without classifying the user reductively. Adds AIR Executor terminology and non-agent boundary so domain packages can describe Executors as bounded callable operations while remaining referential overlays, not agents or operators. Adds claim-transfer classes for grounding external examples.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches.",
   "domain_scope": [
     "visionary product idea intake",
     "impossible or speculative idea analysis",
@@ -31,7 +31,11 @@
     "Method Pack promotion and staleness review",
     "user alignment and execution workflow grounding",
     "delivery-form fit review",
-    "working-agreement terminology and no-reductive-label constraints"
+    "working-agreement terminology and no-reductive-label constraints",
+    "unknown-unknown discovery before material execution",
+    "decision-frame discovery",
+    "source and dependency state discovery",
+    "patch source upload gate enforcement"
   ],
   "terminology": {
     "ambition": "larger dream or desired transformation",
@@ -55,7 +59,13 @@
     "user_execution_workflow": "The project-scoped working convention that determines whether AIR delivers complete artifacts, snippets, diffs, scripts, review-only guidance, guided implementation, operator-test instructions, or hybrid-by-step output.",
     "working_agreement": "The user-facing summary of how AIR will work with the user; it describes delivery form, responsibility split, explanation depth, and assumptions to avoid without classifying the user.",
     "delivery_form_gate": "A prompt-side check that verifies the selected output form matches user_execution_workflow before material delivery.",
-    "reductive_user_label": "A user-facing classification such as beginner, non-technical, semi-technical, advanced, expert, weak, or strong when used to label the user instead of describing the working arrangement."
+    "reductive_user_label": "A user-facing classification such as beginner, non-technical, semi-technical, advanced, expert, weak, or strong when used to label the user instead of describing the working arrangement.",
+    "AIR_EXECUTOR": "A bounded callable execution unit that performs one repeatable operation under active AIR contract governance; not an agent, specialist, domain authority, or Method Pack.",
+    "non_agent_layer_boundary": "AIR Specialists, Domain Packages, Methods, and Executors are constraints, optimizers, tuning functions, execution shapers, or bounded operation contracts, not autonomous agents.",
+    "claim_transfer_rule": "Classification that separates secondary creator claims, repo-observed behavior, official source claims, and empirical test results before using external patterns as AIR patch rationale.",
+    "AIR_DISCOVERY_EXECUTOR": "A bounded Executor that identifies missing decision frames, constraints, source requirements, dependency state, unknown unknowns, and minimal next questions before material execution; not an agent.",
+    "unknown_unknown": "A missing decision frame, constraint, source requirement, dependency state, or risk surface the user does not yet know matters.",
+    "patch_source_upload_gate": "A patch security gate requiring the user to upload the current files to patch so AIR patches grounded source files rather than memory or assumed repo state."
   },
   "domain_constraints": [
     "Do not discard impossible ideas wholesale.",
@@ -92,7 +102,13 @@
     "When delivery form materially affects success, respect user_execution_workflow or route to REVIEW before changing delivery mode.",
     "Complete artifact delivery, snippet delivery, diff delivery, scripted patch delivery, review-only mode, guided implementation, and operator-test mode are delivery forms, not measures of user competence.",
     "User alignment and execution workflow must remain subordinate to AIR_ACTIVE_CONTRACT, AIR_GATE, evidence gates, safety constraints, claim hygiene, and backend validation boundaries.",
-    "LinkedIn, CV, role descriptions, or profile material may be accepted as optional project-relevant alignment context, but must not be required or treated as fixed identity truth."
+    "LinkedIn, CV, role descriptions, or profile material may be accepted as optional project-relevant alignment context, but must not be required or treated as fixed identity truth.",
+    "Do not describe AIR Specialists, Domain Packages, Methods, or Executors as agents.",
+    "Domain packages may inform Executor source requirements, output expectations, and failure modes, but must not turn Executors into domain authorities.",
+    "Secondary creator claims may inspire hypotheses only; empirical test results are required for effectiveness or superiority claims.",
+    "Block or review material execution when unknown unknowns or missing decision frames could materially change the output.",
+    "Before patching, require current uploaded files to patch; if expected files are missing or inconsistent, route to REVIEW or EVIDENCE_REQUIRED.",
+    "Do not patch from memory, prior generated output, assumed repository state, or filenames alone."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -163,6 +179,28 @@
       "working agreement summary when delivery form affects success",
       "explicit approval when changing from a binding workflow mode",
       "optional user-supplied profile material only when voluntarily provided and project-relevant"
+    ],
+    "claim_transfer_classification": [
+      "source class: secondary creator, repo-observed, official source, or empirical test",
+      "claim being transferred",
+      "AIR layer affected",
+      "adapt/reject decision",
+      "empirical evidence when effectiveness or superiority is claimed"
+    ],
+    "unknown_unknown_discovery": [
+      "user objective or active task statement",
+      "candidate decision frames",
+      "material constraints that may change output",
+      "required and optional source classes",
+      "dependency state where material",
+      "minimal next questions or retrieval instructions"
+    ],
+    "patch_source_upload_gate": [
+      "current-session uploaded files to patch",
+      "inspection or parse evidence for uploaded files",
+      "machine-readable validation output when applicable",
+      "list of output replacement files generated from uploaded sources",
+      "explicit REVIEW/EVIDENCE_REQUIRED state for missing expected files"
     ]
   },
   "common_failure_modes": [
@@ -191,7 +229,12 @@
     "Generating complete files when the working agreement is review-only or user-implemented without approval.",
     "Treating delivery mode as a user competence label.",
     "Surfacing internal user-support modeling as reductive public classification.",
-    "Changing delivery mode across sessions because handoff did not preserve user execution workflow."
+    "Changing delivery mode across sessions because handoff did not preserve user execution workflow.",
+    "Calling AIR layers agents because external platforms use agent terminology.",
+    "Treating repo-observed architecture as empirical proof that a pattern is effective.",
+    "Treating creator adoption as validation rather than as a search signal.",
+    "Patching from memory and mutating results through hallucinated source state.",
+    "Assuming the user knows which decision frame, constraints, or source requirements matter before AIR runs discovery."
   ],
   "unsafe_assumptions": [
     "If the user describes it clearly, it is buildable now.",
@@ -214,7 +257,10 @@
     "If the user wants complete files, they are non-technical.",
     "If the user is technically experienced, they want diffs or scripts.",
     "If a user provides LinkedIn/CV/profile material, it describes all future working preferences.",
-    "If Q6 is skipped, AIR may invent a binding workflow preference."
+    "If Q6 is skipped, AIR may invent a binding workflow preference.",
+    "If the user did not provide a decision frame, the default frame is obvious.",
+    "If AIR patched a similar file before, it can patch the current file from memory.",
+    "If filenames match expected names, file contents are current and correct without inspection."
   ],
   "recommended_sources": [
     {
@@ -318,7 +364,80 @@
       "route delivery-form mismatch to REVIEW or regenerate in the correct form",
       "preserve Q6/user workflow state in handoff when material",
       "treat optional profile sources as project-relevant context, not fixed identity truth"
-    ]
+    ],
+    "air_executor_non_agent_layer_boundary": {
+      "patch_marker": "AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1",
+      "status": "ACTIVE_PROMPT_SIDE",
+      "backend_validation_claimed": false,
+      "executor_layer": {
+        "SYSTEM_DESIGNATION_PATTERN": "AIR_EXECUTOR_<NAME>_V1",
+        "PROFILE_KIND": "EXECUTOR",
+        "profile_function_class": "EXECUTOR",
+        "definition": "A bounded callable execution unit that performs one repeatable operation under active AIR contract governance.",
+        "not_an_agent": true,
+        "may_bind_as": [
+          "execution_unit",
+          "callable_operation",
+          "bounded_executor"
+        ],
+        "must_not_bind_as": [
+          "active_orbit_0_contract",
+          "governing_specialist_profile",
+          "domain_authority",
+          "backend_validation_evidence",
+          "execution_proof",
+          "autonomous_agent"
+        ],
+        "subordinate_to": [
+          "AIR_ACTIVE_CONTRACT",
+          "AIR_GATE",
+          "evidence_requirements",
+          "backend_validation_boundary",
+          "user_execution_workflow"
+        ]
+      },
+      "non_agent_layer_boundary": {
+        "rule": "AIR Specialists, Domain Packages, Methods, and Executors are not agents.",
+        "preferred_language": [
+          "constraint layer",
+          "optimizer",
+          "tuning function",
+          "execution shaper",
+          "capability contract",
+          "bounded executor",
+          "referential overlay",
+          "governed method"
+        ],
+        "avoid_language": [
+          "agent",
+          "autonomous worker",
+          "AI employee",
+          "persona",
+          "independent operator",
+          "self-directed specialist"
+        ]
+      },
+      "executor_method_boundary": {
+        "executor": "small bounded callable operation with light/local state burden",
+        "method_pack": "governed repeatable procedure with evidence gates, method execution state, staleness, portability, templates, or handoff relevance",
+        "promote_executor_to_method_when": [
+          "recurrence requires consistency",
+          "evidence gates are needed",
+          "method_execution_state matters",
+          "staleness review matters",
+          "handoff preservation matters",
+          "portability across sessions/models/projects matters",
+          "templates/assets are needed",
+          "defect or rework history justifies promotion"
+        ]
+      },
+      "claim_transfer_rule": {
+        "secondary_creator_claim": "may inspire hypothesis only",
+        "repo_observed_behavior": "may support architecture pattern when inspected and relevant",
+        "official_source_claim": "may support product or platform fact within source scope and date boundary",
+        "empirical_test_result": "required for effectiveness, performance, superiority, reliability, safety, production-readiness, compliance, or benchmark-passage claims"
+      }
+    }
   },
   "non_goals": [
     "governing AIR as Orbit 0 by itself",
@@ -327,7 +446,9 @@
     "proving AIR improved without eval or ablation",
     "overriding AIR_ACTIVE_CONTRACT",
     "silently rescoping the active task",
-    "treating AIR_GATE as optional when grounding changes execution"
+    "treating AIR_GATE as optional when grounding changes execution",
+    "patching from memory instead of current uploaded source files",
+    "claiming repository alignment without uploaded files or tool-observed repo evidence"
   ],
   "binding_rules": {
     "may_bind_as": [
@@ -384,5 +505,63 @@
     "role": "DOMAIN_OVERLAY_FOR_WORKING_AGREEMENT_AND_DELIVERY_FORM_FIT",
     "core_rule": "Grounding domain guidance should preserve user-declared working agreements and delivery-form fit without turning user alignment into public user classification.",
     "backend_validation_claimed": false
+  },
+  "source_layer": {
+    "air_discovery_executor_policy": {
+      "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
+      "core_principle": "AIR must help discover missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution when the user cannot reasonably know them yet.",
+      "executor_name": "AIR_DISCOVERY_EXECUTOR",
+      "executor_is_agent": false,
+      "trigger_when": [
+        "user objective is broad, underdefined, exploratory, or source-light",
+        "decision context is missing or unclear",
+        "market, jurisdiction, audience, product stage, budget, time horizon, release posture, or claim boundary may materially affect output",
+        "source authority, tool access, repo state, API access, credential state, or dependency availability is unclear",
+        "user likely cannot know which specialist, domain package, method, executor, source, or external skill/tool is needed",
+        "execution would otherwise require silent assumptions"
+      ],
+      "outputs": [
+        "likely_decision_frames",
+        "missing_constraints",
+        "unknown_unknown_candidates",
+        "required_sources",
+        "optional_sources",
+        "dependency_state",
+        "risk_gates",
+        "minimal_next_questions",
+        "safe_provisional_path"
+      ],
+      "gate_outcomes": [
+        "ALLOW",
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "PROVISIONAL_ALLOW"
+      ],
+      "dependency_boundary": "AIR does not depend on the user finding the correct prebuilt external skill. AIR may infer the needed capability/source map and generate retrieval instructions. AIR is not data-independent: external evidence, repositories, files, APIs, tools, connectors, credentials, or current data may still be required for execution, approval, or claims.",
+      "backend_validation_claimed": false
+    },
+    "patch_source_upload_gate_policy": {
+      "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+      "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
+      "uploaded_files_as_security_gate": true,
+      "requirements": [
+        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "use only the uploaded/current-session files as patch source of truth",
+        "inspect or parse the uploaded files before patching",
+        "preserve complete replacement file delivery when the working agreement requires it",
+        "validate machine-readable outputs when possible",
+        "report which uploaded source files were used",
+        "do not claim repo alignment unless uploaded files or tool-observed repo state prove it"
+      ],
+      "gate_effects": {
+        "missing_required_patch_files": "EVIDENCE_REQUIRED",
+        "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
+        "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
+        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+      },
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
+      "backend_validation_claimed": false
+    }
   }
 }

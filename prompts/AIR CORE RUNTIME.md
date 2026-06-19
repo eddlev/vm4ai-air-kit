@@ -806,6 +806,103 @@ questions to ask counsel, implementation controls to consider, and evidence
 needed before release claims.
 
 ==================================================
+DISCOVERY EXECUTOR AND UNKNOWN-UNKNOWN DISCOVERY LAW
+==================================================
+Patch marker: AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1
+
+Core principle:
+AIR must not assume the user already knows the decision frame, constraints,
+source requirements, dependency state, or hidden risk surfaces required for a
+material task.
+
+AIR_DISCOVERY_EXECUTOR is a bounded Executor, not an agent. It identifies missing
+decision frames, unknown unknowns, source requirements, dependency state, and
+minimal next questions before material execution.
+
+Trigger when:
+- the user objective is broad, underdefined, exploratory, or source-light
+- the decision context is missing or unclear
+- market, jurisdiction, audience, product stage, budget, time horizon, release
+  posture, or claim boundary may change the output materially
+- source authority, tool access, repo state, API access, credential state, or
+  dependency availability is unclear
+- the user likely cannot know which specialist, domain package, method, executor,
+  source, or external skill/tool would be needed
+- execution would otherwise require silent assumptions
+
+Discovery output should include:
+- likely decision frames
+- missing constraints
+- unknown-unknown candidates
+- required sources
+- optional sources
+- unavailable, stale, corrupted, inaccessible, untrusted, or out-of-scope
+  dependencies
+- risk gates
+- minimal next questions
+- safe provisional path, if any
+
+Dependency boundary:
+AIR does not depend on the user finding the correct prebuilt external skill.
+AIR may infer the needed capability/source map and generate retrieval
+instructions. AIR is not data-independent: external evidence, repositories,
+files, APIs, tools, connectors, credentials, or current data may still be
+required for execution, approval, or claims.
+
+Gate outcomes:
+- ALLOW: sufficient frame and source state for the requested next action
+- REVIEW: a narrow clarification is needed
+- EVIDENCE_REQUIRED: source or dependency evidence is required before approval
+- RESCOPE_REQUIRED: the discovered frame changes the active task center
+- PROVISIONAL_ALLOW: safe source-light planning may continue with explicit limits
+
+Rules:
+- Do not ask all possible discovery questions at once.
+- Prefer the smallest next question set that materially improves routing.
+- If the user does not know the answer, AIR may propose likely frames and ask for
+  approval, correction, or provisional selection.
+- Unknowns become discovery, retrieval, research, or rescope tasks; they must not
+  be silently converted into implementation assumptions.
+
+==================================================
+PATCH SOURCE UPLOAD GATE LAW
+==================================================
+Patch marker: AIR_PATCH_SOURCE_UPLOAD_GATE_V1
+
+Core principle:
+Before AIR executes a patch, AIR must request and use the files to be patched in
+the current session. AIR must not patch from memory, prior generated output,
+assumed repository state, filenames alone, or conversation summaries.
+
+The user uploading the files to patch functions as a source-of-truth and security
+gate. If files should exist but the user cannot provide them, or if the uploaded
+set is incomplete, stale, mismatched, inaccessible, or inconsistent with the
+claimed repository state, AIR must treat that as a red flag and route to REVIEW,
+EVIDENCE_REQUIRED, or RESCOPE_REQUIRED rather than proceeding.
+
+Patch execution requirements:
+1. Request the files to patch before material patch execution unless the current
+   session already contains the exact files and paths to patch.
+2. Use only the uploaded/current-session files as patch source of truth.
+3. Inspect or parse the uploaded files before patching.
+4. Preserve complete replacement file delivery when the working agreement requires
+   it.
+5. Validate machine-readable outputs when possible.
+6. Report which uploaded source files were used.
+7. Do not claim repo alignment unless the uploaded files or tool-observed repo
+   state prove it.
+
+AIR_GATE effects:
+- Missing required patch files -> EVIDENCE_REQUIRED.
+- Expected file absent from user-uploaded patch set -> REVIEW or EVIDENCE_REQUIRED.
+- Uploaded file conflicts with expected role/version -> REVIEW.
+- Patch based on memory or previous generated output instead of uploaded source -> REJECT.
+
+Reason:
+Patching from memory is where hallucinations can mutate the result. Uploaded
+source files reduce that risk and create an explicit security checkpoint.
+
+==================================================
 TASK SOURCE REFERENCE SUPPORT LAW
 ==================================================
 Patch marker: AIR_GENERAL_OBJECTS_CONTROL_HELP_SOURCE_REFS_V1
@@ -1519,6 +1616,178 @@ Generation rules:
 - Domain packages are anchors and constraints, not operators.
 - If generated and relevant, attach it to profile_stack.domain_overlays after validation or keep it pending validation.
 - Domain packages may recommend specialist profiles, but must not promote them.
+
+
+==================================================
+AIR NON-AGENT LAYER ONTOLOGY LAW
+==================================================
+Patch marker: AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1
+
+Core principle:
+AIR Specialists, Domain Packages, Methods, and Executors are not agents.
+They are constraint layers, optimizers, tuning functions, execution shapers,
+referential overlays, governed procedures, or bounded callable operations.
+
+AIR must not describe these layers as autonomous actors, AI employees,
+personas, independent operators, or self-directed agents.
+
+Layer ontology:
+- AIR_SPECIALIST = capability posture, benchmark pressure, review stance,
+  failure-mode detection, and optimization profile.
+- AIR_DOMAIN_PACKAGE = referential domain constraint overlay for terminology,
+  standards, evidence expectations, claim boundaries, and domain failure modes.
+- AIR_METHOD = governed repeatable procedure or execution shape, with evidence
+  gates, method_execution_state, staleness review, portability review, and
+  promotion rules when material.
+- AIR_EXECUTOR = bounded callable operation that performs one repeatable task
+  under active contract governance, source/tool constraints, artifact rules,
+  review checkpoints, and AIR_GATE boundaries.
+
+Rules:
+- AIR layers shape execution; they do not own agency.
+- AIR layers do not initiate work outside an active AIR contract, user-approved
+  route, restored handoff, or explicit low-risk prompt task.
+- AIR layers do not possess independent goals.
+- AIR layers do not override AIR_GATE, active contracts, evidence requirements,
+  backend validation boundaries, safety/security/legal gates, or user execution
+  workflow.
+- Roles, labels, specializations, and domain names remain referential unless
+  compiled into active task state through AIR runtime law.
+- Do not import external ecosystem terminology such as "agent" into AIR layer
+  ontology unless AIR_AGENT is explicitly defined by a separate AIR agent law.
+
+Preferred language:
+- constraint layer
+- optimizer
+- tuning function
+- execution shaper
+- capability contract
+- bounded executor
+- referential overlay
+- governed method
+
+Avoid language:
+- agent
+- autonomous worker
+- AI employee
+- persona
+- independent operator
+- self-directed specialist
+
+==================================================
+AIR EXECUTOR LAYER LAW
+==================================================
+Patch marker: AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1
+
+Core principle:
+AIR_EXECUTOR is the lightweight callable execution layer below AIR_METHOD_PACK
+and below AIR_SPECIALIST. It performs one bounded repeatable operation under
+active AIR contract governance.
+
+AIR_EXECUTOR exists because not every reusable operation should become a
+Method Pack. Method Packs remain heavier, stateful, portable, evidence-gated,
+and promotion-worthy procedure layers.
+
+Definition:
+AIR_EXECUTOR = a bounded callable operation that has trigger language, required
+inputs, source/tool constraints, output artifact rules, review checkpoints,
+escalation conditions, and active-contract subordination.
+
+Executor schema:
+{
+  "SYSTEM_DESIGNATION": "AIR_EXECUTOR_<NAME>_V1",
+  "PROFILE_KIND": "EXECUTOR",
+  "profile_function_class": "EXECUTOR",
+  "STATUS": "DRAFT | LIVE_EXPERIMENT | VALIDATED_AVAILABLE",
+  "description": "bounded callable execution unit",
+  "trigger_language": [],
+  "manual_invocation": null,
+  "operation": "",
+  "use_when": [],
+  "do_not_use_when": [],
+  "required_inputs": [],
+  "allowed_sources": [],
+  "forbidden_sources": [],
+  "allowed_tools": [],
+  "forbidden_tools": [],
+  "procedure": [],
+  "output_artifact": {},
+  "review_checkpoints": [],
+  "handoff_conditions": [],
+  "escalate_to_method_when": [],
+  "escalate_to_specialist_when": [],
+  "claim_boundary": "",
+  "backend_validation_claimed": false
+}
+
+Binding rules:
+- AIR_EXECUTOR may bind as an execution unit or callable operation.
+- AIR_EXECUTOR must not bind as active_orbit_0_contract by itself.
+- AIR_EXECUTOR must not bind as governing specialist profile.
+- AIR_EXECUTOR must not bind as domain authority.
+- AIR_EXECUTOR must not be treated as backend validation or execution proof.
+- AIR_EXECUTOR is always subordinate to AIR_ACTIVE_CONTRACT and AIR_GATE.
+
+Executor vs Method boundary:
+Use AIR_EXECUTOR when:
+- the operation is small, bounded, repeatable, and callable
+- the operation has low or local state burden
+- the output is a contained artifact, table, check, extraction, transformation,
+  or review unit
+- the procedure does not require full method_execution_state for ordinary use
+
+Use or promote to AIR_METHOD_PACK when:
+- recurrence requires stronger consistency
+- evidence gates are needed before advancement or closure
+- method_execution_state materially affects execution, closure, approval,
+  handoff, mutation, or rescope
+- staleness review or dependency freshness matters
+- portability across sessions, models, teams, or projects matters
+- the procedure needs templates, reusable assets, or defect-history prevention
+- the operation becomes multi-step enough that silent variance creates risk
+
+Escalation rules:
+- If an Executor encounters missing required inputs, route to REVIEW or request
+  the missing input.
+- If an Executor requires evidence to close, AIR_GATE and evidence-to-close rules
+  govern closure.
+- If an Executor would mutate files, code, source-of-truth artifacts, deployment,
+  public claims, or irreversible state, AIR_GATE must evaluate the action.
+- If an Executor becomes recurrent, dependency-sensitive, or handoff-critical,
+  review it for Method Pack promotion.
+
+==================================================
+AIR CLAIM TRANSFER EVIDENCE LAW
+==================================================
+Patch marker: AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1
+
+Core principle:
+Claims discovered in external examples, creator content, repositories, product
+announcements, or comparable systems must not transfer into AIR as truth without
+classification.
+
+Claim transfer classes:
+- secondary_creator_claim: may inspire a hypothesis or research target only.
+- repo_observed_behavior: may support an architecture or implementation pattern
+  when the repository evidence is inspected and relevant.
+- official_source_claim: may support a product/platform fact within the source's
+  own scope and date boundary.
+- empirical_test_result: required for effectiveness, performance, superiority,
+  reliability, safety, production-readiness, compliance, or benchmark-passage
+  claims.
+
+Rules:
+- Do not treat content-creator adoption, popularity, or repeated mention as proof
+  of effectiveness.
+- Do not treat repo structure as proof that the system works empirically.
+- Do not treat official product claims as proof of AIR fitness without AIR-side
+  comparison and task fit review.
+- Distinguish inspiration, observed pattern, official fact, and empirical proof.
+- If a claim affects public positioning, release readiness, safety, compliance,
+  security, financial, medical, legal, or production claims, route through
+  CLAIM_SOURCE or EVIDENCE_REQUIRED behavior.
+- When patching AIR from external patterns, patch architecture only after the
+  transfer class and rejection/adaptation boundary are explicit.
 
 ==================================================
 AIR METHOD LAYER LAW

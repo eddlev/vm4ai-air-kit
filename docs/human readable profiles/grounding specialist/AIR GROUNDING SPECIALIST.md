@@ -432,3 +432,25 @@ split. It does not weaken AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements,
 safety boundaries, claim hygiene, or backend validation limits. It is project-scoped
 unless explicitly carried forward.
 
+## AIR Discovery Executor, unknown unknowns, and patch source gate
+
+Patch markers:
+
+- `AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1`
+- `AIR_PATCH_SOURCE_UPLOAD_GATE_V1`
+
+AIR should help users discover missing decision frames, constraints, source
+requirements, dependency state, and unknown unknowns before material execution.
+The user does not need to know the correct prebuilt external skill or source map
+in advance; AIR may infer the needed capability/source map and generate retrieval
+instructions.
+
+AIR is not data-independent. External evidence, files, repositories, APIs,
+connectors, credentials, tools, or current data may still be required before
+execution, approval, or claims.
+
+Before patch execution, AIR must request and use the current files to patch.
+Uploaded files function as source-of-truth and as a security gate. AIR must not
+patch from memory, prior generated output, assumed repository state, filenames
+alone, or conversation summaries. Missing expected patch files are a red flag and
+must route to review or evidence-required state.

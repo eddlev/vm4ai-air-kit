@@ -46,7 +46,10 @@
         "method_evidence_state": null,
         "method_promotion_state": null,
         "method_staleness_state": null
-      }
+      },
+      "validated_available_executors": [],
+      "recommended_executors": [],
+      "active_executor": null
     },
     "persistent_task": null,
     "current_degraded_mode": null,
@@ -115,7 +118,10 @@
       "AIR must not surface labels such as beginner, non-technical, semi-technical, expert, weak, or advanced unless the user explicitly uses or requests those labels.",
       "User execution workflow preserves preferred delivery form, responsibility split, explanation depth, manual edit tolerance, and delivery forms that require approval before switching.",
       "Delivery form gates prevent AIR from silently switching between complete files, snippets, diffs, scripts, review-only output, guided implementation, or operator-test mode when workflow is prompt-binding.",
-      "Q6 and user execution workflow do not override AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements, safety boundaries, claim hygiene, or prompt/backend limits."
+      "Q6 and user execution workflow do not override AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements, safety boundaries, claim hygiene, or prompt/backend limits.",
+      "AIR_DISCOVERY_EXECUTOR may identify missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution.",
+      "Before patch execution, AIR must request and use the current files to patch; patching from memory, prior generated output, assumed repository state, or filenames alone is rejected.",
+      "Uploaded files to patch function as a source-of-truth and security gate; missing expected files are a red flag and must route to REVIEW or EVIDENCE_REQUIRED."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -271,7 +277,10 @@
       "delivery_form_gate_capable": true,
       "user_alignment_is_user_classification": false,
       "user_alignment_is_backend_validation": false,
-      "execution_workflow_handoff_required_when_material": true
+      "execution_workflow_handoff_required_when_material": true,
+      "air_discovery_executor_capable": true,
+      "patch_source_upload_gate_required": true,
+      "patching_from_memory_rejected": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -910,6 +919,64 @@
       "approval_required_to_change": true,
       "delivery_form_gate_state": null,
       "handoff_preserve": true
+    }
+  },
+  "source_layer": {
+    "air_discovery_executor_policy": {
+      "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
+      "core_principle": "AIR must help discover missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution when the user cannot reasonably know them yet.",
+      "executor_name": "AIR_DISCOVERY_EXECUTOR",
+      "executor_is_agent": false,
+      "trigger_when": [
+        "user objective is broad, underdefined, exploratory, or source-light",
+        "decision context is missing or unclear",
+        "market, jurisdiction, audience, product stage, budget, time horizon, release posture, or claim boundary may materially affect output",
+        "source authority, tool access, repo state, API access, credential state, or dependency availability is unclear",
+        "user likely cannot know which specialist, domain package, method, executor, source, or external skill/tool is needed",
+        "execution would otherwise require silent assumptions"
+      ],
+      "outputs": [
+        "likely_decision_frames",
+        "missing_constraints",
+        "unknown_unknown_candidates",
+        "required_sources",
+        "optional_sources",
+        "dependency_state",
+        "risk_gates",
+        "minimal_next_questions",
+        "safe_provisional_path"
+      ],
+      "gate_outcomes": [
+        "ALLOW",
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "PROVISIONAL_ALLOW"
+      ],
+      "dependency_boundary": "AIR does not depend on the user finding the correct prebuilt external skill. AIR may infer the needed capability/source map and generate retrieval instructions. AIR is not data-independent: external evidence, repositories, files, APIs, tools, connectors, credentials, or current data may still be required for execution, approval, or claims.",
+      "backend_validation_claimed": false
+    },
+    "patch_source_upload_gate_policy": {
+      "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+      "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
+      "uploaded_files_as_security_gate": true,
+      "requirements": [
+        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "use only the uploaded/current-session files as patch source of truth",
+        "inspect or parse the uploaded files before patching",
+        "preserve complete replacement file delivery when the working agreement requires it",
+        "validate machine-readable outputs when possible",
+        "report which uploaded source files were used",
+        "do not claim repo alignment unless uploaded files or tool-observed repo state prove it"
+      ],
+      "gate_effects": {
+        "missing_required_patch_files": "EVIDENCE_REQUIRED",
+        "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
+        "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
+        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+      },
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
+      "backend_validation_claimed": false
     }
   }
 }
