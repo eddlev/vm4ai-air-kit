@@ -1,6 +1,22 @@
-# AIR
+[![AIR by VM4AI — Configure. Organize. Execute.](https://github.com/eddlev/air-brand/raw/main/github/readme-header.png)](https://vm4ai.com)
+<!-- To make this README self-contained, copy readme-header.png into this repo (e.g. .github/readme-header.png) and point the line above at the local path. -->
 
-AIR is a prompt-based AI project runtime.
+# AIR by VM4AI
+
+[![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
+[![Framework](https://img.shields.io/badge/framework-prompt--based-9A8F80?labelColor=1A1613)](https://vm4ai.com)
+[![Release](https://img.shields.io/badge/release-v0.2.5-FF5A1F?labelColor=1A1613)](https://github.com/eddlev/vm4ai-air-kit/releases)
+[![Made with AIR](https://img.shields.io/badge/made%20with-AIR-FF5A1F?labelColor=1A1613)](https://vm4ai.com)
+
+**Structure for any AI work. Configure. Organize. Execute.**
+
+AIR — short for AI Resource — is a prompt-based AI project runtime. It sits on top of the AI chatbot you already use and turns a loose session into a structured, auditable one. AIR works like a cooperative teammate, not an autonomous agent: you steer intent, constraints, and approvals; AIR protects scope, evidence, blockers, continuity, and the next step.
+
+**Website** [vm4ai.com](https://vm4ai.com) · **Brand kit** [eddlev/air-brand](https://github.com/eddlev/air-brand) · **Discussions** [ask &amp; share](https://github.com/eddlev/vm4ai-air-kit/discussions)
+
+---
+
+## What AIR does
 
 It helps an AI session behave less like a loose chatbot and more like a structured project runtime:
 
@@ -53,7 +69,7 @@ Attach these files in a new model session:
 
 Then type:
 
-```text
+```
 Start a new AIR project.
 ```
 
@@ -61,7 +77,7 @@ AIR should begin the onboarding flow. It should not skip Q1.
 
 A minimal boot header may appear after required boot evidence:
 
-```text
+```
 AIR boot active.
 
 Prompt-compiled from uploaded AIR materials.
@@ -81,7 +97,7 @@ To continue an AIR project in a new session, attach:
 
 Then type:
 
-```text
+```
 Continue project from handoff card.
 ```
 
@@ -93,7 +109,7 @@ If you want the live session-management layer active in that continuation sessio
 
 Some models may misunderstand AIR, redefine it as a generic acronym, or try to infer onboarding answers from the boot prompt. If that happens, use this stricter boot prompt:
 
-```text
+```
 Use the uploaded AIR files as the governing framework. Do not redefine AIR as a generic acronym.
 
 Start AIR Core Runtime, attach AIR Control Surface only as required by the uploaded runtime, and load the default starter profile.
@@ -142,7 +158,6 @@ AIR is cooperative, not automatic.
 The user steers intent, constraints, corrections, and approvals. AIR protects scope, structure, evidence, blockers, continuity, and next actions.
 
 That means AIR should not blindly obey, silently drift, or pretend unsupported claims are proven. It should also not bulldoze the user. When something needs a decision, approval, evidence, or rescope, AIR surfaces that need explicitly.
-
 
 ### Map-first execution
 
@@ -432,6 +447,7 @@ Options:
 Option D is instructional only. It must present the beginner orientation and then return to onboarding without activating a project.
 
 The beginner orientation should:
+
 - avoid assuming prior AIR knowledge
 - explain AIR in plain language
 - explain that prompt-compiled AIR is not backend validation
@@ -493,8 +509,7 @@ Provide:
 
 If you have no sources yet, say so. AIR can still start in provisional source-light mode.
 
-
-### Q6 - AIR & User Alignment
+### Q6 - AIR &amp; User Alignment
 
 Q6 asks how you want AIR to work with you on this project.
 
@@ -547,7 +562,7 @@ AIR Methods are the procedure layer.
 
 The default method location is:
 
-```text
+```
 AIR_ARTIFACT.method
 ```
 
@@ -555,7 +570,7 @@ This keeps the applied procedure fitted to the current active task.
 
 When method progress materially affects execution, review, closure, approval, handoff, mutation, or rescope, AIR may also track:
 
-```text
+```
 AIR_ARTIFACT.method_execution_state
 ```
 
@@ -587,7 +602,7 @@ AIR should tell the user when a task needs additional capability support.
 
 A compact check may look like:
 
-```text
+```
 capability layer check
 specialist: needed
 domain package: optional
@@ -607,7 +622,7 @@ Users should not be expected to know when a specialist, domain package, or metho
 
 Before approval, AIR should show a compact capability brief:
 
-```text
+```
 capability brief
 authorization required
 
@@ -621,7 +636,6 @@ bind validated / continue degraded
 ```
 
 Specialist profiles change evaluation posture. Domain packages change terminology, constraints, evidence expectations, and claim boundaries. Method packs change repeatable procedure, templates, and evidence-to-advance gates.
-
 
 ## User alignment and execution workflow
 
@@ -644,7 +658,7 @@ AIR should not randomly choose among these when the delivery form affects succes
 
 A compact working agreement may look like:
 
-```text
+```
 working agreement
 delivery: complete patched replacement files
 AIR role: generate complete artifacts for review
@@ -727,13 +741,13 @@ To create a handoff, attach:
 
 Then ask:
 
-```text
+```
 Generate an AIR handoff card for this project.
 ```
 
 AIR should emit one JSON object with root key:
 
-```text
+```
 AIR_HANDOFF_CARD
 ```
 
@@ -750,7 +764,7 @@ Optionally also attach:
 
 Then say:
 
-```text
+```
 Use the attached AIR handoff card as the governing continuation state.
 
 Do not start a new AIR project.
@@ -814,6 +828,8 @@ This project is licensed under the Apache License, Version 2.0. See [LICENSE](LI
 
 Additional attribution and notice information, if applicable, is provided in [NOTICE](NOTICE).
 
+The brand — the **AIR** and **VM4AI** names and the dot-in-frame mark — is not granted by the code license. Please don't use the marks to imply endorsement or affiliation. The "Made with AIR" stamp is welcome on genuine AIR-built projects; see [eddlev/air-brand](https://github.com/eddlev/air-brand).
+
 ## AIR Discovery Executor, unknown unknowns, and patch source gate
 
 Patch markers:
@@ -836,3 +852,13 @@ Uploaded files function as source-of-truth and as a security gate. AIR must not
 patch from memory, prior generated output, assumed repository state, filenames
 alone, or conversation summaries. Missing expected patch files are a red flag and
 must route to review or evidence-required state.
+
+---
+
+## Built with AIR
+
+The AIR brand system and the [vm4ai.com](https://vm4ai.com) site were produced through AIR itself, running on a frontier model with a human approving every gate. Read the honest account at [vm4ai.com/built-with-air.html](https://vm4ai.com/built-with-air.html).
+
+[![Made with AIR](https://github.com/eddlev/air-brand/raw/main/made-with-air/made-with-air.svg)](https://vm4ai.com)
+
+— [vm4ai.com](https://vm4ai.com)
