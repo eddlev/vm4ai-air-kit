@@ -4,8 +4,8 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
-  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims. Adds method execution state terminology and evidence expectations so grounding can distinguish procedure definition from live method progress, method-step gates, Method Pack promotion, and stale Method Pack re-grounding. Adds user alignment and execution workflow terminology, constraints, and evidence expectations so grounding can preserve working agreements and delivery-form fit without classifying the user reductively. Adds AIR Executor terminology and non-agent boundary so domain packages can describe Executors as bounded callable operations while remaining referential overlays, not agents or operators. Adds claim-transfer classes for grounding external examples.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches.",
+  "STANDARD_CODE": "AIR.DOMAIN.GROUNDING.V1.AMBITION_TO_EXECUTABLE_KERNEL.PRAGMATIC_INNOVATION_EXTRACTION.CURRENT_TECH_CAPACITY.CLAIM_HYGIENE.MILESTONE_VIABILITY.DEPENDENCY_DRIFT.Q5_SPECIALIST_NEED_CHECK.AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_PROJECT_WORKFLOW_DECLARATION_FIRST_V1.AIR_MODEL_PORTABILITY_SOVEREIGNTY_V1.AIR_HANDOFF_CURRENT_STEP_RESTORATION_V1.AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1.AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1.AIR_PATCH_SOURCE_VISIBLE_REQUEST_CHECKPOINT_V1.AIR_Q6_COOPERATIVE_ALIGNMENT_INTAKE_V1.AIR_Q1D_Q6_ANSWER_GUIDANCE_V1.AIR_CAPABILITY_LAYER_SYSTEM_LAW_COMPLIANCE_V1",
+  "description": "Referential AIR domain package for grounding ambitious, speculative, innovative, technical, product, implementation-facing, or claim-bearing projects in current reality without killing the original ambition. Adds coding peripheral vision, bounded-step coding discipline, spec/implementation deviation logging, onboarding object-noise reduction, fenced pretty JSON AIR object rendering, and air -help/--help aliases. Adds prompt-enforced active contract awareness so grounding guidance remains subordinate to AIR_ACTIVE_CONTRACT scope, AIR_GATE decisions, evidence gates, stop conditions, and explicit rescope protocol. Adds visionary grounding question loops and regulatory pressure discovery so grounding preserves ambition, asks clarifying feasibility questions, and routes compliance pressure without legal-advice claims. Adds method execution state terminology and evidence expectations so grounding can distinguish procedure definition from live method progress, method-step gates, Method Pack promotion, and stale Method Pack re-grounding. Adds user alignment and execution workflow terminology, constraints, and evidence expectations so grounding can preserve working agreements and delivery-form fit without classifying the user reductively. Adds AIR Executor terminology and non-agent boundary so domain packages can describe Executors as bounded callable operations while remaining referential overlays, not agents or operators. Adds claim-transfer classes for grounding external examples.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches. Adds a visible patch-source request checkpoint so material patching cannot proceed merely because files appear present; AIR must request or confirm the exact patch-source set first. Adds Q6 cooperative alignment intake so Q6 is free-text working-agreement calibration rather than a primary option menu, including responsibility breakdown and optional reusable working-profile hook. Adds Q1-D Q6 answer guidance so beginner orientation explains how to answer Q6. Adds capability-layer system-law compliance so Specialists, Domain Packages, Method Packs, and Executors remain subordinate to AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 delivery workflow, and prompt/backend boundaries.",
   "domain_scope": [
     "visionary product idea intake",
     "impossible or speculative idea analysis",
@@ -35,7 +35,11 @@
     "unknown-unknown discovery before material execution",
     "decision-frame discovery",
     "source and dependency state discovery",
-    "patch source upload gate enforcement"
+    "patch source upload gate enforcement",
+    "visible patch-source request checkpoint enforcement",
+    "Q6 cooperative alignment intake and responsibility breakdown",
+    "Q1-D Q6 answer guidance",
+    "capability-layer system-law compliance review"
   ],
   "terminology": {
     "ambition": "larger dream or desired transformation",
@@ -65,7 +69,22 @@
     "claim_transfer_rule": "Classification that separates secondary creator claims, repo-observed behavior, official source claims, and empirical test results before using external patterns as AIR patch rationale.",
     "AIR_DISCOVERY_EXECUTOR": "A bounded Executor that identifies missing decision frames, constraints, source requirements, dependency state, unknown unknowns, and minimal next questions before material execution; not an agent.",
     "unknown_unknown": "A missing decision frame, constraint, source requirement, dependency state, or risk surface the user does not yet know matters.",
-    "patch_source_upload_gate": "A patch security gate requiring the user to upload the current files to patch so AIR patches grounded source files rather than memory or assumed repo state."
+    "patch_source_upload_gate": "A patch security gate requiring the user to upload the current files to patch so AIR patches grounded source files rather than memory or assumed repo state.",
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+    "visible_patch_source_request_checkpoint": "The mandatory visible step before material patching where AIR requests or confirms the exact source files to patch and surfaces missing, stale, mismatched, or extra files.",
+    "q6_cooperative_alignment_intake": "The free-text Q6 intake where the user describes how AIR and the user should work together for the current project, including role, strengths, gaps, uncertainties, responsibility split, delivery form, challenge level, explanation depth, approval boundaries, and assumptions to avoid.",
+    "reusable_working_profile": "An optional portable starting-preference profile that may inform Q6 but is not core Q6, fixed identity truth, an active contract, or permission to bypass project-specific alignment.",
+    "capability_layer_system_law_compliance": "The rule that Specialists, Domain Packages, Method Packs, and Executors remain subordinate to system prompts/laws, active contracts, AIR_GATE, evidence gates, Q6 workflow, and prompt/backend boundaries."
   },
   "domain_constraints": [
     "Do not discard impossible ideas wholesale.",
@@ -108,7 +127,12 @@
     "Secondary creator claims may inspire hypotheses only; empirical test results are required for effectiveness or superiority claims.",
     "Block or review material execution when unknown unknowns or missing decision frames could materially change the output.",
     "Before patching, require current uploaded files to patch; if expected files are missing or inconsistent, route to REVIEW or EVIDENCE_REQUIRED.",
-    "Do not patch from memory, prior generated output, assumed repository state, or filenames alone."
+    "Do not patch from memory, prior generated output, assumed repository state, or filenames alone.",
+    "Files merely present in-session do not satisfy patch-source discipline unless AIR has visibly requested or confirmed the exact patch-source inventory before mutation.",
+    "Prior generated patches, previous assistant output, remembered filenames, and conversation summaries must not be used as patch source truth.",
+    "Q6 must be treated as project-scoped cooperative free-text alignment intake, not a primary option menu.",
+    "Reusable working profiles may inform starting preferences only; they do not override project-specific Q6, active contracts, AIR_GATE, evidence gates, or prompt/backend boundaries.",
+    "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, patch-source gates, Q6 workflow, and prompt/backend claim boundaries."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -201,7 +225,18 @@
       "machine-readable validation output when applicable",
       "list of output replacement files generated from uploaded sources",
       "explicit REVIEW/EVIDENCE_REQUIRED state for missing expected files"
-    ]
+    ],
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
   },
   "common_failure_modes": [
     "agreement as successful cooperation",
@@ -546,7 +581,9 @@
       "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
       "uploaded_files_as_security_gate": true,
       "requirements": [
-        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "visibly request or confirm the exact patch-source set before material patch execution",
+        "surface the expected source files and the uploaded/current-session files AIR intends to use",
+        "treat uploaded files after request, or explicit user confirmation after source inventory, as patch-source gate evidence",
         "use only the uploaded/current-session files as patch source of truth",
         "inspect or parse the uploaded files before patching",
         "preserve complete replacement file delivery when the working agreement requires it",
@@ -558,10 +595,33 @@
         "missing_required_patch_files": "EVIDENCE_REQUIRED",
         "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
         "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
-        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+        "patch_based_on_memory_or_prior_generated_output": "REJECT",
+        "patch_source_inventory_not_visibly_requested_or_confirmed_before_mutation": "REJECT_RESTART_FROM_CHECKPOINT",
+        "patch_based_on_prior_output_filename_memory_or_conversation_summary": "REJECT"
       },
-      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
-      "backend_validation_claimed": false
-    }
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint. The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+      "backend_validation_claimed": false,
+      "visible_request_checkpoint_required": true,
+      "checkpoint_satisfaction_states": [
+        "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+        "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+        "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+        "EVIDENCE_REQUIRED_NO_SOURCE",
+        "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+      ],
+      "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+      "prior_generated_patch_cannot_satisfy_source_gate": true
+    },
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
   }
 }

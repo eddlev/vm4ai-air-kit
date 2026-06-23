@@ -121,7 +121,13 @@
       "Q6 and user execution workflow do not override AIR_ACTIVE_CONTRACT, AIR_GATE, evidence requirements, safety boundaries, claim hygiene, or prompt/backend limits.",
       "AIR_DISCOVERY_EXECUTOR may identify missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution.",
       "Before patch execution, AIR must request and use the current files to patch; patching from memory, prior generated output, assumed repository state, or filenames alone is rejected.",
-      "Uploaded files to patch function as a source-of-truth and security gate; missing expected files are a red flag and must route to REVIEW or EVIDENCE_REQUIRED."
+      "Uploaded files to patch function as a source-of-truth and security gate; missing expected files are a red flag and must route to REVIEW or EVIDENCE_REQUIRED.",
+      "Before material patch execution, AIR must visibly request or confirm the exact patch-source set; files merely present in-session are insufficient unless the source inventory was surfaced and confirmed or uploaded after request.",
+      "Prior generated patches, prior assistant output, remembered filenames, and conversation summaries cannot satisfy the patch-source upload gate.",
+      "Q6 is cooperative free-text alignment intake for the current project, not a primary option menu.",
+      "Q1-D beginner orientation must explain how to answer Q6: role, strengths, gaps, uncertainties, responsibility split, delivery form, challenge level, explanation depth, approval boundaries, and assumptions to avoid.",
+      "Reusable working profiles are optional support only; project-specific Q6 overrides them, and active contract plus AIR_GATE override both.",
+      "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 workflow, and prompt/backend boundaries."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -280,7 +286,18 @@
       "execution_workflow_handoff_required_when_material": true,
       "air_discovery_executor_capable": true,
       "patch_source_upload_gate_required": true,
-      "patching_from_memory_rejected": true
+      "patching_from_memory_rejected": true,
+      "visible_request_checkpoint_required": true,
+      "checkpoint_satisfaction_states": [
+        "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+        "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+        "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+        "EVIDENCE_REQUIRED_NO_SOURCE",
+        "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+      ],
+      "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+      "prior_generated_patch_cannot_satisfy_source_gate": true,
+      "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -919,6 +936,14 @@
       "approval_required_to_change": true,
       "delivery_form_gate_state": null,
       "handoff_preserve": true
+    },
+    "patch_source_checkpoint_state": null,
+    "patch_source_inventory": {
+      "expected_files": [],
+      "uploaded_current_session_files_used": [],
+      "confirmation_state": null,
+      "missing_or_mismatched_files": [],
+      "prior_generated_patch_used_as_source": false
     }
   },
   "source_layer": {
@@ -961,7 +986,9 @@
       "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
       "uploaded_files_as_security_gate": true,
       "requirements": [
-        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "visibly request or confirm the exact patch-source set before material patch execution",
+        "surface the expected source files and the uploaded/current-session files AIR intends to use",
+        "treat uploaded files after request, or explicit user confirmation after source inventory, as patch-source gate evidence",
         "use only the uploaded/current-session files as patch source of truth",
         "inspect or parse the uploaded files before patching",
         "preserve complete replacement file delivery when the working agreement requires it",
@@ -973,10 +1000,33 @@
         "missing_required_patch_files": "EVIDENCE_REQUIRED",
         "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
         "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
-        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+        "patch_based_on_memory_or_prior_generated_output": "REJECT",
+        "patch_source_inventory_not_visibly_requested_or_confirmed_before_mutation": "REJECT_RESTART_FROM_CHECKPOINT",
+        "patch_based_on_prior_output_filename_memory_or_conversation_summary": "REJECT"
       },
-      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
-      "backend_validation_claimed": false
-    }
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint. The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+      "backend_validation_claimed": false,
+      "visible_request_checkpoint_required": true,
+      "checkpoint_satisfaction_states": [
+        "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+        "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+        "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+        "EVIDENCE_REQUIRED_NO_SOURCE",
+        "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+      ],
+      "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+      "prior_generated_patch_cannot_satisfy_source_gate": true
+    },
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
   }
 }

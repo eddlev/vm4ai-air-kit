@@ -4,8 +4,8 @@
   "PROFILE_KIND": "METHOD_PACK",
   "profile_function_class": "EXECUTION_METHOD_PACK",
   "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
-  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement. Adds Executor-vs-Method boundary review so small bounded callable operations remain AIR_EXECUTOR units unless evidence gates, method state, staleness, portability, handoff preservation, templates, or defect history justify Method Pack promotion.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches.",
+  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1.AIR_PATCH_SOURCE_VISIBLE_REQUEST_CHECKPOINT_V1.AIR_Q6_COOPERATIVE_ALIGNMENT_INTAKE_V1.AIR_Q1D_Q6_ANSWER_GUIDANCE_V1.AIR_CAPABILITY_LAYER_SYSTEM_LAW_COMPLIANCE_V1",
+  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement. Adds Executor-vs-Method boundary review so small bounded callable operations remain AIR_EXECUTOR units unless evidence gates, method state, staleness, portability, handoff preservation, templates, or defect history justify Method Pack promotion.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches. Adds a visible patch-source request checkpoint so material patching cannot proceed merely because files appear present; AIR must request or confirm the exact patch-source set first. Adds Q6 cooperative alignment intake so Q6 is free-text working-agreement calibration rather than a primary option menu, including responsibility breakdown and optional reusable working-profile hook. Adds Q1-D Q6 answer guidance so beginner orientation explains how to answer Q6. Adds capability-layer system-law compliance so Specialists, Domain Packages, Method Packs, and Executors remain subordinate to AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 delivery workflow, and prompt/backend boundaries.",
   "method_pack_type": "procedure_pack",
   "may_bind_as": [
     "method_overlay",
@@ -127,12 +127,12 @@
     },
     {
       "id": "S10",
-      "action": "For patching or documentation mutation, verify the patch source upload gate was satisfied.",
-      "expected_output": "Patch source gate decision: satisfied / missing files / mismatched files / memory-based patch rejected.",
-      "evidence_to_advance": "Current-session uploaded files were inspected or parsed before patching; expected files are present or missing files are surfaced as a gate.",
+      "action": "For patching or documentation mutation, verify the visible patch-source request checkpoint and patch source upload gate were satisfied.",
+      "expected_output": "Patch source gate decision: satisfied by upload after request / satisfied by user confirmation after inventory / missing files / mismatched files / memory-based or prior-output patch rejected.",
+      "evidence_to_advance": "AIR visibly requested or confirmed the exact patch-source set before mutation; current-session uploaded files were inspected or parsed before patching; expected files are present or missing/mismatched files are surfaced as a gate.",
       "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
       "reversibility": "REVERSIBLE",
-      "on_failure": "Reject memory-based patching and request the current files to patch."
+      "on_failure": "Reject memory-based or prior-output patching and restart from the visible patch-source request checkpoint."
     }
   ],
   "definition_of_done": [
@@ -148,7 +148,10 @@
     "Executor-vs-Method boundary was reviewed when method promotion or reusable callable operations were material.",
     "Non-agent layer boundary was preserved; Method Packs and Executors were not described as agents.",
     "Unknown-unknown discovery requirement reviewed when material.",
-    "Patch source upload gate reviewed when patching or documentation mutation is material."
+    "Patch source upload gate reviewed when patching or documentation mutation is material.",
+    "Visible patch-source request checkpoint was satisfied before patching or documentation mutation.",
+    "Q6 cooperative alignment and Q1-D Q6 answer guidance were reviewed when method-governed onboarding changes are material.",
+    "Capability-layer system-law compliance was preserved for Specialists, Domain Packages, Methods, and Executors."
   ],
   "failure_modes_prevented": [
     "treating a written method as proof that execution occurred",
@@ -163,7 +166,11 @@
     "promoting small bounded Executors into Method Packs without justification",
     "treating Executors or Method Packs as autonomous agents",
     "patching from memory instead of current uploaded source files",
-    "approving method-governed output while material unknown unknowns remain undiscovered"
+    "approving method-governed output while material unknown unknowns remain undiscovered",
+    "treating files that merely happen to be present as sufficient without visible patch-source request or confirmation",
+    "using previous generated patches as source truth",
+    "rendering Q6 as a primary option menu instead of cooperative free-text alignment",
+    "allowing Specialists, Domain Packages, Method Packs, or Executors to override system prompts/laws"
   ],
   "claim_boundary": "This Method Pack standardizes review procedure only. It does not prove execution, backend validation, empirical improvement, compliance, safety, production readiness, or tool execution. It also does not classify the user or override user-approved working agreements, AIR_GATE, active contracts, or evidence requirements.",
   "backend_validation_claimed": false,
@@ -227,7 +234,9 @@
       "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
       "uploaded_files_as_security_gate": true,
       "requirements": [
-        "request the files to patch before material patch execution unless the current session already contains the exact files and paths to patch",
+        "visibly request or confirm the exact patch-source set before material patch execution",
+        "surface the expected source files and the uploaded/current-session files AIR intends to use",
+        "treat uploaded files after request, or explicit user confirmation after source inventory, as patch-source gate evidence",
         "use only the uploaded/current-session files as patch source of truth",
         "inspect or parse the uploaded files before patching",
         "preserve complete replacement file delivery when the working agreement requires it",
@@ -239,11 +248,34 @@
         "missing_required_patch_files": "EVIDENCE_REQUIRED",
         "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
         "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
-        "patch_based_on_memory_or_prior_generated_output": "REJECT"
+        "patch_based_on_memory_or_prior_generated_output": "REJECT",
+        "patch_source_inventory_not_visibly_requested_or_confirmed_before_mutation": "REJECT_RESTART_FROM_CHECKPOINT",
+        "patch_based_on_prior_output_filename_memory_or_conversation_summary": "REJECT"
       },
-      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint.",
-      "backend_validation_claimed": false
-    }
+      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint. The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+      "backend_validation_claimed": false,
+      "visible_request_checkpoint_required": true,
+      "checkpoint_satisfaction_states": [
+        "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+        "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+        "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+        "EVIDENCE_REQUIRED_NO_SOURCE",
+        "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+      ],
+      "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+      "prior_generated_patch_cannot_satisfy_source_gate": true
+    },
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
   },
   "evidence_requirements": {
     "unknown_unknown_discovery": [
@@ -260,6 +292,17 @@
       "machine-readable validation output when applicable",
       "list of output replacement files generated from uploaded sources",
       "explicit REVIEW/EVIDENCE_REQUIRED state for missing expected files"
-    ]
+    ],
+    "visible_request_checkpoint_required": true,
+    "checkpoint_satisfaction_states": [
+      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+      "EVIDENCE_REQUIRED_NO_SOURCE",
+      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+    ],
+    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+    "prior_generated_patch_cannot_satisfy_source_gate": true,
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
   }
 }
