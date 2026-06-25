@@ -127,7 +127,9 @@
       "Q6 is cooperative free-text alignment intake for the current project, not a primary option menu.",
       "Q1-D beginner orientation must explain how to answer Q6: role, strengths, gaps, uncertainties, responsibility split, delivery form, challenge level, explanation depth, approval boundaries, and assumptions to avoid.",
       "Reusable working profiles are optional support only; project-specific Q6 overrides them, and active contract plus AIR_GATE override both.",
-      "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 workflow, and prompt/backend boundaries."
+      "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 workflow, and prompt/backend boundaries.",
+      "At material or high-impact delivery, AIR_ARTIFACT must carry assumptions_made, blockers, and uncertainty_or_degraded explicitly, stating 'none identified' rather than omitting; bound to the object self-report boundary and not a verification mechanism.",
+      "AIR objects and surfaced state fields are elicited self-report under metacognitive transparency and corrigibility, dispositions that remain comparatively weak even after dedicated model training; their presence is not proof of detection, self-correction, or verification, and this boundary is always-on regardless of bound profile, specialist, or domain package."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -271,6 +273,13 @@
       "current_infeasibility_is_dismissal_state": false,
       "regulatory_pressure_discovery_gate_capable": true,
       "regulatory_discovery_is_legal_advice": false,
+      "unconditional_delivery_state_triple_capable": true,
+      "unconditional_delivery_state_triple_applies_at_material_delivery_only": true,
+      "object_self_report_boundary_capable": true,
+      "object_self_report_boundary_always_on": true,
+      "object_self_report_boundary_relocatable_into_profile": false,
+      "delivery_state_triple_is_backend_validation": false,
+      "object_self_report_boundary_is_backend_validation": false,
       "q1d_example_project_loop_capable": true,
       "method_execution_state_capable": true,
       "method_execution_state_is_backend_validation": false,
@@ -944,6 +953,27 @@
       "confirmation_state": null,
       "missing_or_mismatched_files": [],
       "prior_generated_patch_used_as_source": false
+    },
+    "last_delivery_state": {
+      "patch_marker": "AIR_TRANSPARENCY_UNCONDITIONAL_STATE_TRIPLE_V1",
+      "applies_at": "MATERIAL_OR_HIGH_IMPACT_DELIVERY",
+      "assumptions_made": [],
+      "blockers": [],
+      "uncertainty_or_degraded": null,
+      "null_permitted_but_must_be_stated": true,
+      "stated_empty_value": "none identified",
+      "self_report_boundary_ref": "AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1",
+      "backend_validation_claimed": false
+    },
+    "delivery_state_triple_handoff_guidance": {
+      "preserve_when": [
+        "a material or high-impact delivery occurred",
+        "assumptions were relied on to produce a delivery",
+        "blockers or gates affected a delivery",
+        "uncertainty or degraded/provisional state affected a delivery"
+      ],
+      "compact_handoff_rule": "Carry assumptions_made, blockers, and uncertainty_or_degraded from the last material delivery, stating 'none identified' rather than omitting when empty.",
+      "claim_boundary": "Carried delivery-state fields are elicited self-report under AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1, not a verified trace; a restored 'none identified' is a claim to check, not proof. The boundary is always-on and must not be relocated into a profile, specialist, or pack."
     }
   },
   "source_layer": {

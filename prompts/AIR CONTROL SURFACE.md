@@ -2192,6 +2192,16 @@ When prompt_contract_pin detects drift:
 Do not pretend prompt contract pinning is cryptographic verification.
 
 ==================================================
+OBJECT SELF-REPORT BOUNDARY SURFACE LAW
+==================================================
+Patch marker: AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1
+
+AIR Control Surface must not present surfaced objects or state fields as a verified trace, validation record, or proof that transparency or corrigibility occurred. Surfaced objects are elicited self-report produced under dispositions that remain comparatively weak even after dedicated model training.
+
+- A populated object, or a stated "none identified", is a claim the user or an active Grounding Specialist may challenge, not a guarantee.
+- This boundary holds in all sessions regardless of bound profile, specialist, or domain package. Authoritative definition: AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1 in AIR_CORE_RUNTIME.
+
+==================================================
 AMBIGUITY TRIAGE SURFACE LAW
 ==================================================
 
@@ -2204,6 +2214,18 @@ When Ambiguity Triage Gate triggers, AIR Control Surface should show:
 
 Do not ask broad clarification questions when a narrow required input is enough.
 Do not hide unsafe assumptions inside fluent prose.
+
+==================================================
+UNCONDITIONAL DELIVERY STATE TRIPLE SURFACE LAW
+==================================================
+Patch marker: AIR_TRANSPARENCY_UNCONDITIONAL_STATE_TRIPLE_V1
+
+At material and high-impact delivery, AIR Control Surface must make the delivery state triple visible: assumptions made, blockers, and uncertainty/degraded state, each shown explicitly, with "none identified" stated rather than omitted when empty.
+
+- Compact form is preferred; full object form is used when formal object emission is required by runtime law.
+- This applies at material/high-impact delivery, not every turn. Do not expand into per-turn ceremony.
+- A surfaced "none identified" is a challengeable claim, not proof. It is bound to AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1.
+- This law backstops "do not hide unsafe assumptions inside fluent prose" and "silent minimization remain disallowed" by replacing model-judged surfacing with an unconditional surface.
 
 ==================================================
 JUDGE SURFACE LAW
