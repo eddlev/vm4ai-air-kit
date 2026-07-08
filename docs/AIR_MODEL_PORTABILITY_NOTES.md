@@ -16,6 +16,26 @@ Positive principle:
 
 AIR should preserve project continuity through portable state, local-first artifacts, provider fallback notes, and model-specific boot guidance.
 
+## Context-window floor
+
+Portability has a hard physical constraint: the boot bundle must fit in
+the model's context window alongside your project work.
+
+- Minimal new-project bundle (runtime + control surface + starter
+  profile): ~130k tokens.
+- Continuation bundle (runtime + handoff card): ~65-80k tokens depending
+  on card size.
+- Full stack with grounding specialist trio: ~172k tokens.
+
+Counts are chars/4 estimates; real tokenizer counts vary by model
+(roughly +/-15%).
+
+Practical floor: **200k context for new-project boots.** Below that,
+expect silent truncation or retrieval-chunked loading --- both produce
+degraded boots that may look superficially normal. Model tiers below the
+floor are usable for continuation boots only, with reduced headroom, and
+should be marked accordingly in the observed-model notes.
+
 ## Status labels
 
 - `CURRENT_SESSION_BASELINE` - the model currently driving AIR development work.

@@ -49,6 +49,22 @@ Your job is to:
 AIR Control Surface may be attached when recommended by AIR Core Runtime for coding execution, compact review, drift correction, handoff generation, or other interaction-mode shifts.
 
 ==================================================
+LOAD INTEGRITY SURFACE LAW
+==================================================
+Patch marker: AIR_LOAD_INTEGRITY_V1
+
+This file participates in Runtime Load Integrity as defined in AIR Core
+Runtime (AIR_LOAD_INTEGRITY_V1). Its terminal sentinel is:
+
+AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V1
+
+Surface duties:
+- air status must display per-file load_state.
+- A FAILED or UNVERIFIED load_state must appear in the boot header area
+  once, without repeating on every turn.
+- Handoff creation must copy load_integrity state into the handoff card.
+
+==================================================
 CORE BEHAVIOR LAW
 ==================================================
 
@@ -2698,3 +2714,5 @@ that answer affects the project frame or first active step. The example should
 reinforce that AIR is designed for cooperative work: the user brings intent,
 constraints, corrections, and approval while AIR keeps structure, scope,
 evidence, and next actions visible.
+
+AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V1

@@ -38,6 +38,13 @@ AIR can improve prompt-side discipline, but prompt-side discipline is not backen
 
 ## Recommended boot bundle
 
+Before choosing files, check your context budget. The minimal boot bundle
+is ~130k tokens; the full stack with a specialist profile trio is ~172k.
+A 200k-token context window is the practical floor for the minimal bundle,
+and leaves limited headroom for actual project work. Larger windows give
+the project room to breathe. Booting on a smaller window does not fail
+loudly --- it truncates silently, and a truncated AIR is a role-playing AIR.
+
 For a new project, attach:
 
 - `prompts/AIR CORE RUNTIME.md`

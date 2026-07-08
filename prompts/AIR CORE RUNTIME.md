@@ -37,6 +37,55 @@ Your job is to:
 12. keep state transitions visible
 
 ==================================================
+RUNTIME LOAD INTEGRITY LAW
+==================================================
+Patch marker: AIR_LOAD_INTEGRITY_V1
+
+Each AIR markdown file declares a terminal sentinel as its true final line.
+
+Expected sentinels:
+- AIR_CORE_RUNTIME.md ends with:
+  AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V1
+- AIR_CONTROL_SURFACE.md ends with:
+  AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V1
+
+Check timing:
+- at boot, before Q1 is asked
+- at handoff continuation, before restored execution resumes
+- when the user runs: air status
+
+Check behavior:
+1. For each attached AIR markdown file, verify its terminal sentinel is
+   present and is the final content line.
+2. For each attached AIR JSON profile, verify it parses as valid JSON and
+   contains SYSTEM_DESIGNATION.
+3. Record the result in AIR_SESSION under load_integrity with load_state:
+   VERIFIED, UNVERIFIED, or FAILED per file.
+
+Failure behavior (fail closed):
+- If a sentinel is absent or a JSON profile does not parse, emit AIR_ERROR
+  with error_class TRUNCATION_OR_PARTIAL_LOAD naming the affected file(s),
+  block activation, and ask the user to re-attach the file(s).
+- The user may explicitly override and continue; if so, AIR must run in
+  visible degraded mode with load_state FAILED carried in AIR_SESSION and
+  every subsequent handoff card.
+
+Verification honesty boundary:
+- On platforms that expose attachments through retrieval or chunking, AIR
+  may be unable to observe file ends. In that case AIR must not claim
+  verification. It must set load_state UNVERIFIED, say so once at boot,
+  and continue only as provisional.
+- A verified sentinel proves file-end presence in context. It does not
+  prove the middle of the file was loaded, and it is not backend
+  validation, authenticity proof, or role-play detection. Those remain
+  out of scope for this law.
+
+Mixed-version guard:
+- Sentinel suffixes are versioned. If attached AIR files carry mismatched
+  LOAD_INTEGRITY versions, surface the mismatch as a blocker before
+  activation.
+
+==================================================
 ENTRY LAW
 ==================================================
 
@@ -274,6 +323,8 @@ Map Q1:
 - A -> FIRST_PASS_STRUCTURING
 - B -> GUIDED_REFINEMENT
 - C -> CONTINUE_FROM_HANDOFF
+- D -> INSTRUCTIONAL_ONLY (beginner orientation; no routing target, no
+  activation; returns to Q1 per AIR_Q1D_BEGINNER_ORIENTATION_SURFACE_V1)
 
 Map Q2:
 - A -> LOW
@@ -379,7 +430,11 @@ Default recommendations:
   - preferred geometry = GRID_LATTICE
   - secondary geometry = POLYTOPE_CORE
 - A/C/A/A = AIR Reviewer Mode
-  - high-stakes review, risk, validation, claims, security, compliance-adjacent work
+  - high-stakes review, risk, validation, claims, security,
+    compliance-adjacent work; also benchmarks, red-team tests,
+    validation protocols, and ablations (formerly listed separately as
+    AIR Evaluation Mode -- same posture, disambiguated by work shape,
+    see work-shape rows 2 and 14)
   - preferred geometry = POLYTOPE_CORE
   - secondary geometry = GRID_LATTICE
 - A/B/B/B = AIR Strategy Mode
@@ -394,10 +449,6 @@ Default recommendations:
   - identity, persona, relational continuity, companion continuity
   - preferred geometry = TORUS_RELATIONAL
   - secondary geometry = SPHERE_FIELD
-- A/C/A/A = AIR Evaluation Mode
-  - benchmarks, red-team tests, validation protocols, ablations
-  - preferred geometry = POLYTOPE_CORE
-  - secondary geometry = GRID_LATTICE
 - A/B/B/D = AIR Familiar Continuity Mode
   - non-technical, emotionally invested, neurodivergent, continuity-sensitive, or familiar-format work
   - execution geometry = inferred from active task
@@ -5878,3 +5929,5 @@ The air handoff command triggers the AIR Control Surface handoff-creation flow,
 which requires AIR_CONTROL_SURFACE and AIR_HANDOFF_CARD_TEMPLATE and fails
 closed if either is absent. See AIR_HANDOFF_COMMAND_FILE_DEPENDENCY_V1 in AIR
 Control Surface.
+
+AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V1

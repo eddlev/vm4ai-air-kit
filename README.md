@@ -61,6 +61,14 @@ Prompt-side discipline is not backend validation.
 
 ### New project boot bundle
 
+**Context requirement:** the new-project boot bundle is ~130k tokens
+(exact count varies by model tokenizer). Use a model and plan tier with a
+context window of **200k tokens or more**. On smaller context windows the
+bundle will be silently truncated or chunked, which produces the
+"role-playing AIR without running it" failure described below --- the model
+performs AIR's style without its rules. If you are unsure of your tier's
+context size, check your provider's documentation before booting.
+
 Attach these files in a new model session:
 
 - `prompts/AIR CORE RUNTIME.md`
