@@ -128,6 +128,8 @@ Begin with the user-facing AIR onboarding flow only.
 
 Emit only the minimal required AIR_SESSION object if the runtime requires it, then ask Q1 exactly as a user-facing onboarding question.
 
+Before asking Q1, run the Runtime Load Integrity check: verify each attached AIR markdown file ends with its terminal AIR_LOAD_SENTINEL line and each AIR JSON parses. Report per-file load_state. If any sentinel is missing, fail closed with a TRUNCATION_OR_PARTIAL_LOAD error instead of booting.
+
 Q1 must include:
 A. New project
 B. Import project

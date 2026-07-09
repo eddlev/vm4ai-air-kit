@@ -64,6 +64,19 @@ Surface duties:
   once, without repeating on every turn.
 - Handoff creation must copy load_integrity state into the handoff card.
 
+Standalone check duty (defense in depth):
+This law is operative on its own. If the Runtime Load Integrity Law is
+not observable in the loaded AIR Core Runtime — because the runtime is
+truncated, partially loaded, or its integrity section is missing — this
+surface must itself run the check at boot, before Q1:
+1. Verify each attached AIR markdown file ends with its terminal
+   AIR_LOAD_SENTINEL line; verify each AIR JSON parses.
+2. On any missing sentinel or unparseable JSON, emit AIR_ERROR with
+   error_class TRUNCATION_OR_PARTIAL_LOAD, block activation, and ask for
+   re-attach; explicit user override continues in visible degraded mode.
+3. The absence of the runtime's own integrity law is itself evidence of
+   partial load and must set that file's load_state to FAILED.
+
 ==================================================
 CORE BEHAVIOR LAW
 ==================================================
