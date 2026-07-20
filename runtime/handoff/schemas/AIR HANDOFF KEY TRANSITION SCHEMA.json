@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_KEY_TRANSITION_SCHEMA_V1",
+  "title": "AIR Handoff Key Transition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "project_id",
+    "branch_id",
+    "old_key_id",
+    "old_fingerprint",
+    "new_key_id",
+    "new_fingerprint",
+    "new_public_key_base64url",
+    "effective_at_utc",
+    "old_key_signature",
+    "new_key_signature"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "AIR_HANDOFF_KEY_TRANSITION_V1"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "branch_id": {
+      "type": "string"
+    },
+    "old_key_id": {
+      "type": "string"
+    },
+    "old_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "new_key_id": {
+      "type": "string"
+    },
+    "new_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "new_public_key_base64url": {
+      "type": "string"
+    },
+    "effective_at_utc": {
+      "type": "string"
+    },
+    "old_key_signature": {
+      "type": "string"
+    },
+    "new_key_signature": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,659 @@
+{
+  "title": "AIR Boot Module Manifest",
+  "SYSTEM_DESIGNATION": "AIR_BOOT_MODULE_MANIFEST_V1",
+  "artifact_class": "MODULE_MANIFEST",
+  "version": "1.1.0",
+  "status": "V0_3_0_FUNCTION_ORIENTED_STRUCTURE_RELEASE_CANDIDATE",
+  "created_at_utc": "2026-07-20T21:30:18Z",
+  "framework_id": "AIR_UNIVERSAL_ARTIFACT_BUILD_ASSURANCE_PORTABILITY_PATCH_V1",
+  "kernel": {
+    "module_id": "AIR_BOOT_KERNEL_V1",
+    "relative_path": "runtime/boot/AIR BOOT KERNEL.md",
+    "version": "1.0.0",
+    "sha256": "bbb680eaaa0a2e6a1135ed5c49627232480005338e5937a7ac0751dd618f660c",
+    "size_bytes": 7273,
+    "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_BOOT_KERNEL :: END_OF_FILE :: LOAD_INTEGRITY_V1"
+  },
+  "boot_starter": {
+    "module_id": "AIR_BOOT_STARTER_PROFILE_V1",
+    "relative_path": "runtime/boot/AIR BOOT STARTER PROFILE.json",
+    "version": "1.1.0",
+    "sha256": "42edaad4263cd9e20e27ec5265e36bba9f694dd515b1479986d6dc108f78d117",
+    "size_bytes": 3270
+  },
+  "canonical_monolith": [
+    {
+      "file": "prompts/AIR CORE RUNTIME.md",
+      "sha256": "b8b7aed61be3f418d5ac80a478036e68cb9a9259a293c82fc5b4fbf534ffcfe0",
+      "size_bytes": 301807
+    },
+    {
+      "file": "prompts/AIR CONTROL SURFACE.md",
+      "sha256": "b78a3e1d88a7fb98ab64e1d7f535c37b0acbfeb84c7ddd1de6cbc885be127fc4",
+      "size_bytes": 128622
+    },
+    {
+      "file": "prompts/AIR DEFAULT STARTER PROFILE.json",
+      "sha256": "ef962732a50fab5f917e6b81b73ff407b14251c1fdb2845a470206660ba48ec3",
+      "size_bytes": 205648
+    }
+  ],
+  "boot_modes": {
+    "FULL_MONOLITH": {
+      "tool_required": false,
+      "canonical_recovery": true
+    },
+    "MANUAL_MODULAR": {
+      "tool_required": false,
+      "digest_execution_claim": false
+    },
+    "LOCAL_BUNDLED": {
+      "tool_required": "OPTIONAL_PYTHON_3_11_STANDARD_LIBRARY",
+      "network_required": false
+    },
+    "HOST_ADAPTER": {
+      "status": "INTERFACE_ONLY_DEFERRED"
+    }
+  },
+  "load_order_classes": [
+    "KERNEL_MANDATORY",
+    "SESSION_ENTRY",
+    "MANDATORY_WHEN_MATERIAL_EXECUTION",
+    "TASK_TRIGGERED",
+    "EVIDENCE_TRIGGERED",
+    "TOOL_OPTIONAL",
+    "DATA_OPTIONAL",
+    "MONOLITH_FALLBACK"
+  ],
+  "security_policy": {
+    "local_relative_paths_only": true,
+    "remote_urls_allowed": false,
+    "absolute_paths_allowed": false,
+    "parent_traversal_allowed": false,
+    "symlink_escape_allowed": false,
+    "embedded_commands_allowed": false,
+    "duplicate_ids_allowed": false,
+    "dependency_cycles_allowed": false,
+    "module_self_approval_allowed": false,
+    "module_can_relax_kernel_floor": false,
+    "authenticated_content_bypasses_injection_checks": false,
+    "module_load_is_execution_authorization": false
+  },
+  "unknown_trigger_behavior": "REVIEW_AND_REQUEST_MODULE_OR_FALLBACK_MONOLITH",
+  "partial_load_claim": "MAY_NOT_CLAIM_FULL_AIR",
+  "modules": [
+    {
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - ENTRY AND ACTIVATION.md",
+      "sha256": "fcf6df4f91cbe1397abe143d4f51d1a4e8c63e7c655d2058b030c9cd934cadf7",
+      "size_bytes": 42456,
+      "load_class": "SESSION_ENTRY",
+      "triggers": [
+        "NEW_PROJECT",
+        "IMPORT_NON_AIR_PROJECT",
+        "HANDOFF_CONTINUATION",
+        "AIR_STATUS"
+      ],
+      "purpose": "Entry-path detection, onboarding routing, activation, session creation and initial orientation.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 17,
+      "source_span_bytes": 35539,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - CONTRACT GATE AND EXECUTION.md",
+      "sha256": "519e25406a22a81f84dcad86325a35b5634d9bce25d85cfb32211868faef223f",
+      "size_bytes": 99259,
+      "load_class": "MANDATORY_WHEN_MATERIAL_EXECUTION",
+      "triggers": [
+        "MATERIAL_EXECUTION",
+        "STATE_TRANSITION",
+        "APPROVAL",
+        "MUTATION",
+        "HANDOFF",
+        "RESCOPE"
+      ],
+      "purpose": "Active-contract authority, AIR_GATE, evidence, rescope, approval and execution boundaries.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 44,
+      "source_span_bytes": 89554,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - ARTIFACT LIFECYCLE.md",
+      "sha256": "31b6a8b7d0515be3597917bd56fa332a8ba6404bf4ff1f6a15c1e7b59cfb251f",
+      "size_bytes": 23693,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "CREATE_ARTIFACT",
+        "PATCH_ARTIFACT",
+        "HARDEN_ARTIFACT",
+        "VALIDATE_ARTIFACT",
+        "RELEASE_ARTIFACT"
+      ],
+      "purpose": "Artifact classes, lifecycle, source assurance, validation, binding, update, rollback and deprecation.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 11,
+      "source_span_bytes": 20770,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - SOURCE TRANSLATION AND CAPABILITY.md",
+      "sha256": "50a88eff3028b7351eeaff83523074d4497534ddedff9d2569410d840f2afe81",
+      "size_bytes": 38370,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "SOURCE_ROUTING",
+        "HUMAN_TAXONOMY",
+        "CAPABILITY_LAYER",
+        "DOMAIN_ROUTING",
+        "SPECIALIST_GENERATION"
+      ],
+      "purpose": "Source and Control Registry, Human-to-Machine translation, capability ecology and construction routing.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 12,
+      "source_span_bytes": 35197,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - METHOD EXECUTOR AND SPECIALIST.md",
+      "sha256": "898203cdde6bf1731d2eb74f7c3e943c0b8b51889baafea1a0595b5eac3c5baf",
+      "size_bytes": 32426,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "METHOD_STATE_MATERIAL",
+        "EXECUTOR_REQUIRED",
+        "SPECIALIST_REQUIRED",
+        "DOMAIN_OVERLAY_REQUIRED"
+      ],
+      "purpose": "Method, executor, specialist, domain overlay and profile-stack laws.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 8,
+      "source_span_bytes": 30112,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - POLICY AND HANDOFF SECURITY.md",
+      "sha256": "844ebe96a0033e1ccc4723ebd28c8908106fbbf948ca515ca7e74cc0c1ca8e32",
+      "size_bytes": 13008,
+      "load_class": "EVIDENCE_TRIGGERED",
+      "triggers": [
+        "Q2_POLICY_CHECK",
+        "TOOL_EVALUATED_POLICY",
+        "HANDOFF_CREATE",
+        "HANDOFF_RESTORE",
+        "HANDOFF_VERIFY"
+      ],
+      "purpose": "Deterministic policy, OPA adapter boundary, handoff integrity, trust, continuity and authority separation.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 4,
+      "source_span_bytes": 11481,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - GROUNDING DISCOVERY AND RESEARCH.md",
+      "sha256": "ec3b4ac2ddfd403bc1dd0b829066fc6b387065fc1ad7eb2123bef4e33cabe224",
+      "size_bytes": 67935,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "UNKNOWN_UNKNOWNS",
+        "EXTERNAL_RESEARCH",
+        "VISIONARY_GROUNDING",
+        "REGULATORY_UNCERTAINTY",
+        "CLAIM_GROUNDING"
+      ],
+      "purpose": "Discovery, grounding, current-source retrieval, feasibility, regulatory uncertainty and claim hygiene.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 33,
+      "source_span_bytes": 60461,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "artifact_class": "RUNTIME_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/runtime/AIR RUNTIME MODULE - CODING REPOSITORY AND RELEASE.md",
+      "sha256": "b1a8e55944fe931082846170077df37d6f16f731e8d5bee137d2434cdff2a24b",
+      "size_bytes": 16725,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "CODING",
+        "REPOSITORY",
+        "COMMIT",
+        "PUSH",
+        "DEPLOY",
+        "PUBLICATION",
+        "RELEASE"
+      ],
+      "purpose": "Coding peripheral vision, repository state, deviation logging, release topology and publication gates.",
+      "source_file": "prompts/AIR CORE RUNTIME.md",
+      "source_file_sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 12,
+      "source_span_bytes": 13563,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "artifact_class": "CONTROL_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/control/AIR CONTROL MODULE - ENTRY VISIBILITY AND ONBOARDING.md",
+      "sha256": "fc8a1fdaa2f087bb97be1d52c87a1a0f8e4f370488381f0354d600ae908586bc",
+      "size_bytes": 63645,
+      "load_class": "SESSION_ENTRY",
+      "triggers": [
+        "NEW_PROJECT",
+        "IMPORT_NON_AIR_PROJECT",
+        "HANDOFF_CONTINUATION",
+        "AIR_HELP",
+        "AIR_STATUS"
+      ],
+      "purpose": "Boot evidence, onboarding, visibility modes, compact orientation and correction surfaces.",
+      "source_file": "prompts/AIR CONTROL SURFACE.md",
+      "source_file_sha256": "35c638dc9b3d0d80542eeb23e16717116293ce5b5294ed365b766e89fafba6d4",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 47,
+      "source_span_bytes": 51616,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "artifact_class": "CONTROL_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/control/AIR CONTROL MODULE - ARTIFACT SOURCE AND CAPABILITY.md",
+      "sha256": "54d2476c34d2cd624c660efeb75400d42c0aeadba48cbf2982a4a84e0d72b4f6",
+      "size_bytes": 48311,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "ARTIFACT_PIPELINE",
+        "SOURCE_ROUTING",
+        "CAPABILITY_LAYER",
+        "METHOD_STATE"
+      ],
+      "purpose": "Artifact, source, capability, method and validation surfaces.",
+      "source_file": "prompts/AIR CONTROL SURFACE.md",
+      "source_file_sha256": "35c638dc9b3d0d80542eeb23e16717116293ce5b5294ed365b766e89fafba6d4",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 35,
+      "source_span_bytes": 40394,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+        "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+        "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "artifact_class": "CONTROL_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/control/AIR CONTROL MODULE - POLICY HANDOFF AND PORTABILITY.md",
+      "sha256": "d49af40d151faa0ff00ea14dc0d396b86ac9d8b62868064137ab621cc0ca3eaa",
+      "size_bytes": 18168,
+      "load_class": "EVIDENCE_TRIGGERED",
+      "triggers": [
+        "POLICY_CHECK",
+        "HANDOFF",
+        "TRUST_STATE",
+        "MODULE_LOAD_STATE",
+        "PORTABILITY_STATE"
+      ],
+      "purpose": "Policy mode, handoff trust, modular-load, degradation and portability surfaces.",
+      "source_file": "prompts/AIR CONTROL SURFACE.md",
+      "source_file_sha256": "35c638dc9b3d0d80542eeb23e16717116293ce5b5294ed365b766e89fafba6d4",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 7,
+      "source_span_bytes": 16024,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "artifact_class": "CONTROL_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/control/AIR CONTROL MODULE - CODING REPOSITORY AND RELEASE.md",
+      "sha256": "9da914baf10ac6e71cf892d7bf072aea44aae9a7d39dca883d16332033102c13",
+      "size_bytes": 21766,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "CODING",
+        "REPOSITORY",
+        "MUTATION",
+        "DEPLOY",
+        "PUBLICATION",
+        "RELEASE"
+      ],
+      "purpose": "Coding, repository, mutation, deviation, release and publication surfaces.",
+      "source_file": "prompts/AIR CONTROL SURFACE.md",
+      "source_file_sha256": "35c638dc9b3d0d80542eeb23e16717116293ce5b5294ed365b766e89fafba6d4",
+      "source_span_map_ref": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "source_span_count": 16,
+      "source_span_bytes": 17761,
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+      "artifact_class": "SOURCE_CONTROL_REGISTRY",
+      "version": "SOURCE_VERSION",
+      "relative_path": "runtime/source-control/registry/AIR SOURCE AND CONTROL REGISTRY.json",
+      "sha256": "6a8b456b05714364fe346958ff4c5f0f343af10d071fdf6527d3102d68ae06c8",
+      "size_bytes": 130389,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "SOURCE_ROUTING",
+        "EXTERNAL_SOURCE_REQUIRED",
+        "SOURCE_QUORUM_MATERIAL"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
+      "artifact_class": "EXECUTOR_CONTRACT",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/capability ecology architect/AIR HUMAN TO MACHINE CAPABILITY TRANSLATOR.json",
+      "sha256": "d33077c4639c6d42b6df86f7f6c58a8eb47a02e70114ecac81e3d7f6e5c3724c",
+      "size_bytes": 19740,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "HUMAN_TAXONOMY",
+        "CURRICULUM",
+        "CERTIFICATION",
+        "ROLE_REQUIREMENT_TRANSLATION"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_SOURCE_AND_CONTROL_REGISTRY_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V1_1",
+      "artifact_class": "SPECIALIST_PROFILE",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/capability ecology architect/AIR CAPABILITY ECOLOGY ARCHITECT.json",
+      "sha256": "69be9c10c6d502d6b8896a002e33a4819059e52865cc6033640cf80b1088bcbb",
+      "size_bytes": 49119,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "CAPABILITY_LAYER_CREATE",
+        "CAPABILITY_LAYER_HARDEN",
+        "CAPABILITY_ECOLOGY_REVIEW"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+        "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_DOMAIN_CAPABILITY_REGISTRY_V1_1",
+      "artifact_class": "DOMAIN_REGISTRY",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/capability ecology architect/AIR DOMAIN CAPABILITY REGISTRY.json",
+      "sha256": "26d6669b46eeb462a0fac0f41b67b5a22faf2db7f458ed2978424f19274a4d30",
+      "size_bytes": 66690,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "DOMAIN_MATCHING",
+        "DOMAIN_OVERLAY",
+        "ADJACENT_DOMAIN_DISCOVERY"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_SOURCE_AND_CONTROL_REGISTRY_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_GROUNDING_SPECIALIST_V1",
+      "artifact_class": "SPECIALIST_PROFILE",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/grounding specialist/AIR GROUNDING SPECIALIST.json",
+      "sha256": "67e982b4b9b0eaa5876ba7b88e034d3391848992600eab8de8943ddeda684d63",
+      "size_bytes": 63795,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "GROUNDING_REQUIRED",
+        "FEASIBILITY_REVIEW",
+        "CLAIM_HYGIENE"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_SOURCE_AND_CONTROL_REGISTRY_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_GROUNDING_DOMAIN_PACKAGE_V1",
+      "artifact_class": "DOMAIN_PACKAGE",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/grounding specialist/AIR GROUNDING DOMAIN PACK.json",
+      "sha256": "ba472360aac4718b49fcc782006d79e9c1ef19ef3c2c9196f59ee9c12fd39ab3",
+      "size_bytes": 57895,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "VISIONARY_GROUNDING",
+        "CURRENT_CAPABILITY_REVIEW",
+        "DEPENDENCY_DRIFT"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_GROUNDING_SPECIALIST_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_GROUNDING_METHOD_PACK_METHOD_EXECUTION_STATE_REVIEW_V1",
+      "artifact_class": "METHOD_PACK",
+      "version": "SOURCE_VERSION",
+      "relative_path": "profiles/grounding specialist/AIR GROUNDING METHOD PACK.json",
+      "sha256": "4078e3159d89a217f8d87db98a28130434be832bf6a03a40f1a8be8e79e09543",
+      "size_bytes": 27315,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "METHOD_EXECUTION_STATE_REVIEW",
+        "METHOD_STALENESS",
+        "METHOD_INVALIDATION"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_DETERMINISTIC_POLICY_PACK_V1",
+      "artifact_class": "POLICY_PACK",
+      "version": "SOURCE_VERSION",
+      "relative_path": "runtime/policy/deterministic/AIR DETERMINISTIC POLICY PACK.json",
+      "sha256": "22247e9ed2011c495df13b1fe8b03c55abff6bc86d993fe1b84d14b8f98a5aec",
+      "size_bytes": 12941,
+      "load_class": "EVIDENCE_TRIGGERED",
+      "triggers": [
+        "Q2_POLICY_CHECK",
+        "MATERIAL_TRANSITION_STRICT_POLICY"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_HANDOFF_INTEGRITY_POLICY_PACK_V1",
+      "artifact_class": "POLICY_PACK",
+      "version": "SOURCE_VERSION",
+      "relative_path": "runtime/handoff/policy/AIR HANDOFF INTEGRITY POLICY PACK.json",
+      "sha256": "b7165f99ee8d72e37a74f967df6968b65831c71511b7ed5810015fe6130ea8c3",
+      "size_bytes": 5653,
+      "load_class": "EVIDENCE_TRIGGERED",
+      "triggers": [
+        "HANDOFF_CREATE",
+        "HANDOFF_RESTORE",
+        "HANDOFF_VERIFY"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    },
+    {
+      "module_id": "AIR_HANDOFF_VERIFIER_EXECUTOR_V1",
+      "artifact_class": "EXECUTOR_CONTRACT",
+      "version": "SOURCE_VERSION",
+      "relative_path": "runtime/handoff/executor/AIR HANDOFF VERIFIER EXECUTOR.json",
+      "sha256": "fa1903554083f5fc0516a2c2767f960d156bafbb30cbfd0a089d914d464213a7",
+      "size_bytes": 2212,
+      "load_class": "TOOL_OPTIONAL",
+      "triggers": [
+        "HANDOFF_VERIFY_TOOL_AVAILABLE"
+      ],
+      "purpose": "Existing approved AIR artifact addressable through the module manifest.",
+      "dependencies": [
+        "AIR_HANDOFF_INTEGRITY_POLICY_PACK_V1"
+      ],
+      "conflicts": [],
+      "terminal_sentinel": null,
+      "authoritative_source": "EXISTING_APPROVED_ARTIFACT",
+      "read_only_in_ws7": true
+    }
+  ],
+  "fallback_order": [
+    "REQUEST_MISSING_LOCAL_MODULE",
+    "USE_VALIDATED_LOCAL_BUNDLE",
+    "FULL_MONOLITH",
+    "EVIDENCE_REQUIRED"
+  ],
+  "claim_boundary": "Manifest declaration is not load or digest-execution evidence. Cross-host behavior requires named testing.",
+  "patch_markers": [
+    "AIR_ALL_CREATED_OBJECTS_VISIBLE_V1"
+  ],
+  "object_visibility_default": "OBJECT_ALL",
+  "path_base": "REPOSITORY_ROOT",
+  "structure_contract": {
+    "system_prompts_only_in": "prompts/",
+    "specialist_packages_only_in": "profiles/<specialist name>/",
+    "runtime_grouping": "runtime/<function>/",
+    "runtime_root_file_policy": "README_AND_DIRECTORY_MANIFEST_ONLY",
+    "duplicate_prompt_or_specialist_payloads_in_runtime": false
+  }
+}

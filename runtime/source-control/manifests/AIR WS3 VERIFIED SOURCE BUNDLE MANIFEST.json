@@ -1,0 +1,97 @@
+{
+  "title": "AIR WS3 Verified Source Bundle Manifest",
+  "SYSTEM_DESIGNATION": "AIR_WS3_VERIFIED_SOURCE_BUNDLE_MANIFEST_V1",
+  "artifact_class": "SOURCE_BUNDLE_MANIFEST",
+  "created_at": "2026-07-19T18:21:47+00:00",
+  "files": [
+    {
+      "path": "ADAPTERS/AIR DIGCOMP SOURCE ADAPTER.json",
+      "sha256": "7177ea5484e27674c8869748cc596e1a11099572c9978509b952bf6f7611ec41",
+      "size_bytes": 1031
+    },
+    {
+      "path": "ADAPTERS/AIR ESCO SOURCE ADAPTER.json",
+      "sha256": "170cb9e15ae489f9cc5ebe1731b3ad79625b17428821d44e86df6cebfb530d19",
+      "size_bytes": 1658
+    },
+    {
+      "path": "ADAPTERS/AIR ONET SOURCE ADAPTER.json",
+      "sha256": "aa465e61359a904758cdcc1867fa2aec44302984140a2130ac2020a6fe1e2ebd",
+      "size_bytes": 2341
+    },
+    {
+      "path": "DERIVED/DIGCOMP 3.0 CORRECTED NODE ADAPTER VIEW.jsonl.gz",
+      "sha256": "658279f5f02ff4706c6f065dc5920c6dd40251ceea021377b0e93615782c0d6b",
+      "size_bytes": 52683
+    },
+    {
+      "path": "DERIVED/DIGCOMP 3.0 CORRECTED VIEW 2026-01-27.jsonld",
+      "sha256": "96c0f902fbbfd18a3589586faa1f0dae966808cafe64d2d158838577bd7421b4",
+      "size_bytes": 452575
+    },
+    {
+      "path": "DERIVED/ESCO V1.2.1 CANONICAL CONCEPT VIEW.jsonl.gz",
+      "sha256": "87c15b86f2cfda5666c1cead24d61d31e0b3bcbb2b615c74543ac443c303d1fa",
+      "size_bytes": 3168859
+    },
+    {
+      "path": "DERIVED/ESCO V1.2.1 FULL ENGLISH ADAPTER VIEW.jsonl.gz",
+      "sha256": "3f84ff17be84ea85cb6e52ca04822378191ffdaf566821f7361bbf8ad847dbd4",
+      "size_bytes": 11331537
+    },
+    {
+      "path": "DERIVED/ONET 30.2 FULL TEXT ADAPTER VIEW.jsonl.gz",
+      "sha256": "9891775264e0165e029b5f61c894988286ab86380c73bd22a5a581527e020869",
+      "size_bytes": 20533181
+    },
+    {
+      "path": "RAW/AIR WS3 SOURCE INTAKE VERIFICATION REPORT.json",
+      "sha256": "00dd5fbcd2b0f2fcdd77186917b5518c1e2f8f53f726d35ce7e4634498fbfed5",
+      "size_bytes": 33956
+    },
+    {
+      "path": "RAW/DIGCOMP 3.0 OFFICIAL ERRATA SNAPSHOT 2026-01-27.json",
+      "sha256": "17409e6bca670fd730cb71bff4e6bcd745e1df5c49199c4e83e23e25e81708a5",
+      "size_bytes": 4106
+    },
+    {
+      "path": "RAW/DigComp 2.2 ESCO Skills Mapping.xlsx",
+      "sha256": "a0a23101cd6925e72528fa2d57305fe3702dc025ec0bbfe0398fd37bf43c3419",
+      "size_bytes": 564189
+    },
+    {
+      "path": "RAW/ESCO dataset - v1.2.1 - classification - en - csv.zip",
+      "sha256": "f9761b0b52be1828b38a3e5e0ae59a93a7b0ce358bc800f52f57a8b002adeb3e",
+      "size_bytes": 10045670
+    },
+    {
+      "path": "RAW/JRC144679_01.pdf",
+      "sha256": "6de030afb8c020c3074a977272a106281c998b553f4d047f820d788c8421c62f",
+      "size_bytes": 456098
+    },
+    {
+      "path": "RAW/db_30_2_mysql.zip",
+      "sha256": "d6352d8a1567eb62ffd9f0796411388a0fb846eb50daaff1345a69e813b0d724",
+      "size_bytes": 13762154
+    },
+    {
+      "path": "RAW/db_30_2_text.zip",
+      "sha256": "b5479271931796b838f7173dc0f673a9ec961b7833ac87168fd11e92e7453741",
+      "size_bytes": 13444123
+    },
+    {
+      "path": "RAW/digcomp3.0_data_supplement_24nov2025.jsonld",
+      "sha256": "887a9fcc016c1c0bc27441820480857273d47d94cda5e45cbcfdbfe279569c55",
+      "size_bytes": 460937
+    },
+    {
+      "path": "RAW/model.rdf",
+      "sha256": "65dc9b2cfd345f246a1e7bd3ee8688e2646f6f6042f1f587b552eb5d49b53360",
+      "size_bytes": 181218
+    }
+  ],
+  "file_count": 17,
+  "font_files_included": false,
+  "excluded_user_upload": "DigComp editable-files archive excluded from delivery because it contains font binaries and is unnecessary for the structured corpus.",
+  "claim_boundary": "Hashes establish local byte identity, not authenticated origin or legal licence interpretation."
+}

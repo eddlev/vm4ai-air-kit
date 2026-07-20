@@ -1,0 +1,25 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_BOOT_MODULE_LOAD_RECEIPT_V1",
+  "receipt_id": "TEMPLATE_NOT_EXECUTED",
+  "created_at_utc": null,
+  "air_root": null,
+  "boot_mode": "MANUAL_MODULAR",
+  "kernel": {
+    "module_id": "AIR_BOOT_KERNEL_V1",
+    "verification_state": "PRESENT_UNVERIFIED"
+  },
+  "manifest": {
+    "module_id": "AIR_BOOT_MODULE_MANIFEST_V1",
+    "verification_state": "PRESENT_UNVERIFIED"
+  },
+  "requested_triggers": [],
+  "planned_modules": [],
+  "loaded_modules": [],
+  "missing_or_failed_modules": [],
+  "decision": "EVIDENCE_REQUIRED",
+  "authorization_decision": "NOT_EVALUATED",
+  "limitations": [
+    "Template only. No module load or digest execution occurred.",
+    "Module loading is not execution authorization."
+  ]
+}

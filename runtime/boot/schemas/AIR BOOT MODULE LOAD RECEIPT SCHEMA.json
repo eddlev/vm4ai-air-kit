@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:boot:module-load-receipt:1",
+  "title": "AIR Boot Module Load Receipt",
+  "type": "object",
+  "required": [
+    "SYSTEM_DESIGNATION",
+    "receipt_id",
+    "created_at_utc",
+    "air_root",
+    "boot_mode",
+    "kernel",
+    "manifest",
+    "requested_triggers",
+    "planned_modules",
+    "loaded_modules",
+    "decision",
+    "limitations"
+  ],
+  "properties": {
+    "SYSTEM_DESIGNATION": {
+      "const": "AIR_BOOT_MODULE_LOAD_RECEIPT_V1"
+    },
+    "receipt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at_utc": {
+      "type": "string"
+    },
+    "air_root": {
+      "type": "string"
+    },
+    "boot_mode": {
+      "enum": [
+        "FULL_MONOLITH",
+        "MANUAL_MODULAR",
+        "LOCAL_BUNDLED",
+        "HOST_ADAPTER"
+      ]
+    },
+    "kernel": {
+      "type": "object"
+    },
+    "manifest": {
+      "type": "object"
+    },
+    "requested_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "planned_modules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "loaded_modules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "missing_or_failed_modules": {
+      "type": "array"
+    },
+    "decision": {
+      "enum": [
+        "VALID",
+        "DEGRADED",
+        "REJECT",
+        "EVIDENCE_REQUIRED"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorization_decision": {
+      "enum": [
+        "NOT_EVALUATED",
+        "ALLOW",
+        "REVIEW",
+        "REJECT"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,50 @@
+{
+  "title": "AIR Runtime Directory Manifest",
+  "SYSTEM_DESIGNATION": "AIR_RUNTIME_DIRECTORY_MANIFEST_V1",
+  "artifact_class": "DIRECTORY_TAXONOMY_MANIFEST",
+  "version": "1.0.0",
+  "release_line": "v0.3.0",
+  "created_at_utc": "2026-07-20T21:30:18Z",
+  "runtime_root": "runtime/",
+  "function_directories": [
+    {
+      "directory": "runtime/boot/",
+      "purpose": "Boot kernel, module manifest, load-receipt schemas/templates, evidence and local boot tool."
+    },
+    {
+      "directory": "runtime/modules/",
+      "purpose": "Derived runtime and control modules selected by the boot manifest."
+    },
+    {
+      "directory": "runtime/artifact-lifecycle/",
+      "purpose": "Universal artifact method and evaluation packs."
+    },
+    {
+      "directory": "runtime/policy/",
+      "purpose": "Deterministic policy and optional local OPA adapter."
+    },
+    {
+      "directory": "runtime/handoff/",
+      "purpose": "Handoff integrity policy, schemas, templates, verifier executor and local tool."
+    },
+    {
+      "directory": "runtime/source-control/",
+      "purpose": "Source/control registry, source adapters and source bundle manifests."
+    }
+  ],
+  "excluded_from_runtime": [
+    {
+      "class": "SYSTEM_PROMPTS",
+      "canonical_directory": "prompts/"
+    },
+    {
+      "class": "SPECIALIST_PACKAGES",
+      "canonical_directory": "profiles/<specialist name>/"
+    }
+  ],
+  "root_file_policy": [
+    "README.md",
+    "AIR RUNTIME DIRECTORY MANIFEST.json"
+  ],
+  "duplicate_payload_policy": "NO_DUPLICATE_PROMPT_OR_SPECIALIST_PAYLOADS_IN_RUNTIME"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_id": "AIR_HANDOFF_CONTINUITY_ANCHOR_V1",
+  "schema_version": "1.0.0",
+  "project_id": "REPLACE",
+  "branch_id": "main",
+  "accepted_handoff_id": "REPLACE",
+  "accepted_sequence": 1,
+  "accepted_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+  "accepted_at_utc": null,
+  "signer_key_id": "REPLACE",
+  "public_key_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+  "authorization_decision": "NOT_EVALUATED",
+  "limitations": [
+    "Template only. Do not use until written by explicit air-handoff accept after successful verification."
+  ]
+}

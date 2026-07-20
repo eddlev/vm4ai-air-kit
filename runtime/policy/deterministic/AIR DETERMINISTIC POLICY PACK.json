@@ -1,0 +1,369 @@
+{
+  "title": "AIR Deterministic Policy Pack",
+  "SYSTEM_DESIGNATION": "AIR_DETERMINISTIC_POLICY_PACK_V1",
+  "artifact_class": "POLICY_PACK",
+  "PROFILE_KIND": "POLICY_PACK",
+  "status": "VALIDATED_CANDIDATE_PENDING_USER_BINDING_APPROVAL",
+  "version": "1.1.0",
+  "created_at_utc": "2026-07-20T10:03:55Z",
+  "workstream": "WS5",
+  "purpose": "Optionally evaluate crisp AIR invariants deterministically, including Q2 strictness routing and user-controlled local OPA execution, while preserving contextual AIR judgment, AIR_GATE precedence, offline prompt operation, privacy minimization and visible mode/evidence boundaries.",
+  "authority_boundary": {
+    "is_orbit_0": false,
+    "is_agent": false,
+    "is_backend_enforcement": false,
+    "subordinate_to": [
+      "AIR CORE RUNTIME",
+      "AIR_ACTIVE_CONTRACT",
+      "AIR_GATE",
+      "scoped user approval",
+      "mandatory safety and evidence floors"
+    ],
+    "cannot": [
+      "self_approve",
+      "self_bind",
+      "weaken Runtime floors",
+      "grant scope",
+      "manufacture approval",
+      "determine legal compliance",
+      "replace contextual judgment",
+      "become a mandatory external dependency"
+    ]
+  },
+  "execution_modes": {
+    "PROMPT_SIMULATED": {
+      "required_baseline": true,
+      "offline_capable": true,
+      "tool_evaluated": false,
+      "claim_ceiling": "PROMPT_SIDE_STRUCTURED_POLICY_SELF_REPORT",
+      "description": "The host model evaluates the canonical rule contract and must disclose that no external executable enforced the result."
+    },
+    "TOOL_EVALUATED": {
+      "required_baseline": false,
+      "tool_evaluated": true,
+      "optional": true,
+      "preferred_adapter_family": "LOCAL_OPA_REGO_OR_EQUIVALENT_USER_CONTROLLED",
+      "claim_ceiling": "TOOL_OBSERVED_POLICY_RESULT_ONLY",
+      "description": "An optional user-controlled local policy engine evaluates the equivalent policy through CLI or loopback-only server mode and returns engine, policy, input, result, error and provenance evidence."
+    }
+  },
+  "canonical_input_contract": {
+    "schema_id": "AIR_DETERMINISTIC_POLICY_INPUT_V1",
+    "required_fields": [
+      "policy_pack_id",
+      "policy_pack_version",
+      "policy_mode",
+      "active_contract_id",
+      "active_step",
+      "action_class",
+      "effect_level",
+      "environment",
+      "resource_classes",
+      "approval_required",
+      "approval_present",
+      "binding_requested",
+      "validation_state",
+      "repository_action",
+      "release_action",
+      "dependency_state",
+      "taxonomy_binding_state",
+      "human_status_transfer_state",
+      "claim_state",
+      "evidence_state",
+      "unknown_fields",
+      "input_provenance",
+      "policy_posture",
+      "material_transition",
+      "tool_configured",
+      "tool_available",
+      "tool_authorized",
+      "tool_invoked",
+      "tool_endpoint"
+    ],
+    "action_classes": [
+      "READ_ONLY",
+      "GENERATE",
+      "MUTATE",
+      "BIND",
+      "DEPLOY",
+      "REPOSITORY",
+      "RELEASE",
+      "DESTRUCTIVE",
+      "UNKNOWN"
+    ],
+    "effect_levels": [
+      "READ_ONLY",
+      "WRITE",
+      "DEPLOY",
+      "EXPORT",
+      "DESTRUCTIVE",
+      "UNKNOWN"
+    ],
+    "environments": [
+      "LOCAL",
+      "DEVELOPMENT",
+      "STAGING",
+      "PRODUCTION",
+      "UNKNOWN"
+    ],
+    "validation_states": [
+      "NOT_REQUIRED",
+      "NOT_STARTED",
+      "IN_PROGRESS",
+      "PASS",
+      "FAIL",
+      "STALE",
+      "UNKNOWN"
+    ],
+    "policy_modes": [
+      "PROMPT_SIMULATED",
+      "TOOL_EVALUATED"
+    ],
+    "rule": "Unknown, malformed, contradictory, stale, or materially incomplete input may not default to ALLOW.",
+    "policy_postures": [
+      "LOW",
+      "MEDIUM",
+      "HIGH"
+    ],
+    "local_tool_endpoints": [
+      "LOCAL_CLI",
+      "127.0.0.1:8181",
+      "localhost:8181",
+      "[::1]:8181"
+    ],
+    "compatibility_defaults": {
+      "legacy_policy_posture": "MEDIUM",
+      "legacy_material_transition": "derive from action/effect/lifecycle gate",
+      "legacy_tool_state": "false unless externally evidenced",
+      "legacy_tool_endpoint": "LOCAL_CLI when direct invocation is evidenced"
+    }
+  },
+  "decision_contract": {
+    "schema_id": "AIR_DETERMINISTIC_POLICY_DECISION_V1",
+    "decisions": [
+      "ALLOW",
+      "REVIEW",
+      "EVIDENCE_REQUIRED",
+      "REJECT",
+      "ERROR"
+    ],
+    "precedence": [
+      "ERROR",
+      "REJECT",
+      "EVIDENCE_REQUIRED",
+      "REVIEW",
+      "ALLOW"
+    ],
+    "required_fields": [
+      "decision",
+      "matched_rule_ids",
+      "reasons",
+      "required_evidence",
+      "prohibited_effects",
+      "mode",
+      "tool_evaluated",
+      "policy_pack_id",
+      "policy_pack_version",
+      "policy_digest",
+      "input_digest",
+      "evaluation_error",
+      "fallback_state",
+      "claim_boundary",
+      "policy_posture",
+      "material_transition",
+      "policy_check_required",
+      "tool_preferred"
+    ],
+    "absence_of_allow_is_permission": false,
+    "runtime_conflict_rule": "The stricter valid AIR Core Runtime, active contract, AIR_GATE or scoped user-approval result governs."
+  },
+  "rule_families": [
+    {
+      "id": "AIR-POL-000",
+      "family": "INPUT_INTEGRITY",
+      "decision": "ERROR_OR_EVIDENCE_REQUIRED",
+      "invariant": "Malformed, contradictory, or materially incomplete policy input cannot produce ALLOW."
+    },
+    {
+      "id": "AIR-POL-100",
+      "family": "APPROVAL_AND_MUTATION",
+      "decision": "REJECT",
+      "invariant": "Material mutation requires scoped approval when approval_required is true."
+    },
+    {
+      "id": "AIR-POL-110",
+      "family": "VALIDATION_AND_BINDING",
+      "decision": "REJECT_OR_EVIDENCE_REQUIRED",
+      "invariant": "Reusable binding requires validation PASS plus explicit binding approval."
+    },
+    {
+      "id": "AIR-POL-120",
+      "family": "REPOSITORY_AND_RELEASE",
+      "decision": "REJECT",
+      "invariant": "Repository and release actions require their own explicit approval."
+    },
+    {
+      "id": "AIR-POL-130",
+      "family": "NO_SELF_APPROVAL",
+      "decision": "REJECT",
+      "invariant": "An artifact or policy result cannot approve or bind itself."
+    },
+    {
+      "id": "AIR-POL-200",
+      "family": "DEPENDENCY_SOVEREIGNTY",
+      "decision": "REJECT",
+      "invariant": "OPA, hosted services, plugins, package managers, network access, or proprietary engines may not become mandatory baseline dependencies."
+    },
+    {
+      "id": "AIR-POL-300",
+      "family": "TAXONOMY_ROUTING",
+      "decision": "REJECT",
+      "invariant": "Raw human taxonomy requirements may not bind directly without the approved Human-to-Machine Translator."
+    },
+    {
+      "id": "AIR-POL-310",
+      "family": "HUMAN_STATUS_NONTRANSFER",
+      "decision": "REJECT",
+      "invariant": "Human licensure, authority, credentials, protected status, embodiment, employment, organizational status, and legal standing do not transfer to AIR."
+    },
+    {
+      "id": "AIR-POL-400",
+      "family": "CLAIM_EVIDENCE_CONSISTENCY",
+      "decision": "REJECT_OR_EVIDENCE_REQUIRED",
+      "invariant": "Backend, cryptographic, repository, release, compliance, professional-equivalence, or empirical claims require matching evidence state."
+    },
+    {
+      "id": "AIR-POL-500",
+      "family": "POLICY_MODE_INTEGRITY",
+      "decision": "REJECT_OR_REVIEW",
+      "invariant": "PROMPT_SIMULATED and TOOL_EVALUATED remain distinct; silent mode upgrade is prohibited."
+    },
+    {
+      "id": "AIR-POL-600",
+      "family": "DOWNGRADE_AND_ERROR",
+      "decision": "ERROR_OR_REVIEW",
+      "invariant": "Engine absence, parse/compile/evaluation error, undefined result, stale version, or missing provenance must fail closed or visibly downgrade."
+    },
+    {
+      "id": "AIR-POL-610",
+      "family": "TOOL_REQUIREMENT_AND_FALLBACK",
+      "decision": "EVIDENCE_REQUIRED",
+      "invariant": "When an active contract explicitly requires TOOL_EVALUATED, unavailable or unauthorized local tooling cannot silently downgrade to ALLOW."
+    },
+    {
+      "id": "AIR-POL-620",
+      "family": "LOCAL_ENDPOINT_BOUNDARY",
+      "decision": "REJECT",
+      "invariant": "The WS5.1 baseline permits direct local CLI or loopback-only server endpoints; non-loopback endpoints require a separately approved remote-service architecture."
+    },
+    {
+      "id": "AIR-POL-630",
+      "family": "NO_CENTRAL_SERVICE_DEPENDENCY",
+      "decision": "REJECT",
+      "invariant": "AIR may not require an author-operated or central policy service as the public baseline."
+    },
+    {
+      "id": "AIR-POL-700",
+      "family": "RUNTIME_PRECEDENCE",
+      "decision": "REJECT",
+      "invariant": "A Policy Pack result cannot override a stricter Runtime, active-contract, AIR_GATE, or user-approval result."
+    }
+  ],
+  "prompt_simulated_procedure": [
+    "Normalize input against AIR_DETERMINISTIC_POLICY_INPUT_V1.",
+    "Reject or route missing, malformed, contradictory, stale, or unknown material fields.",
+    "Evaluate every applicable rule; collect all matched rule ids and evidence requirements.",
+    "Select the strictest decision by ERROR > REJECT > EVIDENCE_REQUIRED > REVIEW > ALLOW.",
+    "Compare the result with Runtime, active contract, AIR_GATE and scoped approval; apply the stricter valid result.",
+    "Emit the canonical decision object and disclose PROMPT_SIMULATED mode and claim ceiling."
+  ],
+  "optional_tool_adapter_contract": {
+    "adapter_id": "AIR_LOCAL_OPA_POLICY_ADAPTER_V1",
+    "required": false,
+    "preferred_compatibility": "OPA/Rego v1-compatible or equivalent declarative policy engine",
+    "required_input_evidence": [
+      "engine name",
+      "engine version",
+      "policy digest",
+      "input digest",
+      "evaluation timestamp",
+      "adapter version"
+    ],
+    "required_output_evidence": [
+      "raw decision result",
+      "matched rules where available",
+      "parse/compile/evaluation errors",
+      "undefined-result state",
+      "coverage/test evidence when claimed"
+    ],
+    "failure_states": [
+      "ENGINE_UNAVAILABLE",
+      "PARSE_ERROR",
+      "COMPILE_ERROR",
+      "EVALUATION_ERROR",
+      "UNDEFINED_RESULT",
+      "POLICY_VERSION_MISMATCH",
+      "INPUT_SCHEMA_MISMATCH",
+      "PROVENANCE_MISSING"
+    ],
+    "fallback": "PROMPT_SIMULATED with visible degraded evidence state when permitted; otherwise EVIDENCE_REQUIRED or stricter Runtime result.",
+    "installation_or_network_required": false,
+    "canonical_deployment": "USER_CONTROLLED_LOCAL_FIRST",
+    "supported_invocation_paths": [
+      "LOCAL_CLI",
+      "LOCAL_LOOPBACK_SERVER"
+    ],
+    "loopback_only_default": true,
+    "central_air_service": false,
+    "shell_required": false,
+    "wrapper_required": false
+  },
+  "claim_boundary": "This Policy Pack provides prompt-compiled/file-backed deterministic governance and an optional tool-adapter contract. It does not prove backend AIR enforcement, legal compliance, professional equivalence, empirical improvement, cryptographic integrity, repository alignment, publication, or release readiness.",
+  "binding": {
+    "generation_authorized": true,
+    "validation_state": "PASS_STATIC_AND_REFERENCE_CORPUS; OPA_EXECUTABLE_VALIDATION_PENDING_OR_UNAVAILABLE",
+    "binding_approval_state": "PENDING_EXPLICIT_USER_APPROVAL",
+    "active": false,
+    "repository_mutation_authorized": false
+  },
+  "q2_policy_routing": {
+    "state_model": {
+      "policy_posture": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ],
+      "policy_mode": [
+        "PROMPT_SIMULATED",
+        "TOOL_EVALUATED"
+      ],
+      "separation_rule": "Posture controls check frequency; mode records evaluator/evidence."
+    },
+    "Q2_A": {
+      "policy_posture": "LOW",
+      "frequency": "MANDATORY_HARD_RUNTIME_GATES_OR_EXPLICIT_REQUEST",
+      "tool_activation": "EXPLICIT_ONLY"
+    },
+    "Q2_B": {
+      "policy_posture": "MEDIUM",
+      "frequency": "MATERIAL_APPROVAL_MUTATION_BINDING_REPOSITORY_RELEASE_GATES",
+      "tool_activation": "EXPLICIT_PROJECT_OR_CONTRACT_AUTHORIZATION"
+    },
+    "Q2_C": {
+      "policy_posture": "HIGH",
+      "frequency": "EVERY_MATERIAL_TRANSITION_AND_ALL_HARD_GATES",
+      "tool_preference": "TOOL_EVALUATED_IF_LOCAL_CONFIGURED_AVAILABLE_AUTHORIZED_AND_PROPORTIONATE",
+      "tool_absence": "VISIBLE_PROMPT_SIMULATED_FALLBACK_OR_EVIDENCE_REQUIRED",
+      "tool_activation": "NEVER_SILENT"
+    }
+  },
+  "local_data_boundary": {
+    "policy_evaluation_location": "USER_DEVICE",
+    "air_operated_central_endpoint": false,
+    "remote_decision_logs_default": false,
+    "remote_bundles_default": false,
+    "public_or_lan_listener_default": false,
+    "ai_host_boundary": "Conversation content and files deliberately sent to an AI host remain subject to that host; local OPA does not make the AI session local."
+  },
+  "content_digest_before_binding": "8157e210109c614d03b4ec4eef2c1ffca0353c41ec09ac3924bb0151f9dbaa4d"
+}

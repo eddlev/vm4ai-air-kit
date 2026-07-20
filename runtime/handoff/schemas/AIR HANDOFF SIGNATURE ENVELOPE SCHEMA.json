@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_SIGNATURE_ENVELOPE_SCHEMA_V1",
+  "title": "AIR Handoff Signature Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "signed_payload_profile",
+    "canonicalization",
+    "digest_algorithm",
+    "payload_digest",
+    "signature_algorithm",
+    "signature_base64url",
+    "signer_key_id",
+    "public_key_fingerprint",
+    "handoff_id",
+    "project_id",
+    "branch_id",
+    "handoff_sequence",
+    "signing_operation",
+    "signed_at_utc",
+    "authority_boundary"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "AIR_HANDOFF_SIGNATURE_ENVELOPE_V1"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "signed_payload_profile": {
+      "const": "AIR_HANDOFF_SIGNED_PAYLOAD_PROFILE_V1"
+    },
+    "canonicalization": {
+      "const": "RFC8785-JCS"
+    },
+    "digest_algorithm": {
+      "const": "SHA-256"
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "signature_algorithm": {
+      "const": "Ed25519"
+    },
+    "signature_base64url": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$"
+    },
+    "signer_key_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "public_key_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "handoff_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "branch_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "handoff_sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "previous_handoff_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signing_operation": {
+      "enum": [
+        "SIGN_HANDOFF",
+        "SIGN_KEY_TRANSITION",
+        "SIGN_REVOCATION"
+      ]
+    },
+    "signed_at_utc": {
+      "type": "string"
+    },
+    "authority_boundary": {
+      "type": "object",
+      "required": [
+        "signature_validity_is_execution_permission",
+        "authorization_decision"
+      ],
+      "properties": {
+        "signature_validity_is_execution_permission": {
+          "const": false
+        },
+        "authorization_decision": {
+          "const": "NOT_EVALUATED"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

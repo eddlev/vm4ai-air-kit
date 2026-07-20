@@ -1,0 +1,96 @@
+{
+  "title": "AIR Boot Starter Profile",
+  "SYSTEM_DESIGNATION": "AIR_BOOT_STARTER_PROFILE_V1",
+  "PROFILE_KIND": "BOOT_PROFILE",
+  "version": "1.1.0",
+  "status": "V0_3_0_FUNCTION_ORIENTED_STRUCTURE_RELEASE_CANDIDATE",
+  "purpose": "Compact dependency-sovereign defaults for AIR modular boot. Subordinate to AIR Core Runtime and AIR Boot Kernel.",
+  "boot_modes": [
+    "FULL_MONOLITH",
+    "MANUAL_MODULAR",
+    "LOCAL_BUNDLED",
+    "HOST_ADAPTER"
+  ],
+  "default_boot_mode": "MANUAL_MODULAR",
+  "canonical_recovery_mode": "FULL_MONOLITH",
+  "kernel": {
+    "file": "runtime/boot/AIR BOOT KERNEL.md",
+    "designation": "AIR_BOOT_KERNEL_V1",
+    "version": "1.0.0",
+    "sha256": "35aeadfc25638d6985505224c80cbf55552872d5e6331a2c140848fd6542c885",
+    "size_bytes": 7983
+  },
+  "manifest": {
+    "file": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
+    "designation": "AIR_BOOT_MODULE_MANIFEST_V1",
+    "version": "1.0.1",
+    "sha256": null,
+    "digest_resolution": "READ_FROM_MANIFEST_OR_TOOL_RECEIPT"
+  },
+  "mandatory_floor": [
+    "LOAD_INTEGRITY",
+    "ACTIVE_CONTRACT",
+    "AIR_GATE",
+    "EVIDENCE_FAIL_CLOSED",
+    "SOURCE_DATA_NOT_INSTRUCTION",
+    "APPROVAL_AND_RESCOPE",
+    "AUTHENTICATION_NOT_AUTHORIZATION",
+    "DEPENDENCY_SOVEREIGNTY",
+    "MODULE_GRAPH_SAFETY",
+    "VISIBLE_FALLBACK",
+    "ALL_CREATED_FORMAL_OBJECTS_VISIBLE"
+  ],
+  "session_entry": {
+    "required_load_classes": [
+      "KERNEL_MANDATORY",
+      "SESSION_ENTRY"
+    ],
+    "unknown_trigger": "REVIEW_OR_FALLBACK_MONOLITH",
+    "partial_load_claim": "PROHIBITED"
+  },
+  "dependency_policy": {
+    "network_required": false,
+    "package_manager_required": false,
+    "plugin_or_skill_required": false,
+    "python_required_for_manual_mode": false,
+    "optional_local_tool": "runtime/boot/tools/air-boot.py"
+  },
+  "security": {
+    "remote_module_urls_allowed": false,
+    "absolute_paths_allowed": false,
+    "parent_traversal_allowed": false,
+    "symlink_escape_allowed": false,
+    "manifest_commands_allowed": false,
+    "module_self_approval_allowed": false,
+    "authenticated_content_bypasses_injection_checks": false,
+    "module_load_is_execution_authorization": false
+  },
+  "evidence_defaults": {
+    "prompt_manual_mode": "STRUCTURALLY_INSPECTED_UNVERIFIED_DIGESTS",
+    "tool_mode": "LOCAL_DIGEST_EVIDENCE_WHEN_RECEIPT_PRESENT",
+    "cross_host_equivalence": "NOT_CLAIMED",
+    "backend_enforcement": "NOT_CLAIMED"
+  },
+  "fallback_order": [
+    "REQUEST_MISSING_LOCAL_MODULE",
+    "USE_VALIDATED_LOCAL_BUNDLE",
+    "FULL_MONOLITH",
+    "EVIDENCE_REQUIRED"
+  ],
+  "claim_boundary": "This profile is a boot default and cannot install or relax Runtime law.",
+  "object_visibility": {
+    "patch_marker": "AIR_ALL_CREATED_OBJECTS_VISIBLE_V1",
+    "default_mode": "OBJECT_ALL",
+    "print_every_created_restored_updated_or_operative_formal_object": true,
+    "future_step_object_fabrication": false,
+    "complete_snapshot_command": "air object all",
+    "compact_substitution_allowed": false
+  },
+  "repository_layout": {
+    "path_base": "REPOSITORY_ROOT",
+    "system_prompts": "prompts/",
+    "specialist_packages": "profiles/<specialist name>/",
+    "runtime_functions": "runtime/<function>/",
+    "duplicate_prompt_or_specialist_copies_in_runtime": false
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "title": "AIR Local OPA Policy Adapter Contract",
+  "SYSTEM_DESIGNATION": "AIR_LOCAL_OPA_POLICY_ADAPTER_V1",
+  "artifact_class": "EXECUTOR_ADAPTER_CONTRACT",
+  "version": "1.0.0",
+  "created_at_utc": "2026-07-20T10:03:55Z",
+  "purpose": "Provide an optional shell-neutral user-controlled local bridge between AIR deterministic policy input and an OPA/Rego evaluation result without central hosting or mandatory dependencies.",
+  "authority_boundary": {
+    "is_agent": false,
+    "is_orbit_0": false,
+    "is_backend_air_enforcement": false,
+    "subordinate_to": [
+      "AIR CORE RUNTIME",
+      "AIR_ACTIVE_CONTRACT",
+      "AIR_GATE",
+      "scoped user approval"
+    ],
+    "cannot": [
+      "grant scope",
+      "manufacture approval",
+      "override stricter governing state",
+      "send data to a central AIR service"
+    ]
+  },
+  "canonical_files": {
+    "policy": "AIR DETERMINISTIC POLICY PACK.rego",
+    "tests": "AIR DETERMINISTIC POLICY PACK TESTS.rego",
+    "input_schema": "AIR OPA POLICY INPUT SCHEMA.json",
+    "result_schema": "AIR OPA POLICY RESULT SCHEMA.json"
+  },
+  "modes": {
+    "LOCAL_CLI": {
+      "server": false,
+      "port": null,
+      "network": false,
+      "default": true
+    },
+    "LOCAL_LOOPBACK_SERVER": {
+      "server": true,
+      "allowed_addresses": [
+        "127.0.0.1:8181",
+        "localhost:8181",
+        "[::1]:8181"
+      ],
+      "remote_access_default": false
+    }
+  },
+  "wrappers": {
+    "PowerShell": {
+      "file": "ADAPTERS/OPA/air-opa.ps1",
+      "dependencies": [
+        "OPA",
+        "PowerShell 7+ or compatible Windows PowerShell"
+      ],
+      "policy_logic": "NONE"
+    },
+    "POSIX": {
+      "file": "ADAPTERS/OPA/air-opa.sh",
+      "dependencies": [
+        "OPA",
+        "bash or compatible shell",
+        "python3 or jq for canonical envelope"
+      ],
+      "policy_logic": "NONE"
+    },
+    "CommandPrompt": {
+      "file": "ADAPTERS/OPA/air-opa.cmd",
+      "dependencies": [
+        "PowerShell or documented direct CLI"
+      ],
+      "policy_logic": "NONE"
+    }
+  },
+  "required_result_provenance": [
+    "engine name",
+    "engine version",
+    "policy digest",
+    "input digest",
+    "evaluation timestamp",
+    "adapter version",
+    "raw decision or error"
+  ],
+  "failure_states": [
+    "ENGINE_UNAVAILABLE",
+    "PARSE_ERROR",
+    "COMPILE_ERROR",
+    "EVALUATION_ERROR",
+    "UNDEFINED_RESULT",
+    "POLICY_VERSION_MISMATCH",
+    "INPUT_SCHEMA_MISMATCH",
+    "PROVENANCE_MISSING",
+    "NON_LOOPBACK_ENDPOINT"
+  ],
+  "data_minimization": {
+    "central_air_endpoint": false,
+    "decision_log_export_default": false,
+    "remote_bundle_default": false,
+    "telemetry_default": false,
+    "user_controls_storage_and_deletion": true
+  },
+  "installation_behavior": {
+    "downloads_opa": false,
+    "modifies_path": false,
+    "elevates_privileges": false,
+    "installs_service": false,
+    "opens_public_port": false
+  },
+  "claim_boundary": "A local OPA result is tool-observed policy evaluation only. It is not proof of backend AIR enforcement, legal compliance, cryptographic integrity, repository alignment or release readiness."
+}

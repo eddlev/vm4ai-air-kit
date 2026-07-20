@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:opa:policy-result:v1.1.0",
+  "title": "AIR OPA Policy Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "decision",
+    "matched_rule_ids",
+    "reasons",
+    "required_evidence",
+    "prohibited_effects",
+    "mode",
+    "tool_evaluated",
+    "policy_pack_id",
+    "policy_pack_version",
+    "policy_digest",
+    "input_digest",
+    "evaluation_error",
+    "fallback_state",
+    "policy_posture",
+    "material_transition",
+    "policy_check_required",
+    "tool_preferred",
+    "claim_boundary",
+    "engine",
+    "adapter"
+  ],
+  "properties": {
+    "decision": {
+      "enum": [
+        "ALLOW",
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "REJECT",
+        "ERROR"
+      ]
+    },
+    "matched_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_effects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mode": {
+      "enum": [
+        "PROMPT_SIMULATED",
+        "TOOL_EVALUATED"
+      ]
+    },
+    "tool_evaluated": {
+      "type": "boolean"
+    },
+    "policy_pack_id": {
+      "const": "AIR_DETERMINISTIC_POLICY_PACK_V1"
+    },
+    "policy_pack_version": {
+      "const": "1.1.0"
+    },
+    "policy_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evaluation_error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fallback_state": {
+      "type": "string"
+    },
+    "policy_posture": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "material_transition": {
+      "type": "boolean"
+    },
+    "policy_check_required": {
+      "type": "boolean"
+    },
+    "tool_preferred": {
+      "type": "boolean"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "invocation",
+        "evaluated_at_utc"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "invocation": {
+          "enum": [
+            "LOCAL_CLI",
+            "LOCAL_LOOPBACK_SERVER",
+            "PROMPT_SIMULATED"
+          ]
+        },
+        "evaluated_at_utc": {
+          "type": "string"
+        }
+      }
+    },
+    "adapter": {
+      "type": "object",
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "AIR_LOCAL_OPA_POLICY_ADAPTER_V1"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      }
+    },
+    "raw_result": {}
+  }
+}

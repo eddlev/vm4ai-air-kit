@@ -1,0 +1,2259 @@
+{
+  "title": "AIR WS7 Module Decomposition Map",
+  "SYSTEM_DESIGNATION": "AIR_WS7_MODULE_DECOMPOSITION_MAP_V1",
+  "artifact_class": "SOURCE_SPAN_MAP",
+  "created_at_utc": "2026-07-20T18:25:03Z",
+  "sources": [
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "sha256": "b9460781aca3eb1df2e966f7e54f33c89bd520d748a9b98bdf6cb826f336fa42",
+      "size_bytes": 296677,
+      "line_count": 6864,
+      "mapped_chunks": 141,
+      "mapped_bytes": 296677,
+      "coverage_ratio": 1.0
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "sha256": "35c638dc9b3d0d80542eeb23e16717116293ce5b5294ed365b766e89fafba6d4",
+      "size_bytes": 125795,
+      "line_count": 3115,
+      "mapped_chunks": 105,
+      "mapped_bytes": 125795,
+      "coverage_ratio": 1.0
+    }
+  ],
+  "chunks": [
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "PREAMBLE",
+      "start_line": 1,
+      "end_line": 34,
+      "sha256": "abed33140d4fbd28ecad640b8d82a182a482591f8c4c79011b951ffd98c66f4f",
+      "bytes": 820
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "CONTROL SURFACE PURPOSE",
+      "start_line": 35,
+      "end_line": 50,
+      "sha256": "cfdfdfa279a515e5e2ff35a86f3c494c680d3b8a4105372c2217d8023d2d3a9b",
+      "bytes": 916
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "LOAD INTEGRITY SURFACE LAW",
+      "start_line": 51,
+      "end_line": 58,
+      "sha256": "8287f00c09f56be9a6196daa2c1b3b801eb16e3a86b6141f51d668eb6a91d3e6",
+      "bytes": 298
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "HANDOFF INTEGRITY VERIFIER AND AUTHORITY-SEPARATION SURFACE LAW",
+      "start_line": 59,
+      "end_line": 124,
+      "sha256": "a89deb6d63d96eb3ca89027cf91d473fb567270004f023d15100a042c4cc6f1a",
+      "bytes": 3404
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "CORE BEHAVIOR LAW",
+      "start_line": 125,
+      "end_line": 153,
+      "sha256": "4da89edb2831c27b02df798bcf5c25f3e7594e872ed3bc321ace5b54eb9a7e16",
+      "bytes": 944
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "ARTIFACT PRESENCE LAW",
+      "start_line": 154,
+      "end_line": 172,
+      "sha256": "4d5b93882f27f0b424ee4d9957bbc3c47edd541e9b576d0099ebcbb9279e9db7",
+      "bytes": 576
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "RUNTIME ORIGIN LAW",
+      "start_line": 173,
+      "end_line": 185,
+      "sha256": "1e59cef04f031a50471810a3192248c217a003f1d5d9e0b28ad25468d1de7224",
+      "bytes": 435
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "BACKEND FIELD BINDING LAW",
+      "start_line": 186,
+      "end_line": 203,
+      "sha256": "0194c9e75d0b7719c20afbdd8b76587f36e3162f16fa63891ed118ee005eba8b",
+      "bytes": 528
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "ARTIFACT BUILD, SOURCE, AND ASSURANCE PIPELINE SURFACE LAW",
+      "start_line": 204,
+      "end_line": 256,
+      "sha256": "5c7dc7a676f97682d195693c0080eb36f95273af977b152d298c2e3af6666ba9",
+      "bytes": 2389
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "SOURCE AND CONTROL REGISTRY SURFACE LAW",
+      "start_line": 257,
+      "end_line": 287,
+      "sha256": "506b71095a246fed573046c02e90dafd0e78f93b2eb3dea21919e3c8b0a58494",
+      "bytes": 1341
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "BOOT MINIMAL ORIENTATION HEADER SURFACE LAW",
+      "start_line": 288,
+      "end_line": 305,
+      "sha256": "ba24776617bba31d059654c3ac2641bcffddf5a98f5e6bc8e29a909b5dcb4941",
+      "bytes": 649
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "STARTUP ORIENTATION PRESERVATION LAW",
+      "start_line": 306,
+      "end_line": 318,
+      "sha256": "0c21c663c924d6d5c1e9c5690482e1f5a6eba22e1906bd162e880eec5b17b673",
+      "bytes": 786
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "ACTIVE STEP DISCIPLINE LAW",
+      "start_line": 319,
+      "end_line": 348,
+      "sha256": "e14f73cc69dbd669ad0e63c2660eb9616f6156780fffc9b81ea82c0aca3763f4",
+      "bytes": 1338
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "BENCHMARK SYNTHETIC ROLE SURFACE LAW",
+      "start_line": 349,
+      "end_line": 377,
+      "sha256": "6d3e29755f0dcf9b9eaa751d37e4873a397e88a4d5ad53f8b48dc9611d78e498",
+      "bytes": 935
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "ACTIVE CONTRACT SURFACE LAW",
+      "start_line": 378,
+      "end_line": 428,
+      "sha256": "9e96627917da23402b1700a6db1d740dc15bcb33d3102d5838535d7b03a0c6bb",
+      "bytes": 1430
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "AIR GATE SURFACE LAW",
+      "start_line": 429,
+      "end_line": 463,
+      "sha256": "e80dd1dd9814476322defe39dd206a01db1b2844f81d474fe15c6c8c97c43f72",
+      "bytes": 980
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "EXECUTOR AND NON-AGENT SURFACE LAW",
+      "start_line": 464,
+      "end_line": 523,
+      "sha256": "25743810276742736af6b022b06f37de938b607bdaa875f83651a4bc66a17b48",
+      "bytes": 1940
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "CLAIM TRANSFER SURFACE LAW",
+      "start_line": 524,
+      "end_line": 548,
+      "sha256": "8a0ac6fc2e32eddfe827f051e6ce9e05a3583ca038fa58485f12c0375b4b10c6",
+      "bytes": 1049
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "DISCOVERY EXECUTOR SURFACE LAW",
+      "start_line": 549,
+      "end_line": 579,
+      "sha256": "f5cdf0ff1c294871c525f65f6ad541a69172e7b6456edf01b5f1c20f5bdc0c29",
+      "bytes": 1091
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "EXECUTION FRAME AND PROPORTIONALITY SURFACE LAW",
+      "start_line": 580,
+      "end_line": 627,
+      "sha256": "6d9c35c7788aa5f1945ef32a2cc882d5c1f5c64e14f41ce4b62517797e20121f",
+      "bytes": 2153
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "PATCH SOURCE UPLOAD GATE LAW",
+      "start_line": 628,
+      "end_line": 696,
+      "sha256": "a46fbbf703cee23e84cd7d3c8baa8dc7b954ea693152892963bf1d1e1ad033b4",
+      "bytes": 3301
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "EVIDENCE ARTIFACT VS ACTIVE CONTRACT SURFACE LAW",
+      "start_line": 697,
+      "end_line": 723,
+      "sha256": "ae0cdb1253885a972d3f204a047786f98a32b00969a6552b49507105e6dcd0b1",
+      "bytes": 960
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "RESCOPE SURFACE LAW",
+      "start_line": 724,
+      "end_line": 751,
+      "sha256": "1708e22227131c9721d642b35a9df2a5b239ac4c6502251a880c3d4f588d1e06",
+      "bytes": 692
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "MODE LAW",
+      "start_line": 752,
+      "end_line": 769,
+      "sha256": "d62e5e6673711fee581d311bfc0ba63c20e4a4c217470ee4c7337bb5a3724967",
+      "bytes": 417
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "IDENTITY-SENSITIVE SURFACE LAW",
+      "start_line": 770,
+      "end_line": 795,
+      "sha256": "8013caea0070366bf9c01b301a69b33a9b37a894f7874de39b2d2aad0b1c15ed",
+      "bytes": 1615
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "CONVERSATION MODE",
+      "start_line": 796,
+      "end_line": 834,
+      "sha256": "705848a80c3027c12b9bb140bc4fc10e0777c32f881011b08bb246e39061065b",
+      "bytes": 2266
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AMBIGUITY INTAKE POSTURE LAW",
+      "start_line": 835,
+      "end_line": 849,
+      "sha256": "97a4fa8a6069a63018d4539c9ff4f70050e6f1d27a8b1b7e39494aec8bdcff87",
+      "bytes": 841
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "VISIONARY GROUNDING SURFACE LAW",
+      "start_line": 850,
+      "end_line": 873,
+      "sha256": "8f42acee61abd3cf0159fc311407d3e3202560bad527e56a99a6e41356011665",
+      "bytes": 1049
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "REGULATORY PRESSURE DISCOVERY SURFACE LAW",
+      "start_line": 874,
+      "end_line": 906,
+      "sha256": "0e068f771070a1ad55b28fc1a88ce98ac6295ca8612ee4960ea4f48f50fc0992",
+      "bytes": 1232
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "STRUCTURED EXPLORATION MODE",
+      "start_line": 907,
+      "end_line": 965,
+      "sha256": "700390ae14ea298954fadc47cc7ea14694f9aaae187cbc7df104d45eb109d6ed",
+      "bytes": 1988
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "MATERIAL PIVOT ESCALATION LAW",
+      "start_line": 966,
+      "end_line": 991,
+      "sha256": "3a4d5bdddff27a57550490f6d8dfb873abb332a409a31c5d58dde0d69584b18c",
+      "bytes": 1122
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CODING INTERACTION LAW",
+      "start_line": 992,
+      "end_line": 1064,
+      "sha256": "68414a286db268cc6f898b542576edb06791c330789369b1028552fdec8c6688",
+      "bytes": 3139
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AIR USER ALIGNMENT AND EXECUTION WORKFLOW SURFACE LAW",
+      "start_line": 1065,
+      "end_line": 1146,
+      "sha256": "a25abab68dcdcd457a769c663c4bd96247727b51da40d50b1246173bea79a7c0",
+      "bytes": 3827
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "RECEIVER DELIVERY SURFACE LAW",
+      "start_line": 1147,
+      "end_line": 1186,
+      "sha256": "8fe99bcb6f9e9c1d12eaaa49f7d7cedd1c6faac5dc07ff08077cee28203603e6",
+      "bytes": 1888
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "COMPILE MODE",
+      "start_line": 1187,
+      "end_line": 1204,
+      "sha256": "91fd15b99de475ec5f31d30dc663318541841174dbb16e1a7dc5e7093a325c3d",
+      "bytes": 901
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL SURFACE CONSISTENCY LAW",
+      "start_line": 1205,
+      "end_line": 1216,
+      "sha256": "a6dfa709335419c1359ec508ea98aa258e4a4bbd9b78da084e219952aa1cc333",
+      "bytes": 457
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "COMPACT STRUCTURED INTERACTION RULE",
+      "start_line": 1217,
+      "end_line": 1247,
+      "sha256": "bd6ac77c98bf449e320ecf757f668b3cb765b5a01191736d14c5145baafec64c",
+      "bytes": 669
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL LABEL RESERVATION SURFACE LAW",
+      "start_line": 1248,
+      "end_line": 1294,
+      "sha256": "73441b85953fad3c80070093849d056a013846c506620be2ff1bb2b2c7d5da2b",
+      "bytes": 1680
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "Q4-D TEST SURFACE LAW",
+      "start_line": 1295,
+      "end_line": 1324,
+      "sha256": "f56ad14e5e56d75db12774c14fa2805a0b224502daaf368234760a446ef61484",
+      "bytes": 1391
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL LABEL MISUSE RECOVERY SURFACE LAW",
+      "start_line": 1325,
+      "end_line": 1344,
+      "sha256": "f1342cec5509c73f000d7e5cddc74e889fce206de4b94593d774a7f52b98ea47",
+      "bytes": 725
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL OBJECT EMISSION RULE",
+      "start_line": 1345,
+      "end_line": 1368,
+      "sha256": "c233dba17952b5f79647a8de023d5533964778998ffceca0349def052619132f",
+      "bytes": 644
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL AIR_ARTIFACT VISIBILITY RULE",
+      "start_line": 1369,
+      "end_line": 1381,
+      "sha256": "f46585120de2bd2efba35f5a7d9f4987c97f53a4ed90ba40d34882841d62843e",
+      "bytes": 768
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL RECEIVER DELIVERY RULE",
+      "start_line": 1382,
+      "end_line": 1399,
+      "sha256": "5501e7e7f4cca2ff9b539533cc8545b8820813613f2b1208651283026ebde8ba",
+      "bytes": 716
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "NO MIXED-SURFACE AMBIGUITY RULE",
+      "start_line": 1400,
+      "end_line": 1410,
+      "sha256": "512d55ac74f4cb538fe97ca18c37956f1980403996973546c0fbd1bf62b47a1a",
+      "bytes": 638
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "PATCH UPDATE HANDOFF STRICTNESS RULE",
+      "start_line": 1411,
+      "end_line": 1432,
+      "sha256": "5501dca333e10983f69bc367345df44d2199bdac08cd3a9d139fc4af3be610f9",
+      "bytes": 723
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "SURFACE TRUTHFULNESS RULE",
+      "start_line": 1433,
+      "end_line": 1449,
+      "sha256": "c0f5c775cff0d7a2e5581fbacd820fb0c4449bd59a2be61f22015e79205427ab",
+      "bytes": 590
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "IMMERSIVE SURFACE EXCEPTION RULE",
+      "start_line": 1450,
+      "end_line": 1468,
+      "sha256": "826620112db272343cc6445069e13b31f0bfca971561daf407410dd5e22b0098",
+      "bytes": 1035
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "GOVERNANCE SURFACE COMPRESSION LAW",
+      "start_line": 1469,
+      "end_line": 1486,
+      "sha256": "15e30c06e77949c25f305ceda591f3681b62e8f9c9bb5852ed9cd2df202baf04",
+      "bytes": 852
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "TASK SOURCE REFERENCES SURFACE LAW",
+      "start_line": 1487,
+      "end_line": 1512,
+      "sha256": "625a92769202ea709d8b20f277b29681ba388fa8223198ab6bd4fa3d95e90503",
+      "bytes": 1109
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AIR OBJECT VISIBILITY TOGGLE SURFACE LAW",
+      "start_line": 1513,
+      "end_line": 1564,
+      "sha256": "bc5b83f87feea0c89109353c977a7afb470559eac85259c118c5a135034bd6c7",
+      "bytes": 2904
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "",
+      "start_line": 1565,
+      "end_line": 1566,
+      "sha256": "99c6aa9d9b56607554b2fc5fc586b50849d99f71140a19bdbdb7ab790868c715",
+      "bytes": 52
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AIR OBJECT DEFAULT SURFACE LAW",
+      "start_line": 1567,
+      "end_line": 1596,
+      "sha256": "c2eb4d18166d5aa6b9d3dedff400305b14ee4ffb6f92c7da2b703eb67d8f6ef9",
+      "bytes": 1795
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AIR CONTROL HELP SURFACE LAW",
+      "start_line": 1597,
+      "end_line": 1655,
+      "sha256": "c17cf8c1c5d06ad22e8780abf0645e687e0ddc74205e2beae1a23a8e5c463d6d",
+      "bytes": 2106
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AIR OBJECT DEFAULT PRECEDENCE AND ONBOARDING LOCK SURFACE LAW",
+      "start_line": 1656,
+      "end_line": 1718,
+      "sha256": "a212af8d3816b06554ad389d223067ba8587e78d2aa921cf84026a7bd7b1b39e",
+      "bytes": 2616
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "",
+      "start_line": 1719,
+      "end_line": 1720,
+      "sha256": "99c6aa9d9b56607554b2fc5fc586b50849d99f71140a19bdbdb7ab790868c715",
+      "bytes": 52
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "PROMPT-NATIVE EMULATION SURFACE LAW",
+      "start_line": 1721,
+      "end_line": 1743,
+      "sha256": "ec61e96fda155f0184c41af7299b3bf28aa48ca0ce1e8437454262c565547fad",
+      "bytes": 936
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "GEOMETRY EFFECT SURFACE LAW",
+      "start_line": 1744,
+      "end_line": 1773,
+      "sha256": "8a860f3d08150ca7592e02cf2f469548ba5b1842eaa9bf10458c7222d79eac49",
+      "bytes": 807
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "GEOMETRY MISMATCH SURFACE LAW",
+      "start_line": 1774,
+      "end_line": 1790,
+      "sha256": "5dde66c7a363d915662f0c6bb6c2bb99eecdfc2e8c78d17c2c4b15d4f73f1555",
+      "bytes": 404
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "LAMBDA PRESSURE SURFACE LAW",
+      "start_line": 1791,
+      "end_line": 1807,
+      "sha256": "c1f9d1e7e32b2091b8e347f135f29cfd5676b5f640db8b3168ae3c42f6ef01f7",
+      "bytes": 463
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "GEOMETRY ABLATION SURFACE LAW",
+      "start_line": 1808,
+      "end_line": 1835,
+      "sha256": "465ce78e728a2a4871907d85601fd82c17bf69565e9a70f7277b605a21cbd0a5",
+      "bytes": 603
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "DETERMINISTIC ONBOARDING NON-INFERENCE SURFACE LAW",
+      "start_line": 1836,
+      "end_line": 1859,
+      "sha256": "7be702fa171623429663da680ea32290eea65d24784ffbe3b44360f2fecae9c3",
+      "bytes": 1369
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "Q1 SELECTION AND IMPORT CLARITY SURFACE LAW",
+      "start_line": 1860,
+      "end_line": 1882,
+      "sha256": "c29d8407ef6af1900effab9eac1dde3bd996900204f37e124fda2196f7f691cd",
+      "bytes": 684
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "ONBOARDING AND GEOMETRY ROUTING SURFACE LAW",
+      "start_line": 1883,
+      "end_line": 1913,
+      "sha256": "7574aa59ca90efd5667886b4adfb06318a1d42d8cf1fcf9e9293ac87a75bf311",
+      "bytes": 802
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "GEOMETRY FORCE VS FIT SURFACE LAW",
+      "start_line": 1914,
+      "end_line": 1937,
+      "sha256": "d3e097816da390c3b746231665a07960bdd091571bcdebc1ef9e75abaab4aa71",
+      "bytes": 761
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "DUAL GEOMETRY BINDING SURFACE LAW",
+      "start_line": 1938,
+      "end_line": 1954,
+      "sha256": "5bf84a7086029f839e5698c47b45e103915b8ba8be42fe9d3585c6ebb2b30340",
+      "bytes": 603
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "Q4-D EMOTIONAL SAFETY SURFACE LAW",
+      "start_line": 1955,
+      "end_line": 1984,
+      "sha256": "b74e588c386e890201dc553f42920dd4b9b47a2b1fa7b27604c8d7fde875980a",
+      "bytes": 748
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "FAMILIAR ARTIFACT PRESERVATION SURFACE LAW",
+      "start_line": 1985,
+      "end_line": 1997,
+      "sha256": "8e35d637b3d297085287d5a89f56af551add18e8ef7eb7fe5062b6c112c2faf1",
+      "bytes": 619
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "SMALL STEP SURFACE LAW",
+      "start_line": 1998,
+      "end_line": 2012,
+      "sha256": "e90e638022cd68530118dec7132563499f0e4c55746950d6ea58aded0edee8f6",
+      "bytes": 582
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "VOICE-TO-TEXT AMBIGUITY SURFACE LAW",
+      "start_line": 2013,
+      "end_line": 2032,
+      "sha256": "8b8e35383e3b90c003d54b6075450cf434824330f0c69086f3a8556b08ebb8b3",
+      "bytes": 660
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "FAMILIAR ARTIFACT DRIFT RECOVERY SURFACE LAW",
+      "start_line": 2033,
+      "end_line": 2054,
+      "sha256": "f1d8894fa10868b9928399d4bc760dcbf80e3a2931f785c918c4bf00ce337248",
+      "bytes": 442
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "ACTIVE TASK GEOMETRY REBINDING SURFACE LAW",
+      "start_line": 2055,
+      "end_line": 2077,
+      "sha256": "806c1729703ea30ea4484ddc23a587742f7e93773edda47216b268a6bf5ddd2c",
+      "bytes": 726
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "FLUX CONTROLLER SURFACE LAW",
+      "start_line": 2078,
+      "end_line": 2106,
+      "sha256": "b259c847d99e54c686547c1fcb401bfd229c357df998126b985c1814f77e4dab",
+      "bytes": 864
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "CAPABILITY LAYER NEED DETECTION SURFACE LAW",
+      "start_line": 2107,
+      "end_line": 2148,
+      "sha256": "46876b140db086097a9551c1e58d0a4bb088b9ce63dbc33bbb8794fbb9df1b23",
+      "bytes": 1759
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "SPECIALIST RECOMMENDATION SURFACE LAW",
+      "start_line": 2149,
+      "end_line": 2182,
+      "sha256": "0bc50702f5d7e4e8603046c826bdb3c0b9de6119bfdfb56df29bd64ef0ea035f",
+      "bytes": 675
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "AIR METHOD LAYER SURFACE LAW",
+      "start_line": 2183,
+      "end_line": 2184,
+      "sha256": "8de637d9ddaf97acf2c1d8455edf2f8ea06553789f7ff7b07f3bc498aabe9f60",
+      "bytes": 80
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "AIR METHOD EXECUTION STATE SURFACE LAW",
+      "start_line": 2185,
+      "end_line": 2267,
+      "sha256": "b9b54c7c6d44adaae6bcc323e61f9858e684b993ded48701ec3c7f42dc0a691e",
+      "bytes": 3687
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "SPECIALIST AND DOMAIN PACKAGE GENERATION SURFACE LAW",
+      "start_line": 2268,
+      "end_line": 2288,
+      "sha256": "85d1023669c8b7daae043fef5bc6549cd85e38ca3350806690b4cadd3f0e96ed",
+      "bytes": 714
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "NATIVE ALIGNMENT SURFACE LAW",
+      "start_line": 2289,
+      "end_line": 2314,
+      "sha256": "a12f31fd65eb0b5549a58c04f98e0d3b29e13d66eb9a986224c2883d127c202f",
+      "bytes": 725
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AGENT ACTION GOVERNANCE SURFACE LAW",
+      "start_line": 2315,
+      "end_line": 2344,
+      "sha256": "d4a1a6408c3b41d01ceb7d6bc002d2be022c905743f09a757d32ec359c50cc1e",
+      "bytes": 1008
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "PROMPT SMOKE CHECK SURFACE LAW",
+      "start_line": 2345,
+      "end_line": 2368,
+      "sha256": "5077126da2c0e7a185a7e2fe64b01dbde41c79e160f0ae4e25be38e7dab954f6",
+      "bytes": 549
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "PROMPT BASIS GAP SURFACE LAW",
+      "start_line": 2369,
+      "end_line": 2392,
+      "sha256": "8e9fd76b20268b14bcce815fb70911d614c3b7d6337c89117b794fbf59cd7345",
+      "bytes": 589
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "PROMPT CONTRACT PIN SURFACE LAW",
+      "start_line": 2393,
+      "end_line": 2404,
+      "sha256": "577cd89b64db35a4efe817477d41f945eac46a05766c636001a008a40fa17bfc",
+      "bytes": 402
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "OBJECT SELF-REPORT BOUNDARY SURFACE LAW",
+      "start_line": 2405,
+      "end_line": 2414,
+      "sha256": "74903155718a12df6dc3c168534409b35abea38ad20b9deeb0a90e1957725f04",
+      "bytes": 827
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "AMBIGUITY TRIAGE SURFACE LAW",
+      "start_line": 2415,
+      "end_line": 2428,
+      "sha256": "5dc2858ec1827ea218a2e16a63bfc6160fcb56a783969fae457196d4cc4a9c42",
+      "bytes": 509
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "UNCONDITIONAL DELIVERY STATE TRIPLE SURFACE LAW",
+      "start_line": 2429,
+      "end_line": 2440,
+      "sha256": "b44a18724bed3ab05105818d6f82d1d3d9322226c6f941de69f128d548e7b3a9",
+      "bytes": 985
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "JUDGE SURFACE LAW",
+      "start_line": 2441,
+      "end_line": 2460,
+      "sha256": "eeaf4719cda38ce068bd800766ec648c760b8a87f3bd79d8a5a187e70d328889",
+      "bytes": 788
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "FAIL-FORWARD PATCH SURFACE LAW",
+      "start_line": 2461,
+      "end_line": 2473,
+      "sha256": "7903319251086e15c461b03c44a58a38c48793315c48e81da4baa17bd068b3be",
+      "bytes": 531
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CODING REVIEW ESCALATION LAW",
+      "start_line": 2474,
+      "end_line": 2524,
+      "sha256": "da208632632bc0d4f37010c65bdb648cccbcf5b132a23f23db70152124cc5f00",
+      "bytes": 1679
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "BACKEND COMPILE ESCALATION LAW",
+      "start_line": 2525,
+      "end_line": 2540,
+      "sha256": "c2e29b5a4ecbc7f1e347eb644b1abbc85e61972d1f3236fd84749c3f039b4a15",
+      "bytes": 655
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "PATCH MODE",
+      "start_line": 2541,
+      "end_line": 2568,
+      "sha256": "9d6b1b875919ad17ad90900fe212853b19b74647d3a21ae1b3103c555f4846f5",
+      "bytes": 848
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "UPDATE MODE",
+      "start_line": 2569,
+      "end_line": 2587,
+      "sha256": "79486acd711b226d147a53f0a1b036bc9138c09fe65478cdb6c228f1bbb082c5",
+      "bytes": 1092
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "SPECIALIST PROFILE UPDATE RULE",
+      "start_line": 2588,
+      "end_line": 2597,
+      "sha256": "23df1c73de212317dd7b7faea4a194b3e4ca510bffac4fead6ad026b88d5103a",
+      "bytes": 661
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "HANDOFF MODE",
+      "start_line": 2598,
+      "end_line": 2672,
+      "sha256": "1019b5254ea65070fd17d535bea482c1d8ca66bdc32614cd0efaba72645bec37",
+      "bytes": 1991
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "WORKFLOW CONVENTION AUTHORITY SURFACE LAW",
+      "start_line": 2673,
+      "end_line": 2700,
+      "sha256": "db6d490326c1022289e96e7331f40538a4d01c12bb7ab458987f7bd177af88e2",
+      "bytes": 1070
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "BLOAT CONTROL LAW",
+      "start_line": 2701,
+      "end_line": 2716,
+      "sha256": "d840a33935d92a783bd45bdd60189fc99c56258ba773b5e61bf251c5fa16c423",
+      "bytes": 746
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CODING LIGHTWEIGHT SURFACE LAW",
+      "start_line": 2717,
+      "end_line": 2747,
+      "sha256": "3f02e5efe4dd005b42539aaafca2143093cd420010fbf2d7a802d8825abb9c92",
+      "bytes": 1090
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FINAL DISCIPLINE",
+      "start_line": 2748,
+      "end_line": 2760,
+      "sha256": "c7f2f07e142e3f6626688adb5a9e30305e35525cf163feb4a51bddcbff1548dc",
+      "bytes": 484
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "AIR GROUNDING SURFACE LAW",
+      "start_line": 2761,
+      "end_line": 2813,
+      "sha256": "8d79adc3731a78fca1d8c6ae1306c984bba0d65bda998d6ccddc3744a2574a53",
+      "bytes": 2549
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "AIR OBJECT RENDERING UX SURFACE LAW",
+      "start_line": 2814,
+      "end_line": 2833,
+      "sha256": "718d22b538db0d37e2a30e5cea5cfc37fd5e8f9eaf71f9ddcde098d3ef216b2c",
+      "bytes": 904
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "AIR BEGINNER, WORKFLOW, PORTABILITY, AND HANDOFF SURFACE PATCH",
+      "start_line": 2834,
+      "end_line": 2869,
+      "sha256": "7ad3dc3cfc3c4bcae034dfaa1bef661a22684258a15aa845ed5e34dbc29a46d1",
+      "bytes": 3196
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "AIR HANDOFF COMMAND FILE DEPENDENCY",
+      "start_line": 2870,
+      "end_line": 2912,
+      "sha256": "c2296c58c441afc5595e06027c23e014e6f30c9077d3e68b64657a4834563b34",
+      "bytes": 2279
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "title": "HUMAN-TO-MACHINE TRANSLATION SURFACE LAW",
+      "start_line": 2913,
+      "end_line": 2981,
+      "sha256": "d3072eef1c8c878bc44ac7099bd1254e36ec6b9d84a505efea357abfc3199c4c",
+      "bytes": 3144
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
+      "title": "AUTOMATED CAPABILITY CONSTRUCTION SURFACE LAW",
+      "start_line": 2982,
+      "end_line": 3029,
+      "sha256": "d6113158acb509e360b43fc6ea69c489944c705d67dffd8b623ef7d2702fe2d3",
+      "bytes": 2313
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "Q2 POLICY POSTURE AND LOCAL OPA SURFACE LAW",
+      "start_line": 3030,
+      "end_line": 3069,
+      "sha256": "3b2dc38b579f9665878024c28af28e329ce7160efc8d9f54d570eebd678f4288",
+      "bytes": 2063
+    },
+    {
+      "source_file": "AIR CONTROL SURFACE.md",
+      "module_id": "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+      "title": "HANDOFF INTEGRITY VERIFIER AND AUTHORITY-SEPARATION SURFACE LAW",
+      "start_line": 3070,
+      "end_line": 3115,
+      "sha256": "d5ea4b08dbe89614c613fd50a89b97e01e139a4de6bbc87ae6693b45d672f61a",
+      "bytes": 2368
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "PREAMBLE",
+      "start_line": 1,
+      "end_line": 17,
+      "sha256": "56ff45ec8ab7bf901d846660f0c4f4ef9a84d161acc7364ef51c107157b0ce6a",
+      "bytes": 453
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "CORE RUNTIME PURPOSE",
+      "start_line": 18,
+      "end_line": 38,
+      "sha256": "53887232ef5b1073be89e07a0d7caadeb3a3f09ae02fb5a5d4ce155e88e8eb94",
+      "bytes": 877
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "RUNTIME LOAD INTEGRITY LAW",
+      "start_line": 39,
+      "end_line": 189,
+      "sha256": "9bcdbe17b83defbfd225bc097e21cd1109790f80c873ae91409f77a9c9bfd0d4",
+      "bytes": 6736
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "FLOOR INVARIANT LAW",
+      "start_line": 190,
+      "end_line": 213,
+      "sha256": "55e53b905504c7de2ff4ae70e7a78381025d617ccccb44db4dcf370e1e5d781a",
+      "bytes": 1073
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "INBOUND CARD VALIDATION GATE LAW",
+      "start_line": 214,
+      "end_line": 242,
+      "sha256": "52742ee6c2757fa974f22cd28e25b72bb29c28437a722795271c241c8a56c5f8",
+      "bytes": 1411
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROFILE STRICTNESS FLOOR LAW",
+      "start_line": 243,
+      "end_line": 256,
+      "sha256": "24675ba15e322eaaed6e01be1f185e9a84538d3ff783a2fe2c793cdea9454a00",
+      "bytes": 687
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "EMBEDDED CONTENT DATA BOUNDARY LAW",
+      "start_line": 257,
+      "end_line": 269,
+      "sha256": "740a569354f3bedd927556bfc8eaa210041a1d4a567cc9de2c118b5cf829875f",
+      "bytes": 600
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "UNIVERSAL ARTIFACT BUILD, SOURCE, AND ASSURANCE PIPELINE LAW",
+      "start_line": 270,
+      "end_line": 441,
+      "sha256": "5d97ab07b37bb12824cef8b72634725934e7c7f8c687e037dfa100f3f98d028d",
+      "bytes": 6643
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "SOURCE AND CONTROL REGISTRY LAW",
+      "start_line": 442,
+      "end_line": 512,
+      "sha256": "de37711b079603d2b095c19be3970d237903839840c67cf0566270cc18a0c9d2",
+      "bytes": 2869
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "ENTRY LAW",
+      "start_line": 513,
+      "end_line": 530,
+      "sha256": "29acf0aad6c458517f37acb3e5111e8acd3e86ff565b44a6f36f11c5fc55243c",
+      "bytes": 549
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "DETERMINISTIC ONBOARDING NON-INFERENCE LAW",
+      "start_line": 531,
+      "end_line": 581,
+      "sha256": "428fcb64d24bca18f817553c19c3256ae24eb107eacbe5bf59840db05349983b",
+      "bytes": 2819
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "FIRST ACTIVATION FLOW",
+      "start_line": 582,
+      "end_line": 740,
+      "sha256": "5411f7c30c8366a38800dc2b7c513f49e6687b8d4217f9de525d82ad8a87baba",
+      "bytes": 7647
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "ONBOARDING INTERPRETATION LAW",
+      "start_line": 741,
+      "end_line": 828,
+      "sha256": "9737c186778c5ee51925da9dfa018dd5c0792c2c9245fbd3cb8e89dd3e35f6f0",
+      "bytes": 2753
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "ONBOARDING GEOMETRY ROUTING MATRIX LAW",
+      "start_line": 829,
+      "end_line": 906,
+      "sha256": "8b0ca79b2d2b9562872629857acd070591443135f295d714ae8e4eec6676ce96",
+      "bytes": 4327
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "ROUTER LAW",
+      "start_line": 907,
+      "end_line": 988,
+      "sha256": "19612754100d983c00f3b1332ee109994c36748a54bfc9b92302c00c84388055",
+      "bytes": 3847
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "BRIDGE LAW",
+      "start_line": 989,
+      "end_line": 1032,
+      "sha256": "1cf5e6b57260d60d0acacc115ff339d44f2c9eeccec29972f9ba47d1250649c3",
+      "bytes": 1174
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "IDENTITY CONTINUITY EXTENSION LAW",
+      "start_line": 1033,
+      "end_line": 1055,
+      "sha256": "b5da185dd60583e207e790c7ac789c3ce537f9da20c69314655590f5ea059ab6",
+      "bytes": 1246
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "CONTRACT OBJECT LAW",
+      "start_line": 1056,
+      "end_line": 1095,
+      "sha256": "c17201684e14ae21da127f9acb2b52c12bc894507db8320310a6440a59e56472",
+      "bytes": 1958
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "title": "HANDOFF CONTINUATION FLOW",
+      "start_line": 1096,
+      "end_line": 1110,
+      "sha256": "0a64e21dafec690d94cf477963d6cea0dc9376fefd01c2947c2553af7aa43920",
+      "bytes": 726
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "title": "STRICT HANDOFF JSON OUTPUT LAW",
+      "start_line": 1111,
+      "end_line": 1128,
+      "sha256": "8b1cbbd779f288eaafd6a7aee5285415a8dd5bf24fdddca6bf7713bdd3674b24",
+      "bytes": 1001
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "ORBIT 0 PROMPT-SIDE ANCHORING LAW",
+      "start_line": 1129,
+      "end_line": 1159,
+      "sha256": "cb85dffff7357c5ca9e79bc91793eaec60eef81b46e4cd5aa00c9be1368f038e",
+      "bytes": 1515
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "BENCHMARK SYNTHETIC ROLE LAW",
+      "start_line": 1160,
+      "end_line": 1196,
+      "sha256": "6c5cec1d9f60faf14b053be510d3ff9cd319b605f288d6ad3f9dfd46d2dfefa4",
+      "bytes": 1510
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "STRICT AIR LAW",
+      "start_line": 1197,
+      "end_line": 1227,
+      "sha256": "95af73ccd5765d70f2b01c1f9987237faf2a66d36b80847c90ac07bf63dc9690",
+      "bytes": 785
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "VISIONARY GROUNDING QUESTION LOOP LAW",
+      "start_line": 1228,
+      "end_line": 1269,
+      "sha256": "1723a7edc89c326086e6cdf6953d74fde1fb2278bd009b36f11b90a8a36a58f2",
+      "bytes": 1610
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "REGULATORY PRESSURE DISCOVERY GATE LAW",
+      "start_line": 1270,
+      "end_line": 1317,
+      "sha256": "9be3eb497824c04839372af4dbabacc090cdc026d6ecaeb99431ec0446ac5f84",
+      "bytes": 2241
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "DISCOVERY EXECUTOR AND UNKNOWN-UNKNOWN DISCOVERY LAW",
+      "start_line": 1318,
+      "end_line": 1376,
+      "sha256": "08b6279ebbf74186ddc600169aa8385598b507a8905642cb18eeaad8bcbca14e",
+      "bytes": 2647
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "SCOPE, RISK, PROPORTIONALITY, AND DECISION LAW",
+      "start_line": 1377,
+      "end_line": 1504,
+      "sha256": "b2c0ef36de9eaf811d1d15f07c4b6b95b3b68a4311b1691b11474602ce310cdf",
+      "bytes": 5104
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PATCH SOURCE UPLOAD GATE LAW",
+      "start_line": 1505,
+      "end_line": 1573,
+      "sha256": "a46fbbf703cee23e84cd7d3c8baa8dc7b954ea693152892963bf1d1e1ad033b4",
+      "bytes": 3301
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "TASK SOURCE REFERENCE SUPPORT LAW",
+      "start_line": 1574,
+      "end_line": 1606,
+      "sha256": "dfa0774aeb61cea33f74183f59fb0fbcb0273dc69f6d3a5dbf7447fa7ebeac6f",
+      "bytes": 2463
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "AIR OBJECT VISIBILITY AND BOOT EVIDENCE LAW",
+      "start_line": 1607,
+      "end_line": 1720,
+      "sha256": "da50b244f11af40fd799be52249c34045acaf3183583853223092c1eaedffb46",
+      "bytes": 5732
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "ONBOARDING OBJECT NOISE REDUCTION LAW",
+      "start_line": 1721,
+      "end_line": 1748,
+      "sha256": "7f3590617ef6d5599d77be6b68bbbae2cf5c93d7ef68622022bc6cae028df577",
+      "bytes": 1402
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "AIR OBJECTS DEFAULT SURFACE LAW",
+      "start_line": 1749,
+      "end_line": 1785,
+      "sha256": "75b334186ae0e819b956f608652ff3d76b26342c7c2c3b0c5e32fc4c02e6cb24",
+      "bytes": 2438
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "AIR CONTROL HELP LAW",
+      "start_line": 1786,
+      "end_line": 1824,
+      "sha256": "9c835ab134a824de879f639a0f473616a835ae2d8bbc14352bb5e867e7e1eb50",
+      "bytes": 2014
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "AIR OBJECT DEFAULT PRECEDENCE AND ONBOARDING LOCK LAW",
+      "start_line": 1825,
+      "end_line": 1893,
+      "sha256": "aecbb49503211322c146d0a137dcfad653f858ef700bcfcc0dda454d98c77eef",
+      "bytes": 3718
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "",
+      "start_line": 1894,
+      "end_line": 1895,
+      "sha256": "99c6aa9d9b56607554b2fc5fc586b50849d99f71140a19bdbdb7ab790868c715",
+      "bytes": 52
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "OBJECT SELF-REPORT BOUNDARY LAW",
+      "start_line": 1896,
+      "end_line": 1914,
+      "sha256": "eff391ab69d9ab71b3cf47535419a4cd3ab3c9117b540ff94e5fb5554da17316",
+      "bytes": 1505
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "SPECIALIZATION REFERENTIALITY LAW",
+      "start_line": 1915,
+      "end_line": 1956,
+      "sha256": "32ad0fe0746893629ecfe9653a2814383ff8af9d761e066ab693ed09c1f7deb2",
+      "bytes": 1822
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "SPECIALIST PROFILE ROUTING LAW",
+      "start_line": 1957,
+      "end_line": 1986,
+      "sha256": "6f2edf6070db6df1fcd048ab3a3d926d509945dd0abc15353c6f497f0ecbed21",
+      "bytes": 2369
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "SPECIALIST PROFILE GENERATION LAW",
+      "start_line": 1987,
+      "end_line": 2045,
+      "sha256": "bcd84bbf994450bcff710707953579e43d99e614f6f0dd21bb2c4c85ffd2a527",
+      "bytes": 2546
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "PROFILE STACK ROUTING LAW",
+      "start_line": 2046,
+      "end_line": 2110,
+      "sha256": "3ae21c40304941b57d77cc3ee67999473b93282ceee6991dad1df4e0cfea72d0",
+      "bytes": 3290
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "CAPABILITY LAYER NEED DETECTION LAW",
+      "start_line": 2111,
+      "end_line": 2207,
+      "sha256": "39e0357ef3eea87b51befbede4543e5ac558f4021d241db232595afc2d76b5ed",
+      "bytes": 4763
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "SPECIALIST RECOMMENDATION LAW",
+      "start_line": 2208,
+      "end_line": 2230,
+      "sha256": "c6e20af95e26da548fea7eeb0b0b1cf3a6d1e60e1c8dbe6c908c98aef20268af",
+      "bytes": 980
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "SPECIALIST PROFILE GENERATOR LAW",
+      "start_line": 2231,
+      "end_line": 2288,
+      "sha256": "f38642c8aeec149f4acb6efc2f5085577d4abdd58a4bce932960cd4cfce4dc9b",
+      "bytes": 1855
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "DOMAIN PACKAGE GENERATOR LAW",
+      "start_line": 2289,
+      "end_line": 2341,
+      "sha256": "c355de7d84c74dde6938402aa100019cf7884cb1fba1704deba9b60ec9dd26f3",
+      "bytes": 1971
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "AIR NON-AGENT LAYER ONTOLOGY LAW",
+      "start_line": 2342,
+      "end_line": 2397,
+      "sha256": "db648f08ebb5d723426c4b023a479c7a8222dbd4a5ef4efc1c11896d09803c8c",
+      "bytes": 2272
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "AIR EXECUTOR LAYER LAW",
+      "start_line": 2398,
+      "end_line": 2479,
+      "sha256": "b458b103e0652637f4207b042c702e3bd76c04a20be80090d9363e2980082156",
+      "bytes": 3311
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "AIR CLAIM TRANSFER EVIDENCE LAW",
+      "start_line": 2480,
+      "end_line": 2512,
+      "sha256": "84e6a3158c9969938fe2077c0e9da2a657bc124ff70de27febc50aa083be9f2d",
+      "bytes": 1640
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "AIR METHOD LAYER LAW",
+      "start_line": 2513,
+      "end_line": 2514,
+      "sha256": "275c0333061f6a9936af7b3bcf90c019a97834d8c683517caa0f56ad1cbb1511",
+      "bytes": 72
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "AIR METHOD EXECUTION STATE LAW",
+      "start_line": 2515,
+      "end_line": 2936,
+      "sha256": "59909cf90c5a3d31497392672181971c8eb346755ea6bc99c99c499e7236d061",
+      "bytes": 16567
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1",
+      "title": "SPECIALIST DOMAIN PACKAGE BINDING LAW",
+      "start_line": 2937,
+      "end_line": 2971,
+      "sha256": "87de8d2145b7ae12cd1c0e7b213451d5e20861102b38feab2a16bd524f50a6d3",
+      "bytes": 1138
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "ORBIT LAW",
+      "start_line": 2972,
+      "end_line": 2995,
+      "sha256": "529407a5e8604e17bda3d5393d86acb2fb909a8afad1c03c93597b1d88d5221d",
+      "bytes": 761
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "RUNTIME ORIGIN LAW",
+      "start_line": 2996,
+      "end_line": 3012,
+      "sha256": "4c2de1ce65ccc71d14a07cfa9dfee4b327f7267c20a284cdf488af3820e3b000",
+      "bytes": 694
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "ARTIFACT PRESENCE LAW",
+      "start_line": 3013,
+      "end_line": 3031,
+      "sha256": "4d5b93882f27f0b424ee4d9957bbc3c47edd541e9b576d0099ebcbb9279e9db7",
+      "bytes": 576
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT-ENFORCED ACTIVE CONTRACT LAW",
+      "start_line": 3032,
+      "end_line": 3097,
+      "sha256": "c99b4e9506ba457534aa57974c39aad0987203dccff3c59ca43540c1af231b60",
+      "bytes": 2807
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "AIR GATE LAW",
+      "start_line": 3098,
+      "end_line": 3149,
+      "sha256": "ca90b1602db701a514bea66d53233c34bf4a3db315fb102cb484057e278a4442",
+      "bytes": 2332
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "STEP CLOSURE EVIDENCE LAW",
+      "start_line": 3150,
+      "end_line": 3180,
+      "sha256": "0ce3d4856abc83c052c18b7fa65794689e524828b781987f412be16071c185ea",
+      "bytes": 1033
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "RESCOPE PROTOCOL LAW",
+      "start_line": 3181,
+      "end_line": 3211,
+      "sha256": "20c9dd214b95c46801d9918ca385a91e45f0ed086cd2324f072a37b9fdb6e12d",
+      "bytes": 936
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "BACKEND AUTHORITY LAW",
+      "start_line": 3212,
+      "end_line": 3235,
+      "sha256": "7109eacbe8d867f97cd95b094af7ff079edd131e27e851d96191d947157573d3",
+      "bytes": 887
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "BACKEND FIELD BINDING LAW",
+      "start_line": 3236,
+      "end_line": 3253,
+      "sha256": "0194c9e75d0b7719c20afbdd8b76587f36e3162f16fa63891ed118ee005eba8b",
+      "bytes": 528
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "BACKEND COMPILE ESCALATION LAW",
+      "start_line": 3254,
+      "end_line": 3269,
+      "sha256": "c2e29b5a4ecbc7f1e347eb644b1abbc85e61972d1f3236fd84749c3f039b4a15",
+      "bytes": 655
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT-NATIVE RUNTIME EMULATION LAW",
+      "start_line": 3270,
+      "end_line": 3305,
+      "sha256": "cee5efd26d9cac50e2322ca6601b4a5036d9b60dac63a9ee1d0885cdd11472b2",
+      "bytes": 1502
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY EFFECT BINDING LAW",
+      "start_line": 3306,
+      "end_line": 3341,
+      "sha256": "b81015441893a4d343963f6b7d8f5af3dc17d161514be24b89dfed8b5ad138f0",
+      "bytes": 1260
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY CLAIM BOUNDARY LAW",
+      "start_line": 3342,
+      "end_line": 3364,
+      "sha256": "ce733f4a5bc8ec5517ba9333faf08ea862b825a46d97a393abd3686d1776289e",
+      "bytes": 1176
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY BINDING MATRIX",
+      "start_line": 3365,
+      "end_line": 3568,
+      "sha256": "4728e705f9307b237cfb7e934e7909a159396f61fc3cb3beacf8f983e0c7fe15",
+      "bytes": 4622
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "LAMBDA PRESSURE BINDING LAW",
+      "start_line": 3569,
+      "end_line": 3608,
+      "sha256": "3a7fb11c7e0c217448eb5fc3aafc4a888a6e3c7372ef1daf0e12dc728e93d320",
+      "bytes": 1523
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY EFFECT TRACE LAW",
+      "start_line": 3609,
+      "end_line": 3634,
+      "sha256": "caca1d8564333c75d8c31db155f97dacd4d14565271dcdcc5d1f416287d5cfec",
+      "bytes": 1156
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY ABLATION LAW",
+      "start_line": 3635,
+      "end_line": 3681,
+      "sha256": "701104c2e0c3a0a1865bc6439a8b11d1b0d5b520b06cc4b545154538c47c99d5",
+      "bytes": 1167
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY SELECTION REVIEW LAW",
+      "start_line": 3682,
+      "end_line": 3711,
+      "sha256": "1ff2f222b625bf7d3e99ee1316ad09b8c146d7cceb0b75a5b512ee86dc528630",
+      "bytes": 996
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY FORCE VS FIT LAW",
+      "start_line": 3712,
+      "end_line": 3767,
+      "sha256": "83a0e336f1ede1e6bf0362146ef4de9a8de88e4a1d5c99cc90d1640851bf692c",
+      "bytes": 2177
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "ACTIVE TASK GEOMETRY REBINDING LAW",
+      "start_line": 3768,
+      "end_line": 3829,
+      "sha256": "06ab3f53bde69f441f2b4c594b66de41c573722ce383b8ee20d50d9f579f98b4",
+      "bytes": 2665
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "TASK-LOCAL LAMBDA PRESSURE LAW",
+      "start_line": 3830,
+      "end_line": 3868,
+      "sha256": "3e6a8d5e969dac0e8d4000ecfb8fed78c712c58e9b2fa26e9f0db9c528170d9b",
+      "bytes": 1836
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "FLUX CONTROLLER LAW",
+      "start_line": 3869,
+      "end_line": 3905,
+      "sha256": "0231cc8cb34f5116fc02e545821a7784114b250a31e41284a55df92527eb1a8d",
+      "bytes": 2168
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY CONTINUITY VS REBINDING LAW",
+      "start_line": 3906,
+      "end_line": 3934,
+      "sha256": "9021c72f11d4b14c64bb7ce63e93852d2b6018a45ed000b9aaa4c609ee31eee0",
+      "bytes": 938
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "DUAL GEOMETRY BINDING LAW",
+      "start_line": 3935,
+      "end_line": 3974,
+      "sha256": "90078cc62537c7a098f079aa14b8987c79bbe4cc51e2ef1b137fa6921ba0e677",
+      "bytes": 1963
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "EXECUTION GEOMETRY LAW",
+      "start_line": 3975,
+      "end_line": 3992,
+      "sha256": "d81a7d57f6a2a4ee09db6a0acc142cbad2b993cf6dafd69265e0a400f8e7463f",
+      "bytes": 457
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "DELIVERY GEOMETRY LAW",
+      "start_line": 3993,
+      "end_line": 4016,
+      "sha256": "6d5a55443977a24e2359e4d4c4b0eecb9468eac5dc719003e9bdadc15479db86",
+      "bytes": 950
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "GEOMETRY CONFLICT AUTHORITY LAW",
+      "start_line": 4017,
+      "end_line": 4028,
+      "sha256": "8594f064f7e7202612bf9a3d8255cde66890d71097a6785460f1dfcda612d00a",
+      "bytes": 716
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "Q4-D EMOTIONAL SAFETY ROUTING LAW",
+      "start_line": 4029,
+      "end_line": 4064,
+      "sha256": "054c00f01cf5a5d17eec56f269df81a8c25b37c9b456ad3e20c6a05cc5484bdd",
+      "bytes": 1484
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "FAMILIAR ARTIFACT PRESERVATION LAW",
+      "start_line": 4065,
+      "end_line": 4102,
+      "sha256": "cfa1f976c071193634e202acfc4af030f3ec55e5aa8321d622f23212efb51de5",
+      "bytes": 1645
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "SMALL STEP SURFACE LAW",
+      "start_line": 4103,
+      "end_line": 4131,
+      "sha256": "df463ddb311210350327ccb93c9008d715a44e93c9bfd5d08d55e4271792f520",
+      "bytes": 909
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "NATIVE AXIS SCAN LAW",
+      "start_line": 4132,
+      "end_line": 4197,
+      "sha256": "7885781f49c38f5703d3c3e61c5fc876bd30918d2d62ba30fc7c8fd77eb5b385",
+      "bytes": 1946
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "NATIVE MEANING ALIGNMENT LITE LAW",
+      "start_line": 4198,
+      "end_line": 4246,
+      "sha256": "86ca022dfced8b877184e31ad430e19628851c292623fc443d248ae7a4adca0f",
+      "bytes": 1928
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "AGENT ACTION GOVERNANCE LITE LAW",
+      "start_line": 4247,
+      "end_line": 4319,
+      "sha256": "94fdafb377bd02a0141f1a110d25b0c6e15d5085227c20aed157667cfd93c7cd",
+      "bytes": 2700
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT RUNTIME SMOKE CHECK LAW",
+      "start_line": 4320,
+      "end_line": 4351,
+      "sha256": "2d7a88d8ec80df6ac21784978585d8b142498123a1623439a455525f69e368cb",
+      "bytes": 1238
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT BASIS GAP REPORT LAW",
+      "start_line": 4352,
+      "end_line": 4379,
+      "sha256": "c16df57446fccd4dcad50f52d161a592f0431e2382116ac87cb0372091a23c6c",
+      "bytes": 1124
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT CALIBRATION LEDGER LAW",
+      "start_line": 4380,
+      "end_line": 4406,
+      "sha256": "18a776f6f4d0f6c9190af25eec389beda1fc61b7e20118da048ab826827f6b22",
+      "bytes": 991
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT CONTRACT PIN LAW",
+      "start_line": 4407,
+      "end_line": 4432,
+      "sha256": "81e5411dab820b4333fbab204d3a1d973b63ba2714789bca3b56501ac74cc4c4",
+      "bytes": 863
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "PROMPT-NATIVE EMULATION TRACE LAW",
+      "start_line": 4433,
+      "end_line": 4455,
+      "sha256": "5dd111750930c279f6db0252ebb7e0343f2e9930b09612e315d0dec88a4a6345",
+      "bytes": 828
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "BENCHMARK JUDGE LAW",
+      "start_line": 4456,
+      "end_line": 4514,
+      "sha256": "7c6fce6ad1d65be6b9efd56552b86520002465dcd856d211701dcf17a629be33",
+      "bytes": 2370
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "JUDGE EVIDENCE ADMISSIBILITY LAW",
+      "start_line": 4515,
+      "end_line": 4555,
+      "sha256": "2b31cecb68ff383fe0d8ad68b958776b64360285a9ad42faf39b49b868f83172",
+      "bytes": 1030
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "CLAIM CLASSIFIER LAW",
+      "start_line": 4556,
+      "end_line": 4599,
+      "sha256": "64f2e646572222290233f2f64cd392085dac854d4ef802ac64b45598b4f84da0",
+      "bytes": 1695
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "CONTROL DELTA REPORT LAW",
+      "start_line": 4600,
+      "end_line": 4620,
+      "sha256": "3d39f8389850aee05511156a8ebd8df839a2412b47c2fe2cd2fcddd2cafa4da0",
+      "bytes": 715
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "EFFICIENCY LEDGER LAW",
+      "start_line": 4621,
+      "end_line": 4642,
+      "sha256": "a45aae46245575b99f5ccb040a25e7341ee6de539ab444da24efff809f442308",
+      "bytes": 778
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "AMBIGUITY TRIAGE GATE LAW",
+      "start_line": 4643,
+      "end_line": 4670,
+      "sha256": "10b11b860a1c4b7626f44432bfff1cfc81b47c2c522f5a48fb34df3824566c9b",
+      "bytes": 1160
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "MECHANISM CLAIM LEVEL LAW",
+      "start_line": 4671,
+      "end_line": 4690,
+      "sha256": "f0a29b784b5067be6ab5e47105fce9c3eaa3fe89982abfd5979ad43f9bfc56e4",
+      "bytes": 1373
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "SPECIALIST INTEGRITY CHECK LAW",
+      "start_line": 4691,
+      "end_line": 4716,
+      "sha256": "e5815e66d5444b2ed143e018e8d4923c1ee8f5dbde00a0f71565c1f84ed5500d",
+      "bytes": 989
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "ABLATION AWARENESS LAW",
+      "start_line": 4717,
+      "end_line": 4735,
+      "sha256": "f939bd45994e2c26ee8f34e8ad398721d9589fdfb5e05f07c3fe820981405851",
+      "bytes": 695
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "GOVERNANCE OVERHEAD LAW",
+      "start_line": 4736,
+      "end_line": 4757,
+      "sha256": "a3df07be9a3df6a7abb0d42eca157cd5578ba489b19a5804a48ca1fec7372b11",
+      "bytes": 781
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "BENCHMARK LEDGER LAW",
+      "start_line": 4758,
+      "end_line": 4782,
+      "sha256": "930e03233dd2c4ec14b40757bf38292ad4c017d5ef5c71645ed9eb051914032c",
+      "bytes": 763
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "FAIL-FORWARD PATCH LOOP LAW",
+      "start_line": 4783,
+      "end_line": 4805,
+      "sha256": "73fc64c6e8a2133d23fd4ad97fead49bb4e73f0b23a5a858da3755f48e2668c4",
+      "bytes": 802
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "PROJECT INITIALIZATION BRIEF LAW",
+      "start_line": 4806,
+      "end_line": 4827,
+      "sha256": "7cf4a2a697c65303e606be97a44d2f3451e2ddd27974a24a1a620116cdeaa1c6",
+      "bytes": 963
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "PROJECT EXECUTION MAP LAW",
+      "start_line": 4828,
+      "end_line": 4869,
+      "sha256": "31be51259b95ed843ab587464259632fe3e97a7cc54ecea528b07a35f5632245",
+      "bytes": 1728
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "AIR MATURITY READINESS LAW",
+      "start_line": 4870,
+      "end_line": 4982,
+      "sha256": "31ed73cf229bee8f45771b370cd0700a3db0e18e148be2b99a6df3056ebc65db",
+      "bytes": 3077
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "MINIMAL ARTIFACT EMISSION LAW",
+      "start_line": 4983,
+      "end_line": 5004,
+      "sha256": "32335e655c30207ea2db135205b3a2ff44a1e235dda760c818d47977f7a39298",
+      "bytes": 967
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "ACTIVE STEP ARTIFACT LAW",
+      "start_line": 5005,
+      "end_line": 5017,
+      "sha256": "75212ad3eb394477c788c5fe1600a415d3c50722b69067f63ba3d636ed8b67a1",
+      "bytes": 671
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "MATERIAL PIVOT REFRESH LAW",
+      "start_line": 5018,
+      "end_line": 5045,
+      "sha256": "61ccfd0d426fd4c32cdbb844dcd347bd5c66ed3a25500b51eb60aa2cbd2d8126",
+      "bytes": 1243
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "INVISIBLE ARTIFACT LAW",
+      "start_line": 5046,
+      "end_line": 5066,
+      "sha256": "42d22392736e9db1de762a82c1493edfe4fa7bbec2471d0f0177ac20a2324641",
+      "bytes": 630
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "ACTIVATION LAW",
+      "start_line": 5067,
+      "end_line": 5087,
+      "sha256": "ef458c22843d78f2d2ddd207035bf54687f7e4d0d8e75edcfe49034712da646f",
+      "bytes": 803
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "SESSION LAW",
+      "start_line": 5088,
+      "end_line": 5119,
+      "sha256": "1b784cec682e7cbd604d4dd3e47e55c11a50342c2688b396c355929f78b6d97c",
+      "bytes": 997
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "ARTIFACT LAW",
+      "start_line": 5120,
+      "end_line": 5179,
+      "sha256": "ae5cda75bfab2c870c66bd38e6d3d7c46d1d26969687be4a2313a34889f602e5",
+      "bytes": 2590
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW",
+      "start_line": 5180,
+      "end_line": 5205,
+      "sha256": "51c2eb2de41675e3090737c45efbc7e0c92f28571271b6ee847a3aead734268d",
+      "bytes": 1826
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "BENCHMARK IDENTITY LAW",
+      "start_line": 5206,
+      "end_line": 5249,
+      "sha256": "839eab0013500be5a425eed73cf4e605e447a67a183c1aec3de11ed800f09342",
+      "bytes": 1273
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "UNIVERSAL RUBRIC LAW",
+      "start_line": 5250,
+      "end_line": 5277,
+      "sha256": "f13a2d05348972a15d8d277b5b5d994d60ccdb43b1d6d3cc9c687bb01907bf92",
+      "bytes": 959
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "BENCHMARK POSTURE LAW",
+      "start_line": 5278,
+      "end_line": 5311,
+      "sha256": "d321b8bfd07c07a7cb3625dae2b1e3b447498d0d22e20795970d678bb4d10272",
+      "bytes": 795
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "EXECUTION BENCHMARK PROFILE LAW",
+      "start_line": 5312,
+      "end_line": 5387,
+      "sha256": "cf181b312b88e7bd395ef9c5698a1887aa8a2af943ba429a51cd2268927c7544",
+      "bytes": 3263
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1",
+      "title": "RECEIVER DELIVERY LAW",
+      "start_line": 5388,
+      "end_line": 5446,
+      "sha256": "09401ebb9cc902de1aa0a258ee526b1d60f4064a698cb5c1b183caca9fd92136",
+      "bytes": 2933
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "AIR CONTRACT-GOVERNED CODE GENERATION LAW",
+      "start_line": 5447,
+      "end_line": 5522,
+      "sha256": "07a468be47076e777dd7e7e9c6e693798f12fac832fc3cc9215192bfeadb42f5",
+      "bytes": 3140
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CODING TASK ARTIFACT LAW",
+      "start_line": 5523,
+      "end_line": 5549,
+      "sha256": "2c3cf7b3410fae0312d55b5d9e883bdc058602f833619fe3c65df3a1f000f668",
+      "bytes": 1232
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "AIR CODING PERIPHERAL VISION LAW",
+      "start_line": 5550,
+      "end_line": 5627,
+      "sha256": "abc5880b9d0adf20fd0bbd872dfa07c080292a27bd6d6fb30aa8d4a7b1fcf3a6",
+      "bytes": 4228
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "OUTPUT LAW",
+      "start_line": 5628,
+      "end_line": 5654,
+      "sha256": "5630c30036b8eceb15a0e739af49051353b952024abfeabaea06e5b1cced5f89",
+      "bytes": 918
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "AIR OUTPUT FORMATTING LAW",
+      "start_line": 5655,
+      "end_line": 5685,
+      "sha256": "8d4e205e7540c36beab7b5693cc328e21e25a2fa6dd28710ff578d9cc45962cf",
+      "bytes": 1219
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FORMAL LABEL RESERVATION LAW",
+      "start_line": 5686,
+      "end_line": 5738,
+      "sha256": "45629bbcc36edae7a9bc5db54f6bd2c48f96a19bb155ea75634caf178e1d543a",
+      "bytes": 1726
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "Q4-D TEST SURFACE LAW",
+      "start_line": 5739,
+      "end_line": 5768,
+      "sha256": "f56ad14e5e56d75db12774c14fa2805a0b224502daaf368234760a446ef61484",
+      "bytes": 1391
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CANONICAL RENDERING RULE",
+      "start_line": 5769,
+      "end_line": 5802,
+      "sha256": "714ba85896328ff8e5a2d1bfa9b0cbdbda78b9da8176bd79069ad5aa416d0ed9",
+      "bytes": 1056
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "SEPARATION RULE",
+      "start_line": 5803,
+      "end_line": 5816,
+      "sha256": "ba65dfc6b8ad0318bad22a66f008a676b004f8d8e48f063e14f9e263f195b32b",
+      "bytes": 646
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "JSON PURITY RULE",
+      "start_line": 5817,
+      "end_line": 5831,
+      "sha256": "94e74810f1d3ca09504b4f2bfee54c41e06a6bb3880551aba4593c58af49d879",
+      "bytes": 455
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "NARRATIVE PLACEMENT RULE",
+      "start_line": 5832,
+      "end_line": 5846,
+      "sha256": "01dde2532b4dc2bbd423244f67627453c14ffd43f29b9cfa1d68191e82c603da",
+      "bytes": 608
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "FORMAL OBJECT TRUTHFULNESS RULE",
+      "start_line": 5847,
+      "end_line": 5863,
+      "sha256": "d207ed8adc1709c36df5c1bcabbf52d42f614776be95db22729a1b56f033c5a1",
+      "bytes": 669
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "REFRESH RULE",
+      "start_line": 5864,
+      "end_line": 5874,
+      "sha256": "baea9da2451ec63613dd90b7f1154971b48b9b7fbe589f06dde048b44787648e",
+      "bytes": 544
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "STRICT MODE RULE",
+      "start_line": 5875,
+      "end_line": 5891,
+      "sha256": "91afb116f5b302427af0607b60d8cb1e1f716dd20b1920e05774ad11e575da79",
+      "bytes": 563
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "COMPACT STRUCTURE BOUNDARY RULE",
+      "start_line": 5892,
+      "end_line": 5901,
+      "sha256": "09950b40910de281c51e99b94438f981e0ac8aaf2485c0b2cb48306e14080233",
+      "bytes": 411
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "CONSISTENCY PRINCIPLE",
+      "start_line": 5902,
+      "end_line": 5911,
+      "sha256": "ae38554bda01bcea195445a8f037d598db587a6c77b4411d38009cf6c4590a37",
+      "bytes": 520
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "VALIDATION LAW",
+      "start_line": 5912,
+      "end_line": 5927,
+      "sha256": "40ec9de5eb7800b8368eb4998d8cf14846591849c9f55fe03044f797c00c5d48",
+      "bytes": 368
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "title": "FINAL DISCIPLINE",
+      "start_line": 5928,
+      "end_line": 5941,
+      "sha256": "8072ccee2cf94ccbc811e107596877908e29983ac6b0a876b7c93d13f31fa2d1",
+      "bytes": 544
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1",
+      "title": "AIR GROUNDING DOCTRINE AND Q5 SPECIALIST NEED CHECK LAW",
+      "start_line": 5942,
+      "end_line": 6049,
+      "sha256": "2a78e5c48621b1f0cd1a7a57184b0937c47895b14218944a6c6fe342dbb28a4b",
+      "bytes": 7161
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "title": "AIR BEGINNER, WORKFLOW, PORTABILITY, AND HANDOFF DOCTRINE PATCH",
+      "start_line": 6050,
+      "end_line": 6108,
+      "sha256": "a38f32eccc0207ab881131d202c1452d2c06e2d192c4f1c8fa89031a42ae5cf7",
+      "bytes": 3040
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "title": "AIR USER ALIGNMENT AND EXECUTION WORKFLOW LAW",
+      "start_line": 6109,
+      "end_line": 6522,
+      "sha256": "fe725fe5250f9bd081e3dad346fde298fa81188c43575886ca5d554bc4009094",
+      "bytes": 21179
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "HUMAN-TO-MACHINE CAPABILITY TRANSLATOR LAW",
+      "start_line": 6523,
+      "end_line": 6624,
+      "sha256": "dac8dfa14a3de8d24dc2429933df3c4e42b1fde988acd484b9ad57b36abe480c",
+      "bytes": 5551
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1",
+      "title": "AUTOMATED CAPABILITY CONSTRUCTION LAW",
+      "start_line": 6625,
+      "end_line": 6691,
+      "sha256": "179de22ddb60648e6d45c74a0ded982f48d4dc5d96b49fb1826d03de86151691",
+      "bytes": 5719
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "title": "Q2 DETERMINISTIC POLICY ROUTING AND LOCAL TOOL LAW",
+      "start_line": 6692,
+      "end_line": 6761,
+      "sha256": "b756e6e92e0b1eb48e4460eb7be965d9f9d7d778d6985a87a0356cd0bfad2bd2",
+      "bytes": 5050
+    },
+    {
+      "source_file": "AIR CORE RUNTIME.md",
+      "module_id": "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "title": "AIR HANDOFF CRYPTOGRAPHIC INTEGRITY AND AUTHORITY-SEPARATION LAW",
+      "start_line": 6762,
+      "end_line": 6864,
+      "sha256": "0672afb636a4f4ddc7374dc8c949aef022c3076362e5859672d7bb9c9816c6d4",
+      "bytes": 4704
+    }
+  ],
+  "reconstruction_rule": "Sort chunks by source_file and start_line and concatenate exact UTF-8 payloads extracted between AIR_SOURCE_CHUNK markers.",
+  "claim_boundary": "Maps approved WS6 monolith source bytes into derived WS7 modules; authored Kernel law is separately versioned.",
+  "overlay_patches": [
+    {
+      "patch_marker": "AIR_ALL_CREATED_OBJECTS_VISIBLE_V1",
+      "applied_to": [
+        "AIR CORE RUNTIME.md",
+        "AIR CONTROL SURFACE.md",
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_BOOT_KERNEL_V1",
+        "AIR_BOOT_STARTER_PROFILE_V1"
+      ],
+      "source_chunk_reconstruction_unchanged": true,
+      "effect": "Print all instantiated current-state formal objects; do not fabricate future-step artifacts."
+    }
+  ]
+}

@@ -1,137 +1,15 @@
-﻿# AIR Model Portability Notes
+# AIR Model Portability Notes
 
-AIR is designed to be prompt-native and portable across capable LLM platforms, but boot quality and handoff restoration vary by model and interface.
+AIR is prompt-native and provider-neutral in design, but actual rule following, context loading, tool access, and handoff restoration vary by model and interface.
 
-This document records observed behavior and recommended prompts.
+## Practical guidance
 
-## Portability principle
+- Prefer modular boot when the monolithic bundle consumes too much context.
+- Treat terminal-sentinel checks as end-of-file evidence, not proof that every middle section loaded.
+- Verify that Q1 is asked and that onboarding answers are not invented.
+- Record model, interface, date, bundle, context condition, and observed failure when reporting portability issues.
+- Do not generalize one successful boot into a permanent compatibility claim.
 
-AIR must treat model/provider availability as a dependency, not an assumption.
+## Fallback
 
-Negative rule:
-
-AIR must not depend on a single model provider, hosted platform, deployment environment, jurisdictional access regime, or residency policy.
-
-Positive principle:
-
-AIR should preserve project continuity through portable state, local-first artifacts, provider fallback notes, and model-specific boot guidance.
-
-## Context-window floor
-
-Portability has a hard physical constraint: the boot bundle must fit in
-the model's context window alongside your project work.
-
-- Minimal new-project bundle (runtime + control surface + starter
-  profile): ~130k tokens.
-- Continuation bundle (runtime + handoff card): ~65-80k tokens depending
-  on card size.
-- Full stack with grounding specialist trio: ~172k tokens.
-
-Counts are chars/4 estimates; real tokenizer counts vary by model
-(roughly +/-15%).
-
-Practical floor: **200k context for new-project boots.** Below that,
-expect silent truncation or retrieval-chunked loading --- both produce
-degraded boots that may look superficially normal. Model tiers below the
-floor are usable for continuation boots only, with reduced headroom, and
-should be marked accordingly in the observed-model notes.
-
-## Status labels
-
-- `CURRENT_SESSION_BASELINE` - the model currently driving AIR development work.
-- `TESTED_BOOT_OK` - booted successfully in observed testing.
-- `TESTED_BOOT_WITH_STRICT_PROMPT` - booted successfully only with stricter wording.
-- `TESTED_HANDOFF_OK` - restored a full handoff cleanly.
-- `TESTED_HANDOFF_OK_SLOW` - restored correctly but slowly.
-- `TESTED_HANDOFF_PARTIAL` - partially restored, with limitations.
-- `TESTED_HANDOFF_DRIFT_RISK` - restored some state but drifted or regressed.
-- `NOT_RECOMMENDED_FOR_FULL_AIR_HANDOFF_CONTINUATION` - not recommended for large handoff restoration.
-- `NOT_TESTED` - no reliable test yet.
-
-## Observed model notes
-
-### ChatGPT-5.5 Thinking
-
-Status: `CURRENT_SESSION_BASELINE`
-
-Use:
-
-- primary observed AIR development session
-- strong long-context continuity
-- prompt-doctrine design
-- bounded implementation planning
-- claim-boundary preservation
-- git/test gate coordination when working with an operator
-
-Caution:
-
-- still prompt-side unless backed by repo/runtime evidence
-- model behavior is not backend validation or runtime enforcement
-
-### Claude / Opus 4.8 High
-
-Status: `TESTED_HANDOFF_OK_SLOW`
-
-Use:
-
-- complex continuation
-- deep state recovery
-- truncated-card detection
-- claim-boundary preservation
-
-Observed:
-
-- correctly detected truncated handoff card
-- refused to fabricate completed steps or next action
-- recovered later state from a complete transcript/handoff
-- preserved prompt/backend claim boundaries
-
-Caution:
-
-- slow boot and slow large-card processing
-- patience advised
-
-### Grok
-
-Status: `TESTED_HANDOFF_OK`
-
-Use:
-
-- full handoff continuation
-- compact restoration
-- prompt-side project state continuation
-
-Observed:
-
-- restored STEP 2B.4e from full handoff
-- preserved completed-step chain and claim boundary
-- asked for confirmation before proceeding
-
-Caution:
-
-- may generalize next action when the card is truncated
-
-### Kimi
-
-Status: `TESTED_HANDOFF_GOOD_BUT_ADVANCES_TOO_EARLY`
-
-Use:
-
-- structured restoration
-- compact AIR_SESSION rendering
-- claim-boundary preservation
-
-Observed:
-
-- restored completed 2B.1 through 2B.4d
-- preserved no-LEVEL_3 boundary
-- selected a later next step while an in-progress REVIEW_GATE step still existed
-
-Caution:
-
-- tell Kimi explicitly not to advance past an in-progress REVIEW_GATE step
-
-Recommended addition:
-
-```text
-If the handoff contains an in-progress REVIEW_GATE step, do not advance to the later recommended step. Restore the in-progress step as current.
+When a host cannot reliably load the selected bundle, reduce the module set or use a different capable host. Preserve project state with a handoff card, but keep structural and cryptographic trust states distinct.
