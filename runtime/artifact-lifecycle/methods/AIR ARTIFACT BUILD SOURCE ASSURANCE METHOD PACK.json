@@ -1,0 +1,171 @@
+{
+  "title": "AIR Artifact Build, Source, and Assurance Method Pack",
+  "SYSTEM_DESIGNATION": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_METHOD_PACK_V1",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "EXECUTION_METHOD_PACK",
+  "STATUS": "WS1_GENERATED_VALIDATED_PENDING_USER_REVIEW",
+  "STANDARD_CODE": "AIR.METHOD.ARTIFACT_BUILD_SOURCE_ASSURANCE.V1.AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_SCOPE_RISK_PROPORTIONALITY_DECISION_V1",
+  "description": "Reusable governed procedure for building, importing, updating, patching, hardening, validating, approving, binding, releasing, restoring, migrating, and deprecating AIR artifacts. It preserves source truth, smallest-sufficient controls, class-specific obligations, assurance separation, active-contract authority, and explicit later-workstream boundaries.",
+  "method_pack_type": "UNIVERSAL_ARTIFACT_LIFECYCLE_AND_ASSURANCE",
+  "may_bind_as": [
+    "active_method_pack",
+    "task_local_reusable_method",
+    "supporting_method_under_active_contract"
+  ],
+  "must_not_bind_as": [
+    "active_orbit_0_contract",
+    "domain_package",
+    "specialist_profile",
+    "executor",
+    "policy_engine",
+    "proof_of_execution"
+  ],
+  "activation_conditions": [
+    "A reusable AIR artifact is created, imported, updated, patched, hardened, validated, bound, released, restored, migrated, or deprecated.",
+    "Cross-file references or compatibility obligations are material.",
+    "A lifecycle, assurance, approval, binding, or release claim is requested.",
+    "The task needs repeatable evidence-to-advance gates rather than ad hoc prompting."
+  ],
+  "inputs_required": [
+    "active contract and current step",
+    "artifact identity and class",
+    "intended purpose and consumers",
+    "current source files for any patch",
+    "source-plan state",
+    "project and task execution envelope",
+    "dependencies and cross-file references",
+    "approval and delivery-form boundaries"
+  ],
+  "lifecycle_states": [
+    "INTAKE",
+    "SOURCE_PLAN",
+    "BUILD_PLAN",
+    "CONSTRUCTION",
+    "STRUCTURAL_VALIDATION",
+    "SEMANTIC_VALIDATION",
+    "CROSS_FILE_VALIDATION",
+    "REGRESSION_VALIDATION",
+    "ASSURANCE_REVIEW",
+    "APPROVAL_REQUIRED",
+    "APPROVED_FOR_BINDING",
+    "RELEASE_READY",
+    "RELEASED",
+    "RESTORED",
+    "DEPRECATED",
+    "BLOCKED"
+  ],
+  "assurance_states": [
+    "DRAFT_UNVALIDATED",
+    "STRUCTURALLY_VALID",
+    "SEMANTICALLY_REVIEWED",
+    "CROSS_FILE_VALIDATED",
+    "REGRESSION_VALIDATED",
+    "APPROVED_FOR_BINDING",
+    "RELEASE_READY",
+    "RELEASED",
+    "DEGRADED_OR_PROVISIONAL",
+    "FAILED"
+  ],
+  "procedure": [
+    {
+      "step_id": "M01_INTAKE",
+      "action": "Declare artifact identity, class, purpose, consumers, active contract, active step, and requested transition.",
+      "advance_when": "Scope is bounded and any material pivot has been rescoped.",
+      "failure_state": "REVIEW_OR_RESCOPE_REQUIRED"
+    },
+    {
+      "step_id": "M02_SOURCE_PLAN",
+      "action": "Inventory current-session patch sources and other required evidence; classify WS1 source-plan state.",
+      "advance_when": "Existing-file patch source gate is satisfied or a safe source-light path is explicit.",
+      "failure_state": "EVIDENCE_REQUIRED"
+    },
+    {
+      "step_id": "M03_EXECUTION_ENVELOPE",
+      "action": "Inherit project envelope, compile task envelope, assess consequence/exposure/irreversibility/regulation/threats, and select smallest-sufficient controls.",
+      "advance_when": "Mandatory floors and proportionality decision are explicit.",
+      "failure_state": "REVIEW"
+    },
+    {
+      "step_id": "M04_BUILD_PLAN",
+      "action": "Define artifact schema/structure, dependencies, cross-file references, claim boundaries, class-specific obligations, validation plan, approval boundary, and rollback/deprecation path.",
+      "advance_when": "Plan has no silent later-workstream capability claims.",
+      "failure_state": "BLOCKED"
+    },
+    {
+      "step_id": "M05_CONSTRUCTION",
+      "action": "Create complete artifact or complete replacement file according to the approved delivery form.",
+      "advance_when": "Scoped output exists and no source outside the confirmed set was silently used.",
+      "failure_state": "CONSTRUCTION_FAILED"
+    },
+    {
+      "step_id": "M06_STRUCTURAL_VALIDATION",
+      "action": "Validate parseability, duplicate keys, terminal sentinels, required fields, designation identity, and basic schema shape.",
+      "advance_when": "Structural tests pass.",
+      "failure_state": "RETURN_TO_CONSTRUCTION"
+    },
+    {
+      "step_id": "M07_SEMANTIC_VALIDATION",
+      "action": "Review purpose, class boundary, law precedence, claim hygiene, source-state honesty, approval state, and whether the artifact performs its designation.",
+      "advance_when": "Semantic obligations pass or bounded exceptions are recorded.",
+      "failure_state": "RETURN_TO_BUILD_PLAN_OR_CONSTRUCTION"
+    },
+    {
+      "step_id": "M08_CROSS_FILE_VALIDATION",
+      "action": "Resolve designations, references, enums, dependency direction, duplicate/conflicting law, and consumer compatibility.",
+      "advance_when": "Cross-file checks pass for the scoped set.",
+      "failure_state": "RETURN_TO_AFFECTED_FILE"
+    },
+    {
+      "step_id": "M09_REGRESSION_VALIDATION",
+      "action": "Execute the applicable AIR_ARTIFACT_PIPELINE_EVALUATION_PACK_V1 tests, including proportionality and failure behavior.",
+      "advance_when": "Required tests pass with evidence.",
+      "failure_state": "RETURN_TO_EARLIEST_AFFECTED_STEP"
+    },
+    {
+      "step_id": "M10_ASSURANCE_REVIEW",
+      "action": "Record assurance state, assumptions, blockers, uncertainty/degraded state, unresolved evidence, and next allowed transition.",
+      "advance_when": "Assurance claim is bounded by observed evidence.",
+      "failure_state": "DEGRADED_OR_PROVISIONAL"
+    },
+    {
+      "step_id": "M11_APPROVAL_AND_BINDING",
+      "action": "Request or apply the governing approval; bind only after approval and routing fit.",
+      "advance_when": "Approval is explicit and binding conditions pass.",
+      "failure_state": "APPROVAL_REQUIRED"
+    },
+    {
+      "step_id": "M12_RELEASE_RESTORE_UPDATE_DEPRECATE",
+      "action": "Apply the relevant release, restoration, update, migration, or deprecation gate without implying repository or publication state.",
+      "advance_when": "Transition-specific evidence and approval exist.",
+      "failure_state": "BLOCKED"
+    }
+  ],
+  "step_gate_rule": "Method step gates control procedure advancement; AIR_GATE still controls material execution, closure, approval, binding, mutation, handoff, destructive action, production-like action, irreversible action, and rescope.",
+  "failure_handling": {
+    "return_to_earliest_affected_state": true,
+    "preserve_unresolved_blockers": true,
+    "do_not_convert_written_plan_to_execution_evidence": true,
+    "do_not_self_approve_or_self_bind": true,
+    "later_workstream_interface_claim": "BLOCKED_UNTIL_INSTALLED_AND_VALIDATED"
+  },
+  "handoff_preservation": [
+    "artifact identity and class",
+    "active method state and step",
+    "source-plan state",
+    "assurance state",
+    "unresolved evidence and blockers",
+    "approval and binding state",
+    "next allowed action",
+    "staleness state"
+  ],
+  "staleness_triggers": [
+    "source set or source authority changes",
+    "task or project envelope changes",
+    "artifact class or consumer changes",
+    "cross-file dependency changes",
+    "active contract or approval boundary changes",
+    "later-workstream interface becomes installed or is removed"
+  ],
+  "claim_boundary": "Prompt-compiled lifecycle governance is not backend validation, empirical improvement proof, cryptographic integrity proof, repository alignment, or release publication.",
+  "backend_validation_claimed": false
+}

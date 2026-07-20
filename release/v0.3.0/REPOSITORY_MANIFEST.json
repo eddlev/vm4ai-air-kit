@@ -1,0 +1,766 @@
+{
+  "title": "AIR v0.3.0 Repository Manifest - Structure Revised",
+  "SYSTEM_DESIGNATION": "AIR_V0_3_0_REPOSITORY_MANIFEST_STRUCTURE_REVISED_V1",
+  "artifact_class": "VERSIONED_REPOSITORY_MANIFEST",
+  "created_at_utc": "2026-07-20T21:30:18Z",
+  "repository": "eddlev/vm4ai-air-kit",
+  "base_commit": "2cc0b02265cf59e3bedddad53f6f5abf68a5ceb9",
+  "target_version": "v0.3.0",
+  "structure_revision": "FUNCTION_ORIENTED_RUNTIME_NO_PROMPT_OR_SPECIALIST_DUPLICATION",
+  "manifest_self_exclusion": "release/v0.3.0/REPOSITORY_MANIFEST.json",
+  "entry_count": 94,
+  "entries": [
+    {
+      "path": "CHANGELOG.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1601,
+      "sha256": "2562d02ceae020c9254edacf02bfc91e4666deb72348dd8a84e3791efd29d6b5",
+      "git_blob_sha1": "bbb46ce9c1e65761827f5b4b9cc0777013899429"
+    },
+    {
+      "path": "README.md",
+      "operation": "REPLACE",
+      "source_blob_sha1": "e776db689645cefc57b9f88b5b6e7dc7249cf894",
+      "size_bytes": 5086,
+      "sha256": "29876ff02e973eabca84f3b50521924b58ec025caada73d7566d87e78677f8d6",
+      "git_blob_sha1": "0bfbf1a254697d7b7828d17c737e002832aada56"
+    },
+    {
+      "path": "docs/AIR_MODEL_PORTABILITY_NOTES.md",
+      "operation": "REPLACE",
+      "source_blob_sha1": "73a529d8d884608f9f27d8f7c3c6f65814d480cf",
+      "size_bytes": 890,
+      "sha256": "870a7b1bb8475a117c2c83a6592de16418f70760ff3b7a780d548f11a60b67a7",
+      "git_blob_sha1": "d6812c0ea4ddf858b4e3008be52c24af3f8daf76"
+    },
+    {
+      "path": "docs/AIR_USER_GUIDE.md",
+      "operation": "REPLACE",
+      "source_blob_sha1": "b22c444794d4f43a6fecc061563345f0a319e8c1",
+      "size_bytes": 1141,
+      "sha256": "0c78517e73aef2a90566c8a2d730b5b6ca115f718b13d9eebf90e0e00f7230f3",
+      "git_blob_sha1": "fcc0557690c55085191f3c5e8d05339b86e734a4"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1421,
+      "sha256": "cc39935486b978bd7a6827e5c12af7ed57b2c43224b47b0eb54b20538caaca5d",
+      "git_blob_sha1": "4d65b033b37856ba3581e1c1309ff4e565a5d2dd"
+    },
+    {
+      "path": "docs/DEPENDENCIES.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 885,
+      "sha256": "c6a29756c64286a426ab6eff5e62278b9717768acfa415f18e0cef1126a9ec34",
+      "git_blob_sha1": "7e7507079e837612006bd29987e16d8e827613c9"
+    },
+    {
+      "path": "docs/GLOSSARY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1607,
+      "sha256": "0729c368aad8101a48b99fd19f6f9988310f4f64dcbd7549cea7ab8fde870fe7",
+      "git_blob_sha1": "82269642b418a69ccb36ac9b6153b44ae8a9139e"
+    },
+    {
+      "path": "docs/INSTALLATION_MATRIX.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1326,
+      "sha256": "60f7213d79e24edb2de5222a1011b7ffc6f15bfc202b796d680282479e514bf0",
+      "git_blob_sha1": "d6780076bc8490ff1875be3fb5bcb233b0b445bd"
+    },
+    {
+      "path": "docs/OPERATOR_GUIDE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 4232,
+      "sha256": "e46116b763d09a6e249180b76f7c2b2e6c1ef055710552b3a1e1e957d5cf6e2b",
+      "git_blob_sha1": "191bef08411b4c5fafd4e7a67eb3590967a75aeb"
+    },
+    {
+      "path": "docs/PROMPT_VS_TOOL_MODES.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 831,
+      "sha256": "2ae353b556f978304e78f2bbeae5f78c50f8655a3d68074b2b80bf55b7b97374",
+      "git_blob_sha1": "c4bbca3b9535227ed725063d5ced0bc969d4aacb"
+    },
+    {
+      "path": "docs/QUICK_START.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1710,
+      "sha256": "41297a97c2e5fb26c8a135f8211f3658cd0493efa22a23c1626a25dd99a6619a",
+      "git_blob_sha1": "6f4be0509930b87378a8abcc8af55214fe3432a5"
+    },
+    {
+      "path": "docs/RELEASES.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1244,
+      "sha256": "8c9bfac9d99a60f1df4ab4bda8d43df74e4535a665271216063dc1ee5bc81c7a",
+      "git_blob_sha1": "467383d70ee0a7e68ffde5943acef0c630ab3a3d"
+    },
+    {
+      "path": "docs/REPOSITORY_STRUCTURE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 892,
+      "sha256": "3bdc5b32f030c19b0fec50ad96a5a13bdf2fa423d56d3273272da581dd43ba69",
+      "git_blob_sha1": "7ac496d93d88520c6a98197c1fa4400eed817efb"
+    },
+    {
+      "path": "docs/TROUBLESHOOTING.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1403,
+      "sha256": "40aed02a6f1def2511a2dad67a34d38153745d34cc8e8073ce94bde12748e112",
+      "git_blob_sha1": "c7cabd15d6135f2a02224f372740ef1dc198dbcd"
+    },
+    {
+      "path": "docs/UPDATE_ROLLBACK.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 920,
+      "sha256": "7dda3c00594633a08e12f0b668160c5242215e2aa0ae0fc52c7e3d3210e01b0d",
+      "git_blob_sha1": "d6661fc5a0a52576bf2a2c47092eda920772754e"
+    },
+    {
+      "path": "docs/case-studies/WS7_TOOL_RUNTIME_OUTAGE_RECOVERY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1302,
+      "sha256": "aa15f8c3e37af07e2f63d7e721b3e0063259b78a87f09915b2d654c2085c2525",
+      "git_blob_sha1": "6eb3fa48b1bab65e7bb72ecf83d4ffb88a25d13a"
+    },
+    {
+      "path": "docs/reference/artifact-lifecycle.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 541,
+      "sha256": "9e990db7b5a0d56d21587290bd02dff7f6a96252ad745f8e58cce8bbe01fe8d7",
+      "git_blob_sha1": "48ac9a3b79bcc2476aae191f2987cb49e6385364"
+    },
+    {
+      "path": "docs/reference/capability-layers.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 806,
+      "sha256": "131d23701f9c92365e01fc10a82aaaba843090125fe044da01407bb9053f5090",
+      "git_blob_sha1": "36cce8efcaff12a644cb8c5c5116bbc95a82cbeb"
+    },
+    {
+      "path": "docs/reference/commands.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1193,
+      "sha256": "a2f7b55999f070bcb78d9ee4866ac469773bef537363817a0b2184d419672679",
+      "git_blob_sha1": "78f5d18ad005300944f03e55656341bfbd7967f9"
+    },
+    {
+      "path": "docs/reference/objects.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 594,
+      "sha256": "d8b373f28c6ce4c733ae9df7aebbafa110752963328086321e4ecd365a5c5ac4",
+      "git_blob_sha1": "37738909ff604338ed90e3df62f775082d6629f2"
+    },
+    {
+      "path": "docs/tools/boot.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1245,
+      "sha256": "55c75a165b335af15603f299e05704f11576eeee02cc71c85ed41ade0290d2f2",
+      "git_blob_sha1": "c44be4338a706873e52e1cccbd617441ff98f19e"
+    },
+    {
+      "path": "docs/tools/handoff.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1472,
+      "sha256": "59600920f9ff59383f8eb81dd0732133d704b1f33e18ae02b2bbb6a4fba8ee5c",
+      "git_blob_sha1": "1d96cbbf034c3681fe1992e522389e3559fd812d"
+    },
+    {
+      "path": "docs/tools/opa.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 819,
+      "sha256": "38fdb6e19e6cb50720de6dde12243e1fd1423822533d51aabaeb79f49d36675f",
+      "git_blob_sha1": "53ba61bdcb03d8c471857cee3d66a108bc1bd031"
+    },
+    {
+      "path": "examples/README.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 547,
+      "sha256": "57003918138c5122ebd59bc59c1b27118524457a14d143f843c4f5cbf3905200",
+      "git_blob_sha1": "9e5517d250c8390e2dabc166c2a1600c85b45ea0"
+    },
+    {
+      "path": "profiles/README.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 753,
+      "sha256": "c2598ff3fc97a3a7435e264943ae9484a1898d1edf5e3c0f12e7eac0643bef6e",
+      "git_blob_sha1": "54488bca794638453e279836524ccb8999ed1ec5"
+    },
+    {
+      "path": "profiles/capability ecology architect/AIR CAPABILITY ECOLOGY ARCHITECT.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 49119,
+      "sha256": "69be9c10c6d502d6b8896a002e33a4819059e52865cc6033640cf80b1088bcbb",
+      "git_blob_sha1": "228ea3be326e60c35c222e71f6106821bfabfca9"
+    },
+    {
+      "path": "profiles/capability ecology architect/AIR CAPABILITY ECOLOGY METHOD PACK.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2413,
+      "sha256": "6d75fe47b102fcda1f8722c38567be7f2c2b3d65aed88dc4a6e5ab5903a38ff5",
+      "git_blob_sha1": "874be6bd7a34fc51b4a6a4b91fb46bb92977e1ed"
+    },
+    {
+      "path": "profiles/capability ecology architect/AIR DOMAIN CAPABILITY REGISTRY.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 66690,
+      "sha256": "26d6669b46eeb462a0fac0f41b67b5a22faf2db7f458ed2978424f19274a4d30",
+      "git_blob_sha1": "8db50bb7217c3a6d7cdff7a128ad94b2db8fa7d6"
+    },
+    {
+      "path": "profiles/capability ecology architect/AIR HUMAN TO MACHINE CAPABILITY TRANSLATOR.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 19740,
+      "sha256": "d33077c4639c6d42b6df86f7f6c58a8eb47a02e70114ecac81e3d7f6e5c3724c",
+      "git_blob_sha1": "e7f0266d24c9bb00d235a24b278e47091f891242"
+    },
+    {
+      "path": "profiles/capability ecology architect/AIR SPECIALIST PACKAGE MANIFEST.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1529,
+      "sha256": "d6575c86653f915f340a92f77de240247cf3a820479f79dcc077c7dca7427e35",
+      "git_blob_sha1": "904d7ea6cfa563276ba931c90a1dad918681d5fd"
+    },
+    {
+      "path": "profiles/grounding specialist/AIR GROUNDING DOMAIN PACK.json",
+      "operation": "REPLACE",
+      "source_blob_sha1": "ee9eaafb22083381b4965ae2422fab37e8d24139",
+      "size_bytes": 57895,
+      "sha256": "ba472360aac4718b49fcc782006d79e9c1ef19ef3c2c9196f59ee9c12fd39ab3",
+      "git_blob_sha1": "88b4bfed7f36fcfb20a8e44a4969a2933c5440b0"
+    },
+    {
+      "path": "profiles/grounding specialist/AIR GROUNDING EXECUTOR.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1646,
+      "sha256": "39dfa46445158757e48d1ec990ba3ca00f718669689ec8897cb6de6fa058af21",
+      "git_blob_sha1": "6f62063c689a843a7ac8a8429f88ee84a1d617dc"
+    },
+    {
+      "path": "profiles/grounding specialist/AIR GROUNDING METHOD PACK.json",
+      "operation": "REPLACE",
+      "source_blob_sha1": "cbbf8cd36c92bba96c11027a84938a7f161adb6c",
+      "size_bytes": 27315,
+      "sha256": "4078e3159d89a217f8d87db98a28130434be832bf6a03a40f1a8be8e79e09543",
+      "git_blob_sha1": "6eb100515b15bb2ecbd63b31129fb28b3e3ca3e6"
+    },
+    {
+      "path": "profiles/grounding specialist/AIR GROUNDING SPECIALIST.json",
+      "operation": "REPLACE",
+      "source_blob_sha1": "6e038a4c5df21fa33540bc58620576c25e91b646",
+      "size_bytes": 63795,
+      "sha256": "67e982b4b9b0eaa5876ba7b88e034d3391848992600eab8de8943ddeda684d63",
+      "git_blob_sha1": "1b34b25800e94736f7cb0c8fea78eba1e7a0b9b7"
+    },
+    {
+      "path": "profiles/grounding specialist/AIR SPECIALIST PACKAGE MANIFEST.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1463,
+      "sha256": "b26e1e8cdef0397d6b52c9bd0bf2f6f6491c620348560f6be4f6b0488f19aeff",
+      "git_blob_sha1": "e0b07515c84d3ce331d30767a1510bff23cdbb59"
+    },
+    {
+      "path": "prompts/AIR CONTROL SURFACE.md",
+      "operation": "REPLACE",
+      "source_blob_sha1": "47cf434b81b91f767eee93def1af85b8d0e1feb9",
+      "size_bytes": 128622,
+      "sha256": "b78a3e1d88a7fb98ab64e1d7f535c37b0acbfeb84c7ddd1de6cbc885be127fc4",
+      "git_blob_sha1": "a72654f696fed9a9fe1f6c85f2efa0246f52b6dd"
+    },
+    {
+      "path": "prompts/AIR CORE RUNTIME.md",
+      "operation": "REPLACE",
+      "source_blob_sha1": "c56081a96d6c0204dc330f134a15b46e09ff98ef",
+      "size_bytes": 301807,
+      "sha256": "b8b7aed61be3f418d5ac80a478036e68cb9a9259a293c82fc5b4fbf534ffcfe0",
+      "git_blob_sha1": "ade6a4032f68d0510a163187cb71650608fb746b"
+    },
+    {
+      "path": "prompts/AIR DEFAULT STARTER PROFILE.json",
+      "operation": "REPLACE",
+      "source_blob_sha1": "dbc6eb4330fdfd60c65bc5ab1afdf42c898ca63a",
+      "size_bytes": 205648,
+      "sha256": "ef962732a50fab5f917e6b81b73ff407b14251c1fdb2845a470206660ba48ec3",
+      "git_blob_sha1": "926feeb78b1eaba69b9414588681c4fc85421879"
+    },
+    {
+      "path": "release/v0.3.0/RELEASE_NOTES.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3369,
+      "sha256": "627a291cff236f4c3cee369678e870b8f09cd2d524ef8160c90ff04183794654",
+      "git_blob_sha1": "181b1e09180eb2f2b62b0abac78fc0fc270f57aa"
+    },
+    {
+      "path": "runtime/AIR RUNTIME DIRECTORY MANIFEST.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1570,
+      "sha256": "00dee7af3287537f619ee0a2e7176d5cf881bf08bf8ebd23f25fa04d435848fe",
+      "git_blob_sha1": "9df8cbee3c95057dafeb640e0928195b9b612338"
+    },
+    {
+      "path": "runtime/README.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1207,
+      "sha256": "661ab49cb1ff8e15b078c0bb2e9f491982093368c58f0f88a3bde85491a2aeae",
+      "git_blob_sha1": "6256ac76b97f78bdf46ce9487a809bf750b7a93e"
+    },
+    {
+      "path": "runtime/artifact-lifecycle/evaluation/AIR ARTIFACT PIPELINE EVALUATION PACK.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 8515,
+      "sha256": "b7a6364731e570e2aede9e517ff8baef48bc9be6efada6415671437673bd15e7",
+      "git_blob_sha1": "d122ed5f31462aead89369f3f173b88ce6d9af9b"
+    },
+    {
+      "path": "runtime/artifact-lifecycle/methods/AIR ARTIFACT BUILD SOURCE ASSURANCE METHOD PACK.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 7952,
+      "sha256": "47ab227bafd25354d7f3a5a0e9231eb8e0f21b9b2c4797205d38016aeddf7f31",
+      "git_blob_sha1": "e10e59a1ac103bfd3884d5d0394ee5f8a849cca9"
+    },
+    {
+      "path": "runtime/boot/AIR BOOT KERNEL.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 7273,
+      "sha256": "bbb680eaaa0a2e6a1135ed5c49627232480005338e5937a7ac0751dd618f660c",
+      "git_blob_sha1": "ad1b0b37d998f430fc65ff21b46a9089395ecd7e"
+    },
+    {
+      "path": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 27289,
+      "sha256": "a7e4d2c3303bfc41712e780c7ad8b4a02a93dde4000caf3ea3320b941198337d",
+      "git_blob_sha1": "6fabc008fdb5c83baefa3841bced1f6d96b9ccda"
+    },
+    {
+      "path": "runtime/boot/AIR BOOT STARTER PROFILE.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3270,
+      "sha256": "42edaad4263cd9e20e27ec5265e36bba9f694dd515b1479986d6dc108f78d117",
+      "git_blob_sha1": "4885f7d612323bfdf7c03c07439fc7fac72d2643"
+    },
+    {
+      "path": "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 81890,
+      "sha256": "cb651920a4e9f7bc02b106022903b5ed0400336dcbadb3e99e51dc6b21c7a601",
+      "git_blob_sha1": "083d3300c4d9bf4e27f4bd0c406ea325866b4224"
+    },
+    {
+      "path": "runtime/boot/schemas/AIR BOOT MODULE LOAD RECEIPT SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1738,
+      "sha256": "5c41f8eeb99218e220f2cf197b7c8867e6a199673018b223cfd803fed5b0b35c",
+      "git_blob_sha1": "d18f0ff12dfcb0152a6827db6ea99d57e687b188"
+    },
+    {
+      "path": "runtime/boot/templates/AIR BOOT MODULE LOAD RECEIPT TEMPLATE.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 739,
+      "sha256": "7464b8d2081734ca200d64e6d5285c7037cbeb4030f80333fa04f87ea078ef38",
+      "git_blob_sha1": "a16616ed5eb7de214b880f63ae3dc320cee9e022"
+    },
+    {
+      "path": "runtime/boot/tools/air-boot.cmd",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 73,
+      "sha256": "8c0f808c354312afa8d4d2cd03c0993b79ccc6ea509d8ce3cda71e688d286fde",
+      "git_blob_sha1": "b6d0292d99fd84c7d5f23d832a070e4097ce36b2"
+    },
+    {
+      "path": "runtime/boot/tools/air-boot.ps1",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 201,
+      "sha256": "a2ce7222bf2333d1f649751b94c5ebe6b93f141c9a5acbd48c2bdd30109b166f",
+      "git_blob_sha1": "b5e1562bd2105a3d2372c23bd339157149704387"
+    },
+    {
+      "path": "runtime/boot/tools/air-boot.py",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 8528,
+      "sha256": "8b5f5005422048327c401f9e7d25d50eea4811b4f4bc2f234099f036f5bcfe20",
+      "git_blob_sha1": "727f45f5d8ce869ddd81135a30579e6997041ec3"
+    },
+    {
+      "path": "runtime/boot/tools/air-boot.sh",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 118,
+      "sha256": "b2b4bd45f928f121dc31e58cb876c4dc7b8b500f36e6bf546f65b4f4eec368f8",
+      "git_blob_sha1": "18305ea7eff630f335a0e95d85353367386e5724"
+    },
+    {
+      "path": "runtime/handoff/executor/AIR HANDOFF VERIFIER EXECUTOR.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2212,
+      "sha256": "fa1903554083f5fc0516a2c2767f960d156bafbb30cbfd0a089d914d464213a7",
+      "git_blob_sha1": "5a30221ac046df1a32da6bc7e9dee57fab5e04ff"
+    },
+    {
+      "path": "runtime/handoff/policy/AIR HANDOFF INTEGRITY POLICY PACK.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 5653,
+      "sha256": "b7165f99ee8d72e37a74f967df6968b65831c71511b7ed5810015fe6130ea8c3",
+      "git_blob_sha1": "d711c9b27a0b86cd838e717256832704d648be60"
+    },
+    {
+      "path": "runtime/handoff/schemas/AIR HANDOFF CONTINUITY ANCHOR SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1359,
+      "sha256": "564c50f319f658ea4ae42a801ce325f6d271fa789892488d8dce9f56d10e1f2a",
+      "git_blob_sha1": "0252770ae98f35203d7e7ae12324983ebf956f8d"
+    },
+    {
+      "path": "runtime/handoff/schemas/AIR HANDOFF KEY TRANSITION SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1251,
+      "sha256": "bf9bc7ea13d954a13bd16a764d10f8dd49c0a7d0917ccb4668aae5a3927fcd4a",
+      "git_blob_sha1": "ce60bd35e5fc0ccc8981b79bfe81140b7decc39f"
+    },
+    {
+      "path": "runtime/handoff/schemas/AIR HANDOFF SIGNATURE ENVELOPE SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2409,
+      "sha256": "e3323ee80d8fa39c0d2bacf9eb0f6f5472c32366e47765eec93bc3c22a43dac8",
+      "git_blob_sha1": "a5cd83df0634eff0f1c08f09801b10b277cbfffd"
+    },
+    {
+      "path": "runtime/handoff/schemas/AIR HANDOFF TRUST STORE SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3801,
+      "sha256": "63fe0f0e3e712e9ce1bdcdeb27a6e38f823ee43874c81426c4372734ef3d41be",
+      "git_blob_sha1": "b61b742ce32d6158ae5cf538ac5eb55b3031ab09"
+    },
+    {
+      "path": "runtime/handoff/schemas/AIR HANDOFF VERIFIER RESULT SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2557,
+      "sha256": "3b058edb7b5573840f5b98695556c522fef238991d7e7e02bea9a929b07caacf",
+      "git_blob_sha1": "1682402c6a312c69661c62b92b2d402a61b2d94f"
+    },
+    {
+      "path": "runtime/handoff/templates/AIR HANDOFF CARD TEMPLATE.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 78560,
+      "sha256": "a05d14938024a0bc679889035564ea81f342cc90053884b2ba24cef27cfd3461",
+      "git_blob_sha1": "e8219b4135f9e3070543f48d79869ba3ef4c3dc8"
+    },
+    {
+      "path": "runtime/handoff/templates/AIR HANDOFF CONTINUITY ANCHOR TEMPLATE.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 614,
+      "sha256": "e2cbd402ad9b0a4af14afcc5224b368be2e0d5f1456a213b4ce5d2e6a9c76039",
+      "git_blob_sha1": "ce9163f9131ea5433a51fd33501740072957c2dd"
+    },
+    {
+      "path": "runtime/handoff/templates/AIR HANDOFF TRUST STORE TEMPLATE.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 717,
+      "sha256": "b0a86f65ef475b53c17fee0ab059cf78cc2bc33736087888ab687e4223c1241c",
+      "git_blob_sha1": "9ccec472bda41da2bfdbf0990ece415141f71fc7"
+    },
+    {
+      "path": "runtime/handoff/tools/air-handoff.cmd",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 346,
+      "sha256": "df203677fd93b082c4eb205b08fb74fdffb928df08e2128833e45e3ab492e41f",
+      "git_blob_sha1": "92e2a1ef761a9b6ccfa7a6e865a44012f68144c3"
+    },
+    {
+      "path": "runtime/handoff/tools/air-handoff.ps1",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 543,
+      "sha256": "86688b12f984c6cdedcd847431b89714df957b6016cfa56e079c7484721ae8dc",
+      "git_blob_sha1": "94e06d213d95b18a68c8d210dd7403daff6fb1e7"
+    },
+    {
+      "path": "runtime/handoff/tools/air-handoff.py",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 35349,
+      "sha256": "d36c31ab9f6dd63953dbe3ca69b90114d95f92362e61ac8f679b92ce677886af",
+      "git_blob_sha1": "18c096f7997f88122af843ec7acc59ab135cc98d"
+    },
+    {
+      "path": "runtime/handoff/tools/air-handoff.sh",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 357,
+      "sha256": "d6c3f280f610744085637ac2987daef0bbe02ac70f0354dfb64134ebc7e5df05",
+      "git_blob_sha1": "48abe2c3f539ddeea23b846be4422bc4fdac1f3c"
+    },
+    {
+      "path": "runtime/handoff/tools/requirements.txt",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 63,
+      "sha256": "450b2e75583ec22e343059df781f2a0df9e09416ed581243e81ffd5f4eec390a",
+      "git_blob_sha1": "2e4caf1ca7399179c8c7e9f30bef4150ddd03ef3"
+    },
+    {
+      "path": "runtime/modules/control/AIR CONTROL MODULE - ARTIFACT SOURCE AND CAPABILITY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 48311,
+      "sha256": "54d2476c34d2cd624c660efeb75400d42c0aeadba48cbf2982a4a84e0d72b4f6",
+      "git_blob_sha1": "1779a0cef8604fd71f026e5d7588e180dab1a85b"
+    },
+    {
+      "path": "runtime/modules/control/AIR CONTROL MODULE - CODING REPOSITORY AND RELEASE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 21766,
+      "sha256": "9da914baf10ac6e71cf892d7bf072aea44aae9a7d39dca883d16332033102c13",
+      "git_blob_sha1": "c1dea6c257cae79b74e912e8d1f7508ba34ef920"
+    },
+    {
+      "path": "runtime/modules/control/AIR CONTROL MODULE - ENTRY VISIBILITY AND ONBOARDING.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 63645,
+      "sha256": "fc8a1fdaa2f087bb97be1d52c87a1a0f8e4f370488381f0354d600ae908586bc",
+      "git_blob_sha1": "3b8a2cd069d627f26dfbb6903a1cd8156c38bf1a"
+    },
+    {
+      "path": "runtime/modules/control/AIR CONTROL MODULE - POLICY HANDOFF AND PORTABILITY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 18168,
+      "sha256": "d49af40d151faa0ff00ea14dc0d396b86ac9d8b62868064137ab621cc0ca3eaa",
+      "git_blob_sha1": "289ad903cd7f6615c71dba27df82330c0b8a06ad"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - ARTIFACT LIFECYCLE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 23693,
+      "sha256": "31b6a8b7d0515be3597917bd56fa332a8ba6404bf4ff1f6a15c1e7b59cfb251f",
+      "git_blob_sha1": "0354d70657a2e04a710d26d1db35a59d7f837a23"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - CODING REPOSITORY AND RELEASE.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 16725,
+      "sha256": "b1a8e55944fe931082846170077df37d6f16f731e8d5bee137d2434cdff2a24b",
+      "git_blob_sha1": "a60296cec3391b554c36af711515b20f764bbbdf"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - CONTRACT GATE AND EXECUTION.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 99259,
+      "sha256": "519e25406a22a81f84dcad86325a35b5634d9bce25d85cfb32211868faef223f",
+      "git_blob_sha1": "b30f1b8c7898762545bb3d8e509a30bc5979a7a5"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - ENTRY AND ACTIVATION.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 42456,
+      "sha256": "fcf6df4f91cbe1397abe143d4f51d1a4e8c63e7c655d2058b030c9cd934cadf7",
+      "git_blob_sha1": "3575c187c5176adfd7dd9ad5fe97f60640120d62"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - GROUNDING DISCOVERY AND RESEARCH.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 67935,
+      "sha256": "ec3b4ac2ddfd403bc1dd0b829066fc6b387065fc1ad7eb2123bef4e33cabe224",
+      "git_blob_sha1": "d984a6a73dafbfdc4dbdd11647ac0aa64e8a4b7f"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - METHOD EXECUTOR AND SPECIALIST.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 32426,
+      "sha256": "898203cdde6bf1731d2eb74f7c3e943c0b8b51889baafea1a0595b5eac3c5baf",
+      "git_blob_sha1": "ed0a28f9c680ed965367f331560502a2f834fd74"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - POLICY AND HANDOFF SECURITY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 13008,
+      "sha256": "844ebe96a0033e1ccc4723ebd28c8908106fbbf948ca515ca7e74cc0c1ca8e32",
+      "git_blob_sha1": "cdb967ec50150bbd6a9437eadc8695ce0ad55f55"
+    },
+    {
+      "path": "runtime/modules/runtime/AIR RUNTIME MODULE - SOURCE TRANSLATION AND CAPABILITY.md",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 38370,
+      "sha256": "50a88eff3028b7351eeaff83523074d4497534ddedff9d2569410d840f2afe81",
+      "git_blob_sha1": "df21ef1f27ba53dd7adc825d83eda61c79f9f047"
+    },
+    {
+      "path": "runtime/policy/deterministic/AIR DETERMINISTIC POLICY PACK TESTS.rego",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 44677,
+      "sha256": "aeb891dbe7d4af4c087d42385e25e477bf2ff3f135c37b59d6d37fd0d4f3414f",
+      "git_blob_sha1": "0c9828deeff3f0ab33313736d9209cf0e9e718fd"
+    },
+    {
+      "path": "runtime/policy/deterministic/AIR DETERMINISTIC POLICY PACK.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 12941,
+      "sha256": "22247e9ed2011c495df13b1fe8b03c55abff6bc86d993fe1b84d14b8f98a5aec",
+      "git_blob_sha1": "31cb777d646675993e47b08e80f351f0d30d2b35"
+    },
+    {
+      "path": "runtime/policy/deterministic/AIR DETERMINISTIC POLICY PACK.rego",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 13067,
+      "sha256": "2b2c03d18392de48914a46e191c53a3bb519ec0539b352cb16382fde0be48ebb",
+      "git_blob_sha1": "438446a433285c0980c4d15206d7770c9e8bff2b"
+    },
+    {
+      "path": "runtime/policy/opa/AIR OPA ADAPTER CONTRACT.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3136,
+      "sha256": "1ee64e2dfb16652136edabfa66d976c9bb80607e8374715470ec322db3c86802",
+      "git_blob_sha1": "ee24cdc4d8cb2b835af0293b8160a75affc88a8e"
+    },
+    {
+      "path": "runtime/policy/opa/AIR OPA POLICY INPUT SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 4142,
+      "sha256": "e9508c221da8632d95650ac4585fd04b78b3ff2baa24045a444a4942ce834714",
+      "git_blob_sha1": "c92556bcb90a948dc224307fb2c5cb10e5d8ad96"
+    },
+    {
+      "path": "runtime/policy/opa/AIR OPA POLICY RESULT SCHEMA.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3007,
+      "sha256": "1e32025386add481da9044c1a0adb6189b6c6217533ac7978fa8e7e6cf8bdbd0",
+      "git_blob_sha1": "ad4c7def2fbc053a6792c38f90c29ab78c1dca1b"
+    },
+    {
+      "path": "runtime/policy/opa/tools/air-opa.cmd",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 410,
+      "sha256": "49c9e44cfec26ca1e21191433a3dfa7759b07c218aa1e7633df3acee671177b2",
+      "git_blob_sha1": "b9a81de3b12e366cb09e653abf599c4eb6aac80f"
+    },
+    {
+      "path": "runtime/policy/opa/tools/air-opa.ps1",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2864,
+      "sha256": "a38a87fe01e60e681e0e067ce86484385793565b02d5de53c050aeec8c3e7817",
+      "git_blob_sha1": "3863989747af927b3ec870686336917d3b1af35a"
+    },
+    {
+      "path": "runtime/policy/opa/tools/air-opa.sh",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3335,
+      "sha256": "22cfc500831c2e5d00715c1df76ce0503c63f0c5f38da6672288c952ca9f67b7",
+      "git_blob_sha1": "6ad36c07b6c588825eaba5239a9e922a7e9c4459"
+    },
+    {
+      "path": "runtime/source-control/adapters/AIR DIGCOMP SOURCE ADAPTER.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1031,
+      "sha256": "7177ea5484e27674c8869748cc596e1a11099572c9978509b952bf6f7611ec41",
+      "git_blob_sha1": "4ac90d312816e722655c0eb840cf10a251bcf9df"
+    },
+    {
+      "path": "runtime/source-control/adapters/AIR ESCO SOURCE ADAPTER.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 1658,
+      "sha256": "170cb9e15ae489f9cc5ebe1731b3ad79625b17428821d44e86df6cebfb530d19",
+      "git_blob_sha1": "514cd898ba04df86f4f22b931db59efb0bbb60c1"
+    },
+    {
+      "path": "runtime/source-control/adapters/AIR ONET SOURCE ADAPTER.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 2341,
+      "sha256": "aa465e61359a904758cdcc1867fa2aec44302984140a2130ac2020a6fe1e2ebd",
+      "git_blob_sha1": "6a95f1ddebdb9cab22a5edbf1b53a9ec4c95f2c9"
+    },
+    {
+      "path": "runtime/source-control/manifests/AIR WS3 VERIFIED SOURCE BUNDLE MANIFEST.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 3684,
+      "sha256": "69d3587448d3d7e617e0fba167271f003557325ffbc6dd13107e61c50f08cb71",
+      "git_blob_sha1": "00034ffaa80f9f3d59594fc9de489c6d3bb52721"
+    },
+    {
+      "path": "runtime/source-control/registry/AIR SOURCE AND CONTROL REGISTRY.json",
+      "operation": "ADD",
+      "source_blob_sha1": null,
+      "size_bytes": 130389,
+      "sha256": "6a8b456b05714364fe346958ff4c5f0f343af10d071fdf6527d3102d68ae06c8",
+      "git_blob_sha1": "bb729574ea70c9f052cf04adb9ae366e852da296"
+    }
+  ]
+}

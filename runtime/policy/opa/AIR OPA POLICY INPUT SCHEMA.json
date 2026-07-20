@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:opa:policy-input:v1.1.0",
+  "title": "AIR OPA Policy Input",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "policy_pack_id",
+    "policy_pack_version",
+    "policy_mode",
+    "active_contract_id",
+    "active_step",
+    "action_class",
+    "effect_level",
+    "environment",
+    "resource_classes",
+    "approval_required",
+    "approval_present",
+    "binding_requested",
+    "validation_state",
+    "repository_action",
+    "release_action",
+    "dependency_state",
+    "taxonomy_binding_state",
+    "human_status_transfer_state",
+    "claim_state",
+    "evidence_state",
+    "unknown_fields",
+    "input_provenance",
+    "policy_posture",
+    "material_transition",
+    "tool_configured",
+    "tool_available",
+    "tool_authorized",
+    "tool_invoked",
+    "tool_endpoint"
+  ],
+  "properties": {
+    "policy_pack_id": {
+      "const": "AIR_DETERMINISTIC_POLICY_PACK_V1"
+    },
+    "policy_pack_version": {
+      "const": "1.1.0"
+    },
+    "policy_mode": {
+      "enum": [
+        "PROMPT_SIMULATED",
+        "TOOL_EVALUATED"
+      ]
+    },
+    "policy_posture": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "active_contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_step": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_class": {
+      "enum": [
+        "READ_ONLY",
+        "GENERATE",
+        "MUTATE",
+        "BIND",
+        "DEPLOY",
+        "REPOSITORY",
+        "RELEASE",
+        "DESTRUCTIVE",
+        "UNKNOWN"
+      ]
+    },
+    "effect_level": {
+      "enum": [
+        "READ_ONLY",
+        "WRITE",
+        "DEPLOY",
+        "EXPORT",
+        "DESTRUCTIVE",
+        "UNKNOWN"
+      ]
+    },
+    "environment": {
+      "enum": [
+        "LOCAL",
+        "DEVELOPMENT",
+        "STAGING",
+        "PRODUCTION",
+        "UNKNOWN"
+      ]
+    },
+    "resource_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approval_required": {
+      "type": "boolean"
+    },
+    "approval_present": {
+      "type": "boolean"
+    },
+    "binding_requested": {
+      "type": "boolean"
+    },
+    "binding_approval_present": {
+      "type": "boolean"
+    },
+    "repository_action": {
+      "type": "boolean"
+    },
+    "repository_approval_present": {
+      "type": "boolean"
+    },
+    "release_action": {
+      "type": "boolean"
+    },
+    "release_approval_present": {
+      "type": "boolean"
+    },
+    "validation_state": {
+      "enum": [
+        "NOT_REQUIRED",
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "PASS",
+        "FAIL",
+        "STALE",
+        "UNKNOWN"
+      ]
+    },
+    "dependency_state": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "boolean",
+          "string",
+          "number",
+          "null"
+        ]
+      }
+    },
+    "taxonomy_binding_state": {
+      "type": "string"
+    },
+    "human_status_transfer_state": {
+      "type": "string"
+    },
+    "claim_state": {
+      "type": "object"
+    },
+    "evidence_state": {
+      "type": "object"
+    },
+    "unknown_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "input_provenance": {
+      "type": "object"
+    },
+    "material_transition": {
+      "type": "boolean"
+    },
+    "tool_configured": {
+      "type": "boolean"
+    },
+    "tool_available": {
+      "type": "boolean"
+    },
+    "tool_authorized": {
+      "type": "boolean"
+    },
+    "tool_invoked": {
+      "type": "boolean"
+    },
+    "tool_endpoint": {
+      "enum": [
+        "LOCAL_CLI",
+        "127.0.0.1:8181",
+        "localhost:8181",
+        "[::1]:8181"
+      ]
+    },
+    "tool_provenance_present": {
+      "type": "boolean"
+    },
+    "tool_required_by_contract": {
+      "type": "boolean"
+    },
+    "policy_digest": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_digest": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

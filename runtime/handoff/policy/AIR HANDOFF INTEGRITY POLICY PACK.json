@@ -1,0 +1,145 @@
+{
+  "title": "AIR Handoff Integrity Policy Pack",
+  "SYSTEM_DESIGNATION": "AIR_HANDOFF_INTEGRITY_POLICY_PACK_V1",
+  "artifact_class": "POLICY_PACK",
+  "version": "1.0.0",
+  "status": "CONSTRUCTED_EXECUTABLE_VALIDATED_PENDING_USER_REVIEW",
+  "created_at_utc": "2026-07-20T12:17:30Z",
+  "workstream": "WS6",
+  "purpose": "Define canonical handoff signing, local trust, continuity, verifier-before-interpretation and authority-separation rules without making cryptographic tooling mandatory.",
+  "authority_boundary": {
+    "is_orbit_0": false,
+    "is_execution_authority": false,
+    "subordinate_to": [
+      "AIR CORE RUNTIME",
+      "AIR_ACTIVE_CONTRACT",
+      "AIR_GATE",
+      "explicit user approval"
+    ],
+    "model_authority": "UNTRUSTED_PROPOSER",
+    "authentication_is_authorization": false,
+    "signature_validity_is_execution_permission": false
+  },
+  "canonical_profile": {
+    "id": "AIR_HANDOFF_SIGNED_PAYLOAD_PROFILE_V1",
+    "handoff_schema": "1.2.0",
+    "canonicalization": "RFC8785-JCS",
+    "digest": "SHA-256",
+    "signature": "Ed25519",
+    "fingerprint": "SHA-256_RAW_ED25519_PUBLIC_KEY",
+    "excluded_json_pointers": [
+      "/AIR_HANDOFF_CARD/handoff_integrity/trust_state",
+      "/AIR_HANDOFF_CARD/handoff_integrity/integrity_mode",
+      "/AIR_HANDOFF_CARD/handoff_integrity/canonicalization",
+      "/AIR_HANDOFF_CARD/handoff_integrity/digest_algorithm",
+      "/AIR_HANDOFF_CARD/handoff_integrity/payload_digest",
+      "/AIR_HANDOFF_CARD/handoff_integrity/detached_digest",
+      "/AIR_HANDOFF_CARD/handoff_integrity/cryptographic_integrity_verified",
+      "/AIR_HANDOFF_CARD/handoff_integrity/origin_authenticated",
+      "/AIR_HANDOFF_CARD/handoff_integrity/signature_algorithm",
+      "/AIR_HANDOFF_CARD/handoff_integrity/signature",
+      "/AIR_HANDOFF_CARD/handoff_integrity/signer_key_id",
+      "/AIR_HANDOFF_CARD/handoff_integrity/public_key_fingerprint",
+      "/AIR_HANDOFF_CARD/handoff_integrity/verification_executor",
+      "/AIR_HANDOFF_CARD/handoff_integrity/verification_evidence",
+      "/AIR_HANDOFF_CARD/handoff_integrity/verification_limitations",
+      "/AIR_HANDOFF_CARD/continuity_chain/current_handoff_digest",
+      "/AIR_HANDOFF_CARD/continuity_chain/chain_verified",
+      "/AIR_HANDOFF_CARD/continuity_chain/replay_or_rollback_state",
+      "/AIR_HANDOFF_CARD/continuity_chain/verification_limitations"
+    ]
+  },
+  "trust_anchor_provider_interface": {
+    "interface_id": "AIR_TRUST_ANCHOR_PROVIDER_INTERFACE_V1",
+    "canonical_ws6_provider": "LOCAL_AIR_TRUST_STORE",
+    "implemented_in_ws6": [
+      "LOCAL_FILE_TRUST_STORE"
+    ],
+    "reserved_future_provider_types": [
+      "LOCAL_OS_KEYSTORE",
+      "LDAP",
+      "ACTIVE_DIRECTORY",
+      "MICROSOFT_ENTRA_ID",
+      "GENERIC_OIDC",
+      "HSM_OR_KMS"
+    ],
+    "provider_outputs": [
+      "key_material_or_key_reference",
+      "key_fingerprint",
+      "key_state",
+      "scope_attributes",
+      "optional_subject_attributes",
+      "provider_identity",
+      "provider_evidence_and_limitations"
+    ],
+    "provider_rule": "A provider may supply authenticated key or subject attributes, but may not independently grant AIR execution permission.",
+    "remote_provider_default": "NOT_CONFIGURED_AND_NOT_REQUIRED"
+  },
+  "signer_scope": [
+    "project_id",
+    "branch_id",
+    "allowed_handoff_schema_versions",
+    "valid_from_utc",
+    "valid_until_utc",
+    "allowed_artifact_classes",
+    "allowed_signing_operations"
+  ],
+  "decision_planes": {
+    "verification_decision": [
+      "VERIFIED",
+      "UNVERIFIED",
+      "FAILED"
+    ],
+    "restoration_decision": [
+      "RESTORE",
+      "INSPECT_ONLY",
+      "USER_OVERRIDE_REQUIRED",
+      "REJECT"
+    ],
+    "authorization_decision": [
+      "NOT_EVALUATED",
+      "ALLOW",
+      "REVIEW",
+      "REJECT"
+    ],
+    "default_authorization_decision_in_ws6": "NOT_EVALUATED",
+    "composition_rule": "Success in one plane does not imply success in another. The effective result is the strictest applicable decision under AIR_GATE and local policy.",
+    "ws6_enforcement_boundary": "WS6 emits and preserves the planes but does not implement enterprise tool-action enforcement."
+  },
+  "continuity_states": [
+    "GENESIS_VALID",
+    "FORWARD_VALID",
+    "REPLAY_DUPLICATE",
+    "ROLLBACK_DETECTED",
+    "FORK_OR_EQUIVOCATION",
+    "GAP_OR_FAST_FORWARD",
+    "BRANCH_MISMATCH",
+    "UNANCHORED",
+    "FAILED"
+  ],
+  "hard_rules": [
+    "A handoff or signature envelope may not supply its own trusted root.",
+    "Remote key URLs and automatic key retrieval are rejected.",
+    "Unknown algorithms, downgrade, none and metadata disagreement are rejected.",
+    "Verification never mutates the continuity anchor.",
+    "Anchor advancement requires explicit accept.",
+    "Authorization defaults to NOT_EVALUATED.",
+    "Authenticated source content remains subject to prompt-injection and direct-binding controls.",
+    "A valid signature does not authorize tool execution, file mutation, repository action, publication or release."
+  ],
+  "prompt_fallback": {
+    "available": true,
+    "trust_ceiling": "STRUCTURALLY_VALID_UNAUTHENTICATED",
+    "claim_ceiling": "PROMPT_SIDE_STRUCTURAL_SELF_REPORT"
+  },
+  "enterprise_connectors": {
+    "implementation_state": "DEFERRED_NOT_IMPLEMENTED",
+    "reserved_types": [
+      "LDAP",
+      "ACTIVE_DIRECTORY",
+      "MICROSOFT_ENTRA_ID",
+      "GENERIC_OIDC"
+    ]
+  },
+  "claim_boundary": "Verifies observed handoff bytes, signer key scope and local continuity only; does not prove human identity, legal authority, source safety, absence of injection, authorization, compliance, repository state or release readiness."
+}

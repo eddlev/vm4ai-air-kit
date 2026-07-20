@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_VERIFIER_RESULT_SCHEMA_V1",
+  "title": "AIR Handoff Verifier Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "tool",
+    "evaluated_at_utc",
+    "verification_decision",
+    "trust_state",
+    "restoration_decision",
+    "authorization_decision",
+    "interpretation_permission",
+    "continuity_state",
+    "payload_digest",
+    "signer_key_id",
+    "public_key_fingerprint",
+    "checks",
+    "errors",
+    "limitations"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "AIR_HANDOFF_VERIFIER_RESULT_V1"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "tool": {
+      "type": "object"
+    },
+    "evaluated_at_utc": {
+      "type": "string"
+    },
+    "verification_decision": {
+      "enum": [
+        "VERIFIED",
+        "UNVERIFIED",
+        "FAILED"
+      ]
+    },
+    "trust_state": {
+      "enum": [
+        "UNVERIFIED",
+        "STRUCTURALLY_VALID_UNAUTHENTICATED",
+        "DETACHED_DIGEST_VERIFIED_UNAUTHENTICATED",
+        "SIGNATURE_VALID_UNANCHORED",
+        "CRYPTOGRAPHICALLY_VERIFIED_ANCHORED",
+        "VERIFICATION_FAILED"
+      ]
+    },
+    "restoration_decision": {
+      "enum": [
+        "RESTORE",
+        "INSPECT_ONLY",
+        "USER_OVERRIDE_REQUIRED",
+        "REJECT"
+      ]
+    },
+    "authorization_decision": {
+      "enum": [
+        "NOT_EVALUATED",
+        "ALLOW",
+        "REVIEW",
+        "REJECT"
+      ]
+    },
+    "interpretation_permission": {
+      "enum": [
+        "RESTORE",
+        "INSPECT_ONLY",
+        "USER_OVERRIDE_REQUIRED",
+        "REJECT"
+      ]
+    },
+    "continuity_state": {
+      "enum": [
+        "GENESIS_VALID",
+        "FORWARD_VALID",
+        "REPLAY_DUPLICATE",
+        "ROLLBACK_DETECTED",
+        "FORK_OR_EQUIVOCATION",
+        "GAP_OR_FAST_FORWARD",
+        "BRANCH_MISMATCH",
+        "UNANCHORED",
+        "FAILED"
+      ]
+    },
+    "payload_digest": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signer_key_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "public_key_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

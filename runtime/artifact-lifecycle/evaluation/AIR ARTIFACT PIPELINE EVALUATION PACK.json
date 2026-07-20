@@ -1,0 +1,192 @@
+{
+  "title": "AIR Artifact Pipeline Evaluation Pack",
+  "SYSTEM_DESIGNATION": "AIR_ARTIFACT_PIPELINE_EVALUATION_PACK_V1",
+  "PROFILE_KIND": "EVALUATION_PACK",
+  "profile_function_class": "EVALUATION_AND_REGRESSION_PACK",
+  "STATUS": "WS1_GENERATED_VALIDATED_PENDING_USER_REVIEW",
+  "STANDARD_CODE": "AIR.EVALUATION.ARTIFACT_PIPELINE.V1.AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1.AIR_SCOPE_RISK_PROPORTIONALITY_DECISION_V1.AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1",
+  "description": "Reusable WS1 evaluation definitions for lifecycle integrity, structural and semantic validity, cross-file compatibility, proportionality, failure behavior, claim boundaries, approval separation, and later-workstream downgrade honesty. A declared test is not an executed test.",
+  "evaluation_scope": [
+    "Core Runtime",
+    "Control Surface",
+    "Default Starter",
+    "Specialist profiles",
+    "Domain artifacts",
+    "Method Packs",
+    "Executor contracts",
+    "Policy Packs",
+    "Evaluation Packs",
+    "Handoff artifacts",
+    "Boot and release artifacts when their workstreams are active"
+  ],
+  "test_result_states": [
+    "NOT_RUN",
+    "PASS",
+    "FAIL",
+    "BLOCKED",
+    "NOT_APPLICABLE",
+    "DEGRADED_EVIDENCE"
+  ],
+  "test_case_contract": {
+    "required_fields": [
+      "test_id",
+      "objective",
+      "artifact_scope",
+      "preconditions",
+      "procedure",
+      "expected_result",
+      "evidence_required",
+      "result_state"
+    ],
+    "result_is_self_report": true,
+    "pass_requires_evidence": true
+  },
+  "suites": [
+    {
+      "suite_id": "E01_STRUCTURAL_INTEGRITY",
+      "tests": [
+        {
+          "test_id": "E01_T01_JSON_PARSE_DUPLICATES",
+          "objective": "Every JSON parses with duplicate-key rejection.",
+          "artifact_scope": "all JSON artifacts",
+          "procedure": "Parse each file with an object-pairs duplicate detector.",
+          "expected_result": "No parse errors or duplicate keys.",
+          "evidence_required": "parser output and file list",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E01_T02_MARKDOWN_SENTINELS",
+          "objective": "Runtime and Control sentinels remain the final content line.",
+          "artifact_scope": "AIR CORE RUNTIME.md; AIR CONTROL SURFACE.md",
+          "procedure": "Inspect final non-empty content line.",
+          "expected_result": "Expected AIR_LOAD_SENTINEL exactly matches.",
+          "evidence_required": "observed final lines",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E01_T03_UNIQUE_DESIGNATIONS",
+          "objective": "SYSTEM_DESIGNATION values are unique.",
+          "artifact_scope": "all designated artifacts",
+          "procedure": "Collect and compare designations.",
+          "expected_result": "No duplicate designation.",
+          "evidence_required": "designation manifest",
+          "result_state": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "suite_id": "E02_SEMANTIC_AND_CLASS_BOUNDARIES",
+      "tests": [
+        {
+          "test_id": "E02_T01_SELF_APPROVAL_REJECTION",
+          "objective": "Generated artifacts cannot self-approve or self-bind.",
+          "artifact_scope": "all generated artifacts",
+          "procedure": "Search approval/binding rules and simulate missing user/governing approval.",
+          "expected_result": "APPROVAL_REQUIRED or blocked.",
+          "evidence_required": "rule trace",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E02_T02_LAYER_BOUNDARIES",
+          "objective": "Domain Packages, Methods, Executors, Policies, and Evaluations retain their class boundaries.",
+          "artifact_scope": "all non-runtime layers",
+          "procedure": "Inspect may_bind_as, must_not_bind_as, and output contracts.",
+          "expected_result": "No layer silently becomes Orbit 0 or an autonomous agent.",
+          "evidence_required": "class-boundary matrix",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E02_T03_LATER_WS_HONESTY",
+          "objective": "WS2-WS7 interfaces are not claimed as active in WS1.",
+          "artifact_scope": "all WS1 outputs",
+          "procedure": "Inspect active flags and capability claims.",
+          "expected_result": "Pending interfaces remain pending.",
+          "evidence_required": "interface-state report",
+          "result_state": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "suite_id": "E03_CROSS_FILE_COMPATIBILITY",
+      "tests": [
+        {
+          "test_id": "E03_T01_REFERENCE_RESOLUTION",
+          "objective": "Every WS1 cross-file designation resolves.",
+          "artifact_scope": "WS1 delivery set",
+          "procedure": "Extract AIR_*_V1 references and compare against known implemented or explicitly pending interfaces.",
+          "expected_result": "Implemented references resolve; pending references are labeled pending.",
+          "evidence_required": "reference report",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E03_T02_ENUM_ALIGNMENT",
+          "objective": "Lifecycle, source-plan, and assurance enums align across Runtime, Control, Starter, Method, and Evaluation.",
+          "artifact_scope": "core WS1 artifacts",
+          "procedure": "Compare declared enum sets and surface vocabulary.",
+          "expected_result": "No incompatible enum.",
+          "evidence_required": "enum comparison",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E03_T03_LAW_PRECEDENCE",
+          "objective": "Runtime governs; Starter and capability layers do not weaken floors.",
+          "artifact_scope": "all WS1 outputs",
+          "procedure": "Compare floor and claim-boundary statements.",
+          "expected_result": "No weaker or conflicting operative rule.",
+          "evidence_required": "precedence review",
+          "result_state": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "suite_id": "E04_PROPORTIONALITY_AND_FAILURE_BEHAVIOR",
+      "tests": [
+        {
+          "test_id": "E04_T01_LOW_RISK_MINIMUM",
+          "objective": "Low-risk drafting selects a small sufficient validation bundle.",
+          "artifact_scope": "pipeline behavior",
+          "procedure": "Simulate a reversible source-light draft.",
+          "expected_result": "No unnecessary release or cryptographic controls; degraded state remains honest.",
+          "evidence_required": "decision trace",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E04_T02_HIGH_IMPACT_FLOORS",
+          "objective": "High-impact work preserves mandatory controls.",
+          "artifact_scope": "pipeline behavior",
+          "procedure": "Simulate public, regulated, irreversible, or security-sensitive artifact work.",
+          "expected_result": "Source, semantic, cross-file, regression, approval, and relevant release gates cannot be pruned.",
+          "evidence_required": "decision trace",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E04_T03_SOURCE_DRIFT_STALENESS",
+          "objective": "Changed sources or task envelope invalidate affected passes.",
+          "artifact_scope": "Method and Grounding compatibility",
+          "procedure": "Change canonical source or task envelope after review.",
+          "expected_result": "REVIEW_NEEDED or STALE_NEEDS_REGROUND.",
+          "evidence_required": "state transition trace",
+          "result_state": "NOT_RUN"
+        },
+        {
+          "test_id": "E04_T04_VALIDATION_BY_DECLARATION_REJECTION",
+          "objective": "Written methods and tests do not prove execution.",
+          "artifact_scope": "Method and Evaluation Packs",
+          "procedure": "Set no evidence while declaring a pass.",
+          "expected_result": "Pass rejected or DEGRADED_EVIDENCE.",
+          "evidence_required": "gate output",
+          "result_state": "NOT_RUN"
+        }
+      ]
+    }
+  ],
+  "acceptance_floor": [
+    "All required structural tests pass.",
+    "No class-boundary, self-approval, or later-workstream-honesty failure remains.",
+    "Cross-file references and enum alignment pass.",
+    "Low-risk and high-impact proportionality behavior both pass.",
+    "Assumptions, blockers, and uncertainty/degraded state are stated."
+  ],
+  "claim_boundary": "The pack defines tests. Only executed tests with evidence support PASS. It is not backend validation, empirical performance proof, or release certification.",
+  "backend_validation_claimed": false
+}

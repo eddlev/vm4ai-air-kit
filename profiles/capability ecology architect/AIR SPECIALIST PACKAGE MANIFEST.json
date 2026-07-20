@@ -1,0 +1,43 @@
+{
+  "title": "AIR Capability Ecology Architect Package Manifest",
+  "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V1",
+  "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+  "version": "1.0.0",
+  "release_line": "v0.3.0",
+  "created_at_utc": "2026-07-20T21:30:18Z",
+  "specialist_name": "AIR Capability Ecology Architect",
+  "component_contract": [
+    "SPECIALIST_PROFILE",
+    "DOMAIN_PACK",
+    "METHOD",
+    "EXECUTOR"
+  ],
+  "components": [
+    {
+      "role": "SPECIALIST_PROFILE",
+      "file": "AIR CAPABILITY ECOLOGY ARCHITECT.json",
+      "size_bytes": 49119,
+      "sha256": "69be9c10c6d502d6b8896a002e33a4819059e52865cc6033640cf80b1088bcbb"
+    },
+    {
+      "role": "DOMAIN_PACK",
+      "file": "AIR DOMAIN CAPABILITY REGISTRY.json",
+      "size_bytes": 66690,
+      "sha256": "26d6669b46eeb462a0fac0f41b67b5a22faf2db7f458ed2978424f19274a4d30"
+    },
+    {
+      "role": "METHOD",
+      "file": "AIR CAPABILITY ECOLOGY METHOD PACK.json",
+      "size_bytes": 2413,
+      "sha256": "6d75fe47b102fcda1f8722c38567be7f2c2b3d65aed88dc4a6e5ab5903a38ff5"
+    },
+    {
+      "role": "EXECUTOR",
+      "file": "AIR HUMAN TO MACHINE CAPABILITY TRANSLATOR.json",
+      "size_bytes": 19740,
+      "sha256": "d33077c4639c6d42b6df86f7f6c58a8eb47a02e70114ecac81e3d7f6e5c3724c"
+    }
+  ],
+  "binding_state": "UNBOUND_UNTIL_SELECTED_VALIDATED_AND_APPROVED",
+  "claim_boundary": "Folder membership packages related capability layers. It does not bind them, promote them to Orbit 0, or authorize execution."
+}

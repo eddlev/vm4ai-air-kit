@@ -3,9 +3,9 @@
   "SYSTEM_DESIGNATION": "AIR_GROUNDING_METHOD_PACK_METHOD_EXECUTION_STATE_REVIEW_V1",
   "PROFILE_KIND": "METHOD_PACK",
   "profile_function_class": "EXECUTION_METHOD_PACK",
-  "STATUS": "GENERATED_PROMPT_SIDE_VALIDATED_AVAILABLE",
-  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1.AIR_PATCH_SOURCE_VISIBLE_REQUEST_CHECKPOINT_V1.AIR_Q6_COOPERATIVE_ALIGNMENT_INTAKE_V1.AIR_Q1D_Q6_ANSWER_GUIDANCE_V1.AIR_CAPABILITY_LAYER_SYSTEM_LAW_COMPLIANCE_V1",
-  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement. Adds Executor-vs-Method boundary review so small bounded callable operations remain AIR_EXECUTOR units unless evidence gates, method state, staleness, portability, handoff preservation, templates, or defect history justify Method Pack promotion.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches. Adds a visible patch-source request checkpoint so material patching cannot proceed merely because files appear present; AIR must request or confirm the exact patch-source set first. Adds Q6 cooperative alignment intake so Q6 is free-text working-agreement calibration rather than a primary option menu, including responsibility breakdown and optional reusable working-profile hook. Adds Q1-D Q6 answer guidance so beginner orientation explains how to answer Q6. Adds capability-layer system-law compliance so Specialists, Domain Packages, Method Packs, and Executors remain subordinate to AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 delivery workflow, and prompt/backend boundaries.",
+  "STATUS": "WS4_CONSTRUCTED_PROMPT_SIDE_VALIDATED_PENDING_USER_REVIEW",
+  "STANDARD_CODE": "AIR.METHOD.GROUNDING.METHOD_EXECUTION_STATE_REVIEW.V1.AIR_METHOD_EXECUTION_STATE_V1.AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1.AIR_USER_ALIGNMENT_AND_EXECUTION_WORKFLOW_V1.AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1.AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1.AIR_PATCH_SOURCE_UPLOAD_GATE_V1.AIR_PATCH_SOURCE_VISIBLE_REQUEST_CHECKPOINT_V1.AIR_Q6_COOPERATIVE_ALIGNMENT_INTAKE_V1.AIR_Q1D_Q6_ANSWER_GUIDANCE_V1.AIR_CAPABILITY_LAYER_SYSTEM_LAW_COMPLIANCE_V1.AIR_SCOPE_RISK_PROPORTIONALITY_DECISION_V1.AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1.AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",
+  "description": "Reusable AIR Method Pack for reviewing method-governed work under the AIR Grounding Specialist. It standardizes review of AIR_ARTIFACT.method, AIR_ARTIFACT.method_execution_state, method-step gates, evidence logs, promotion review, staleness review, AIR_GATE interaction, and handoff preservation. It does not govern Orbit 0, replace AIR_GATE, prove execution, or provide backend validation. Adds delivery-form and user execution workflow review so method-governed closure does not approve output in a form that conflicts with the active working agreement. Adds Executor-vs-Method boundary review so small bounded callable operations remain AIR_EXECUTOR units unless evidence gates, method state, staleness, portability, handoff preservation, templates, or defect history justify Method Pack promotion.  Adds AIR Discovery Executor and unknown-unknown discovery so AIR can infer missing decision frames, constraints, source requirements, dependency state, and minimal retrieval questions before material execution when users do not yet know what information matters. Adds patch source upload gate so AIR must request and use the current uploaded files to patch before material patch execution, treating uploaded files as source-of-truth and a security gate to prevent memory-based hallucinated patches. Adds a visible patch-source request checkpoint so material patching cannot proceed merely because files appear present; AIR must request or confirm the exact patch-source set first. Adds Q6 cooperative alignment intake so Q6 is free-text working-agreement calibration rather than a primary option menu, including responsibility breakdown and optional reusable working-profile hook. Adds Q1-D Q6 answer guidance so beginner orientation explains how to answer Q6. Adds capability-layer system-law compliance so Specialists, Domain Packages, Method Packs, and Executors remain subordinate to AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 delivery workflow, and prompt/backend boundaries. Adds execution-envelope version binding and invalidation review so method steps are recompiled when scope, readiness, risk, or proportionality changes materially. WS1 compatibility adds a bounded review step for universal artifact lifecycle and assurance evidence without converting this Grounding Method Pack into the universal build procedure. Adds WS4 review of construction-adapter state, generation authorization, validation-before-binding, invalidation and rollback while preserving its method-review purpose.",
   "method_pack_type": "procedure_pack",
   "may_bind_as": [
     "method_overlay",
@@ -27,7 +27,9 @@
     "method promotion is proposed",
     "method_step_gate conflicts with AIR_GATE or active contract requirements",
     "method-governed output is being delivered in a form controlled by user_execution_workflow",
-    "delivery-form mismatch could affect method closure, user implementation, handoff, or approval"
+    "delivery-form mismatch could affect method closure, user implementation, handoff, or approval",
+    "project_execution_envelope or task_execution_envelope changed after the active method was compiled",
+    "risk level or proportionality decision changed and may invalidate method steps"
   ],
   "non_activation_conditions": [
     "single low-risk conversational answer with no method-governed advancement",
@@ -52,6 +54,15 @@
       "verification_grade": "SOURCE_CITED_OR_AGENT_REPORTED",
       "reversibility": "REVERSIBLE",
       "on_failure": "If required state is missing, return EVIDENCE_REQUIRED or REVIEW."
+    },
+    {
+      "id": "S2B",
+      "action": "Compare the method compilation envelope with the current project/task execution envelope, readiness, risk level, and proportionality decision.",
+      "expected_output": "Envelope compatibility: CURRENT / PARTIAL_CHANGE / MATERIAL_CHANGE / MISSING_BINDING, with affected method steps.",
+      "evidence_to_advance": "Stored task_execution_envelope_id or version, current envelope state, risk level, proportionality decision, and changed fields when available.",
+      "verification_grade": "SOURCE_CITED_OR_AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If a material change affects assumptions, evidence, controls, dependencies, or completion criteria, invalidate or recompile affected steps and route to REVIEW or RESCOPE_REQUIRED when necessary."
     },
     {
       "id": "S3",
@@ -133,6 +144,12 @@
       "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
       "reversibility": "REVERSIBLE",
       "on_failure": "Reject memory-based or prior-output patching and restart from the visible patch-source request checkpoint."
+    },
+    {
+      "step_id": "PIPELINE_COMPATIBILITY_REVIEW",
+      "action": "Inspect universal artifact lifecycle, source-plan, assurance, approval, binding, and staleness state when the reviewed method produces or modifies a reusable artifact.",
+      "gate": "Required when reusable artifact state is material; evidence gaps return REVIEW_NEEDED or STALE_NEEDS_REGROUND.",
+      "output": "artifact_pipeline_compatibility_review_state"
     }
   ],
   "definition_of_done": [
@@ -151,7 +168,12 @@
     "Patch source upload gate reviewed when patching or documentation mutation is material.",
     "Visible patch-source request checkpoint was satisfied before patching or documentation mutation.",
     "Q6 cooperative alignment and Q1-D Q6 answer guidance were reviewed when method-governed onboarding changes are material.",
-    "Capability-layer system-law compliance was preserved for Specialists, Domain Packages, Methods, and Executors."
+    "Capability-layer system-law compliance was preserved for Specialists, Domain Packages, Methods, and Executors.",
+    "Method compilation envelope was compared with the current project/task execution envelope when material.",
+    "Affected method steps were invalidated or recompiled after material scope, readiness, risk, or proportionality change.",
+    "Universal artifact lifecycle and assurance evidence was reviewed when material.",
+    "Source or task-envelope changes did not leave a stale pass unchallenged.",
+    "This Grounding Method Pack was not represented as the universal build procedure."
   ],
   "failure_modes_prevented": [
     "treating a written method as proof that execution occurred",
@@ -170,7 +192,13 @@
     "treating files that merely happen to be present as sufficient without visible patch-source request or confirmation",
     "using previous generated patches as source truth",
     "rendering Q6 as a primary option menu instead of cooperative free-text alignment",
-    "allowing Specialists, Domain Packages, Method Packs, or Executors to override system prompts/laws"
+    "allowing Specialists, Domain Packages, Method Packs, or Executors to override system prompts/laws",
+    "continuing a method compiled for a different project/task scope",
+    "retaining production burden after a task is narrowed",
+    "retaining prototype shortcuts after risk or release posture increases",
+    "preserving a method pass after source or task-envelope drift",
+    "conflating grounding-method review with universal artifact construction",
+    "treating declared assurance state as executed evidence"
   ],
   "claim_boundary": "This Method Pack standardizes review procedure only. It does not prove execution, backend validation, empirical improvement, compliance, safety, production readiness, or tool execution. It also does not classify the user or override user-approved working agreements, AIR_GATE, active contracts, or evidence requirements.",
   "backend_validation_claimed": false,
@@ -275,7 +303,18 @@
     ],
     "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
     "prior_generated_patch_cannot_satisfy_source_gate": true,
-    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
+    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+    "execution_envelope_binding": {
+      "patch_marker": "AIR_SCOPE_RISK_PROPORTIONALITY_DECISION_V1",
+      "recommended_fields": [
+        "task_execution_envelope_id",
+        "task_execution_envelope_version",
+        "compiled_risk_level",
+        "compiled_proportionality_decision",
+        "invalidation_triggers"
+      ],
+      "claim_boundary": "Envelope comparison is prompt-side state review and not proof that all scope or risks were detected."
+    }
   },
   "evidence_requirements": {
     "unknown_unknown_discovery": [
@@ -304,5 +343,53 @@
     "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
     "prior_generated_patch_cannot_satisfy_source_gate": true,
     "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
+  },
+  "artifact_pipeline_compatibility_review": {
+    "patch_marker": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1",
+    "status": "WS1_COMPATIBLE",
+    "universal_method_pack_ref": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_METHOD_PACK_V1",
+    "evaluation_pack_ref": "AIR_ARTIFACT_PIPELINE_EVALUATION_PACK_V1",
+    "review_inputs": [
+      "artifact identity and class",
+      "artifact lifecycle state",
+      "source-plan state",
+      "assurance state",
+      "unresolved evidence",
+      "approval and binding state",
+      "task and project execution envelope"
+    ],
+    "staleness_triggers": [
+      "canonical source set changes",
+      "source authority/freshness/access/licence state changes",
+      "task execution envelope changes",
+      "artifact class or intended consumer changes",
+      "cross-file dependency changes",
+      "active contract or approval boundary changes"
+    ],
+    "staleness_effect": "Return affected review steps to REVIEW_NEEDED or STALE_NEEDS_REGROUND; do not preserve a prior pass by declaration.",
+    "boundary": "This pack reviews method-governed grounding work. It does not become the universal artifact construction procedure.",
+    "backend_validation_claimed": false
+  },
+  "ws4_artifact_construction_method_review": {
+    "patch_marker": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",
+    "review_steps": [
+      "confirm adapter class and build plan",
+      "confirm generation authorization scope",
+      "confirm source and translator evidence",
+      "inspect structural, semantic, cross-file and regression evidence",
+      "confirm candidate remains unbound until approval",
+      "confirm staleness/invalidation and rollback state"
+    ],
+    "method_pack_may_construct_other_artifacts_by_itself": false,
+    "method_pack_may_approve_or_bind": false,
+    "staleness_triggers": [
+      "source version change",
+      "translator contract change",
+      "active contract rescope",
+      "consumer schema change",
+      "dependency change",
+      "defect in a bound artifact"
+    ],
+    "backend_validation_claimed": false
   }
 }

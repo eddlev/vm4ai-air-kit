@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_TRUST_STORE_SCHEMA_V1",
+  "title": "AIR Handoff Trust Store",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "provider",
+    "keys",
+    "updated_at_utc",
+    "limitations"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "AIR_HANDOFF_TRUST_STORE_V1"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "provider_type",
+        "implementation_state",
+        "future_provider_types_reserved",
+        "provider_rule"
+      ],
+      "properties": {
+        "provider_type": {
+          "enum": [
+            "LOCAL_AIR_TRUST_STORE",
+            "LOCAL_OS_KEYSTORE",
+            "LDAP",
+            "ACTIVE_DIRECTORY",
+            "MICROSOFT_ENTRA_ID",
+            "GENERIC_OIDC",
+            "HSM_OR_KMS"
+          ]
+        },
+        "implementation_state": {
+          "enum": [
+            "ACTIVE",
+            "NOT_IMPLEMENTED",
+            "DISABLED"
+          ]
+        },
+        "future_provider_types_reserved": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "provider_rule": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "keys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key_id",
+          "fingerprint",
+          "algorithm",
+          "public_key_base64url",
+          "state",
+          "project_id",
+          "branch_id",
+          "allowed_handoff_schema_versions",
+          "allowed_artifact_classes",
+          "allowed_signing_operations",
+          "valid_from_utc",
+          "valid_until_utc",
+          "allow_genesis",
+          "subject_binding"
+        ],
+        "properties": {
+          "key_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fingerprint": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "algorithm": {
+            "const": "Ed25519"
+          },
+          "public_key_base64url": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "ACTIVE",
+              "RETIRED",
+              "REVOKED",
+              "COMPROMISED",
+              "PENDING"
+            ]
+          },
+          "project_id": {
+            "type": "string"
+          },
+          "branch_id": {
+            "type": "string"
+          },
+          "allowed_handoff_schema_versions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_artifact_classes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_signing_operations": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "SIGN_HANDOFF",
+                "SIGN_KEY_TRANSITION",
+                "SIGN_REVOCATION"
+              ]
+            }
+          },
+          "valid_from_utc": {
+            "type": "string"
+          },
+          "valid_until_utc": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "allow_genesis": {
+            "type": "boolean"
+          },
+          "subject_binding": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "updated_at_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

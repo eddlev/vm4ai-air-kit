@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_CONTINUITY_ANCHOR_SCHEMA_V1",
+  "title": "AIR Handoff Continuity Anchor",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "project_id",
+    "branch_id",
+    "accepted_handoff_id",
+    "accepted_sequence",
+    "accepted_digest",
+    "accepted_at_utc",
+    "signer_key_id",
+    "public_key_fingerprint",
+    "authorization_decision",
+    "limitations"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "AIR_HANDOFF_CONTINUITY_ANCHOR_V1"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "branch_id": {
+      "type": "string"
+    },
+    "accepted_handoff_id": {
+      "type": "string"
+    },
+    "accepted_sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "accepted_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "accepted_at_utc": {
+      "type": "string"
+    },
+    "signer_key_id": {
+      "type": "string"
+    },
+    "public_key_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "authorization_decision": {
+      "const": "NOT_EVALUATED"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

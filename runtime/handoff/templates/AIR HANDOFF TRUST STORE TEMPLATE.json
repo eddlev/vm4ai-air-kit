@@ -1,0 +1,23 @@
+{
+  "schema_id": "AIR_HANDOFF_TRUST_STORE_V1",
+  "schema_version": "1.0.0",
+  "provider": {
+    "provider_type": "LOCAL_AIR_TRUST_STORE",
+    "implementation_state": "ACTIVE",
+    "future_provider_types_reserved": [
+      "LOCAL_OS_KEYSTORE",
+      "LDAP",
+      "ACTIVE_DIRECTORY",
+      "MICROSOFT_ENTRA_ID",
+      "GENERIC_OIDC",
+      "HSM_OR_KMS"
+    ],
+    "provider_rule": "Provider evidence supplies keys or identity attributes; it never grants general AIR execution permission by itself."
+  },
+  "keys": [],
+  "updated_at_utc": null,
+  "limitations": [
+    "Add keys only after out-of-band fingerprint confirmation.",
+    "Authentication is not authorization; roles and groups are policy inputs only."
+  ]
+}

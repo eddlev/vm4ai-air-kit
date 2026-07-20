@@ -1,0 +1,18 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_SOURCE_ADAPTER_DIGCOMP_3_0_JSONLD_V1",
+  "artifact_class": "SOURCE_ADAPTER_CONTRACT",
+  "source_file": "digcomp3.0_data_supplement_24nov2025.jsonld",
+  "source_sha256": "887a9fcc016c1c0bc27441820480857273d47d94cda5e45cbcfdbfe279569c55",
+  "version": "3.0",
+  "errata_snapshot": "DIGCOMP 3.0 OFFICIAL ERRATA SNAPSHOT 2026-01-27.json",
+  "errata_sha256": "17409e6bca670fd730cb71bff4e6bcd745e1df5c49199c4e83e23e25e81708a5",
+  "errata_last_updated": "2026-01-27",
+  "corrected_view": "DIGCOMP 3.0 CORRECTED VIEW 2026-01-27.jsonld",
+  "corrected_view_sha256": "96c0f902fbbfd18a3589586faa1f0dae966808cafe64d2d158838577bd7421b4",
+  "node_adapter_view": "DIGCOMP 3.0 CORRECTED NODE ADAPTER VIEW.jsonl.gz",
+  "raw_preservation": true,
+  "non_destructive_correction": true,
+  "original_node_count": 1045,
+  "corrected_node_count": 1044,
+  "binding_rule": "Corrected adapter output remains referential source data and must enter AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1 before candidate-vector binding."
+}

@@ -1,0 +1,3501 @@
+{
+  "title": "AIR Source and Control Registry",
+  "SYSTEM_DESIGNATION": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+  "PROFILE_KIND": "SOURCE_CONTROL_REGISTRY",
+  "profile_function_class": "REFERENTIAL_SOURCE_AND_CONTROL_ROUTING_REGISTRY",
+  "STATUS": "WS2_GENERATED_VALIDATED_PENDING_USER_REVIEW",
+  "STANDARD_CODE": "AIR.SOURCE_CONTROL.REGISTRY.V1.AUTHORITY.FRESHNESS.ACCESS_LICENSE.QUORUM.FALLBACK.STOP.CONSTRAINT.DEPENDENCY_SOVEREIGNTY",
+  "description": "Referential AIR registry for selecting the smallest sufficient source and control bundle by artifact class, domain, authority, freshness, scope, risk, access/licence, quorum, fallback and retrieval stop state. It preserves local-file-native operation and does not grant autonomous retrieval authority, Orbit 0 governance, backend enforcement, cryptographic proof, or completion by source reference.",
+  "registry_role": {
+    "role": "SOURCE_AND_CONTROL_ROUTING",
+    "separate_from": "AIR_DOMAIN_CAPABILITY_REGISTRY_V1_1",
+    "may_bind_as": [
+      "REFERENTIAL_REGISTRY",
+      "SOURCE_ROUTE_PROVIDER",
+      "SUPPORTING_OUTER_ORBIT"
+    ],
+    "must_not_bind_as": [
+      "ACTIVE_ORBIT_0",
+      "AUTONOMOUS_AGENT",
+      "RETRIEVAL_AUTHORITY",
+      "BACKEND_POLICY_ENGINE",
+      "PROOF_OF_EXECUTION"
+    ]
+  },
+  "authority_boundary": {
+    "governing_sources": [
+      "AIR Core Runtime",
+      "active AIR contract",
+      "AIR_GATE",
+      "explicit user approvals"
+    ],
+    "registry_can": [
+      "recommend routes",
+      "classify sources and controls",
+      "select candidate bundles",
+      "surface blockers and fallbacks"
+    ],
+    "registry_cannot": [
+      "execute retrieval by declaration",
+      "approve or bind artifacts",
+      "override runtime laws",
+      "authenticate origin",
+      "prove external correctness"
+    ]
+  },
+  "routing_inputs": [
+    "active contract",
+    "artifact class",
+    "domain or domain route",
+    "task execution envelope",
+    "risk and proportionality",
+    "claim type",
+    "available local sources",
+    "tool/network/access state",
+    "licence constraints"
+  ],
+  "routing_outputs": [
+    "selected bundle ids",
+    "selected source ids",
+    "selected control ids",
+    "source plan state",
+    "quorum profile and state",
+    "retrieval state",
+    "freshness/access/licence blockers",
+    "fallback route",
+    "stop reason",
+    "claim boundaries",
+    "next allowed action"
+  ],
+  "artifact_class_routes": {
+    "CORE_RUNTIME": [
+      "LOCAL_AIR_SOURCE_TRUTH"
+    ],
+    "CONTROL_SURFACE": [
+      "LOCAL_AIR_SOURCE_TRUTH"
+    ],
+    "DEFAULT_STARTER_PROFILE": [
+      "LOCAL_AIR_SOURCE_TRUTH"
+    ],
+    "SOURCE_CONTROL_REGISTRY": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "SCHEMA_AND_SEMANTIC_INTEGRITY"
+    ],
+    "SPECIALIST_CAPABILITY_PROFILE": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "DOMAIN_AND_LITERATURE_DISCOVERY",
+      "EVALUATION_AND_RED_TEAMING"
+    ],
+    "DOMAIN_CAPABILITY_REGISTRY": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "DOMAIN_AND_LITERATURE_DISCOVERY",
+      "SCHEMA_AND_SEMANTIC_INTEGRITY"
+    ],
+    "DOMAIN_PACKAGE": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "DOMAIN_AND_LITERATURE_DISCOVERY"
+    ],
+    "METHOD_PACK": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "SCHEMA_AND_SEMANTIC_INTEGRITY"
+    ],
+    "EXECUTOR_CONTRACT": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "SECURITY_AND_SUPPLY_CHAIN"
+    ],
+    "POLICY_PACK": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "SECURITY_AND_SUPPLY_CHAIN"
+    ],
+    "EVALUATION_PACK": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "EVALUATION_AND_RED_TEAMING"
+    ],
+    "HANDOFF_TEMPLATE": [
+      "LOCAL_AIR_SOURCE_TRUTH"
+    ],
+    "HANDOFF_CARD": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "PROVENANCE_AND_REPRODUCIBILITY"
+    ],
+    "RELEASE_ARTIFACT": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "PROVENANCE_AND_REPRODUCIBILITY",
+      "SECURITY_AND_SUPPLY_CHAIN"
+    ],
+    "MODULE_MANIFEST": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "SECURITY_AND_SUPPLY_CHAIN"
+    ],
+    "DOCUMENTATION_ADAPTER": [
+      "LOCAL_AIR_SOURCE_TRUTH",
+      "PROVENANCE_AND_REPRODUCIBILITY"
+    ]
+  },
+  "domain_adapter_contract": {
+    "input": "domain ids or AIR_SESSION_DOMAIN_OVERLAY source requirements",
+    "output": "source/control bundle candidates and authority/freshness/access requirements",
+    "boundary": "Domain Capability Registry identifies subject-domain needs; this registry owns source/control route metadata. Neither absorbs the other."
+  },
+  "source_authority_classes": [
+    "OFFICIAL_STANDARD_OR_PROJECT",
+    "PRIMARY_RESEARCH_OR_DATA",
+    "OFFICIAL_DOCUMENTATION",
+    "OPEN_DATA_REGISTRY",
+    "SECONDARY_DISCOVERY_SUPPORT",
+    "USER_PROVIDED_SOURCE_OF_TRUTH",
+    "LOCAL_AIR_CANONICAL_SOURCE"
+  ],
+  "source_kind_classes": [
+    "LOCAL_FILE",
+    "STANDARD",
+    "SPECIFICATION",
+    "OFFICIAL_DOCUMENTATION",
+    "RESEARCH_PAPER",
+    "OPEN_DATASET",
+    "REGISTRY_OR_API",
+    "SECURITY_KNOWLEDGE_BASE",
+    "SCHEMA_OR_ONTOLOGY",
+    "PROVENANCE_STANDARD",
+    "EVALUATION_FRAMEWORK",
+    "DISCOVERY_TOOL",
+    "IMPLEMENTATION_TOOL"
+  ],
+  "freshness_classes": [
+    "STATIC_VERSIONED_STANDARD",
+    "CURRENT_STANDARD",
+    "CURRENT_DOCUMENTATION",
+    "VERSIONED_DATASET_SNAPSHOT",
+    "LIVE_API_OR_REGISTRY",
+    "PERIODIC_KNOWLEDGE_BASE",
+    "EMPIRICAL_TOOL_BEHAVIOR",
+    "LOCAL_FILE_HASH_BOUND"
+  ],
+  "access_and_licence_states": [
+    "OPEN_REUSE_EXPLICIT",
+    "OPEN_ACCESS_TERMS_APPLY",
+    "FREE_PUBLIC_ACCESS_REUSE_LIMITED",
+    "PUBLIC_READ_ONLY",
+    "LOCAL_USER_PROVIDED",
+    "UNKNOWN_REVIEW_REQUIRED",
+    "PROHIBITED_OR_INCOMPATIBLE"
+  ],
+  "evidence_classes": [
+    "LOCAL_FILE_HASH_OBSERVED",
+    "USER_DIRECT_SOURCE_TRUTH",
+    "OFFICIAL_SOURCE_OBSERVED",
+    "PRIMARY_RESEARCH_OBSERVED",
+    "TOOL_OBSERVED_RESULT",
+    "EMPIRICAL_TEST_RESULT",
+    "PROMPT_SIDE_ANALYSIS",
+    "BACKEND_ENFORCED_RESULT",
+    "CRYPTOGRAPHICALLY_VERIFIED_RESULT"
+  ],
+  "source_plan_states": [
+    "SOURCE_LIGHT_PROVISIONAL",
+    "FILE_BACKED_CURRENT_SESSION",
+    "EXTERNAL_SOURCE_REQUIRED",
+    "REGISTRY_ROUTED",
+    "REGISTRY_ROUTED_DEGRADED"
+  ],
+  "source_quorum_states": [
+    "NOT_ASSESSED",
+    "NOT_REQUIRED",
+    "PARTIAL",
+    "MET",
+    "NOT_MET",
+    "WAIVED_WITH_RECORDED_LIMITATION"
+  ],
+  "retrieval_states": [
+    "NOT_STARTED",
+    "IN_PROGRESS",
+    "STOPPED_SUFFICIENT",
+    "STOPPED_DISPROPORTIONATE",
+    "BLOCKED_ACCESS_OR_LICENCE",
+    "BLOCKED_AUTHORITY_GAP",
+    "BLOCKED_TOOL_OR_NETWORK",
+    "FAILED"
+  ],
+  "verification_states": [
+    "CANDIDATE_UNVERIFIED",
+    "OFFICIAL_SOURCE_VERIFIED",
+    "PRIMARY_SOURCE_VERIFIED",
+    "LOCAL_HASH_VERIFIED",
+    "STALE_REVIEW_REQUIRED",
+    "REJECTED"
+  ],
+  "source_entry_contract": {
+    "required_fields": [
+      "source_id",
+      "title",
+      "source_kind",
+      "source_role",
+      "artifact_classes",
+      "domains",
+      "authority_class",
+      "authority_basis",
+      "access_mode",
+      "access_and_licence_state",
+      "licence_identifier_or_terms_state",
+      "freshness_class",
+      "freshness_rule",
+      "scope",
+      "capabilities",
+      "limitations",
+      "claims_supported",
+      "claims_prohibited",
+      "evidence_class",
+      "verification_state",
+      "retrieval_instructions",
+      "fallback_source_ids",
+      "optional_dependency",
+      "baseline_required",
+      "stop_condition_contribution"
+    ],
+    "conditional_fields": [
+      "canonical_url_or_local_path",
+      "version_or_snapshot",
+      "retrieved_at_utc",
+      "jurisdiction_scope",
+      "privacy_notes",
+      "security_supply_chain_notes",
+      "rate_or_usage_limits",
+      "credential_requirement",
+      "cost_state",
+      "data_reuse_notes",
+      "staleness_triggers"
+    ],
+    "rules": [
+      "Every source states what it can support and what it cannot prove.",
+      "Unknown licence/access blocks reuse claims but may permit bounded citation-only use when lawful.",
+      "Hosted sources and tools remain optional unless separately approved.",
+      "A source entry never grants autonomous retrieval authority."
+    ]
+  },
+  "control_entry_contract": {
+    "required_fields": [
+      "control_id",
+      "title",
+      "control_class",
+      "applies_to_artifact_classes",
+      "applies_to_risk_levels",
+      "normative_source_refs",
+      "execution_mode",
+      "required_inputs",
+      "expected_outputs",
+      "failure_state",
+      "fallback_control_ids",
+      "claims_supported",
+      "claims_prohibited",
+      "optional_dependency",
+      "baseline_required",
+      "verification_state"
+    ],
+    "execution_modes": [
+      "PROMPT_NATIVE",
+      "LOCAL_DETERMINISTIC",
+      "TOOL_OPTIONAL",
+      "BACKEND_OPTIONAL"
+    ],
+    "rule": "A written control definition is not proof that the control ran."
+  },
+  "bundle_contract": {
+    "required_fields": [
+      "bundle_id",
+      "purpose",
+      "artifact_classes",
+      "domains",
+      "risk_floor",
+      "required_source_roles",
+      "candidate_source_ids",
+      "required_control_ids",
+      "quorum_profile_id",
+      "fallback_bundle_ids",
+      "stop_policy_id",
+      "optional"
+    ],
+    "selection_rule": "Select the smallest bundle satisfying mandatory floors, artifact class, domain, risk, evidence and active-contract requirements."
+  },
+  "quorum_profiles": {
+    "SYSTEM_PROMPT_OR_CORE_CONTROL": {
+      "required_roles": [
+        "current AIR source truth",
+        "approved doctrine or contract",
+        "cross-file dependency sources",
+        "relevant standards or controls",
+        "regression evidence"
+      ],
+      "minimum_authority_rule": "Local hash-confirmed sources plus governing approval/evidence; external standards only when claims require them."
+    },
+    "SPECIALIST_CAPABILITY_PROFILE": {
+      "required_roles": [
+        "taxonomy or capability source",
+        "scholarly or empirical source",
+        "practice or standard source",
+        "evaluation source"
+      ],
+      "minimum_authority_rule": "At least one official/primary source for material external claims; source-light mode must remain degraded."
+    },
+    "DOMAIN_REGISTRY_OR_PACKAGE": {
+      "required_roles": [
+        "domain authority source",
+        "terminology or ontology source",
+        "adjacent-domain or failure-mode source",
+        "claim-boundary or evaluation source"
+      ],
+      "minimum_authority_rule": "Domain routes may be declared before retrieval, but grounded claims require role coverage."
+    },
+    "METHOD_PACK": {
+      "required_roles": [
+        "authoritative procedure definition",
+        "validation evidence",
+        "failure or limitation source",
+        "executable example or test"
+      ],
+      "minimum_authority_rule": "A written procedure is not execution evidence."
+    },
+    "EXECUTOR_CONTRACT": {
+      "required_roles": [
+        "official interface documentation",
+        "observed behavior or test",
+        "security and dependency assessment",
+        "success and failure tests"
+      ],
+      "minimum_authority_rule": "Interface docs plus observed tests; no executor approval from docs alone."
+    },
+    "POLICY_OR_EVALUATION_PACK": {
+      "required_roles": [
+        "normative policy or evaluation source",
+        "test vector or benchmark definition",
+        "failure and downgrade behavior",
+        "evidence and claim-boundary source"
+      ],
+      "minimum_authority_rule": "Test definitions and executed evidence remain separate."
+    },
+    "LOW_RISK_SOURCE_LIGHT": {
+      "required_roles": [
+        "current user source truth or local file",
+        "one authoritative supporting source when external facts are material"
+      ],
+      "minimum_authority_rule": "One source may suffice only when consequence and uncertainty are low."
+    }
+  },
+  "selection_algorithm": [
+    "Bind active contract, artifact class, domain, task envelope, risk and claim type.",
+    "Identify mandatory controls and quorum profile.",
+    "Prefer confirmed local sources and official or primary sources.",
+    "Exclude or block prohibited, inaccessible, stale, incompatible or licence-unclear routes; preserve degraded citation-only state when lawful.",
+    "Select the smallest sufficient bundle.",
+    "Retrieve or inspect until quorum is met or a stop condition fires.",
+    "Record evidence classes and claim boundaries separately from source references.",
+    "Return route, quorum, retrieval, fallback, blockers and next allowed action."
+  ],
+  "fallback_policy": {
+    "ordered_fallbacks": [
+      "confirmed local AIR files and explicit user source truth",
+      "manual user-provided files",
+      "official static documentation or snapshots",
+      "optional tool or network retrieval",
+      "visible source-light degraded mode",
+      "EVIDENCE_REQUIRED or REVIEW"
+    ],
+    "dependency_sovereignty": [
+      "No package manager, plugin, hosted service, API or network source is mandatory for baseline AIR operation.",
+      "Optional tools may strengthen evidence but cannot redefine doctrine or erase degraded state."
+    ]
+  },
+  "retrieval_stop_policy": {
+    "stop_conditions": [
+      "required source quorum met",
+      "material uncertainty resolved",
+      "additional retrieval becomes disproportionate",
+      "licence or access gap requires review",
+      "authority gap requires review",
+      "active contract forbids further retrieval",
+      "tool or network unavailable and local fallback selected"
+    ],
+    "must_not": [
+      "retrieve everything by default",
+      "continue only to increase source count",
+      "treat secondary discovery support as authority when an official source is required"
+    ]
+  },
+  "claim_boundaries": [
+    "Source references support routing and reasoning; they do not prove execution or completion.",
+    "OFFICIAL_SOURCE_VERIFIED means the official page was observed, not that all downstream content is correct or reusable.",
+    "TOOL_OBSERVED_RESULT requires an actual tool run and captured evidence.",
+    "Backend-enforced and cryptographic states require independent evidence and are never inferred from this registry.",
+    "Licence/access classification is source-specific information, not legal advice."
+  ],
+  "source_entries": [
+    {
+      "source_id": "SRC_LOCAL_AIR_CURRENT_SESSION",
+      "title": "Confirmed current-session AIR source files",
+      "source_kind": "LOCAL_FILE",
+      "source_role": "CANONICAL_PATCH_SOURCE",
+      "artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "domains": [
+        "AIR_SYSTEM"
+      ],
+      "authority_class": "LOCAL_AIR_CANONICAL_SOURCE",
+      "authority_basis": "Hash-confirmed sources explicitly confirmed by the user.",
+      "canonical_url_or_local_path": "/mnt/data",
+      "access_mode": "LOCAL",
+      "access_and_licence_state": "LOCAL_USER_PROVIDED",
+      "licence_identifier_or_terms_state": "USER_CONFIRMED_LOCAL_FILES",
+      "freshness_class": "LOCAL_FILE_HASH_BOUND",
+      "freshness_rule": "Re-hash before every material patch or validation claim.",
+      "scope": "The confirmed WS2 source inventory only.",
+      "capabilities": [
+        "patch source truth",
+        "cross-file inspection",
+        "local structural evidence"
+      ],
+      "limitations": [
+        "Does not authenticate origin or prove repository alignment."
+      ],
+      "claims_supported": [
+        "File identity and content used for this patch set."
+      ],
+      "claims_prohibited": [
+        "Backend validation",
+        "cryptographic origin",
+        "repository or release state"
+      ],
+      "evidence_class": "LOCAL_FILE_HASH_OBSERVED",
+      "verification_state": "LOCAL_HASH_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Inspect local bytes; reject mismatches.",
+      "fallback_source_ids": [],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "stop_condition_contribution": "Stops when all required local sources are hash-matched and parsed.",
+      "credential_requirement": "NONE",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_USER_DIRECT_SOURCE_TRUTH",
+      "title": "Explicit user-provided source truth",
+      "source_kind": "LOCAL_FILE",
+      "source_role": "USER_AUTHORITY",
+      "artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "domains": [
+        "ANY"
+      ],
+      "authority_class": "USER_PROVIDED_SOURCE_OF_TRUTH",
+      "authority_basis": "Direct user instruction or explicitly supplied material.",
+      "canonical_url_or_local_path": "/mnt/data",
+      "access_mode": "LOCAL",
+      "access_and_licence_state": "LOCAL_USER_PROVIDED",
+      "licence_identifier_or_terms_state": "USER_DIRECT; downstream rights remain source-specific",
+      "freshness_class": "LOCAL_FILE_HASH_BOUND",
+      "freshness_rule": "Reconfirm when scope, file, or instruction changes.",
+      "scope": "Explicit project intent, approvals, and source truth.",
+      "capabilities": [
+        "intent",
+        "scope",
+        "approval",
+        "local facts"
+      ],
+      "limitations": [
+        "May be incomplete or mistaken; cannot override Runtime floors."
+      ],
+      "claims_supported": [
+        "User intent, approval and project-specific source truth."
+      ],
+      "claims_prohibited": [
+        "External factual truth without corroboration",
+        "runtime/backend enforcement"
+      ],
+      "evidence_class": "USER_DIRECT_SOURCE_TRUTH",
+      "verification_state": "LOCAL_HASH_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use only explicit current-session instructions and attached files.",
+      "fallback_source_ids": [],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "stop_condition_contribution": "Stops when the user-controlled decision or source fact is explicit.",
+      "credential_requirement": "NONE",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_JSON_SCHEMA",
+      "title": "JSON Schema",
+      "source_kind": "SPECIFICATION",
+      "source_role": "SCHEMA_VALIDATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "METHOD_PACK",
+        "EVALUATION_PACK"
+      ],
+      "domains": [
+        "DATA_SCHEMA"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official JSON Schema specification site; current published dialect observed as 2020-12.",
+      "canonical_url_or_local_path": "https://json-schema.org/specification",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "SPECIFICATION_TERMS_REVIEW_PER_USE",
+      "freshness_class": "CURRENT_STANDARD",
+      "freshness_rule": "Check current published dialect and metaschema before implementation.",
+      "scope": "Official source scope for JSON Schema; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "JSON structure constraints",
+        "schema validation vocabulary"
+      ],
+      "limitations": [
+        "Implementation conformance varies by validator."
+      ],
+      "claims_supported": [
+        "Schema vocabulary and current published dialect."
+      ],
+      "claims_prohibited": [
+        "A validator implementation passed",
+        "semantic correctness"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use the official specification and pin the dialect.",
+      "fallback_source_ids": [
+        "SRC_LINKML",
+        "SRC_SHACL"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_LINKML",
+      "title": "LinkML",
+      "source_kind": "SCHEMA_OR_ONTOLOGY",
+      "source_role": "SEMANTIC_MODELING",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "DATA_MODELING"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official LinkML documentation; framework license observed as Apache-2.0 and metamodel data commonly CC0.",
+      "canonical_url_or_local_path": "https://linkml.io/linkml/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "Apache-2.0 software; metamodel assets source-specific, commonly CC0",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Pin repository/component and version; inspect that component license.",
+      "scope": "Official source scope for LinkML; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "YAML-authored linked data models",
+        "generation and validation across formats"
+      ],
+      "limitations": [
+        "Toolchain support varies; installation is optional."
+      ],
+      "claims_supported": [
+        "LinkML capabilities and official licensing statement."
+      ],
+      "claims_prohibited": [
+        "Generated outputs are semantically correct",
+        "runtime availability"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use official docs; keep tooling optional.",
+      "fallback_source_ids": [
+        "SRC_JSON_SCHEMA",
+        "SRC_SHACL"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_SHACL",
+      "title": "W3C Shapes Constraint Language (SHACL)",
+      "source_kind": "STANDARD",
+      "source_role": "RDF_CONSTRAINT_VALIDATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "SEMANTIC_WEB"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "W3C Recommendation observed for SHACL 1.0; SHACL 1.2 material was draft in May 2026.",
+      "canonical_url_or_local_path": "https://www.w3.org/TR/shacl/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "W3C document and patent policy terms apply",
+      "freshness_class": "STATIC_VERSIONED_STANDARD",
+      "freshness_rule": "Use the 2017 Recommendation unless an active contract explicitly accepts a later draft.",
+      "scope": "Official source scope for W3C Shapes Constraint Language (SHACL); use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "RDF graph constraints",
+        "shape validation"
+      ],
+      "limitations": [
+        "Draft extensions must not be presented as Recommendations."
+      ],
+      "claims_supported": [
+        "SHACL 1.0 Recommendation status and semantics."
+      ],
+      "claims_prohibited": [
+        "Conformance of a specific engine",
+        "SHACL 1.2 stability"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use the W3C Recommendation; label drafts clearly.",
+      "fallback_source_ids": [
+        "SRC_JSON_SCHEMA",
+        "SRC_LINKML"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_PROV_O",
+      "title": "W3C PROV-O",
+      "source_kind": "PROVENANCE_STANDARD",
+      "source_role": "PROVENANCE_MODELING",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "RELEASE_ARTIFACT",
+        "HANDOFF_CARD"
+      ],
+      "domains": [
+        "PROVENANCE"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "W3C Recommendation dated 30 April 2013.",
+      "canonical_url_or_local_path": "https://www.w3.org/TR/prov-o/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "W3C document and patent policy terms apply",
+      "freshness_class": "STATIC_VERSIONED_STANDARD",
+      "freshness_rule": "Recheck only when a newer Recommendation or errata materially affects use.",
+      "scope": "Official source scope for W3C PROV-O; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "provenance ontology",
+        "entity/activity/agent relationships"
+      ],
+      "limitations": [
+        "Does not create provenance evidence by itself."
+      ],
+      "claims_supported": [
+        "Normative provenance concepts."
+      ],
+      "claims_prohibited": [
+        "Authenticity",
+        "cryptographic integrity",
+        "actual provenance capture"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use as optional provenance vocabulary.",
+      "fallback_source_ids": [
+        "SRC_RO_CRATE"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_QUARTO",
+      "title": "Quarto",
+      "source_kind": "IMPLEMENTATION_TOOL",
+      "source_role": "REPRODUCIBLE_PUBLISHING",
+      "artifact_classes": [
+        "DOCUMENTATION_ADAPTER",
+        "RELEASE_ARTIFACT",
+        "EVALUATION_PACK"
+      ],
+      "domains": [
+        "PUBLISHING",
+        "REPRODUCIBILITY"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official Quarto site; Quarto CLI 1.4+ observed as MIT licensed.",
+      "canonical_url_or_local_path": "https://quarto.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "MIT for Quarto CLI 1.4+; bundled components have their own licenses",
+      "freshness_class": "EMPIRICAL_TOOL_BEHAVIOR",
+      "freshness_rule": "Pin version and inspect bundled dependency licences.",
+      "scope": "Official source scope for Quarto; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "reproducible technical publishing",
+        "multi-format rendering"
+      ],
+      "limitations": [
+        "Tool execution and dependencies are optional; output correctness requires testing."
+      ],
+      "claims_supported": [
+        "Documented capabilities and CLI licence."
+      ],
+      "claims_prohibited": [
+        "Successful rendering",
+        "reproducibility of a specific project"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use only when publishing/reproducibility is selected.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OWASP",
+      "title": "OWASP Foundation projects and guidance",
+      "source_kind": "SECURITY_KNOWLEDGE_BASE",
+      "source_role": "APPLICATION_SECURITY_GUIDANCE",
+      "artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "domains": [
+        "SECURITY"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official OWASP Foundation project pages and policies.",
+      "canonical_url_or_local_path": "https://owasp.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Site generally CC-BY-SA-4.0; individual projects declare their own licences",
+      "freshness_class": "PERIODIC_KNOWLEDGE_BASE",
+      "freshness_rule": "Pin project/version and verify project-specific licence.",
+      "scope": "Official source scope for OWASP Foundation projects and guidance; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "application security guidance",
+        "threat and control references"
+      ],
+      "limitations": [
+        "Guidance and lists do not prove security or compliance."
+      ],
+      "claims_supported": [
+        "Project-defined risks and recommended practices."
+      ],
+      "claims_prohibited": [
+        "Product security",
+        "control execution",
+        "compliance"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Select the specific OWASP project needed.",
+      "fallback_source_ids": [
+        "SRC_CWE",
+        "SRC_CAPEC"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_CWE",
+      "title": "MITRE CWE",
+      "source_kind": "SECURITY_KNOWLEDGE_BASE",
+      "source_role": "WEAKNESS_TAXONOMY",
+      "artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SECURITY"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official CWE program; living list updated periodically.",
+      "canonical_url_or_local_path": "https://cwe.mitre.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "PUBLIC_READ_ONLY",
+      "licence_identifier_or_terms_state": "MITRE CWE Terms of Use apply; verify before redistribution",
+      "freshness_class": "PERIODIC_KNOWLEDGE_BASE",
+      "freshness_rule": "Record CWE list version or retrieval date.",
+      "scope": "Official source scope for MITRE CWE; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "software and hardware weakness taxonomy"
+      ],
+      "limitations": [
+        "A CWE mapping does not establish exploitability or risk."
+      ],
+      "claims_supported": [
+        "Weakness definitions and relationships."
+      ],
+      "claims_prohibited": [
+        "Vulnerability presence",
+        "severity",
+        "security assurance"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use current official list and preserve identifiers.",
+      "fallback_source_ids": [
+        "SRC_OWASP",
+        "SRC_CAPEC"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_CAPEC",
+      "title": "MITRE CAPEC",
+      "source_kind": "SECURITY_KNOWLEDGE_BASE",
+      "source_role": "ATTACK_PATTERN_TAXONOMY",
+      "artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SECURITY"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official CAPEC program; public catalog of attack patterns.",
+      "canonical_url_or_local_path": "https://capec.mitre.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "PUBLIC_READ_ONLY",
+      "licence_identifier_or_terms_state": "MITRE CAPEC Terms of Use apply; verify before redistribution",
+      "freshness_class": "PERIODIC_KNOWLEDGE_BASE",
+      "freshness_rule": "Record CAPEC list version or retrieval date.",
+      "scope": "Official source scope for MITRE CAPEC; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "attack pattern taxonomy",
+        "mitigation context"
+      ],
+      "limitations": [
+        "Catalog use does not prove an attack applies or a mitigation works."
+      ],
+      "claims_supported": [
+        "Attack pattern definitions and relationships."
+      ],
+      "claims_prohibited": [
+        "Threat likelihood",
+        "exploitability",
+        "security assurance"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use current official catalog and preserve identifiers.",
+      "fallback_source_ids": [
+        "SRC_CWE",
+        "SRC_OWASP"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OSV",
+      "title": "OSV.dev",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "OPEN_SOURCE_VULNERABILITY_LOOKUP",
+      "artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SECURITY",
+        "SOFTWARE_SUPPLY_CHAIN"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official OSV documentation; aggregator of databases using the OpenSSF Vulnerability format.",
+      "canonical_url_or_local_path": "https://google.github.io/osv.dev/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Record and dataset licences are source-specific; OSV data-source page must be consulted",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record query time and source database; refresh for current vulnerability claims.",
+      "scope": "Official source scope for OSV.dev; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "package/version vulnerability queries",
+        "downloadable ecosystem data"
+      ],
+      "limitations": [
+        "Coverage and source quality vary; absence is not proof of safety."
+      ],
+      "claims_supported": [
+        "Known records returned for a specified package/version at query time."
+      ],
+      "claims_prohibited": [
+        "No vulnerability exists",
+        "complete coverage",
+        "exploitability"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use API or snapshots when security envelope requires; preserve source database.",
+      "fallback_source_ids": [
+        "SRC_CWE",
+        "SRC_OWASP"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OPENSSF_SCORECARD",
+      "title": "OpenSSF Scorecard",
+      "source_kind": "IMPLEMENTATION_TOOL",
+      "source_role": "OPEN_SOURCE_PRACTICE_ASSESSMENT",
+      "artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "EVALUATION_PACK",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SECURITY",
+        "SOFTWARE_SUPPLY_CHAIN"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official Scorecard site describes CLI and GitHub Action checks.",
+      "canonical_url_or_local_path": "https://scorecard.dev/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Project/repository licence applies; verify pinned release",
+      "freshness_class": "EMPIRICAL_TOOL_BEHAVIOR",
+      "freshness_rule": "Pin version, inputs and timestamp; scores can change.",
+      "scope": "Official source scope for OpenSSF Scorecard; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "automated risky-practice checks for repositories"
+      ],
+      "limitations": [
+        "Scores are signals, not proof of security."
+      ],
+      "claims_supported": [
+        "Observed check results for the tested repository and revision."
+      ],
+      "claims_prohibited": [
+        "Security certification",
+        "absence of vulnerabilities"
+      ],
+      "evidence_class": "TOOL_OBSERVED_RESULT",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Run only as optional tool; record revision and raw results.",
+      "fallback_source_ids": [
+        "SRC_OWASP",
+        "SRC_OSV"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_SPDX",
+      "title": "SPDX",
+      "source_kind": "STANDARD",
+      "source_role": "SOFTWARE_BILL_OF_MATERIALS",
+      "artifact_classes": [
+        "RELEASE_ARTIFACT",
+        "MODULE_MANIFEST",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SOFTWARE_SUPPLY_CHAIN",
+        "LICENSING"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official SPDX site; international open standard ISO/IEC 5962:2021; current site lists SPDX 3.0.",
+      "canonical_url_or_local_path": "https://spdx.dev/use/specifications/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "Community-Spec-1.0 and CC-BY-3.0 for specification; trademark terms apply",
+      "freshness_class": "CURRENT_STANDARD",
+      "freshness_rule": "Pin SPDX document version and profile.",
+      "scope": "Official source scope for SPDX; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "SBOM and licence/provenance metadata"
+      ],
+      "limitations": [
+        "An SPDX document can be incomplete or incorrect."
+      ],
+      "claims_supported": [
+        "Normative document structure and identifiers."
+      ],
+      "claims_prohibited": [
+        "Component completeness",
+        "licence compliance",
+        "security assurance"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use when release/supply-chain envelope selects SBOM.",
+      "fallback_source_ids": [
+        "SRC_CYCLONEDX"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_CYCLONEDX",
+      "title": "CycloneDX",
+      "source_kind": "STANDARD",
+      "source_role": "BILL_OF_MATERIALS",
+      "artifact_classes": [
+        "RELEASE_ARTIFACT",
+        "MODULE_MANIFEST",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "domains": [
+        "SOFTWARE_SUPPLY_CHAIN",
+        "SECURITY"
+      ],
+      "authority_class": "OFFICIAL_STANDARD_OR_PROJECT",
+      "authority_basis": "Official CycloneDX site; version 1.7 observed as current stable BOM specification and ECMA-424 2nd edition.",
+      "canonical_url_or_local_path": "https://cyclonedx.org/specification/overview/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Specification and project terms apply; verify version-specific licence",
+      "freshness_class": "CURRENT_STANDARD",
+      "freshness_rule": "Pin specification version and media type.",
+      "scope": "Official source scope for CycloneDX; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "BOMs, dependency graphs, vulnerabilities, formulations and attestations"
+      ],
+      "limitations": [
+        "A BOM can be incomplete; declarations require evidence."
+      ],
+      "claims_supported": [
+        "Normative object model and versioned schema."
+      ],
+      "claims_prohibited": [
+        "Inventory completeness",
+        "security",
+        "conformance"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use only when BOM/attestation needs justify it.",
+      "fallback_source_ids": [
+        "SRC_SPDX"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OPENALEX",
+      "title": "OpenAlex",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "SCHOLARLY_DISCOVERY",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "SCHOLARLY_METADATA"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official OpenAlex help states website, API and snapshot are free and data is CC0.",
+      "canonical_url_or_local_path": "https://openalex.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "CC0 data; service terms and rate limits apply",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record retrieval date; use snapshot/version when reproducibility matters.",
+      "scope": "Official source scope for OpenAlex; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "scholarly work, author, institution and concept metadata"
+      ],
+      "limitations": [
+        "Metadata may be incomplete or incorrect; not peer-review authority."
+      ],
+      "claims_supported": [
+        "Metadata records and links as returned."
+      ],
+      "claims_prohibited": [
+        "Research conclusion",
+        "paper quality",
+        "full-text reuse rights"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use as discovery; follow to primary publications.",
+      "fallback_source_ids": [
+        "SRC_CROSSREF",
+        "SRC_OPENCITATIONS"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_CROSSREF",
+      "title": "Crossref Metadata REST API",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "SCHOLARLY_METADATA",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "SCHOLARLY_METADATA"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official Crossref documentation; public REST API and mostly unrestricted metadata, with abstract/full-text caveats.",
+      "canonical_url_or_local_path": "https://api.crossref.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Most metadata reusable without restriction; abstracts and linked content may have separate copyright",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record query date; respect polite-pool and cache guidance.",
+      "scope": "Official source scope for Crossref Metadata REST API; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "DOI and bibliographic metadata",
+        "licence and update metadata"
+      ],
+      "limitations": [
+        "Deposited metadata quality varies; linked full text may be restricted."
+      ],
+      "claims_supported": [
+        "Crossref-deposited metadata as returned."
+      ],
+      "claims_prohibited": [
+        "Full-text reuse permission",
+        "research finding correctness"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use public or polite API; inspect record-specific licence.",
+      "fallback_source_ids": [
+        "SRC_OPENALEX",
+        "SRC_OPENCITATIONS"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OPENCITATIONS",
+      "title": "OpenCitations",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "CITATION_GRAPH",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "SCHOLARLY_METADATA"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official OpenCitations site; datasets observed as CC0 and API documentation current at v2.2.0.",
+      "canonical_url_or_local_path": "https://opencitations.net/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "CC0 datasets; website CC-BY-4.0; software ISC",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record API version and retrieval date.",
+      "scope": "Official source scope for OpenCitations; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "open citation data and graph relationships"
+      ],
+      "limitations": [
+        "Coverage is not universal; citation count is not quality."
+      ],
+      "claims_supported": [
+        "Citation relationships returned by the service."
+      ],
+      "claims_prohibited": [
+        "Complete citation graph",
+        "research quality"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use for citation graph support; corroborate critical claims.",
+      "fallback_source_ids": [
+        "SRC_CROSSREF",
+        "SRC_OPENALEX"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_SEMANTIC_SCHOLAR",
+      "title": "Semantic Scholar Academic Graph API",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "SCHOLARLY_DISCOVERY",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "SCHOLARLY_METADATA"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Official Semantic Scholar API pages describe paper, author and citation services.",
+      "canonical_url_or_local_path": "https://www.semanticscholar.org/product/api",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "FREE_PUBLIC_ACCESS_REUSE_LIMITED",
+      "licence_identifier_or_terms_state": "API and dataset terms apply; verify before bulk reuse",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record query date, API version and key/rate state.",
+      "scope": "Official source scope for Semantic Scholar Academic Graph API; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "paper, author, citation and embedding discovery"
+      ],
+      "limitations": [
+        "Discovery metadata is secondary and coverage may vary."
+      ],
+      "claims_supported": [
+        "API-returned metadata and links."
+      ],
+      "claims_prohibited": [
+        "Primary-source truth",
+        "unrestricted reuse",
+        "paper quality"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use as optional discovery support; follow to primary sources.",
+      "fallback_source_ids": [
+        "SRC_OPENALEX",
+        "SRC_CROSSREF"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_CORE",
+      "title": "CORE API",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "OPEN_ACCESS_DISCOVERY",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "OPEN_ACCESS"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Official CORE API documentation; free API with registration/key and quotas.",
+      "canonical_url_or_local_path": "https://core.ac.uk/documentation/api",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "FREE_PUBLIC_ACCESS_REUSE_LIMITED",
+      "licence_identifier_or_terms_state": "Metadata/full-text rights are record-specific; API terms and quotas apply",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record query date and inspect item-level rights.",
+      "scope": "Official source scope for CORE API; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "open-access metadata and full-text discovery"
+      ],
+      "limitations": [
+        "API key and quotas; indexed content rights vary."
+      ],
+      "claims_supported": [
+        "Metadata/content availability as returned."
+      ],
+      "claims_prohibited": [
+        "Universal reuse permission",
+        "research correctness"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use only when selected; inspect item rights and retain fallback.",
+      "fallback_source_ids": [
+        "SRC_OPENALEX",
+        "SRC_CROSSREF"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_EUROPE_PMC",
+      "title": "Europe PMC",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "LIFE_SCIENCE_LITERATURE",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "LIFE_SCIENCES",
+        "RESEARCH"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official Europe PMC developer resources and open-access subset documentation.",
+      "canonical_url_or_local_path": "https://europepmc.org/developers",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_ACCESS_TERMS_APPLY",
+      "licence_identifier_or_terms_state": "Metadata and open-access subset have record-specific terms; traditional copyright applies outside subset",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record query date and inspect article licence.",
+      "scope": "Official source scope for Europe PMC; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "life-science publications, citations, annotations and OA full text"
+      ],
+      "limitations": [
+        "Not all free-to-read content is reusable; licences vary."
+      ],
+      "claims_supported": [
+        "Metadata and licensed open-access content as returned."
+      ],
+      "claims_prohibited": [
+        "Universal full-text reuse",
+        "research conclusion"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use REST/OAI/FTP routes; inspect record licence.",
+      "fallback_source_ids": [
+        "SRC_CROSSREF",
+        "SRC_OPENALEX"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_WIKIDATA",
+      "title": "Wikidata",
+      "source_kind": "OPEN_DATASET",
+      "source_role": "GENERAL_LINKED_DATA",
+      "artifact_classes": [
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "GENERAL_KNOWLEDGE",
+        "LINKED_DATA"
+      ],
+      "authority_class": "OPEN_DATA_REGISTRY",
+      "authority_basis": "Official Wikidata data-access and licensing pages; structured data observed as CC0.",
+      "canonical_url_or_local_path": "https://www.wikidata.org/wiki/Wikidata:Data_access",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "CC0 structured data; other namespace text/media have separate licences",
+      "freshness_class": "LIVE_API_OR_REGISTRY",
+      "freshness_rule": "Record retrieval date and follow interface/rate guidance.",
+      "scope": "Official source scope for Wikidata; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "linked identifiers and general structured data"
+      ],
+      "limitations": [
+        "Community-edited; statements require source review."
+      ],
+      "claims_supported": [
+        "Structured statements and identifiers as retrieved."
+      ],
+      "claims_prohibited": [
+        "Statement correctness",
+        "source authority",
+        "media reuse rights"
+      ],
+      "evidence_class": "OFFICIAL_SOURCE_OBSERVED",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use as linkage/discovery; inspect references.",
+      "fallback_source_ids": [
+        "SRC_OPENALEX",
+        "SRC_CROSSREF"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_LM_EVAL_HARNESS",
+      "title": "EleutherAI LM Evaluation Harness",
+      "source_kind": "EVALUATION_FRAMEWORK",
+      "source_role": "MODEL_EVALUATION",
+      "artifact_classes": [
+        "EVALUATION_PACK",
+        "SPECIALIST_CAPABILITY_PROFILE"
+      ],
+      "domains": [
+        "AI_EVALUATION"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official project repository; MIT licence observed and framework supports configurable evaluation tasks.",
+      "canonical_url_or_local_path": "https://github.com/EleutherAI/lm-evaluation-harness",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "MIT",
+      "freshness_class": "EMPIRICAL_TOOL_BEHAVIOR",
+      "freshness_rule": "Pin release/commit, task config, model backend and datasets.",
+      "scope": "Official source scope for EleutherAI LM Evaluation Harness; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "language-model benchmark execution",
+        "custom tasks"
+      ],
+      "limitations": [
+        "Results depend on versions, prompts, data and backend."
+      ],
+      "claims_supported": [
+        "Observed results for pinned run configuration."
+      ],
+      "claims_prohibited": [
+        "General model quality",
+        "cross-run comparability without matched setup"
+      ],
+      "evidence_class": "TOOL_OBSERVED_RESULT",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Install only when selected; record full run configuration.",
+      "fallback_source_ids": [
+        "SRC_PROMPTFOO",
+        "SRC_OPENAI_EVALS"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_PROMPTFOO",
+      "title": "Promptfoo",
+      "source_kind": "EVALUATION_FRAMEWORK",
+      "source_role": "LLM_APP_EVALUATION_AND_RED_TEAMING",
+      "artifact_classes": [
+        "EVALUATION_PACK",
+        "EXECUTOR_CONTRACT"
+      ],
+      "domains": [
+        "AI_EVALUATION",
+        "SECURITY"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official Promptfoo docs; local-first open-source CLI/library and MIT licence observed.",
+      "canonical_url_or_local_path": "https://www.promptfoo.dev/docs/intro/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "MIT for open-source project; cloud/enterprise terms separate",
+      "freshness_class": "EMPIRICAL_TOOL_BEHAVIOR",
+      "freshness_rule": "Pin version, provider, config, datasets and scripts; treat configs as trusted code.",
+      "scope": "Official source scope for Promptfoo; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "LLM application evaluation",
+        "red teaming",
+        "CI integration"
+      ],
+      "limitations": [
+        "May execute user-configured code; provider dependencies and costs vary."
+      ],
+      "claims_supported": [
+        "Observed results for a pinned run."
+      ],
+      "claims_prohibited": [
+        "Security assurance",
+        "model quality beyond tested cases"
+      ],
+      "evidence_class": "TOOL_OBSERVED_RESULT",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use optional local route when selected; apply trust-boundary review.",
+      "fallback_source_ids": [
+        "SRC_LM_EVAL_HARNESS",
+        "SRC_OPENAI_EVALS"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_OPENAI_EVALS",
+      "title": "OpenAI Evals",
+      "source_kind": "EVALUATION_FRAMEWORK",
+      "source_role": "LLM_EVALUATION",
+      "artifact_classes": [
+        "EVALUATION_PACK"
+      ],
+      "domains": [
+        "AI_EVALUATION"
+      ],
+      "authority_class": "OFFICIAL_DOCUMENTATION",
+      "authority_basis": "Official OpenAI repository; MIT-licensed evaluation framework and registry observed.",
+      "canonical_url_or_local_path": "https://github.com/openai/evals",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "OPEN_REUSE_EXPLICIT",
+      "licence_identifier_or_terms_state": "MIT; datasets require contributor rights; OpenAI API use has separate terms and cost",
+      "freshness_class": "EMPIRICAL_TOOL_BEHAVIOR",
+      "freshness_rule": "Pin commit/config/model and record API/service dependencies.",
+      "scope": "Official source scope for OpenAI Evals; use only for the artifact classes, domains, claims and limits declared in this entry.",
+      "capabilities": [
+        "LLM and system evaluation",
+        "custom evals"
+      ],
+      "limitations": [
+        "OpenAI API key/cost may be required; results are configuration-specific."
+      ],
+      "claims_supported": [
+        "Observed results for pinned eval execution."
+      ],
+      "claims_prohibited": [
+        "Model quality outside tested evals",
+        "provider-independent execution"
+      ],
+      "evidence_class": "TOOL_OBSERVED_RESULT",
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED",
+      "retrieved_at_utc": "2026-07-19T16:00:00Z",
+      "retrieval_instructions": "Use only when selected and credentials/cost are approved.",
+      "fallback_source_ids": [
+        "SRC_LM_EVAL_HARNESS",
+        "SRC_PROMPTFOO"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Contributes only until the selected quorum role is satisfied.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_RO_CRATE",
+      "title": "RO-Crate",
+      "source_kind": "PROVENANCE_STANDARD",
+      "source_role": "RESEARCH_OBJECT_PACKAGING",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://www.researchobject.org/ro-crate/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_SIGSTORE",
+      "title": "Sigstore/Cosign",
+      "source_kind": "IMPLEMENTATION_TOOL",
+      "source_role": "SIGNING_AND_VERIFICATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://www.sigstore.dev/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_IN_TOTO",
+      "title": "in-toto",
+      "source_kind": "PROVENANCE_STANDARD",
+      "source_role": "SUPPLY_CHAIN_ATTESTATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://in-toto.io/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_TUF",
+      "title": "The Update Framework",
+      "source_kind": "STANDARD",
+      "source_role": "SECURE_UPDATE_FRAMEWORK",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://theupdateframework.io/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_DOAJ",
+      "title": "Directory of Open Access Journals",
+      "source_kind": "REGISTRY_OR_API",
+      "source_role": "OPEN_ACCESS_JOURNAL_DISCOVERY",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://doaj.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_VOSVIEWER",
+      "title": "VOSviewer",
+      "source_kind": "DISCOVERY_TOOL",
+      "source_role": "BIBLIOMETRIC_VISUALIZATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://www.vosviewer.com/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_RESEARCHRABBIT",
+      "title": "ResearchRabbit",
+      "source_kind": "DISCOVERY_TOOL",
+      "source_role": "HOSTED_LITERATURE_DISCOVERY",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://www.researchrabbit.ai/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_INSPECT_AI",
+      "title": "Inspect AI",
+      "source_kind": "EVALUATION_FRAMEWORK",
+      "source_role": "AI_EVALUATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://inspect.aisi.org.uk/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_ASTABENCH",
+      "title": "AstaBench",
+      "source_kind": "EVALUATION_FRAMEWORK",
+      "source_role": "RESEARCH_ASSISTANT_EVALUATION",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://allenai.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_JAMOVI",
+      "title": "jamovi",
+      "source_kind": "IMPLEMENTATION_TOOL",
+      "source_role": "STATISTICAL_ANALYSIS",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://www.jamovi.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    },
+    {
+      "source_id": "SRC_JASP",
+      "title": "JASP",
+      "source_kind": "IMPLEMENTATION_TOOL",
+      "source_role": "STATISTICAL_ANALYSIS",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "EVALUATION_PACK",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "OPTIONAL_CANDIDATE"
+      ],
+      "authority_class": "SECONDARY_DISCOVERY_SUPPORT",
+      "authority_basis": "Candidate from the approved WS2 plan; official identity/terms not fully verified in this construction run.",
+      "canonical_url_or_local_path": "https://jasp-stats.org/",
+      "access_mode": "NETWORK_OR_MANUAL_SNAPSHOT",
+      "access_and_licence_state": "UNKNOWN_REVIEW_REQUIRED",
+      "licence_identifier_or_terms_state": "UNKNOWN_REVIEW_REQUIRED",
+      "freshness_class": "CURRENT_DOCUMENTATION",
+      "freshness_rule": "Verify official project identity, current terms, version and access before activation.",
+      "scope": "Candidate capability route.",
+      "capabilities": [
+        "candidate capability identity and later review route"
+      ],
+      "limitations": [
+        "Not active, trusted or reusable until verified."
+      ],
+      "claims_supported": [
+        "Candidate identity only."
+      ],
+      "claims_prohibited": [
+        "Authority",
+        "licence compatibility",
+        "current behavior",
+        "completion"
+      ],
+      "evidence_class": "PROMPT_SIDE_ANALYSIS",
+      "verification_state": "CANDIDATE_UNVERIFIED",
+      "retrieved_at_utc": null,
+      "retrieval_instructions": "Do not retrieve or execute until a later source review verifies this entry.",
+      "fallback_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "stop_condition_contribution": "Stops immediately at REVIEW until terms and authority are verified.",
+      "credential_requirement": "SOURCE_SPECIFIC; do not assume anonymous access",
+      "cost_state": "FREE_OR_OPEN_ROUTE_OBSERVED_OR_CANDIDATE; paid tiers may exist",
+      "data_reuse_notes": "Apply source-specific and record-specific terms; citation does not imply reuse permission.",
+      "staleness_triggers": [
+        "official version or terms change",
+        "access behavior changes",
+        "active task requires newer evidence"
+      ]
+    }
+  ],
+  "control_entries": [
+    {
+      "control_id": "CTRL_LOCAL_SOURCE_IDENTITY",
+      "title": "Local source hash and size check",
+      "control_class": "SOURCE_IDENTITY",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "LOCAL_DETERMINISTIC",
+      "required_inputs": [
+        "file bytes",
+        "expected hash/size"
+      ],
+      "expected_outputs": [
+        "observed hash/size",
+        "match state"
+      ],
+      "failure_state": "EVIDENCE_REQUIRED",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Current file matches expected bytes."
+      ],
+      "claims_prohibited": [
+        "Origin authentication",
+        "repository alignment"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_JSON_DUPLICATE_PARSE",
+      "title": "JSON parse with duplicate-key rejection",
+      "control_class": "STRUCTURAL_VALIDATION",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "LOCAL_DETERMINISTIC",
+      "required_inputs": [
+        "JSON bytes"
+      ],
+      "expected_outputs": [
+        "parse state",
+        "duplicate-key state"
+      ],
+      "failure_state": "FAILED",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "JSON structural parseability."
+      ],
+      "claims_prohibited": [
+        "Semantic correctness",
+        "approval"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_MARKDOWN_SENTINEL",
+      "title": "Markdown terminal sentinel check",
+      "control_class": "LOAD_INTEGRITY",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "LOCAL_DETERMINISTIC",
+      "required_inputs": [
+        "Markdown text",
+        "expected sentinel"
+      ],
+      "expected_outputs": [
+        "observed final line"
+      ],
+      "failure_state": "FAILED",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Expected terminal sentinel is present as final content line."
+      ],
+      "claims_prohibited": [
+        "Middle-file completeness",
+        "origin authentication"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_CROSS_FILE_REFERENCE",
+      "title": "Cross-file designation and reference resolution",
+      "control_class": "CROSS_FILE_VALIDATION",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "LOCAL_DETERMINISTIC",
+      "required_inputs": [
+        "artifact set",
+        "designations",
+        "reference fields"
+      ],
+      "expected_outputs": [
+        "resolved refs",
+        "unresolved refs"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "References resolve inside the tested set."
+      ],
+      "claims_prohibited": [
+        "Semantic compatibility beyond tested rules"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_AUTHORITY_FRESHNESS_ACCESS",
+      "title": "Authority, freshness, access and licence classification",
+      "control_class": "SOURCE_GOVERNANCE",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "source entry",
+        "active claim",
+        "task envelope"
+      ],
+      "expected_outputs": [
+        "classification",
+        "blockers",
+        "allowed claims"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Classification is explicit and bounded."
+      ],
+      "claims_prohibited": [
+        "Legal advice",
+        "licence compatibility without review"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_SMALLEST_SUFFICIENT_SELECTION",
+      "title": "Smallest sufficient source/control selection",
+      "control_class": "PROPORTIONALITY",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "artifact class",
+        "domain",
+        "risk",
+        "claim type",
+        "mandatory floors"
+      ],
+      "expected_outputs": [
+        "selected bundle",
+        "omitted candidates",
+        "reason"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Selection logic and proportionality rationale."
+      ],
+      "claims_prohibited": [
+        "Completeness of all possible sources"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_SOURCE_QUORUM",
+      "title": "Source quorum assessment",
+      "control_class": "EVIDENCE_GATE",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "quorum profile",
+        "selected sources",
+        "evidence classes"
+      ],
+      "expected_outputs": [
+        "quorum state",
+        "missing roles"
+      ],
+      "failure_state": "EVIDENCE_REQUIRED",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Required source roles are present or visibly missing."
+      ],
+      "claims_prohibited": [
+        "Truth of all sources"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_RETRIEVAL_STOP",
+      "title": "Retrieval stop-condition enforcement",
+      "control_class": "RETRIEVAL_CONTROL",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "quorum state",
+        "uncertainty",
+        "cost/access",
+        "active contract"
+      ],
+      "expected_outputs": [
+        "retrieval state",
+        "stop reason"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Why retrieval stopped."
+      ],
+      "claims_prohibited": [
+        "That no additional useful source exists"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_LOCAL_OFFLINE_FALLBACK",
+      "title": "Local/offline fallback",
+      "control_class": "DEPENDENCY_SOVEREIGNTY",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "local files",
+        "network/tool state"
+      ],
+      "expected_outputs": [
+        "fallback route",
+        "degraded state"
+      ],
+      "failure_state": "REGISTRY_ROUTED_DEGRADED",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Baseline AIR can continue locally when safe."
+      ],
+      "claims_prohibited": [
+        "External claims requiring unavailable evidence"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_CLAIM_BOUNDARY",
+      "title": "Source/evidence/verification claim separation",
+      "control_class": "CLAIM_HYGIENE",
+      "applies_to_artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "ALL"
+      ],
+      "normative_source_refs": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "source refs",
+        "evidence log",
+        "verification state"
+      ],
+      "expected_outputs": [
+        "allowed claims",
+        "prohibited claims"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [],
+      "claims_supported": [
+        "Claim boundaries are explicit."
+      ],
+      "claims_prohibited": [
+        "Execution, backend, cryptographic or compliance proof from references alone"
+      ],
+      "optional_dependency": false,
+      "baseline_required": true,
+      "verification_state": "LOCAL_HASH_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_SCHEMA_OPTIONAL",
+      "title": "Optional schema/semantic validation",
+      "control_class": "SCHEMA_VALIDATION",
+      "applies_to_artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "applies_to_risk_levels": [
+        "MEDIUM",
+        "HIGH"
+      ],
+      "normative_source_refs": [
+        "SRC_JSON_SCHEMA",
+        "SRC_LINKML",
+        "SRC_SHACL"
+      ],
+      "execution_mode": "TOOL_OPTIONAL",
+      "required_inputs": [
+        "schema",
+        "instance",
+        "selected validator"
+      ],
+      "expected_outputs": [
+        "validation report"
+      ],
+      "failure_state": "DEGRADED_OR_PROVISIONAL",
+      "fallback_control_ids": [
+        "CTRL_JSON_DUPLICATE_PARSE"
+      ],
+      "claims_supported": [
+        "Observed validator result for pinned dialect/tool."
+      ],
+      "claims_prohibited": [
+        "Semantic truth",
+        "universal conformance"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_PROVENANCE_OPTIONAL",
+      "title": "Optional provenance packaging",
+      "control_class": "PROVENANCE",
+      "applies_to_artifact_classes": [
+        "RELEASE_ARTIFACT",
+        "HANDOFF_CARD"
+      ],
+      "applies_to_risk_levels": [
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_PROV_O",
+        "SRC_RO_CRATE"
+      ],
+      "execution_mode": "TOOL_OPTIONAL",
+      "required_inputs": [
+        "artifact graph",
+        "provenance events"
+      ],
+      "expected_outputs": [
+        "provenance record/package"
+      ],
+      "failure_state": "DEGRADED_OR_PROVISIONAL",
+      "fallback_control_ids": [
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "claims_supported": [
+        "Recorded provenance relationships."
+      ],
+      "claims_prohibited": [
+        "Authenticity",
+        "cryptographic integrity"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_SECURITY_KNOWLEDGE_OPTIONAL",
+      "title": "Optional security taxonomy review",
+      "control_class": "SECURITY_REVIEW",
+      "applies_to_artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "SOURCE_CONTROL_REGISTRY"
+      ],
+      "applies_to_risk_levels": [
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_OWASP",
+        "SRC_CWE",
+        "SRC_CAPEC"
+      ],
+      "execution_mode": "PROMPT_NATIVE",
+      "required_inputs": [
+        "task threat model",
+        "selected knowledge sources"
+      ],
+      "expected_outputs": [
+        "mapped risks",
+        "limitations"
+      ],
+      "failure_state": "REVIEW",
+      "fallback_control_ids": [
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "claims_supported": [
+        "Mapped known weakness/attack categories."
+      ],
+      "claims_prohibited": [
+        "Security assurance",
+        "exploitability"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_VULNERABILITY_OPTIONAL",
+      "title": "Optional vulnerability lookup",
+      "control_class": "VULNERABILITY_LOOKUP",
+      "applies_to_artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "RELEASE_ARTIFACT"
+      ],
+      "applies_to_risk_levels": [
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_OSV"
+      ],
+      "execution_mode": "TOOL_OPTIONAL",
+      "required_inputs": [
+        "package identity",
+        "version/commit"
+      ],
+      "expected_outputs": [
+        "observed vulnerability records"
+      ],
+      "failure_state": "BLOCKED_TOOL_OR_NETWORK",
+      "fallback_control_ids": [
+        "CTRL_SECURITY_KNOWLEDGE_OPTIONAL"
+      ],
+      "claims_supported": [
+        "Known records returned at query time."
+      ],
+      "claims_prohibited": [
+        "Absence of vulnerabilities",
+        "complete coverage"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_SBOM_OPTIONAL",
+      "title": "Optional SBOM/BOM representation",
+      "control_class": "SUPPLY_CHAIN",
+      "applies_to_artifact_classes": [
+        "RELEASE_ARTIFACT",
+        "MODULE_MANIFEST"
+      ],
+      "applies_to_risk_levels": [
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_SPDX",
+        "SRC_CYCLONEDX"
+      ],
+      "execution_mode": "TOOL_OPTIONAL",
+      "required_inputs": [
+        "component inventory",
+        "selected specification"
+      ],
+      "expected_outputs": [
+        "versioned BOM"
+      ],
+      "failure_state": "DEGRADED_OR_PROVISIONAL",
+      "fallback_control_ids": [
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "claims_supported": [
+        "BOM structure and declared inventory."
+      ],
+      "claims_prohibited": [
+        "Inventory completeness",
+        "licence compliance"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    },
+    {
+      "control_id": "CTRL_EVALUATION_OPTIONAL",
+      "title": "Optional evaluation framework execution",
+      "control_class": "EVALUATION",
+      "applies_to_artifact_classes": [
+        "EVALUATION_PACK",
+        "SPECIALIST_CAPABILITY_PROFILE"
+      ],
+      "applies_to_risk_levels": [
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "normative_source_refs": [
+        "SRC_LM_EVAL_HARNESS",
+        "SRC_PROMPTFOO",
+        "SRC_OPENAI_EVALS"
+      ],
+      "execution_mode": "TOOL_OPTIONAL",
+      "required_inputs": [
+        "evaluation definition",
+        "model/system",
+        "pinned configuration"
+      ],
+      "expected_outputs": [
+        "raw results",
+        "run metadata"
+      ],
+      "failure_state": "BLOCKED_TOOL_OR_NETWORK",
+      "fallback_control_ids": [
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "claims_supported": [
+        "Observed results for the pinned run."
+      ],
+      "claims_prohibited": [
+        "General capability outside tested cases"
+      ],
+      "optional_dependency": true,
+      "baseline_required": false,
+      "verification_state": "OFFICIAL_SOURCE_VERIFIED"
+    }
+  ],
+  "bundle_definitions": [
+    {
+      "bundle_id": "LOCAL_AIR_SOURCE_TRUTH",
+      "purpose": "Patch, update, restore and cross-file validation of AIR artifacts.",
+      "artifact_classes": [
+        "CORE_RUNTIME",
+        "CONTROL_SURFACE",
+        "DEFAULT_STARTER_PROFILE",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "SESSION_DOMAIN_OVERLAY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "HANDOFF_TEMPLATE",
+        "HANDOFF_CARD",
+        "BOOT_RUNTIME",
+        "MODULE_MANIFEST",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER",
+        "OTHER_DECLARED_ARTIFACT"
+      ],
+      "domains": [
+        "AIR_SYSTEM"
+      ],
+      "risk_floor": "ALL",
+      "required_source_roles": [
+        "canonical patch source",
+        "governing method/evidence"
+      ],
+      "candidate_source_ids": [
+        "SRC_LOCAL_AIR_CURRENT_SESSION",
+        "SRC_USER_DIRECT_SOURCE_TRUTH"
+      ],
+      "required_control_ids": [
+        "CTRL_LOCAL_SOURCE_IDENTITY",
+        "CTRL_JSON_DUPLICATE_PARSE",
+        "CTRL_MARKDOWN_SENTINEL",
+        "CTRL_CROSS_FILE_REFERENCE",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "SYSTEM_PROMPT_OR_CORE_CONTROL",
+      "fallback_bundle_ids": [],
+      "stop_policy_id": "STOP_WHEN_LOCAL_SET_VERIFIED",
+      "optional": false
+    },
+    {
+      "bundle_id": "SCHEMA_AND_SEMANTIC_INTEGRITY",
+      "purpose": "Optional machine-readable structure and semantic constraint support.",
+      "artifact_classes": [
+        "SOURCE_CONTROL_REGISTRY",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE",
+        "METHOD_PACK",
+        "EVALUATION_PACK"
+      ],
+      "domains": [
+        "DATA_SCHEMA",
+        "SEMANTIC_WEB"
+      ],
+      "risk_floor": "MEDIUM",
+      "required_source_roles": [
+        "one selected schema or semantic standard"
+      ],
+      "candidate_source_ids": [
+        "SRC_JSON_SCHEMA",
+        "SRC_LINKML",
+        "SRC_SHACL"
+      ],
+      "required_control_ids": [
+        "CTRL_SCHEMA_OPTIONAL",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "POLICY_OR_EVALUATION_PACK",
+      "fallback_bundle_ids": [
+        "LOCAL_AIR_SOURCE_TRUTH"
+      ],
+      "stop_policy_id": "STOP_WHEN_SELECTED_SCHEMA_NEED_MET",
+      "optional": true
+    },
+    {
+      "bundle_id": "PROVENANCE_AND_REPRODUCIBILITY",
+      "purpose": "Optional provenance vocabulary, packaging and reproducible publishing.",
+      "artifact_classes": [
+        "HANDOFF_CARD",
+        "RELEASE_ARTIFACT",
+        "DOCUMENTATION_ADAPTER"
+      ],
+      "domains": [
+        "PROVENANCE",
+        "REPRODUCIBILITY"
+      ],
+      "risk_floor": "HIGH",
+      "required_source_roles": [
+        "one provenance standard",
+        "one packaging or publishing route when needed"
+      ],
+      "candidate_source_ids": [
+        "SRC_PROV_O",
+        "SRC_RO_CRATE",
+        "SRC_QUARTO"
+      ],
+      "required_control_ids": [
+        "CTRL_PROVENANCE_OPTIONAL",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "SYSTEM_PROMPT_OR_CORE_CONTROL",
+      "fallback_bundle_ids": [
+        "LOCAL_AIR_SOURCE_TRUTH"
+      ],
+      "stop_policy_id": "STOP_WHEN_PROVENANCE_REQUIREMENT_MET",
+      "optional": true
+    },
+    {
+      "bundle_id": "SECURITY_AND_SUPPLY_CHAIN",
+      "purpose": "Optional threat, weakness, vulnerability, SBOM and supply-chain support.",
+      "artifact_classes": [
+        "EXECUTOR_CONTRACT",
+        "POLICY_PACK",
+        "EVALUATION_PACK",
+        "RELEASE_ARTIFACT",
+        "MODULE_MANIFEST"
+      ],
+      "domains": [
+        "SECURITY",
+        "SOFTWARE_SUPPLY_CHAIN"
+      ],
+      "risk_floor": "HIGH",
+      "required_source_roles": [
+        "security guidance or taxonomy",
+        "observed vulnerability/source evidence when applicable",
+        "supply-chain representation when release-bearing"
+      ],
+      "candidate_source_ids": [
+        "SRC_OWASP",
+        "SRC_CWE",
+        "SRC_CAPEC",
+        "SRC_OSV",
+        "SRC_OPENSSF_SCORECARD",
+        "SRC_SPDX",
+        "SRC_CYCLONEDX",
+        "SRC_SIGSTORE",
+        "SRC_IN_TOTO",
+        "SRC_TUF"
+      ],
+      "required_control_ids": [
+        "CTRL_SECURITY_KNOWLEDGE_OPTIONAL",
+        "CTRL_VULNERABILITY_OPTIONAL",
+        "CTRL_SBOM_OPTIONAL",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "EXECUTOR_CONTRACT",
+      "fallback_bundle_ids": [
+        "LOCAL_AIR_SOURCE_TRUTH"
+      ],
+      "stop_policy_id": "STOP_WHEN_SECURITY_ROLES_MET_OR_REVIEW_REQUIRED",
+      "optional": true
+    },
+    {
+      "bundle_id": "DOMAIN_AND_LITERATURE_DISCOVERY",
+      "purpose": "Optional scholarly/domain discovery and linkage.",
+      "artifact_classes": [
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "DOMAIN_CAPABILITY_REGISTRY",
+        "DOMAIN_PACKAGE"
+      ],
+      "domains": [
+        "RESEARCH",
+        "SCHOLARLY_METADATA",
+        "GENERAL_KNOWLEDGE"
+      ],
+      "risk_floor": "MEDIUM",
+      "required_source_roles": [
+        "official or open metadata discovery",
+        "primary publications for material conclusions"
+      ],
+      "candidate_source_ids": [
+        "SRC_OPENALEX",
+        "SRC_CROSSREF",
+        "SRC_OPENCITATIONS",
+        "SRC_SEMANTIC_SCHOLAR",
+        "SRC_CORE",
+        "SRC_DOAJ",
+        "SRC_EUROPE_PMC",
+        "SRC_WIKIDATA",
+        "SRC_VOSVIEWER",
+        "SRC_RESEARCHRABBIT"
+      ],
+      "required_control_ids": [
+        "CTRL_AUTHORITY_FRESHNESS_ACCESS",
+        "CTRL_SOURCE_QUORUM",
+        "CTRL_RETRIEVAL_STOP",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "DOMAIN_REGISTRY_OR_PACKAGE",
+      "fallback_bundle_ids": [
+        "LOCAL_AIR_SOURCE_TRUTH"
+      ],
+      "stop_policy_id": "STOP_WHEN_DOMAIN_QUORUM_MET",
+      "optional": true
+    },
+    {
+      "bundle_id": "EVALUATION_AND_RED_TEAMING",
+      "purpose": "Optional evaluation, statistical analysis and red-teaming tools.",
+      "artifact_classes": [
+        "EVALUATION_PACK",
+        "SPECIALIST_CAPABILITY_PROFILE",
+        "EXECUTOR_CONTRACT"
+      ],
+      "domains": [
+        "AI_EVALUATION",
+        "STATISTICS",
+        "SECURITY"
+      ],
+      "risk_floor": "MEDIUM",
+      "required_source_roles": [
+        "evaluation definition",
+        "test data or vectors",
+        "pinned execution configuration"
+      ],
+      "candidate_source_ids": [
+        "SRC_LM_EVAL_HARNESS",
+        "SRC_PROMPTFOO",
+        "SRC_OPENAI_EVALS",
+        "SRC_INSPECT_AI",
+        "SRC_ASTABENCH",
+        "SRC_JAMOVI",
+        "SRC_JASP"
+      ],
+      "required_control_ids": [
+        "CTRL_EVALUATION_OPTIONAL",
+        "CTRL_CLAIM_BOUNDARY"
+      ],
+      "quorum_profile_id": "POLICY_OR_EVALUATION_PACK",
+      "fallback_bundle_ids": [
+        "LOCAL_AIR_SOURCE_TRUTH"
+      ],
+      "stop_policy_id": "STOP_WHEN_SELECTED_EVALUATION_NEED_MET",
+      "optional": true
+    }
+  ],
+  "consumer_contract": {
+    "canonical_reference_field": "source_control_registry_ref",
+    "canonical_designation": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+    "required_consumer_outputs": [
+      "route or bundle id when routing is material",
+      "source plan state",
+      "quorum state",
+      "retrieval state",
+      "fallback/stop state",
+      "claim boundary"
+    ],
+    "prohibitions": [
+      "copying the entire registry into consumers",
+      "making the registry Orbit 0",
+      "granting consumers autonomous retrieval authority",
+      "making optional external dependencies mandatory"
+    ]
+  },
+  "validation_contract": {
+    "structural": [
+      "JSON parse with duplicate-key rejection",
+      "required top-level fields",
+      "source/control/bundle entry contract",
+      "unique ids",
+      "reference resolution"
+    ],
+    "semantic": [
+      "registry/domain-registry separation",
+      "authority and claim boundaries",
+      "dependency sovereignty",
+      "candidate-unverified honesty"
+    ],
+    "cross_file": [
+      "consumer designation resolution",
+      "state enum compatibility",
+      "no conflicting copied schemas"
+    ],
+    "approval_boundary": "Generated and validated artifacts remain pending explicit WS2 review; they do not self-approve or self-bind."
+  },
+  "construction_evidence": {
+    "generated_at_utc": "2026-07-19T16:00:00Z",
+    "source_inventory_confirmation": "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+    "build_plan_approval": "USER_EXPLICIT_APPROVE_WS2_BUILD_PLAN",
+    "external_verification_policy": "Official project/standards pages observed for verified entries; candidate entries remain unverified.",
+    "backend_validation_claimed": false
+  },
+  "backend_validation_claimed": false
+}

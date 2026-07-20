@@ -1,5 +1,162 @@
 {
   "AIR_HANDOFF_CARD": {
+    "template_metadata": {
+      "title": "AIR HANDOFF CARD TEMPLATE",
+      "schema_id": "AIR_HANDOFF_CARD_TEMPLATE",
+      "schema_version": "1.3.0",
+      "schema_status": "WS7_ALL_OBJECT_VISIBILITY_REPAIR_CONSTRUCTED_VALIDATED_PENDING_USER_REVIEW",
+      "canonical_filename": "AIR HANDOFF CARD TEMPLATE.json",
+      "versioning_policy": "INTERNAL_SCHEMA_VERSION",
+      "upload_count_suffix_is_version": false,
+      "supersedes": "1.2.0",
+      "backward_compatibility": "171_DIRECT_FIELD_BASELINE_PRESERVED; WS7_NESTED_MODULAR_BOOT_MANIFEST_RECEIPT_COMPATIBILITY_AND_FALLBACK_EVIDENCE_ADDED"
+    },
+    "handoff_identity": {
+      "handoff_id": null,
+      "project_id": null,
+      "source_session_id": null,
+      "source_session_nonce": null,
+      "handoff_sequence": null,
+      "created_at_utc": null,
+      "created_by_runtime": null,
+      "template_schema_id": "AIR_HANDOFF_CARD_TEMPLATE",
+      "template_schema_version": "1.3.0"
+    },
+    "handoff_integrity": {
+      "trust_state": "UNVERIFIED",
+      "allowed_trust_states": [
+        "UNVERIFIED",
+        "STRUCTURALLY_VALID_UNAUTHENTICATED",
+        "DETACHED_DIGEST_VERIFIED_UNAUTHENTICATED",
+        "SIGNATURE_VALID_UNANCHORED",
+        "CRYPTOGRAPHICALLY_VERIFIED_ANCHORED",
+        "VERIFICATION_FAILED"
+      ],
+      "integrity_mode": "STRUCTURAL_ONLY",
+      "allowed_integrity_modes": [
+        "STRUCTURAL_ONLY",
+        "SELF_CHECK_CANARY",
+        "DETACHED_DIGEST",
+        "DIGITALLY_SIGNED"
+      ],
+      "canonicalization": null,
+      "digest_algorithm": null,
+      "payload_digest": null,
+      "detached_digest": null,
+      "cryptographic_integrity_verified": false,
+      "origin_authenticated": false,
+      "signature_algorithm": null,
+      "signature": null,
+      "signer_key_id": null,
+      "public_key_fingerprint": null,
+      "verification_executor": null,
+      "verification_evidence": [],
+      "verification_limitations": [
+        "Prompt-only validation cannot authenticate origin or prove cryptographic integrity.",
+        "A digest stored only inside the editable handoff does not resist deliberate recomputation and replacement.",
+        "Authenticated source content remains subject to prompt-injection and direct-binding protections.",
+        "Cryptographic verification does not establish general execution permission."
+      ],
+      "signed_payload_profile": "AIR_HANDOFF_SIGNED_PAYLOAD_PROFILE_V1",
+      "allowed_canonicalization": [
+        "RFC8785-JCS"
+      ],
+      "allowed_digest_algorithms": [
+        "SHA-256"
+      ],
+      "allowed_signature_algorithms": [
+        "Ed25519"
+      ],
+      "trust_anchor_provider": {
+        "provider_type": "LOCAL_AIR_TRUST_STORE",
+        "implementation_state": "OPTIONAL_LOCAL_REFERENCE_IMPLEMENTATION",
+        "future_provider_types_reserved": [
+          "LOCAL_OS_KEYSTORE",
+          "LDAP",
+          "ACTIVE_DIRECTORY",
+          "MICROSOFT_ENTRA_ID",
+          "GENERIC_OIDC",
+          "HSM_OR_KMS"
+        ]
+      },
+      "decision_planes": {
+        "verification_decision": "UNVERIFIED",
+        "restoration_decision": "INSPECT_ONLY",
+        "authorization_decision": "NOT_EVALUATED",
+        "rule": "Success in one plane does not imply success in another."
+      },
+      "authorization_evidence": {
+        "state": "NOT_EVALUATED",
+        "identity_provider": null,
+        "principal_id": null,
+        "asserted_roles": [],
+        "asserted_groups": [],
+        "policy_engine": null,
+        "policy_digest": null,
+        "decision": null,
+        "enforcement_executor": null,
+        "evaluated_at_utc": null,
+        "limitations": [
+          "Cryptographic verification does not itself establish authorization.",
+          "Identity, role and group claims are policy inputs only."
+        ]
+      },
+      "authority_separation": {
+        "model_authority": "UNTRUSTED_PROPOSER",
+        "verified_handoff_authority": "AUTHENTICATED_EVIDENCE_NOT_AUTOMATIC_EXECUTION_AUTHORITY",
+        "signature_validity_is_execution_permission": false,
+        "restoration_permission_is_general_tool_authorization": false
+      }
+    },
+    "continuity_chain": {
+      "previous_handoff_id": null,
+      "previous_handoff_digest": null,
+      "current_handoff_digest": null,
+      "expected_sequence": null,
+      "chain_verified": false,
+      "latest_known_handoff_id": null,
+      "external_latest_state_anchor": null,
+      "replay_or_rollback_state": "UNVERIFIED",
+      "branch_state": null,
+      "verification_limitations": [],
+      "branch_id": null,
+      "parent_branch_id": null,
+      "allowed_replay_or_rollback_states": [
+        "UNVERIFIED",
+        "GENESIS_VALID",
+        "FORWARD_VALID",
+        "REPLAY_DUPLICATE",
+        "ROLLBACK_DETECTED",
+        "FORK_OR_EQUIVOCATION",
+        "GAP_OR_FAST_FORWARD",
+        "BRANCH_MISMATCH",
+        "UNANCHORED",
+        "FAILED"
+      ],
+      "anchor_acceptance_state": "NOT_ACCEPTED",
+      "anchor_update_receipt": null,
+      "verification_is_read_only": true
+    },
+    "load_integrity": {
+      "patch_marker": "AIR_LOAD_INTEGRITY_V1",
+      "runtime_law_observed": null,
+      "files": [],
+      "all_required_files_verified": false,
+      "failed_or_unverified_files": [],
+      "claim_boundary": "Load-integrity checks detect missing sentinels, truncation, or parse failure; they do not authenticate file origin or prove unchanged content."
+    },
+    "handoff_generation_state": {
+      "control_surface_present": null,
+      "handoff_template_present": true,
+      "template_schema_version": "1.0.0",
+      "source_files_used": [],
+      "generated_from_active_session_and_artifact": null,
+      "strict_single_root_verified": false,
+      "json_parse_verified": false,
+      "validation_state": null,
+      "generated_at_utc": null,
+      "backend_validation_claimed": false
+    },
     "project": null,
     "active_orbit_0_contract": null,
     "task_key": null,
@@ -49,7 +206,15 @@
       },
       "validated_available_executors": [],
       "recommended_executors": [],
-      "active_executor": null
+      "active_executor": null,
+      "active_supporting_specialists": [],
+      "generated_executors_pending_validation": [],
+      "recommended_policy_packs": [],
+      "generated_policy_packs_pending_validation": [],
+      "validated_available_policy_packs": [],
+      "recommended_evaluation_packs": [],
+      "generated_evaluation_packs_pending_validation": [],
+      "validated_available_evaluation_packs": []
     },
     "persistent_task": null,
     "current_degraded_mode": null,
@@ -77,7 +242,12 @@
     "decision_state": null,
     "review_obligations": [],
     "security_checks": [],
-    "test_requirements": [],
+    "test_requirements": [
+      "RFC 8785 canonicalization, SHA-256 digest and Ed25519 verification where executable tooling is claimed.",
+      "Valid signature does not imply authorization.",
+      "Replay, rollback, fork, gap, branch mismatch, revoked key, wrong scope and downgrade tests.",
+      "Authenticated source injection remains blocked as operative instruction."
+    ],
     "architectural_invariants": [
       "AIR does not print AIR objects after every Q1-Q5 onboarding answer unless material state changes or the user asks.",
       "Formal AIR objects render as fenced pretty JSON code blocks for professional UX.",
@@ -129,7 +299,29 @@
       "Reusable working profiles are optional support only; project-specific Q6 overrides them, and active contract plus AIR_GATE override both.",
       "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, active contracts, AIR_GATE, evidence gates, Q6 workflow, and prompt/backend boundaries.",
       "At material or high-impact delivery, AIR_ARTIFACT must carry assumptions_made, blockers, and uncertainty_or_degraded explicitly, stating 'none identified' rather than omitting; bound to the object self-report boundary and not a verification mechanism.",
-      "AIR objects and surfaced state fields are elicited self-report under metacognitive transparency and corrigibility, dispositions that remain comparatively weak even after dedicated model training; their presence is not proof of detection, self-correction, or verification, and this boundary is always-on regardless of bound profile, specialist, or domain package."
+      "AIR objects and surfaced state fields are elicited self-report under metacognitive transparency and corrigibility, dispositions that remain comparatively weak even after dedicated model training; their presence is not proof of detection, self-correction, or verification, and this boundary is always-on regardless of bound profile, specialist, or domain package.",
+      "Material task execution inherits project_execution_envelope into task_execution_envelope before capability depth is selected.",
+      "AIR selects the smallest sufficient capability set satisfying the scoped objective, mandatory floors, and credible risks.",
+      "Small scale or prototype status cannot prune controls required by high consequence, sensitivity, exposure, irreversibility, regulation, or credible threats.",
+      "One primary specialist may govern while compatible active supporting specialists constrain, route, or review within declared boundaries.",
+      "Domain Capability Registry routing and Session Domain Overlay grounding are distinct restoration states.",
+      "The vector selection trace is prompt-side self-report and not proof of optimality or complete risk detection.",
+      "AIR Handoff Card Template uses a stable canonical filename; ChatGPT upload-count suffixes are not template versions.",
+      "Handoff template versioning is carried by internal schema metadata rather than the uploaded filename.",
+      "Handoff trust must distinguish structural validity, content integrity, origin authentication, continuity-chain state, and replay or rollback state.",
+      "Prompt-only AIR cannot cryptographically authenticate a handoff without an external verifier and independently trusted key or digest anchor.",
+      "The universal AIR Artifact Build, Source, and Assurance Pipeline applies to Core Runtime, Control Surface, Starter, Handoff, Specialists, Registries, Domain Packages, Method Packs, Executors, Policy Packs, Evaluation Packs, and release artifacts.",
+      "Human-oriented taxonomies and competency frameworks must pass machine-relevance translation before becoming operative AIR vectors.",
+      "Deterministic policy executables such as OPA may strengthen AIR_GATE but remain optional and may not become mandatory for core AIR operation.",
+      "AIR public baseline remains free, open-source, manually installable, offline-capable, dependency-optional, vendor-agnostic, and portable across compatible AI hosts.",
+      "vm4ai-air-kit is the canonical framework and release source; vm4ai-web is the user-facing documentation surface; air-brand is a separate optional brand-resource repository.",
+      "The public AIR framework license remains Apache-2.0.",
+      "Model output is an untrusted proposal; authentication, restoration and authorization are separate decision planes.",
+      "Signature validity does not grant general tool or execution permission.",
+      "Identity, role and directory-group claims are policy inputs only.",
+      "Authenticated source content remains subject to prompt-injection and direct-binding protections.",
+      "Local handoff verification is read-only; continuity-anchor advancement requires a separate explicit accept action.",
+      "Prompt reasoning alone may not claim origin authentication or cryptographic continuity."
     ],
     "rejection_conditions": [],
     "runtime_law": {
@@ -306,7 +498,32 @@
       ],
       "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
       "prior_generated_patch_cannot_satisfy_source_gate": true,
-      "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
+      "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+      "scope_risk_proportionality_decision_capable": true,
+      "active_supporting_specialists_capable": true,
+      "domain_capability_registry_routing_capable": true,
+      "session_domain_overlay_capable": true,
+      "handoff_template_internal_schema_versioning_capable": true,
+      "handoff_upload_count_suffix_is_version": false,
+      "handoff_integrity_architecture_capable": true,
+      "handoff_cryptographic_verification_requires_external_tool_or_trust_anchor": true,
+      "handoff_origin_authentication_prompt_only": false,
+      "handoff_continuity_chain_capable": true,
+      "handoff_replay_rollback_state_capable": true,
+      "artifact_build_source_assurance_pipeline_capable": true,
+      "source_and_control_registry_capable": true,
+      "human_to_machine_capability_translation_capable": true,
+      "optional_deterministic_policy_engine_capable": true,
+      "deterministic_policy_engine_is_mandatory": false,
+      "portability_dependency_sovereignty_capable": true,
+      "free_public_baseline_required": true,
+      "offline_capable_baseline_required": true,
+      "manual_install_capable_baseline_required": true,
+      "mandatory_vm4ai_service_allowed": false,
+      "mandatory_package_manager_allowed": false,
+      "mandatory_skill_support_allowed": false,
+      "repository_release_topology_capable": true,
+      "apache_2_framework_license_preserved": true
     },
     "benchmark_judge": null,
     "judge_trace": null,
@@ -816,7 +1033,13 @@
       "trigger_reasons": [],
       "missing_layers": [],
       "blocking_layers": [],
-      "degraded_fallback_mode": null
+      "degraded_fallback_mode": null,
+      "executor_need_state": null,
+      "policy_pack_need_state": null,
+      "evaluation_pack_need_state": null,
+      "construction_adapter_state": null,
+      "generation_authorization_state": null,
+      "binding_approval_state": null
     },
     "method_layer_state": {
       "patch_marker": "AIR_METHOD_LAYER_V1",
@@ -974,68 +1197,274 @@
       ],
       "compact_handoff_rule": "Carry assumptions_made, blockers, and uncertainty_or_degraded from the last material delivery, stating 'none identified' rather than omitting when empty.",
       "claim_boundary": "Carried delivery-state fields are elicited self-report under AIR_TRANSPARENCY_SELF_REPORT_BOUNDARY_V1, not a verified trace; a restored 'none identified' is a claim to check, not proof. The boundary is always-on and must not be relocated into a profile, specialist, or pack."
-    }
-  },
-  "source_layer": {
-    "air_discovery_executor_policy": {
-      "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
-      "core_principle": "AIR must help discover missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution when the user cannot reasonably know them yet.",
-      "executor_name": "AIR_DISCOVERY_EXECUTOR",
-      "executor_is_agent": false,
-      "trigger_when": [
-        "user objective is broad, underdefined, exploratory, or source-light",
-        "decision context is missing or unclear",
-        "market, jurisdiction, audience, product stage, budget, time horizon, release posture, or claim boundary may materially affect output",
-        "source authority, tool access, repo state, API access, credential state, or dependency availability is unclear",
-        "user likely cannot know which specialist, domain package, method, executor, source, or external skill/tool is needed",
-        "execution would otherwise require silent assumptions"
-      ],
-      "outputs": [
-        "likely_decision_frames",
-        "missing_constraints",
-        "unknown_unknown_candidates",
-        "required_sources",
-        "optional_sources",
-        "dependency_state",
-        "risk_gates",
-        "minimal_next_questions",
-        "safe_provisional_path"
-      ],
-      "gate_outcomes": [
-        "ALLOW",
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "PROVISIONAL_ALLOW"
-      ],
-      "dependency_boundary": "AIR does not depend on the user finding the correct prebuilt external skill. AIR may infer the needed capability/source map and generate retrieval instructions. AIR is not data-independent: external evidence, repositories, files, APIs, tools, connectors, credentials, or current data may still be required for execution, approval, or claims.",
-      "backend_validation_claimed": false
     },
-    "patch_source_upload_gate_policy": {
-      "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
-      "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
-      "uploaded_files_as_security_gate": true,
-      "requirements": [
-        "visibly request or confirm the exact patch-source set before material patch execution",
-        "surface the expected source files and the uploaded/current-session files AIR intends to use",
-        "treat uploaded files after request, or explicit user confirmation after source inventory, as patch-source gate evidence",
-        "use only the uploaded/current-session files as patch source of truth",
-        "inspect or parse the uploaded files before patching",
-        "preserve complete replacement file delivery when the working agreement requires it",
-        "validate machine-readable outputs when possible",
-        "report which uploaded source files were used",
-        "do not claim repo alignment unless uploaded files or tool-observed repo state prove it"
-      ],
-      "gate_effects": {
-        "missing_required_patch_files": "EVIDENCE_REQUIRED",
-        "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
-        "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
-        "patch_based_on_memory_or_prior_generated_output": "REJECT",
-        "patch_source_inventory_not_visibly_requested_or_confirmed_before_mutation": "REJECT_RESTART_FROM_CHECKPOINT",
-        "patch_based_on_prior_output_filename_memory_or_conversation_summary": "REJECT"
-      },
-      "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint. The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+    "project_execution_envelope": null,
+    "task_execution_envelope": null,
+    "scope_inheritance_state": null,
+    "risk_assessment": {
+      "level": null,
+      "credible_risks": [],
+      "mandatory_floors": [],
+      "residual_risks": [],
+      "assumptions": [],
+      "evidence_state": null
+    },
+    "domain_routing_state": {
+      "matched_domains": [],
+      "match_strength": null,
+      "unresolved_domains": [],
+      "registry_id": null,
+      "registry_version": null,
+      "retrieval_state": null
+    },
+    "vector_selection_trace": {
+      "request_derived_vectors": [],
+      "domain_expanded_candidate_vectors": [],
+      "mandatory_floor_vectors": [],
+      "scope_required_vectors": [],
+      "conditional_vectors": [],
+      "optional_vectors": [],
+      "deferred_vectors": [],
+      "disproportionate_vectors": [],
+      "selected_vectors": []
+    },
+    "proportionality_decision": null,
+    "session_domain_overlays": [],
+    "artifact_build_source_assurance_state": {
+      "patch_marker": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1",
+      "active": false,
+      "trigger": null,
+      "artifact_class": null,
+      "artifact_id": null,
+      "artifact_version": null,
+      "lifecycle_stage": null,
+      "source_plan_state": null,
+      "source_quorum_state": null,
+      "schema_validation_state": null,
+      "semantic_validation_state": null,
+      "cross_file_validation_state": null,
+      "evaluation_state": null,
+      "hardening_state": null,
+      "security_review_state": null,
+      "provenance_state": null,
+      "release_state": null,
+      "deprecation_state": null,
+      "assurance_limitations": [],
       "backend_validation_claimed": false,
+      "construction_adapter_id": null,
+      "construction_request_id": null,
+      "generation_authorization_state": null,
+      "construction_state": null,
+      "candidate_artifact_ref": null,
+      "validation_bundle_state": null,
+      "binding_approval_state": null,
+      "binding_state": null,
+      "prior_bound_version_ref": null,
+      "rollback_state": null,
+      "invalidation_reasons": [],
+      "generated_artifact_class": null,
+      "ws4_patch_marker": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1"
+    },
+    "source_and_control_registry_state": {
+      "registry_designation": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+      "registry_version": null,
+      "routing_state": null,
+      "selected_source_bundles": [],
+      "selected_control_bundles": [],
+      "source_authority_classes": [],
+      "freshness_requirements": [],
+      "retrieval_state": null,
+      "retrieval_stop_conditions": [],
+      "source_quorum_requirements": [],
+      "source_quorum_state": null,
+      "missing_sources": [],
+      "fallbacks": [],
+      "allowed_claims": [],
+      "prohibited_claims": [],
+      "claim_boundaries": [],
+      "smallest_sufficient_bundle_selected": null
+    },
+    "human_to_machine_capability_translation_state": {
+      "translator_designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
+      "translation_required": false,
+      "source_taxonomies": [],
+      "translation_template_version": null,
+      "machine_operable": [],
+      "machine_assistive": [],
+      "decision_context": [],
+      "human_authority_bound": [],
+      "human_embodiment_bound": [],
+      "social_or_organizational_context": [],
+      "safety_or_ethical_boundaries": [],
+      "nontransferable": [],
+      "uncertain_transfer": [],
+      "irrelevant_to_objective": [],
+      "excluded_human_requirements": [],
+      "unresolved_translations": [],
+      "translation_validation_state": null
+    },
+    "policy_enforcement_state": {
+      "mode": "PROMPT_SIMULATED",
+      "allowed_modes": [
+        "PROMPT_SIMULATED",
+        "TOOL_EVALUATED"
+      ],
+      "policy_engine": null,
+      "policy_bundle_version": null,
+      "policy_bundle_digest": null,
+      "last_policy_input_digest": null,
+      "last_policy_decision": null,
+      "tool_evaluated": false,
+      "external_policy_executable_required": false,
+      "backend_validation_claimed": false,
+      "limitations": []
+    },
+    "portability_and_dependency_sovereignty_state": {
+      "policy_designation": "AIR_PORTABILITY_AND_DEPENDENCY_SOVEREIGNTY_V1",
+      "free_public_baseline_required": true,
+      "offline_capable_required": true,
+      "manual_install_capable_required": true,
+      "local_file_native_required": true,
+      "mandatory_external_dependencies": [],
+      "optional_dependencies": [],
+      "mandatory_vm4ai_service": false,
+      "mandatory_package_manager": false,
+      "mandatory_skill_or_plugin_support": false,
+      "vendor_lock_state": "NONE_REQUIRED",
+      "local_fallback_available": true,
+      "platform_adapters": [],
+      "current_host_capabilities": [],
+      "degraded_host_capabilities": [],
+      "project_transfer_state": null,
+      "continuation_without_conceptual_restart_required": true,
+      "boot_kernel_id": "AIR_BOOT_KERNEL_V1",
+      "boot_kernel_version": "1.0.0",
+      "boot_kernel_digest": "bbb680eaaa0a2e6a1135ed5c49627232480005338e5937a7ac0751dd618f660c",
+      "module_manifest_id": "AIR_BOOT_MODULE_MANIFEST_V1",
+      "module_manifest_version": "1.0.0",
+      "module_manifest_digest": "edb6be63d7345f1ec858ca39b5c355e94b34fef18817691427625bb9916220ed",
+      "boot_mode": "FULL_MONOLITH",
+      "loaded_modules": [],
+      "deferred_modules": [],
+      "missing_or_failed_modules": [],
+      "module_load_receipt_id": null,
+      "module_compatibility_state": "MONOLITH_COMPATIBLE_MODULAR_EVIDENCE_NOT_EXECUTED",
+      "monolith_fallback_used": false,
+      "framework_boot_footprint": null,
+      "behavior_retention_evidence": {
+        "structural_parity": "WS7_REFERENCE_VALIDATED",
+        "cross_model_equivalence": "NOT_CLAIMED"
+      }
+    },
+    "repository_release_topology": {
+      "canonical_framework_repository": "https://github.com/eddlev/vm4ai-air-kit",
+      "website_repository": "https://github.com/eddlev/vm4ai-web",
+      "brand_repository": "https://github.com/eddlev/air-brand",
+      "user_facing_website": "https://vm4ai.com",
+      "canonical_release_source": "GITHUB_RELEASES",
+      "release_tag": null,
+      "commit_sha": null,
+      "release_manifest_path": null,
+      "release_manifest_digest": null,
+      "release_attestation_state": null,
+      "signed_release_state": null,
+      "offline_bundle_available": null,
+      "available_distribution_adapters": [],
+      "framework_license": "Apache-2.0",
+      "framework_license_decision": "APPROVED_UNCHANGED",
+      "website_content_rights": "SEPARATELY_COPYRIGHTED",
+      "brand_marks_policy": "SEPARATE_BRAND_USAGE_POLICY"
+    },
+    "patch_program_state": {
+      "program_id": null,
+      "program_title": null,
+      "program_status": null,
+      "active_workstream": null,
+      "workstreams": [],
+      "dependency_order": [],
+      "completed_workstreams": [],
+      "blocked_workstreams": [],
+      "deferred_workstreams": [],
+      "approved_decisions": [],
+      "open_questions": [],
+      "completion_conditions": [],
+      "source_inventory_required": [],
+      "source_inventory_confirmed": [],
+      "source_inventory_missing_or_mismatched": [],
+      "next_session_entry_condition": null,
+      "temporary_handoff_superseded_by": null
+    },
+    "source_layer": {
+      "air_discovery_executor_policy": {
+        "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
+        "core_principle": "AIR must help discover missing decision frames, constraints, source requirements, dependency state, and unknown unknowns before material execution when the user cannot reasonably know them yet.",
+        "executor_name": "AIR_DISCOVERY_EXECUTOR",
+        "executor_is_agent": false,
+        "trigger_when": [
+          "user objective is broad, underdefined, exploratory, or source-light",
+          "decision context is missing or unclear",
+          "market, jurisdiction, audience, product stage, budget, time horizon, release posture, or claim boundary may materially affect output",
+          "source authority, tool access, repo state, API access, credential state, or dependency availability is unclear",
+          "user likely cannot know which specialist, domain package, method, executor, source, or external skill/tool is needed",
+          "execution would otherwise require silent assumptions"
+        ],
+        "outputs": [
+          "likely_decision_frames",
+          "missing_constraints",
+          "unknown_unknown_candidates",
+          "required_sources",
+          "optional_sources",
+          "dependency_state",
+          "risk_gates",
+          "minimal_next_questions",
+          "safe_provisional_path"
+        ],
+        "gate_outcomes": [
+          "ALLOW",
+          "REVIEW",
+          "EVIDENCE_REQUIRED",
+          "RESCOPE_REQUIRED",
+          "PROVISIONAL_ALLOW"
+        ],
+        "dependency_boundary": "AIR does not depend on the user finding the correct prebuilt external skill. AIR may infer the needed capability/source map and generate retrieval instructions. AIR is not data-independent: external evidence, repositories, files, APIs, tools, connectors, credentials, or current data may still be required for execution, approval, or claims.",
+        "backend_validation_claimed": false
+      },
+      "patch_source_upload_gate_policy": {
+        "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+        "core_principle": "Before AIR executes a patch, AIR must request and use the files to be patched in the current session. AIR must not patch from memory, prior generated output, assumed repository state, filenames alone, or conversation summaries.",
+        "uploaded_files_as_security_gate": true,
+        "requirements": [
+          "visibly request or confirm the exact patch-source set before material patch execution",
+          "surface the expected source files and the uploaded/current-session files AIR intends to use",
+          "treat uploaded files after request, or explicit user confirmation after source inventory, as patch-source gate evidence",
+          "use only the uploaded/current-session files as patch source of truth",
+          "inspect or parse the uploaded files before patching",
+          "preserve complete replacement file delivery when the working agreement requires it",
+          "validate machine-readable outputs when possible",
+          "report which uploaded source files were used",
+          "do not claim repo alignment unless uploaded files or tool-observed repo state prove it"
+        ],
+        "gate_effects": {
+          "missing_required_patch_files": "EVIDENCE_REQUIRED",
+          "expected_file_absent": "REVIEW_OR_EVIDENCE_REQUIRED",
+          "uploaded_file_conflicts_with_expected_role_or_version": "REVIEW",
+          "patch_based_on_memory_or_prior_generated_output": "REJECT",
+          "patch_source_inventory_not_visibly_requested_or_confirmed_before_mutation": "REJECT_RESTART_FROM_CHECKPOINT",
+          "patch_based_on_prior_output_filename_memory_or_conversation_summary": "REJECT"
+        },
+        "reason": "Patching from memory is where hallucinations can mutate the result. Uploaded source files reduce that risk and create an explicit security checkpoint. The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+        "backend_validation_claimed": false,
+        "visible_request_checkpoint_required": true,
+        "checkpoint_satisfaction_states": [
+          "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
+          "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
+          "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
+          "EVIDENCE_REQUIRED_NO_SOURCE",
+          "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
+        ],
+        "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
+        "prior_generated_patch_cannot_satisfy_source_gate": true
+      },
       "visible_request_checkpoint_required": true,
       "checkpoint_satisfaction_states": [
         "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
@@ -1045,18 +1474,115 @@
         "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
       ],
       "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
-      "prior_generated_patch_cannot_satisfy_source_gate": true
-    },
-    "visible_request_checkpoint_required": true,
-    "checkpoint_satisfaction_states": [
-      "SATISFIED_BY_USER_UPLOAD_AFTER_REQUEST",
-      "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
-      "REVIEW_MISSING_OR_MISMATCHED_SOURCE",
-      "EVIDENCE_REQUIRED_NO_SOURCE",
-      "REJECT_MEMORY_OR_PRIOR_OUTPUT_PATCH"
-    ],
-    "current_session_file_presence_is_not_enough_without_visible_request_or_confirmation": true,
-    "prior_generated_patch_cannot_satisfy_source_gate": true,
-    "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames."
+      "prior_generated_patch_cannot_satisfy_source_gate": true,
+      "reason": " The visible request/confirmation checkpoint prevents accidental mutation from files that happen to be present, stale assistant output, or remembered filenames.",
+      "scope_risk_proportionality_patch": {
+        "patch_marker": "AIR_SCOPE_RISK_PROPORTIONALITY_DECISION_V1",
+        "preserve_fields": [
+          "project_execution_envelope",
+          "task_execution_envelope",
+          "scope_inheritance_state",
+          "risk_assessment",
+          "domain_routing_state",
+          "vector_selection_trace",
+          "proportionality_decision",
+          "active_supporting_specialists",
+          "session_domain_overlays"
+        ],
+        "claim_boundary": "Restored values are declared state unless independently evidenced."
+      },
+      "air_artifact_build_source_assurance_policy": {
+        "patch_marker": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1",
+        "core_principle": "AIR must source-plan, construct, validate, evaluate, harden, approve, release, restore, update, and deprecate reusable AIR artifacts through an artifact-sensitive lifecycle rather than generating them directly from model recall.",
+        "applies_to": [
+          "CORE_RUNTIME",
+          "CONTROL_SURFACE",
+          "DEFAULT_STARTER",
+          "HANDOFF_TEMPLATE",
+          "SPECIALIST",
+          "DOMAIN_REGISTRY",
+          "DOMAIN_PACKAGE",
+          "METHOD_PACK",
+          "EXECUTOR",
+          "POLICY_PACK",
+          "EVALUATION_PACK",
+          "RELEASE_ARTIFACT"
+        ],
+        "smallest_sufficient_source_and_control_bundle_required": true,
+        "generation_from_model_recall_alone_allowed": false
+      },
+      "air_source_and_control_registry_policy": {
+        "registry_designation": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+        "core_principle": "Relevant open or free sources and controls are routed by artifact class, domain, scope, risk, freshness, authority, and proportionality.",
+        "automatic_trigger_classes": [
+          "CREATE",
+          "UPDATE",
+          "PATCH",
+          "HARDEN",
+          "VALIDATE",
+          "RELEASE"
+        ],
+        "retrieval_must_stop_when_sufficient": true,
+        "retrieve_everything_by_default": false
+      },
+      "air_human_to_machine_translation_policy": {
+        "translator_designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
+        "core_principle": "Human occupational taxonomies, curricula, certifications, and competency models are source material, not direct AIR vector lists.",
+        "translation_required_before_operative_vector_binding": true,
+        "raw_human_requirement_binding_allowed": false,
+        "translation_classes": [
+          "MACHINE_OPERABLE",
+          "MACHINE_ASSISTIVE",
+          "DECISION_CONTEXT",
+          "HUMAN_AUTHORITY_BOUND",
+          "HUMAN_EMBODIMENT_BOUND",
+          "SOCIAL_OR_ORGANIZATIONAL_CONTEXT",
+          "SAFETY_OR_ETHICAL_BOUNDARY",
+          "NONTRANSFERABLE",
+          "UNCERTAIN_TRANSFER",
+          "IRRELEVANT_TO_OBJECTIVE"
+        ]
+      },
+      "air_optional_policy_engine_policy": {
+        "core_principle": "OPA or an equivalent deterministic policy executable may strengthen crisp AIR_GATE checks but must not replace contextual AIR judgment or become a mandatory AIR dependency.",
+        "prompt_simulated_mode_required": true,
+        "tool_evaluated_mode_optional": true,
+        "mandatory_external_policy_engine_allowed": false
+      },
+      "air_handoff_integrity_policy": {
+        "core_principle": "Handoff validation must distinguish structural validity, content integrity, origin authentication, continuity-chain state, and replay or rollback state.",
+        "tiers": [
+          "STRUCTURAL_ONLY",
+          "SELF_CHECK_CANARY",
+          "DETACHED_DIGEST",
+          "DIGITALLY_SIGNED"
+        ],
+        "prompt_only_origin_authentication_allowed": false,
+        "external_trust_anchor_required_for_authenticated_origin": true,
+        "unsigned_or_unverified_handoff_must_surface_degraded_trust": true
+      },
+      "air_portability_dependency_sovereignty_policy": {
+        "policy_designation": "AIR_PORTABILITY_AND_DEPENDENCY_SOVEREIGNTY_V1",
+        "core_principle": "AIR public baseline must remain free, inspectable, portable, manually installable, offline-capable, local-file-native, dependency-optional, and vendor-agnostic.",
+        "mandatory_vm4ai_service_allowed": false,
+        "mandatory_package_manager_allowed": false,
+        "mandatory_skill_or_plugin_support_allowed": false,
+        "optional_dependencies_may_strengthen_but_not_replace_baseline": true
+      },
+      "air_repository_release_topology_policy": {
+        "canonical_framework_and_release_source": "https://github.com/eddlev/vm4ai-air-kit",
+        "user_facing_documentation_source": "https://github.com/eddlev/vm4ai-web",
+        "brand_resource_source": "https://github.com/eddlev/air-brand",
+        "user_facing_website": "https://vm4ai.com",
+        "main_branch_is_release_state": false,
+        "versioned_releases_preferred_for_runtime_consumption": true
+      },
+      "air_license_policy": {
+        "framework_license": "Apache-2.0",
+        "decision": "KEEP_LICENSE_AS_IS",
+        "business_use_restriction_added": false,
+        "website_and_brand_rights_separate": true
+      }
+    }
   }
 }
