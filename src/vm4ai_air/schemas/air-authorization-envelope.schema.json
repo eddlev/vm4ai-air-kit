@@ -4,35 +4,122 @@
   "title": "AIR Authorization Envelope",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema_id", "schema_version", "authorization_id", "task_id", "issued_at_utc", "actor", "capabilities", "restrictions", "default_policy", "claim_boundary"],
+  "required": [
+    "schema_id",
+    "schema_version",
+    "authorization_id",
+    "task_id",
+    "issued_at_utc",
+    "actor",
+    "approval_ref",
+    "capabilities",
+    "restrictions",
+    "default_policy",
+    "claim_boundary"
+  ],
   "properties": {
-    "schema_id": {"const": "AIR_AUTHORIZATION_ENVELOPE"},
-    "schema_version": {"const": "1.0.0"},
-    "authorization_id": {"type": "string", "minLength": 1},
-    "task_id": {"type": "string", "minLength": 1},
-    "issued_at_utc": {"type": "string", "minLength": 1},
-    "actor": {"type": "string", "minLength": 1},
+    "schema_id": {
+      "const": "AIR_AUTHORIZATION_ENVELOPE"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "authorization_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issued_at_utc": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_ref": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
     "capabilities": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["inspect", "modify_worktree", "run_tests", "commit", "push", "open_pr", "mark_ready", "merge", "tag", "release", "publish", "destructive_actions"],
+      "required": [
+        "inspect",
+        "modify_worktree",
+        "run_tests",
+        "commit",
+        "push",
+        "open_pr",
+        "mark_ready",
+        "merge",
+        "tag",
+        "release",
+        "publish",
+        "destructive_actions"
+      ],
       "properties": {
-        "inspect": {"type": "boolean"},
-        "modify_worktree": {"type": "boolean"},
-        "run_tests": {"type": "boolean"},
-        "commit": {"type": "boolean"},
-        "push": {"type": "boolean"},
-        "open_pr": {"type": "boolean"},
-        "mark_ready": {"type": "boolean"},
-        "merge": {"type": "boolean"},
-        "tag": {"type": "boolean"},
-        "release": {"type": "boolean"},
-        "publish": {"type": "boolean"},
-        "destructive_actions": {"type": "boolean"}
+        "inspect": {
+          "type": "boolean"
+        },
+        "modify_worktree": {
+          "type": "boolean"
+        },
+        "run_tests": {
+          "type": "boolean"
+        },
+        "commit": {
+          "type": "boolean"
+        },
+        "push": {
+          "type": "boolean"
+        },
+        "open_pr": {
+          "type": "boolean"
+        },
+        "mark_ready": {
+          "type": "boolean"
+        },
+        "merge": {
+          "type": "boolean"
+        },
+        "tag": {
+          "type": "boolean"
+        },
+        "release": {
+          "type": "boolean"
+        },
+        "publish": {
+          "type": "boolean"
+        },
+        "destructive_actions": {
+          "type": "boolean"
+        }
       }
     },
-    "restrictions": {"type": "array", "items": {"type": "string", "minLength": 1}},
-    "default_policy": {"const": "DENY_UNLESS_TRUE"},
-    "claim_boundary": {"type": "string", "minLength": 1}
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "default_policy": {
+      "const": "DENY_UNLESS_TRUE"
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
   }
 }

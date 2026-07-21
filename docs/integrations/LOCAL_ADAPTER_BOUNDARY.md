@@ -16,7 +16,7 @@ Adapters must not reimplement AIR module selection, approval rules, resource ver
 
 The preferred first MCP form is an optional local `stdio` server. It should be read-only by default, restricted to registered AIR projects, and unable to execute arbitrary shell commands or browse arbitrary filesystem roots.
 
-Potential resources include validated AIR bundles, project state, receipts, and contract schemas. Potential tools include boot validation, boot planning, project status, and project validation. Mutating tools require explicit capability-specific authorization.
+Potential resources include validated AIR bundles, project state, receipts, and contract schemas. Potential tools include boot validation, boot planning, project status, and project validation. Mutating tools require explicit capability-specific authorization plus approval provenance.
 
 AIR as an MCP host or general orchestrator is a later and higher-risk design problem.
 
@@ -30,6 +30,6 @@ When AIR orchestrates a coding harness directly, the richer harness-native proto
 
 - A loaded bundle is not execution authorization.
 - A task packet defines scope but grants no capability.
-- An authorization envelope denies every omitted capability.
+- An authorization envelope denies every omitted capability. A mutating capability requires an explicit actor and an `approval_ref` identifying the approval source; AIR never manufactures `USER_APPROVED` provenance.
 - A continuation packet preserves the current step and pending approvals; it does not approve the next recommended step.
 - Push, merge, tag, release, publication, destructive actions, and external network use remain distinct gates.

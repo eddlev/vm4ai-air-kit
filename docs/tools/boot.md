@@ -20,7 +20,9 @@ air boot contracts
 air boot status
 ```
 
-The compiled bundle is deterministic for the same package resource set and normalized trigger set. The optional receipt contains a timestamp and records the bundle digest separately.
+The compiled bundle is deterministic for the same package resource set and normalized trigger set. Each embedded resource uses an AIR length-framed record: the declared `size_bytes` segment contains the exact resource bytes covered by that record's SHA-256 digest. The optional receipt contains a timestamp and records the complete bundle digest separately.
+
+Bundle and receipt targets are locked cooperatively for the full transaction. Precondition checks, snapshots, compilation, both atomic writes, post-write digest verification, and rollback occur while those target locks are held.
 
 ## Compatibility path
 
@@ -29,7 +31,8 @@ The compiled bundle is deterministic for the same package resource set and norma
 ## Security and authority boundary
 
 - Module loading is not execution authorization.
-- Unknown triggers return `REVIEW` and use the Complete AIR Prompt Set fallback unless fallback is explicitly disabled.
+- Unknown triggers return `REVIEW` and use the Complete AIR Prompt Set fallback unless fallback is explicitly disabled. Terminal commands use exit code `4` for this review state so automation cannot mistake fallback review for ordinary success.
+- Plan identifiers bind the package version, complete resource-set identity, and source-tree digest as well as the normalized trigger selection.
 - Compile receipts prove observed local bytes and a bundle digest only.
 - MCP servers, Codex plugins, and other coding-tool adapters remain optional post-Stage-3 integrations.
 - Handoff signing and local trust anchors remain Stage 4 work.

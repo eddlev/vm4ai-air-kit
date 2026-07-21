@@ -43,6 +43,10 @@
 | `air boot contracts` | List Stage 3 task, authorization, and continuation contracts |
 | `air boot status` | Show installed boot, resource, and semantic-closure state |
 
+Unknown-trigger fallback is a review result, not ordinary success. JSON output reports `decision: REVIEW` and the terminal process exits with status `4`.
+
+Compiled resource frames are length-delimited: each declared digest covers the exact `size_bytes` segment embedded after its frame header. Bundle and receipt targets are cooperatively locked and post-write verified as one output transaction.
+
 ### Projects
 
 | Command | Purpose |

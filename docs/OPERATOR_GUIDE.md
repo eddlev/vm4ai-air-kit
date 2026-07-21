@@ -155,4 +155,4 @@ air boot plan --trigger CODING --trigger REPOSITORY
 air boot compile --trigger CODING --trigger REPOSITORY --output air-coding-bundle.md --receipt air-coding-bundle.receipt.json
 ```
 
-Use `air boot q1d` to inspect the complete beginner orientation. The command does not activate a project. Unknown triggers return `REVIEW` and use the Complete AIR Prompt Set fallback unless fallback is explicitly disabled.
+Use `air boot q1d` to inspect the complete beginner orientation. The command does not activate a project. Unknown triggers return `REVIEW`, use the Complete AIR Prompt Set fallback unless fallback is explicitly disabled, and exit with status `4` so automation must handle the review state explicitly.

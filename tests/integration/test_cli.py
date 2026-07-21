@@ -82,3 +82,11 @@ def test_cli_operates_outside_repository(tmp_path: Path) -> None:
     doctor = run_air(tmp_path, "doctor", cwd=tmp_path)
     assert doctor.returncode == 0
     assert payload(doctor)["decision"] in {"PASS", "WARN"}
+
+
+def test_cli_unknown_trigger_requires_review_exit_code(tmp_path: Path) -> None:
+    result = run_air(tmp_path, "boot", "plan", "--trigger", "UNKNOWN_TRIGGER", cwd=tmp_path)
+    assert result.returncode == 4
+    body = payload(result)
+    assert body["decision"] == "REVIEW"
+    assert body["fallback_state"] == "UNKNOWN_TRIGGER_FULL_MONOLITH"

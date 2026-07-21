@@ -214,7 +214,7 @@ def _run(args: argparse.Namespace, *, environment: Mapping[str, str]) -> tuple[A
         if args.boot_command == "plan":
             fallback = args.fallback if args.fallback != "NONE" else "NONE"
             result = compiler.plan(args.trigger, fallback=fallback)
-            return result, None, 0 if result["decision"] in {"PASS", "REVIEW"} else 3
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
         if args.boot_command == "compile":
             fallback = args.fallback if args.fallback != "NONE" else "NONE"
             result = compiler.write_bundle(
@@ -224,7 +224,7 @@ def _run(args: argparse.Namespace, *, environment: Mapping[str, str]) -> tuple[A
                 overwrite=args.overwrite,
                 receipt_output=Path(args.receipt) if args.receipt else None,
             )
-            return result, None, 0 if result["decision"] in {"PASS", "REVIEW"} else 3
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
         if args.boot_command == "receipt":
             fallback = args.fallback if args.fallback != "NONE" else "NONE"
             result = compiler.write_receipt(
@@ -233,10 +233,10 @@ def _run(args: argparse.Namespace, *, environment: Mapping[str, str]) -> tuple[A
                 fallback=fallback,
                 overwrite=args.overwrite,
             )
-            return result, None, 0 if result["decision"] in {"PASS", "REVIEW"} else 3
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
         if args.boot_command == "compare":
             result = compiler.compare(args.trigger)
-            return result, None, 0
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
         if args.boot_command == "q1d":
             result = compiler.q1d_orientation()
             return result, lambda value: str(value["content"]), 0

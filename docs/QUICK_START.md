@@ -87,7 +87,7 @@ Show the complete Q1-D orientation without activating a project:
 air boot q1d
 ```
 
-Unknown triggers do not silently expand authority. By default they return `REVIEW` and compile the Complete AIR Prompt Set fallback.
+Unknown triggers do not silently expand authority. By default they return `REVIEW`, compile the Complete AIR Prompt Set fallback, and use terminal exit status `4` rather than ordinary success.
 
 ## Current boundary
 

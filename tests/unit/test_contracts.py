@@ -35,6 +35,8 @@ def test_stage3_contract_builders_match_json_schemas() -> None:
         task_id=task["task_id"],
         capabilities={"inspect": True, "modify_worktree": True, "run_tests": True},
         restrictions=["no push", "no merge", "no publication"],
+        actor="USER",
+        approval_ref="conversation:stage3-contract-test",
     )
     continuation = build_continuation_packet(
         task_id=task["task_id"],
@@ -90,3 +92,32 @@ def test_task_builder_rejects_empty_acceptance_criteria() -> None:
             acceptance_criteria=[],
             active_step="design",
         )
+
+
+def test_mutating_authorization_requires_explicit_approval_provenance() -> None:
+    import pytest
+
+    from vm4ai_air.errors import BootError
+
+    with pytest.raises(BootError, match="explicit actor"):
+        build_authorization_envelope(task_id="task", capabilities={"merge": True})
+
+    with pytest.raises(BootError, match="approval_ref"):
+        build_authorization_envelope(task_id="task", capabilities={"merge": True}, actor="USER")
+
+
+def test_nonmutating_authorization_uses_neutral_unapproved_default() -> None:
+    authorization = build_authorization_envelope(task_id="task", capabilities={"inspect": True})
+    assert authorization["actor"] == "UNSPECIFIED"
+    assert authorization["approval_ref"] is None
+    assert authorization["capabilities"]["merge"] is False
+    assert validate_contract(authorization, "authorization")["decision"] == "PASS"
+
+
+def test_forged_mutating_authorization_fails_validation() -> None:
+    authorization = build_authorization_envelope(task_id="task", capabilities={"inspect": True})
+    authorization["actor"] = "USER_APPROVED"
+    authorization["capabilities"]["merge"] = True
+    result = validate_contract(authorization, "authorization")
+    assert result["decision"] == "FAIL"
+    assert any("approval_ref" in error for error in result["errors"])

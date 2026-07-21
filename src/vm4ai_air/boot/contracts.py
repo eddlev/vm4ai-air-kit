@@ -38,6 +38,7 @@ _CONTRACTS: dict[str, tuple[str, tuple[str, ...]]] = {
             "task_id",
             "issued_at_utc",
             "actor",
+            "approval_ref",
             "capabilities",
             "restrictions",
             "default_policy",
@@ -87,6 +88,19 @@ def load_contract_schema(kind: str) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise BootError(f"Installed AIR contract schema must be an object: {filename}")
     return value
+
+_MUTATING_CAPABILITIES = {
+    "modify_worktree",
+    "commit",
+    "push",
+    "open_pr",
+    "mark_ready",
+    "merge",
+    "tag",
+    "release",
+    "publish",
+    "destructive_actions",
+}
 
 _CAPABILITY_KEYS = (
     "inspect",
@@ -155,6 +169,11 @@ def validate_contract(document: Mapping[str, Any], kind: str) -> dict[str, Any]:
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{field} must be a non-empty string")
 
+    if kind == "authorization":
+        approval_ref = document.get("approval_ref")
+        if approval_ref is not None and (not isinstance(approval_ref, str) or not approval_ref.strip()):
+            errors.append("approval_ref must be null or a non-empty string")
+
     list_fields = {
         "task": ("approved_scope", "excluded_scope", "acceptance_criteria", "evidence_requirements"),
         "authorization": ("restrictions",),
@@ -186,6 +205,14 @@ def validate_contract(document: Mapping[str, Any], kind: str) -> dict[str, Any]:
             for key, value in capabilities.items():
                 if not isinstance(value, bool):
                     errors.append(f"capability {key} must be boolean")
+            mutating_allowed = any(capabilities.get(key) is True for key in _MUTATING_CAPABILITIES)
+            if mutating_allowed:
+                actor = document.get("actor")
+                approval_ref = document.get("approval_ref")
+                if not isinstance(actor, str) or not actor.strip() or actor == "UNSPECIFIED":
+                    errors.append("mutating authorization requires an explicit actor")
+                if not isinstance(approval_ref, str) or not approval_ref.strip():
+                    errors.append("mutating authorization requires approval_ref provenance")
     else:
         if not isinstance(document.get("repository_state"), Mapping):
             errors.append("repository_state must be an object")
@@ -240,7 +267,8 @@ def build_authorization_envelope(
     task_id: str,
     capabilities: Mapping[str, bool] | None = None,
     restrictions: Sequence[str] = (),
-    actor: str = "USER_APPROVED",
+    actor: str = "UNSPECIFIED",
+    approval_ref: str | None = None,
     authorization_id: str | None = None,
     issued_at_utc: str | None = None,
 ) -> dict[str, Any]:
@@ -258,13 +286,25 @@ def build_authorization_envelope(
             details={"invalid_capabilities": invalid_capabilities},
         )
     normalized = {key: supplied.get(key, False) for key in _CAPABILITY_KEYS}
+    mutating_allowed = any(normalized[key] for key in _MUTATING_CAPABILITIES)
+    if not isinstance(actor, str):
+        raise BootError("AIR authorization actor must be a string")
+    if approval_ref is not None and not isinstance(approval_ref, str):
+        raise BootError("AIR authorization approval_ref must be a string or null")
+    normalized_actor = actor.strip()
+    normalized_approval_ref = approval_ref.strip() if isinstance(approval_ref, str) else None
+    if mutating_allowed and (not normalized_actor or normalized_actor == "UNSPECIFIED"):
+        raise BootError("Mutating AIR authorization requires an explicit actor")
+    if mutating_allowed and not normalized_approval_ref:
+        raise BootError("Mutating AIR authorization requires approval_ref provenance")
     document = {
         "schema_id": "AIR_AUTHORIZATION_ENVELOPE",
         "schema_version": "1.0.0",
         "authorization_id": authorization_id or str(uuid.uuid4()),
         "task_id": task_id,
         "issued_at_utc": issued_at_utc or utc_now(),
-        "actor": actor,
+        "actor": normalized_actor or "UNSPECIFIED",
+        "approval_ref": normalized_approval_ref,
         "capabilities": normalized,
         "restrictions": _strings(restrictions, "restrictions"),
         "default_policy": "DENY_UNLESS_TRUE",

@@ -6,11 +6,12 @@ import hashlib
 import json
 import re
 from collections.abc import Mapping, Sequence
+from contextlib import ExitStack
 from pathlib import Path
 from typing import Any
 
 from vm4ai_air.errors import BootError
-from vm4ai_air.io import atomic_write_bytes, atomic_write_json, utc_now
+from vm4ai_air.io import FileLock, atomic_write_bytes, atomic_write_json, utc_now
 from vm4ai_air.paths import AppPaths
 from vm4ai_air.resources import ResourceResolver
 from vm4ai_air.resources.build import strict_json_loads
@@ -27,6 +28,47 @@ COMPLETE_PROMPT_SET = (
 )
 _SHA256 = re.compile(r"^[0-9a-f]{64}$")
 _SAFE_TRIGGER = re.compile(r"^[A-Z][A-Z0-9_]*$")
+_KERNEL_SENTINEL = "AIR_LOAD_SENTINEL :: AIR_BOOT_KERNEL :: END_OF_FILE :: LOAD_INTEGRITY_V1"
+_EXPECTED_BOOT_MODES = ("FULL_MONOLITH", "MANUAL_MODULAR", "LOCAL_BUNDLED", "HOST_ADAPTER")
+_EXPECTED_LOAD_CLASSES = (
+    "KERNEL_MANDATORY",
+    "SESSION_ENTRY",
+    "MANDATORY_WHEN_MATERIAL_EXECUTION",
+    "TASK_TRIGGERED",
+    "EVIDENCE_TRIGGERED",
+    "TOOL_OPTIONAL",
+    "DATA_OPTIONAL",
+    "MONOLITH_FALLBACK",
+)
+_EXPECTED_FALLBACK_ORDER = (
+    "REQUEST_MISSING_LOCAL_MODULE",
+    "USE_VALIDATED_LOCAL_BUNDLE",
+    "FULL_MONOLITH",
+    "EVIDENCE_REQUIRED",
+)
+_EXPECTED_MANDATORY_FLOOR = {
+    "LOAD_INTEGRITY",
+    "ACTIVE_CONTRACT",
+    "AIR_GATE",
+    "EVIDENCE_FAIL_CLOSED",
+    "SOURCE_DATA_NOT_INSTRUCTION",
+    "APPROVAL_AND_RESCOPE",
+    "AUTHENTICATION_NOT_AUTHORIZATION",
+    "DEPENDENCY_SOVEREIGNTY",
+    "MODULE_GRAPH_SAFETY",
+    "VISIBLE_FALLBACK",
+    "ALL_CREATED_FORMAL_OBJECTS_VISIBLE",
+}
+_KERNEL_REQUIRED_MARKERS = (
+    "Activate AIR Boot Kernel for this session.",
+    "SYSTEM_DESIGNATION: AIR_BOOT_KERNEL_V1",
+    "ARTIFACT_CLASS: BOOT_RUNTIME",
+    "VERSION: 1.1.0",
+    "MANDATORY KERNEL FLOOR",
+    "BOOT SEQUENCE",
+    "MODULE FAILURE AND FALLBACK",
+    "CLAIM BOUNDARY",
+)
 _Q1D_REQUIRED_HEADINGS = (
     "1. No prior AIR knowledge required",
     "2. What AIR is",
@@ -40,6 +82,54 @@ _Q1D_REQUIRED_HEADINGS = (
     "10. Optional example-project invitation",
     "11. Return to Q1",
 )
+_EXPECTED_SEMANTIC_REQUIREMENTS = {
+    "SESSION_ENTRY": {
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+        "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+        "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+    },
+    "NEW_PROJECT": {
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+    },
+    "Q1_D_ORIENTATION": {
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+    },
+    "MATERIAL_EXECUTION": {"AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"},
+    "MUTATION": {"AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"},
+    "CODING": {
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+        "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+        "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+    },
+    "REPOSITORY": {
+        "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+        "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+        "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1",
+    },
+    "HANDOFF_CONTINUATION": {
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+        "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
+    },
+    "IMPORT_NON_AIR_PROJECT": {
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+        "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+    },
+}
+_EXPECTED_SESSION_BRANCHES = {
+    "Q1_A_NEW_PROJECT": "CLOSED_BY_ENTRY_MODULES",
+    "Q1_B_IMPORT_NON_AIR_PROJECT": "CLOSED_BY_ENTRY_MODULES",
+    "Q1_C_HANDOFF_CONTINUATION": "CLOSED_BY_POLICY_AND_HANDOFF_MODULES",
+    "Q1_D_BEGINNER_ORIENTATION": "CLOSED_BY_AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+}
 
 
 def _sha256(data: bytes) -> str:
@@ -47,13 +137,19 @@ def _sha256(data: bytes) -> str:
 
 
 def _canonical_json(value: Mapping[str, Any]) -> bytes:
-    return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
+    return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode()
 
 
 def _as_string_list(value: object, field: str) -> list[str]:
     if not isinstance(value, list) or any(not isinstance(item, str) or not item for item in value):
         raise BootError(f"AIR boot field {field} must be an array of non-empty strings")
     return list(value)
+
+
+def _missing_keys(value: object, required: Sequence[str]) -> list[str]:
+    if not isinstance(value, Mapping):
+        return list(required)
+    return [key for key in required if key not in value]
 
 
 class BootCompiler:
@@ -110,9 +206,14 @@ class BootCompiler:
         checks: list[dict[str, Any]],
         *,
         label: str,
-        entry: Mapping[str, Any],
+        entry: object,
         path_field: str,
+        require_sentinel: bool = False,
+        required_markers: Sequence[str] = (),
     ) -> None:
+        if not isinstance(entry, Mapping):
+            self._check(checks, label, False, "entry must be an object")
+            return
         path = entry.get(path_field)
         digest = entry.get("sha256")
         size = entry.get("size_bytes")
@@ -126,7 +227,9 @@ class BootCompiler:
             return
         observed_digest = _sha256(data)
         observed_size = len(data)
-        passed = digest == observed_digest and size == observed_size
+        digest_valid = isinstance(digest, str) and _SHA256.fullmatch(digest) is not None
+        size_valid = isinstance(size, int) and not isinstance(size, bool) and size >= 0
+        passed = digest_valid and size_valid and digest == observed_digest and size == observed_size
         self._check(
             checks,
             label,
@@ -137,18 +240,31 @@ class BootCompiler:
             expected_size_bytes=size,
             observed_size_bytes=observed_size,
         )
+
         sentinel = entry.get("terminal_sentinel")
-        if sentinel is not None:
+        sentinel_required_and_missing = require_sentinel and (not isinstance(sentinel, str) or not sentinel.strip())
+        if sentinel_required_and_missing:
+            self._check(checks, f"{label}_SENTINEL", False, f"required terminal_sentinel missing: {path}")
+        if sentinel is not None or required_markers:
             try:
                 text = data.decode("utf-8")
             except UnicodeDecodeError:
-                self._check(checks, f"{label}_SENTINEL", False, f"not UTF-8: {path}")
-            else:
+                self._check(checks, f"{label}_TEXT_CONTRACT", False, f"not UTF-8: {path}")
+                return
+            if sentinel is not None and not sentinel_required_and_missing:
                 self._check(
                     checks,
                     f"{label}_SENTINEL",
                     isinstance(sentinel, str) and text.rstrip().endswith(sentinel),
                     path,
+                )
+            if required_markers:
+                missing = [marker for marker in required_markers if marker not in text]
+                self._check(
+                    checks,
+                    f"{label}_TEXT_CONTRACT",
+                    not missing,
+                    "complete" if not missing else f"missing: {', '.join(missing)}",
                 )
 
     def _dependency_cycle(self) -> list[str] | None:
@@ -162,9 +278,12 @@ class BootCompiler:
                 start = visiting.index(module_id)
                 return visiting[start:] + [module_id]
             visiting.append(module_id)
-            for dependency in self._modules[module_id].get("dependencies", []):
+            dependencies = self._modules[module_id].get("dependencies", [])
+            if not isinstance(dependencies, list):
+                return [module_id, "INVALID_DEPENDENCIES"]
+            for dependency in dependencies:
                 if dependency in self._modules:
-                    cycle = visit(dependency)
+                    cycle = visit(str(dependency))
                     if cycle:
                         return cycle
             visiting.pop()
@@ -177,62 +296,403 @@ class BootCompiler:
                 return cycle
         return None
 
-    def validate(self, *, module_id: str | None = None) -> dict[str, Any]:
-        checks: list[dict[str, Any]] = []
+    def _validate_manifest_contract(self, checks: list[dict[str, Any]]) -> None:
+        required = (
+            "SYSTEM_DESIGNATION",
+            "artifact_class",
+            "version",
+            "status",
+            "kernel",
+            "boot_starter",
+            "canonical_monolith",
+            "boot_modes",
+            "load_order_classes",
+            "security_policy",
+            "modules",
+            "fallback_order",
+            "unknown_trigger_behavior",
+            "partial_load_claim",
+            "semantic_closure",
+            "compile_receipt_schema",
+            "compile_receipt_template",
+            "claim_boundary",
+        )
+        missing = _missing_keys(self.manifest, required)
+        self._check(checks, "MANIFEST_STRUCTURE", not missing, "complete" if not missing else f"missing: {missing}")
         self._check(
             checks,
             "MANIFEST_IDENTITY",
             self.manifest.get("SYSTEM_DESIGNATION") == "AIR_BOOT_MODULE_MANIFEST_V1"
-            and self.manifest.get("version") == "2.0.0",
+            and self.manifest.get("artifact_class") == "MODULE_MANIFEST"
+            and self.manifest.get("version") == "2.0.0"
+            and self.manifest.get("status") == "STAGE_3_DETERMINISTIC_MODULAR_BOOT",
             f"{self.manifest.get('SYSTEM_DESIGNATION')} {self.manifest.get('version')}",
         )
+        boot_modes = self.manifest.get("boot_modes")
+        self._check(
+            checks,
+            "MANIFEST_BOOT_MODES",
+            isinstance(boot_modes, Mapping) and tuple(boot_modes) == _EXPECTED_BOOT_MODES,
+            str(list(boot_modes) if isinstance(boot_modes, Mapping) else boot_modes),
+        )
+        load_classes = self.manifest.get("load_order_classes")
+        self._check(
+            checks,
+            "MANIFEST_LOAD_CLASSES",
+            isinstance(load_classes, list) and tuple(load_classes) == _EXPECTED_LOAD_CLASSES,
+            str(load_classes),
+        )
+        self._check(
+            checks,
+            "MANIFEST_FALLBACK_POLICY",
+            tuple(self.manifest.get("fallback_order", [])) == _EXPECTED_FALLBACK_ORDER
+            and self.manifest.get("unknown_trigger_behavior") == "REVIEW_AND_FULL_MONOLITH_FALLBACK"
+            and self.manifest.get("partial_load_claim") == "MAY_NOT_CLAIM_FULL_AIR_WITHOUT_SEMANTIC_CLOSURE",
+            str(self.manifest.get("unknown_trigger_behavior")),
+        )
+        policy = self.manifest.get("security_policy")
+        expected_policy = {
+            "local_relative_paths_only": True,
+            "remote_urls_allowed": False,
+            "absolute_paths_allowed": False,
+            "parent_traversal_allowed": False,
+            "symlink_escape_allowed": False,
+            "embedded_commands_allowed": False,
+            "duplicate_ids_allowed": False,
+            "dependency_cycles_allowed": False,
+            "module_self_approval_allowed": False,
+            "module_can_relax_kernel_floor": False,
+            "authenticated_content_bypasses_injection_checks": False,
+            "module_load_is_execution_authorization": False,
+        }
+        self._check(
+            checks,
+            "MANIFEST_SECURITY_POLICY",
+            isinstance(policy, Mapping) and all(policy.get(key) is value for key, value in expected_policy.items()),
+            "fail-closed" if isinstance(policy, Mapping) else "missing",
+        )
+        canonical = self.manifest.get("canonical_monolith")
+        canonical_paths = [entry.get("file") for entry in canonical] if isinstance(canonical, list) else []
+        canonical_shape = (
+            isinstance(canonical, list)
+            and len(canonical) == len(COMPLETE_PROMPT_SET)
+            and tuple(canonical_paths) == COMPLETE_PROMPT_SET
+            and all(isinstance(entry, Mapping) for entry in canonical)
+        )
+        self._check(checks, "CANONICAL_PROMPT_SET_DECLARATION", canonical_shape, str(canonical_paths))
+
+    def _validate_starter_contract(self, checks: list[dict[str, Any]]) -> None:
+        required = (
+            "SYSTEM_DESIGNATION",
+            "PROFILE_KIND",
+            "version",
+            "status",
+            "boot_modes",
+            "default_boot_mode",
+            "canonical_recovery_mode",
+            "kernel",
+            "manifest",
+            "mandatory_floor",
+            "session_entry",
+            "dependency_policy",
+            "security",
+            "fallback_order",
+            "claim_boundary",
+            "object_visibility",
+            "repository_layout",
+            "semantic_closure",
+        )
+        missing = _missing_keys(self.starter, required)
+        self._check(checks, "STARTER_STRUCTURE", not missing, "complete" if not missing else f"missing: {missing}")
         self._check(
             checks,
             "STARTER_IDENTITY",
             self.starter.get("SYSTEM_DESIGNATION") == "AIR_BOOT_STARTER_PROFILE_V1"
-            and self.starter.get("version") == "2.0.0",
+            and self.starter.get("PROFILE_KIND") == "BOOT_PROFILE"
+            and self.starter.get("version") == "2.0.0"
+            and self.starter.get("status") == "STAGE_3_DETERMINISTIC_MODULAR_BOOT",
             f"{self.starter.get('SYSTEM_DESIGNATION')} {self.starter.get('version')}",
+        )
+        self._check(
+            checks,
+            "STARTER_BOOT_POLICY",
+            tuple(self.starter.get("boot_modes", [])) == _EXPECTED_BOOT_MODES
+            and self.starter.get("default_boot_mode") == "LOCAL_BUNDLED"
+            and self.starter.get("canonical_recovery_mode") == "FULL_MONOLITH"
+            and tuple(self.starter.get("fallback_order", [])) == _EXPECTED_FALLBACK_ORDER,
+            str(self.starter.get("default_boot_mode")),
+        )
+        mandatory = self.starter.get("mandatory_floor")
+        self._check(
+            checks,
+            "STARTER_MANDATORY_FLOOR",
+            isinstance(mandatory, list) and _EXPECTED_MANDATORY_FLOOR.issubset(set(mandatory)),
+            str(mandatory),
+        )
+        session_entry = self.starter.get("session_entry")
+        self._check(
+            checks,
+            "STARTER_SESSION_ENTRY",
+            isinstance(session_entry, Mapping)
+            and session_entry.get("required_load_classes") == ["KERNEL_MANDATORY", "SESSION_ENTRY"]
+            and session_entry.get("unknown_trigger") == "REVIEW_OR_FALLBACK_MONOLITH"
+            and session_entry.get("partial_load_claim") == "PROHIBITED",
+            str(session_entry),
+        )
+        dependency = self.starter.get("dependency_policy")
+        security = self.starter.get("security")
+        self._check(
+            checks,
+            "STARTER_LOCAL_DEPENDENCY_POLICY",
+            isinstance(dependency, Mapping)
+            and dependency.get("network_required") is False
+            and dependency.get("package_manager_required") is False
+            and dependency.get("plugin_or_skill_required") is False,
+            str(dependency),
+        )
+        self._check(
+            checks,
+            "STARTER_SECURITY_POLICY",
+            isinstance(security, Mapping)
+            and all(
+                security.get(key) is False
+                for key in (
+                    "remote_module_urls_allowed",
+                    "absolute_paths_allowed",
+                    "parent_traversal_allowed",
+                    "symlink_escape_allowed",
+                    "manifest_commands_allowed",
+                    "module_self_approval_allowed",
+                    "authenticated_content_bypasses_injection_checks",
+                    "module_load_is_execution_authorization",
+                )
+            ),
+            "fail-closed" if isinstance(security, Mapping) else "missing",
+        )
+        kernel = self.starter.get("kernel")
+        manifest_ref = self.starter.get("manifest")
+        semantic_ref = self.starter.get("semantic_closure")
+        manifest_kernel = self.manifest.get("kernel")
+        self._check(
+            checks,
+            "STARTER_KERNEL_BINDING",
+            isinstance(kernel, Mapping)
+            and isinstance(manifest_kernel, Mapping)
+            and kernel.get("file") == manifest_kernel.get("relative_path") == "runtime/boot/AIR BOOT KERNEL.md"
+            and kernel.get("designation") == manifest_kernel.get("module_id") == "AIR_BOOT_KERNEL_V1"
+            and kernel.get("version") == manifest_kernel.get("version") == "1.1.0"
+            and kernel.get("sha256") == manifest_kernel.get("sha256")
+            and kernel.get("size_bytes") == manifest_kernel.get("size_bytes"),
+            str(kernel),
+        )
+        self._check(
+            checks,
+            "STARTER_MANIFEST_BINDING",
+            isinstance(manifest_ref, Mapping)
+            and manifest_ref.get("file") == BOOT_MANIFEST_PATH
+            and manifest_ref.get("designation") == "AIR_BOOT_MODULE_MANIFEST_V1"
+            and manifest_ref.get("version") == "2.0.0",
+            str(manifest_ref),
+        )
+        self._check(
+            checks,
+            "STARTER_SEMANTIC_BINDING",
+            isinstance(semantic_ref, Mapping)
+            and semantic_ref.get("file") == SEMANTIC_CLOSURE_PATH
+            and semantic_ref.get("designation") == "AIR_BOOT_SEMANTIC_CLOSURE"
+            and semantic_ref.get("version") == "1.0.0",
+            str(semantic_ref),
+        )
+
+    def _validate_semantic_contract(self, checks: list[dict[str, Any]]) -> None:
+        required = (
+            "schema_id",
+            "schema_version",
+            "status",
+            "complete_prompt_set",
+            "required_modules",
+            "q1d",
+            "unknown_trigger_behavior",
+            "fallback_bundle_id",
+            "adapter_contract",
+            "claim_boundary",
+            "session_entry_reachable_branches",
+        )
+        missing = _missing_keys(self.semantic_closure, required)
+        self._check(
+            checks,
+            "SEMANTIC_CLOSURE_STRUCTURE",
+            not missing,
+            "complete" if not missing else f"missing: {missing}",
         )
         self._check(
             checks,
             "SEMANTIC_CLOSURE_IDENTITY",
             self.semantic_closure.get("schema_id") == "AIR_BOOT_SEMANTIC_CLOSURE"
-            and self.semantic_closure.get("schema_version") == "1.0.0",
+            and self.semantic_closure.get("schema_version") == "1.0.0"
+            and self.semantic_closure.get("status") == "STAGE_3_ACTIVE",
             f"{self.semantic_closure.get('schema_id')} {self.semantic_closure.get('schema_version')}",
         )
+        declared_complete = self.semantic_closure.get("complete_prompt_set")
+        self._check(
+            checks,
+            "COMPLETE_PROMPT_SET_INTEGRATION",
+            isinstance(declared_complete, list) and tuple(declared_complete) == COMPLETE_PROMPT_SET,
+            str(declared_complete),
+        )
+        self._check(
+            checks,
+            "UNKNOWN_TRIGGER_CONTRACT",
+            self.semantic_closure.get("unknown_trigger_behavior") == "REVIEW_AND_FULL_MONOLITH_FALLBACK"
+            and self.semantic_closure.get("fallback_bundle_id") == "COMPLETE_AIR_PROMPT_SET",
+            str(self.semantic_closure.get("unknown_trigger_behavior")),
+        )
+        q1d = self.semantic_closure.get("q1d")
+        self._check(
+            checks,
+            "Q1D_SEMANTIC_CONTRACT",
+            isinstance(q1d, Mapping)
+            and q1d.get("module_id") == Q1D_MODULE_ID
+            and q1d.get("required_section_count") == 11
+            and q1d.get("instructional_only") is True
+            and q1d.get("project_activation_allowed") is False
+            and q1d.get("example_invitation_required") is True
+            and q1d.get("example_execution_optional") is True
+            and q1d.get("reachable_from_new_project_bundle") is True,
+            str(q1d),
+        )
+        adapter = self.semantic_closure.get("adapter_contract")
+        self._check(
+            checks,
+            "ADAPTER_BOUNDARY_CONTRACT",
+            isinstance(adapter, Mapping)
+            and adapter.get("shared_service") == "vm4ai_air.boot.BootCompiler"
+            and adapter.get("cli") == "air boot"
+            and adapter.get("network_required") is False,
+            str(adapter),
+        )
+        branches = self.semantic_closure.get("session_entry_reachable_branches")
+        self._check(checks, "SESSION_ENTRY_BRANCH_CONTRACT", branches == _EXPECTED_SESSION_BRANCHES, str(branches))
 
+        declared = self.semantic_closure.get("required_modules")
+        closure_valid = isinstance(declared, Mapping)
+        missing_requirements: list[str] = []
+        if closure_valid:
+            for trigger, required_modules in declared.items():
+                if not isinstance(trigger, str) or not _SAFE_TRIGGER.fullmatch(trigger):
+                    closure_valid = False
+                    break
+                if not isinstance(required_modules, list) or any(
+                    not isinstance(module, str) or module not in self._modules for module in required_modules
+                ):
+                    closure_valid = False
+                    break
+            for trigger, expected in _EXPECTED_SEMANTIC_REQUIREMENTS.items():
+                observed = declared.get(trigger)
+                if not isinstance(observed, list) or set(observed) != expected:
+                    missing_requirements.append(trigger)
+        self._check(
+            checks,
+            "SEMANTIC_TRIGGER_CLOSURE",
+            closure_valid and not missing_requirements,
+            "complete" if closure_valid and not missing_requirements else f"missing/invalid: {missing_requirements}",
+        )
+
+    def _validate_receipt_contract_resources(self, checks: list[dict[str, Any]]) -> None:
+        try:
+            schema = self._load_json("runtime/boot/schemas/AIR BOOT COMPILE RECEIPT SCHEMA.json")
+            template = self._load_json("runtime/boot/templates/AIR BOOT COMPILE RECEIPT TEMPLATE.json")
+        except BootError as exc:
+            self._check(checks, "COMPILE_RECEIPT_CONTRACT", False, exc.message)
+            return
+        required_receipt_fields = {
+            "schema_id",
+            "schema_version",
+            "created_at_utc",
+            "package_version",
+            "resource_set_version",
+            "plan_id",
+            "boot_mode",
+            "requested_triggers",
+            "bundle_sha256",
+            "resource_count",
+            "authorization_decision",
+            "claim_boundary",
+        }
+        schema_required = schema.get("required")
+        schema_valid = (
+            schema.get("$id") == "urn:air:boot:compile-receipt:1"
+            and schema.get("type") == "object"
+            and schema.get("additionalProperties") is False
+            and isinstance(schema_required, list)
+            and set(schema_required) == required_receipt_fields
+        )
+        template_valid = (
+            template.get("schema_id") == "AIR_BOOT_COMPILE_RECEIPT"
+            and template.get("schema_version") == "1.0.0"
+            and template.get("authorization_decision") == "NOT_EVALUATED"
+        )
+        self._check(
+            checks,
+            "COMPILE_RECEIPT_CONTRACT",
+            schema_valid and template_valid,
+            "complete" if schema_valid and template_valid else "schema or template mismatch",
+        )
+
+    def validate(self, *, module_id: str | None = None) -> dict[str, Any]:
+        checks: list[dict[str, Any]] = []
+        self._validate_manifest_contract(checks)
+        self._validate_starter_contract(checks)
+        self._validate_semantic_contract(checks)
+        self._validate_receipt_contract_resources(checks)
+
+        kernel_entry = self.manifest.get("kernel")
+        self._check(
+            checks,
+            "KERNEL_DECLARATION",
+            isinstance(kernel_entry, Mapping)
+            and kernel_entry.get("module_id") == "AIR_BOOT_KERNEL_V1"
+            and kernel_entry.get("relative_path") == "runtime/boot/AIR BOOT KERNEL.md"
+            and kernel_entry.get("version") == "1.1.0"
+            and kernel_entry.get("terminal_sentinel") == _KERNEL_SENTINEL,
+            str(kernel_entry),
+        )
         self._verify_declared_resource(
             checks,
             label="KERNEL_RESOURCE",
-            entry=self.manifest.get("kernel", {}),
+            entry=kernel_entry,
             path_field="relative_path",
+            require_sentinel=True,
+            required_markers=_KERNEL_REQUIRED_MARKERS,
         )
         self._verify_declared_resource(
             checks,
             label="STARTER_RESOURCE",
-            entry=self.manifest.get("boot_starter", {}),
+            entry=self.manifest.get("boot_starter"),
             path_field="relative_path",
         )
         self._verify_declared_resource(
             checks,
             label="SEMANTIC_CLOSURE_RESOURCE",
-            entry=self.manifest.get("semantic_closure", {}),
+            entry=self.manifest.get("semantic_closure"),
             path_field="relative_path",
         )
         self._verify_declared_resource(
             checks,
             label="COMPILE_RECEIPT_SCHEMA_RESOURCE",
-            entry=self.manifest.get("compile_receipt_schema", {}),
+            entry=self.manifest.get("compile_receipt_schema"),
             path_field="relative_path",
         )
         self._verify_declared_resource(
             checks,
             label="COMPILE_RECEIPT_TEMPLATE_RESOURCE",
-            entry=self.manifest.get("compile_receipt_template", {}),
+            entry=self.manifest.get("compile_receipt_template"),
             path_field="relative_path",
         )
-        for index, entry in enumerate(self.manifest.get("canonical_monolith", [])):
-            if isinstance(entry, Mapping):
+
+        canonical = self.manifest.get("canonical_monolith")
+        if isinstance(canonical, list):
+            for index, entry in enumerate(canonical):
                 self._verify_declared_resource(
                     checks,
                     label=f"COMPLETE_PROMPT_RESOURCE_{index + 1}",
@@ -246,14 +706,44 @@ class BootCompiler:
             raise BootError(f"Unknown AIR boot module: {module_id}")
         for current_id in target_modules:
             module = self._modules[current_id]
+            relative_path = module.get("relative_path")
+            markdown_module = isinstance(relative_path, str) and relative_path.lower().endswith((".md", ".markdown"))
+            markers = (
+                f"SYSTEM_DESIGNATION: {current_id}",
+                f"ARTIFACT_CLASS: {module.get('artifact_class')}",
+            ) if markdown_module else ()
             self._verify_declared_resource(
                 checks,
                 label=f"MODULE_RESOURCE_{current_id}",
                 entry=module,
                 path_field="relative_path",
+                require_sentinel=markdown_module,
+                required_markers=markers,
             )
-            dependencies = module.get("dependencies", [])
-            conflicts = module.get("conflicts", [])
+            required_fields = (
+                "module_id",
+                "artifact_class",
+                "version",
+                "relative_path",
+                "sha256",
+                "size_bytes",
+                "load_class",
+                "triggers",
+                "purpose",
+                "dependencies",
+                "conflicts",
+                "terminal_sentinel",
+                "authoritative_source",
+            )
+            missing = _missing_keys(module, required_fields)
+            self._check(
+                checks,
+                f"MODULE_STRUCTURE_{current_id}",
+                not missing,
+                "complete" if not missing else f"missing: {missing}",
+            )
+            dependencies = module.get("dependencies")
+            conflicts = module.get("conflicts")
             valid_dependencies = isinstance(dependencies, list) and all(item in self._modules for item in dependencies)
             valid_conflicts = isinstance(conflicts, list) and all(
                 item in self._modules and item != current_id for item in conflicts
@@ -274,43 +764,10 @@ class BootCompiler:
         cycle = self._dependency_cycle()
         self._check(checks, "DEPENDENCY_GRAPH_ACYCLIC", cycle is None, "none" if cycle is None else " -> ".join(cycle))
 
-        closure_modules = self.semantic_closure.get("required_modules", {})
-        closure_valid = isinstance(closure_modules, Mapping)
-        if closure_valid:
-            for trigger, required in closure_modules.items():
-                if not isinstance(trigger, str) or not isinstance(required, list) or any(
-                    module not in self._modules for module in required
-                ):
-                    closure_valid = False
-                    break
-        self._check(checks, "SEMANTIC_TRIGGER_CLOSURE", closure_valid, "required_modules")
-        session_floor = {
-            "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
-            "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
-            "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
-            "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
-            "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1",
-        }
-        declared_session = (
-            set(closure_modules.get("SESSION_ENTRY", []))
-            if isinstance(closure_modules, Mapping)
-            else set()
-        )
-        self._check(
-            checks,
-            "SESSION_ENTRY_Q1_BRANCH_CLOSURE",
-            session_floor.issubset(declared_session),
-            ", ".join(sorted(declared_session)),
-        )
-
-        declared_complete = self.semantic_closure.get("complete_prompt_set")
-        complete_valid = isinstance(declared_complete, list) and tuple(declared_complete) == COMPLETE_PROMPT_SET
-        self._check(checks, "COMPLETE_PROMPT_SET_INTEGRATION", complete_valid, str(declared_complete))
-
         q1d = self._modules.get(Q1D_MODULE_ID)
         q1d_valid = q1d is not None
         q1d_missing: list[str] = []
-        if q1d:
+        if q1d and isinstance(q1d.get("relative_path"), str):
             q1d_text = self.resolver.read_text(str(q1d["relative_path"]))
             q1d_missing = [heading for heading in _Q1D_REQUIRED_HEADINGS if heading not in q1d_text]
             q1d_valid = not q1d_missing and "Do not activate a project" in q1d_text
@@ -330,15 +787,18 @@ class BootCompiler:
             "checks": checks,
             "failed_count": len(failed),
             "claim_boundary": (
-                "Validation proves observed resource integrity, dependency closure, and declared semantic contracts. "
-                "It does not prove model-equivalent behavior, execution authorization, or project correctness."
+                "Validation proves observed resource integrity, required document structure, dependency closure, and "
+                "declared semantic contracts. It does not prove model-equivalent behavior, execution authorization, "
+                "or project correctness."
             ),
         }
 
     def _known_triggers(self) -> set[str]:
         result = {"SESSION_ENTRY", "Q1_D_ORIENTATION"}
         for module in self._modules.values():
-            result.update(module.get("triggers", []))
+            triggers = module.get("triggers", [])
+            if isinstance(triggers, list):
+                result.update(str(trigger) for trigger in triggers)
         return result
 
     def _semantic_requirements(self, triggers: set[str]) -> set[str]:
@@ -355,11 +815,11 @@ class BootCompiler:
         def add(module_id: str) -> None:
             if module_id not in self._modules:
                 raise BootError(f"Semantic closure references unknown module: {module_id}")
-            if module_id in selected:
-                dependencies = self._modules[module_id].get("dependencies", [])
-            else:
+            if module_id not in selected:
                 selected.add(module_id)
-                dependencies = self._modules[module_id].get("dependencies", [])
+            dependencies = self._modules[module_id].get("dependencies", [])
+            if not isinstance(dependencies, list):
+                raise BootError(f"AIR boot module dependencies must be an array: {module_id}")
             for dependency in dependencies:
                 add(str(dependency))
 
@@ -376,7 +836,10 @@ class BootCompiler:
         def emit(module_id: str) -> None:
             if module_id in emitted:
                 return
-            for dependency in self._modules[module_id].get("dependencies", []):
+            dependencies = self._modules[module_id].get("dependencies", [])
+            if not isinstance(dependencies, list):
+                raise BootError(f"AIR boot module dependencies must be an array: {module_id}")
+            for dependency in dependencies:
                 emit(str(dependency))
             emitted.add(module_id)
             result.append(module_id)
@@ -392,6 +855,13 @@ class BootCompiler:
             emit(module_id)
         return result
 
+    def _resource_identity(self) -> dict[str, str]:
+        return {
+            "package_version": __version__,
+            "resource_set_version": self.resolver.resource_set_version,
+            "source_tree_digest": self.resolver.source_tree_digest,
+        }
+
     def plan(
         self,
         triggers: Sequence[str] = (),
@@ -404,11 +874,16 @@ class BootCompiler:
         normalized = {trigger.strip().upper() for trigger in triggers if trigger.strip()}
         if not normalized:
             normalized = {"SESSION_ENTRY"}
+        unsafe = sorted(trigger for trigger in normalized if not _SAFE_TRIGGER.fullmatch(trigger))
+        if unsafe:
+            raise BootError("Unsafe AIR boot trigger", details={"unsafe_triggers": unsafe})
         unknown = sorted(normalized - self._known_triggers())
+        identity = self._resource_identity()
         if unknown:
             if fallback != "FULL_MONOLITH":
                 raise BootError("Unknown AIR boot trigger", details={"unknown_triggers": unknown})
             plan_basis = {
+                **identity,
                 "boot_mode": "FULL_MONOLITH",
                 "requested_triggers": sorted(normalized),
                 "unknown_triggers": unknown,
@@ -427,25 +902,29 @@ class BootCompiler:
         selected = {
             module_id
             for module_id, module in self._modules.items()
-            if module.get("load_class") == "SESSION_ENTRY" or normalized.intersection(module.get("triggers", []))
+            if module.get("load_class") == "SESSION_ENTRY"
+            or (isinstance(module.get("triggers"), list) and normalized.intersection(module.get("triggers", [])))
         }
         selected.update(self._semantic_requirements(normalized))
         selected = self._dependency_closure(selected)
         conflicts: list[tuple[str, str]] = []
         for module_id in selected:
-            for conflict in self._modules[module_id].get("conflicts", []):
+            module_conflicts = self._modules[module_id].get("conflicts", [])
+            if not isinstance(module_conflicts, list):
+                raise BootError(f"AIR boot module conflicts must be an array: {module_id}")
+            for conflict in module_conflicts:
                 if conflict in selected:
                     conflicts.append((module_id, str(conflict)))
         if conflicts:
             raise BootError("AIR boot plan contains conflicting modules", details={"conflicts": conflicts})
         planned = self._ordered_modules(selected)
         plan_basis = {
+            **identity,
             "boot_mode": "LOCAL_BUNDLED",
             "requested_triggers": sorted(normalized),
             "planned_modules": planned,
             "fallback_state": "NOT_REQUIRED",
             "manifest_version": self.manifest.get("version"),
-            "resource_set_version": self.resolver.resource_set_version,
         }
         return {
             "decision": "PASS",
@@ -456,9 +935,20 @@ class BootCompiler:
             "next_action": "Review the plan, then compile or supply it to the selected host.",
         }
 
-    def _resource_record(self, path: str) -> dict[str, Any]:
+    def _resource_record(self, path: str) -> tuple[dict[str, Any], bytes]:
         data = self.resolver.read_bytes(path)
-        return {"relative_path": path, "sha256": _sha256(data), "size_bytes": len(data)}
+        return {"relative_path": path, "sha256": _sha256(data), "size_bytes": len(data)}, data
+
+    @staticmethod
+    def _resource_frame(record: Mapping[str, Any], data: bytes) -> bytes:
+        frame_metadata = {
+            "relative_path": record["relative_path"],
+            "sha256": record["sha256"],
+            "size_bytes": record["size_bytes"],
+        }
+        header = b"<!-- AIR_RESOURCE_BEGIN " + _canonical_json(frame_metadata).rstrip(b"\n") + b" -->\n"
+        footer = f"\n<!-- AIR_RESOURCE_END {record['relative_path']} -->\n".encode()
+        return header + data + footer
 
     def compile(self, triggers: Sequence[str] = (), *, fallback: str = "FULL_MONOLITH") -> dict[str, Any]:
         plan = self.plan(triggers, fallback=fallback)
@@ -472,7 +962,8 @@ class BootCompiler:
                 SEMANTIC_CLOSURE_PATH,
             ] + [str(self._modules[module_id]["relative_path"]) for module_id in plan["planned_modules"]]
         deduped = list(dict.fromkeys(paths))
-        records = [self._resource_record(path) for path in deduped]
+        resources = [self._resource_record(path) for path in deduped]
+        records = [record for record, _data in resources]
         bundle_manifest = {
             "schema_id": "AIR_DETERMINISTIC_BOOT_BUNDLE",
             "schema_version": "1.0.0",
@@ -484,31 +975,26 @@ class BootCompiler:
             "plan_id": plan["plan_id"],
             "authorization_decision": "NOT_EVALUATED",
             "fallback_state": plan["fallback_state"],
+            "framing": {
+                "format": "AIR_RESOURCE_LENGTH_FRAMED_V1",
+                "size_field": "size_bytes",
+                "digest_scope": "exact_resource_bytes",
+            },
             "resources": records,
             "claim_boundary": (
                 "This deterministic bundle records exact selected bytes. Loading it is not execution authorization, "
                 "proof of model-equivalent behavior, or permission for mutating actions."
             ),
         }
-        parts = [
-            "# AIR Deterministic Boot Bundle",
-            "",
-            "```json",
-            json.dumps(bundle_manifest, ensure_ascii=False, indent=2, sort_keys=True),
-            "```",
-            "",
-        ]
-        for path in deduped:
-            text = self.resolver.read_text(path).rstrip()
-            parts.extend(
-                [
-                    f"<!-- AIR_RESOURCE_BEGIN {path} -->",
-                    text,
-                    f"<!-- AIR_RESOURCE_END {path} -->",
-                    "",
-                ]
-            )
-        data = ("\n".join(parts).rstrip() + "\n").encode("utf-8")
+        header = (
+            "# AIR Deterministic Boot Bundle\n\n"
+            "The resource frames below are length-delimited. The first `size_bytes` bytes after each frame header are "
+            "the exact resource bytes covered by that frame's SHA-256 digest.\n\n"
+            "```json\n"
+            f"{json.dumps(bundle_manifest, ensure_ascii=False, indent=2, sort_keys=True)}\n"
+            "```\n\n"
+        ).encode()
+        data = header + b"".join(self._resource_frame(record, resource_data) for record, resource_data in resources)
         return {
             "decision": "PASS" if plan["decision"] == "PASS" else "REVIEW",
             "plan": plan,
@@ -575,6 +1061,32 @@ class BootCompiler:
         else:
             path.unlink(missing_ok=True)
 
+    @staticmethod
+    def _lock_path(path: Path) -> Path:
+        resolved = path.expanduser().resolve()
+        return resolved.parent / f".{resolved.name}.air-boot.lock"
+
+    def _target_locks(self, *targets: Path | None) -> ExitStack:
+        stack = ExitStack()
+        lock_paths = sorted({self._lock_path(path) for path in targets if path is not None}, key=str)
+        try:
+            for lock_path in lock_paths:
+                stack.enter_context(FileLock(lock_path, timeout=30.0, stale_after=300.0))
+        except Exception:
+            stack.close()
+            raise
+        return stack
+
+    @staticmethod
+    def _verify_written_pair(output: Path, expected_digest: str, receipt_output: Path | None) -> None:
+        observed = _sha256(output.read_bytes())
+        if observed != expected_digest:
+            raise OSError(f"bundle digest mismatch after write: expected {expected_digest}, observed {observed}")
+        if receipt_output is not None:
+            receipt = strict_json_loads(receipt_output.read_text(encoding="utf-8"), source=str(receipt_output))
+            if not isinstance(receipt, Mapping) or receipt.get("bundle_sha256") != expected_digest:
+                raise OSError("receipt does not reference the written bundle digest")
+
     def write_bundle(
         self,
         output: Path,
@@ -589,36 +1101,39 @@ class BootCompiler:
             self._ensure_output_safe(receipt_output)
             if output.expanduser().resolve() == receipt_output.expanduser().resolve():
                 raise BootError("AIR boot bundle and receipt outputs must be different files")
-        if output.exists() and not overwrite:
-            raise BootError(f"AIR boot output already exists: {output}")
-        if receipt_output and receipt_output.exists() and not overwrite:
-            raise BootError(f"AIR boot receipt output already exists: {receipt_output}")
 
-        output_snapshot = self._snapshot_file(output)
-        receipt_snapshot = self._snapshot_file(receipt_output) if receipt_output else None
-        compiled = self.compile(triggers, fallback=fallback)
-        receipt = self.receipt(compiled)
-        try:
-            atomic_write_bytes(output, compiled["bundle_bytes"])
-            if receipt_output:
-                atomic_write_json(receipt_output, receipt)
-        except Exception as exc:
-            rollback_errors: list[str] = []
+        with self._target_locks(output, receipt_output):
+            if output.exists() and not overwrite:
+                raise BootError(f"AIR boot output already exists: {output}")
+            if receipt_output and receipt_output.exists() and not overwrite:
+                raise BootError(f"AIR boot receipt output already exists: {receipt_output}")
+
+            output_snapshot = self._snapshot_file(output)
+            receipt_snapshot = self._snapshot_file(receipt_output) if receipt_output else None
+            compiled = self.compile(triggers, fallback=fallback)
+            receipt = self.receipt(compiled)
             try:
-                self._restore_file(output, output_snapshot)
-            except OSError as rollback_exc:
-                rollback_errors.append(f"bundle output: {rollback_exc}")
-            if receipt_output and receipt_snapshot is not None:
+                atomic_write_bytes(output, compiled["bundle_bytes"])
+                if receipt_output:
+                    atomic_write_json(receipt_output, receipt)
+                self._verify_written_pair(output, compiled["bundle_sha256"], receipt_output)
+            except Exception as exc:
+                rollback_errors: list[str] = []
                 try:
-                    self._restore_file(receipt_output, receipt_snapshot)
+                    self._restore_file(output, output_snapshot)
                 except OSError as rollback_exc:
-                    rollback_errors.append(f"receipt output: {rollback_exc}")
-            message = "AIR boot bundle write failed"
-            message += "; rollback was incomplete" if rollback_errors else " and was rolled back"
-            raise BootError(
-                message,
-                details={"cause": str(exc), "rollback_errors": rollback_errors},
-            ) from exc
+                    rollback_errors.append(f"bundle output: {rollback_exc}")
+                if receipt_output and receipt_snapshot is not None:
+                    try:
+                        self._restore_file(receipt_output, receipt_snapshot)
+                    except OSError as rollback_exc:
+                        rollback_errors.append(f"receipt output: {rollback_exc}")
+                message = "AIR boot bundle write failed"
+                message += "; rollback was incomplete" if rollback_errors else " and was rolled back"
+                raise BootError(
+                    message,
+                    details={"cause": str(exc), "rollback_errors": rollback_errors},
+                ) from exc
         return {
             "decision": compiled["decision"],
             "output": str(output),
@@ -637,11 +1152,26 @@ class BootCompiler:
         overwrite: bool = False,
     ) -> dict[str, Any]:
         self._ensure_output_safe(output)
-        if output.exists() and not overwrite:
-            raise BootError(f"AIR boot receipt output already exists: {output}")
-        compiled = self.compile(triggers, fallback=fallback)
-        receipt = self.receipt(compiled)
-        atomic_write_json(output, receipt)
+        with self._target_locks(output):
+            if output.exists() and not overwrite:
+                raise BootError(f"AIR boot receipt output already exists: {output}")
+            snapshot = self._snapshot_file(output)
+            compiled = self.compile(triggers, fallback=fallback)
+            receipt = self.receipt(compiled)
+            try:
+                atomic_write_json(output, receipt)
+                observed = strict_json_loads(output.read_text(encoding="utf-8"), source=str(output))
+                if not isinstance(observed, Mapping) or observed.get("bundle_sha256") != compiled["bundle_sha256"]:
+                    raise OSError("written receipt failed post-write verification")
+            except Exception as exc:
+                rollback_errors: list[str] = []
+                try:
+                    self._restore_file(output, snapshot)
+                except OSError as rollback_exc:
+                    rollback_errors.append(str(rollback_exc))
+                message = "AIR boot receipt write failed"
+                message += "; rollback was incomplete" if rollback_errors else " and was rolled back"
+                raise BootError(message, details={"cause": str(exc), "rollback_errors": rollback_errors}) from exc
         return {"decision": compiled["decision"], "output": str(output), "receipt": receipt}
 
     def compare(self, triggers: Sequence[str] = ()) -> dict[str, Any]:
@@ -679,6 +1209,7 @@ class BootCompiler:
             "package_version": __version__,
             "resource_origin": self.resolver.origin,
             "resource_set_version": self.resolver.resource_set_version,
+            "source_tree_digest": self.resolver.source_tree_digest,
             "manifest_version": self.manifest.get("version"),
             "semantic_closure_version": self.semantic_closure.get("schema_version"),
             "module_count": len(self._modules),

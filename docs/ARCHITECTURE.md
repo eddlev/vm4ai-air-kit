@@ -34,7 +34,7 @@ All consumers must use shared resource, configuration, path, I/O, and workspace 
 
 ### 2.5. Deterministic boot and adapter contracts
 
-Stage 3 adds one shared `BootCompiler` service used by the terminal command and the repository-relative compatibility adapter. It validates the installed boot graph, applies declared semantic trigger closure, compiles deterministic bundles, and falls back visibly to the Complete AIR Prompt Set for unknown triggers.
+Stage 3 adds one shared `BootCompiler` service used by the terminal command and the repository-relative compatibility adapter. It validates required boot-document structure as well as byte identity, applies declared semantic trigger closure, compiles exact-byte length-framed deterministic bundles under shared output locks, and falls back visibly to the Complete AIR Prompt Set for unknown triggers.
 
 The task packet, authorization envelope, and continuation packet schemas are transport-neutral contracts for future local MCP and coding-tool adapters. They do not grant capabilities, execute tools, or replace AIR_GATE and explicit approval.
 
