@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0.dev0 - Stage 3 deterministic modular boot
+
+- Added installed-resource-backed boot validation, dependency planning, deterministic bundle compilation, and separate compile receipts.
+- Added an explicit semantic-closure contract and Complete AIR Prompt Set fallback for unknown triggers.
+- Added the complete 11-section Q1-D beginner orientation as a dedicated dependency-closed module.
+- Added transport-neutral task, authorization, and continuation contracts for future local MCP and coding-tool adapters.
+- Replaced the repository-relative boot implementation with a compatibility adapter to the shared service.
+- Kept handoff signing, policy execution, MCP hosting, plugins, release, and publication separately gated.
+
 ## Unreleased — v0.4.0 development line
 
 ### Added
@@ -31,7 +40,7 @@
 
 ### Deferred by approved project stage
 
-- Modular boot migration and semantic-completeness repair, including the updated Q1-D beginner orientation, are assigned to Stage 3.
+- Deterministic modular boot and complete Q1-D orientation closure are implemented in the 0.5.0 development line.
 - Handoff and signature migration are assigned to Stage 4.
 - Policy and remaining local-function migration are assigned to Stage 5.
 - PyPI publishing, Trusted Publisher configuration, merge, tag, and release creation remain separately blocked.

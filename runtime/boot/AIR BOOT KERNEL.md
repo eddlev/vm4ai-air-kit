@@ -9,13 +9,14 @@ AIR BOOT KERNEL IDENTITY
 ==================================================
 SYSTEM_DESIGNATION: AIR_BOOT_KERNEL_V1
 ARTIFACT_CLASS: BOOT_RUNTIME
-VERSION: 1.0.0
+VERSION: 1.1.0
 PATCH_MARKER: AIR_PORTABILITY_AND_DEPENDENCY_SOVEREIGNTY_V1
+PATCH_MARKER: AIR_STAGE3_DETERMINISTIC_BOOT_COMPILER_V1
 
 Supported boot modes:
 - FULL_MONOLITH: load the complete Runtime, Control Surface, and Default Starter.
 - MANUAL_MODULAR: manually supply Kernel, Manifest, Boot Starter, and selected modules.
-- LOCAL_BUNDLED: use the optional local standard-library air-boot tool to validate and bundle.
+- LOCAL_BUNDLED: use the installed local `air boot` service to validate, plan, and compile deterministic bundles.
 - HOST_ADAPTER: reserved interface only; no host adapter is canonical in WS7.
 
 The full monolith is never removed, demoted, or treated as obsolete. When modular evidence
@@ -98,14 +99,14 @@ BOOT SEQUENCE
 ==================================================
 1. Identify the selected AIR root and boot mode.
 2. Load this kernel and verify its terminal sentinel.
-3. Parse AIR BOOT MODULE MANIFEST.json with duplicate-key rejection.
+3. Resolve AIR BOOT MODULE MANIFEST.json through the shared installed-resource resolver and parse it with duplicate-key rejection.
 4. Check kernel/manifest compatibility and local relative-path safety.
 5. Load AIR BOOT STARTER PROFILE.json.
 6. Evaluate session-entry route and active task triggers.
 7. Resolve dependency closure and conflicts.
-8. Select the smallest sufficient module set.
+8. Apply the declared semantic-closure contract and select the smallest dependency-closed sufficient module set.
 9. Load modules in deterministic order and record their observed verification states.
-10. Emit a module-load receipt or clearly state that no tool-backed receipt exists.
+10. Emit a deterministic bundle manifest and, when requested, a separate local compile receipt.
 11. Continue under the active contract and AIR_GATE.
 
 Manual modular mode does not require Python or any package manager. The user may attach the files

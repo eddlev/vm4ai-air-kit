@@ -139,3 +139,20 @@ Every material delivery should separate:
 - unverified;
 - deliberately deferred;
 - blocked by environment or approval.
+
+## Deterministic boot
+
+Validate the installed boot graph and semantic closure:
+
+```bash
+air boot validate
+```
+
+Plan and compile a task-specific bundle:
+
+```bash
+air boot plan --trigger CODING --trigger REPOSITORY
+air boot compile --trigger CODING --trigger REPOSITORY --output air-coding-bundle.md --receipt air-coding-bundle.receipt.json
+```
+
+Use `air boot q1d` to inspect the complete beginner orientation. The command does not activate a project. Unknown triggers return `REVIEW` and use the Complete AIR Prompt Set fallback unless fallback is explicitly disabled.

@@ -2,24 +2,24 @@
   "title": "AIR Boot Module Manifest",
   "SYSTEM_DESIGNATION": "AIR_BOOT_MODULE_MANIFEST_V1",
   "artifact_class": "MODULE_MANIFEST",
-  "version": "1.1.0",
-  "status": "V0_3_0_FUNCTION_ORIENTED_STRUCTURE_RELEASE_CANDIDATE",
-  "created_at_utc": "2026-07-20T21:30:18Z",
+  "version": "2.0.0",
+  "status": "STAGE_3_DETERMINISTIC_MODULAR_BOOT",
+  "created_at_utc": "2026-07-21T00:00:00Z",
   "framework_id": "AIR_UNIVERSAL_ARTIFACT_BUILD_ASSURANCE_PORTABILITY_PATCH_V1",
   "kernel": {
     "module_id": "AIR_BOOT_KERNEL_V1",
     "relative_path": "runtime/boot/AIR BOOT KERNEL.md",
-    "version": "1.0.0",
-    "sha256": "bbb680eaaa0a2e6a1135ed5c49627232480005338e5937a7ac0751dd618f660c",
-    "size_bytes": 7273,
+    "version": "1.1.0",
+    "sha256": "30a204fa676e8e298a5d33f3fadb92114f51bc763fd79f0cf40cd9c58cef0ad5",
+    "size_bytes": 7489,
     "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_BOOT_KERNEL :: END_OF_FILE :: LOAD_INTEGRITY_V1"
   },
   "boot_starter": {
     "module_id": "AIR_BOOT_STARTER_PROFILE_V1",
     "relative_path": "runtime/boot/AIR BOOT STARTER PROFILE.json",
-    "version": "1.1.0",
-    "sha256": "42edaad4263cd9e20e27ec5265e36bba9f694dd515b1479986d6dc108f78d117",
-    "size_bytes": 3270
+    "version": "2.0.0",
+    "sha256": "f4815fafb755fdbd2ba72d6750f964486f4f9afc7567daef99d4c5ef8cd1a59f",
+    "size_bytes": 3457
   },
   "canonical_monolith": [
     {
@@ -79,8 +79,8 @@
     "authenticated_content_bypasses_injection_checks": false,
     "module_load_is_execution_authorization": false
   },
-  "unknown_trigger_behavior": "REVIEW_AND_REQUEST_MODULE_OR_FALLBACK_MONOLITH",
-  "partial_load_claim": "MAY_NOT_CLAIM_FULL_AIR",
+  "unknown_trigger_behavior": "REVIEW_AND_FULL_MONOLITH_FALLBACK",
+  "partial_load_claim": "MAY_NOT_CLAIM_FULL_AIR_WITHOUT_SEMANTIC_CLOSURE",
   "modules": [
     {
       "module_id": "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
@@ -332,6 +332,26 @@
       ],
       "conflicts": [],
       "authoritative_source": "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+    },
+    {
+      "module_id": "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+      "artifact_class": "CONTROL_MODULE",
+      "version": "1.0.0",
+      "relative_path": "runtime/modules/control/AIR CONTROL MODULE - Q1-D BEGINNER ORIENTATION.md",
+      "sha256": "e0e155e926c810f739007c3e7b664620920d283d3de0f8a4da89f23e590a0a9c",
+      "size_bytes": 6102,
+      "load_class": "TASK_TRIGGERED",
+      "triggers": [
+        "Q1_D_ORIENTATION"
+      ],
+      "purpose": "Complete plain-language Q1-D beginner orientation, optional example invitation, and return-to-Q1 boundary.",
+      "terminal_sentinel": "AIR_LOAD_SENTINEL :: AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1 :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+      "dependencies": [
+        "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+        "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1"
+      ],
+      "conflicts": [],
+      "authoritative_source": "STAGE_3_AUTHORED_SEMANTIC_CLOSURE"
     },
     {
       "module_id": "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1",
@@ -643,7 +663,7 @@
     "FULL_MONOLITH",
     "EVIDENCE_REQUIRED"
   ],
-  "claim_boundary": "Manifest declaration is not load or digest-execution evidence. Cross-host behavior requires named testing.",
+  "claim_boundary": "Declares deterministic installed-resource module planning and semantic closure. Loading modules is not execution authorization, model-equivalence proof, or publication approval.",
   "patch_markers": [
     "AIR_ALL_CREATED_OBJECTS_VISIBLE_V1"
   ],
@@ -655,5 +675,29 @@
     "runtime_grouping": "runtime/<function>/",
     "runtime_root_file_policy": "README_AND_DIRECTORY_MANIFEST_ONLY",
     "duplicate_prompt_or_specialist_payloads_in_runtime": false
+  },
+  "semantic_closure": {
+    "module_id": "AIR_BOOT_SEMANTIC_CLOSURE_V1",
+    "relative_path": "runtime/boot/AIR BOOT SEMANTIC CLOSURE.json",
+    "version": "1.0.0",
+    "sha256": "9551035c84918f0094d13e5038fb190eba04888a2711f3f113186c93dbebeb65",
+    "size_bytes": 3103
+  },
+  "stage_3_contracts": {
+    "task_packet_schema": "src/vm4ai_air/schemas/air-task-packet.schema.json",
+    "authorization_envelope_schema": "src/vm4ai_air/schemas/air-authorization-envelope.schema.json",
+    "continuation_packet_schema": "src/vm4ai_air/schemas/air-continuation-packet.schema.json"
+  },
+  "compile_receipt_schema": {
+    "schema_id": "AIR_BOOT_COMPILE_RECEIPT_SCHEMA_V1",
+    "relative_path": "runtime/boot/schemas/AIR BOOT COMPILE RECEIPT SCHEMA.json",
+    "sha256": "4118c4cc37400348c31539eebda8ae74be05e334307acac52f1e6af8cd553ca5",
+    "size_bytes": 1245
+  },
+  "compile_receipt_template": {
+    "schema_id": "AIR_BOOT_COMPILE_RECEIPT_TEMPLATE_V1",
+    "relative_path": "runtime/boot/templates/AIR BOOT COMPILE RECEIPT TEMPLATE.json",
+    "sha256": "c519afa267a1ed0eee354fc4d5ae355d1a1a0f3655338b5ce59cf7bcae759292",
+    "size_bytes": 557
   }
 }

@@ -74,4 +74,4 @@ Source tests passing without a built wheel do not satisfy installed-distribution
 
 ## A later-stage command is missing
 
-Bundle, handoff, policy, upgrade, rollback, and publishing commands are intentionally not implemented in Stage 2. Consult the project execution map rather than treating their architecture as shipped behaviour.
+`air boot` bundle commands are implemented in Stage 3. Handoff signing, policy, upgrade, rollback, MCP/plugin adapters, and publishing commands remain intentionally unimplemented. Consult the project execution map rather than treating reserved architecture as shipped behaviour.

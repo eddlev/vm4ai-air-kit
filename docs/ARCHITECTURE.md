@@ -32,6 +32,12 @@ air
 
 All consumers must use shared resource, configuration, path, I/O, and workspace interfaces. They must not derive a repository root from the current working directory or script location.
 
+### 2.5. Deterministic boot and adapter contracts
+
+Stage 3 adds one shared `BootCompiler` service used by the terminal command and the repository-relative compatibility adapter. It validates the installed boot graph, applies declared semantic trigger closure, compiles deterministic bundles, and falls back visibly to the Complete AIR Prompt Set for unknown triggers.
+
+The task packet, authorization envelope, and continuation packet schemas are transport-neutral contracts for future local MCP and coding-tool adapters. They do not grant capabilities, execute tools, or replace AIR_GATE and explicit approval.
+
 ### 3. Installed canonical resource set
 
 `src/vm4ai_air/version.py` is the single package-version source. Hatchling reads that file for distribution metadata, and the build hook uses the same value in generated resource metadata.

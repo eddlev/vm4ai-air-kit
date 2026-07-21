@@ -8,7 +8,8 @@
 | Source and integration tests | Development only | Pytest | None for test evidence |
 | Installed-resource resolver | Baseline | Python standard library plus packaged AIR resources | Explicit `AIR_RESOURCE_ROOT` for development only |
 | Project workspace manager | Baseline | Python standard library, `platformdirs` | None for installed project isolation |
-| Legacy modular boot tool | Temporary compatibility | Python standard library and repository tree | Complete AIR Prompt Set |
+| Deterministic boot compiler | Installed local application | Python 3.11+ and packaged AIR resources | Complete AIR Prompt Set |
+| Legacy `air-boot.py` adapter | Compatibility only | Same installed Python services plus explicit source override | `air boot` commands |
 | Handoff signer/verifier | Stage 4 migration | `rfc8785`, `cryptography` | Structural unauthenticated inspection |
 | OPA adapter | Stage 5 migration | operator-controlled OPA binary | Prompt-simulated policy posture with limitation |
 | Source adapters | Optional | referenced datasets and licence/access conditions | user-supplied or source-light evidence route |

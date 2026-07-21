@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
 [![Framework](https://img.shields.io/badge/framework-prompt--native-9A8F80?labelColor=1A1613)](https://vm4ai.com)
-[![Development](https://img.shields.io/badge/development-v0.4.0.dev0-FF5A1F?labelColor=1A1613)](CHANGELOG.md)
+[![Development](https://img.shields.io/badge/development-v0.5.0.dev0-FF5A1F?labelColor=1A1613)](CHANGELOG.md)
 
 **Structure for AI work. Configure. Organize. Execute.**
 
@@ -16,7 +16,7 @@ AIR remains cooperative rather than autonomous. The user controls intent, source
 
 The repository is moving from repository-relative local scripts to an installable application.
 
-The current v0.4.0 development substrate provides:
+The current v0.5.0 development line provides:
 
 - a `vm4ai-air` Python distribution;
 - one installed `air` terminal command;
@@ -25,12 +25,13 @@ The current v0.4.0 development substrate provides:
 - platform-aware application paths and configuration;
 - a separate registered workspace for every AIR project;
 - installation diagnostics and version reporting;
-- source, integration, and installed-wheel tests.
+- source, integration, and installed-distribution tests;
+- deterministic installed-resource boot validation, planning, and compilation;
+- complete Q1-D beginner-orientation closure;
+- reusable task, authorization, and continuation contracts for future local adapters.
 
 The following remain intentionally assigned to later project stages:
 
-- modular boot migration and semantic-completeness repair;
-- the updated Q1-D beginner orientation;
 - handoff and signing migration;
 - policy and remaining local-tool migration;
 - PyPI publication and release approval.
@@ -64,7 +65,7 @@ Public PyPI installation is not enabled yet. Build and install the current devel
 ```bash
 python -m pip install --upgrade build
 python -m build
-pipx install dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
+pipx install dist/vm4ai_air-0.5.0.dev0-py3-none-any.whl
 ```
 
 Check the installation:
@@ -82,11 +83,18 @@ Create an isolated project workspace:
 air project init "My AIR Project" --use
 air project show
 air project validate
+
+air boot validate
+air boot plan --trigger NEW_PROJECT
+air boot plan --trigger Q1_D_ORIENTATION
+air boot compile --trigger CODING --trigger REPOSITORY --output air-bundle.md
+air boot q1d
+air boot status
 ```
 
 These are **terminal commands**. Prompt-side commands typed inside an AIR conversation, such as `air status` or `air gate`, are a separate interface.
 
-## Installed command surface in Stage 2
+## Installed command surface through Stage 3
 
 ```text
 air --version
@@ -108,9 +116,16 @@ air project list
 air project show
 air project use
 air project validate
+
+air boot validate
+air boot plan --trigger NEW_PROJECT
+air boot plan --trigger Q1_D_ORIENTATION
+air boot compile --trigger CODING --trigger REPOSITORY --output air-bundle.md
+air boot q1d
+air boot status
 ```
 
-Bundle, handoff, policy, upgrade, rollback, and release commands are reserved for their approved migration stages and must not be represented as implemented yet.
+Handoff signing, policy execution, upgrade, rollback, release, publication, MCP hosting, and coding-tool plugins remain separately gated. `air boot` compiles prompt bundles; it does not authorize the host to execute tools.
 
 ## Repository layout
 
@@ -142,6 +157,9 @@ The top-level canonical resource directories remain the authoring source. The bu
 - [Installed Runtime Architecture](docs/INSTALLED_RUNTIME_ARCHITECTURE.md)
 - [Operator Guide](docs/OPERATOR_GUIDE.md)
 - [Development and Testing](docs/DEVELOPMENT.md)
+- [Stage 3 Local Validation](docs/validation/STAGE_3_LOCAL_VALIDATION.md)
+- [Local Adapter Boundary](docs/integrations/LOCAL_ADAPTER_BOUNDARY.md)
+- [AI Agent Incident Case Study Plan](docs/research/AI_AGENT_INCIDENT_CASE_STUDY_PLAN.md)
 - [Installation Matrix](docs/INSTALLATION_MATRIX.md)
 - [Configuration](docs/CONFIGURATION.md)
 - [Project Workspaces](docs/PROJECT_WORKSPACES.md)

@@ -36,7 +36,7 @@ def payload(result: subprocess.CompletedProcess[str]) -> object:
 def test_cli_operates_outside_repository(tmp_path: Path) -> None:
     version = run_air(tmp_path, "--version")
     assert version.returncode == 0
-    assert payload(version)["package_version"] == "0.4.0.dev0"
+    assert payload(version)["package_version"] == "0.5.0.dev0"
 
     created = run_air(tmp_path, "project", "init", "CLI Project", "--use", cwd=tmp_path)
     assert created.returncode == 0, created.stderr
@@ -54,6 +54,30 @@ def test_cli_operates_outside_repository(tmp_path: Path) -> None:
     resources = run_air(tmp_path, "resources", "verify", cwd=tmp_path)
     assert resources.returncode == 0
     assert payload(resources)["decision"] == "PASS"
+
+    boot = run_air(tmp_path, "boot", "validate", cwd=tmp_path)
+    assert boot.returncode == 0, boot.stderr
+    assert payload(boot)["decision"] == "PASS"
+
+    q1d = run_air(tmp_path, "boot", "plan", "--trigger", "Q1_D_ORIENTATION", cwd=tmp_path)
+    assert q1d.returncode == 0, q1d.stderr
+    assert "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1" in payload(q1d)["planned_modules"]
+
+    bundle_path = tmp_path / "stage3-bundle.md"
+    compiled = run_air(
+        tmp_path,
+        "boot",
+        "compile",
+        "--trigger",
+        "CODING",
+        "--trigger",
+        "REPOSITORY",
+        "--output",
+        str(bundle_path),
+        cwd=tmp_path,
+    )
+    assert compiled.returncode == 0, compiled.stderr
+    assert bundle_path.is_file()
 
     doctor = run_air(tmp_path, "doctor", cwd=tmp_path)
     assert doctor.returncode == 0

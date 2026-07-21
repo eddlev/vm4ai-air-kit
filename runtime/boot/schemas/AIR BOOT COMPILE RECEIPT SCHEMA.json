@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:boot:compile-receipt:1",
+  "title": "AIR Boot Compile Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "created_at_utc",
+    "package_version",
+    "resource_set_version",
+    "plan_id",
+    "boot_mode",
+    "requested_triggers",
+    "bundle_sha256",
+    "resource_count",
+    "authorization_decision",
+    "claim_boundary"
+  ],
+  "properties": {
+    "schema_id": {"const": "AIR_BOOT_COMPILE_RECEIPT"},
+    "schema_version": {"const": "1.0.0"},
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "package_version": {"type": "string", "minLength": 1},
+    "resource_set_version": {"type": "string", "minLength": 1},
+    "plan_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "boot_mode": {"enum": ["LOCAL_BUNDLED", "FULL_MONOLITH"]},
+    "requested_triggers": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "bundle_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "resource_count": {"type": "integer", "minimum": 1},
+    "authorization_decision": {"const": "NOT_EVALUATED"},
+    "claim_boundary": {"type": "string", "minLength": 1}
+  }
+}

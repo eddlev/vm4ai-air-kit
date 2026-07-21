@@ -70,6 +70,15 @@ def test_built_distribution_installs_and_runs_without_repository(
     assert version["resource_origin"] == "INSTALLED_PACKAGE"
     assert version["resource_set_version"] != "UNAVAILABLE"
     assert run("resources", "verify")["decision"] == "PASS"
+    assert run("boot", "validate")["decision"] == "PASS"
+    contracts = run("boot", "contracts", "authorization", "--content")
+    assert contracts["contracts"]["authorization"]["schema"]["$id"] == "urn:air:authorization-envelope:1"
+    boot_plan = run("boot", "plan", "--trigger", "Q1_D_ORIENTATION")
+    assert "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1" in boot_plan["planned_modules"]
+    bundle = outside / f"installed-{label}-boot.md"
+    compile_result = run("boot", "compile", "--trigger", "CODING", "--output", str(bundle))
+    assert compile_result["decision"] == "PASS"
+    assert bundle.is_file()
     project = run("project", "init", f"Installed {label} Project", "--use")["project"]
     assert Path(project["workspace_path"]).is_dir()
     assert run("project", "validate")["decision"] == "PASS"

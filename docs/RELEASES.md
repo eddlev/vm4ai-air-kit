@@ -2,7 +2,7 @@
 
 ## Development line
 
-The installable runtime is currently `0.4.0.dev0`. It is not a public release.
+The installable runtime is currently `0.5.0.dev0`. It is not a public release.
 
 ## Required pre-release evidence
 
@@ -14,7 +14,7 @@ Before a release candidate may advance:
 4. inspect embedded canonical resources and generated manifest;
 5. install the wheel in a fresh environment outside the repository;
 6. run cross-platform source, integration, and package tests;
-7. complete modular boot, Q1-D, handoff, signature, policy, upgrade, rollback, and cross-model stages;
+7. retain passing modular boot and Q1-D evidence; complete handoff, signature, policy, upgrade, rollback, and cross-model stages;
 8. reconcile every deliberate deferral;
 9. obtain explicit release approval.
 

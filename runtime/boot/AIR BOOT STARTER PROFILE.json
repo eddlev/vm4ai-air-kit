@@ -2,30 +2,30 @@
   "title": "AIR Boot Starter Profile",
   "SYSTEM_DESIGNATION": "AIR_BOOT_STARTER_PROFILE_V1",
   "PROFILE_KIND": "BOOT_PROFILE",
-  "version": "1.1.0",
-  "status": "V0_3_0_FUNCTION_ORIENTED_STRUCTURE_RELEASE_CANDIDATE",
-  "purpose": "Compact dependency-sovereign defaults for AIR modular boot. Subordinate to AIR Core Runtime and AIR Boot Kernel.",
+  "version": "2.0.0",
+  "status": "STAGE_3_DETERMINISTIC_MODULAR_BOOT",
+  "purpose": "Installed-resource-backed defaults for deterministic AIR modular boot. Subordinate to AIR Core Runtime and AIR Boot Kernel.",
   "boot_modes": [
     "FULL_MONOLITH",
     "MANUAL_MODULAR",
     "LOCAL_BUNDLED",
     "HOST_ADAPTER"
   ],
-  "default_boot_mode": "MANUAL_MODULAR",
+  "default_boot_mode": "LOCAL_BUNDLED",
   "canonical_recovery_mode": "FULL_MONOLITH",
   "kernel": {
     "file": "runtime/boot/AIR BOOT KERNEL.md",
     "designation": "AIR_BOOT_KERNEL_V1",
-    "version": "1.0.0",
-    "sha256": "35aeadfc25638d6985505224c80cbf55552872d5e6331a2c140848fd6542c885",
-    "size_bytes": 7983
+    "version": "1.1.0",
+    "sha256": "30a204fa676e8e298a5d33f3fadb92114f51bc763fd79f0cf40cd9c58cef0ad5",
+    "size_bytes": 7489
   },
   "manifest": {
     "file": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
     "designation": "AIR_BOOT_MODULE_MANIFEST_V1",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "sha256": null,
-    "digest_resolution": "READ_FROM_MANIFEST_OR_TOOL_RECEIPT"
+    "digest_resolution": "READ_FROM_INSTALLED_RESOURCE_MANIFEST_OR_COMPILE_RECEIPT"
   },
   "mandatory_floor": [
     "LOAD_INTEGRITY",
@@ -53,7 +53,7 @@
     "package_manager_required": false,
     "plugin_or_skill_required": false,
     "python_required_for_manual_mode": false,
-    "optional_local_tool": "runtime/boot/tools/air-boot.py"
+    "optional_local_tool": "air boot"
   },
   "security": {
     "remote_module_urls_allowed": false,
@@ -87,10 +87,15 @@
     "compact_substitution_allowed": false
   },
   "repository_layout": {
-    "path_base": "REPOSITORY_ROOT",
+    "path_base": "INSTALLED_RESOURCE_ROOT_OR_EXPLICIT_SOURCE_OVERRIDE",
     "system_prompts": "prompts/",
     "specialist_packages": "profiles/<specialist name>/",
     "runtime_functions": "runtime/<function>/",
     "duplicate_prompt_or_specialist_copies_in_runtime": false
+  },
+  "semantic_closure": {
+    "file": "runtime/boot/AIR BOOT SEMANTIC CLOSURE.json",
+    "designation": "AIR_BOOT_SEMANTIC_CLOSURE",
+    "version": "1.0.0"
   }
 }

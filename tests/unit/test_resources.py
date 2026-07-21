@@ -141,3 +141,14 @@ def test_resolver_rejects_unsafe_user_identifiers(tmp_path: Path, identifier: st
     resolver = ResourceResolver.from_environment(environment=environment, paths=AppPaths.resolve(environment))
     with pytest.raises(ResourceError, match="Unsafe AIR resource identifier"):
         resolver.resolve(identifier)
+
+
+def test_stage3_session_entry_bundle_closes_q1_routes() -> None:
+    manifest = build_manifest(ROOT, __version__)
+    bundles = build_bundle_definitions(manifest)
+    session = next(item for item in bundles["bundles"] if item["bundle_id"] == "AIR_MODULAR_SESSION_ENTRY")
+    q1d = next(item for item in bundles["bundles"] if item["bundle_id"] == "AIR_Q1D_BEGINNER_ORIENTATION")
+    assert session["status"] == "AVAILABLE"
+    assert q1d["status"] == "AVAILABLE"
+    assert len(session["resources"]) == 9
+    assert q1d["resources"] == session["resources"]

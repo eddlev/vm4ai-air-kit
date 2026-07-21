@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:task-packet:1",
+  "title": "AIR Task Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "task_id", "title", "objective", "source_context", "approved_scope", "excluded_scope", "acceptance_criteria", "active_step", "evidence_requirements", "claim_boundary"],
+  "properties": {
+    "schema_id": {"const": "AIR_TASK_PACKET"},
+    "schema_version": {"const": "1.0.0"},
+    "task_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "source_context": {"type": "object"},
+    "approved_scope": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "excluded_scope": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "acceptance_criteria": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "active_step": {"type": "string", "minLength": 1},
+    "evidence_requirements": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "claim_boundary": {"type": "string", "minLength": 1}
+  }
+}
