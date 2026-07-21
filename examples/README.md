@@ -1,21 +1,23 @@
 # AIR Examples
 
-## New project modular bundle
+## Installed substrate
 
 ```bash
-python ../runtime/boot/tools/air-boot.py --root .. bundle --trigger NEW_PROJECT --output new-project.md
+air --version
+air doctor
+air project init "Example Project" --use
+air resources search "grounding specialist"
+air project validate
 ```
 
-## Material patch bundle
+## Complete AIR Prompt Set
 
-```bash
-python ../runtime/boot/tools/air-boot.py --root .. bundle --trigger PATCH_ARTIFACT --trigger MATERIAL_EXECUTION --output patch-project.md
-```
-
-## Prompt-side continuation
+Attach the three canonical files under `prompts/` and type:
 
 ```text
-Continue project from handoff card.
+Start a new AIR project.
 ```
 
-Examples demonstrate invocation only. They do not prove the host model executed every rule or that a downstream task succeeded.
+## Boundary
+
+The installed Stage 2 application does not yet compile modular bundles or migrate handoff and policy tools. Examples for those commands will be added only when their implementation stages are complete and tested.

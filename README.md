@@ -3,35 +3,43 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Framework](https://img.shields.io/badge/framework-prompt--based-9A8F80?labelColor=1A1613)](https://vm4ai.com)
-[![Release](https://img.shields.io/badge/release-v0.3.0-FF5A1F?labelColor=1A1613)](https://github.com/eddlev/vm4ai-air-kit/releases)
+[![Framework](https://img.shields.io/badge/framework-prompt--native-9A8F80?labelColor=1A1613)](https://vm4ai.com)
+[![Development](https://img.shields.io/badge/development-v0.4.0.dev0-FF5A1F?labelColor=1A1613)](CHANGELOG.md)
 
 **Structure for AI work. Configure. Organize. Execute.**
 
-AIR is a prompt-native project runtime for capable language-model interfaces. It turns a loose chat into explicit project state, active-step execution, visible blockers, evidence gates, continuity, and receiver-facing delivery.
+AIR is a prompt-native project runtime with an optional local Python application. It turns loose chat work into explicit project state, active-step execution, visible blockers, evidence gates, continuity, and receiver-facing delivery.
 
-This repository contains two ways to use AIR:
+AIR remains cooperative rather than autonomous. The user controls intent, source truth, approvals, credentials, and irreversible actions. AIR structures the work, challenges weak assumptions, and keeps claims within the available evidence.
 
-1. **Full prompt boot** — attach the monolithic prompt files in `prompts/`.
-2. **Local modular boot** — use the self-contained runtime in `runtime/` and load only the modules selected for the active trigger.
+## Development status
 
-AIR is cooperative, not autonomous. The user controls intent and approvals. AIR structures the work and surfaces uncertainty, evidence requirements, and the next allowed action.
+The repository is moving from repository-relative local scripts to an installable application.
 
-## Important claim boundary
+The current v0.4.0 development substrate provides:
 
-The public AIR Kit is prompt-based. It does not provide the private AIR backend/client runtime and does not, by itself, provide backend enforcement, guaranteed correctness, legal compliance, repository alignment, autonomous execution, or cryptographic trust.
+- a `vm4ai-air` Python distribution;
+- one installed `air` terminal command;
+- packaged canonical AIR resources from `prompts/`, `profiles/`, and `runtime/`;
+- resource verification, search, and materialization;
+- platform-aware application paths and configuration;
+- a separate registered workspace for every AIR project;
+- installation diagnostics and version reporting;
+- source, integration, and installed-wheel tests.
 
-The optional local tools can produce **tool-observed** evidence such as file digests, module plans, local policy results, signatures, and continuity checks. Tool-observed evidence is not general execution authorization.
+The following remain intentionally assigned to later project stages:
 
-## Start here
+- modular boot migration and semantic-completeness repair;
+- the updated Q1-D beginner orientation;
+- handoff and signing migration;
+- policy and remaining local-tool migration;
+- PyPI publication and release approval.
 
-- [Beginner Quick Start](docs/QUICK_START.md)
-- [Complete Operator Guide](docs/OPERATOR_GUIDE.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Installation matrix](docs/INSTALLATION_MATRIX.md)
-- [Troubleshooting](docs/TROUBLESHOOTING.md)
+A generated package, passing source test, valid signature, or structurally valid bundle does not by itself prove behavioural correctness, authorization, universal compatibility, or release readiness.
 
-## Full prompt boot
+## Two ways to use AIR
+
+### 1. Complete AIR Prompt Set
 
 Attach:
 
@@ -39,92 +47,111 @@ Attach:
 - `prompts/AIR CONTROL SURFACE.md`
 - `prompts/AIR DEFAULT STARTER PROFILE.json`
 
-Then type:
+Then type this inside the AI conversation:
 
 ```text
 Start a new AIR project.
 ```
 
-AIR must ask Q1 rather than inferring the branch from the boot request.
+This remains the complete prompt-native fallback.
 
-The approved visibility default is **OBJECT_ALL**: every formal object actually created, restored, updated, or made operative is printed canonically. AIR does not manufacture future-step objects merely to print them.
+### 2. Installed local application
 
-## Modular local boot
+The installed application carries canonical AIR resources inside the Python package and manages separate local project workspaces.
 
-Validate the bundled module graph:
-
-```bash
-python runtime/boot/tools/air-boot.py validate-manifest
-```
-
-Plan a new-project bundle:
+Public PyPI installation is not enabled yet. Build and install the current development wheel locally:
 
 ```bash
-python runtime/boot/tools/air-boot.py plan --trigger NEW_PROJECT
+python -m pip install --upgrade build
+python -m build
+pipx install dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
 ```
 
-Build a local prompt bundle:
+Check the installation:
 
 ```bash
-python runtime/boot/tools/air-boot.py bundle \
-  --trigger NEW_PROJECT \
-  --output air-new-project.md
+air --version
+air doctor
+air paths
+air resources verify
 ```
 
-The modular boot tool uses local files, the Python standard library, and no network service. Module selection and digest checks do not authorize subsequent actions.
+Create an isolated project workspace:
+
+```bash
+air project init "My AIR Project" --use
+air project show
+air project validate
+```
+
+These are **terminal commands**. Prompt-side commands typed inside an AIR conversation, such as `air status` or `air gate`, are a separate interface.
+
+## Installed command surface in Stage 2
+
+```text
+air --version
+air doctor
+air paths
+
+air config show
+air config validate
+air config write-default
+
+air resources list
+air resources show
+air resources search
+air resources verify
+air resources materialize
+
+air project init
+air project list
+air project show
+air project use
+air project validate
+```
+
+Bundle, handoff, policy, upgrade, rollback, and release commands are reserved for their approved migration stages and must not be represented as implemented yet.
 
 ## Repository layout
 
 | Path | Purpose |
 |---|---|
-| `prompts/` | Canonical system-prompt bundle |
-| `profiles/` | Complete specialist packages, one folder per specialist: profile, domain pack, method, executor |
-| `runtime/` | Function-oriented boot, modules, artifact lifecycle, policy, handoff, and source/control implementation assets |
-| `docs/` | Quick start, operator guide, architecture, references, tools, recovery, and release guidance |
-| `examples/` | Copyable local examples and sample invocations |
+| `src/vm4ai_air/` | Installable application substrate |
+| `prompts/` | Canonical Complete AIR Prompt Set |
+| `profiles/` | Canonical specialist packages |
+| `runtime/` | Canonical runtime, module, policy, handoff, and source-control resources |
+| `tests/` | Source, integration, and installed-distribution tests |
+| `docs/` | Operator, architecture, development, and migration documentation |
+| `.github/workflows/` | Pinned CI and package-validation workflows |
 
-The boot manifest is at `runtime/boot/AIR BOOT MODULE MANIFEST.json` and uses repository-root-relative paths. `runtime/` contains no duplicate copies of files from `prompts/` or `profiles/`.
+The top-level canonical resource directories remain the authoring source. The build hook verifies and copies them into the wheel as one release resource set; there are no separately maintained duplicate payloads under `src/`.
 
-## Core commands
+## Security and authority boundaries
 
-Prompt-side controls include:
+- AIR does not ask for passwords, recovery codes, private signing keys, or long-lived publishing tokens.
+- Private signing keys belong in the global AIR keystore, outside ordinary project workspaces.
+- The installed resource manifest proves observed file relationships, sizes, and digests only.
+- Resource verification is not behavioural validation.
+- Local tool execution is not backend AIR enforcement.
+- Authentication is not authorization.
+- Repository mutation, merge, tag, release, and publication are distinct approval gates.
 
-```text
-air status
-air help
-air object all
-air compact
-air verbose
-air evidence
-air gate
-air handoff
-air patch plan
-```
+## Start here
 
-Commands cannot bypass AIR_GATE, evidence requirements, safety boundaries, or explicit approval gates. See [Command reference](docs/reference/commands.md).
-
-## Optional local tools
-
-- [Boot and module planner](docs/tools/boot.md)
-- [Handoff signing and continuity verifier](docs/tools/handoff.md)
-- [Local OPA policy adapter](docs/tools/opa.md)
-
-## Documentation index
-
+- [Quick Start](docs/QUICK_START.md)
+- [Installed Runtime Architecture](docs/INSTALLED_RUNTIME_ARCHITECTURE.md)
 - [Operator Guide](docs/OPERATOR_GUIDE.md)
-- [User Guide](docs/AIR_USER_GUIDE.md)
-- [Model Portability Notes](docs/AIR_MODEL_PORTABILITY_NOTES.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Glossary](docs/GLOSSARY.md)
-- [Dependencies](docs/DEPENDENCIES.md)
-- [Prompt-only vs tool-evaluated modes](docs/PROMPT_VS_TOOL_MODES.md)
-- [Update and rollback](docs/UPDATE_ROLLBACK.md)
-- [Release process](docs/RELEASES.md)
+- [Development and Testing](docs/DEVELOPMENT.md)
+- [Installation Matrix](docs/INSTALLATION_MATRIX.md)
+- [Configuration](docs/CONFIGURATION.md)
+- [Project Workspaces](docs/PROJECT_WORKSPACES.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
+- [Update and Rollback](docs/UPDATE_ROLLBACK.md)
 
-## Release line
+## Release boundary
 
-This file set is the v0.3.0 release line. Repository merge, tag creation, release-asset publication, and public announcement remain separately controlled operations.
+This branch is a development candidate, not a public release. Package-name commitment, Trusted Publisher configuration, repository merge, tag creation, PyPI publication, release assets, and public announcement remain separately controlled operations.
 
-## License
+## Licence
 
-The project is licensed under Apache-2.0. The AIR and VM4AI names and brand marks are not granted by that software/content licence; see `NOTICE` and the [brand repository](https://github.com/eddlev/air-brand).
+The project is licensed under Apache-2.0. The AIR and VM4AI names and brand marks are not granted by that software/content licence; see `NOTICE` and the brand repository.

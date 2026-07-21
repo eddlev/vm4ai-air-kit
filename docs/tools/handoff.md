@@ -1,25 +1,25 @@
 # Local Handoff Integrity Tool
 
-**Path:** `runtime/handoff/tools/air-handoff.py`
+## Current status
 
-## Purpose
+`runtime/handoff/tools/air-handoff.py` is the v0.3.0 repository-relative compatibility implementation.
 
-Generate Ed25519 key material, manage a local trust store, sign handoff payloads, verify signatures and continuity, accept verified state into a local anchor, and run self-tests.
+It can generate Ed25519 key material, manage a local trust store, sign handoff payloads, verify signatures and continuity, accept verified state into a local anchor, and run self-tests.
 
-## Dependencies
+## Security boundary
 
-Install the pinned requirements from `runtime/handoff/tools/requirements.txt` in an isolated environment.
+Private keys must remain outside repositories and ordinary project workspaces. The Stage 2 installed application reserves a global keystore boundary under the AIR data root.
 
-## Typical flow
+Verification is read-only. `accept` advances continuity state only after review. A valid signature does not prove legal identity, source safety, semantic correctness, or execution permission.
 
-```bash
-python runtime/handoff/tools/air-handoff.py --json keygen --private-key private.pem --public-key public.pem
-python runtime/handoff/tools/air-handoff.py --json trust-add --trust-store trust.json --public-key public.pem --key-id local-key --project-id PROJECT --branch-id main --allow-genesis
-python runtime/handoff/tools/air-handoff.py --json sign --handoff handoff.json --private-key private.pem --key-id local-key --output envelope.json
-python runtime/handoff/tools/air-handoff.py --json verify --handoff handoff.json --envelope envelope.json --trust-store trust.json --anchor anchor.json --output result.json
-python runtime/handoff/tools/air-handoff.py --json accept --handoff handoff.json --envelope envelope.json --trust-store trust.json --anchor anchor.json --receipt acceptance.json
-```
+## Stage 4 migration
 
-## Security
+Stage 4 must move handoff operations onto:
 
-Keep private keys outside the repository. Verification is read-only. `accept` advances local continuity state and should be performed only after review. A valid signature does not prove legal identity, source safety, or execution permission.
+- the shared installed-resource resolver;
+- the global keystore provider interface;
+- per-project handoff, trust, signature, anchor, evidence, and receipt directories;
+- unified `air handoff ...` terminal commands;
+- migration and compatibility tests.
+
+The legacy tool remains unchanged in Stage 2.

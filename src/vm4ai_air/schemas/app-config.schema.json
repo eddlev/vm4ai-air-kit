@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vm4ai.com/schemas/air-config-1.json",
+  "title": "AIR User Configuration",
+  "type": "object",
+  "required": ["schema_version"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "application": {
+      "type": "object",
+      "properties": { "telemetry_enabled": { "const": false } },
+      "additionalProperties": false
+    },
+    "resources": {
+      "type": "object",
+      "properties": { "strict_verification": { "type": "boolean" } },
+      "additionalProperties": false
+    },
+    "workspace": {
+      "type": "object",
+      "properties": { "default_root": { "type": "string" } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

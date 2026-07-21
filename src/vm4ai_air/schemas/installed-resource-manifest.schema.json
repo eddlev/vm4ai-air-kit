@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vm4ai.com/schemas/air-installed-resource-manifest-1.json",
+  "title": "AIR Installed Resource Manifest",
+  "type": "object",
+  "required": [
+    "schema_id",
+    "schema_version",
+    "package_version",
+    "resource_set_version",
+    "source_tree_digest",
+    "resources"
+  ],
+  "properties": {
+    "schema_id": { "const": "AIR_INSTALLED_RESOURCE_MANIFEST" },
+    "schema_version": { "const": "1.0.0" },
+    "package_version": { "type": "string", "minLength": 1 },
+    "resource_set_version": { "type": "string", "minLength": 1 },
+    "source_tree_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "resource_count": { "type": "integer", "minimum": 1 },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["resource_id", "relative_path", "package_path", "size_bytes", "sha256"],
+        "properties": {
+          "resource_id": { "type": "string", "pattern": "^air://" },
+          "relative_path": { "type": "string", "minLength": 1 },
+          "package_path": { "type": "string", "minLength": 1 },
+          "size_bytes": { "type": "integer", "minimum": 0 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

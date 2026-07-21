@@ -1,6 +1,6 @@
 # AIR v0.3.0 — Modular Runtime and Function-Oriented Repository
 
-AIR v0.3.0 introduces the modular runtime, integrated documentation, complete specialist packaging, and the OBJECT_ALL formal-object visibility default while retaining the monolithic system-prompt path.
+AIR v0.3.0 introduces the modular runtime, integrated documentation, complete specialist packaging, and the OBJECT_ALL formal-object visibility default while retaining the Complete AIR Prompt Set path.
 
 ## Highlights
 

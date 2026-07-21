@@ -1,110 +1,141 @@
 # AIR Operator Guide
 
-## 1. Operating model
+## 1. Interfaces
 
-AIR separates five things that ordinary chat often mixes together:
+AIR now has two distinct command surfaces.
 
-1. **Project state** — purpose, scope, constraints, and roadmap.
-2. **Active step** — the single current execution centre, called Orbit 0.
-3. **Artifact plane** — formal AIR objects used for execution and review.
-4. **Benchmark plane** — the task-fitted standard used to judge work.
-5. **Receiver plane** — the output delivered after evaluation permits it.
+### Terminal commands
 
-AIR is prompt-compiled unless a backend artifact is actually supplied. Keep that boundary visible.
-
-## 2. Boot choices
-
-### Monolithic boot
-
-Attach the files under `prompts/`. This is the easiest path and the highest context-cost path.
-
-### Modular boot
-
-The boot tool uses the repository root as its path-safety boundary; runtime functions live under `runtime/`. Its manifest selects entry and task modules by trigger. Validate before bundling.
-
-```bash
-python runtime/boot/tools/air-boot.py validate-manifest
-python runtime/boot/tools/air-boot.py status
-python runtime/boot/tools/air-boot.py compare --triggers NEW_PROJECT
-```
-
-## 3. Onboarding
-
-AIR asks Q1-Q6 one at a time.
-
-- **Q1** selects new, import, continuation, or orientation.
-- **Q2** controls review strictness.
-- **Q3** controls ambiguity posture.
-- **Q4** selects continuity priorities.
-- **Q5** defines the project and initial sources.
-- **Q6** defines the working agreement and delivery form.
-
-Q1 is never silently inferred. Q2-Q6 may use only visibly permitted, correctable inference under the runtime rules.
-
-## 4. Object visibility
-
-The approved default is `OBJECT_ALL`.
-
-- Every formal object created, restored, updated, or made operative is printed separately.
-- A compact summary cannot substitute for the actual formal object.
-- AIR does not create future-step objects solely to display them.
-- Required blockers, errors, handoff objects, and safety gates cannot be hidden.
-
-Useful controls:
+Run in PowerShell, Command Prompt, Bash, zsh, or another terminal:
 
 ```text
-air object all
-air compact
-air verbose
-air quiet
-air status
+air --version
+air doctor
+air project init
+air resources verify
 ```
 
-Reduced visibility changes presentation, not governance.
+These commands execute local Python code and can produce local tool evidence.
 
-## 5. Sources and patching
+### AIR conversational commands
 
-Before material patching, AIR must request or confirm the exact source set in the current session. Prior output, remembered filenames, and conversation summaries do not satisfy the patch-source gate.
+Type inside an AIR-enabled AI conversation:
 
-The operator provides source truth and approves irreversible or external actions. AIR must report which files it used and what evidence supports closure.
+```text
+air status
+air gate
+air ask
+air handoff
+```
 
-## 6. Capability layers
+These are prompt-side controls. They are not automatically terminal commands and do not prove local tool execution.
 
-- A **Specialist** changes reusable judgment and review posture.
-- A **Domain Package** supplies terminology, standards, failure modes, and evidence expectations.
-- A **Method** defines task-local procedure.
-- A **Method Pack** standardizes a recurring low-variance procedure.
-- An **Executor** is a bounded operation contract, not an autonomous agent.
-- A **Policy Pack** returns a policy decision; it does not grant scope.
-- An **Evaluation Pack** defines tests; it does not prove they ran.
+## 2. Operating model
 
-Generation and binding remain approval-separated.
+AIR separates:
 
-## 7. Evidence and decisions
+1. project purpose and scope;
+2. the one current active step;
+3. formal project artifacts;
+4. the benchmark used to evaluate work;
+5. the receiver-facing delivery;
+6. local file and tool evidence.
 
-AIR_GATE decisions include `ALLOW`, `REVIEW`, `REJECT`, `RESCOPE_REQUIRED`, and `EVIDENCE_REQUIRED`.
+Keep prompt-declared, file-observed, tool-observed, operator-witnessed, cryptographically verified, and backend-enforced states separate.
 
-Distinguish:
+## 3. Installation health
 
-- prompt-declared state;
-- file-observed state;
-- tool-observed state;
-- operator-witnessed state;
-- cryptographically verified payload state;
-- backend-enforced state.
+Run:
 
-Do not upgrade one evidence class into another by wording.
+```bash
+air --version
+air doctor
+air paths
+air resources verify
+```
 
-## 8. Handoff continuity
+`air --version` should report both package and resource-set versions. `air doctor` may return `WARN` when an explicit development override is active; this is not an installed-wheel failure, but it is not installed-wheel evidence either.
 
-Prompt-only handoffs can restore declared state but are structurally unauthenticated. The optional local verifier can sign, verify, and maintain a continuity anchor. Verification, restoration, and authorization are separate decisions.
+## 4. Project workspaces
 
-See [Handoff tool](tools/handoff.md).
+Create and select explicitly:
 
-## 9. Local policy evaluation
+```bash
+air project init "Project Name" --use
+air project list
+air project show
+air project validate
+```
 
-The OPA adapter is optional and local-first. It does not download OPA, open a public port, or send data to a central AIR service. If OPA is absent, AIR remains prompt-native and should report the missing tool rather than inventing a tool result.
+Changing the current directory does not select another project.
 
-## 10. Completion
+Every project has separate state, bundles, handoffs, signatures, anchors, evidence, exports, and logs.
 
-A step closes only when the scoped output exists, required evidence is present, blockers are stated, approval state is honest, and the next transition is explicit. A written method or cited source is not execution evidence.
+## 5. Installed resources
+
+List or search:
+
+```bash
+air resources list --prefix prompts
+air resources search "Q1-D orientation"
+air resources show "prompts/AIR CORE RUNTIME.md"
+```
+
+Verify:
+
+```bash
+air resources verify
+```
+
+Materialize for an external tool or attachment:
+
+```bash
+air resources materialize \
+  "prompts/AIR CORE RUNTIME.md" \
+  --purpose "attach Complete AIR Prompt Set resource"
+```
+
+The receipt records the source digest, resource-set version, destination path, and purpose.
+
+## 6. Source and patching
+
+Repository mutations require the exact current source set. A prior summary, generated fragment, filename, or remembered tree is not enough.
+
+Before patching:
+
+1. confirm branch and commit;
+2. confirm the worktree is clean or classify every existing change;
+3. identify every affected file and generated derivative;
+4. distinguish source files from build artifacts;
+5. run the relevant tests after the complete change set.
+
+## 7. Private keys
+
+Private keys belong under the global AIR keystore boundary. Do not place them in a project workspace, repository, evidence folder, export, or chat.
+
+`air project validate` detects common private-key files and PEM markers. A pass is a bounded local scan, not proof that no secret exists.
+
+## 8. Stage boundaries
+
+Stage 2 implements the shared package substrate only.
+
+The following remain later work:
+
+- modular boot and Q1-D refresh;
+- handoff and signing migration;
+- policy migration;
+- upgrade and rollback commands;
+- publishing.
+
+Do not use architecture documentation as proof that a later command already exists.
+
+## 9. Completion reporting
+
+Every material delivery should separate:
+
+- implemented;
+- tests written;
+- tests executed;
+- unverified;
+- deliberately deferred;
+- blocked by environment or approval.

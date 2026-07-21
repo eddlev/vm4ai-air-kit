@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vm4ai.com/schemas/air-project-registry-1.json",
+  "title": "AIR Project Registry",
+  "type": "object",
+  "required": ["schema_version", "projects"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["project_id", "name", "slug", "workspace_path", "created_at_utc"],
+        "properties": {
+          "project_id": { "type": "string", "format": "uuid" },
+          "name": { "type": "string", "minLength": 1 },
+          "slug": { "type": "string", "minLength": 1 },
+          "workspace_path": { "type": "string", "minLength": 1 },
+          "source_path": { "type": ["string", "null"] },
+          "created_at_utc": { "type": "string" },
+          "status": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

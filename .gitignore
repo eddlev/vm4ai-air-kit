@@ -3,3 +3,19 @@ Thumbs.db
 .vscode/
 .idea/
 *.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Build output
+.air-build/
+build/
+dist/
+*.egg-info/
+
+# Local AIR application data must not be committed
+.air-local/

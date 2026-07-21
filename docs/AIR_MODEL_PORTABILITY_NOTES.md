@@ -1,15 +1,28 @@
 # AIR Model Portability Notes
 
-AIR is prompt-native and provider-neutral in design, but actual rule following, context loading, tool access, and handoff restoration vary by model and interface.
+AIR is prompt-native and may behave differently across AI models, context limits, interfaces, and provider policies.
 
-## Practical guidance
+## Resource routes
 
-- Prefer modular boot when the monolithic bundle consumes too much context.
-- Treat terminal-sentinel checks as end-of-file evidence, not proof that every middle section loaded.
-- Verify that Q1 is asked and that onboarding answers are not invented.
-- Record model, interface, date, bundle, context condition, and observed failure when reporting portability issues.
-- Do not generalize one successful boot into a permanent compatibility claim.
+- Use the Complete AIR Prompt Set when the interface can load the full canonical files.
+- Use task-specific modular bundles only after Stage 3 repairs and validates their semantic closure.
+- Use installed-resource materialization when a local package resource must be attached to an interface.
 
-## Fallback
+## Portability evidence
 
-When a host cannot reliably load the selected bundle, reduce the module set or use a different capable host. Preserve project state with a handoff card, but keep structural and cryptographic trust states distinct.
+A model is not considered compatible merely because it accepts the files or produces AIR-shaped JSON.
+
+Test at least:
+
+- deterministic Q1 branch behaviour;
+- complete Q1-D orientation;
+- onboarding sequence;
+- active-step preservation;
+- blockers and evidence gates;
+- handoff restoration;
+- no false backend or repository claims;
+- receiver-facing delivery behaviour.
+
+## Current boundary
+
+Stage 2 validates the local package and resource substrate. Cross-model modular boot and Q1-D validation remain Stage 3 work.

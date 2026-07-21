@@ -1,20 +1,16 @@
-# AIR Runtime Functions
+# AIR Runtime Resources
 
-The `runtime/` directory is organized by function. It is not a second copy of the repository.
+`runtime/` remains the canonical authoring location for function-oriented AIR resources:
 
-- `boot/` — Boot Kernel, manifest, load receipts, evidence, and the local boot planner/bundler.
-- `modules/` — derived runtime and control modules.
-- `artifact-lifecycle/` — shared artifact construction/assurance method and evaluation packs.
-- `policy/` — deterministic policy plus the optional local OPA adapter.
-- `handoff/` — continuity, trust, signing/verification, schemas, templates, executor, and tool.
-- `source-control/` — source/control registry, adapters, and source manifests.
+- boot;
+- modules;
+- artifact lifecycle;
+- policy;
+- handoff;
+- source control.
 
-System-prompt assets are canonical only under `prompts/`. Handoff templates are canonical under `runtime/handoff/templates/`. Specialist packages are canonical only under `profiles/<specialist name>/` and contain a specialist profile, domain pack, method, and executor.
+Application code now belongs under `src/vm4ai_air/`.
 
-Run the boot tool from the repository root:
+During package construction, the build hook verifies and includes `runtime/` in the installed AIR resource set. Runtime consumers must access those files through the shared resource resolver rather than construct repository-relative paths.
 
-```bash
-python runtime/boot/tools/air-boot.py validate-manifest
-```
-
-The boot manifest uses repository-root-relative paths and preserves the 22-module WS7 graph. Directory restructuring does not authorize module binding, execution, repository mutation, or publication.
+The repository-relative tools under `runtime/*/tools/` remain temporary compatibility implementations until their approved migration stages. They must not become a second implementation of shared package logic.
