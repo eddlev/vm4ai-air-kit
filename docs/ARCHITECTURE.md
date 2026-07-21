@@ -1,44 +1,77 @@
 # AIR Repository and Runtime Architecture
 
-## Three canonical planes
+## Architecture planes
 
-### 1. System prompts — `prompts/`
+AIR separates authoring source, installed application code, installed canonical resources, and mutable project workspaces.
 
-The monolithic user-attached AIR system assets live only here:
+### 1. Canonical authoring source
 
-- `AIR CORE RUNTIME.md`
-- `AIR CONTROL SURFACE.md`
-- `AIR DEFAULT STARTER PROFILE.json`
+The repository keeps one authoritative checked-in copy of each AIR resource:
 
-### 2. Specialist packages — `profiles/<specialist name>/`
+```text
+prompts/
+profiles/
+runtime/
+```
 
-Every specialist receives a dedicated folder containing:
+`prompts/` contains the Complete AIR Prompt Set. `profiles/` contains specialist packages. `runtime/` contains boot, module, artifact-lifecycle, policy, handoff, and source-control resources.
 
-- specialist profile;
-- domain pack;
-- method;
-- executor;
-- package manifest.
+### 2. Installable application
 
-The folder packages related capability layers but does not bind or activate them.
+Python application code lives under:
 
-### 3. Runtime functions — `runtime/<function>/`
+```text
+src/vm4ai_air/
+```
 
-`runtime/` is not a complete duplicate distribution. It contains implementation and support assets grouped by function:
+The package exposes one terminal command:
 
-- `boot/`
-- `modules/`
-- `artifact-lifecycle/`
-- `policy/`
-- `handoff/`
-- `source-control/`
+```text
+air
+```
 
-The Boot Module Manifest uses repository-root-relative paths. It may select canonical specialist files from `profiles/`, canonical prompt files from `prompts/`, and derived modules from `runtime/modules/` without duplicating their payloads.
+All consumers must use shared resource, configuration, path, I/O, and workspace interfaces. They must not derive a repository root from the current working directory or script location.
+
+### 3. Installed canonical resource set
+
+`src/vm4ai_air/version.py` is the single package-version source. Hatchling reads that file for distribution metadata, and the build hook uses the same value in generated resource metadata.
+
+During wheel construction, `hatch_build.py`:
+
+1. inventories `prompts/`, `profiles/`, and `runtime/`;
+2. strictly parses every JSON file;
+3. verifies declared and canonical prompt sentinels;
+4. calculates sizes and SHA-256 digests;
+5. generates a resource manifest, index, bundle definitions, and build receipt;
+6. includes the verified source set under `vm4ai_air/resources/air/` in the wheel.
+
+The wheel copy is a generated release artifact. It is not a second authoring source. Runtime loading recomputes and validates the aggregate manifest identity before the resource set is accepted.
+
+### 4. Global local-application state
+
+AIR resolves platform-specific configuration, data, state, cache, and log roots with `platformdirs`.
+
+Global data includes:
+
+- the project registry;
+- the private keystore boundary;
+- shared trust and migration state;
+- operation receipts;
+- installed-resource materialization cache.
+
+### 5. Per-project mutable workspace
+
+Every AIR project has an immutable UUID and one registered workspace. Bundles, receipts, handoffs, signatures, anchors, evidence, exports, logs, and project state remain separated by project.
+
+Private signing keys are prohibited from ordinary project workspaces.
 
 ## Authority boundaries
 
-- Directory placement does not bind a profile.
-- A Method Pack is a procedure, not proof that it ran.
-- An Executor is a bounded operation contract, not an autonomous agent.
-- A manifest or hash proves only the observed file relationship.
-- AIR_GATE, active-contract authority, evidence requirements, and explicit approvals remain controlling.
+- Package installation does not authorize project or repository actions.
+- A resource manifest proves only the observed packaged file relationship.
+- A written test is not an executed test.
+- A passing structural check is not semantic or behavioural correctness.
+- A signature authenticates an observed payload under a configured key; it does not authorize execution.
+- Prompt-side state is not backend enforcement.
+
+See [Installed Runtime Architecture](INSTALLED_RUNTIME_ARCHITECTURE.md) for the detailed contracts.

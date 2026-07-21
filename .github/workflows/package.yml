@@ -1,0 +1,65 @@
+name: Package
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-install:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }} installed distributions
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            python: "3.11"
+            canonical_artifact: false
+          - os: ubuntu-latest
+            python: "3.14"
+            canonical_artifact: true
+          - os: windows-latest
+            python: "3.13"
+            canonical_artifact: false
+          - os: macos-latest
+            python: "3.12"
+            canonical_artifact: false
+    steps:
+      - name: Check out source
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Set up Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+      - name: Install package tooling
+        run: python -m pip install --upgrade pip && python -m pip install ".[test]" pipx
+      - name: Lint Python sources
+        run: python -m ruff check src tests hatch_build.py
+      - name: Build wheel and source distribution
+        run: python -m build
+      - name: Validate distribution metadata
+        run: python -m twine check dist/*
+      - name: Run isolated wheel and source-distribution installation tests
+        env:
+          AIR_TEST_DIST_DIR: ${{ github.workspace }}/dist
+        run: python -m pytest -m package
+      - name: Smoke-test pipx installation
+        if: matrix.canonical_artifact
+        shell: bash
+        run: |
+          WHEEL="$(python -c 'from pathlib import Path; print(next(Path("dist").glob("*.whl")))')"
+          python -m pipx install "$WHEEL"
+          air --version
+          air --json doctor
+          python -m pipx uninstall vm4ai-air
+      - name: Upload canonical built distributions
+        if: matrix.canonical_artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: vm4ai-air-distributions
+          path: dist/*
+          if-no-files-found: error

@@ -1,22 +1,47 @@
 # AIR Update and Rollback
 
-## Update rule
+## Current development boundary
 
-Treat each release as one coherent file set. Do not mix a manifest from one release with modules from another.
+Stage 2 defines package and workspace identities but does not implement self-update or rollback commands. Operators must not infer those commands exist from the architecture.
 
-1. Record the current release/tag or file hashes.
-2. Back up the current `prompts/`, `profiles/`, and `runtime/` directories.
-3. Replace the candidate files as one set.
-4. Run JSON, sentinel, manifest, and documentation-link validation.
-5. Run a boot-plan smoke test.
-6. Keep the previous archive until operator acceptance.
+## Package update invariant
 
-## Rollback
+Treat each installed package and its embedded AIR resource set as one coherent identity.
 
-Restore the complete prior set, not individual files. Re-run `validate-manifest` and compare the restored prompt hashes with the prior release manifest.
+Never mix:
 
-## Handoff compatibility
+- application code from one version;
+- a resource manifest from another version;
+- selected prompt or module files copied from a third version.
 
-Preserve the handoff template schema identity. A handoff with newer fields may require inspection or regeneration under the target release.
+`air --version` reports package and resource-set versions separately so mismatches can be detected.
 
-Repository merge, tag, and release publication remain separate approvals from local candidate validation.
+## Workspace migration invariant
+
+Future schema migrations must:
+
+1. lock affected state;
+2. validate the current schema;
+3. create a backup or snapshot;
+4. write an operation journal;
+5. perform atomic writes;
+6. validate the migrated result;
+7. retain the previous snapshot until operator acceptance.
+
+## Current manual package rollback
+
+Until Stage 6 completes governed update and rollback commands:
+
+1. record the currently installed version with `air --version`;
+2. retain the previously tested wheel;
+3. install the exact prior wheel through the same installer used originally;
+4. run `air doctor` and `air resources verify`;
+5. do not downgrade project schema data unless a reviewed migration path exists.
+
+A package rollback is not automatically a project-data rollback.
+
+## Legacy repository rollback
+
+For the v0.3.0 repository-relative tool set, restore the complete prior repository release rather than individual manifest or module files.
+
+Repository merge, tag, release, PyPI publication, and rollback approval remain distinct actions.

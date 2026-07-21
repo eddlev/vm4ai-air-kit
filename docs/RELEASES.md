@@ -1,27 +1,35 @@
 # AIR Release Process
 
-## v0.3.0 release profile
+## Development line
 
-The v0.3.0 line introduces the modular runtime and integrated documentation while retaining the monolithic prompt path.
+The installable runtime is currently `0.4.0.dev0`. It is not a public release.
 
-Required release assets:
+## Required pre-release evidence
 
-- `AIR-v0.3.0.zip` — complete user-facing release bundle;
-- `AIR-v0.3.0-repository-overlay.zip` — files to add or replace in the public repository;
-- `AIR-v0.3.0-SHA256SUMS.txt` — archive checksums;
-- `AIR-v0.3.0-RELEASE-MANIFEST.json` — fixed-source and validation evidence;
-- release notes matching `release/v0.3.0/RELEASE_NOTES.md`.
+Before a release candidate may advance:
 
-## Release gates
+1. pin the repository base commit;
+2. build wheel and source distribution once;
+3. validate package metadata;
+4. inspect embedded canonical resources and generated manifest;
+5. install the wheel in a fresh environment outside the repository;
+6. run cross-platform source, integration, and package tests;
+7. complete modular boot, Q1-D, handoff, signature, policy, upgrade, rollback, and cross-model stages;
+8. reconcile every deliberate deferral;
+9. obtain explicit release approval.
 
-1. Select the target version.
-2. Pin the repository base commit.
-3. Construct and validate the repository overlay.
-4. Build the complete release asset and checksums.
-5. Run structural, modular-boot, handoff-tool, documentation-link, update, and rollback checks.
-6. Obtain explicit repository-mutation approval.
-7. Create a review branch and pull request.
-8. Review and merge separately.
-9. Create the tag and publish release assets only after publication approval.
+## Workflow separation
 
-Repository mutation, merge, tagging, release publication, and public announcement are distinct actions. A valid signature, passing local tool, or approved release identity does not authorize any of them automatically.
+- `ci.yml` runs source and integration tests across supported operating systems and Python versions.
+- `package.yml` builds and validates distributions, runs isolated installed-wheel tests, and smoke-tests pipx installation.
+- A publishing workflow does not exist yet and may not be added or enabled without separate approval.
+
+## Future publishing
+
+The approved target is GitHub Actions with PyPI Trusted Publishing and short-lived OIDC credentials. No password or long-lived publishing token should be stored in the repository.
+
+Trusted Publisher configuration, package-name creation, publication, tag, GitHub release, and public announcement remain separate approval gates.
+
+## Claim boundary
+
+A built artifact, metadata pass, signature, provenance attestation, or successful command is not proof of semantic completeness, universal compatibility, security, or authorization to publish.

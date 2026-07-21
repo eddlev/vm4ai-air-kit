@@ -1,33 +1,29 @@
 # Local Boot Tool
 
-**Path:** `runtime/boot/tools/air-boot.py`
+## Current status
 
-## Purpose
+`runtime/boot/tools/air-boot.py` is the v0.3.0 repository-relative compatibility implementation.
 
-Validate the module manifest, plan modules by trigger, build a local prompt bundle, and emit a load receipt.
+It validates the legacy boot manifest, plans modules by trigger, builds a prompt bundle, and emits a load receipt. It derives its source boundary from the repository tree and therefore is not the installed runtime implementation.
 
-## Authority boundary
-
-The tool validates local files and plans loading. It does not authorize the action described by the prompt bundle.
-
-## Dependencies
-
-Python 3 standard library only. Network and package installation are not required.
-
-## Commands
+## Legacy commands
 
 ```bash
 python runtime/boot/tools/air-boot.py validate-manifest
-python runtime/boot/tools/air-boot.py validate-module AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1
 python runtime/boot/tools/air-boot.py plan --trigger NEW_PROJECT
 python runtime/boot/tools/air-boot.py bundle --trigger NEW_PROJECT --output air-bundle.md
-python runtime/boot/tools/air-boot.py receipt --trigger NEW_PROJECT --output receipt.json
-python runtime/boot/tools/air-boot.py compare --triggers NEW_PROJECT
-python runtime/boot/tools/air-boot.py status
 ```
 
-Outputs must not overwrite existing files unless `--overwrite` is supplied.
+## Stage 3 migration
 
-## Failure behavior
+Stage 3 must:
 
-Unsafe paths, missing files, digest mismatches, sentinel mismatches, duplicate IDs, unresolved dependencies, and cycles fail validation. Unknown triggers require review or monolith fallback.
+- move boot behaviour onto the shared installed resource resolver;
+- write bundles and receipts into the active project workspace;
+- add semantic-surface and branch-closure validation;
+- retain the Complete AIR Prompt Set fallback;
+- update Q1-D for the installed framework;
+- regenerate derived modules, decomposition evidence, hashes, and manifests;
+- run behavioural and cross-model regressions.
+
+A valid legacy manifest or digest check does not prove the bundle can execute every reachable onboarding branch.

@@ -1,27 +1,34 @@
 # AIR Installation Matrix
 
-AIR does not require a conventional installation for prompt-only use.
-
-| Mode | Windows | macOS | Linux | Dependencies | Network |
+| Mode | Windows | macOS | Linux | Dependencies | Repository clone required |
 |---|---|---|---|---|---|
-| Monolithic prompt boot | Supported | Supported | Supported | Capable LLM interface | Provider-dependent |
-| Modular boot | Python 3.10+; `.cmd`/PowerShell wrappers | Python 3.10+; shell wrapper | Python 3.10+; shell wrapper | Python standard library | Not required |
-| Handoff integrity tool | Python 3.10+ | Python 3.10+ | Python 3.10+ | Pinned packages in `runtime/handoff/tools/requirements.txt` | Not required after install |
-| OPA local CLI | PowerShell or direct OPA CLI | shell + OPA | shell + OPA | OPA; Python 3 or jq depending wrapper | Not required |
-| OPA loopback server | Supported | Supported | Supported | OPA | Loopback only |
+| Complete AIR Prompt Set | Supported | Supported | Supported | Capable AI interface | No, when obtained from a release bundle |
+| Installed development wheel | Supported target; CI required | Supported target; CI required | Executed locally and CI target | Python 3.11+, `platformdirs` | No after wheel creation |
+| Editable development install | Supported | Supported | Supported | Python 3.11+, Hatchling/test dependencies | Yes |
+| Legacy modular boot script | Compatibility path | Compatibility path | Compatibility path | Python standard library | Yes |
+| Legacy handoff tool | Compatibility path | Compatibility path | Compatibility path | pinned handoff dependencies | Yes |
+| Legacy OPA adapter | Compatibility path | Compatibility path | Compatibility path | operator-installed OPA | Yes |
 
-## Prompt-only setup
+## Recommended user installation
 
-Download the repository or release archive and attach files from `prompts/`.
-
-## Modular setup
-
-Keep the repository taxonomy intact. The module manifest uses paths relative to the repository root.
+After package approval and publication, the recommended route will be:
 
 ```bash
-python runtime/boot/tools/air-boot.py validate-manifest
+pipx install vm4ai-air
 ```
+
+Publication is currently blocked. Use a reviewed local wheel:
+
+```bash
+pipx install dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
+```
+
+## Python support
+
+The installed runtime requires Python 3.11 or newer. The required CI matrix is Python 3.11–3.14 on Windows, macOS, and Linux.
 
 ## Permissions
 
-The shipped tools do not require administrator privileges, system services, or public network listeners. Store signing keys outside the repository and restrict their filesystem permissions.
+The application does not require administrator privileges, system services, public listeners, or a central AIR service. It creates user-scoped directories only when a command needs them.
+
+Private signing keys must remain outside project workspaces under the global AIR keystore boundary.

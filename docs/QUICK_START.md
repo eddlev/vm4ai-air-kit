@@ -1,56 +1,78 @@
-# AIR Beginner Quick Start
+# AIR Quick Start
 
-AIR is a set of prompt files and optional local tools that help an AI session work as a governed project rather than an unstructured chat.
+## Prompt-only route
 
-## Choose a boot path
+Attach the Complete AIR Prompt Set:
 
-### Full prompt boot
+- `prompts/AIR CORE RUNTIME.md`
+- `prompts/AIR CONTROL SURFACE.md`
+- `prompts/AIR DEFAULT STARTER PROFILE.json`
 
-Use this when your model has enough context for the complete prompt files.
-
-Attach the three files in `prompts/`:
-
-1. `AIR CORE RUNTIME.md`
-2. `AIR CONTROL SURFACE.md`
-3. `AIR DEFAULT STARTER PROFILE.json`
-
-Then say:
+Then type inside the AI conversation:
 
 ```text
 Start a new AIR project.
 ```
 
-AIR asks six onboarding questions. Q1 chooses new project, import, continuation, or beginner orientation. AIR must not guess Q1 from your boot sentence.
+AIR must ask Q1 rather than inferring your branch.
 
-### Modular boot
+## Installed development route
 
-Use this when you want a smaller local bundle selected from the module graph.
+PyPI publication is not enabled yet. Build the current development package from a clean checkout.
+
+PowerShell:
+
+```powershell
+py -3.13 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install ".[test]"
+python -m build
+pipx install .\dist\vm4ai_air-0.4.0.dev0-py3-none-any.whl
+```
+
+POSIX shell:
 
 ```bash
-python runtime/boot/tools/air-boot.py validate-manifest
-python runtime/boot/tools/air-boot.py bundle --trigger NEW_PROJECT --output air-new-project.md
+python3.13 -m venv .venv
+. .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install '.[test]'
+python -m build
+pipx install dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
 ```
 
-Attach `air-new-project.md` to the model and start the project normally.
+Verify:
 
-## What you should see
-
-AIR should show its formal objects. The default is `OBJECT_ALL`: every object that AIR actually instantiates or changes is printed. Planned future artifacts remain planned until their step becomes active.
-
-## Continuing later
-
-Ask AIR to generate a handoff card. In a new session attach:
-
-- `prompts/AIR CORE RUNTIME.md` or a suitable modular bundle
-- the handoff card
-- optionally `prompts/AIR CONTROL SURFACE.md`
-
-Then say:
-
-```text
-Continue project from handoff card.
+```bash
+air --version
+air doctor
+air paths
+air resources verify
 ```
 
-## Boundaries
+Successful version output reports both the Python package version and the AIR resource-set version.
 
-AIR prompt behavior is not backend enforcement. A local tool result proves only what that tool observed. Signatures authenticate the signed payload under a configured key; they do not authorize general execution or prove legal identity.
+## Create a project workspace
+
+```bash
+air project init "My First AIR Project" --use
+air project show
+air project validate
+```
+
+The workspace is registered under the platform-specific AIR data root unless you specify `--workspace` or configure `AIR_WORKSPACE_ROOT`.
+
+## Search installed AIR resources
+
+```bash
+air resources search "handoff continuity"
+air resources show "prompts/AIR CORE RUNTIME.md"
+air resources materialize "prompts/AIR CORE RUNTIME.md" --purpose "attach to an AI session"
+```
+
+Materialization copies a resource into the AIR cache and writes a provenance receipt. It does not authorize the consuming action.
+
+## Important Stage 2 boundary
+
+The installed substrate currently manages resources, configuration, diagnostics, and project workspaces. Modular bundle compilation, Q1-D refresh, handoff/signing commands, policy execution, upgrades, rollback, and publishing remain assigned to later approved stages.
