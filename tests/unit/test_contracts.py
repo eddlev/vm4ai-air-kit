@@ -121,3 +121,30 @@ def test_forged_mutating_authorization_fails_validation() -> None:
     result = validate_contract(authorization, "authorization")
     assert result["decision"] == "FAIL"
     assert any("approval_ref" in error for error in result["errors"])
+
+
+def test_json_schema_rejects_forged_mutating_authorization_without_provenance() -> None:
+    import pytest
+    from jsonschema.exceptions import ValidationError
+
+    authorization = build_authorization_envelope(task_id="task", capabilities={"inspect": True})
+    authorization["actor"] = "UNSPECIFIED"
+    authorization["approval_ref"] = None
+    authorization["capabilities"]["merge"] = True
+
+    with pytest.raises(ValidationError):
+        validate(authorization, schema("air-authorization-envelope.schema.json"))
+
+
+def test_mutating_authorization_rejects_padded_unspecified_actor() -> None:
+    authorization = build_authorization_envelope(
+        task_id="task",
+        capabilities={"inspect": True},
+    )
+    authorization["actor"] = "  UNSPECIFIED  "
+    authorization["approval_ref"] = "conversation:forged"
+    authorization["capabilities"]["merge"] = True
+
+    result = validate_contract(authorization, "authorization")
+    assert result["decision"] == "FAIL"
+    assert any("explicit actor" in error for error in result["errors"])

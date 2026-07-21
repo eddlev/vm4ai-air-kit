@@ -4,7 +4,7 @@
 
 Stage 3 moves boot behavior onto the shared installed-resource resolver and the reusable `vm4ai_air.boot.BootCompiler` service.
 
-The service validates every declared kernel, starter, semantic-closure, Complete AIR Prompt Set, and module byte relationship before planning. It resolves dependency closure deterministically, rejects conflicting or unknown module identities, and uses a visible Complete AIR Prompt Set fallback for unknown triggers.
+The service validates every declared kernel, starter, semantic-closure, Complete AIR Prompt Set, and module byte relationship before planning. Derived Markdown modules are additionally pinned to the approved decomposition map and an independent exact-content digest contract, so a self-consistent marker-only substitute fails. It resolves dependency closure deterministically, rejects conflicting or unknown module identities, and uses a visible Complete AIR Prompt Set fallback for unknown triggers.
 
 ## Terminal commands
 

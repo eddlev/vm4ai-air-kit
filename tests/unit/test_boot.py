@@ -384,3 +384,34 @@ def test_fallback_plan_id_is_bound_to_complete_resource_identity(tmp_path: Path)
     assert changed["source_tree_digest"] != baseline["source_tree_digest"]
     assert changed["resource_set_version"] != baseline["resource_set_version"]
     assert changed["plan_id"] != baseline["plan_id"]
+
+
+def test_validation_rejects_minimal_derived_module_with_valid_markers(tmp_path: Path) -> None:
+    copied = _copy_candidate(tmp_path)
+    module_id = "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1"
+    relative_path = "runtime/modules/runtime/AIR RUNTIME MODULE - CODING REPOSITORY AND RELEASE.md"
+    sentinel = f"AIR_LOAD_SENTINEL :: {module_id} :: END_OF_FILE :: LOAD_INTEGRITY_V1"
+    module_path = copied / relative_path
+    module_path.write_text(
+        f"SYSTEM_DESIGNATION: {module_id}\n"
+        "ARTIFACT_CLASS: RUNTIME_MODULE\n"
+        f"{sentinel}\n",
+        encoding="utf-8",
+    )
+
+    manifest_path = copied / "runtime/boot/AIR BOOT MODULE MANIFEST.json"
+    manifest = _load_json(manifest_path)
+    modules = manifest["modules"]
+    assert isinstance(modules, list)
+    module = next(item for item in modules if isinstance(item, dict) and item.get("module_id") == module_id)
+    data = module_path.read_bytes()
+    module["sha256"] = hashlib.sha256(data).hexdigest()
+    module["size_bytes"] = len(data)
+    _write_json(manifest_path, manifest)
+
+    result = compiler_for(tmp_path / "state", copied).validate()
+    assert result["decision"] == "FAIL"
+    assert any(
+        check["name"] == f"DERIVED_MODULE_CONTENT_{module_id}" and check["status"] == "FAIL"
+        for check in result["checks"]
+    )

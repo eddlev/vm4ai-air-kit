@@ -209,7 +209,7 @@ def validate_contract(document: Mapping[str, Any], kind: str) -> dict[str, Any]:
             if mutating_allowed:
                 actor = document.get("actor")
                 approval_ref = document.get("approval_ref")
-                if not isinstance(actor, str) or not actor.strip() or actor == "UNSPECIFIED":
+                if not isinstance(actor, str) or not actor.strip() or actor.strip() == "UNSPECIFIED":
                     errors.append("mutating authorization requires an explicit actor")
                 if not isinstance(approval_ref, str) or not approval_ref.strip():
                     errors.append("mutating authorization requires approval_ref provenance")

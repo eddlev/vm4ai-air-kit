@@ -12,10 +12,11 @@
 ### Fixed during Stage 3 review
 
 - Boot validation now requires the kernel, starter, semantic-closure, Complete AIR Prompt Set, receipt, and Markdown-module structural contracts instead of accepting merely self-consistent bytes.
+- Derived Markdown modules are pinned to an independent decomposition-map and exact module-content contract, so marker-only replacements fail even when manifest digests are rebuilt.
 - Deterministic bundles now embed exact length-framed resource bytes whose declared digests match the embedded segments.
 - Bundle and receipt output pairs now use shared target locks, post-write verification, and rollback under one transaction boundary.
 - Every modular and fallback plan identifier now binds the package version, resource-set version, and full source-tree digest.
-- Mutating authorization envelopes now require an explicit actor and approval provenance; neutral non-mutating envelopes default to `UNSPECIFIED`.
+- Mutating authorization envelopes now require an explicit actor and approval provenance; neutral non-mutating envelopes default to `UNSPECIFIED`. The published JSON Schema enforces the same conditional rule.
 - Unknown-trigger review results now use a distinct nonzero terminal exit code.
 
 ## Unreleased — v0.4.0 development line

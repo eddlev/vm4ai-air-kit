@@ -75,6 +75,9 @@ def test_built_distribution_installs_and_runs_without_repository(
     authorization_schema = contracts["contracts"]["authorization"]["schema"]
     assert authorization_schema["$id"] == "urn:air:authorization-envelope:1"
     assert "approval_ref" in authorization_schema["required"]
+    provenance_rule = authorization_schema["allOf"][0]["then"]["properties"]
+    assert provenance_rule["approval_ref"]["type"] == "string"
+    assert provenance_rule["actor"]["not"]["pattern"] == r"^\s*UNSPECIFIED\s*$"
     boot_plan = run("boot", "plan", "--trigger", "Q1_D_ORIENTATION")
     assert "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1" in boot_plan["planned_modules"]
     bundle = outside / f"installed-{label}-boot.md"

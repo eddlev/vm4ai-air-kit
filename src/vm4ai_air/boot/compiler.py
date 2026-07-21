@@ -130,6 +130,83 @@ _EXPECTED_SESSION_BRANCHES = {
     "Q1_C_HANDOFF_CONTINUATION": "CLOSED_BY_POLICY_AND_HANDOFF_MODULES",
     "Q1_D_BEGINNER_ORIENTATION": "CLOSED_BY_AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
 }
+_DECOMPOSITION_MAP_PATH = "runtime/boot/evidence/AIR WS7 MODULE DECOMPOSITION MAP.json"
+_DECOMPOSITION_MAP_SHA256 = "cb651920a4e9f7bc02b106022903b5ed0400336dcbadb3e99e51dc6b21c7a601"
+_DERIVED_MODULE_CONTRACTS: dict[str, tuple[str, str, int, int]] = {
+    "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1": (
+        "fcf6df4f91cbe1397abe143d4f51d1a4e8c63e7c655d2058b030c9cd934cadf7",
+        "prompts/AIR CORE RUNTIME.md",
+        17,
+        35539,
+    ),
+    "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1": (
+        "519e25406a22a81f84dcad86325a35b5634d9bce25d85cfb32211868faef223f",
+        "prompts/AIR CORE RUNTIME.md",
+        44,
+        89554,
+    ),
+    "AIR_RUNTIME_ARTIFACT_LIFECYCLE_V1": (
+        "31b6a8b7d0515be3597917bd56fa332a8ba6404bf4ff1f6a15c1e7b59cfb251f",
+        "prompts/AIR CORE RUNTIME.md",
+        11,
+        20770,
+    ),
+    "AIR_RUNTIME_SOURCE_TRANSLATION_AND_CAPABILITY_V1": (
+        "50a88eff3028b7351eeaff83523074d4497534ddedff9d2569410d840f2afe81",
+        "prompts/AIR CORE RUNTIME.md",
+        12,
+        35197,
+    ),
+    "AIR_RUNTIME_METHOD_EXECUTOR_AND_SPECIALIST_V1": (
+        "898203cdde6bf1731d2eb74f7c3e943c0b8b51889baafea1a0595b5eac3c5baf",
+        "prompts/AIR CORE RUNTIME.md",
+        8,
+        30112,
+    ),
+    "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1": (
+        "844ebe96a0033e1ccc4723ebd28c8908106fbbf948ca515ca7e74cc0c1ca8e32",
+        "prompts/AIR CORE RUNTIME.md",
+        4,
+        11481,
+    ),
+    "AIR_RUNTIME_GROUNDING_DISCOVERY_AND_RESEARCH_V1": (
+        "ec3b4ac2ddfd403bc1dd0b829066fc6b387065fc1ad7eb2123bef4e33cabe224",
+        "prompts/AIR CORE RUNTIME.md",
+        33,
+        60461,
+    ),
+    "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1": (
+        "b1a8e55944fe931082846170077df37d6f16f731e8d5bee137d2434cdff2a24b",
+        "prompts/AIR CORE RUNTIME.md",
+        12,
+        13563,
+    ),
+    "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1": (
+        "fc8a1fdaa2f087bb97be1d52c87a1a0f8e4f370488381f0354d600ae908586bc",
+        "prompts/AIR CONTROL SURFACE.md",
+        47,
+        51616,
+    ),
+    "AIR_CONTROL_ARTIFACT_SOURCE_AND_CAPABILITY_V1": (
+        "54d2476c34d2cd624c660efeb75400d42c0aeadba48cbf2982a4a84e0d72b4f6",
+        "prompts/AIR CONTROL SURFACE.md",
+        35,
+        40394,
+    ),
+    "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1": (
+        "d49af40d151faa0ff00ea14dc0d396b86ac9d8b62868064137ab621cc0ca3eaa",
+        "prompts/AIR CONTROL SURFACE.md",
+        7,
+        16024,
+    ),
+    "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1": (
+        "9da914baf10ac6e71cf892d7bf072aea44aae9a7d39dca883d16332033102c13",
+        "prompts/AIR CONTROL SURFACE.md",
+        16,
+        17761,
+    ),
+}
+_SOURCE_CHUNK_MARKER = re.compile(rb"<!-- AIR_SOURCE_CHUNK_BEGIN (?P<meta>\{[^\n]+\}) -->")
 
 
 def _sha256(data: bytes) -> str:
@@ -598,6 +675,131 @@ class BootCompiler:
             "complete" if closure_valid and not missing_requirements else f"missing/invalid: {missing_requirements}",
         )
 
+    def _validate_derived_module_contracts(
+        self,
+        checks: list[dict[str, Any]],
+        *,
+        module_id: str | None = None,
+    ) -> None:
+        try:
+            map_bytes = self.resolver.read_bytes(_DECOMPOSITION_MAP_PATH)
+            source_map = strict_json_loads(map_bytes.decode("utf-8"), source=_DECOMPOSITION_MAP_PATH)
+        except (BootError, UnicodeDecodeError) as exc:
+            self._check(checks, "DERIVED_MODULE_SOURCE_MAP", False, str(exc))
+            return
+        map_valid = (
+            _sha256(map_bytes) == _DECOMPOSITION_MAP_SHA256
+            and isinstance(source_map, Mapping)
+            and source_map.get("SYSTEM_DESIGNATION") == "AIR_WS7_MODULE_DECOMPOSITION_MAP_V1"
+            and source_map.get("artifact_class") == "SOURCE_SPAN_MAP"
+            and isinstance(source_map.get("chunks"), list)
+        )
+        self._check(
+            checks,
+            "DERIVED_MODULE_SOURCE_MAP",
+            map_valid,
+            _DECOMPOSITION_MAP_PATH,
+            expected_sha256=_DECOMPOSITION_MAP_SHA256,
+            observed_sha256=_sha256(map_bytes),
+        )
+        if not map_valid:
+            return
+
+        chunks_by_module: dict[str, list[Mapping[str, Any]]] = {}
+        for raw_chunk in source_map["chunks"]:
+            if not isinstance(raw_chunk, Mapping):
+                self._check(checks, "DERIVED_MODULE_SOURCE_MAP_CHUNKS", False, "chunk must be an object")
+                return
+            chunk_module_id = raw_chunk.get("module_id")
+            if not isinstance(chunk_module_id, str):
+                self._check(checks, "DERIVED_MODULE_SOURCE_MAP_CHUNKS", False, "chunk module_id missing")
+                return
+            chunks_by_module.setdefault(chunk_module_id, []).append(raw_chunk)
+
+        selected_ids = (
+            [module_id]
+            if module_id in _DERIVED_MODULE_CONTRACTS
+            else list(_DERIVED_MODULE_CONTRACTS)
+            if module_id is None
+            else []
+        )
+        for current_id in selected_ids:
+            expected_digest, expected_source, expected_count, expected_bytes = _DERIVED_MODULE_CONTRACTS[current_id]
+            module = self._modules.get(current_id)
+            if not isinstance(module, Mapping):
+                self._check(checks, f"DERIVED_MODULE_CONTENT_{current_id}", False, "module missing")
+                continue
+            relative_path = module.get("relative_path")
+            try:
+                module_bytes = self.resolver.read_bytes(str(relative_path))
+            except Exception as exc:
+                self._check(checks, f"DERIVED_MODULE_CONTENT_{current_id}", False, str(exc))
+                continue
+
+            chunks = chunks_by_module.get(current_id, [])
+            chunk_shape_valid = (
+                len(chunks) == expected_count
+                and all(
+                    isinstance(chunk.get("source_file"), str)
+                    and isinstance(chunk.get("start_line"), int)
+                    and isinstance(chunk.get("end_line"), int)
+                    and isinstance(chunk.get("sha256"), str)
+                    and _SHA256.fullmatch(str(chunk.get("sha256"))) is not None
+                    and isinstance(chunk.get("bytes"), int)
+                    for chunk in chunks
+                )
+                and sum(int(chunk["bytes"]) for chunk in chunks) == expected_bytes
+            )
+            marker_metadata: list[dict[str, Any]] = []
+            marker_valid = True
+            for match in _SOURCE_CHUNK_MARKER.finditer(module_bytes):
+                try:
+                    marker = strict_json_loads(match.group("meta").decode("utf-8"), source=str(relative_path))
+                except (BootError, UnicodeDecodeError):
+                    marker_valid = False
+                    break
+                if not isinstance(marker, dict):
+                    marker_valid = False
+                    break
+                marker_metadata.append(marker)
+            expected_markers = [
+                {
+                    "source": chunk["source_file"],
+                    "start_line": chunk["start_line"],
+                    "end_line": chunk["end_line"],
+                    "sha256": chunk["sha256"],
+                }
+                for chunk in chunks
+            ]
+            manifest_contract_valid = (
+                module.get("authoritative_source") == "DERIVED_FROM_APPROVED_WS6_MONOLITH"
+                and module.get("source_span_map_ref") == _DECOMPOSITION_MAP_PATH
+                and module.get("source_file") == expected_source
+                and module.get("source_span_count") == expected_count
+                and module.get("source_span_bytes") == expected_bytes
+                and module.get("sha256") == expected_digest
+            )
+            content_valid = (
+                _sha256(module_bytes) == expected_digest
+                and chunk_shape_valid
+                and marker_valid
+                and marker_metadata == expected_markers
+            )
+            self._check(
+                checks,
+                f"DERIVED_MODULE_CONTENT_{current_id}",
+                manifest_contract_valid and content_valid,
+                str(relative_path),
+                expected_sha256=expected_digest,
+                observed_sha256=_sha256(module_bytes),
+                expected_source_span_count=expected_count,
+                observed_source_span_count=len(marker_metadata),
+                expected_source_span_bytes=expected_bytes,
+                observed_source_span_bytes=(
+                    sum(int(chunk["bytes"]) for chunk in chunks) if chunk_shape_valid else None
+                ),
+            )
+
     def _validate_receipt_contract_resources(self, checks: list[dict[str, Any]]) -> None:
         try:
             schema = self._load_json("runtime/boot/schemas/AIR BOOT COMPILE RECEIPT SCHEMA.json")
@@ -645,6 +847,7 @@ class BootCompiler:
         self._validate_starter_contract(checks)
         self._validate_semantic_contract(checks)
         self._validate_receipt_contract_resources(checks)
+        self._validate_derived_module_contracts(checks, module_id=module_id)
 
         kernel_entry = self.manifest.get("kernel")
         self._check(

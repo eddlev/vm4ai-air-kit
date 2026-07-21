@@ -38,7 +38,8 @@
     },
     "actor": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "\\S"
     },
     "approval_ref": {
       "anyOf": [
@@ -47,7 +48,8 @@
         },
         {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "\\S"
         }
       ]
     },
@@ -121,5 +123,111 @@
       "type": "string",
       "minLength": 1
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "capabilities": {
+            "anyOf": [
+              {
+                "properties": {
+                  "modify_worktree": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "commit": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "push": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "open_pr": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "mark_ready": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "merge": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "tag": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "release": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "publish": {
+                    "const": true
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "destructive_actions": {
+                    "const": true
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "required": [
+          "capabilities"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor": {
+            "type": "string",
+            "minLength": 1,
+            "not": {
+              "pattern": "^\\s*UNSPECIFIED\\s*$"
+            },
+            "pattern": "\\S"
+          },
+          "approval_ref": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S"
+          }
+        },
+        "required": [
+          "actor",
+          "approval_ref"
+        ]
+      }
+    }
+  ]
 }

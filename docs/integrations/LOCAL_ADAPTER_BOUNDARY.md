@@ -30,6 +30,6 @@ When AIR orchestrates a coding harness directly, the richer harness-native proto
 
 - A loaded bundle is not execution authorization.
 - A task packet defines scope but grants no capability.
-- An authorization envelope denies every omitted capability. A mutating capability requires an explicit actor and an `approval_ref` identifying the approval source; AIR never manufactures `USER_APPROVED` provenance.
+- An authorization envelope denies every omitted capability. A mutating capability requires an explicit actor and an `approval_ref` identifying the approval source; AIR never manufactures `USER_APPROVED` provenance. Both the Python validator and the published JSON Schema enforce this rule.
 - A continuation packet preserves the current step and pending approvals; it does not approve the next recommended step.
 - Push, merge, tag, release, publication, destructive actions, and external network use remain distinct gates.
