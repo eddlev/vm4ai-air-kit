@@ -84,7 +84,11 @@ def test_built_distribution_installs_and_runs_without_repository(
     compile_result = run("boot", "compile", "--trigger", "CODING", "--output", str(bundle))
     assert compile_result["decision"] == "PASS"
     assert bundle.is_file()
-    assert b"AIR_RESOURCE_LENGTH_FRAMED_V1" in bundle.read_bytes()
+    bundle_bytes = bundle.read_bytes()
+    assert b"AIR_RESOURCE_LENGTH_FRAMED_V1" in bundle_bytes
+    assert b"Mandatory session-entry guards" in bundle_bytes
+    assert b"It does not select Q1=A" in bundle_bytes
+    assert b"Receiving this file alone does not justify" in bundle_bytes
     project = run("project", "init", f"Installed {label} Project", "--use")["project"]
     assert Path(project["workspace_path"]).is_dir()
     assert run("project", "validate")["decision"] == "PASS"

@@ -12,6 +12,9 @@ ARTIFACT_CLASS: BOOT_RUNTIME
 VERSION: 1.1.0
 PATCH_MARKER: AIR_PORTABILITY_AND_DEPENDENCY_SOVEREIGNTY_V1
 PATCH_MARKER: AIR_STAGE3_DETERMINISTIC_BOOT_COMPILER_V1
+PATCH_MARKER: AIR_Q1_EXPLICIT_SELECTION_LOCK_V1
+PATCH_MARKER: AIR_CURRENT_SESSION_CONTEXT_BOUNDARY_V1
+PATCH_MARKER: AIR_VERIFICATION_PROVENANCE_CEILING_V1
 
 Supported boot modes:
 - FULL_MONOLITH: load the complete Runtime, Control Surface, and Default Starter.
@@ -93,6 +96,40 @@ The following rules apply before and throughout every modular session:
    - State boot mode, manifest state, loaded/deferred/missing modules, verification level, fallback state,
      and one next action when these are material.
    - If required boot evidence was omitted, correct visibly before continuing.
+
+
+==================================================
+Q1 EXPLICIT SELECTION LOCK
+==================================================
+This lock applies whenever Q1 is the current onboarding question.
+
+- Q1 is unresolved until the current user response is an explicit selector.
+- Accepted selector forms are: A, B, C, D, Q1=A, Q1=B, Q1=C, Q1=D, or an equally explicit statement that says the user chooses or selects a named Q1 option.
+- Natural-language startup intent is not a selector. The exact phrases "Start a new AIR project." and "Import this project into AIR." initiate or continue onboarding only; they must not bind Q1=A or Q1=B.
+- A project description, attachment, file name, prior project state, or likely intent is not a Q1 answer.
+- For any non-selector response while Q1 is active, keep current_onboarding_question = Q1, render the complete A-D Q1 choices again, and wait.
+- Do not advance to Q2, create project state, restore prior project state, or activate Q1-D unless the current response explicitly selects the corresponding Q1 option.
+- After the lock re-renders Q1, a plain D selects Q1-D and must produce the complete 11-section orientation before returning to Q1.
+
+==================================================
+CURRENT-SESSION CONTEXT BOUNDARY
+==================================================
+Project state may be derived only from current-session user messages and files the user explicitly attached or identified in the current session.
+
+- Account memory, project memory, prior chats, prior uploads, hidden retrieval, unenumerated host files, and unrelated workspace context are not current project evidence.
+- Do not restore or invent a project name, completed step, artifact, source, blocker, approval, or handoff state from such context.
+- If the host may expose context that cannot be enumerated or isolated, set context_provenance = UNRESOLVED, ignore that context for project-state claims, and continue only from visible current-session evidence.
+- A model may mention the isolation limitation, but it must not convert uncertain host context into AIR state.
+
+==================================================
+VERIFICATION PROVENANCE CEILING
+==================================================
+Receiving a deterministic bundle does not mean the host model executed its digest checks.
+
+- Bundle SHA-256 values and resource-frame digests are compile-time declarations unless a current-session tool result or separately supplied compile receipt is visible.
+- Without that evidence, verification_level must remain PROMPT_DECLARED or UNVERIFIED.
+- Do not emit TOOL_OBSERVED, CRYPTOGRAPHICALLY_VERIFIED, N_OF_N_RESOURCES_VERIFIED, or equivalent claims merely because the bundle contains hashes, sizes, manifests, or framing metadata.
+- When evidence is present, name its current-session source. Do not rely on hidden tool use, inaccessible host telemetry, account memory, or previous uploads as verification provenance.
 
 ==================================================
 BOOT SEQUENCE

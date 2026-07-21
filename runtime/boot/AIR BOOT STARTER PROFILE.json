@@ -17,8 +17,8 @@
     "file": "runtime/boot/AIR BOOT KERNEL.md",
     "designation": "AIR_BOOT_KERNEL_V1",
     "version": "1.1.0",
-    "sha256": "30a204fa676e8e298a5d33f3fadb92114f51bc763fd79f0cf40cd9c58cef0ad5",
-    "size_bytes": 7489
+    "sha256": "a3fc5382601f7b3724bfd0aee1ba197bf3ba55297a1b05e0fd78b1521aa4bfd7",
+    "size_bytes": 10593
   },
   "manifest": {
     "file": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
@@ -97,5 +97,26 @@
     "file": "runtime/boot/AIR BOOT SEMANTIC CLOSURE.json",
     "designation": "AIR_BOOT_SEMANTIC_CLOSURE",
     "version": "1.0.0"
+  },
+  "session_entry_guards": {
+    "q1_selector_state": "LOCKED_UNTIL_EXPLICIT_SELECTOR",
+    "accepted_q1_inputs": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "Q1=A",
+      "Q1=B",
+      "Q1=C",
+      "Q1=D"
+    ],
+    "reserved_non_selection_inputs": [
+      "Start a new AIR project.",
+      "Import this project into AIR."
+    ],
+    "nonselector_action": "RENDER_Q1_AND_WAIT",
+    "context_scope": "CURRENT_VISIBLE_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS_ONLY",
+    "unenumerated_context": "UNTRUSTED_FOR_PROJECT_STATE",
+    "verification_claim_ceiling_without_current_session_evidence": "PROMPT_DECLARED_OR_UNVERIFIED"
   }
 }

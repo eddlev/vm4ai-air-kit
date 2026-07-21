@@ -9,7 +9,7 @@
 
 ```text
 Ruff: PASS
-pytest -m "not package": 78 passed, 2 deselected
+pytest -m "not package": 80 passed, 2 deselected
 ```
 
 The regression set covers:
@@ -37,7 +37,7 @@ source distribution build: PASS
 Twine metadata check: PASS for both distributions
 isolated wheel installation test: PASS
 isolated source-distribution installation test: PASS
-package tests: 2 passed, 78 deselected
+package tests: 2 passed, 80 deselected
 ```
 
 Each isolated distribution test installs into a fresh virtual environment, runs `pip check`, executes outside the repository, verifies packaged resources, validates Stage 3 boot closure, loads an installed contract schema, compiles a bundle, and validates a project workspace.
@@ -62,7 +62,7 @@ Observed results:
 ```text
 installed AIR resources: 73
 boot modules: 23
-boot validation checks: 216
+boot validation checks: 217
 boot validation failures: 0
 resource set: v0.5.0-dev+sha256.f5fed5d74899
 source tree digest: sha256:f5fed5d748994c1d968a6f0a00325c95f5379a5c347f52288219d9e3434dfd66
@@ -77,6 +77,19 @@ Two wheel and source-distribution builds using the same `SOURCE_DATE_EPOCH` were
 ## Stage 3 review remediation
 
 The structured review reproduced five defects: optional structural checks in self-consistent packages, resource digests that could differ from normalized embedded text, concurrent bundle/receipt interleaving, fallback plan IDs not bound to the resource set, and authorization builders that could synthesize `USER_APPROVED`. A follow-up adversarial review found two narrower gaps: marker-only derived modules could still pass, and the published JSON Schema did not yet enforce approval provenance. The completed remediation converts all seven reproductions into fail-closed contracts and regression tests and adds a distinct terminal review exit for unknown-trigger fallback.
+
+## Empirical session-entry remediation
+
+The first isolated GPT-5.6 Sol High run exposed a hard-gate failure: after Q1 was rendered, the phrase `Start a new AIR project.` silently advanced to Q2. The run also surfaced attribution uncertainty because the host may have exposed prior uploaded material despite project-memory isolation. The remediation therefore:
+
+- requires an explicit A-D or `Q1=<letter>` selector before Q1 may advance;
+- treats startup phrases as onboarding intent only;
+- adds current-session context provenance boundaries so unenumerated host memory or files cannot become AIR project state;
+- caps host verification claims at `PROMPT_DECLARED` or `UNVERIFIED` unless current-session tool evidence or a separately supplied compile receipt is visible;
+- places the guard in both the mandatory boot kernel and the compiled bundle preamble;
+- adds source and installed-distribution regression assertions.
+
+Preparation-environment evidence for this incremental candidate: `80 passed, 2 deselected`, boot validation `23 modules / 217 checks / 0 failures`, and deterministic session-entry compilation pass. Ruff, build, Twine, isolated-distribution, Windows, and GitHub Actions gates remain operator/CI requirements for the pushed commit.
 
 ## Still required after remediation push
 

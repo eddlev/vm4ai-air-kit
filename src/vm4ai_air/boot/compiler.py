@@ -59,12 +59,30 @@ _EXPECTED_MANDATORY_FLOOR = {
     "VISIBLE_FALLBACK",
     "ALL_CREATED_FORMAL_OBJECTS_VISIBLE",
 }
+_EXPECTED_SESSION_ENTRY_GUARDS = {
+    "q1_selector_state": "LOCKED_UNTIL_EXPLICIT_SELECTOR",
+    "accepted_q1_inputs": ["A", "B", "C", "D", "Q1=A", "Q1=B", "Q1=C", "Q1=D"],
+    "reserved_non_selection_inputs": ["Start a new AIR project.", "Import this project into AIR."],
+    "nonselector_action": "RENDER_Q1_AND_WAIT",
+    "context_scope": "CURRENT_VISIBLE_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS_ONLY",
+    "unenumerated_context": "UNTRUSTED_FOR_PROJECT_STATE",
+    "verification_claim_ceiling_without_current_session_evidence": "PROMPT_DECLARED_OR_UNVERIFIED",
+}
 _KERNEL_REQUIRED_MARKERS = (
     "Activate AIR Boot Kernel for this session.",
     "SYSTEM_DESIGNATION: AIR_BOOT_KERNEL_V1",
     "ARTIFACT_CLASS: BOOT_RUNTIME",
     "VERSION: 1.1.0",
+    "PATCH_MARKER: AIR_Q1_EXPLICIT_SELECTION_LOCK_V1",
+    "PATCH_MARKER: AIR_CURRENT_SESSION_CONTEXT_BOUNDARY_V1",
+    "PATCH_MARKER: AIR_VERIFICATION_PROVENANCE_CEILING_V1",
     "MANDATORY KERNEL FLOOR",
+    "Q1 EXPLICIT SELECTION LOCK",
+    'The exact phrases "Start a new AIR project." and "Import this project into AIR."',
+    "CURRENT-SESSION CONTEXT BOUNDARY",
+    "Account memory, project memory, prior chats, prior uploads",
+    "VERIFICATION PROVENANCE CEILING",
+    "Without that evidence, verification_level must remain PROMPT_DECLARED or UNVERIFIED.",
     "BOOT SEQUENCE",
     "MODULE FAILURE AND FALLBACK",
     "CLAIM BOUNDARY",
@@ -515,6 +533,14 @@ class BootCompiler:
             and session_entry.get("unknown_trigger") == "REVIEW_OR_FALLBACK_MONOLITH"
             and session_entry.get("partial_load_claim") == "PROHIBITED",
             str(session_entry),
+        )
+        session_entry_guards = self.starter.get("session_entry_guards")
+        self._check(
+            checks,
+            "STARTER_SESSION_ENTRY_GUARDS",
+            isinstance(session_entry_guards, Mapping)
+            and dict(session_entry_guards) == _EXPECTED_SESSION_ENTRY_GUARDS,
+            str(session_entry_guards),
         )
         dependency = self.starter.get("dependency_policy")
         security = self.starter.get("security")
@@ -1178,6 +1204,18 @@ class BootCompiler:
             "plan_id": plan["plan_id"],
             "authorization_decision": "NOT_EVALUATED",
             "fallback_state": plan["fallback_state"],
+            "session_entry_guards": dict(_EXPECTED_SESSION_ENTRY_GUARDS),
+            "host_context_boundary": {
+                "current_session_sources": "VISIBLE_USER_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS",
+                "unenumerated_host_context": "UNTRUSTED_FOR_PROJECT_STATE",
+                "isolation_unprovable_action": "SET_CONTEXT_PROVENANCE_UNRESOLVED_AND_IGNORE_FOR_STATE",
+            },
+            "host_verification_claim_ceiling": {
+                "bundle_hashes_and_sizes": "COMPILE_TIME_DECLARATIONS",
+                "loading_bundle_alone": "NOT_TOOL_OBSERVED",
+                "tool_observed_requires": "CURRENT_SESSION_TOOL_RESULT_OR_SEPARATELY_SUPPLIED_COMPILE_RECEIPT",
+                "without_evidence": "PROMPT_DECLARED_OR_UNVERIFIED",
+            },
             "framing": {
                 "format": "AIR_RESOURCE_LENGTH_FRAMED_V1",
                 "size_field": "size_bytes",
@@ -1185,14 +1223,25 @@ class BootCompiler:
             },
             "resources": records,
             "claim_boundary": (
-                "This deterministic bundle records exact selected bytes. Loading it is not execution authorization, "
+                "This deterministic bundle records exact selected bytes at compile time. A host model that merely "
+                "receives the file has not performed digest verification. Loading it is not execution authorization, "
                 "proof of model-equivalent behavior, or permission for mutating actions."
             ),
         }
         header = (
             "# AIR Deterministic Boot Bundle\n\n"
+            "## Mandatory session-entry guards\n\n"
+            "- `Start a new AIR project.` is activation intent only. It does not select Q1=A. While Q1 is active, "
+            "advance only after an explicit A-D selector or explicit `Q1=<letter>` choice; otherwise render Q1 again "
+            "and wait.\n"
+            "- Current project state may use only visible current-session messages and files explicitly attached or "
+            "identified in this session. Unenumerated host memory, prior uploads, hidden project files, and prior "
+            "session state are untrusted for project-state claims.\n"
+            "- The SHA-256 values below are compile-time metadata. Receiving this file alone does not justify "
+            "`TOOL_OBSERVED`, `CRYPTOGRAPHICALLY_VERIFIED`, or N-of-N resource-verification claims. "
+            "Such claims require a visible current-session tool result or separately supplied compile receipt.\n\n"
             "The resource frames below are length-delimited. The first `size_bytes` bytes after each frame header are "
-            "the exact resource bytes covered by that frame's SHA-256 digest.\n\n"
+            "the exact resource bytes covered by that frame's compile-time SHA-256 declaration.\n\n"
             "```json\n"
             f"{json.dumps(bundle_manifest, ensure_ascii=False, indent=2, sort_keys=True)}\n"
             "```\n\n"

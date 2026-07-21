@@ -415,3 +415,57 @@ def test_validation_rejects_minimal_derived_module_with_valid_markers(tmp_path: 
         check["name"] == f"DERIVED_MODULE_CONTENT_{module_id}" and check["status"] == "FAIL"
         for check in result["checks"]
     )
+
+
+def test_session_entry_bundle_surfaces_q1_context_and_verification_guards(tmp_path: Path) -> None:
+    compiler = compiler_for(tmp_path)
+    compiled = compiler.compile(["SESSION_ENTRY"])
+    manifest = compiled["bundle_manifest"]
+    assert manifest["session_entry_guards"]["q1_selector_state"] == "LOCKED_UNTIL_EXPLICIT_SELECTOR"
+    assert "Start a new AIR project." in manifest["session_entry_guards"]["reserved_non_selection_inputs"]
+    assert manifest["host_context_boundary"]["unenumerated_host_context"] == "UNTRUSTED_FOR_PROJECT_STATE"
+    assert manifest["host_verification_claim_ceiling"]["loading_bundle_alone"] == "NOT_TOOL_OBSERVED"
+    text = compiled["bundle_bytes"].decode("utf-8")
+    assert "It does not select Q1=A" in text
+    assert "hidden project files" in text
+    assert "Receiving this file alone does not justify" in text
+
+
+def test_validation_rejects_self_consistent_kernel_without_q1_lock_phrase(tmp_path: Path) -> None:
+    copied = _copy_candidate(tmp_path)
+    kernel_path = copied / "runtime/boot/AIR BOOT KERNEL.md"
+    kernel_text = kernel_path.read_text(encoding="utf-8")
+    guarded = 'The exact phrases "Start a new AIR project." and "Import this project into AIR."'
+    assert guarded in kernel_text
+    kernel_path.write_text(kernel_text.replace(guarded, "Startup phrases may be interpreted."), encoding="utf-8")
+
+    kernel_data = kernel_path.read_bytes()
+    kernel_digest = hashlib.sha256(kernel_data).hexdigest()
+
+    starter_path = copied / "runtime/boot/AIR BOOT STARTER PROFILE.json"
+    starter = _load_json(starter_path)
+    starter_kernel = starter["kernel"]
+    assert isinstance(starter_kernel, dict)
+    starter_kernel["sha256"] = kernel_digest
+    starter_kernel["size_bytes"] = len(kernel_data)
+    _write_json(starter_path, starter)
+
+    manifest_path = copied / "runtime/boot/AIR BOOT MODULE MANIFEST.json"
+    manifest = _load_json(manifest_path)
+    manifest_kernel = manifest["kernel"]
+    assert isinstance(manifest_kernel, dict)
+    manifest_kernel["sha256"] = kernel_digest
+    manifest_kernel["size_bytes"] = len(kernel_data)
+    starter_data = starter_path.read_bytes()
+    boot_starter = manifest["boot_starter"]
+    assert isinstance(boot_starter, dict)
+    boot_starter["sha256"] = hashlib.sha256(starter_data).hexdigest()
+    boot_starter["size_bytes"] = len(starter_data)
+    _write_json(manifest_path, manifest)
+
+    result = compiler_for(tmp_path / "state", copied).validate()
+    assert result["decision"] == "FAIL"
+    assert any(
+        check["name"] == "KERNEL_RESOURCE_TEXT_CONTRACT" and check["status"] == "FAIL"
+        for check in result["checks"]
+    )

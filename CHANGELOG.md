@@ -18,6 +18,9 @@
 - Every modular and fallback plan identifier now binds the package version, resource-set version, and full source-tree digest.
 - Mutating authorization envelopes now require an explicit actor and approval provenance; neutral non-mutating envelopes default to `UNSPECIFIED`. The published JSON Schema enforces the same conditional rule.
 - Unknown-trigger review results now use a distinct nonzero terminal exit code.
+- Empirical session-entry remediation now hard-locks Q1 until an explicit selector is supplied; startup phrases such as `Start a new AIR project.` cannot silently bind Q1=A.
+- Session-entry bundles now treat unenumerated host memory, prior uploads, and hidden project files as untrusted for current project-state claims.
+- Bundle metadata now caps host verification claims at prompt-declared or unverified unless current-session tool evidence or a separately supplied compile receipt is visible.
 
 ## Unreleased — v0.4.0 development line
 
