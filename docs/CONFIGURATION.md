@@ -40,7 +40,6 @@ air config write-default
 | `AIR_CACHE_HOME` | Override cache root |
 | `AIR_LOG_HOME` | Override log root |
 | `AIR_WORKSPACE_ROOT` | Override the default location for new project workspaces |
-| `AIR_STRICT_RESOURCES` | Set installed-resource strictness (`true` or `false`) |
 | `AIR_RESOURCE_ROOT` | Explicit authoring-source override for development only |
 
 `AIR_RESOURCE_ROOT` is never an automatic repository search. It must be set deliberately and must contain `prompts/`, `profiles/`, and `runtime/`. `air doctor` reports the override as development evidence rather than installed-wheel evidence.

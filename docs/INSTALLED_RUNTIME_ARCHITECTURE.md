@@ -119,7 +119,6 @@ AIR_STATE_HOME
 AIR_CACHE_HOME
 AIR_LOG_HOME
 AIR_WORKSPACE_ROOT
-AIR_STRICT_RESOURCES
 AIR_RESOURCE_ROOT   development only
 ```
 
@@ -223,9 +222,9 @@ Source and integration tests cover:
 - private-key boundary enforcement;
 - CLI execution outside the repository directory.
 
-Package tests build and install the wheel into a fresh virtual environment, remove development overrides, execute outside the repository, verify installed resources, create a project, validate it, and confirm the import path belongs to that environment.
+Package tests build and install both the wheel and source distribution into fresh virtual environments, remove development overrides, execute outside the repository, verify installed resources, create a project, validate it, and confirm the import path belongs to that environment.
 
-CI separates source tests from installed-distribution tests.
+CI separates source tests from installed-distribution tests. The source matrix covers Python 3.11-3.14 on Windows, macOS, and Linux. The installed-distribution factor matrix covers all three operating-system families while sampling the oldest and newest supported Python versions without duplicating every source-matrix combination.
 
 ## 12. Migration sequence
 

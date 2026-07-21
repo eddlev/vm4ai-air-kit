@@ -63,23 +63,22 @@ dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
 dist/vm4ai_air-0.4.0.dev0.tar.gz
 ```
 
-## Installed-wheel test
+## Installed-distribution tests
 
 PowerShell:
 
 ```powershell
-$env:AIR_TEST_WHEEL = (Resolve-Path .\dist\vm4ai_air-0.4.0.dev0-py3-none-any.whl)
+$env:AIR_TEST_DIST_DIR = (Resolve-Path .\dist).Path
 python -m pytest -m package
 ```
 
 POSIX shell:
 
 ```bash
-AIR_TEST_WHEEL="$PWD/dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl" \
-python -m pytest -m package
+AIR_TEST_DIST_DIR="$PWD/dist" python -m pytest -m package
 ```
 
-The package test creates a fresh virtual environment and runs outside the repository without `AIR_RESOURCE_ROOT` or `PYTHONPATH`.
+The package tests discover the single wheel and source distribution in `dist/`, install each into a separate fresh virtual environment, and run outside the repository without `AIR_RESOURCE_ROOT` or `PYTHONPATH`. The explicit `AIR_TEST_WHEEL` and `AIR_TEST_SDIST` variables remain available for testing selected artifacts.
 
 ## Development CLI
 

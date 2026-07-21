@@ -9,13 +9,14 @@ import shutil
 import tomllib
 import uuid
 from collections.abc import Mapping
+from contextlib import nullcontext
 from pathlib import Path
 from typing import Any
 
 from vm4ai_air.config import ConfigManager
 from vm4ai_air.config.toml_codec import dumps as dump_toml
 from vm4ai_air.errors import WorkspaceError
-from vm4ai_air.io import FileLock, atomic_write_json, atomic_write_text, utc_now
+from vm4ai_air.io import FileLock, atomic_write_bytes, atomic_write_json, atomic_write_text, utc_now
 from vm4ai_air.paths import AppPaths
 from vm4ai_air.version import __version__
 from vm4ai_air.workspace.models import (
@@ -68,6 +69,9 @@ class WorkspaceManager:
     def _registry_lock(self) -> FileLock:
         return FileLock(self.paths.registry_file.with_suffix(".lock"))
 
+    def _active_project_lock(self) -> FileLock:
+        return FileLock(self.paths.active_project_file.with_suffix(".lock"))
+
     def _read_registry(self) -> dict[str, Any]:
         if not self.paths.registry_file.exists():
             return empty_registry()
@@ -86,18 +90,32 @@ class WorkspaceManager:
         configured = str(self.config["workspace"]["default_root"] or "").strip()
         return Path(configured).expanduser().resolve() if configured else self.paths.projects_root
 
-    def _write_receipt(
+    @staticmethod
+    def _snapshot_file(path: Path) -> tuple[bool, bytes | None]:
+        if not path.exists():
+            return False, None
+        return True, path.read_bytes()
+
+    @staticmethod
+    def _restore_file(path: Path, snapshot: tuple[bool, bytes | None]) -> None:
+        existed, data = snapshot
+        if existed:
+            if data is None:
+                raise OSError(f"Missing rollback bytes for {path}")
+            atomic_write_bytes(path, data)
+        else:
+            path.unlink(missing_ok=True)
+
+    def _receipt_document(
         self,
         operation: str,
         *,
         project_id: str | None,
         details: dict[str, Any],
-        workspace: Path | None = None,
     ) -> dict[str, Any]:
-        operation_id = str(uuid.uuid4())
-        receipt = {
+        return {
             "schema_version": 1,
-            "operation_id": operation_id,
+            "operation_id": str(uuid.uuid4()),
             "operation": operation,
             "status": "PASS",
             "created_at_utc": utc_now(),
@@ -108,11 +126,44 @@ class WorkspaceManager:
                 "A local operation receipt records observed tool activity; it is not general authorization."
             ),
         }
-        self.paths.operations_root.mkdir(parents=True, exist_ok=True)
-        atomic_write_json(self.paths.operations_root / f"{operation_id}.json", receipt)
+
+    def _receipt_paths(self, receipt: Mapping[str, Any], workspace: Path | None) -> list[Path]:
+        operation_id = str(receipt["operation_id"])
+        paths = [self.paths.operations_root / f"{operation_id}.json"]
         if workspace is not None:
-            atomic_write_json(workspace / "logs" / "operations" / f"{operation_id}.json", receipt)
-        return receipt
+            paths.insert(0, workspace / "logs" / "operations" / f"{operation_id}.json")
+        return paths
+
+    def _remove_receipt_files(self, receipt: Mapping[str, Any], workspace: Path | None) -> None:
+        for path in self._receipt_paths(receipt, workspace):
+            path.unlink(missing_ok=True)
+
+    def _write_receipt_files(self, receipt: dict[str, Any], workspace: Path | None) -> None:
+        written: list[Path] = []
+        try:
+            for path in self._receipt_paths(receipt, workspace):
+                atomic_write_json(path, receipt)
+                written.append(path)
+        except Exception:
+            for path in written:
+                path.unlink(missing_ok=True)
+            raise
+
+    @staticmethod
+    def _raise_transaction_failure(
+        action: str,
+        exc: Exception,
+        rollback_errors: list[str],
+    ) -> None:
+        details: dict[str, Any] = {"cause": str(exc)}
+        if rollback_errors:
+            details["rollback_errors"] = rollback_errors
+        message = f"{action} failed"
+        if rollback_errors:
+            message += "; rollback was incomplete"
+        else:
+            message += " and was rolled back"
+        raise WorkspaceError(message, details=details) from exc
 
     def _project_document(
         self,
@@ -180,6 +231,7 @@ class WorkspaceManager:
             workspace.parent.mkdir(parents=True, exist_ok=True)
         except OSError as exc:
             raise WorkspaceError(f"Cannot prepare AIR workspace location {workspace}: {exc}") from exc
+
         staging = workspace.parent / f".{workspace.name}.creating-{uuid.uuid4().hex}"
         document = self._project_document(
             project_id=project_id,
@@ -188,58 +240,18 @@ class WorkspaceManager:
             created_at=created_at,
             source_path=source,
         )
-
-        with self._registry_lock():
-            registry = self._read_registry()
-            for record in registry["projects"]:
-                registered_path = Path(record["workspace_path"]).expanduser().resolve()
-                if _paths_overlap(workspace, registered_path):
-                    raise WorkspaceError(
-                        "Project workspace overlaps an existing registered workspace",
-                        details={"existing_project_id": record["project_id"], "existing_path": str(registered_path)},
-                    )
-                if str(record["name"]).casefold() == cleaned_name.casefold():
-                    raise WorkspaceError(
-                        "A project with this name is already registered",
-                        details={"existing_project_id": record["project_id"]},
-                    )
-            if workspace.exists():
-                raise WorkspaceError(f"Workspace already exists: {workspace}")
-
-            moved = False
-            try:
-                self._create_workspace_tree(staging, document)
-                os.replace(staging, workspace)
-                moved = True
-                record = {
-                    "project_id": project_id,
-                    "name": cleaned_name,
-                    "slug": slug,
-                    "workspace_path": str(workspace),
-                    "source_path": source,
-                    "created_at_utc": created_at,
-                    "status": "ACTIVE",
-                }
-                registry["projects"].append(record)
-                registry["projects"].sort(key=lambda item: str(item["name"]).casefold())
-                atomic_write_json(self.paths.registry_file, registry)
-            except Exception as exc:
-                if staging.exists():
-                    shutil.rmtree(staging, ignore_errors=True)
-                if moved and workspace.exists():
-                    shutil.rmtree(workspace, ignore_errors=True)
-                if isinstance(exc, WorkspaceError):
-                    raise
-                if isinstance(exc, OSError):
-                    raise WorkspaceError(f"Cannot create AIR project workspace {workspace}: {exc}") from exc
-                raise
-
-        if make_active:
-            self.use_project(project_id)
-        receipt = self._write_receipt(
+        record = {
+            "project_id": project_id,
+            "name": cleaned_name,
+            "slug": slug,
+            "workspace_path": str(workspace),
+            "source_path": source,
+            "created_at_utc": created_at,
+            "status": "ACTIVE",
+        }
+        receipt = self._receipt_document(
             "PROJECT_INIT",
             project_id=project_id,
-            workspace=workspace,
             details={
                 "name": cleaned_name,
                 "workspace_path": str(workspace),
@@ -247,6 +259,76 @@ class WorkspaceManager:
                 "made_active": make_active,
             },
         )
+
+        with self._registry_lock(), (self._active_project_lock() if make_active else nullcontext()):
+            registry = self._read_registry()
+            for existing_record in registry["projects"]:
+                registered_path = Path(existing_record["workspace_path"]).expanduser().resolve()
+                if _paths_overlap(workspace, registered_path):
+                    raise WorkspaceError(
+                        "Project workspace overlaps an existing registered workspace",
+                        details={
+                            "existing_project_id": existing_record["project_id"],
+                            "existing_path": str(registered_path),
+                        },
+                    )
+                if str(existing_record["name"]).casefold() == cleaned_name.casefold():
+                    raise WorkspaceError(
+                        "A project with this name is already registered",
+                        details={"existing_project_id": existing_record["project_id"]},
+                    )
+            if workspace.exists():
+                raise WorkspaceError(f"Workspace already exists: {workspace}")
+
+            try:
+                registry_snapshot = self._snapshot_file(self.paths.registry_file)
+                active_snapshot = self._snapshot_file(self.paths.active_project_file) if make_active else None
+            except OSError as exc:
+                raise WorkspaceError(f"Cannot snapshot AIR state before project creation: {exc}") from exc
+
+            moved = False
+            try:
+                self._create_workspace_tree(staging, document)
+                os.replace(staging, workspace)
+                moved = True
+                registry["projects"].append(record)
+                registry["projects"].sort(key=lambda item: str(item["name"]).casefold())
+                atomic_write_json(self.paths.registry_file, registry)
+                if make_active:
+                    atomic_write_json(
+                        self.paths.active_project_file,
+                        {
+                            "schema_version": 1,
+                            "project_id": project_id,
+                            "selected_at_utc": utc_now(),
+                            "selection_source": "PROJECT_INIT_USE",
+                        },
+                    )
+                self._write_receipt_files(receipt, workspace)
+            except Exception as exc:
+                rollback_errors: list[str] = []
+                if staging.exists():
+                    shutil.rmtree(staging, ignore_errors=True)
+                try:
+                    self._remove_receipt_files(receipt, workspace if moved else None)
+                except OSError as rollback_exc:
+                    rollback_errors.append(f"receipt cleanup: {rollback_exc}")
+                if make_active and active_snapshot is not None:
+                    try:
+                        self._restore_file(self.paths.active_project_file, active_snapshot)
+                    except OSError as rollback_exc:
+                        rollback_errors.append(f"active project state: {rollback_exc}")
+                try:
+                    self._restore_file(self.paths.registry_file, registry_snapshot)
+                except OSError as rollback_exc:
+                    rollback_errors.append(f"project registry: {rollback_exc}")
+                if moved and workspace.exists():
+                    try:
+                        shutil.rmtree(workspace)
+                    except OSError as rollback_exc:
+                        rollback_errors.append(f"workspace removal: {rollback_exc}")
+                self._raise_transaction_failure("AIR project creation", exc, rollback_errors)
+
         return {"decision": "PASS", "project": record, "receipt": receipt}
 
     def list_projects(self) -> list[dict[str, Any]]:
@@ -259,8 +341,12 @@ class WorkspaceManager:
             value = json.loads(self.paths.active_project_file.read_text(encoding="utf-8"))
         except (OSError, ValueError) as exc:
             raise WorkspaceError(f"Cannot read active project state: {exc}") from exc
-        project_id = value.get("project_id") if isinstance(value, dict) else None
-        return str(project_id) if project_id else None
+        if not isinstance(value, dict) or value.get("schema_version") != 1:
+            raise WorkspaceError("Active project state schema is unsupported")
+        project_id = value.get("project_id")
+        if not isinstance(project_id, str) or not project_id.strip():
+            raise WorkspaceError("Active project state has no valid project_id")
+        return project_id
 
     def resolve_project(self, identifier: str | None = None) -> dict[str, Any]:
         requested = identifier or self._active_project_id()
@@ -297,20 +383,46 @@ class WorkspaceManager:
 
     def use_project(self, identifier: str) -> dict[str, Any]:
         record = self.resolve_project(identifier)
-        self.paths.state_root.mkdir(parents=True, exist_ok=True)
-        value = {
-            "schema_version": 1,
-            "project_id": record["project_id"],
-            "selected_at_utc": utc_now(),
-            "selection_source": "EXPLICIT_COMMAND",
-        }
-        atomic_write_json(self.paths.active_project_file, value)
-        receipt = self._write_receipt(
+        workspace = Path(record["workspace_path"]).expanduser().resolve()
+        if not workspace.is_dir():
+            raise WorkspaceError(f"Cannot select AIR project; workspace is unavailable: {workspace}")
+        receipt = self._receipt_document(
             "PROJECT_USE",
             project_id=record["project_id"],
-            workspace=Path(record["workspace_path"]),
             details={"workspace_path": record["workspace_path"]},
         )
+        try:
+            self.paths.state_root.mkdir(parents=True, exist_ok=True)
+        except OSError as exc:
+            raise WorkspaceError(f"Cannot prepare AIR active project state: {exc}") from exc
+
+        with self._active_project_lock():
+            try:
+                active_snapshot = self._snapshot_file(self.paths.active_project_file)
+            except OSError as exc:
+                raise WorkspaceError(f"Cannot snapshot active project state: {exc}") from exc
+            try:
+                atomic_write_json(
+                    self.paths.active_project_file,
+                    {
+                        "schema_version": 1,
+                        "project_id": record["project_id"],
+                        "selected_at_utc": utc_now(),
+                        "selection_source": "EXPLICIT_COMMAND",
+                    },
+                )
+                self._write_receipt_files(receipt, workspace)
+            except Exception as exc:
+                rollback_errors: list[str] = []
+                try:
+                    self._remove_receipt_files(receipt, workspace)
+                except OSError as rollback_exc:
+                    rollback_errors.append(f"receipt cleanup: {rollback_exc}")
+                try:
+                    self._restore_file(self.paths.active_project_file, active_snapshot)
+                except OSError as rollback_exc:
+                    rollback_errors.append(f"active project state: {rollback_exc}")
+                self._raise_transaction_failure("AIR project selection", exc, rollback_errors)
         return {"decision": "PASS", "project": record, "receipt": receipt}
 
     def _read_project_document(self, workspace: Path) -> dict[str, Any]:
@@ -330,8 +442,6 @@ class WorkspaceManager:
             if not path.is_file() or path.is_symlink():
                 continue
             relative = path.relative_to(workspace).as_posix()
-            if relative.startswith("trust/public-keys/"):
-                continue
             if _PRIVATE_FILE_NAMES.search(path.name):
                 findings.append(relative)
                 continue

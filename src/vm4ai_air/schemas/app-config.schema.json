@@ -11,11 +11,6 @@
       "properties": { "telemetry_enabled": { "const": false } },
       "additionalProperties": false
     },
-    "resources": {
-      "type": "object",
-      "properties": { "strict_verification": { "type": "boolean" } },
-      "additionalProperties": false
-    },
     "workspace": {
       "type": "object",
       "properties": { "default_root": { "type": "string" } },

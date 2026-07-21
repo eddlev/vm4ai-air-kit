@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vm4ai-air"
-version = "0.4.0.dev0"
+dynamic = ["version"]
 description = "AIR local runtime, installed canonical resources, and project workspaces"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -46,6 +46,9 @@ Issues = "https://github.com/eddlev/vm4ai-air-kit/issues"
 
 [project.scripts]
 air = "vm4ai_air.cli:main"
+
+[tool.hatch.version]
+path = "src/vm4ai_air/version.py"
 
 [tool.hatch.build]
 exclude = [

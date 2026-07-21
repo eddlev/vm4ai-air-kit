@@ -18,6 +18,17 @@
 - Ordinary installed use no longer depends on cloning the repository or executing scripts from repository-relative paths.
 - The supported Python floor for the new installed runtime is Python 3.11.
 
+### Fixed during Stage 2 review
+
+- Resource materialization now verifies source bytes before copying or issuing a PASS receipt.
+- Installed manifests now validate schema, canonical roots, resource identities, and aggregate content identity.
+- Unsafe path-like resource identifiers fail closed.
+- Project receipt failures roll back project creation or active-project selection.
+- Private-key detection now covers every workspace directory, including `trust/public-keys/`.
+- Diagnostics now distinguish missing active state from corrupt state and check existing root writability.
+- Installed-distribution CI now covers Windows, macOS, and Linux through a bounded factor matrix without duplicate feature-push runs.
+- Historical v0.3.0 release artifacts remain byte-stable.
+
 ### Deferred by approved project stage
 
 - Modular boot migration and semantic-completeness repair, including the updated Q1-D beginner orientation, are assigned to Stage 3.

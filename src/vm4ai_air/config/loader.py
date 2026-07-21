@@ -21,9 +21,6 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "application": {
         "telemetry_enabled": False,
     },
-    "resources": {
-        "strict_verification": True,
-    },
     "workspace": {
         "default_root": "",
     },
@@ -32,7 +29,6 @@ DEFAULT_CONFIG: dict[str, Any] = {
 _ALLOWED_KEYS = {
     "schema_version": None,
     "application": {"telemetry_enabled"},
-    "resources": {"strict_verification"},
     "workspace": {"default_root"},
 }
 
@@ -47,21 +43,8 @@ def _deep_merge(base: dict[str, Any], overlay: Mapping[str, Any]) -> dict[str, A
     return result
 
 
-def _parse_bool(value: str, variable: str) -> bool:
-    normalized = value.strip().lower()
-    if normalized in {"1", "true", "yes", "on"}:
-        return True
-    if normalized in {"0", "false", "no", "off"}:
-        return False
-    raise ConfigurationError(f"{variable} must be a boolean value")
-
-
 def environment_overlay(environment: Mapping[str, str]) -> dict[str, Any]:
     overlay: dict[str, Any] = {}
-    if "AIR_STRICT_RESOURCES" in environment:
-        overlay.setdefault("resources", {})["strict_verification"] = _parse_bool(
-            environment["AIR_STRICT_RESOURCES"], "AIR_STRICT_RESOURCES"
-        )
     if "AIR_WORKSPACE_ROOT" in environment:
         overlay.setdefault("workspace", {})["default_root"] = environment["AIR_WORKSPACE_ROOT"]
     return overlay
@@ -84,9 +67,6 @@ def validate_config(value: Mapping[str, Any]) -> list[str]:
         for key in section_value:
             if key not in allowed:
                 errors.append(f"unknown configuration key: {section}.{key}")
-    resources = value.get("resources", {})
-    if isinstance(resources, Mapping) and not isinstance(resources.get("strict_verification", True), bool):
-        errors.append("resources.strict_verification must be boolean")
     application = value.get("application", {})
     if isinstance(application, Mapping) and application.get("telemetry_enabled") is not False:
         errors.append("application.telemetry_enabled must remain false; AIR has no telemetry path")

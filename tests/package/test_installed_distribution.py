@@ -9,6 +9,20 @@ from pathlib import Path
 import pytest
 
 
+def _artifact_from_environment(environment_variable: str, label: str) -> Path | None:
+    explicit = os.environ.get(environment_variable)
+    if explicit:
+        return Path(explicit).resolve()
+    dist_dir_value = os.environ.get("AIR_TEST_DIST_DIR")
+    if not dist_dir_value:
+        return None
+    dist_dir = Path(dist_dir_value).resolve()
+    pattern = "*.whl" if label == "wheel" else "*.tar.gz"
+    matches = sorted(dist_dir.glob(pattern))
+    assert len(matches) == 1, f"Expected exactly one {label} in {dist_dir}; found {matches}"
+    return matches[0]
+
+
 @pytest.mark.package
 @pytest.mark.parametrize(
     ("environment_variable", "label"),
@@ -22,10 +36,9 @@ def test_built_distribution_installs_and_runs_without_repository(
     environment_variable: str,
     label: str,
 ) -> None:
-    artifact_value = os.environ.get(environment_variable)
-    if not artifact_value:
-        pytest.skip(f"{environment_variable} is not set")
-    artifact = Path(artifact_value).resolve()
+    artifact = _artifact_from_environment(environment_variable, label)
+    if artifact is None:
+        pytest.skip(f"{environment_variable} or AIR_TEST_DIST_DIR is not set")
     assert artifact.is_file()
 
     environment_dir = tmp_path / f"venv-{label}"

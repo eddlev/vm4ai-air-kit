@@ -7,7 +7,7 @@ import json
 import mimetypes
 import os
 import re
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -68,7 +68,8 @@ def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def _resource_id(relative_path: str) -> str:
+def resource_id_for_path(relative_path: str) -> str:
+    """Return the canonical logical identifier for a repository-relative AIR resource path."""
     return "air://" + quote(relative_path, safe="/._-")
 
 
@@ -189,7 +190,7 @@ def _record_for_file(path: Path, source_root: Path, expected_sentinels: dict[str
 
     media_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
     return {
-        "resource_id": _resource_id(relative_path),
+        "resource_id": resource_id_for_path(relative_path),
         "relative_path": relative_path,
         "package_path": relative_path,
         "file_name": path.name,
@@ -203,17 +204,22 @@ def _record_for_file(path: Path, source_root: Path, expected_sentinels: dict[str
     }
 
 
+def tree_digest_for_records(records: Iterable[Mapping[str, Any]]) -> str:
+    """Compute the canonical aggregate digest for an ordered resource manifest record set."""
+    tree_hasher = hashlib.sha256()
+    for record in records:
+        tree_hasher.update(str(record["relative_path"]).encode("utf-8"))
+        tree_hasher.update(b"\0")
+        tree_hasher.update(str(record["sha256"]).encode("ascii"))
+        tree_hasher.update(b"\n")
+    return tree_hasher.hexdigest()
+
+
 def build_manifest(source_root: Path, package_version: str) -> dict[str, Any]:
     root = source_root.resolve()
     expected_sentinels = _boot_sentinel_map(root)
     records = [_record_for_file(path, root, expected_sentinels) for path in _canonical_files(root)]
-    tree_hasher = hashlib.sha256()
-    for record in records:
-        tree_hasher.update(record["relative_path"].encode("utf-8"))
-        tree_hasher.update(b"\0")
-        tree_hasher.update(record["sha256"].encode("ascii"))
-        tree_hasher.update(b"\n")
-    tree_digest = tree_hasher.hexdigest()
+    tree_digest = tree_digest_for_records(records)
     release_line = _release_line(root)
     return {
         "schema_id": "AIR_INSTALLED_RESOURCE_MANIFEST",

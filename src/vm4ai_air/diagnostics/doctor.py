@@ -45,7 +45,16 @@ def run_doctor(
         ("LOG_ROOT", paths.log_root),
     ):
         if path.exists():
-            add(label, "PASS" if path.is_dir() else "FAIL", str(path))
+            is_directory = path.is_dir()
+            writable = is_directory and os.access(path, os.W_OK)
+            status = "PASS" if writable else "FAIL"
+            if not is_directory:
+                detail = f"exists but is not a directory: {path}"
+            elif not writable:
+                detail = f"directory is not writable: {path}"
+            else:
+                detail = str(path)
+            add(label, status, detail, writable=writable)
         else:
             parent = _nearest_existing_parent(path)
             writable = parent.is_dir() and os.access(parent, os.W_OK)
@@ -93,19 +102,21 @@ def run_doctor(
         manager = WorkspaceManager(paths, environment=env)
         projects = manager.list_projects()
         add("PROJECT_REGISTRY", "PASS", f"{len(projects)} registered project(s)")
-        try:
-            active = manager.show_project()
-        except AirError:
-            active = None
+        if not paths.active_project_file.exists():
             add("ACTIVE_PROJECT", "PASS", "No active project selected")
-        if active:
-            validation = manager.validate_project(active["project"]["project_id"])
-            add(
-                "ACTIVE_PROJECT",
-                "PASS" if validation["decision"] == "PASS" else "FAIL",
-                active["project"]["name"],
-                result=validation,
-            )
+        else:
+            try:
+                active = manager.show_project()
+            except AirError as exc:
+                add("ACTIVE_PROJECT", "FAIL", exc.message, error=exc.as_dict())
+            else:
+                validation = manager.validate_project(active["project"]["project_id"])
+                add(
+                    "ACTIVE_PROJECT",
+                    "PASS" if validation["decision"] == "PASS" else "FAIL",
+                    active["project"]["name"],
+                    result=validation,
+                )
     except AirError as exc:
         add("PROJECT_REGISTRY", "FAIL", exc.message, error=exc.as_dict())
 

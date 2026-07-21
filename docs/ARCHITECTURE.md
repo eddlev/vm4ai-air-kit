@@ -34,6 +34,8 @@ All consumers must use shared resource, configuration, path, I/O, and workspace 
 
 ### 3. Installed canonical resource set
 
+`src/vm4ai_air/version.py` is the single package-version source. Hatchling reads that file for distribution metadata, and the build hook uses the same value in generated resource metadata.
+
 During wheel construction, `hatch_build.py`:
 
 1. inventories `prompts/`, `profiles/`, and `runtime/`;
@@ -43,7 +45,7 @@ During wheel construction, `hatch_build.py`:
 5. generates a resource manifest, index, bundle definitions, and build receipt;
 6. includes the verified source set under `vm4ai_air/resources/air/` in the wheel.
 
-The wheel copy is a generated release artifact. It is not a second authoring source.
+The wheel copy is a generated release artifact. It is not a second authoring source. Runtime loading recomputes and validates the aggregate manifest identity before the resource set is accepted.
 
 ### 4. Global local-application state
 
