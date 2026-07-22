@@ -39,6 +39,12 @@ def test_q1d_plan_contains_complete_orientation_closure(tmp_path: Path) -> None:
     assert orientation["activation_state"] == "NOT_ACTIVATED"
     assert "## 1. No prior AIR knowledge required" in orientation["content"]
     assert "## 11. Return to Q1" in orientation["content"]
+    assert "Do not ask the user to answer yes or no before returning to Q1." in orientation["content"]
+    assert (
+        "The optional example is a standing offer only. It must not take control away from Q1."
+        in orientation["content"]
+    )
+    assert "Reply with A, B, C, or D." in orientation["content"]
 
 
 def test_unknown_trigger_falls_back_visibly_to_complete_prompt_set(tmp_path: Path) -> None:
@@ -425,6 +431,12 @@ def test_session_entry_bundle_surfaces_q1_context_and_verification_guards(tmp_pa
     assert "Start a new AIR project." in manifest["session_entry_guards"]["reserved_non_selection_inputs"]
     assert manifest["host_context_boundary"]["unenumerated_host_context"] == "UNTRUSTED_FOR_PROJECT_STATE"
     assert manifest["host_verification_claim_ceiling"]["loading_bundle_alone"] == "NOT_TOOL_OBSERVED"
+    assert manifest["q1d_return_contract"]["response_terminal_action"] == "RENDER_Q1_AND_WAIT"
+    assert manifest["q1d_return_contract"]["example_invitation"] == "NON_BLOCKING_STANDING_OFFER"
+    assert manifest["continuation_state_fallback"]["root"] == "AIR_CONTINUATION_STATE"
+    assert manifest["continuation_state_fallback"]["authorization_granted"] is False
+    assert "completed_steps" in manifest["continuation_state_fallback"]["required_fields"]
+    assert "pending_approvals" in manifest["continuation_state_fallback"]["required_fields"]
     text = compiled["bundle_bytes"].decode("utf-8")
     assert "It does not select Q1=A" in text
     assert "hidden project files" in text
@@ -469,3 +481,33 @@ def test_validation_rejects_self_consistent_kernel_without_q1_lock_phrase(tmp_pa
         check["name"] == "KERNEL_RESOURCE_TEXT_CONTRACT" and check["status"] == "FAIL"
         for check in result["checks"]
     )
+
+
+def test_q1d_optional_example_does_not_take_control_from_q1(tmp_path: Path) -> None:
+    orientation = compiler_for(tmp_path).q1d_orientation()["content"]
+    assert "Do not ask the user to answer yes or no before returning to Q1." in orientation
+    assert "End the orientation response by rendering Q1 immediately" in orientation
+    assert "Q1 — What are you doing today?" in orientation
+    assert orientation.index("The optional example is a standing offer only") < orientation.index(
+        "AIR_LOAD_SENTINEL :: AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1"
+    )
+
+
+def test_session_entry_bundle_contains_complete_noncanonical_continuation_fallback(tmp_path: Path) -> None:
+    compiled = compiler_for(tmp_path).compile(["SESSION_ENTRY"])
+    fallback = compiled["bundle_manifest"]["continuation_state_fallback"]
+    assert fallback["missing_template_action"] == "EMIT_COMPLETE_NONCANONICAL_CONTINUATION_STATE"
+    assert fallback["root"] == "AIR_CONTINUATION_STATE"
+    assert fallback["authorization_decision"] == "NOT_EVALUATED"
+    assert fallback["authorization_granted"] is False
+    assert {
+        "completed_steps",
+        "current_active_step",
+        "blockers",
+        "evidence_present",
+        "evidence_absent",
+        "pending_approvals",
+    }.issubset(set(fallback["required_fields"]))
+    text = compiled["bundle_bytes"].decode("utf-8")
+    assert "complete noncanonical `AIR_CONTINUATION_STATE`" in text
+    assert "authorization=false" in text

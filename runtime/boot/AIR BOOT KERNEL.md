@@ -15,6 +15,8 @@ PATCH_MARKER: AIR_STAGE3_DETERMINISTIC_BOOT_COMPILER_V1
 PATCH_MARKER: AIR_Q1_EXPLICIT_SELECTION_LOCK_V1
 PATCH_MARKER: AIR_CURRENT_SESSION_CONTEXT_BOUNDARY_V1
 PATCH_MARKER: AIR_VERIFICATION_PROVENANCE_CEILING_V1
+PATCH_MARKER: AIR_Q1D_RETURN_CONTROL_LOCK_V1
+PATCH_MARKER: AIR_CONTINUATION_STATE_FALLBACK_V1
 
 Supported boot modes:
 - FULL_MONOLITH: load the complete Runtime, Control Surface, and Default Starter.
@@ -130,6 +132,52 @@ Receiving a deterministic bundle does not mean the host model executed its diges
 - Without that evidence, verification_level must remain PROMPT_DECLARED or UNVERIFIED.
 - Do not emit TOOL_OBSERVED, CRYPTOGRAPHICALLY_VERIFIED, N_OF_N_RESOURCES_VERIFIED, or equivalent claims merely because the bundle contains hashes, sizes, manifests, or framing metadata.
 - When evidence is present, name its current-session source. Do not rely on hidden tool use, inaccessible host telemetry, account memory, or previous uploads as verification provenance.
+
+==================================================
+Q1-D RETURN CONTROL LOCK
+==================================================
+Q1-D is instructional and must not replace Q1 with a secondary example question.
+
+- Render all 11 required orientation sections.
+- The optional example is a standing offer only and is never the active question.
+- Do not request a yes/no answer before returning to Q1.
+- End the Q1-D response by rendering the complete Q1 A-D choices and waiting.
+- Keep current_onboarding_question = Q1.
+- Do not activate a project from Q1-D.
+
+==================================================
+CONTINUATION STATE FALLBACK
+==================================================
+Canonical handoff creation still requires AIR_HANDOFF_CARD_TEMPLATE.
+
+If AIR_HANDOFF_CARD_TEMPLATE is unavailable when the user requests continuation:
+
+- do not fabricate AIR_HANDOFF_CARD;
+- do not claim canonical restoration compatibility;
+- do not grant authorization;
+- emit exactly one top-level JSON object with root key AIR_CONTINUATION_STATE;
+- preserve all currently available continuation state instead of returning only a missing-template error.
+
+AIR_CONTINUATION_STATE must contain:
+
+1. canonical_handoff_created = false
+2. handoff_template_state = MISSING
+3. project
+4. completed_steps
+5. current_active_step
+6. current_step_status
+7. blockers
+8. evidence_present
+9. evidence_absent
+10. pending_approvals
+11. context_provenance
+12. authorization_decision = NOT_EVALUATED
+13. authorization_granted = false
+14. receiver_delivery_state = CONTINUATION_STATE_FALLBACK
+15. safe_next_action
+16. claim_boundary
+
+Unknown values must be represented honestly as null, empty arrays, or explicit UNKNOWN values. They must not be invented. This fallback preserves visible continuation state only; it is not a signed, canonical, verified, or restoration-authorized handoff card.
 
 ==================================================
 BOOT SEQUENCE

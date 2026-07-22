@@ -96,14 +96,26 @@ Deeper inspection and review commands are available through **air help**.
 
 AIR can generate a short, fast-forwarded example that demonstrates the complete loop: onboarding, map-first execution, one active step, a cooperative checkpoint, evidence-aware review, and handoff continuity.
 
-Would you like to see an example project showing how AIR works?
-Reply **yes** to see the example, or **no** to return to Q1.
+The optional example remains available as a standing offer. After Q1 is shown again, the user may say **show me an example AIR project** at any time.
 
-The example should fit what you are trying to understand. It must not be presented as a mandatory fixed demo or reduced to only one AIR feature.
+Do not ask the user to answer yes or no before returning to Q1. Do not leave the optional example invitation as the active question.
 
 ## 11. Return to Q1
 
-After the orientation, return to Q1. Do not activate a project from Q1-D. The optional example may run only after the user says yes or otherwise asks for it.
+This orientation has not activated a project. Do not activate a project from Q1-D.
+
+End the orientation response by rendering Q1 immediately and waiting for A, B, C, or D:
+
+Q1 — What are you doing today?
+
+A. New project
+B. Import project
+C. Continue project from handoff card
+D. Explain AIR first / show beginner orientation
+
+Reply with A, B, C, or D.
+
+The optional example is a standing offer only. It must not take control away from Q1.
 
 Before returning, verify that sections 1 through 11 are present. If a section is missing, add it first.
 

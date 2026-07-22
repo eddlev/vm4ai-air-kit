@@ -89,6 +89,9 @@ def test_built_distribution_installs_and_runs_without_repository(
     assert b"Mandatory session-entry guards" in bundle_bytes
     assert b"It does not select Q1=A" in bundle_bytes
     assert b"Receiving this file alone does not justify" in bundle_bytes
+    assert b"The optional example is a standing offer only" in bundle_bytes
+    assert b"AIR_CONTINUATION_STATE" in bundle_bytes
+    assert b"authorization=false" in bundle_bytes
     project = run("project", "init", f"Installed {label} Project", "--use")["project"]
     assert Path(project["workspace_path"]).is_dir()
     assert run("project", "validate")["decision"] == "PASS"

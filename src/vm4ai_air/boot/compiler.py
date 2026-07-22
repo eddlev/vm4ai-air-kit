@@ -67,6 +67,10 @@ _EXPECTED_SESSION_ENTRY_GUARDS = {
     "context_scope": "CURRENT_VISIBLE_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS_ONLY",
     "unenumerated_context": "UNTRUSTED_FOR_PROJECT_STATE",
     "verification_claim_ceiling_without_current_session_evidence": "PROMPT_DECLARED_OR_UNVERIFIED",
+    "q1d_return_action": "RENDER_Q1_AND_WAIT",
+    "q1d_example_invitation_state": "NON_BLOCKING_STANDING_OFFER",
+    "missing_handoff_template_action": "EMIT_COMPLETE_NONCANONICAL_CONTINUATION_STATE",
+    "continuation_state_root": "AIR_CONTINUATION_STATE",
 }
 _KERNEL_REQUIRED_MARKERS = (
     "Activate AIR Boot Kernel for this session.",
@@ -76,7 +80,14 @@ _KERNEL_REQUIRED_MARKERS = (
     "PATCH_MARKER: AIR_Q1_EXPLICIT_SELECTION_LOCK_V1",
     "PATCH_MARKER: AIR_CURRENT_SESSION_CONTEXT_BOUNDARY_V1",
     "PATCH_MARKER: AIR_VERIFICATION_PROVENANCE_CEILING_V1",
+    "PATCH_MARKER: AIR_Q1D_RETURN_CONTROL_LOCK_V1",
+    "PATCH_MARKER: AIR_CONTINUATION_STATE_FALLBACK_V1",
     "MANDATORY KERNEL FLOOR",
+    "Q1-D RETURN CONTROL LOCK",
+    "The optional example is a standing offer only and is never the active question.",
+    "CONTINUATION STATE FALLBACK",
+    "If AIR_HANDOFF_CARD_TEMPLATE is unavailable",
+    "AIR_CONTINUATION_STATE",
     "Q1 EXPLICIT SELECTION LOCK",
     'The exact phrases "Start a new AIR project." and "Import this project into AIR."',
     "CURRENT-SESSION CONTEXT BOUNDARY",
@@ -99,6 +110,12 @@ _Q1D_REQUIRED_HEADINGS = (
     "9. Essential help commands",
     "10. Optional example-project invitation",
     "11. Return to Q1",
+)
+_Q1D_BEHAVIOR_MARKERS = (
+    "Do not ask the user to answer yes or no before returning to Q1.",
+    "End the orientation response by rendering Q1 immediately and waiting for A, B, C, or D:",
+    "The optional example is a standing offer only. It must not take control away from Q1.",
+    "Reply with A, B, C, or D.",
 )
 _EXPECTED_SEMANTIC_REQUIREMENTS = {
     "SESSION_ENTRY": {
@@ -998,7 +1015,11 @@ class BootCompiler:
         q1d_missing: list[str] = []
         if q1d and isinstance(q1d.get("relative_path"), str):
             q1d_text = self.resolver.read_text(str(q1d["relative_path"]))
-            q1d_missing = [heading for heading in _Q1D_REQUIRED_HEADINGS if heading not in q1d_text]
+            q1d_missing = [
+                marker
+                for marker in (*_Q1D_REQUIRED_HEADINGS, *_Q1D_BEHAVIOR_MARKERS)
+                if marker not in q1d_text
+            ]
             q1d_valid = not q1d_missing and "Do not activate a project" in q1d_text
         self._check(
             checks,
@@ -1205,6 +1226,37 @@ class BootCompiler:
             "authorization_decision": "NOT_EVALUATED",
             "fallback_state": plan["fallback_state"],
             "session_entry_guards": dict(_EXPECTED_SESSION_ENTRY_GUARDS),
+            "q1d_return_contract": {
+                "orientation_sections": 11,
+                "project_activation": "PROHIBITED",
+                "example_invitation": "NON_BLOCKING_STANDING_OFFER",
+                "response_terminal_action": "RENDER_Q1_AND_WAIT",
+            },
+            "continuation_state_fallback": {
+                "canonical_template_required_for": "AIR_HANDOFF_CARD",
+                "missing_template_action": "EMIT_COMPLETE_NONCANONICAL_CONTINUATION_STATE",
+                "root": "AIR_CONTINUATION_STATE",
+                "authorization_decision": "NOT_EVALUATED",
+                "authorization_granted": False,
+                "required_fields": [
+                    "canonical_handoff_created",
+                    "handoff_template_state",
+                    "project",
+                    "completed_steps",
+                    "current_active_step",
+                    "current_step_status",
+                    "blockers",
+                    "evidence_present",
+                    "evidence_absent",
+                    "pending_approvals",
+                    "context_provenance",
+                    "authorization_decision",
+                    "authorization_granted",
+                    "receiver_delivery_state",
+                    "safe_next_action",
+                    "claim_boundary",
+                ],
+            },
             "host_context_boundary": {
                 "current_session_sources": "VISIBLE_USER_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS",
                 "unenumerated_host_context": "UNTRUSTED_FOR_PROJECT_STATE",
@@ -1234,6 +1286,11 @@ class BootCompiler:
             "- `Start a new AIR project.` is activation intent only. It does not select Q1=A. While Q1 is active, "
             "advance only after an explicit A-D selector or explicit `Q1=<letter>` choice; otherwise render Q1 again "
             "and wait.\n"
+            "- Q1-D must end by rendering the complete Q1 A-D choices. Its optional example is a non-blocking standing "
+            "offer and must never become the active question before control returns to Q1.\n"
+            "- If AIR_HANDOFF_CARD_TEMPLATE is absent, canonical handoff creation remains blocked, but AIR must emit "
+            "one complete noncanonical `AIR_CONTINUATION_STATE` preserving completed steps, current step, blockers, "
+            "evidence, pending approvals, and authorization=false.\n"
             "- Current project state may use only visible current-session messages and files explicitly attached or "
             "identified in this session. Unenumerated host memory, prior uploads, hidden project files, and prior "
             "session state are untrusted for project-state claims.\n"

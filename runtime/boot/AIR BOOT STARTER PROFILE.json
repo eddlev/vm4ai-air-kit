@@ -17,8 +17,8 @@
     "file": "runtime/boot/AIR BOOT KERNEL.md",
     "designation": "AIR_BOOT_KERNEL_V1",
     "version": "1.1.0",
-    "sha256": "a3fc5382601f7b3724bfd0aee1ba197bf3ba55297a1b05e0fd78b1521aa4bfd7",
-    "size_bytes": 10593
+    "sha256": "8f0bbef1ae37c4b22ad458041fece8e534fba91aa0d6f4898b7eab828baca2b7",
+    "size_bytes": 12548
   },
   "manifest": {
     "file": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
@@ -117,6 +117,10 @@
     "nonselector_action": "RENDER_Q1_AND_WAIT",
     "context_scope": "CURRENT_VISIBLE_MESSAGES_AND_EXPLICIT_CURRENT_ATTACHMENTS_ONLY",
     "unenumerated_context": "UNTRUSTED_FOR_PROJECT_STATE",
-    "verification_claim_ceiling_without_current_session_evidence": "PROMPT_DECLARED_OR_UNVERIFIED"
+    "verification_claim_ceiling_without_current_session_evidence": "PROMPT_DECLARED_OR_UNVERIFIED",
+    "q1d_return_action": "RENDER_Q1_AND_WAIT",
+    "q1d_example_invitation_state": "NON_BLOCKING_STANDING_OFFER",
+    "missing_handoff_template_action": "EMIT_COMPLETE_NONCANONICAL_CONTINUATION_STATE",
+    "continuation_state_root": "AIR_CONTINUATION_STATE"
   }
 }
