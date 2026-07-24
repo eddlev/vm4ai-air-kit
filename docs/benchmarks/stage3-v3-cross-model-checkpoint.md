@@ -1,7 +1,7 @@
 # Stage 3 v3 Cross-Model Empirical Checkpoint
 
 **Date:** 2026-07-22  
-**Status:** v3 cross-model acceptance failed; narrow v4 remediation required  
+**Status:** standalone cross-model findings recorded; portability hardening deferred and non-blocking
 **Pull request:** #5 — Implement deterministic AIR modular boot  
 **Branch:** `feature/stage3-modular-boot`  
 **Implementation commit:** `ec4a82a525bbd31e91fb8bad8b50e556fdcdcfea`
@@ -91,29 +91,28 @@ Public discovery reproduced portions of AIR's evidence discipline but not the fr
 
 ## Cross-model decision
 
-v3 does not satisfy the cross-model acceptance requirement.
+The standalone frozen session-entry bundle did not meet the original cross-model acceptance threshold because selector fidelity drifted on Grok.
 
-The primary defect is selector fidelity:
+This result is retained as portability evidence, but standalone cross-model boot is not the primary supported AIR usage path. The supported path is the main AIR system prompt together with the applicable specialist prompts or modules.
 
-- Canonical Q2–Q4 wording and selector meanings were not treated as immutable.
-- Grok considered the onboarding concepts rewriteable.
-- Later frozen messages were consumed under a different protocol.
+Standalone cross-model testing is therefore deferred and non-blocking for the stable version. The selector-fidelity defect remains a valid hardening item rather than a stable-release gate.
 
-A third-family v3 run cannot repair this failed acceptance result and is deferred.
+## Supported stability path
 
-## Planned v4 remediation
+Stable-version work will prioritize:
 
-The next candidate will narrowly add an onboarding selector lock covering Q2–Q6:
+- the main AIR system prompt;
+- specialist prompt and module integration;
+- deterministic behavior on the supported usage path;
+- evidence and authorization discipline;
+- handoff continuity;
+- packaging and installed-runtime integrity;
+- focused regression coverage;
+- preparation for the modular implementation.
 
-- Preserve exact canonical Q2, Q3, and Q4 choices.
-- Preserve exact A/B/C/D meanings.
-- Do not replace enumerated questions with free-text alternatives.
-- Treat the frozen project paragraph as a complete Q5 answer, including absent-source status.
-- Treat the frozen working-agreement paragraph as a complete Q6 answer.
-- Advance exactly one canonical onboarding state for each accepted response.
-- Do not reassign a later response to an earlier unresolved question.
+The Q2-Q6 selector lock remains deferred portability hardening. It may be implemented when standalone session-entry work resumes.
 
-No broader architecture change is currently justified.
+No broader architecture change is currently justified by the available evidence.
 
 ## Latency observation
 
@@ -130,4 +129,4 @@ This document summarizes observed test transcripts for the frozen v3 candidate. 
 - PR remains draft.
 - Merge remains blocked.
 - No tag, release, package publication, or announcement is authorized.
-- Work resumes with the v4 remediation.
+- Work resumes with supported-path stability work and the modular implementation.
