@@ -59,8 +59,8 @@ python -m twine check dist/*
 The build must produce both:
 
 ```text
-dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
-dist/vm4ai_air-0.4.0.dev0.tar.gz
+dist/vm4ai_air-0.5.0.dev0-py3-none-any.whl
+dist/vm4ai_air-0.5.0.dev0.tar.gz
 ```
 
 ## Installed-distribution tests

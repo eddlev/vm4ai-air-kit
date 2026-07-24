@@ -2,18 +2,18 @@
   "title": "AIR Runtime Directory Manifest",
   "SYSTEM_DESIGNATION": "AIR_RUNTIME_DIRECTORY_MANIFEST_V1",
   "artifact_class": "DIRECTORY_TAXONOMY_MANIFEST",
-  "version": "1.0.0",
-  "release_line": "v0.3.0",
-  "created_at_utc": "2026-07-20T21:30:18Z",
+  "version": "1.1.0",
+  "release_line": "v0.5.0-dev",
+  "created_at_utc": "2026-07-21T00:00:00Z",
   "runtime_root": "runtime/",
   "function_directories": [
     {
       "directory": "runtime/boot/",
-      "purpose": "Boot kernel, module manifest, load-receipt schemas/templates, evidence and local boot tool."
+      "purpose": "Deterministic boot kernel, semantic-closure contract, module manifest, receipts, evidence, and local compatibility adapter."
     },
     {
       "directory": "runtime/modules/",
-      "purpose": "Derived runtime and control modules selected by the boot manifest."
+      "purpose": "Runtime and control modules selected by the installed boot compiler, including complete Q1-D beginner orientation closure."
     },
     {
       "directory": "runtime/artifact-lifecycle/",

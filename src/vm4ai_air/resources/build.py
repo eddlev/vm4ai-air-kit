@@ -274,6 +274,18 @@ def build_bundle_definitions(manifest: dict[str, Any]) -> dict[str, Any]:
         "prompts/AIR CONTROL SURFACE.md",
         "prompts/AIR DEFAULT STARTER PROFILE.json",
     ]
+    session_entry_paths = [
+        "runtime/boot/AIR BOOT KERNEL.md",
+        "runtime/boot/AIR BOOT MODULE MANIFEST.json",
+        "runtime/boot/AIR BOOT STARTER PROFILE.json",
+        "runtime/boot/AIR BOOT SEMANTIC CLOSURE.json",
+        "runtime/modules/runtime/AIR RUNTIME MODULE - ENTRY AND ACTIVATION.md",
+        "runtime/modules/control/AIR CONTROL MODULE - ENTRY VISIBILITY AND ONBOARDING.md",
+        "runtime/modules/control/AIR CONTROL MODULE - Q1-D BEGINNER ORIENTATION.md",
+        "runtime/modules/runtime/AIR RUNTIME MODULE - POLICY AND HANDOFF SECURITY.md",
+        "runtime/modules/control/AIR CONTROL MODULE - POLICY HANDOFF AND PORTABILITY.md",
+    ]
+    q1d_paths = list(session_entry_paths)
     return {
         "schema_id": "AIR_INSTALLED_BUNDLE_DEFINITIONS",
         "schema_version": "1.0.0",
@@ -287,15 +299,18 @@ def build_bundle_definitions(manifest: dict[str, Any]) -> dict[str, Any]:
                 "user_facing": True,
             },
             {
-                "bundle_id": "LEGACY_MODULAR_BOOT_SOURCE_SET",
-                "display_name": "Legacy modular boot source set",
-                "status": "MIGRATION_PENDING_STAGE_3",
-                "resources": [
-                    _id_for_path(manifest, "runtime/boot/AIR BOOT KERNEL.md"),
-                    _id_for_path(manifest, "runtime/boot/AIR BOOT MODULE MANIFEST.json"),
-                    _id_for_path(manifest, "runtime/boot/AIR BOOT STARTER PROFILE.json"),
-                ],
+                "bundle_id": "AIR_MODULAR_SESSION_ENTRY",
+                "display_name": "AIR modular session-entry bundle",
+                "status": "AVAILABLE",
+                "resources": [_id_for_path(manifest, path) for path in session_entry_paths],
                 "user_facing": False,
+            },
+            {
+                "bundle_id": "AIR_Q1D_BEGINNER_ORIENTATION",
+                "display_name": "AIR Q1-D beginner orientation bundle",
+                "status": "AVAILABLE",
+                "resources": [_id_for_path(manifest, path) for path in q1d_paths],
+                "user_facing": True,
             },
         ],
     }

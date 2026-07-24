@@ -35,9 +35,9 @@ The resolver searches installed metadata, aliases, headings, and semantic marker
 
 ## Continue in an AI session
 
-Until Stage 3 adds installed bundle compilation, use the Complete AIR Prompt Set directly or materialize individual installed resources for attachment.
+Use `air boot validate`, `air boot plan`, and `air boot compile` for deterministic installed-resource bundles. The Complete AIR Prompt Set remains the visible fallback when a trigger is unknown or a host cannot use the modular route.
 
-Do not infer that modular boot has been repaired merely because the installed resource set validates.
+Do not infer behavioral equivalence merely because the local bundle validates; host/model behavior still requires empirical testing.
 
 ## Local evidence
 

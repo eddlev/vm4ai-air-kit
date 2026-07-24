@@ -36,6 +36,11 @@ class ResourceIntegrityError(ResourceError):
     code = "AIR_RESOURCE_INTEGRITY_ERROR"
 
 
+class BootError(AirError):
+    code = "AIR_BOOT_ERROR"
+    exit_code = 3
+
+
 class WorkspaceError(AirError):
     code = "AIR_WORKSPACE_ERROR"
 

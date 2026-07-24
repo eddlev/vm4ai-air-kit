@@ -6,8 +6,10 @@ import argparse
 import json
 import os
 from collections.abc import Callable, Mapping, Sequence
+from pathlib import Path
 from typing import Any
 
+from vm4ai_air.boot import CONTRACT_SCHEMA_FILES, BootCompiler, load_contract_schema
 from vm4ai_air.config import ConfigManager
 from vm4ai_air.diagnostics import run_doctor
 from vm4ai_air.errors import AirError
@@ -121,6 +123,34 @@ def build_parser() -> argparse.ArgumentParser:
     resource_materialize.add_argument("resource")
     resource_materialize.add_argument("--purpose", required=True)
 
+    boot = sub.add_parser("boot", help="validate, plan, and compile deterministic AIR boot bundles")
+    boot_sub = boot.add_subparsers(dest="boot_command", required=True)
+    boot_validate = boot_sub.add_parser("validate", help="validate boot resources and semantic closure")
+    boot_validate.add_argument("--module", help="validate one module plus the shared boot floor")
+    boot_plan = boot_sub.add_parser("plan", help="plan the smallest dependency-closed module set")
+    boot_plan.add_argument("--trigger", action="append", default=[])
+    boot_plan.add_argument("--fallback", choices=["FULL_MONOLITH", "NONE"], default="FULL_MONOLITH")
+    boot_compile = boot_sub.add_parser("compile", help="write a deterministic modular or fallback bundle")
+    boot_compile.add_argument("--trigger", action="append", default=[])
+    boot_compile.add_argument("--fallback", choices=["FULL_MONOLITH", "NONE"], default="FULL_MONOLITH")
+    boot_compile.add_argument("--output", required=True)
+    boot_compile.add_argument("--receipt")
+    boot_compile.add_argument("--overwrite", action="store_true")
+    boot_receipt = boot_sub.add_parser("receipt", help="write a local compile receipt without writing the bundle")
+    boot_receipt.add_argument("--trigger", action="append", default=[])
+    boot_receipt.add_argument("--fallback", choices=["FULL_MONOLITH", "NONE"], default="FULL_MONOLITH")
+    boot_receipt.add_argument("--output", required=True)
+    boot_receipt.add_argument("--overwrite", action="store_true")
+    boot_compare = boot_sub.add_parser("compare", help="compare selected bundle bytes with the Complete AIR Prompt Set")
+    boot_compare.add_argument("--trigger", action="append", default=[])
+    boot_sub.add_parser("q1d", help="show the complete Q1-D beginner orientation without activating a project")
+    boot_contracts = boot_sub.add_parser(
+        "contracts", help="show installed Stage 3 task, authorization, and continuation contract schemas"
+    )
+    boot_contracts.add_argument("kind", nargs="?", choices=["task", "authorization", "continuation"])
+    boot_contracts.add_argument("--content", action="store_true")
+    boot_sub.add_parser("status", help="show installed boot and semantic-closure status")
+
     project = sub.add_parser("project", help="manage isolated AIR project workspaces")
     project_sub = project.add_subparsers(dest="project_command", required=True)
     project_init = project_sub.add_parser("init", help="create and register a project workspace")
@@ -176,6 +206,62 @@ def _run(args: argparse.Namespace, *, environment: Mapping[str, str]) -> tuple[A
             return result, None, 0 if result["decision"] == "PASS" else 3
         if args.resource_command == "materialize":
             return resolver.materialize(args.resource, purpose=args.purpose), None, 0
+    if args.command == "boot":
+        compiler = BootCompiler.from_environment(environment=environment, paths=paths)
+        if args.boot_command == "validate":
+            result = compiler.validate(module_id=args.module)
+            return result, None, 0 if result["decision"] == "PASS" else 3
+        if args.boot_command == "plan":
+            fallback = args.fallback if args.fallback != "NONE" else "NONE"
+            result = compiler.plan(args.trigger, fallback=fallback)
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
+        if args.boot_command == "compile":
+            fallback = args.fallback if args.fallback != "NONE" else "NONE"
+            result = compiler.write_bundle(
+                Path(args.output),
+                args.trigger,
+                fallback=fallback,
+                overwrite=args.overwrite,
+                receipt_output=Path(args.receipt) if args.receipt else None,
+            )
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
+        if args.boot_command == "receipt":
+            fallback = args.fallback if args.fallback != "NONE" else "NONE"
+            result = compiler.write_receipt(
+                Path(args.output),
+                args.trigger,
+                fallback=fallback,
+                overwrite=args.overwrite,
+            )
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
+        if args.boot_command == "compare":
+            result = compiler.compare(args.trigger)
+            return result, None, 0 if result["decision"] == "PASS" else 4 if result["decision"] == "REVIEW" else 3
+        if args.boot_command == "q1d":
+            result = compiler.q1d_orientation()
+            return result, lambda value: str(value["content"]), 0
+        if args.boot_command == "contracts":
+            kinds = [args.kind] if args.kind else ["task", "authorization", "continuation"]
+            contracts = {}
+            for kind in kinds:
+                schema = load_contract_schema(kind)
+                contracts[kind] = {
+                    "schema_id": schema.get("$id"),
+                    "title": schema.get("title"),
+                    "package_resource": f"vm4ai_air/schemas/{CONTRACT_SCHEMA_FILES[kind]}",
+                    **({"schema": schema} if args.content else {}),
+                }
+            return {
+                "decision": "PASS",
+                "contracts": contracts,
+                "default_authorization_policy": "DENY_UNLESS_TRUE",
+                "claim_boundary": (
+                    "Schemas define exchange contracts; they do not grant capabilities or prove execution."
+                ),
+            }, None, 0
+        if args.boot_command == "status":
+            result = compiler.status()
+            return result, None, 0 if result["decision"] == "PASS" else 3
     if args.command == "project":
         manager = WorkspaceManager(paths, environment=environment)
         if args.project_command == "init":

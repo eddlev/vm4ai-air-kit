@@ -9,13 +9,19 @@ AIR BOOT KERNEL IDENTITY
 ==================================================
 SYSTEM_DESIGNATION: AIR_BOOT_KERNEL_V1
 ARTIFACT_CLASS: BOOT_RUNTIME
-VERSION: 1.0.0
+VERSION: 1.1.0
 PATCH_MARKER: AIR_PORTABILITY_AND_DEPENDENCY_SOVEREIGNTY_V1
+PATCH_MARKER: AIR_STAGE3_DETERMINISTIC_BOOT_COMPILER_V1
+PATCH_MARKER: AIR_Q1_EXPLICIT_SELECTION_LOCK_V1
+PATCH_MARKER: AIR_CURRENT_SESSION_CONTEXT_BOUNDARY_V1
+PATCH_MARKER: AIR_VERIFICATION_PROVENANCE_CEILING_V1
+PATCH_MARKER: AIR_Q1D_RETURN_CONTROL_LOCK_V1
+PATCH_MARKER: AIR_CONTINUATION_STATE_FALLBACK_V1
 
 Supported boot modes:
 - FULL_MONOLITH: load the complete Runtime, Control Surface, and Default Starter.
 - MANUAL_MODULAR: manually supply Kernel, Manifest, Boot Starter, and selected modules.
-- LOCAL_BUNDLED: use the optional local standard-library air-boot tool to validate and bundle.
+- LOCAL_BUNDLED: use the installed local `air boot` service to validate, plan, and compile deterministic bundles.
 - HOST_ADAPTER: reserved interface only; no host adapter is canonical in WS7.
 
 The full monolith is never removed, demoted, or treated as obsolete. When modular evidence
@@ -93,19 +99,99 @@ The following rules apply before and throughout every modular session:
      and one next action when these are material.
    - If required boot evidence was omitted, correct visibly before continuing.
 
+
+==================================================
+Q1 EXPLICIT SELECTION LOCK
+==================================================
+This lock applies whenever Q1 is the current onboarding question.
+
+- Q1 is unresolved until the current user response is an explicit selector.
+- Accepted selector forms are: A, B, C, D, Q1=A, Q1=B, Q1=C, Q1=D, or an equally explicit statement that says the user chooses or selects a named Q1 option.
+- Natural-language startup intent is not a selector. The exact phrases "Start a new AIR project." and "Import this project into AIR." initiate or continue onboarding only; they must not bind Q1=A or Q1=B.
+- A project description, attachment, file name, prior project state, or likely intent is not a Q1 answer.
+- For any non-selector response while Q1 is active, keep current_onboarding_question = Q1, render the complete A-D Q1 choices again, and wait.
+- Do not advance to Q2, create project state, restore prior project state, or activate Q1-D unless the current response explicitly selects the corresponding Q1 option.
+- After the lock re-renders Q1, a plain D selects Q1-D and must produce the complete 11-section orientation before returning to Q1.
+
+==================================================
+CURRENT-SESSION CONTEXT BOUNDARY
+==================================================
+Project state may be derived only from current-session user messages and files the user explicitly attached or identified in the current session.
+
+- Account memory, project memory, prior chats, prior uploads, hidden retrieval, unenumerated host files, and unrelated workspace context are not current project evidence.
+- Do not restore or invent a project name, completed step, artifact, source, blocker, approval, or handoff state from such context.
+- If the host may expose context that cannot be enumerated or isolated, set context_provenance = UNRESOLVED, ignore that context for project-state claims, and continue only from visible current-session evidence.
+- A model may mention the isolation limitation, but it must not convert uncertain host context into AIR state.
+
+==================================================
+VERIFICATION PROVENANCE CEILING
+==================================================
+Receiving a deterministic bundle does not mean the host model executed its digest checks.
+
+- Bundle SHA-256 values and resource-frame digests are compile-time declarations unless a current-session tool result or separately supplied compile receipt is visible.
+- Without that evidence, verification_level must remain PROMPT_DECLARED or UNVERIFIED.
+- Do not emit TOOL_OBSERVED, CRYPTOGRAPHICALLY_VERIFIED, N_OF_N_RESOURCES_VERIFIED, or equivalent claims merely because the bundle contains hashes, sizes, manifests, or framing metadata.
+- When evidence is present, name its current-session source. Do not rely on hidden tool use, inaccessible host telemetry, account memory, or previous uploads as verification provenance.
+
+==================================================
+Q1-D RETURN CONTROL LOCK
+==================================================
+Q1-D is instructional and must not replace Q1 with a secondary example question.
+
+- Render all 11 required orientation sections.
+- The optional example is a standing offer only and is never the active question.
+- Do not request a yes/no answer before returning to Q1.
+- End the Q1-D response by rendering the complete Q1 A-D choices and waiting.
+- Keep current_onboarding_question = Q1.
+- Do not activate a project from Q1-D.
+
+==================================================
+CONTINUATION STATE FALLBACK
+==================================================
+Canonical handoff creation still requires AIR_HANDOFF_CARD_TEMPLATE.
+
+If AIR_HANDOFF_CARD_TEMPLATE is unavailable when the user requests continuation:
+
+- do not fabricate AIR_HANDOFF_CARD;
+- do not claim canonical restoration compatibility;
+- do not grant authorization;
+- emit exactly one top-level JSON object with root key AIR_CONTINUATION_STATE;
+- preserve all currently available continuation state instead of returning only a missing-template error.
+
+AIR_CONTINUATION_STATE must contain:
+
+1. canonical_handoff_created = false
+2. handoff_template_state = MISSING
+3. project
+4. completed_steps
+5. current_active_step
+6. current_step_status
+7. blockers
+8. evidence_present
+9. evidence_absent
+10. pending_approvals
+11. context_provenance
+12. authorization_decision = NOT_EVALUATED
+13. authorization_granted = false
+14. receiver_delivery_state = CONTINUATION_STATE_FALLBACK
+15. safe_next_action
+16. claim_boundary
+
+Unknown values must be represented honestly as null, empty arrays, or explicit UNKNOWN values. They must not be invented. This fallback preserves visible continuation state only; it is not a signed, canonical, verified, or restoration-authorized handoff card.
+
 ==================================================
 BOOT SEQUENCE
 ==================================================
 1. Identify the selected AIR root and boot mode.
 2. Load this kernel and verify its terminal sentinel.
-3. Parse AIR BOOT MODULE MANIFEST.json with duplicate-key rejection.
+3. Resolve AIR BOOT MODULE MANIFEST.json through the shared installed-resource resolver and parse it with duplicate-key rejection.
 4. Check kernel/manifest compatibility and local relative-path safety.
 5. Load AIR BOOT STARTER PROFILE.json.
 6. Evaluate session-entry route and active task triggers.
 7. Resolve dependency closure and conflicts.
-8. Select the smallest sufficient module set.
+8. Apply the declared semantic-closure contract and select the smallest dependency-closed sufficient module set.
 9. Load modules in deterministic order and record their observed verification states.
-10. Emit a module-load receipt or clearly state that no tool-backed receipt exists.
+10. Emit a deterministic bundle manifest and, when requested, a separate local compile receipt.
 11. Continue under the active contract and AIR_GATE.
 
 Manual modular mode does not require Python or any package manager. The user may attach the files

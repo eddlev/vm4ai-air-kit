@@ -6,7 +6,7 @@
 | Canonical resources | Files attached or loaded by the AI interface | Build-verified resources embedded in the installed package |
 | File hashes | Model-declared or file-layer observed | Calculated by local code from observed bytes |
 | Project state | Conversation artifacts and handoffs | Registered project workspace files and receipts |
-| Module selection | Model interpretation or legacy manifest plan | Stage 3 migration pending |
+| Module selection | Model interpretation when files are manually attached | Installed `BootCompiler` validates resources, applies semantic closure, resolves dependencies, and emits deterministic bundles |
 | Policy decision | `PROMPT_SIMULATED` | Stage 5 local OPA migration pending |
 | Handoff trust | Structural/unauthenticated | Stage 4 signature and local-anchor migration pending |
 | Execution authorization | AIR_GATE plus user approval | AIR_GATE plus user approval; local tool results do not replace it |

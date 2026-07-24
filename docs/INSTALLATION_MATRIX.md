@@ -5,7 +5,8 @@
 | Complete AIR Prompt Set | Supported | Supported | Supported | Capable AI interface | No, when obtained from a release bundle |
 | Installed development wheel | Supported target; CI required | Supported target; CI required | Executed locally and CI target | Python 3.11+, `platformdirs` | No after wheel creation |
 | Editable development install | Supported | Supported | Supported | Python 3.11+, Hatchling/test dependencies | Yes |
-| Legacy modular boot script | Compatibility path | Compatibility path | Compatibility path | Python standard library | Yes |
+| Installed deterministic boot compiler | Supported | Supported | Supported | Python 3.11+ | Yes |
+| Legacy `air-boot.py` adapter | Compatibility path | Compatibility path | Compatibility path | Installed package or source tree | Yes |
 | Legacy handoff tool | Compatibility path | Compatibility path | Compatibility path | pinned handoff dependencies | Yes |
 | Legacy OPA adapter | Compatibility path | Compatibility path | Compatibility path | operator-installed OPA | Yes |
 
@@ -20,7 +21,7 @@ pipx install vm4ai-air
 Publication is currently blocked. Use a reviewed local wheel:
 
 ```bash
-pipx install dist/vm4ai_air-0.4.0.dev0-py3-none-any.whl
+pipx install dist/vm4ai_air-0.5.0.dev0-py3-none-any.whl
 ```
 
 ## Python support

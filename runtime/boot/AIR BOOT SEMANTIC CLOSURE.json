@@ -1,0 +1,81 @@
+{
+  "schema_id": "AIR_BOOT_SEMANTIC_CLOSURE",
+  "schema_version": "1.0.0",
+  "status": "STAGE_3_ACTIVE",
+  "complete_prompt_set": [
+    "prompts/AIR CORE RUNTIME.md",
+    "prompts/AIR CONTROL SURFACE.md",
+    "prompts/AIR DEFAULT STARTER PROFILE.json"
+  ],
+  "required_modules": {
+    "SESSION_ENTRY": [
+      "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+      "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1"
+    ],
+    "NEW_PROJECT": [
+      "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1"
+    ],
+    "Q1_D_ORIENTATION": [
+      "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1"
+    ],
+    "MATERIAL_EXECUTION": [
+      "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+    ],
+    "MUTATION": [
+      "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"
+    ],
+    "CODING": [
+      "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1"
+    ],
+    "REPOSITORY": [
+      "AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1",
+      "AIR_RUNTIME_CODING_REPOSITORY_AND_RELEASE_V1",
+      "AIR_CONTROL_CODING_REPOSITORY_AND_RELEASE_V1"
+    ],
+    "HANDOFF_CONTINUATION": [
+      "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1",
+      "AIR_CONTROL_POLICY_HANDOFF_AND_PORTABILITY_V1"
+    ],
+    "IMPORT_NON_AIR_PROJECT": [
+      "AIR_RUNTIME_ENTRY_AND_ACTIVATION_V1",
+      "AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1",
+      "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1"
+    ]
+  },
+  "q1d": {
+    "module_id": "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1",
+    "required_section_count": 11,
+    "instructional_only": true,
+    "project_activation_allowed": false,
+    "example_invitation_required": true,
+    "example_execution_optional": true,
+    "reachable_from_new_project_bundle": true
+  },
+  "unknown_trigger_behavior": "REVIEW_AND_FULL_MONOLITH_FALLBACK",
+  "fallback_bundle_id": "COMPLETE_AIR_PROMPT_SET",
+  "adapter_contract": {
+    "shared_service": "vm4ai_air.boot.BootCompiler",
+    "cli": "air boot",
+    "future_local_mcp": "OPTIONAL_POST_STAGE_3",
+    "future_coding_plugins": "OPTIONAL_POST_STAGE_3",
+    "network_required": false
+  },
+  "claim_boundary": "This contract validates declared modular closure and deterministic bundle selection. It does not prove model-equivalent behavior, authorize tool execution, or replace the Complete AIR Prompt Set fallback.",
+  "session_entry_reachable_branches": {
+    "Q1_A_NEW_PROJECT": "CLOSED_BY_ENTRY_MODULES",
+    "Q1_B_IMPORT_NON_AIR_PROJECT": "CLOSED_BY_ENTRY_MODULES",
+    "Q1_C_HANDOFF_CONTINUATION": "CLOSED_BY_POLICY_AND_HANDOFF_MODULES",
+    "Q1_D_BEGINNER_ORIENTATION": "CLOSED_BY_AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1"
+  }
+}

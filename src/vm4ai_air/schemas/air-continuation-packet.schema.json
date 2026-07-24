@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:air:continuation-packet:1",
+  "title": "AIR Continuation Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_id", "schema_version", "continuation_id", "task_id", "created_at_utc", "completed_steps", "current_step", "next_recommended_step", "repository_state", "authorization_ref", "evidence", "blockers", "pending_approvals", "claim_boundary"],
+  "properties": {
+    "schema_id": {"const": "AIR_CONTINUATION_PACKET"},
+    "schema_version": {"const": "1.0.0"},
+    "continuation_id": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "created_at_utc": {"type": "string", "minLength": 1},
+    "completed_steps": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "current_step": {"type": "string", "minLength": 1},
+    "next_recommended_step": {"type": "string", "minLength": 1},
+    "repository_state": {"type": "object"},
+    "authorization_ref": {"type": ["string", "null"]},
+    "evidence": {"type": "array", "items": {"type": "object"}},
+    "blockers": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "pending_approvals": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "claim_boundary": {"type": "string", "minLength": 1}
+  }
+}

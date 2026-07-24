@@ -1,0 +1,14 @@
+{
+  "schema_id": "AIR_BOOT_COMPILE_RECEIPT",
+  "schema_version": "1.0.0",
+  "created_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "package_version": "0.5.0.dev0",
+  "resource_set_version": "observed at compile time",
+  "plan_id": "64 lowercase hexadecimal characters",
+  "boot_mode": "LOCAL_BUNDLED",
+  "requested_triggers": ["NEW_PROJECT"],
+  "bundle_sha256": "64 lowercase hexadecimal characters",
+  "resource_count": 1,
+  "authorization_decision": "NOT_EVALUATED",
+  "claim_boundary": "This receipt proves only the observed local compilation and bundle digest."
+}

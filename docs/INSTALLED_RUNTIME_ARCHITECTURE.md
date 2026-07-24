@@ -1,6 +1,6 @@
 # AIR Installed Runtime Architecture
 
-**Development line:** `0.4.0.dev0`
+**Development line:** `0.5.0.dev0`
 **Distribution:** `vm4ai-air`
 **Python import package:** `vm4ai_air`
 **Terminal command:** `air`
@@ -23,8 +23,6 @@ The installed runtime must:
 
 Stage 2 does not migrate or claim completion of:
 
-- modular bundle compilation;
-- Q1-D beginner-orientation changes;
 - handoff cryptographic commands;
 - OPA policy execution;
 - self-upgrade or rollback execution;
@@ -229,13 +227,13 @@ CI separates source tests from installed-distribution tests. The source matrix c
 ## 12. Migration sequence
 
 1. **Stage 2:** package substrate, resolver, configuration, workspace, diagnostics.
-2. **Stage 3:** modular boot migration, semantic bundle closure, Complete AIR Prompt Set integration, Q1-D refresh.
+2. **Stage 3:** deterministic modular boot, semantic bundle closure, Complete AIR Prompt Set fallback integration, Q1-D refresh, and adapter-facing contracts. **Implemented in the 0.5.0 development line.**
 3. **Stage 4:** handoff and signature migration onto global keystore and project workspaces.
 4. **Stage 5:** policy and remaining local functions.
 5. **Stage 6:** full cross-platform, failure-path, regression, cross-model, release, upgrade, and rollback validation.
 
 ## 13. Compatibility
 
-Legacy repository scripts remain unchanged in Stage 2. They continue to use repository-relative paths and are not the installed application implementation.
+The legacy boot script is now a compatibility adapter to the installed boot service. Other legacy handoff and policy scripts remain repository-relative until their separately approved migration stages.
 
 Later migration wrappers must delegate to shared package functions rather than duplicate logic. Removal requires the approved compatibility window and separate review.

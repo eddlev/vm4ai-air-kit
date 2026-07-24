@@ -70,6 +70,28 @@ def test_built_distribution_installs_and_runs_without_repository(
     assert version["resource_origin"] == "INSTALLED_PACKAGE"
     assert version["resource_set_version"] != "UNAVAILABLE"
     assert run("resources", "verify")["decision"] == "PASS"
+    assert run("boot", "validate")["decision"] == "PASS"
+    contracts = run("boot", "contracts", "authorization", "--content")
+    authorization_schema = contracts["contracts"]["authorization"]["schema"]
+    assert authorization_schema["$id"] == "urn:air:authorization-envelope:1"
+    assert "approval_ref" in authorization_schema["required"]
+    provenance_rule = authorization_schema["allOf"][0]["then"]["properties"]
+    assert provenance_rule["approval_ref"]["type"] == "string"
+    assert provenance_rule["actor"]["not"]["pattern"] == r"^\s*UNSPECIFIED\s*$"
+    boot_plan = run("boot", "plan", "--trigger", "Q1_D_ORIENTATION")
+    assert "AIR_CONTROL_Q1D_BEGINNER_ORIENTATION_V1" in boot_plan["planned_modules"]
+    bundle = outside / f"installed-{label}-boot.md"
+    compile_result = run("boot", "compile", "--trigger", "CODING", "--output", str(bundle))
+    assert compile_result["decision"] == "PASS"
+    assert bundle.is_file()
+    bundle_bytes = bundle.read_bytes()
+    assert b"AIR_RESOURCE_LENGTH_FRAMED_V1" in bundle_bytes
+    assert b"Mandatory session-entry guards" in bundle_bytes
+    assert b"It does not select Q1=A" in bundle_bytes
+    assert b"Receiving this file alone does not justify" in bundle_bytes
+    assert b"The optional example is a standing offer only" in bundle_bytes
+    assert b"AIR_CONTINUATION_STATE" in bundle_bytes
+    assert b"authorization=false" in bundle_bytes
     project = run("project", "init", f"Installed {label} Project", "--use")["project"]
     assert Path(project["workspace_path"]).is_dir()
     assert run("project", "validate")["decision"] == "PASS"

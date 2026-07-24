@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.5.0.dev0 - Stage 3 deterministic modular boot
+
+- Added installed-resource-backed boot validation, dependency planning, deterministic bundle compilation, and separate compile receipts.
+- Added an explicit semantic-closure contract and Complete AIR Prompt Set fallback for unknown triggers.
+- Added the complete 11-section Q1-D beginner orientation as a dedicated dependency-closed module.
+- Added transport-neutral task, authorization, and continuation contracts for future local MCP and coding-tool adapters.
+- Replaced the repository-relative boot implementation with a compatibility adapter to the shared service.
+- Kept handoff signing, policy execution, MCP hosting, plugins, release, and publication separately gated.
+
+### Fixed during Stage 3 review
+
+- Boot validation now requires the kernel, starter, semantic-closure, Complete AIR Prompt Set, receipt, and Markdown-module structural contracts instead of accepting merely self-consistent bytes.
+- Derived Markdown modules are pinned to an independent decomposition-map and exact module-content contract, so marker-only replacements fail even when manifest digests are rebuilt.
+- Deterministic bundles now embed exact length-framed resource bytes whose declared digests match the embedded segments.
+- Bundle and receipt output pairs now use shared target locks, post-write verification, and rollback under one transaction boundary.
+- Every modular and fallback plan identifier now binds the package version, resource-set version, and full source-tree digest.
+- Mutating authorization envelopes now require an explicit actor and approval provenance; neutral non-mutating envelopes default to `UNSPECIFIED`. The published JSON Schema enforces the same conditional rule.
+- Unknown-trigger review results now use a distinct nonzero terminal exit code.
+- Empirical session-entry remediation now hard-locks Q1 until an explicit selector is supplied; startup phrases such as `Start a new AIR project.` cannot silently bind Q1=A.
+- Session-entry bundles now treat unenumerated host memory, prior uploads, and hidden project files as untrusted for current project-state claims.
+- Bundle metadata now caps host verification claims at prompt-declared or unverified unless current-session tool evidence or a separately supplied compile receipt is visible.
+
 ## Unreleased — v0.4.0 development line
 
 ### Added
@@ -31,7 +53,7 @@
 
 ### Deferred by approved project stage
 
-- Modular boot migration and semantic-completeness repair, including the updated Q1-D beginner orientation, are assigned to Stage 3.
+- Deterministic modular boot and complete Q1-D orientation closure are implemented in the 0.5.0 development line.
 - Handoff and signature migration are assigned to Stage 4.
 - Policy and remaining local-function migration are assigned to Stage 5.
 - PyPI publishing, Trusted Publisher configuration, merge, tag, and release creation remain separately blocked.
