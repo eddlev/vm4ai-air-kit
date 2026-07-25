@@ -152,3 +152,21 @@ def test_stage3_session_entry_bundle_closes_q1_routes() -> None:
     assert q1d["status"] == "AVAILABLE"
     assert len(session["resources"]) == 9
     assert q1d["resources"] == session["resources"]
+
+def test_core_runtime_load_integrity_declaration_is_structurally_contiguous() -> None:
+    text = (ROOT / "prompts" / "AIR CORE RUNTIME.md").read_text(encoding="utf-8")
+    expected = "\n".join(
+        [
+            "Expected sentinels:",
+            "- AIR_CORE_RUNTIME.md ends with:",
+            "  AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+            "- AIR_CONTROL_SURFACE.md ends with:",
+            "  AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V1",
+        ]
+    )
+    marker = (
+        "Patch marker: "
+        "AIR_HANDOFF_CRYPTOGRAPHIC_INTEGRITY_AND_AUTHORITY_SEPARATION_V1"
+    )
+    assert text.count(expected) == 1
+    assert text.count(marker) == 1
