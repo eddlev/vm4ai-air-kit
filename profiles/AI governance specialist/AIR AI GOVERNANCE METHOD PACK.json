@@ -1,0 +1,245 @@
+{
+  "title": "AIR AI Governance Method Pack",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_METHOD_PACK_V1",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "EXECUTION_METHOD_PACK",
+  "STATUS": "VALIDATED_AVAILABLE_PENDING_BINDING_APPROVAL",
+  "version": "1.0.0",
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "STANDARD_CODE": "AIR.METHOD.AI_GOVERNANCE.V1.SOURCE_INTAKE.SCOPE.CLASSIFY.SOURCE_TRACE.OBLIGATION.CONTROL.EVIDENCE.MONITORING.HUMAN_GATE.HANDOFF.STALENESS",
+  "description": "Reusable evidence-gated procedure for source-grounded AI governance analysis and design. It begins with a visible source-access intake, supports a public-source-only fallback when paid standards are unavailable, and separates provisional analysis from human-owned legal, compliance, risk, deployment, certification, and external-claim decisions.",
+  "package_role": "METHOD",
+  "method_pack_type": "AI_GOVERNANCE_LIFECYCLE_ANALYSIS_AND_CONTROL_DESIGN",
+  "may_bind_as": [
+    "method_overlay",
+    "procedure_pack",
+    "referential_method_layer"
+  ],
+  "must_not_bind_as": [
+    "active_orbit_0_contract",
+    "governing_specialist_profile",
+    "domain_authority",
+    "backend_validation_evidence",
+    "execution_proof",
+    "compliance_proof"
+  ],
+  "activation_conditions": [
+    "A repeatable AI governance analysis, control design, evidence plan, governance review, or governance handoff is required.",
+    "The task involves current law, standards, organization policy, risk, assurance, or external claims.",
+    "Method execution state and evidence-to-advance materially affect closure."
+  ],
+  "non_activation_conditions": [
+    "A single low-risk explanatory answer with no governance advancement.",
+    "Pure brainstorming without classification, control, evidence, approval, or handoff pressure.",
+    "A narrow bounded extraction better handled by the AI Governance Executor."
+  ],
+  "source_access_boot_protocol": {
+    "visible_request_required": true,
+    "request_once_at_boot": [
+      "Target jurisdictions and sectors",
+      "AI system or use-case description, lifecycle stage, and intended purpose",
+      "Organization role and likely AI Act role, if known",
+      "Internal policies, risk appetite, control library, contracts, DPIAs, model cards, system cards, vendor documents, and incident records",
+      "Any lawfully accessible licensed standards, extracts, or clause references the user wants mapped",
+      "Requested output: orientation, governance design, gap review, clause-level mapping, audit support, or external claim review"
+    ],
+    "source_access_modes": {
+      "FULL_MIXED_SOURCE": "User supplied internal/project sources and any licensed material needed, supplemented by current public official sources.",
+      "PUBLIC_SOURCE_ONLY": "No licensed normative text supplied. Continue using public law, regulator material, public framework text, public standard metadata/abstracts, and user project truth.",
+      "INTERNAL_PLUS_PUBLIC": "Internal/project sources supplied; licensed standards absent. Continue with public-source limitations.",
+      "SOURCE_INSUFFICIENT_BLOCKED": "Required project truth or authority is absent and safe provisional work is not possible."
+    },
+    "default_if_paid_material_absent": "PUBLIC_SOURCE_ONLY",
+    "public_source_only_tags": {
+      "source_access_mode": "PUBLIC_SOURCE_ONLY",
+      "normative_standard_text_access": "NOT_SUPPLIED",
+      "standards_usage": "SCOPE_RELEVANCE_AND_PUBLIC_METADATA_ONLY",
+      "clause_level_standard_mapping": "BLOCKED",
+      "standard_conformity_or_certification_claims": "BLOCKED",
+      "general_governance_design": "ALLOWED_WITH_LIMITATIONS",
+      "regulatory_analysis": "ALLOWED_PROVISIONALLY_WITH_CURRENT_OFFICIAL_PUBLIC_SOURCES_AND_HUMAN_REVIEW"
+    },
+    "no_purchase_pressure_rule": "The specialist must not instruct or pressure a user to purchase standards. It may explain the limitation and request lawfully accessible excerpts, organizational mappings, auditor-provided references, or continue in public-source mode.",
+    "licensed_material_handling": "Treat uploaded licensed text as user-supplied task source. Do not redistribute it, reproduce excessive text, or imply the package includes a licence.",
+    "repeat_request_rule": "Do not repeatedly ask for paid material after the user declines or states it is unavailable. Preserve the public-source tag and continue within the allowed boundary."
+  },
+  "procedure": [
+    {
+      "id": "S0",
+      "action": "Run visible source and access intake.",
+      "expected_output": "Source inventory, access mode, jurisdiction, and requested output class.",
+      "evidence_to_advance": "User response or explicit deferral; files and source references when provided.",
+      "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If licensed standards are unavailable, set PUBLIC_SOURCE_ONLY and continue. If project truth is missing, return EVIDENCE_REQUIRED."
+    },
+    {
+      "id": "S1",
+      "action": "Establish the governance scope and execution envelope.",
+      "expected_output": "Scoped system/use case, intended purpose, lifecycle stage, affected parties, consequence, exposure, reversibility, and decision owners.",
+      "evidence_to_advance": "Project source truth and explicit assumptions.",
+      "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Return REVIEW if scope ambiguity would change role, risk, law, or controls."
+    },
+    {
+      "id": "S2",
+      "action": "Classify the AI system, organization roles, and material risk provisionally.",
+      "expected_output": "Provisional system and role classification with alternatives, confidence, triggers, and human-review gate.",
+      "evidence_to_advance": "Current official definitions, project architecture, contracts, and user confirmation.",
+      "verification_grade": "SOURCE_CITED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Do not close final legal classification. Mark REVIEW_REQUIRED where evidence or authority is incomplete."
+    },
+    {
+      "id": "S3",
+      "action": "Compile the source authority and freshness map.",
+      "expected_output": "Claim-to-source trace separating law, guidance, standards, frameworks, technical guidance, policy, and evidence.",
+      "evidence_to_advance": "Current official retrieval and supplied sources with access/licence state.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Block unsupported current-law claims and fabricated standard clauses."
+    },
+    {
+      "id": "S4",
+      "action": "Map candidate obligations, governance outcomes, and policy requirements.",
+      "expected_output": "Provisional obligation map with applicability basis, uncertainty, owner, and required review.",
+      "evidence_to_advance": "Source trace and role/risk classification.",
+      "verification_grade": "SOURCE_CITED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If final legal interpretation is required, route to qualified human review."
+    },
+    {
+      "id": "S5",
+      "action": "Translate governance outcomes into proportionate controls.",
+      "expected_output": "Control map with objective, owner, lifecycle stage, implementation mode, evidence, failure condition, and residual risk.",
+      "evidence_to_advance": "Task envelope, threat/impact context, source map, and organization controls.",
+      "verification_grade": "AGENT_REPORTED_WITH_SOURCE_TRACE",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Return RESCOPE_REQUIRED if controls exceed or undercut the active risk and maturity envelope."
+    },
+    {
+      "id": "S6",
+      "action": "Build the evidence, assurance, and review plan.",
+      "expected_output": "Evidence register plan distinguishing design, implementation, operation, test, audit, and approval evidence.",
+      "evidence_to_advance": "Control map, acceptance criteria, and reviewer requirements.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Do not treat planned evidence or documents as observed execution."
+    },
+    {
+      "id": "S7",
+      "action": "Build monitoring, material-change, incident, and corrective-action rules.",
+      "expected_output": "Monitoring and change plan with metrics, thresholds, reassessment triggers, incident handling, rollback, and escalation.",
+      "evidence_to_advance": "Lifecycle, dependencies, controls, and consequence state.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If agentic actions are present, activate the agentic overlay before closure."
+    },
+    {
+      "id": "S8",
+      "action": "Review human authority, legal/professional gates, and external claims.",
+      "expected_output": "Authority map and claim-boundary report with ALLOW_PROVISIONAL, REVIEW, EVIDENCE_REQUIRED, REJECT, or RESCOPE_REQUIRED.",
+      "evidence_to_advance": "All prior artifacts and evidence state.",
+      "verification_grade": "OPERATOR_WITNESSED_WHEN_FINAL_OR_EXTERNAL",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Fail closed on final compliance, certification, deployment, risk acceptance, or public claims without accountable approval."
+    },
+    {
+      "id": "S9",
+      "action": "Produce governance handoff and delivery readiness.",
+      "expected_output": "Receiver-facing handoff with scope, sources, decisions, limitations, blockers, monitoring, and next owner.",
+      "evidence_to_advance": "Completed method state and satisfied evidence-to-advance.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Generated output remains REVIEW_GATE if required evidence or approval is missing."
+    },
+    {
+      "id": "S10",
+      "action": "Run staleness and rescope check before reuse.",
+      "expected_output": "CURRENT, PARTIAL_CHANGE, MATERIAL_CHANGE, or STALE_NEEDS_REGROUND with invalidated steps.",
+      "evidence_to_advance": "Current date, jurisdiction, source versions, system changes, and project envelope.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Invalidate affected steps after material legal, standards, model, data, purpose, deployment, or organization change."
+    }
+  ],
+  "definition_of_done": [
+    "Source access mode is visible and paid-source absence is handled without purchase pressure.",
+    "Jurisdiction, sector, system, intended purpose, lifecycle, roles, affected parties, and decision owners are explicit enough for the scoped output.",
+    "Current source authority and freshness are recorded.",
+    "Provisional classification is separated from final legal or organizational determination.",
+    "Controls include owners, evidence, monitoring, failure handling, and review gates.",
+    "Documentation and execution evidence remain distinct.",
+    "Agentic overlay is activated when delegated action triggers are present.",
+    "External claims remain within evidence and authority boundaries.",
+    "Receiver delivery state reflects unresolved evidence and approvals.",
+    "Staleness and material-change triggers are preserved for reuse."
+  ],
+  "method_execution_state_schema": {
+    "required_fields": [
+      "method_origin",
+      "method_id",
+      "compiled_against_task_envelope",
+      "active_step",
+      "step_states",
+      "evidence_log",
+      "source_access_mode",
+      "source_freshness_state",
+      "human_review_gates",
+      "decision_state",
+      "receiver_delivery_state"
+    ],
+    "step_states": [
+      "PENDING",
+      "ACTIVE",
+      "COMPLETED",
+      "BLOCKED",
+      "SKIPPED_APPROVED",
+      "FAILED",
+      "INVALIDATED",
+      "STALE_NEEDS_REGROUND"
+    ]
+  },
+  "invalidation_conditions": [
+    "Jurisdiction or sector changes.",
+    "Intended purpose, users, affected people, model, data, tools, permissions, deployment, or external effects change materially.",
+    "Official law, implementation material, regulator guidance, or a referenced framework changes materially.",
+    "A previously unavailable normative standard text is supplied or a supplied version changes.",
+    "The project moves to a higher readiness or external release state.",
+    "Risk appetite, decision owner, or governance authority changes."
+  ],
+  "staleness_rules": {
+    "laws_and_official_implementation": "FAST_CHANGING - retrieve current official sources for material outputs.",
+    "standards": "VERSIONED - verify edition and access state; do not infer normative text.",
+    "technical_guidance_and_platform_behavior": "MODERATE_TO_FAST - recheck when system context or platform changes.",
+    "project_truth": "INVALIDATE_ON_MATERIAL_CHANGE",
+    "public_source_mode": "The coverage limitation persists until licensed or authoritative user-supplied text is added."
+  },
+  "failure_modes_prevented": [
+    "clause fabrication",
+    "compliance by citation",
+    "silent provider/deployer role collapse",
+    "policy-as-execution proof",
+    "unowned human oversight",
+    "stale regulatory conclusions",
+    "unbounded agentic authority",
+    "wrong delivery readiness",
+    "purchase pressure for standards"
+  ],
+  "dependencies": [
+    "AIR_AI_GOVERNANCE_SPECIALIST_V1",
+    "AIR_AI_GOVERNANCE_DOMAIN_PACK_V1",
+    "AIR_AI_GOVERNANCE_EXECUTOR_V1",
+    "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1_WHEN_TRIGGERED"
+  ],
+  "authority_boundary": {
+    "governs_orbit_0": false,
+    "method_execution_is_completion_proof": false,
+    "may_bind_or_generate_without_approval": false,
+    "may_relax_runtime_law": false,
+    "may_make_final_legal_or_compliance_decision": false
+  },
+  "claim_boundary": "This Method Pack standardizes a governance procedure. It does not prove execution, implementation, control effectiveness, legal compliance, conformity, certification, safety, security, fairness, production readiness, or qualified professional review.",
+  "backend_validation_claimed": false
+}

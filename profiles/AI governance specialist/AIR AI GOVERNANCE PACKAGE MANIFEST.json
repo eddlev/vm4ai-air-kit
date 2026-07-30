@@ -1,0 +1,71 @@
+{
+  "title": "AIR AI Governance Specialist Package Manifest",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V1",
+  "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+  "version": "1.0.0",
+  "release_line": "v0.4.0-provisional",
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "specialist_name": "AIR AI Governance Specialist",
+  "component_contract": [
+    "SPECIALIST_PROFILE",
+    "DOMAIN_PACK",
+    "METHOD",
+    "EXECUTOR",
+    "CONDITIONAL_OVERLAY"
+  ],
+  "components": [
+    {
+      "role": "SPECIALIST_PROFILE",
+      "file": "AIR AI GOVERNANCE SPECIALIST.json",
+      "size_bytes": 18252,
+      "sha256": "65db9c15ee08f958382f8e38180a14424e405973cfc9bc6300cd9c4401bc7b59",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_V1"
+    },
+    {
+      "role": "DOMAIN_PACK",
+      "file": "AIR AI GOVERNANCE DOMAIN PACK.json",
+      "size_bytes": 22150,
+      "sha256": "8ae137e02a7053009a0a64c73814fd718d3cbb923b6cb5581a1ac8741dd80bcf",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_DOMAIN_PACK_V1"
+    },
+    {
+      "role": "METHOD",
+      "file": "AIR AI GOVERNANCE METHOD PACK.json",
+      "size_bytes": 14133,
+      "sha256": "521c48b2e1dcc68ecca7b96b5e3f3a318985990d5054417d8496a66ca1be27fb",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_METHOD_PACK_V1"
+    },
+    {
+      "role": "EXECUTOR",
+      "file": "AIR AI GOVERNANCE EXECUTOR.json",
+      "size_bytes": 6462,
+      "sha256": "b0b7a4d3c5feb5f9792cc3e361520b93b64b8c1287bad49637b6181c3f7cc9fc",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V1"
+    },
+    {
+      "role": "CONDITIONAL_OVERLAY",
+      "file": "AIR AI GOVERNANCE AGENTIC OVERLAY.json",
+      "size_bytes": 6071,
+      "sha256": "70e80159e3faaac14786d8fd8c9fedf3cad7502a5f7d2f4f49e8f274896df4c2",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1"
+    }
+  ],
+  "source_access_policy": {
+    "licensed_material_required_for_general_operation": false,
+    "default_without_paid_material": "PUBLIC_SOURCE_ONLY",
+    "clause_level_mapping_without_normative_text": "BLOCKED",
+    "purchase_pressure": "PROHIBITED",
+    "limitation_tagging_required": true
+  },
+  "validation_state": {
+    "structural": "PASS",
+    "semantic": "PASS",
+    "cross_file": "PASS",
+    "digest": "PASS",
+    "regression": "NOT_EXECUTED_NO_BACKEND_HARNESS",
+    "backend_validation_claimed": false
+  },
+  "binding_state": "VALIDATED_AVAILABLE_UNBOUND_PENDING_EXPLICIT_APPROVAL",
+  "release_state": "PROMPT_SIDE_VALIDATED_NOT_PUBLISHED_NOT_BACKEND_VALIDATED",
+  "claim_boundary": "Folder membership and digest validation package related capability layers. It does not bind them, promote them to Orbit 0, authorize legal or compliance decisions, prove execution, or authorize repository publication."
+}

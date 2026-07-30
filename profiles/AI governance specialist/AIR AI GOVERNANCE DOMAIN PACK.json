@@ -1,0 +1,434 @@
+{
+  "title": "AIR AI Governance Domain Pack",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_DOMAIN_PACK_V1",
+  "PROFILE_KIND": "DOMAIN_OVERLAY",
+  "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+  "STATUS": "VALIDATED_AVAILABLE_PENDING_BINDING_APPROVAL",
+  "version": "1.0.0",
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "STANDARD_CODE": "AIR.DOMAIN.AI_GOVERNANCE.V1.AUTHORITY_CLASSES.JURISDICTION.FRESHNESS.PUBLIC_SOURCE_FALLBACK.LIFECYCLE.CONTROL_EVIDENCE.HUMAN_REVIEW.AGENTIC_TRIGGER",
+  "description": "Reusable referential domain package for AI governance terminology, source authority, lifecycle governance, controls, evidence, monitoring, accountability, and claim boundaries. It supports public-source-only operation when paid normative standards are unavailable and prohibits fabricated clause-level mappings.",
+  "package_role": "DOMAIN_PACK",
+  "package_subtype": "SUBJECT_DOMAIN_OVERLAY",
+  "domain_scope": {
+    "primary_domains": [
+      "AI governance",
+      "responsible AI",
+      "AI risk management",
+      "AI assurance",
+      "AI security",
+      "privacy and data governance",
+      "enterprise governance",
+      "third-party AI",
+      "generative AI",
+      "agentic AI"
+    ],
+    "initial_jurisdiction_center": "European Union",
+    "cross_jurisdiction_support": "Allowed only with current jurisdiction-specific sources and explicit scope labels.",
+    "operative_clusters": [
+      {
+        "id": "O1",
+        "name": "GOVERNANCE_ACCOUNTABILITY_AND_HUMAN_AUTHORITY"
+      },
+      {
+        "id": "O2",
+        "name": "AI_SYSTEM_LIFECYCLE_AND_PROPORTIONAL_CLASSIFICATION"
+      },
+      {
+        "id": "O3",
+        "name": "REGULATORY_POLICY_AND_SOURCE_TRACEABILITY"
+      },
+      {
+        "id": "O4",
+        "name": "DATA_PRIVACY_AND_INFORMATION_GOVERNANCE"
+      },
+      {
+        "id": "O5",
+        "name": "TECHNICAL_ASSURANCE_AND_EVALUATION"
+      },
+      {
+        "id": "O6",
+        "name": "SECURITY_RESILIENCE_AND_MISUSE_GOVERNANCE"
+      },
+      {
+        "id": "O7",
+        "name": "THIRD_PARTY_AND_AI_SUPPLY_CHAIN_GOVERNANCE"
+      },
+      {
+        "id": "O8",
+        "name": "EVIDENCE_MONITORING_CHANGE_INCIDENT_AND_AUDITABILITY"
+      },
+      {
+        "id": "O9",
+        "name": "ORGANIZATIONAL_ADOPTION_TRANSPARENCY_AND_COMMUNICATION"
+      }
+    ],
+    "conditional_overlay": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1"
+  },
+  "terminology": {
+    "AI_governance": "The organizational, legal, technical, risk, evidence, and accountability arrangements that shape AI decisions across the lifecycle.",
+    "binding_law": "Legally binding text within its jurisdiction and temporal scope.",
+    "official_guidance": "Regulator or authority interpretation that may be influential but is not automatically binding law.",
+    "international_standard": "Versioned standards-body material. Public metadata does not substitute for inaccessible normative clauses.",
+    "voluntary_framework": "Non-binding framework used to structure risk and governance work.",
+    "control_objective": "The outcome a governance or technical control is intended to achieve.",
+    "control_design": "The documented design of a control, not proof that it operated.",
+    "execution_evidence": "Observed, tested, recorded, or operator-witnessed evidence that a control or process ran.",
+    "provisional_classification": "A clearly labelled working classification pending sufficient evidence and accountable human review.",
+    "source_access_mode": "FULL_MIXED_SOURCE, PUBLIC_SOURCE_ONLY, INTERNAL_PLUS_PUBLIC, or SOURCE_INSUFFICIENT_BLOCKED.",
+    "agentic_AI": "AI-enabled behavior that selects tools or executes multi-step actions with delegated effect beyond a single recommendation.",
+    "human_authority_gate": "A review or approval point reserved for an accountable human or qualified organization function."
+  },
+  "source_access_protocol": {
+    "visible_request_required": true,
+    "request_once_at_boot": [
+      "Target jurisdictions and sectors",
+      "AI system or use-case description, lifecycle stage, and intended purpose",
+      "Organization role and likely AI Act role, if known",
+      "Internal policies, risk appetite, control library, contracts, DPIAs, model cards, system cards, vendor documents, and incident records",
+      "Any lawfully accessible licensed standards, extracts, or clause references the user wants mapped",
+      "Requested output: orientation, governance design, gap review, clause-level mapping, audit support, or external claim review"
+    ],
+    "source_access_modes": {
+      "FULL_MIXED_SOURCE": "User supplied internal/project sources and any licensed material needed, supplemented by current public official sources.",
+      "PUBLIC_SOURCE_ONLY": "No licensed normative text supplied. Continue using public law, regulator material, public framework text, public standard metadata/abstracts, and user project truth.",
+      "INTERNAL_PLUS_PUBLIC": "Internal/project sources supplied; licensed standards absent. Continue with public-source limitations.",
+      "SOURCE_INSUFFICIENT_BLOCKED": "Required project truth or authority is absent and safe provisional work is not possible."
+    },
+    "default_if_paid_material_absent": "PUBLIC_SOURCE_ONLY",
+    "public_source_only_tags": {
+      "source_access_mode": "PUBLIC_SOURCE_ONLY",
+      "normative_standard_text_access": "NOT_SUPPLIED",
+      "standards_usage": "SCOPE_RELEVANCE_AND_PUBLIC_METADATA_ONLY",
+      "clause_level_standard_mapping": "BLOCKED",
+      "standard_conformity_or_certification_claims": "BLOCKED",
+      "general_governance_design": "ALLOWED_WITH_LIMITATIONS",
+      "regulatory_analysis": "ALLOWED_PROVISIONALLY_WITH_CURRENT_OFFICIAL_PUBLIC_SOURCES_AND_HUMAN_REVIEW"
+    },
+    "no_purchase_pressure_rule": "The specialist must not instruct or pressure a user to purchase standards. It may explain the limitation and request lawfully accessible excerpts, organizational mappings, auditor-provided references, or continue in public-source mode.",
+    "licensed_material_handling": "Treat uploaded licensed text as user-supplied task source. Do not redistribute it, reproduce excessive text, or imply the package includes a licence.",
+    "repeat_request_rule": "Do not repeatedly ask for paid material after the user declines or states it is unavailable. Preserve the public-source tag and continue within the allowed boundary."
+  },
+  "source_registry": [
+    {
+      "source_id": "EU_AI_ACT_2024_1689",
+      "title": "Regulation (EU) 2024/1689 - Artificial Intelligence Act",
+      "authority_class": "BINDING_LAW",
+      "publisher": "European Union",
+      "access_mode": "PUBLIC_FULL_TEXT",
+      "canonical_url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "freshness_class": "FAST_CHANGING_CONSOLIDATION_AND_AMENDMENTS",
+      "use_boundary": "Use the current consolidated or amended official text at task time. Do not rely on remembered dates or unchanged role definitions."
+    },
+    {
+      "source_id": "EC_AI_ACT_IMPLEMENTATION",
+      "title": "European Commission AI Act implementation materials and timeline",
+      "authority_class": "OFFICIAL_IMPLEMENTATION_MATERIAL",
+      "publisher": "European Commission",
+      "access_mode": "PUBLIC",
+      "canonical_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "freshness_class": "FAST_CHANGING",
+      "use_boundary": "Official implementation material is not automatically binding legislation. Label status and date."
+    },
+    {
+      "source_id": "EC_AI_ACT_PROHIBITED_PRACTICES_GUIDELINES",
+      "title": "European Commission guidelines on prohibited AI practices",
+      "authority_class": "OFFICIAL_NON_BINDING_GUIDANCE",
+      "publisher": "European Commission",
+      "access_mode": "PUBLIC",
+      "canonical_url": "https://digital-strategy.ec.europa.eu/en/library/commission-publishes-guidelines-prohibited-artificial-intelligence-ai-practices-defined-ai-act",
+      "freshness_class": "MODERATE_TO_FAST",
+      "use_boundary": "Supports provisional interpretation only. Final applicability requires human legal review."
+    },
+    {
+      "source_id": "EC_GPAI_GUIDELINES_AND_CODE",
+      "title": "European Commission GPAI provider guidelines and General-Purpose AI Code of Practice",
+      "authority_class": "OFFICIAL_GUIDANCE_AND_VOLUNTARY_CODE",
+      "publisher": "European Commission and EU AI Board context",
+      "access_mode": "PUBLIC",
+      "canonical_url": "https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai",
+      "freshness_class": "FAST_CHANGING",
+      "use_boundary": "Activate only when GPAI provider or systemic-risk provider duties may be relevant. Do not apply provider duties automatically to deployers or ordinary users."
+    },
+    {
+      "source_id": "EDPB_OPINION_28_2024",
+      "title": "EDPB Opinion 28/2024 on personal data in the context of AI models",
+      "authority_class": "OFFICIAL_DATA_PROTECTION_AUTHORITY_OPINION",
+      "publisher": "European Data Protection Board",
+      "access_mode": "PUBLIC_FULL_TEXT",
+      "canonical_url": "https://www.edpb.europa.eu/documents/opinion-of-the-board-art-64/opinion-282024-on-certain-data-protection-aspects-related-to_en",
+      "freshness_class": "MODERATE_TO_FAST",
+      "use_boundary": "Supports GDPR analysis but does not replace case-specific DPA, court, or qualified legal review."
+    },
+    {
+      "source_id": "ISO_IEC_42001_2023",
+      "title": "ISO/IEC 42001:2023 - Artificial intelligence management system",
+      "authority_class": "INTERNATIONAL_STANDARD",
+      "publisher": "ISO/IEC",
+      "access_mode": "PUBLIC_METADATA_AND_ABSTRACT_PAID_NORMATIVE_TEXT",
+      "canonical_url": "https://www.iso.org/standard/42001",
+      "freshness_class": "VERSIONED_STANDARD",
+      "use_boundary": "Public metadata may support scope and relevance only. Clause-level mapping, conformity, audit, or certification claims require lawfully supplied normative text and competent review."
+    },
+    {
+      "source_id": "ISO_IEC_23894_2023",
+      "title": "ISO/IEC 23894:2023 - Artificial intelligence risk management guidance",
+      "authority_class": "INTERNATIONAL_STANDARD",
+      "publisher": "ISO/IEC",
+      "access_mode": "PUBLIC_METADATA_AND_ABSTRACT_PAID_NORMATIVE_TEXT",
+      "canonical_url": "https://www.iso.org/standard/77304.html",
+      "freshness_class": "VERSIONED_STANDARD",
+      "use_boundary": "Public metadata may support scope and relevance only. Do not fabricate clauses or claim implementation."
+    },
+    {
+      "source_id": "ISO_IEC_38507_2022",
+      "title": "ISO/IEC 38507:2022 - Governance implications of organizational AI use",
+      "authority_class": "INTERNATIONAL_STANDARD",
+      "publisher": "ISO/IEC",
+      "access_mode": "PUBLIC_METADATA_AND_ABSTRACT_PAID_NORMATIVE_TEXT",
+      "canonical_url": "https://www.iso.org/standard/56641.html",
+      "freshness_class": "VERSIONED_STANDARD",
+      "use_boundary": "Public metadata may support governing-body relevance only. Clause-level mapping requires lawfully supplied normative text."
+    },
+    {
+      "source_id": "NIST_AI_RMF_1_0",
+      "title": "NIST Artificial Intelligence Risk Management Framework 1.0",
+      "authority_class": "VOLUNTARY_PUBLIC_FRAMEWORK",
+      "publisher": "National Institute of Standards and Technology",
+      "access_mode": "PUBLIC_FULL_TEXT",
+      "canonical_url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+      "freshness_class": "UNDER_REVISION",
+      "use_boundary": "Use as voluntary risk-management structure. Record version and check whether a revision has superseded 1.0."
+    },
+    {
+      "source_id": "NIST_AI_600_1",
+      "title": "NIST AI 600-1 - Generative AI Profile",
+      "authority_class": "VOLUNTARY_PUBLIC_FRAMEWORK_PROFILE",
+      "publisher": "National Institute of Standards and Technology",
+      "access_mode": "PUBLIC_FULL_TEXT",
+      "canonical_url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence",
+      "freshness_class": "MODERATE_TO_FAST",
+      "use_boundary": "Use for generative-AI risk identification and actions. It is not a legal compliance standard."
+    },
+    {
+      "source_id": "ENISA_SECURING_ML_ALGORITHMS",
+      "title": "ENISA - Securing Machine Learning Algorithms",
+      "authority_class": "OFFICIAL_TECHNICAL_SECURITY_GUIDANCE",
+      "publisher": "European Union Agency for Cybersecurity",
+      "access_mode": "PUBLIC_FULL_TEXT",
+      "canonical_url": "https://www.enisa.europa.eu/publications/securing-machine-learning-algorithms",
+      "freshness_class": "MODERATE",
+      "use_boundary": "Use for threat and control discovery. Validate current platform and system context before recommending controls."
+    }
+  ],
+  "domain_constraints": [
+    "Identify jurisdiction, sector, system, intended purpose, lifecycle stage, and organization role before material obligation mapping.",
+    "Use current authoritative retrieval for changing law, official guidance, standards status, and enforcement timelines.",
+    "Do not copy or reconstruct paid normative standard clauses from memory or public summaries.",
+    "When normative text is absent, tag PUBLIC_SOURCE_ONLY and limit standards use to public scope, metadata, and relevance.",
+    "Separate binding law, official guidance, voluntary codes, standards, technical guidance, internal policy, contracts, and empirical evidence.",
+    "Preserve role distinctions among model provider, system provider, deployer, importer, distributor, operator, end user, and affected person.",
+    "Treat classification, legal basis, risk acceptance, and compliance as review-bearing decisions.",
+    "Activate sector overlays only when sector and use-case triggers are present.",
+    "Activate the agentic overlay only when delegated action, tool use, or external-state effects occur.",
+    "Do not imply that an AIR output is a hidden reasoning trace or complete verification record."
+  ],
+  "evidence_requirements": {
+    "universal": [
+      "Project source truth for intended purpose, system architecture, data, users, dependencies, lifecycle stage, and operating environment.",
+      "Source authority, date, jurisdiction, access mode, and freshness for external facts.",
+      "Named human decision owner for review-bearing decisions.",
+      "Control objective, control owner, required evidence, test or review cadence, and failure response.",
+      "A visible distinction between design evidence, implementation evidence, operating evidence, and assurance evidence."
+    ],
+    "by_cluster": {
+      "O1_GOVERNANCE_ACCOUNTABILITY_AND_HUMAN_AUTHORITY": [
+        "decision rights",
+        "governance body or owner",
+        "escalation path",
+        "risk appetite",
+        "approval record"
+      ],
+      "O2_AI_SYSTEM_LIFECYCLE_AND_PROPORTIONAL_CLASSIFICATION": [
+        "system inventory entry",
+        "intended purpose",
+        "role classification",
+        "risk/impact basis",
+        "material-change triggers"
+      ],
+      "O3_REGULATORY_POLICY_AND_SOURCE_TRACEABILITY": [
+        "current official source",
+        "claim-to-source trace",
+        "jurisdiction",
+        "effective date",
+        "human legal review state"
+      ],
+      "O4_DATA_PRIVACY_AND_INFORMATION_GOVERNANCE": [
+        "data categories",
+        "provenance",
+        "lawful-basis review state",
+        "minimisation",
+        "retention",
+        "access and transfer controls"
+      ],
+      "O5_TECHNICAL_ASSURANCE_AND_EVALUATION": [
+        "evaluation plan",
+        "datasets or scenarios",
+        "acceptance criteria",
+        "limitations",
+        "observed results",
+        "residual uncertainty"
+      ],
+      "O6_SECURITY_RESILIENCE_AND_MISUSE_GOVERNANCE": [
+        "assets",
+        "threats",
+        "trust boundaries",
+        "controls",
+        "test evidence",
+        "incident and recovery plan"
+      ],
+      "O7_THIRD_PARTY_AND_AI_SUPPLY_CHAIN_GOVERNANCE": [
+        "provider documentation",
+        "contractual allocation",
+        "dependency map",
+        "change notice",
+        "exit or fallback plan"
+      ],
+      "O8_EVIDENCE_MONITORING_CHANGE_INCIDENT_AND_AUDITABILITY": [
+        "evidence register",
+        "monitoring metrics",
+        "change triggers",
+        "incident records",
+        "corrective action",
+        "audit trail"
+      ],
+      "O9_ORGANIZATIONAL_ADOPTION_TRANSPARENCY_AND_COMMUNICATION": [
+        "training or literacy evidence",
+        "approved use policy",
+        "shadow-AI controls",
+        "disclosures",
+        "limitations",
+        "executive reporting"
+      ]
+    }
+  },
+  "common_failure_modes": [
+    "Governance theatre: policies exist but no operating workflow, owner, evidence, or stop condition exists.",
+    "Compliance by citation: sources are listed but not translated into scoped controls and evidence.",
+    "Clause fabrication from public standard summaries.",
+    "Provider/deployer role collapse.",
+    "Documentation treated as proof of execution.",
+    "Generic risk registers disconnected from intended purpose, people, assets, or operating context.",
+    "Security controls selected without threat, trust-boundary, or platform context.",
+    "Privacy claims made without data, legal-basis, anonymisation, provenance, or transfer analysis.",
+    "A voluntary framework presented as binding law.",
+    "Human oversight described without competence, authority, timing, intervention, or override.",
+    "Agentic execution permitted without delegated-authority limits, checkpoints, containment, or rollback.",
+    "Public or board claims exceeding project evidence.",
+    "Stale law or implementation dates reused without retrieval."
+  ],
+  "unsafe_assumptions": [
+    "A paid standard is necessary for every useful governance task.",
+    "Lack of paid standards prevents all work rather than clause-level or conformity claims.",
+    "Public ISO metadata contains the normative requirements.",
+    "A cited source proves the organization implemented the control.",
+    "An AI system using a GPAI model is itself the GPAI model provider.",
+    "Removing obvious identifiers makes data anonymous.",
+    "A human in the loop automatically creates effective oversight.",
+    "A low-volume use case is low risk.",
+    "Internal approval transfers legal or regulatory responsibility to the AI system.",
+    "A risk classification remains valid after material model, data, purpose, user, or deployment change."
+  ],
+  "recommended_sources": {
+    "priority": [
+      "project and organization source truth",
+      "current official legal text",
+      "current regulator and official implementation material",
+      "lawfully supplied normative standard text when clause mapping is requested",
+      "public official frameworks and technical guidance",
+      "primary test, incident, research, and operational evidence",
+      "bounded secondary interpretation"
+    ],
+    "public_source_floor": [
+      "EU_AI_ACT_2024_1689",
+      "EC_AI_ACT_IMPLEMENTATION",
+      "EC_AI_ACT_PROHIBITED_PRACTICES_GUIDELINES",
+      "EC_GPAI_GUIDELINES_AND_CODE",
+      "EDPB_OPINION_28_2024",
+      "ISO_IEC_42001_2023",
+      "ISO_IEC_23894_2023",
+      "ISO_IEC_38507_2022",
+      "NIST_AI_RMF_1_0",
+      "NIST_AI_600_1",
+      "ENISA_SECURING_ML_ALGORITHMS"
+    ],
+    "optional_user_supplied": [
+      "licensed standard text or relevant extracts",
+      "internal policies and control libraries",
+      "AI inventory and risk records",
+      "DPIA or impact assessment",
+      "system and model cards",
+      "vendor and contract documentation",
+      "evaluation, monitoring, incident, and audit evidence"
+    ]
+  },
+  "claim_boundaries": [
+    "Public-source mode can support orientation, provisional classification, governance design, control design, evidence planning, and standards relevance.",
+    "Public-source mode cannot support fabricated clause-level mapping, conformity declarations, certification, or claims that inaccessible normative requirements are satisfied.",
+    "A provisional AI Act or GDPR analysis is not legal advice or a final applicability determination.",
+    "Standards and frameworks do not prove implementation, control effectiveness, or compliance.",
+    "Technical assurance plans do not prove safety, security, fairness, robustness, or performance.",
+    "AIR outputs do not replace accountable human sign-off or qualified professional review."
+  ],
+  "compatible_specialist_profiles": [
+    "AIR_AI_GOVERNANCE_SPECIALIST_V1",
+    "AIR_GROUNDING_SPECIALIST_V1",
+    "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V1_1"
+  ],
+  "output_influence": {
+    "changes": [
+      "terminology",
+      "source authority and freshness expectations",
+      "candidate obligations and controls",
+      "evidence requirements",
+      "failure-mode scanning",
+      "claim boundaries",
+      "human review gates",
+      "public-source limitation tags"
+    ],
+    "does_not_change_by_itself": [
+      "Orbit 0",
+      "active contract",
+      "user approval boundaries",
+      "final legal conclusion",
+      "organizational risk acceptance",
+      "backend validation state"
+    ]
+  },
+  "non_goals": [
+    "Store or redistribute paid standards.",
+    "Serve as a complete global legal database.",
+    "Certify compliance, conformity, security, safety, fairness, or responsible AI.",
+    "Replace qualified legal, privacy, security, audit, risk, or sector-specific review.",
+    "Govern Orbit 0 independently."
+  ],
+  "binding_rules": {
+    "allowed_bindings": [
+      "DOMAIN_OVERLAY_ACTIVE",
+      "SOURCE_PACK",
+      "SUPPORTING_OUTER_ORBIT"
+    ],
+    "forbidden_bindings": [
+      "ACTIVE_ORBIT_0",
+      "GOVERNING_SPECIALIST_PROFILE",
+      "BACKEND_VALIDATION_EVIDENCE",
+      "COMPLIANCE_PROOF"
+    ],
+    "attach_when": [
+      "The AI Governance Specialist is active.",
+      "AI governance source authority, terminology, standards relevance, evidence, or failure modes are material."
+    ],
+    "backend_validation_claimed": false
+  },
+  "backend_validation_claimed": false
+}
