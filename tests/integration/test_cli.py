@@ -36,7 +36,7 @@ def payload(result: subprocess.CompletedProcess[str]) -> object:
 def test_cli_operates_outside_repository(tmp_path: Path) -> None:
     version = run_air(tmp_path, "--version")
     assert version.returncode == 0
-    assert payload(version)["package_version"] == "0.5.0.dev0"
+    assert payload(version)["package_version"] == "1.4.0"
 
     created = run_air(tmp_path, "project", "init", "CLI Project", "--use", cwd=tmp_path)
     assert created.returncode == 0, created.stderr
