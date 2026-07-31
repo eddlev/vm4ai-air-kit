@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.4.0 - Governance, prompt editions, and continuity
+
+### Added
+
+- Added HR human-readable and MO machine-optimized AIR prompt editions with short Windows-friendly paths.
+- Preserved the familiar complete prompt set under `prompts/hr/` and added a shared governance supplement.
+- Added MO entry prompts, extension manifest, semantic-closure contract, and explicit HR fallback.
+- Added approval-scope binding, authority non-transfer, benchmark-floor application, and governance-source rights laws.
+- Added the Governance Framework Adapter for source-grounded, reversible artifact projections across applicable legal, standards, and voluntary-framework profiles.
+- Added licensed-source handling that separates normative-source evidence from applicability, implementation, operating-effectiveness, conformity, certification, and legal-compliance evidence.
+- Added framework profiles for the EU AI Act, ISO/IEC 42001, ISO/IEC 23894, and NIST AI RMF.
+- Added legacy/HR rendering compatibility and token-debug surfaces with explicit measurement-source labels.
+- Added handoff governance state for prompt edition, governance-floor version, open approval scope, framework projections, source-rights states, and token-debug preference.
+- Added HR and MO specialist indexes and registered the Governance Framework Adapter in the AI Governance Specialist package.
+- Added structural and integration tests for editions, handoff governance, source-rights exclusion, semantic-closure references, sentinels, and Windows path lengths.
+
+### Release state
+
+- HR is the stable default and compatibility fallback for v1.4.0.
+- MO is included as an opt-in candidate and cannot become the default until its structural, semantic, cross-file, cross-edition behavioral, handoff, token, usability, and Windows-path gates pass.
+- Restricted or licensed source text is never included in public repository artifacts or handoff cards.
+- No framework selection, generated artifact, machine capability, or successful execution transfers legal or organizational authority.
+
 ## 0.5.0.dev0 - Stage 3 deterministic modular boot
 
 - Added installed-resource-backed boot validation, dependency planning, deterministic bundle compilation, and separate compile receipts.

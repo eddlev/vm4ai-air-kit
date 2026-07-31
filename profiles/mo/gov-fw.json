@@ -1,0 +1,111 @@
+{
+  "title": "AIR Governance Framework Adapter",
+  "SYSTEM_DESIGNATION": "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1",
+  "PROFILE_KIND": "EXECUTOR",
+  "profile_function_class": "EXECUTOR",
+  "version": "1.1.0",
+  "status": "CANDIDATE_PENDING_INTEGRATION_VALIDATION",
+  "definition": "Bounded executor that compiles reversible, provenance-traced governance projections under the AIR Governance Specialist.",
+  "subordinate_to": [
+    "AIR_CORE_RUNTIME",
+    "AIR_ACTIVE_CONTRACT",
+    "AIR_GATE",
+    "AIR_AUTHORITY_NONTRANSFER_FLOOR_V1",
+    "AIR_BENCHMARK_FLOOR_APPLICATION_V1",
+    "AIR_GOVERNANCE_SOURCE_RIGHTS_GATE_V1",
+    "EXPLICIT_HUMAN_APPROVAL"
+  ],
+  "operations": [
+    "SELECT_FRAMEWORK",
+    "ASSESS_APPLICABILITY",
+    "REGISTER_NORMATIVE_SOURCE",
+    "VALIDATE_SOURCE_RIGHTS",
+    "INDEX_AUTHORIZED_SOURCE",
+    "COMPILE_SOURCE_GROUNDED_PROJECTION",
+    "COMPILE_TARGET_ALIGNMENT",
+    "COMPILE_AUDIT_PREPARATION",
+    "COMPILE_CROSSWALK",
+    "DIFF_SOURCE_EDITION",
+    "REAPPLY_APPROVED_PROJECTION",
+    "CLEAR_PROJECTION"
+  ],
+  "modes": [
+    "APPLICABILITY",
+    "TARGET_ALIGNMENT",
+    "AUDIT_PREPARATION",
+    "CROSSWALK"
+  ],
+  "projection_rules": {
+    "base_artifact_immutable": true,
+    "projection_reversible": true,
+    "provenance_per_adjustment": true,
+    "may_tighten_not_relax_runtime_floor": true,
+    "must_not_claim_certification_or_conformity_without_evidence": true,
+    "must_not_invent_inaccessible_normative_clauses": true,
+    "framework_selection_is_not_applicability_proof": true,
+    "source_document_is_normative_evidence_not_implementation_evidence": true,
+    "paid_access_is_not_ai_processing_permission": true,
+    "source_text_must_not_be_committed_to_public_repository": true,
+    "derived_projection_must_not_reconstruct_restricted_source": true
+  },
+  "source_grounding": {
+    "rights_gate_ref": "AIR_GOVERNANCE_SOURCE_RIGHTS_GATE_V1",
+    "allowed_source_states": [
+      "PUBLIC_AUTHORITATIVE_SOURCE",
+      "CLIENT_LICENSED_AI_PROCESSING_CONFIRMED",
+      "CLIENT_AUTHORIZED_INTERNAL_SOURCE"
+    ],
+    "blocked_source_states": [
+      "RIGHTS_UNCLEAR",
+      "AI_PROCESSING_PROHIBITED",
+      "SOURCE_AUTHENTICITY_UNRESOLVED"
+    ],
+    "indexing_strategy": "PRIVATE_SOURCE_INDEX_WITH_RELEVANT_CLAUSE_RETRIEVAL",
+    "full_document_prompt_loading_default": false,
+    "source_digest_required": true,
+    "edition_change_requires_diff_and_human_review": true,
+    "clause_mapping_requires_provenance": true,
+    "verbatim_retention": "MINIMUM_NECESSARY_AND_LICENSE_PERMITTED"
+  },
+  "adjustable_fields": [
+    "required_vectors",
+    "governance_obligations",
+    "evidence_requirements",
+    "source_requirements",
+    "review_gates",
+    "risk_classifications",
+    "monitoring_obligations",
+    "accountability_mappings",
+    "claim_boundaries",
+    "delivery_readiness_criteria"
+  ],
+  "protected_fields": [
+    "project_source_truth",
+    "user_objective",
+    "mandatory_runtime_floors",
+    "applicable_legal_duties",
+    "recorded_evidence",
+    "decision_ownership",
+    "approved_scope"
+  ],
+  "evidence_classes": [
+    "NORMATIVE_SOURCE",
+    "APPLICABILITY_EVIDENCE",
+    "IMPLEMENTATION_EVIDENCE",
+    "OPERATING_EFFECTIVENESS_EVIDENCE",
+    "INDEPENDENT_ASSURANCE_EVIDENCE"
+  ],
+  "projection_schema": {
+    "projection_id": "string",
+    "base_artifact_id": "string",
+    "mode": "enum",
+    "selected_frameworks": "array",
+    "source_rights_state": "enum",
+    "source_digest": "string_or_null",
+    "adjustments": "object",
+    "blocked_claims": "array",
+    "human_review_state": "enum",
+    "source_access_state": "enum"
+  },
+  "backend_validation_claimed": false
+}

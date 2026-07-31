@@ -1,0 +1,28 @@
+{
+  "schema_id": "AIR_MO_SEMANTIC_CLOSURE_V1",
+  "schema_version": "1.0.0",
+  "status": "CANDIDATE_PENDING_EXECUTABLE_VALIDATION",
+  "base_closure": "runtime/boot/AIR BOOT SEMANTIC CLOSURE.json",
+  "edition_manifest": "runtime/ed/manifest.json",
+  "requirements": {
+    "MATERIAL_EXECUTION": ["AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1"],
+    "APPROVAL": ["AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1"],
+    "MUTATION": ["AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1"],
+    "HANDOFF_CONTINUATION": ["AIR_RUNTIME_HANDOFF_GOVERNANCE_STATE_V1"],
+    "HANDOFF_CREATE": ["AIR_RUNTIME_HANDOFF_GOVERNANCE_STATE_V1"],
+    "FRAMEWORK_ADAPTATION": ["AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1", "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1"],
+    "EDITION_CONTROL": ["AIR_CONTROL_LEGACY_OUTPUT_AND_TOKEN_DEBUG_V1"],
+    "TOKEN_DEBUG": ["AIR_CONTROL_LEGACY_OUTPUT_AND_TOKEN_DEBUG_V1"]
+  },
+  "cross_edition_invariants": [
+    "same mandatory governance floor identifiers",
+    "same gate decision or stricter",
+    "same required evidence or stricter",
+    "same formal object visibility",
+    "same handoff approval scope",
+    "same restricted-source exclusion"
+  ],
+  "default_switch_allowed": false,
+  "required_before_default_switch": ["structural", "semantic", "cross_file", "cross_edition_behavioral", "handoff", "token", "usability", "windows_path"],
+  "backend_validation_claimed": false
+}

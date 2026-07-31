@@ -5,7 +5,7 @@ from __future__ import annotations
 PACKAGE_DISTRIBUTION = "vm4ai-air"
 PACKAGE_IMPORT = "vm4ai_air"
 CONSOLE_COMMAND = "air"
-__version__ = "0.5.0.dev0"
+__version__ = "1.4.0"
 
 
 def base_version_payload() -> dict[str, str]:

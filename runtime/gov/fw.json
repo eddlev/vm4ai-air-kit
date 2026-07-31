@@ -1,0 +1,93 @@
+{
+  "title": "AIR Governance Framework Profiles",
+  "SYSTEM_DESIGNATION": "AIR_GOVERNANCE_FRAMEWORK_PROFILES_V1",
+  "artifact_class": "FRAMEWORK_PROFILE_REGISTRY",
+  "version": "1.0.0",
+  "status": "CANDIDATE_PUBLIC_METADATA_BASELINE",
+  "profiles": [
+    {
+      "id": "EU_AI_ACT",
+      "authority_class": "BINDING_LAW_WHEN_APPLICABLE",
+      "activation_questions": [
+        "jurisdiction",
+        "provider_or_deployer_role",
+        "system_purpose",
+        "lifecycle_stage",
+        "affected_persons",
+        "use_context",
+        "risk_classification"
+      ],
+      "allowed_without_full_source": [
+        "high_level_applicability_screen",
+        "provisional_risk_mapping",
+        "source_request"
+      ],
+      "blocked_without_current_authoritative_source": [
+        "definitive_legal_conclusion",
+        "article_level_compliance_claim",
+        "conformity_claim"
+      ],
+      "freshness_required": true
+    },
+    {
+      "id": "ISO_IEC_42001_2023",
+      "authority_class": "VOLUNTARY_INTERNATIONAL_STANDARD_UNLESS_CONTRACTUALLY_REQUIRED",
+      "activation_questions": [
+        "alignment_or_audit_intent",
+        "organization_scope",
+        "AIMS_scope",
+        "normative_text_access"
+      ],
+      "allowed_without_normative_text": [
+        "high_level_alignment_projection",
+        "public_metadata_mapping"
+      ],
+      "blocked_without_normative_text": [
+        "clause_level_mapping",
+        "conformity_claim",
+        "certification_claim"
+      ]
+    },
+    {
+      "id": "ISO_IEC_23894_2023",
+      "authority_class": "VOLUNTARY_GUIDANCE_UNLESS_CONTRACTUALLY_REQUIRED",
+      "activation_questions": [
+        "risk_management_scope",
+        "organization_context",
+        "normative_text_access"
+      ],
+      "allowed_without_normative_text": [
+        "high_level_risk_guidance_projection"
+      ],
+      "blocked_without_normative_text": [
+        "clause_level_mapping",
+        "conformity_claim"
+      ]
+    },
+    {
+      "id": "NIST_AI_RMF",
+      "authority_class": "VOLUNTARY_FRAMEWORK",
+      "activation_questions": [
+        "use_case",
+        "organization_context",
+        "profile_version",
+        "target_functions"
+      ],
+      "functions": [
+        "GOVERN",
+        "MAP",
+        "MEASURE",
+        "MANAGE"
+      ],
+      "freshness_required": true
+    }
+  ],
+  "crosswalk_rules": {
+    "preserve_framework_differences": true,
+    "authority_precedence": true,
+    "shared_evidence_reuse_allowed": true,
+    "unmatched_obligations_visible": true,
+    "conflicts_visible": true
+  },
+  "backend_validation_claimed": false
+}

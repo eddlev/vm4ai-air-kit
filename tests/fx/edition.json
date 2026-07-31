@@ -1,0 +1,13 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_EDITION_INTEGRATION_ACCEPTANCE_V1",
+  "version": "1.0.0",
+  "scenarios": [
+    {"id": "HR_COMPLETE_SET", "required": ["prompts/hr/AIR CORE RUNTIME.md", "prompts/hr/AIR CONTROL SURFACE.md", "prompts/hr/AIR DEFAULT STARTER PROFILE.json", "prompts/hr/GOV.md"]},
+    {"id": "MO_COMPLETE_ENTRY", "required": ["prompts/mo/core.md", "prompts/mo/surface.md", "prompts/mo/starter.json", "runtime/boot/mo-ext.json", "runtime/boot/mo-closure.json"]},
+    {"id": "HANDOFF_OPEN_GATE", "expected": "GATE_FIELDS_PRESERVED_WITHOUT_IMPLICIT_APPROVAL"},
+    {"id": "HANDOFF_13_COMPAT", "input_schema": "1.3.0", "expected": "LEGACY_HANDOFF_GOVERNANCE_UNKNOWN_AND_REVIEW_FOR_MATERIAL_EXECUTION"},
+    {"id": "RESTRICTED_SOURCE_HANDOFF", "expected": "REFERENCES_AND_RIGHTS_STATE_ONLY"},
+    {"id": "MO_NOT_DEFAULT", "closure_status": "CANDIDATE_PENDING_EXECUTABLE_VALIDATION", "expected": "HR_REMAINS_DEFAULT"},
+    {"id": "WINDOWS_PATH", "max_new_relative_path_chars": 80}
+  ]
+}

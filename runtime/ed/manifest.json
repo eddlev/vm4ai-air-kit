@@ -1,0 +1,62 @@
+{
+  "title": "AIR Prompt Edition Manifest",
+  "SYSTEM_DESIGNATION": "AIR_PROMPT_EDITION_MANIFEST_V1",
+  "artifact_class": "EDITION_MANIFEST",
+  "version": "1.1.0",
+  "status": "CANDIDATE_MIGRATION_IN_PROGRESS",
+  "default_target_after_validation": "MO_MACHINE_OPTIMIZED",
+  "editions": {
+    "HR_HUMAN_READABLE": {
+      "label": "HR / Familiar AIR",
+      "purpose": "Byte-preserved verbose prompt edition for existing users, manual attachment, audit, learning, and compatibility.",
+      "prompt_root": "prompts/hr",
+      "profile_root": "profiles/hr",
+      "specialist_root": "profiles/hr/sp",
+      "representation": "VERBOSE_HUMAN_READABLE",
+      "governance_semantics": "CURRENT_SHARED_FLOOR_AFTER_INTEGRATION",
+      "runtime_selection": "EXPLICIT_OR_COMPATIBILITY_FALLBACK",
+      "may_relax_current_governance": false
+    },
+    "MO_MACHINE_OPTIMIZED": {
+      "label": "MO / Machine-Optimized AIR",
+      "purpose": "Compiled, dependency-closed, task-specific AIR representation with equivalent or stricter governing behavior.",
+      "prompt_root": "prompts/mo",
+      "profile_root": "profiles/mo",
+      "specialist_root": "profiles/mo/sp",
+      "representation": "MACHINE_OPTIMIZED_MODULAR",
+      "governance_semantics": "CURRENT_SHARED_FLOOR",
+      "runtime_selection": "DEFAULT_ONLY_AFTER_VALIDATION",
+      "may_relax_current_governance": false
+    }
+  },
+  "compatibility_aliases": {
+    "prompts/AIR CORE RUNTIME.md": "HR_DURING_MIGRATION",
+    "prompts/AIR CONTROL SURFACE.md": "HR_DURING_MIGRATION",
+    "prompts/AIR DEFAULT STARTER PROFILE.json": "HR_DURING_MIGRATION",
+    "profiles/*": "ROOT_COMPATIBILITY_ALIAS_DURING_MIGRATION"
+  },
+  "path_policy": {
+    "short_directory_names": true,
+    "shallow_nesting": true,
+    "concise_filenames": true,
+    "canonical_identity_inside_file": true,
+    "windows_path_length_risk_must_be_tested": true
+  },
+  "invariants": [
+    "HR and MO editions share mandatory governance invariant identifiers.",
+    "HR is a representation and compatibility edition, not weaker governance.",
+    "No edition may hide a material gate, blocker, evidence requirement, or approval scope.",
+    "MO becomes default only after structural, semantic, cross-edition, and behavioral regression validation.",
+    "Root compatibility paths are not removed until a separately approved migration release.",
+    "Specialist edition splits are required only where representation differs; shared source registries may remain common.",
+    "A source change affecting shared governance must trigger validation of both editions."
+  ],
+  "commands": {
+    "select_hr": "air edition hr",
+    "select_mo": "air edition mo",
+    "status": "air edition status",
+    "compare": "air edition compare",
+    "temporary_hr": "air edition hr once"
+  },
+  "backend_validation_claimed": false
+}
