@@ -1,0 +1,14 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_HR_SPECIALIST_INDEX_V1",
+  "version": "1.0.0",
+  "edition": "HR_HUMAN_READABLE",
+  "source_root": "profiles",
+  "packages": [
+    "AI governance specialist",
+    "capability ecology architect",
+    "grounding specialist"
+  ],
+  "routing": "Existing root specialist packages remain the HR canonical representation during migration.",
+  "shared_governance_supplement": "prompts/hr/GOV.md",
+  "backend_validation_claimed": false
+}

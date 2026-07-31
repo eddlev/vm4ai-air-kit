@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "AIR_HANDOFF_GOVERNANCE_STATE_SCHEMA_V1",
+  "title": "AIR Handoff Governance State",
+  "type": "object",
+  "required": ["prompt_edition", "governance_floor_version", "open_approval_gate", "active_framework_projections", "source_rights_states", "token_debug_preference"],
+  "properties": {
+    "prompt_edition": {"enum": ["HR_HUMAN_READABLE", "MO_MACHINE_OPTIMIZED"]},
+    "governance_floor_version": {"type": "string", "minLength": 1},
+    "open_approval_gate": {
+      "type": ["object", "null"],
+      "properties": {
+        "gate_id": {"type": "string"},
+        "gate_question": {"type": "string"},
+        "authorized_action_ids": {"type": "array", "items": {"type": "string"}},
+        "excluded_action_ids": {"type": "array", "items": {"type": "string"}},
+        "received_but_unapplied_input": {},
+        "scope_binding_check": {"enum": ["PENDING", "PASS", "FAIL"]},
+        "next_permitted_action": {"type": ["string", "null"]}
+      },
+      "required": ["gate_id", "gate_question", "authorized_action_ids", "excluded_action_ids", "scope_binding_check"],
+      "additionalProperties": false
+    },
+    "active_framework_projections": {"type": "array"},
+    "source_rights_states": {"type": "array"},
+    "token_debug_preference": {"enum": ["OFF", "ON", "ONCE"]},
+    "restricted_source_text_included": {"const": false}
+  },
+  "additionalProperties": false
+}

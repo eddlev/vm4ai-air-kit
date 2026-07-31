@@ -1,0 +1,15 @@
+{
+  "title": "AIR MO Starter",
+  "SYSTEM_DESIGNATION": "AIR_MO_STARTER_V1",
+  "PROFILE_KIND": "TASK_COMPOSITE",
+  "version": "1.0.0",
+  "status": "CANDIDATE_PENDING_CROSS_EDITION_VALIDATION",
+  "edition": "MO_MACHINE_OPTIMIZED",
+  "base_boot_manifest": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
+  "extension_manifest": "runtime/boot/mo-ext.json",
+  "semantic_closure": "runtime/boot/mo-closure.json",
+  "entry_files": ["prompts/mo/core.md", "prompts/mo/surface.md"],
+  "fallback_edition": "HR_HUMAN_READABLE",
+  "may_relax_current_governance": false,
+  "backend_validation_claimed": false
+}

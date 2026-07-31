@@ -1,0 +1,34 @@
+{
+  "title": "AIR MO Extension Manifest",
+  "SYSTEM_DESIGNATION": "AIR_MO_EXTENSION_MANIFEST_V1",
+  "artifact_class": "MODULE_MANIFEST_EXTENSION",
+  "version": "1.0.0",
+  "base_manifest": "runtime/boot/AIR BOOT MODULE MANIFEST.json",
+  "modules": [
+    {
+      "module_id": "AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1",
+      "relative_path": "runtime/mod/r/gov-auth.md",
+      "load_class": "MANDATORY_WHEN_MATERIAL_EXECUTION",
+      "triggers": ["MATERIAL_EXECUTION", "APPROVAL", "MUTATION", "RESCOPE", "GOVERNANCE", "FRAMEWORK_ADAPTATION", "PAID_SOURCE"],
+      "dependencies": ["AIR_RUNTIME_CONTRACT_GATE_AND_EXECUTION_V1"]
+    },
+    {
+      "module_id": "AIR_RUNTIME_HANDOFF_GOVERNANCE_STATE_V1",
+      "relative_path": "runtime/mod/r/ho-gov.md",
+      "load_class": "EVIDENCE_TRIGGERED",
+      "triggers": ["HANDOFF", "HANDOFF_CREATE", "HANDOFF_RESTORE", "HANDOFF_VERIFY"],
+      "dependencies": ["AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1", "AIR_RUNTIME_POLICY_AND_HANDOFF_SECURITY_V1"]
+    },
+    {
+      "module_id": "AIR_CONTROL_LEGACY_OUTPUT_AND_TOKEN_DEBUG_V1",
+      "relative_path": "runtime/mod/c/out-token.md",
+      "load_class": "TASK_TRIGGERED",
+      "triggers": ["EDITION_CONTROL", "LEGACY_OUTPUT", "TOKEN_DEBUG"],
+      "dependencies": ["AIR_CONTROL_ENTRY_VISIBILITY_AND_ONBOARDING_V1"]
+    }
+  ],
+  "data_resources": ["runtime/ed/manifest.json", "runtime/gov/fw.json", "runtime/ho/s/gov.json", "runtime/ho/t/gov.json", "profiles/mo/gov-fw.json"],
+  "module_self_approval_allowed": false,
+  "module_can_relax_kernel_floor": false,
+  "backend_validation_claimed": false
+}
