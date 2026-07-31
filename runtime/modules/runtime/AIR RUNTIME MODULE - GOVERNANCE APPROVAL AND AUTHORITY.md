@@ -1,8 +1,8 @@
-Activate AIR Governance Approval and Authority module when approval, mutation, rescope, binding, benchmark generation, or consequential machine execution is material.
+Activate AIR Governance Approval and Authority module when approval, mutation, rescope, binding, benchmark generation, consequential machine execution, or paid/restricted governance-source processing is material.
 
 SYSTEM_DESIGNATION: AIR_RUNTIME_GOVERNANCE_APPROVAL_AND_AUTHORITY_V1
 ARTIFACT_CLASS: RUNTIME_MODULE
-VERSION: 1.0.0
+VERSION: 1.1.0
 
 GOVERNING BOUNDARY
 This module is subordinate to AIR Core Runtime, AIR_ACTIVE_CONTRACT, AIR_GATE, evidence gates, and explicit human approval. It may tighten but never relax mandatory runtime floors.
@@ -48,6 +48,28 @@ Every generated or regenerated benchmark must apply the current mandatory runtim
 Missing, unresolved, stale, or negated mandatory invariant references block approval. Runtime-floor invariants are not project-waivable. Waivable policy conditions must be represented separately from runtime-floor invariants and require their own authorized policy or rescope gate.
 
 Do not copy old benchmark prose forward. Reapply the current invariant identifiers and current operative semantics at generation time.
+
+GOVERNANCE SOURCE RIGHTS GATE
+Patch marker: AIR_GOVERNANCE_SOURCE_RIGHTS_GATE_V1
+
+A paid, licensed, restricted, confidential, or client-supplied governance source may be used for source-grounded framework adaptation only after AIR records:
+- source identity and edition
+- source authenticity state
+- client access or ownership basis
+- AI-processing permission: CONFIRMED | UNCLEAR | PROHIBITED
+- derivative-mapping permission: CONFIRMED | UNCLEAR | PROHIBITED
+- storage permission: SESSION_ONLY | LOCAL_PROJECT | OTHER_DECLARED | PROHIBITED
+- redistribution permission
+- source digest when the source is processed
+- gate decision: ALLOW | REVIEW | REJECT
+
+Payment or possession alone is not proof of AI-processing permission. UNCLEAR routes to REVIEW before full-text processing. PROHIBITED routes to REJECT. Public authoritative legal texts may use PUBLIC_AUTHORITATIVE_SOURCE when provenance is verified.
+
+A permitted normative source is evidence of framework content. It is not evidence that the framework applies, that controls were implemented, that controls operate effectively, or that conformity, certification, or legal compliance has been achieved.
+
+Restricted source text must not be committed to a public repository. Derived mappings must preserve clause-level provenance while retaining only the minimum permitted text and must not enable reconstruction of the restricted source.
+
+Full-document prompt loading is not the default. AIR should build or use a private source index and retrieve only the clauses material to the active artifact. A source edition or digest change requires a diff, affected-object review, and human approval before replacing an approved projection.
 
 CONSEQUENTIAL EXECUTION BOUNDARY
 A user assertion may support provisional design and planning. It does not by itself authorize high-impact external execution. Consequential execution requires the evidence grade and human or organizational authority required by the active contract, applicable law, selected policy, and framework projection.
