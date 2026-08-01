@@ -1,5 +1,29 @@
 # Changelog
 
+## Unreleased
+
+### Removed
+
+- Removed 8 superseded work-stream patch blocks from the default starter profile:
+  `ws2_source_control_registry_patch`, `ws3_human_to_machine_capability_translator_patch`,
+  `ws4_automated_capability_construction_patch`, `ws5_deterministic_policy_patch`,
+  `ws5_1_q2_local_opa_patch`, `ws7_modular_boot_patch`,
+  `coding_peripheral_vision_patch`, and `air_object_rendering_ux_patch`.
+- Removed the duplicated `ws2` and `ws3` blocks from four specialist package files:
+  Capability Ecology Architect, Domain Capability Registry, Grounding Domain Pack, and
+  Grounding Specialist.
+- Updated both specialist package manifests with corrected component sizes and digests.
+
+### Notes
+
+- Dependency audit before removal confirmed no consumer: no runtime law, control surface
+  section, or repository code referenced these blocks.
+- Content is preserved on branch `drift-window-archive`. An extraction record is held with
+  the modular CLI project. These blocks are source material for a dedicated modular
+  implementation and are not to be re-integrated into prompt-layer files.
+- The `runtime_law` negation flags associated with these work streams are retained. They
+  remain accurate statements of capability AIR does not claim.
+
 ## v1.4.0 - Governance, prompt editions, and continuity
 
 ### Added

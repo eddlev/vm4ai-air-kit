@@ -1594,13 +1594,6 @@
       "retrieval stop state"
     ]
   },
-  "ws2_source_control_registry_patch": {
-    "state": "WS2_GENERATED_VALIDATED_PENDING_USER_REVIEW",
-    "generated_at_utc": "2026-07-19T16:00:00Z",
-    "source_inventory_gate": "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
-    "build_plan_gate": "USER_EXPLICIT_APPROVAL",
-    "backend_validation_claimed": false
-  },
   "source_control_registry_ref": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
   "source_route_reference_contract": {
     "allowed_fields": [
@@ -1613,35 +1606,6 @@
     "rule": "Domain entries may reference route or bundle ids but must not copy, absorb, govern, or rename the Source and Control Registry.",
     "fallback": "Return source requirements to registry routing or visible REGISTRY_ROUTED_DEGRADED state.",
     "backend_validation_claimed": false
-  },
-  "ws3_human_to_machine_capability_translator_patch": {
-    "patch_marker": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "translator_ref": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "artifact_class": "EXECUTOR_CONTRACT",
-    "raw_taxonomy_direct_binding_allowed": false,
-    "multi_axis_model_required": true,
-    "machine_capability_may_coexist_with_human_boundaries": true,
-    "emerging_ai_domain_operative_allowed": true,
-    "protected_human_status_transfer_allowed": false,
-    "acknowledgement_is_universal_liability_waiver": false,
-    "operational_consent_is_training_consent": false,
-    "air_object_is_hidden_chain_of_thought": false,
-    "mandatory_hosted_dependency": false,
-    "claim_boundary": "Prompt-side/file-backed governance only; no legal compliance, professional equivalence, complete reasoning trace, backend enforcement or release claim.",
-    "consumer_role": "DOMAIN_ROUTE_AND_TRANSLATOR_REQUIREMENT",
-    "human_framework_evidence_state": "TRANSLATOR_REQUIRED",
-    "domain_entry_extension": {
-      "human_framework_input_state": [
-        "NOT_PRESENT",
-        "TRANSLATOR_REQUIRED",
-        "TRANSLATED_REVIEW",
-        "TRANSLATED_CANDIDATE",
-        "BLOCKED_NONTRANSFERABLE"
-      ],
-      "emerging_ai_domain_operative_descriptors_allowed": true
-    },
-    "separation_rule": "Domain matching and occupational context remain referential; they cannot directly bind role requirements or confer professional status.",
-    "legal_route_rule": "Changing law, regulation, professional rules and data-governance requirements route through AIR_SOURCE_AND_CONTROL_REGISTRY_V1 and jurisdiction-aware review."
   },
   "ws4_artifact_construction_compatibility": {
     "patch_marker": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",

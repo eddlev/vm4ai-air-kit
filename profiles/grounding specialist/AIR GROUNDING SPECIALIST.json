@@ -897,13 +897,6 @@
     "backend_validation_claimed": false,
     "source_control_registry_ref": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1"
   },
-  "ws2_source_control_registry_patch": {
-    "state": "WS2_GENERATED_VALIDATED_PENDING_USER_REVIEW",
-    "generated_at_utc": "2026-07-19T16:00:00Z",
-    "source_inventory_gate": "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
-    "build_plan_gate": "USER_EXPLICIT_APPROVAL",
-    "backend_validation_claimed": false
-  },
   "source_control_registry_compatibility": {
     "patch_marker": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
     "source_control_registry_ref": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -953,37 +946,6 @@
       "safer fallback or evidence request"
     ],
     "routing_logic_owner": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1"
-  },
-  "ws3_human_to_machine_capability_translator_patch": {
-    "patch_marker": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "translator_ref": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "artifact_class": "EXECUTOR_CONTRACT",
-    "raw_taxonomy_direct_binding_allowed": false,
-    "multi_axis_model_required": true,
-    "machine_capability_may_coexist_with_human_boundaries": true,
-    "emerging_ai_domain_operative_allowed": true,
-    "protected_human_status_transfer_allowed": false,
-    "acknowledgement_is_universal_liability_waiver": false,
-    "operational_consent_is_training_consent": false,
-    "air_object_is_hidden_chain_of_thought": false,
-    "mandatory_hosted_dependency": false,
-    "claim_boundary": "Prompt-side/file-backed governance only; no legal compliance, professional equivalence, complete reasoning trace, backend enforcement or release claim.",
-    "consumer_role": "TRANSLATION_AND_CLAIM_HYGIENE_REVIEW",
-    "review_duties": [
-      "detect machine-operability inflation",
-      "detect false professional equivalence",
-      "detect loss of authority/licensure/embodiment/accountability boundaries",
-      "detect disclaimer or acknowledgement overclaim",
-      "detect interaction-data synthetic/anonymity overclaim",
-      "review failure-localization completeness and self-report boundary"
-    ],
-    "review_outcomes": [
-      "PASS_WITH_BOUNDARIES",
-      "REVIEW_REQUIRED",
-      "EVIDENCE_REQUIRED",
-      "BLOCK_OPERATIVE_BINDING"
-    ],
-    "emerging_domain_posture": "Preserve emerging capability and useful operative roles while separating current technical capability, authorized execution, professional status and legal claim."
   },
   "ws4_artifact_construction_review": {
     "patch_marker": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",

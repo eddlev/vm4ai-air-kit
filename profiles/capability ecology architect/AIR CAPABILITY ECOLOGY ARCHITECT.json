@@ -639,13 +639,6 @@
     "binding_requires_separate_approval": true,
     "policy_execution_remains_ws5": true
   },
-  "ws2_source_control_registry_patch": {
-    "state": "WS2_GENERATED_VALIDATED_PENDING_USER_REVIEW",
-    "generated_at_utc": "2026-07-19T16:00:00Z",
-    "source_inventory_gate": "SATISFIED_BY_USER_CONFIRMATION_AFTER_INVENTORY",
-    "build_plan_gate": "USER_EXPLICIT_APPROVAL",
-    "backend_validation_claimed": false
-  },
   "source_control_registry_compatibility": {
     "patch_marker": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
     "source_control_registry_ref": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -701,26 +694,6 @@
       "WS3 translation",
       "WS4 automatic construction"
     ]
-  },
-  "ws3_human_to_machine_capability_translator_patch": {
-    "patch_marker": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "translator_ref": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V1",
-    "artifact_class": "EXECUTOR_CONTRACT",
-    "raw_taxonomy_direct_binding_allowed": false,
-    "multi_axis_model_required": true,
-    "machine_capability_may_coexist_with_human_boundaries": true,
-    "emerging_ai_domain_operative_allowed": true,
-    "protected_human_status_transfer_allowed": false,
-    "acknowledgement_is_universal_liability_waiver": false,
-    "operational_consent_is_training_consent": false,
-    "air_object_is_hidden_chain_of_thought": false,
-    "mandatory_hosted_dependency": false,
-    "claim_boundary": "Prompt-side/file-backed governance only; no legal compliance, professional equivalence, complete reasoning trace, backend enforcement or release claim.",
-    "consumer_role": "TRANSLATED_CANDIDATE_VECTOR_CONSUMER",
-    "input_rule": "Accept only Translator results, never raw human-framework requirements, as machine-relevance inputs.",
-    "candidate_vector_rule": "Only evidence-supported MACHINE_OPERABLE results with CANDIDATE_VECTOR effect may enter candidate vector analysis; all remain subject to proportionality, risk, AIR_GATE and approval.",
-    "boundary_rule": "Preserve all operational-domain states, human-boundary flags, execution modes, disclosure/acknowledgement and dataset-use restrictions during vector selection.",
-    "operative_rule": "AI domain-operative descriptors are machine-function labels and must not be converted into human professional identity or authority."
   },
   "ws4_artifact_construction_adapters": {
     "patch_marker": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",
