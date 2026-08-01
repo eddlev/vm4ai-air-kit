@@ -34,8 +34,8 @@
     },
     {
       "file": "prompts/AIR DEFAULT STARTER PROFILE.json",
-      "sha256": "ef962732a50fab5f917e6b81b73ff407b14251c1fdb2845a470206660ba48ec3",
-      "size_bytes": 205648
+      "sha256": "d6df4eb5551550f5b2818b525b63ddbe2c7fb4acfc5a6c691be157e518ef7825",
+      "size_bytes": 187168
     }
   ],
   "boot_modes": {
@@ -487,8 +487,8 @@
       "artifact_class": "SPECIALIST_PROFILE",
       "version": "SOURCE_VERSION",
       "relative_path": "profiles/capability ecology architect/AIR CAPABILITY ECOLOGY ARCHITECT.json",
-      "sha256": "69be9c10c6d502d6b8896a002e33a4819059e52865cc6033640cf80b1088bcbb",
-      "size_bytes": 49119,
+      "sha256": "3fb80aecea7f5fe0626bb7e97ed57f762879922c1a490153d34b76f24a1d7fc9",
+      "size_bytes": 47170,
       "load_class": "TASK_TRIGGERED",
       "triggers": [
         "CAPABILITY_LAYER_CREATE",
@@ -510,8 +510,8 @@
       "artifact_class": "DOMAIN_REGISTRY",
       "version": "SOURCE_VERSION",
       "relative_path": "profiles/capability ecology architect/AIR DOMAIN CAPABILITY REGISTRY.json",
-      "sha256": "26d6669b46eeb462a0fac0f41b67b5a22faf2db7f458ed2978424f19274a4d30",
-      "size_bytes": 66690,
+      "sha256": "68d41c5e64171f1f12f3bfaeec9034286b1b1a052f50289d4fe35548f198d1e3",
+      "size_bytes": 64710,
       "load_class": "TASK_TRIGGERED",
       "triggers": [
         "DOMAIN_MATCHING",
@@ -532,8 +532,8 @@
       "artifact_class": "SPECIALIST_PROFILE",
       "version": "SOURCE_VERSION",
       "relative_path": "profiles/grounding specialist/AIR GROUNDING SPECIALIST.json",
-      "sha256": "67e982b4b9b0eaa5876ba7b88e034d3391848992600eab8de8943ddeda684d63",
-      "size_bytes": 63795,
+      "sha256": "b3bf3aef64c89187bb0148e475245288e30dacac3cf86ff40d53f78221e1f66a",
+      "size_bytes": 61786,
       "load_class": "TASK_TRIGGERED",
       "triggers": [
         "GROUNDING_REQUIRED",
@@ -554,8 +554,8 @@
       "artifact_class": "DOMAIN_PACKAGE",
       "version": "SOURCE_VERSION",
       "relative_path": "profiles/grounding specialist/AIR GROUNDING DOMAIN PACK.json",
-      "sha256": "ba472360aac4718b49fcc782006d79e9c1ef19ef3c2c9196f59ee9c12fd39ab3",
-      "size_bytes": 57895,
+      "sha256": "a7cedbeab82ccca6a9d017e1544533f3bfc3535df9dc0ad974ab08ee3b5c1eb8",
+      "size_bytes": 55824,
       "load_class": "TASK_TRIGGERED",
       "triggers": [
         "VISIONARY_GROUNDING",
