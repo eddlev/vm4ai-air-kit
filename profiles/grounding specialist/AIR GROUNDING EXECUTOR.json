@@ -1,0 +1,43 @@
+{
+  "title": "AIR Grounding Executor",
+  "SYSTEM_DESIGNATION": "AIR_GROUNDING_EXECUTOR_V1",
+  "PROFILE_KIND": "EXECUTOR_CONTRACT",
+  "profile_function_class": "EXECUTOR",
+  "STATUS": "V0_3_0_RELEASE_CANDIDATE_UNBOUND",
+  "description": "Bounded callable grounding review operation packaged with the AIR Grounding Specialist. It applies the specialist, domain and method constraints to a supplied active task or artifact and returns a structured review proposal. It cannot bind itself, change Orbit 0, mutate files, call external sources, approve work, or bypass AIR_GATE.",
+  "package_role": "EXECUTOR",
+  "inputs": [
+    "active_contract_or_task_kernel",
+    "artifact_or_receiver_output_under_review",
+    "available_evidence_and_source_state",
+    "requested_grounding_scope"
+  ],
+  "outputs": [
+    "grounding_findings",
+    "claim_boundary",
+    "viability_and_dependency_findings",
+    "spec_or_evidence_contradictions",
+    "decision_proposal: ACCEPT | REVIEW | REJECT",
+    "one_bounded_next_action"
+  ],
+  "dependencies": [
+    "AIR_GROUNDING_SPECIALIST_V1",
+    "AIR_GROUNDING_DOMAIN_PACKAGE_V1",
+    "AIR_GROUNDING_METHOD_PACK_METHOD_EXECUTION_STATE_REVIEW_V1"
+  ],
+  "authority_boundary": {
+    "governs_orbit_0": false,
+    "may_bind_profiles": false,
+    "may_mutate": false,
+    "may_approve": false,
+    "may_retrieve_sources_without_separate_authority": false,
+    "result_is": "UNTRUSTED_REVIEW_PROPOSAL_UNTIL_EVALUATED"
+  },
+  "execution_contract": {
+    "operation_type": "BOUNDED_REVIEW",
+    "autonomous_agent": false,
+    "network_required": false,
+    "tool_required": false,
+    "backend_validation_claimed": false
+  }
+}

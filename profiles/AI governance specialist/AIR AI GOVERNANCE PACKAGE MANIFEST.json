@@ -1,0 +1,90 @@
+{
+  "title": "AIR AI Governance Specialist Package Manifest",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V1",
+  "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+  "version": "1.1.0",
+  "release_line": "v0.5.0-candidate",
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "updated_at_utc": "2026-07-31T07:58:00Z",
+  "specialist_name": "AIR AI Governance Specialist",
+  "component_contract": [
+    "SPECIALIST_PROFILE",
+    "DOMAIN_PACK",
+    "METHOD",
+    "EXECUTOR",
+    "CONDITIONAL_OVERLAY",
+    "FRAMEWORK_ADAPTER"
+  ],
+  "components": [
+    {
+      "role": "SPECIALIST_PROFILE",
+      "file": "AIR AI GOVERNANCE SPECIALIST.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_V1",
+      "state": "INHERITED_VALIDATED_COMPONENT"
+    },
+    {
+      "role": "DOMAIN_PACK",
+      "file": "AIR AI GOVERNANCE DOMAIN PACK.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_DOMAIN_PACK_V1",
+      "state": "INHERITED_VALIDATED_COMPONENT"
+    },
+    {
+      "role": "METHOD",
+      "file": "AIR AI GOVERNANCE METHOD PACK.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_METHOD_PACK_V1",
+      "state": "INHERITED_VALIDATED_COMPONENT"
+    },
+    {
+      "role": "EXECUTOR",
+      "file": "AIR AI GOVERNANCE EXECUTOR.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V1",
+      "state": "INHERITED_VALIDATED_COMPONENT"
+    },
+    {
+      "role": "CONDITIONAL_OVERLAY",
+      "file": "AIR AI GOVERNANCE AGENTIC OVERLAY.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1",
+      "state": "INHERITED_VALIDATED_COMPONENT"
+    },
+    {
+      "role": "FRAMEWORK_ADAPTER",
+      "file": "../../mo/gov-fw.json",
+      "repository_path": "profiles/mo/gov-fw.json",
+      "SYSTEM_DESIGNATION": "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1",
+      "state": "CANDIDATE_PENDING_INTEGRATION_VALIDATION"
+    }
+  ],
+  "shared_framework_registry": "runtime/gov/fw.json",
+  "source_access_policy": {
+    "licensed_material_required_for_general_operation": false,
+    "default_without_paid_material": "PUBLIC_SOURCE_ONLY",
+    "clause_level_mapping_without_normative_text": "BLOCKED",
+    "paid_access_is_ai_processing_permission": false,
+    "source_rights_gate": "AIR_GOVERNANCE_SOURCE_RIGHTS_GATE_V1",
+    "restricted_source_public_commit": "PROHIBITED",
+    "normative_source_is_compliance_evidence": false,
+    "purchase_pressure": "PROHIBITED",
+    "limitation_tagging_required": true
+  },
+  "framework_adapter_contract": {
+    "governed_by_specialist": true,
+    "bounded_executor": true,
+    "base_artifact_immutable": true,
+    "projection_reversible": true,
+    "provenance_per_adjustment": true,
+    "modes": ["APPLICABILITY", "TARGET_ALIGNMENT", "AUDIT_PREPARATION", "CROSSWALK"],
+    "certification_claim_without_evidence": "BLOCKED",
+    "conformity_claim_without_evidence": "BLOCKED"
+  },
+  "validation_state": {
+    "inherited_components": "PREVIOUSLY_PROMPT_SIDE_VALIDATED",
+    "framework_adapter_structural": "PASS",
+    "framework_adapter_semantic": "REVIEWED",
+    "cross_file": "PENDING_EXECUTABLE_TEST",
+    "regression": "PENDING_EXECUTABLE_TEST",
+    "backend_validation_claimed": false
+  },
+  "binding_state": "CANDIDATE_BOUND_TO_APPROVED_INTEGRATION_SCOPE_PENDING_VALIDATION",
+  "release_state": "NOT_PUBLISHED_NOT_RELEASE_APPROVED_NOT_BACKEND_VALIDATED",
+  "claim_boundary": "Package membership and structural validation do not prove execution, legal compliance, conformity, certification, source-processing rights, control effectiveness, or release readiness."
+}

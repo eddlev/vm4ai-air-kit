@@ -1,0 +1,144 @@
+{
+  "title": "AIR AI Governance Executor",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V1",
+  "PROFILE_KIND": "EXECUTOR",
+  "profile_function_class": "EXECUTOR",
+  "STATUS": "VALIDATED_AVAILABLE_PENDING_BINDING_APPROVAL",
+  "version": "1.0.0",
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "description": "Bounded callable operation that compiles a task-scoped AI governance review packet from supplied project truth and permitted sources. It may operate in public-source-only mode and must tag standards limitations. It cannot bind itself, govern Orbit 0, give legal advice, certify compliance, approve deployment, or treat generated artifacts as execution evidence.",
+  "package_role": "EXECUTOR",
+  "trigger_language": [
+    "compile AI governance packet",
+    "map AI governance controls",
+    "review AI governance evidence",
+    "classify AI governance scope",
+    "prepare AI governance handoff"
+  ],
+  "manual_invocation": "air ai-governance compile",
+  "operation": "COMPILE_TASK_SCOPED_AI_GOVERNANCE_REVIEW_PACKET",
+  "use_when": [
+    "The source inventory and active task envelope are available or explicitly tagged as limited.",
+    "A contained governance artifact set is required under the active specialist and method.",
+    "No autonomous external effect or file mutation is requested."
+  ],
+  "do_not_use_when": [
+    "The user requests final legal advice, certification, conformity, or a compliance guarantee.",
+    "The task lacks enough project truth to identify the governed system or use case.",
+    "The requested action changes external systems or approves deployment.",
+    "Clause-level standard mapping is requested without lawful normative text."
+  ],
+  "required_inputs": [
+    "active_contract_or_task_kernel",
+    "project_and_system_source_truth",
+    "jurisdiction_and_sector",
+    "source_inventory_and_access_mode",
+    "requested_governance_output_class",
+    "decision_owner_and_review_requirements"
+  ],
+  "allowed_sources": [
+    "current session project files",
+    "user-supplied internal and licensed sources",
+    "current official public law and regulator sources",
+    "public standards metadata and abstracts with limitation tags",
+    "public official frameworks and technical guidance",
+    "tool-observed or operator-witnessed evidence"
+  ],
+  "forbidden_sources": [
+    "remembered inaccessible standard clauses",
+    "unverified secondary summaries used as binding authority",
+    "prior generated governance artifacts treated as current source truth without confirmation",
+    "private or licensed materials not supplied by the user or otherwise lawfully accessible"
+  ],
+  "allowed_tools": [
+    "file retrieval and parsing",
+    "official web retrieval",
+    "schema validation",
+    "hashing and package validation",
+    "bounded calculation and table generation"
+  ],
+  "forbidden_tools": [
+    "unapproved repository mutation",
+    "unapproved publication",
+    "autonomous deployment",
+    "credential use outside explicit authority",
+    "purchase or licence acceptance on the user behalf"
+  ],
+  "procedure": [
+    "Confirm the visible source inventory and set FULL_MIXED_SOURCE, INTERNAL_PLUS_PUBLIC, PUBLIC_SOURCE_ONLY, or SOURCE_INSUFFICIENT_BLOCKED.",
+    "Compile scope, system/use-case, lifecycle, role, consequence, and human decision owner.",
+    "Retrieve or validate current source authority and freshness for material external claims.",
+    "Compile provisional classification, source trace, control map, evidence plan, human review gates, monitoring and change plan.",
+    "Apply agentic overlay if tool use, delegated action, or external-state effect is present.",
+    "Attach public-source limitation tags when normative text is not supplied.",
+    "Run claim-boundary and delivery-readiness checks.",
+    "Return a structured review proposal and one bounded next action."
+  ],
+  "output_artifact": {
+    "artifact_class": "AI_GOVERNANCE_REVIEW_PACKET",
+    "required_objects": [
+      "AI_GOVERNANCE_SCOPE_MAP",
+      "AI_SYSTEM_AND_ROLE_CLASSIFICATION",
+      "REGULATORY_SOURCE_TRACE",
+      "OBLIGATION_AND_CONTROL_MAP",
+      "EVIDENCE_REQUIREMENT_PLAN",
+      "HUMAN_AUTHORITY_AND_ESCALATION_MAP",
+      "MONITORING_AND_CHANGE_PLAN",
+      "CLAIM_BOUNDARY_REPORT",
+      "REVIEW_GATE_OR_REJECT_REPORT",
+      "GOVERNANCE_HANDOFF"
+    ],
+    "required_tags": [
+      "as_of_date",
+      "jurisdiction",
+      "source_access_mode",
+      "normative_standard_text_access",
+      "provisional_status",
+      "human_review_state",
+      "backend_validation_claimed"
+    ],
+    "decision_values": [
+      "ALLOW_PROVISIONAL",
+      "REVIEW",
+      "EVIDENCE_REQUIRED",
+      "REJECT",
+      "RESCOPE_REQUIRED"
+    ]
+  },
+  "review_checkpoints": [
+    "After source-access classification",
+    "After role and risk classification",
+    "Before final legal, compliance, risk, deployment, certification, or public claim",
+    "Before receiver delivery when evidence or approval is incomplete"
+  ],
+  "handoff_conditions": [
+    "Scope and source limitations are visible.",
+    "Open review gates and decision owners are named.",
+    "No generated object is presented as approved or executed without evidence.",
+    "Public-source mode remains tagged until additional source authority is supplied."
+  ],
+  "escalate_to_method_when": [
+    "The task requires multi-step evidence-to-advance, staleness, handoff, or recurring governance workflow.",
+    "Material source conflicts or scope changes require method-state invalidation."
+  ],
+  "escalate_to_specialist_when": [
+    "Judgment across legal, technical, organizational, human, and assurance domains is required.",
+    "The active task requires governance posture, proportionality, or human authority decisions."
+  ],
+  "dependencies": [
+    "AIR_AI_GOVERNANCE_SPECIALIST_V1",
+    "AIR_AI_GOVERNANCE_DOMAIN_PACK_V1",
+    "AIR_AI_GOVERNANCE_METHOD_PACK_V1"
+  ],
+  "authority_boundary": {
+    "governs_orbit_0": false,
+    "may_bind_profiles": false,
+    "may_mutate": false,
+    "may_approve": false,
+    "may_purchase_or_accept_licence": false,
+    "may_retrieve_sources_without_separate_authority": false,
+    "result_is": "UNTRUSTED_GOVERNANCE_PROPOSAL_UNTIL_EVALUATED"
+  },
+  "claim_boundary": "The executor compiles a review packet. It does not provide legal advice, prove compliance, certify conformity, approve deployment, prove control execution, or establish backend validation.",
+  "backend_validation_claimed": false
+}
