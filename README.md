@@ -64,6 +64,63 @@ Three rules carry most of AIR's logic:
 
 ---
 
+## Cognitive pipeline
+
+AIR does not treat a document, standard, or best-practice list as proof that the model understands the task. Every executable benchmark carries a visible **knowledge-to-execution path** that defines the cognitive depth, evidence, completion criteria, and failure route required for the active step.
+
+```mermaid
+flowchart TB
+    subgraph B["Bloom-derived cognitive depth"]
+        R[REMEMBER<br/>identify facts and source identities]
+        U[UNDERSTAND<br/>relate concepts and dependencies]
+        A[APPLY<br/>map knowledge to this task]
+        N[ANALYZE<br/>decompose, compare, detect conflicts]
+        V[EVALUATE<br/>judge evidence, fit, risk, readiness]
+        C[CREATE<br/>produce a bounded artifact]
+        R --> U --> A --> N --> V --> C
+    end
+
+    subgraph P["AIR knowledge-to-execution path"]
+        S1[1. Source acquisition<br/>and classification]
+        S2[2. Comprehension<br/>and conceptual relation]
+        S3[3. Contextualization<br/>and applicability]
+        S4[4. Assumption boundary<br/>and condition testing]
+        S5[5. Alternatives, exceptions<br/>and failure analysis]
+        S6[6. Domain judgment<br/>and proportionality]
+        S7[7. Adaptation and<br/>execution planning]
+        S8[8. Execution]
+        S9[9. Result evaluation<br/>and error localization]
+        S10[10. Update, escalation<br/>or revalidation signal]
+        S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9 --> S10
+    end
+
+    R -.-> S1
+    U -.-> S2
+    A -.-> S3
+    N -.-> S4
+    N -.-> S5
+    V -.-> S6
+    C -.-> S7
+    C -.-> S8
+    V -.-> S9
+    V -.-> S10
+```
+
+For this repository synchronization, the pipeline looks like this:
+
+| Cognitive operation | Observable work |
+|---|---|
+| Remember | Retrieve the canonical AIR identities, versions, file roles, and current repository state. |
+| Understand | Relate Core, Governance, Control Surface, Starter, Handoff, and optional package dependencies. |
+| Apply | Map AIR v2 requirements to repository paths, manifest records, and README instructions. |
+| Analyze | Compare blobs, versions, links, diagrams, authority boundaries, and the branch diff. |
+| Evaluate | Decide what is genuine drift, what is intentional, and whether the result is reviewable and merge-ready. |
+| Create | Produce the bounded README and metadata patch on a review branch. |
+
+`CREATE` is not automatically unrestricted. AIR may make creation conditional, prohibit it, or place it behind human approval when novel synthesis would exceed evidence, authority, safety, release, or mutation boundaries. A path reaches `APPROVE` only when every required stage is complete for the active step; otherwise AIR returns `REVIEW` or `REJECT` with the missing stage and remediation route visible.
+
+---
+
 ## Orbit model
 
 ```mermaid
