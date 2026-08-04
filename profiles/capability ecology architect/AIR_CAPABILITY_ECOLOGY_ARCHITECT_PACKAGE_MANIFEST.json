@@ -1,0 +1,300 @@
+{
+  "title": "AIR Capability Ecology Architect Package Manifest v2",
+  "PACKAGE_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
+  "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
+  "PACKAGE_VERSION": "2.2.0",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+  "package_class": "AIR_SPECIALIST_CAPABILITY_PACKAGE",
+  "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+  "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+  "status": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "generated_at": "2026-08-03T21:46:00+02:00",
+  "source_baseline": {
+    "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(17).json",
+    "source_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V1",
+    "source_sha256": "0975544856cbc38ca0233d9f98176c07611f8dfeff0fe2b510d48581547b86ec",
+    "source_size_bytes": 1529,
+    "source_line_count": 43,
+    "source_immutable": true,
+    "migration_class": "V1_GENERIC_FILENAME_AND_COMPONENT_IDENTITY_TO_V2_PACKAGE_SPECIFIC_MANIFEST"
+  },
+  "package_purpose": "Package the non-agent Domain Capability Registry, Human-to-Machine Capability Translator, Capability Ecology Architect Specialist, and Capability Ecology Method Pack as one validated available but unbound capability system for domain-informed synthetic-role construction, knowledge-to-execution benchmarking, capability-envelope reconstruction, and Detailed Domain Package construction.",
+  "component_contract": [
+    "DOMAIN_REGISTRY",
+    "EXECUTOR_LAYER",
+    "SPECIALIST_PROFILE",
+    "METHOD_PACK"
+  ],
+  "component_load_order": [
+    "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+    "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+    "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+    "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json"
+  ],
+  "components": [
+    {
+      "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "canonical_role": "DOMAIN_REGISTRY",
+      "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
+      "version": "2.1.0",
+      "artifact_class": "DOMAIN_CAPABILITY_REGISTRY",
+      "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
+      "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+      "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976",
+      "size_bytes": 227103,
+      "line_count": 5090,
+      "required": true,
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "canonical_role": "EXECUTOR_LAYER",
+      "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
+      "version": "2.1.0",
+      "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
+      "profile_kind": "EXECUTOR_CONTRACT",
+      "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+      "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed",
+      "size_bytes": 54627,
+      "line_count": 1072,
+      "required": true,
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "canonical_role": "SPECIALIST_PROFILE",
+      "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
+      "version": "2.1.0",
+      "artifact_class": "AIR_SPECIALIST_PROFILE",
+      "profile_kind": "TASK_COMPOSITE",
+      "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "d8004396c437fdc6a1fa419ac81286442440a3015ef67863f3efdb89c372365a",
+      "size_bytes": 83132,
+      "line_count": 1582,
+      "required": true,
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "filename": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "canonical_role": "METHOD_PACK",
+      "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V2",
+      "version": "2.1.0",
+      "artifact_class": "AIR_METHOD_PACK",
+      "profile_kind": "METHOD_PACK",
+      "profile_function_class": "METHOD_PACK",
+      "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "e5f9b5d3b52f0be74147450be1283d63d313c819efc2b80024f5301149a32a60",
+      "size_bytes": 72555,
+      "line_count": 1431,
+      "required": true,
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "component_dependency_edges": [
+    {
+      "from": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "to": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "relationship": "USES_TEMPLATE_FIXTURE_AND_DOMAIN_ROUTING_CONTRACT"
+    },
+    {
+      "from": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "to": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "relationship": "USES_TAXONOMY_TEMPLATE_FIXTURES_AND_DOMAIN_PACKAGE_INDEX"
+    },
+    {
+      "from": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "to": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "relationship": "MANDATORY_FOR_MATERIAL_HUMAN_ORIENTED_FRAMEWORK_TRANSLATION"
+    },
+    {
+      "from": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "to": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "relationship": "METHOD_INPUT_AND_FIXTURE_AUTHORITY"
+    },
+    {
+      "from": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "to": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "relationship": "METHOD_TRANSLATION_STEP_DEPENDENCY"
+    },
+    {
+      "from": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "to": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "relationship": "METHOD_OPERATOR_PROFILE_DEPENDENCY"
+    }
+  ],
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
+        "size_bytes": 231127,
+        "line_count": 5495
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
+        "size_bytes": 112242,
+        "line_count": 2648
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+        "size_bytes": 19336,
+        "line_count": 448
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.1.0",
+        "class": "TASK_COMPOSITE",
+        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794",
+        "size_bytes": 44953,
+        "line_count": 1124
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.0.0",
+        "class": "TEMPLATE",
+        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
+        "size_bytes": 29402,
+        "line_count": 695
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017"
+    ],
+    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+  },
+  "package_integrity_contract": {
+    "strict_json_required": true,
+    "duplicate_keys_rejected": true,
+    "safe_underscore_filenames_required": true,
+    "literal_percent_aliases_prohibited": true,
+    "generic_manifest_filename_operational_use_prohibited": true,
+    "legacy_generic_manifest_alias": "AIR_SPECIALIST_PACKAGE_MANIFEST.json",
+    "legacy_alias_effect": "REFERENTIAL_COMPATIBILITY_ONLY",
+    "exact_component_hash_match_required": true,
+    "exact_component_size_match_required": true,
+    "exact_component_designation_match_required": true,
+    "partial_package_must_not_be_represented_as_complete": true,
+    "folder_membership_is_not_binding": true
+  },
+  "authority_boundary": {
+    "package_is_non_agent": true,
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "orbit_0_occupancy_as_package": false,
+    "self_approval": false,
+    "self_binding": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Use only after component and manifest validation, task fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "domain_truth_boundary": {
+    "registry_role": "TAXONOMY_TEMPLATE_FIXTURE_AND_APPROVED_DOMAIN_PACKAGE_ROUTING_AUTHORITY",
+    "approved_detailed_domain_role": "SEPARATE_VERSIONED_DOMAIN_PACKAGE_SOURCE_OF_TRUTH",
+    "architect_role": "OPERATIONAL_COMPILER_AND_OPTIONAL_SPECIALIST_CONSUMER",
+    "method_pack_role": "REUSABLE_EVIDENCE_GATED_PROCEDURE",
+    "translator_role": "HUMAN_FRAMEWORK_TO_MACHINE_NATIVE_REQUIREMENT_TRANSLATION",
+    "fixtures_runtime_authority": "NONE"
+  },
+  "test_evidence_contract": {
+    "floor_reference": "AIR-FLOOR-017",
+    "default_mode": "SUMMARY_ONLY",
+    "enable_command": "air -t on",
+    "disable_command": "air -t off",
+    "automatic_enable": false,
+    "evidence_classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "retroactive_reconstruction": "PROHIBITED",
+    "regulatory_evidence_rule": "When a valid governance requirement makes test evidence mandatory, recommend enabling full evidence before the run; if required evidence is not produced, keep the obligation unresolved rather than claiming it satisfied."
+  },
+  "external_dependency_state": {
+    "source_and_control_registry": {
+      "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY"
+    },
+    "automated_capability_construction": {
+      "legacy_reference": "AIR_AUTOMATED_CAPABILITY_CONSTRUCTION_V1",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY"
+    },
+    "artifact_build_source_assurance_pipeline": {
+      "legacy_reference": "AIR_ARTIFACT_BUILD_SOURCE_ASSURANCE_PIPELINE_V1",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY"
+    },
+    "source_adapters_and_external_corpora": {
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "non_fabrication_rule": "Do not treat referenced adapters, occupational corpora, coverage reports, standards, or external data as present, current, complete, or validated unless supplied and verified."
+    }
+  },
+  "required_input_behavior": {
+    "floor_reference": "AIR-FLOOR-016",
+    "complete_package_files": [
+      "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+    ],
+    "request_rule": "Name and request the smallest exact missing file or the complete package when coupled behavior or manifest validation is required.",
+    "attachment_boundary": "Receipt establishes availability only, never automatic selection, approval, or binding."
+  },
+  "package_validation_state": {
+    "component_count": 4,
+    "required_component_count": 4,
+    "all_required_components_present": true,
+    "all_required_components_hash_sealed": true,
+    "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+    "receiver_delivery_state": "APPROVED_OUTPUT",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false,
+    "cross_file": "PASS_INTEGRATED_FOUNDATION_REFRESH",
+    "regression": "PASS_SUMMARY_MODE"
+  },
+  "claim_boundary": "This manifest proves only the tool-observed identity and validated package relationships recorded for the delivered files. It does not prove backend enforcement, hidden reasoning, human professional equivalence, regulatory compliance, empirical task superiority, or correct execution of any future task.",
+  "integration_refresh": {
+    "refresh_version": "2.2.0",
+    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
+    "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+  }
+}

@@ -1,0 +1,1431 @@
+{
+  "title": "AIR Capability Ecology Architect Method Pack",
+  "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V2",
+  "PROMPT_VERSION": "2.1.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "METHOD_PACK",
+  "artifact_class": "AIR_METHOD_PACK",
+  "package_version": "2.2.0",
+  "package_subtype": "CAPABILITY_ECOLOGY_RECONSTRUCTION_SELECTION_AND_DOMAIN_CONSTRUCTION",
+  "profile_function_class": "METHOD_PACK",
+  "STATUS": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+  "STANDARD_CODE": "AIR-METHOD-CAPABILITY-ECOLOGY-V2",
+  "description": "Reusable evidence-gated method for reconstructing the complete relevant capability envelope, translating human-oriented knowledge frameworks into bounded machine-native requirements, compiling knowledge-to-execution paths and synthetic benchmarks, applying risk and proportionality, constructing candidate Detailed Domain Packages, and selecting the smallest sufficient operative capability set for compilation into the sole bound Orbit 0 AIR_ARTIFACT.",
+  "remediated_at": "2026-08-03T21:25:00+02:00",
+  "source_baseline": {
+    "source_filename": "AIR CAPABILITY ECOLOGY METHOD PACK(11).json",
+    "source_system_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V1",
+    "source_sha256": "6d75fe47b102fcda1f8722c38567be7f2c2b3d65aed88dc4a6e5ab5903a38ff5",
+    "source_bytes": 2413,
+    "source_lines": 58,
+    "source_immutable": true,
+    "source_function_preserved": [
+      "establish project and task execution envelopes",
+      "map candidate domains",
+      "translate human-oriented frameworks",
+      "expand the candidate capability envelope",
+      "apply risk and proportionality",
+      "select the smallest sufficient operative set",
+      "surface gaps and routing"
+    ]
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41"
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b"
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f"
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794"
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1"
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017"
+    ],
+    "method_layer_law": "AIR_METHOD_LAYER_V2",
+    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+    "underscore_safe_filename_required": true,
+    "literal_percent_aliases_prohibited": true,
+    "exact_delivery_path_validation_required": true,
+    "source_file_mutation_prohibited": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_METHOD_PACK",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "orbit_0_occupancy_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "domain_source_of_truth_role": false,
+    "method_execution_is_completion_proof": false,
+    "may_relax_runtime_law": false,
+    "positive_material_execution_authority_source": "BOUND_ORBIT_0_AIR_ARTIFACT_ONLY",
+    "operative_use_rule": "This Method Pack may shape a task-local AIR_ARTIFACT.method only after package integrity and compatibility review, explicit selection, required approval, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.",
+    "domain_truth_rule": "The Registry owns taxonomy, template and fixture authority; approved versioned Domain Packages remain reusable declarative domain sources of truth; the Architect and this Method Pack compile task-scoped candidates and may not replace them."
+  },
+  "legacy_reference_migration": {
+    "legacy_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V1",
+    "canonical_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V2",
+    "legacy_alias_use": "REFERENTIAL_COMPATIBILITY_ONLY",
+    "canonical_record_mode": "PROMPT_LAYER_APPLIED",
+    "canonical_control_term": "BOUND_ORBIT_0_AIR_ARTIFACT",
+    "legacy_prompt_mode_removed": true,
+    "legacy_control_doctrine_removed": true
+  },
+  "external_dependency_state": {
+    "domain_capability_registry": {
+      "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
+      "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "observed_sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976"
+    },
+    "human_to_machine_capability_translator": {
+      "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
+      "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "observed_sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed"
+    },
+    "capability_ecology_architect": {
+      "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
+      "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "observed_sha256": "d8004396c437fdc6a1fa419ac81286442440a3015ef67863f3efdb89c372365a"
+    },
+    "package_manifest": {
+      "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
+      "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "legacy_generic_filename_alias": "AIR_SPECIALIST_PACKAGE_MANIFEST.json",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
+      "operational_effect": "AVAILABILITY_ONLY_UNTIL_SELECTED_VALIDATED_APPROVED_AND_COMPILED"
+    },
+    "source_and_control_registry": {
+      "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY"
+    },
+    "source_adapters_and_external_corpora": {
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "non_fabrication_rule": "Do not treat referenced adapters, occupational corpora, coverage reports, standards or external data as present, current, complete or validated unless supplied and verified."
+    }
+  },
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "professional_equivalence_claimed": false,
+  "method_id": "AIR_METHOD_CAPABILITY_ECOLOGY_RECONSTRUCTION_V2",
+  "purpose": "Provide a portable, evidence-gated and handoff-safe procedure for converting a partial task request and available sources into a complete relevant capability envelope, bounded domain knowledge-processing obligations, a benchmarkable knowledge-to-execution path, and the smallest sufficient task-local capability selection without transferring human status or authority.",
+  "scope": {
+    "use_when": [
+      "a task may require domain knowledge beyond documentation lookup and literal procedure following",
+      "a synthetic role or execution benchmark must be constructed or materially amended",
+      "a human occupational, professional, curriculum, competency, qualification or practitioner framework must be translated",
+      "a new or amended Detailed Domain Package candidate is needed",
+      "a cross-domain or emerging-domain task requires capability-envelope reconstruction",
+      "risk, consequence, reversibility or maturity materially changes the sufficient capability set",
+      "recurrence, portability, evidence gates or handoff safety justify a reusable Method Pack"
+    ],
+    "do_not_use_when": [
+      "a small bounded operation is adequately handled by one AIR_EXECUTOR without material state, evidence or handoff burden",
+      "the requested action is outside the bound Orbit 0 task and no explicit rescope has occurred",
+      "required source rights, authority, safety or integrity gates prohibit the action",
+      "the user requests direct use of a protected human title, licence, credential or institutional authority as machine identity"
+    ],
+    "supported_branches": [
+      "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+      "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+      "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
+      "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
+    ],
+    "scope_boundary": "The Method Pack constructs and validates candidates. Final task approval, rejection, rescope, mutation or release remains governed by the bound Orbit 0 AIR_ARTIFACT, AIR_GATE, user approvals and applicable authority gates."
+  },
+  "inputs": {
+    "required": [
+      "bound Orbit 0 AIR_ARTIFACT identity, task key, active step and acceptance criteria",
+      "project and task execution envelopes",
+      "current source set and source-rights state",
+      "risk, consequence, reversibility, maturity and jurisdiction signals when material",
+      "validated Capability Ecology components required by the active branch",
+      "existing approved Domain Packages or explicit unknown/emerging-domain state",
+      "required user approvals and unresolved required-input requests"
+    ],
+    "conditional": [
+      "human role, competency, curriculum, certification, qualification, practice or occupational frameworks",
+      "official documentation, standards, verified guides and best-practice sources",
+      "practitioner evidence, case studies, incident reports, postmortems or representative task corpus",
+      "tools, connectors, repositories, credentials, datasets or operator actions",
+      "golden and negative fixtures for Detailed Domain Package construction",
+      "prior method execution state and handoff card",
+      "current test_evidence_mode and mode source",
+      "regulatory or governance test-evidence obligation and required evidence class when material",
+      "test definitions, commands, environment, inputs, logs, fixtures and review records available for the active run"
+    ],
+    "prohibited_as_sufficient_evidence": [
+      "filename presence alone",
+      "folder membership alone",
+      "assistant memory or previous narrative summary",
+      "official documentation without applicability and result evaluation",
+      "unsourced simulated expertise or invented tacit knowledge",
+      "user acknowledgement as universal liability transfer",
+      "method instructions as proof that execution occurred"
+    ]
+  },
+  "outputs": {
+    "candidate_outputs": [
+      "AIR_CAPABILITY_ENVELOPE_CANDIDATE",
+      "AIR_SESSION_DOMAIN_OVERLAY_CANDIDATE",
+      "AIR_DETAILED_DOMAIN_PACKAGE_CANDIDATE",
+      "AIR_SYNTHETIC_ROLE_CANDIDATE",
+      "AIR_EXECUTION_BENCHMARK_PROFILE_CANDIDATE",
+      "AIR_KNOWLEDGE_TO_EXECUTION_PATH_CANDIDATE",
+      "AIR_REQUIRED_INPUT_REQUEST",
+      "AIR_METHOD_EXECUTION_STATE_UPDATE",
+      "AIR_CAPABILITY_ECOLOGY_HANDOFF_STATE",
+      "AIR_TEST_EVIDENCE_PACKAGE_CANDIDATE"
+    ],
+    "minimum_output_fields": [
+      "active branch and scope",
+      "selected, mandatory-floor, deferred and rejected capabilities",
+      "domain matches and roles",
+      "knowledge dimensions and required cognitive depth",
+      "experience-derived evidence and human boundaries",
+      "knowledge-to-execution path state",
+      "evidence and source state",
+      "risk and proportionality rationale",
+      "unresolved gaps and exact required-input requests",
+      "benchmark or fixture result when applicable",
+      "next gate and handoff state",
+      "test-evidence mode and recommendation state when testing is material",
+      "test-evidence class, evidence references, reproducibility limits and rerun requirement when applicable",
+      "regulatory evidence requirement state when Governance identifies an obligation"
+    ],
+    "non_authority_rule": "Candidate output does not become operative merely because this method produced it."
+  },
+  "dependencies": [
+    {
+      "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
+      "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "sha256": "d8004396c437fdc6a1fa419ac81286442440a3015ef67863f3efdb89c372365a",
+      "required_for": [
+        "all branches"
+      ]
+    },
+    {
+      "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
+      "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976",
+      "required_for": [
+        "domain routing",
+        "Domain Package template and fixture validation",
+        "approved Domain Package index"
+      ]
+    },
+    {
+      "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
+      "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed",
+      "required_for": [
+        "material human-oriented framework translation",
+        "knowledge and cognitive-depth translation",
+        "experience-derived evidence and human-boundary extraction"
+      ]
+    },
+    {
+      "designation": "BOUND_ORBIT_0_AIR_ARTIFACT",
+      "filename": null,
+      "sha256": null,
+      "required_for": [
+        "operative task scope",
+        "authority",
+        "acceptance criteria",
+        "final benchmark decision"
+      ]
+    }
+  ],
+  "method_execution_contract": {
+    "method_execution_state_values": [
+      "NOT_STARTED",
+      "IN_PROGRESS",
+      "BLOCKED",
+      "REVIEW",
+      "COMPLETE",
+      "FAILED",
+      "INVALIDATED",
+      "STALE_NEEDS_REGROUND"
+    ],
+    "method_step_state_values": [
+      "PENDING",
+      "ACTIVE",
+      "COMPLETE",
+      "BLOCKED",
+      "REVIEW",
+      "SKIPPED_APPROVED",
+      "FAILED",
+      "INVALIDATED"
+    ],
+    "method_step_gate_decisions": [
+      "ALLOW",
+      "REVIEW",
+      "EVIDENCE_REQUIRED",
+      "REJECT",
+      "RESCOPE_REQUIRED",
+      "BLOCKED_BY_CONTRACT",
+      "BLOCKED_BY_STALENESS"
+    ],
+    "completion_rule": "A method step cannot become COMPLETE without its declared evidence_to_advance unless an explicit permitted waiver is recorded. The whole method cannot become COMPLETE while a required branch step is BLOCKED, REVIEW, FAILED, INVALIDATED or stale.",
+    "gate_precedence": "AIR_GATE is stricter when AIR_GATE and method_step_gate disagree.",
+    "execution_proof_boundary": "Method execution state is a governance record, not backend proof, tool proof, external outcome proof or professional competence proof."
+  },
+  "knowledge_processing_contract": {
+    "knowledge_dimensions": [
+      "FACTUAL",
+      "CONCEPTUAL",
+      "PROCEDURAL",
+      "METACOGNITIVE_OR_CONTROL"
+    ],
+    "Bloom_derived_operations": [
+      "REMEMBER",
+      "UNDERSTAND",
+      "APPLY",
+      "ANALYZE",
+      "EVALUATE",
+      "CREATE"
+    ],
+    "selection_rule": "Select and justify the minimum cognitive depth that can correctly complete and evaluate the active task. CREATE may be conditional, prohibited or human-gated.",
+    "lookup_baseline_rule": "Official documentation, verified guides and best practices are necessary when applicable but are not sufficient for method completion without comprehension, applicability, exception, judgment, adaptation and result-evaluation evidence.",
+    "experience_derived_classes": [
+      "recurring_patterns",
+      "weak_signals",
+      "common_misdiagnoses",
+      "exception_conditions",
+      "contextual_tradeoffs",
+      "failure_precursors",
+      "recovery_patterns",
+      "bounded_expert_shortcuts",
+      "anti_patterns",
+      "stopping_rules",
+      "escalation_triggers"
+    ],
+    "experience_boundary": "Only sourced, attributed and bounded outputs of human experience may be represented. The model must not claim human experience or invent tacit knowledge."
+  },
+  "knowledge_to_execution_path_contract": {
+    "floor_reference": "AIR-FLOOR-015",
+    "canonical_ordered_stages": [
+      "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+      "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+      "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+      "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+      "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+      "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+      "ADAPTATION_AND_EXECUTION_PLANNING",
+      "EXECUTION",
+      "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+      "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+    ],
+    "required_path_fields": [
+      "path_id",
+      "path_scope",
+      "input_knowledge_classes",
+      "required_cognitive_operations",
+      "ordered_stages",
+      "experience_derived_knowledge_requirements",
+      "human_boundaries_and_non_transferable_authority",
+      "stage_evidence_requirements",
+      "stage_completion_criteria",
+      "path_failure_routes",
+      "path_validation_state",
+      "rebind_triggers"
+    ],
+    "required_stage_fields": [
+      "purpose",
+      "required_inputs",
+      "required_machine_operations",
+      "observable_evidence_or_checks",
+      "completion_criteria",
+      "failure_route"
+    ],
+    "path_validation_states": [
+      "COMPLETE_FOR_ACTIVE_STEP",
+      "REVIEW_REQUIRED",
+      "REJECTED_INSUFFICIENT_PATH"
+    ],
+    "canonical_defect_classes": [
+      "LOOKUP_AND_EXECUTE_BASELINE_ONLY",
+      "PROCEDURAL_KNOWLEDGE_WITHOUT_DOMAIN_COMPREHENSION",
+      "INSUFFICIENT_COGNITIVE_DEPTH",
+      "UNSOURCED_EXPERIENCE_CLAIM",
+      "HUMAN_ROLE_OR_AUTHORITY_TRANSFER",
+      "APPLICABILITY_OR_EXCEPTION_ANALYSIS_MISSING",
+      "RESULT_EVALUATION_MISSING"
+    ],
+    "approval_boundary": "The method may validate structural completeness of a candidate path. Final APPROVE requires the bound artifact benchmark and observable evidence that each required stage met its completion criteria."
+  },
+  "required_input_acquisition_contract": {
+    "floor_reference": "AIR-FLOOR-016",
+    "complete_package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+    "canonical_package_files": [
+      "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+    ],
+    "legacy_manifest_filename_alias": "AIR_SPECIALIST_PACKAGE_MANIFEST.json",
+    "single_file_sufficient_cases": {
+      "registry_only": [
+        "taxonomy, template, fixture or approved Domain Package index inspection when no coupled translation, construction, mutation or manifest validation is required"
+      ],
+      "translator_only": [
+        "translation analysis when validated Registry and Architect context is already available and no package mutation or manifest validation is required"
+      ],
+      "method_pack_only": [
+        "method schema inspection when execution is not requested and dependencies are not being asserted as complete"
+      ]
+    },
+    "complete_package_required_cases": [
+      "synthetic-role construction using coupled Registry, Translator, Architect and Method behavior",
+      "Detailed Domain Package construction, amendment, evaluation or promotion",
+      "cross-component regression",
+      "package mutation",
+      "manifest validation or regeneration"
+    ],
+    "request_rule": "Check current session and validated package state first; name the smallest exact known requirement; state why it is needed and whether work is blocked, provisional or degraded; name real alternatives and a safe fallback; request the upload or action; validate after receipt.",
+    "identity_unresolved_rule": "When exact identity is not established by current source truth or a validated manifest, name the logical capability role and ask the smallest resolving question rather than inventing a filename or package.",
+    "no_repeat_rule": "Do not request a current compatible input already available. Re-request only for absence, staleness, mismatch, incompleteness, inaccessibility or supersession.",
+    "receipt_boundary": "Receipt establishes availability only. Validate identity, version, hash, freshness, completeness, source rights, compatibility and task fit before reliance."
+  },
+  "test_evidence_reproducibility_contract": {
+    "floor_reference": "AIR-FLOOR-017",
+    "default_mode": "SUMMARY_ONLY",
+    "canonical_commands": {
+      "enable_full_evidence": "air -t on",
+      "disable_full_evidence": "air -t off"
+    },
+    "mode_effect": "Evidence packaging and retention for subsequent authorized test, validation, benchmark-evaluation and representative-task runs only.",
+    "summary_only_behavior": [
+      "report decision, scoped counts, test or evaluation classes, material failures, claim boundary and available evidence references",
+      "state when the summary alone is not reproducible",
+      "do not generate or print full suites, complete logs, all fixtures or per-test evidence merely to prove testing occurred"
+    ],
+    "full_test_evidence_outputs": [
+      "executable test suite or disclosed test definitions",
+      "test-run manifest with command, working directory, runtime, environment, exact input identities and hashes, reliable timestamps and exit code",
+      "per-test results with identifier, requirement, class, inputs, expected state, observed state, decision, failure reason and evidence references",
+      "raw execution log or explicitly sanitized log",
+      "golden, negative, replay and representative-task fixtures used",
+      "review and rerun README"
+    ],
+    "test_evidence_classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "retroactivity_rule": "FULL_TEST_EVIDENCE enabled after a completed SUMMARY_ONLY run cannot reconstruct that run. A new authorized run is required; prior commands, logs, environment, fixtures or implementation must not be fabricated.",
+    "regulatory_rule": "When a valid relevant Governance Specialist or compiled governance requirement identifies a regulatory evidence obligation, recommend air -t on. Missing evidence required for approval, audit preparation, conformity, release or closure routes to REVIEW or EVIDENCE_REQUIRED until qualifying evidence or an authorized equivalent exists.",
+    "safety_and_rights_boundary": [
+      "do not expose hidden reasoning or private chain of thought",
+      "do not expose credentials, secrets, restricted source text or unavailable backend logs",
+      "make sanitization or redaction and its reproducibility effect visible",
+      "do not represent manual, qualitative, model-judged or prompt-side review as deterministic automated execution",
+      "the toggle does not prove testing, compliance, audit sufficiency or regulatory conformity"
+    ],
+    "handoff_fields": [
+      "test_evidence_mode",
+      "mode_source",
+      "effective_from",
+      "recommendation_state and reasons",
+      "regulatory_evidence_requirement_state and obligation references",
+      "produced_test_evidence_refs",
+      "test_run_records",
+      "reproducibility_limits",
+      "sanitization_or_redaction_state",
+      "rerun_required_for_full_evidence"
+    ]
+  },
+  "branch_contracts": {
+    "ACTIVE_TASK_CAPABILITY_ENVELOPE": {
+      "purpose": "Compile a task-scoped complete relevant capability envelope and smallest sufficient operative candidate set.",
+      "required_steps": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4_WHEN_TRIGGERED",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M12"
+      ],
+      "optional_steps": [
+        "M11"
+      ],
+      "primary_outputs": [
+        "AIR_CAPABILITY_ENVELOPE_CANDIDATE",
+        "AIR_SESSION_DOMAIN_OVERLAY_CANDIDATE",
+        "AIR_KNOWLEDGE_TO_EXECUTION_PATH_CANDIDATE"
+      ]
+    },
+    "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK": {
+      "purpose": "Construct a bounded synthetic role and benchmark that can evaluate the task knowledge-to-execution path without human-status transfer.",
+      "required_steps": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4_WHEN_TRIGGERED",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "primary_outputs": [
+        "AIR_SYNTHETIC_ROLE_CANDIDATE",
+        "AIR_EXECUTION_BENCHMARK_PROFILE_CANDIDATE",
+        "AIR_KNOWLEDGE_TO_EXECUTION_PATH_CANDIDATE"
+      ]
+    },
+    "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT": {
+      "purpose": "Construct or amend a versioned Detailed Domain Package candidate using the Registry template, mandatory Translator routing when triggered, fixture tests and representative-task evaluation.",
+      "required_steps": [
+        "M0",
+        "M1",
+        "M2",
+        "M3",
+        "M4_WHEN_TRIGGERED",
+        "M5",
+        "M6",
+        "M7",
+        "M8",
+        "M9",
+        "M10",
+        "M11",
+        "M12"
+      ],
+      "primary_outputs": [
+        "AIR_DETAILED_DOMAIN_PACKAGE_CANDIDATE",
+        "AIR_EXECUTION_BENCHMARK_PROFILE_CANDIDATE"
+      ],
+      "promotion_boundary": "Registration as an approved Domain Package requires source validation, representative-task evaluation, explicit approval, versioned identity and Registry-index update."
+    },
+    "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW": {
+      "purpose": "Validate component identity, dependency edges, floor compatibility and manifest consistency without binding the package.",
+      "required_steps": [
+        "M0",
+        "M2",
+        "M12"
+      ],
+      "primary_outputs": [
+        "AIR_METHOD_EXECUTION_STATE_UPDATE",
+        "AIR_CAPABILITY_ECOLOGY_HANDOFF_STATE"
+      ]
+    }
+  },
+  "ordered_steps": [
+    {
+      "step_id": "M0",
+      "name": "Validate task binding, package identity and method freshness",
+      "action": "Confirm exactly one bound Orbit 0 AIR_ARTIFACT, validate the Method Pack and required component identities for the active branch, restore or initialize method_execution_state, and check staleness before any material method action.",
+      "preconditions": [
+        "current task identity is available",
+        "required source files are supplied or their absence is visible"
+      ],
+      "required_inputs": [
+        "bound Orbit 0 artifact summary",
+        "current component files or validated manifest",
+        "prior method execution state when continuing",
+        "test-evidence mode and mode source",
+        "regulatory evidence obligation state when material"
+      ],
+      "expected_outputs": [
+        "validated active branch",
+        "component and freshness ledger",
+        "initialized or restored method_execution_state",
+        "validated test-evidence mode for this invocation",
+        "regulatory evidence requirement state and effect on closure"
+      ],
+      "evidence_to_advance": [
+        "exactly one Orbit 0 artifact is identified",
+        "required component hashes and designations match or exact missing-input requests are emitted",
+        "no stale state is silently reused",
+        "SUMMARY_ONLY remains default unless FULL_TEST_EVIDENCE was enabled before the applicable run or validly restored",
+        "mandatory regulatory evidence is not marked satisfied by the toggle alone"
+      ],
+      "failure_behavior": "Route missing or mismatched files to AIR_REQUIRED_INPUT_REQUEST and EVIDENCE_REQUIRED; route multiple or absent Orbit 0 authority to ARTIFACT_BINDING_RECOVERY; mark stale state STALE_NEEDS_REGROUND.",
+      "next_step_rule": "Advance to M1 for execution branches; for compatibility review, proceed to M2 after package inventory is established.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
+        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "SOURCE_ACQUISITION_AND_CLASSIFICATION"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M1",
+      "name": "Establish project and task execution envelopes",
+      "action": "Extract and confirm the active objective, requested operation, output object, environment, exposure, consequence, reversibility, maturity, jurisdiction, constraints, success conditions and task center.",
+      "preconditions": [
+        "M0 passed for the active branch"
+      ],
+      "required_inputs": [
+        "bound artifact task center",
+        "project source truth",
+        "user request and attachments",
+        "known constraints and acceptance criteria"
+      ],
+      "expected_outputs": [
+        "project execution envelope",
+        "task execution envelope",
+        "material ambiguity list",
+        "initial risk and consequence posture"
+      ],
+      "evidence_to_advance": [
+        "envelopes distinguish project-level from active-step constraints",
+        "material ambiguity is surfaced rather than assumed",
+        "task center remains aligned with Orbit 0"
+      ],
+      "failure_behavior": "Use REVIEW for resolvable ambiguity, RESCOPE_REQUIRED for a changed task center, and continue only independent safe work when the affected action is suspended.",
+      "next_step_rule": "Advance to M2 when routing inputs are sufficient.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M2",
+      "name": "Acquire and classify required inputs",
+      "action": "Inventory available sources, Domain Packages, frameworks, tools, permissions, approvals and package components; classify authority, freshness, rights, completeness and task fit; emit exact required-input requests for material gaps.",
+      "preconditions": [
+        "M0 passed",
+        "active branch is known"
+      ],
+      "required_inputs": [
+        "source set",
+        "component inventory",
+        "required-input state",
+        "source-rights and access state"
+      ],
+      "expected_outputs": [
+        "source and dependency ledger",
+        "AIR_REQUIRED_INPUT_REQUEST records when needed",
+        "blocked, provisional or degraded continuation state"
+      ],
+      "evidence_to_advance": [
+        "every material input is present-and-validated or explicitly requested",
+        "exact canonical identities are named when known",
+        "safe fallback and validation-after-receipt are stated",
+        "satisfied requests are not repeated"
+      ],
+      "failure_behavior": "Use EVIDENCE_REQUIRED for blocking absence, REVIEW for identity or compatibility ambiguity, PROVISIONAL_ALLOW only for bounded planning, and REJECT when source rights or integrity prohibit use.",
+      "next_step_rule": "Advance to M3 when sufficient routing evidence exists; compatibility review may advance directly to M12 after all component checks.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
+        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "SOURCE_ACQUISITION_AND_CLASSIFICATION"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M3",
+      "name": "Map domain families, approved Domain Packages and adjacent-domain triggers",
+      "action": "Use the researched high-level taxonomy for routing, select approved Domain Packages when available, identify composite roles and adjacent-domain triggers, or declare UNKNOWN_DOMAIN or EMERGING_DOMAIN without forcing a poor match.",
+      "preconditions": [
+        "M1 and M2 passed for execution branches",
+        "validated Registry is available"
+      ],
+      "required_inputs": [
+        "active objective and operation",
+        "domain-family taxonomy",
+        "approved Domain Package index",
+        "attached domain signals and sources"
+      ],
+      "expected_outputs": [
+        "domain matches with roles and confidence",
+        "adjacent-domain checks",
+        "candidate source classes and domain vectors",
+        "unknown or emerging-domain state when applicable"
+      ],
+      "evidence_to_advance": [
+        "fixtures are excluded from runtime matching",
+        "each domain role is explicit in composite tasks",
+        "weak or conflicting matches remain provisional",
+        "no Domain Package is fabricated"
+      ],
+      "failure_behavior": "Request the Registry or complete package when required; use REVIEW for material domain ambiguity; route new detailed-domain need to the Domain Package branch.",
+      "next_step_rule": "Advance to M4 when material human-oriented frameworks are present; otherwise record M4 as SKIPPED_APPROVED with reason and advance to M5.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M4",
+      "name": "Translate human-oriented frameworks into bounded machine-native candidates",
+      "action": "Route material occupational, professional, curriculum, qualification, competency, certification, practitioner or role frameworks through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2 and separate transferable capabilities from human-bound status, embodiment, authority and accountability.",
+      "preconditions": [
+        "M3 identifies a material human-oriented framework or source",
+        "Translator identity and inputs are validated"
+      ],
+      "required_inputs": [
+        "human-oriented source framework",
+        "domain context",
+        "task scope",
+        "authority and jurisdiction boundaries"
+      ],
+      "expected_outputs": [
+        "multi-axis translation",
+        "knowledge and cognitive-depth candidates",
+        "experience-derived evidence candidates",
+        "human-bound and non-transferable elements",
+        "dataset, disclosure, responsibility and failure-localization fields"
+      ],
+      "evidence_to_advance": [
+        "raw direct binding is false",
+        "protected title, licence, credential, employment and institutional authority are not transferred",
+        "unsupported experience is rejected",
+        "acknowledgement does not upgrade prohibited execution"
+      ],
+      "failure_behavior": "Use EVIDENCE_REQUIRED for missing framework sources, REVIEW for unresolved transfer boundaries, and REJECT for attempted human-status or authority transfer.",
+      "next_step_rule": "Advance to M5 when translation is complete; if not triggered, retain explicit SKIPPED_APPROVED evidence.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M5",
+      "name": "Compile knowledge dimensions and required cognitive depth",
+      "action": "Determine the factual, conceptual, procedural and metacognitive/control knowledge required; select task-bounded Bloom-derived operations; identify sourced experience-derived knowledge and explicit human boundaries.",
+      "preconditions": [
+        "M3 complete",
+        "M4 complete or validly skipped"
+      ],
+      "required_inputs": [
+        "domain matches and packages",
+        "translated framework output when present",
+        "authoritative and practice sources",
+        "task acceptance criteria"
+      ],
+      "expected_outputs": [
+        "knowledge-dimension matrix",
+        "required cognitive operations",
+        "experience-derived evidence map",
+        "human-boundary list",
+        "knowledge gaps"
+      ],
+      "evidence_to_advance": [
+        "the result goes beyond documentation lookup when the task requires comprehension or judgment",
+        "CREATE is justified, conditional, prohibited or human-gated",
+        "experience-derived claims are sourced and bounded"
+      ],
+      "failure_behavior": "Route missing conceptual, metacognitive or experience evidence to REVIEW or EVIDENCE_REQUIRED; reject simulated expertise and unsupported intuition.",
+      "next_step_rule": "Advance to M6 when the knowledge-processing envelope is sufficient to expand capabilities.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M6",
+      "name": "Expand the complete relevant candidate capability envelope",
+      "action": "Combine request-derived, domain-expanded, translated, risk, source, method, evaluation, communication, safety and supporting capabilities that could materially change correctness, interpretation, proportionality or usefulness.",
+      "preconditions": [
+        "M5 complete"
+      ],
+      "required_inputs": [
+        "execution envelopes",
+        "domain matches",
+        "knowledge matrix",
+        "translated candidates",
+        "risk and source state"
+      ],
+      "expected_outputs": [
+        "candidate capability graph",
+        "mandatory-floor candidates",
+        "supporting capability candidates",
+        "dependencies and conflicts",
+        "candidate failure modes"
+      ],
+      "evidence_to_advance": [
+        "material supporting capabilities are not omitted",
+        "candidate set remains task-relevant rather than discipline-complete",
+        "dependencies, conflicts and source needs are explicit"
+      ],
+      "failure_behavior": "Use REVIEW when omission risk remains material; request missing sources or Specialists; do not silently expand the task center.",
+      "next_step_rule": "Advance to M7 when the candidate envelope is complete enough for path and benchmark construction.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M7",
+      "name": "Construct the knowledge-to-execution path and synthetic benchmark",
+      "action": "Compile all ten AIR-FLOOR-015 stages with stage inputs, machine operations, observable evidence, completion criteria and failure routes; construct or amend the bounded synthetic role and execution benchmark for the active branch.",
+      "preconditions": [
+        "M6 complete"
+      ],
+      "required_inputs": [
+        "candidate capability graph",
+        "knowledge matrix",
+        "human boundaries",
+        "experience evidence",
+        "task acceptance criteria",
+        "risk posture"
+      ],
+      "expected_outputs": [
+        "AIR_KNOWLEDGE_TO_EXECUTION_PATH_CANDIDATE",
+        "AIR_SYNTHETIC_ROLE_CANDIDATE when applicable",
+        "AIR_EXECUTION_BENCHMARK_PROFILE_CANDIDATE"
+      ],
+      "evidence_to_advance": [
+        "all required stages are addressed",
+        "required cognitive depth is represented",
+        "lookup-and-execute-only completion is impossible",
+        "benchmark can approve, review or reject using observable evidence without claiming private reasoning"
+      ],
+      "failure_behavior": "Set REVIEW_REQUIRED or REJECTED_INSUFFICIENT_PATH for missing stages, applicability, exception analysis, result evaluation, human-boundary or evidence requirements.",
+      "next_step_rule": "Advance to M8 when the path is structurally complete for risk and proportionality evaluation.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+        "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+        "ADAPTATION_AND_EXECUTION_PLANNING",
+        "EXECUTION",
+        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+        "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M8",
+      "name": "Apply risk, consequence, reversibility and proportionality",
+      "action": "Classify mandatory floor, selected, deferred and disproportionate capabilities; account for exposure, reversibility, maturity, privacy, security, legal, clinical, safety and human-impact constraints.",
+      "preconditions": [
+        "M7 complete or path state is REVIEW with only non-blocking bounded gaps"
+      ],
+      "required_inputs": [
+        "candidate capability graph",
+        "risk and consequence posture",
+        "knowledge-to-execution path",
+        "authority and jurisdiction boundaries"
+      ],
+      "expected_outputs": [
+        "proportionality decision matrix",
+        "mandatory floor set",
+        "selected candidates",
+        "deferred candidates with return conditions",
+        "rejected or disproportionate candidates"
+      ],
+      "evidence_to_advance": [
+        "mandatory floors are not traded away",
+        "deferred capabilities preserve return conditions",
+        "higher-risk branches retain authority and release gates",
+        "overengineering and underengineering risks are both evaluated"
+      ],
+      "failure_behavior": "Use BLOCKED_BY_CONTRACT or REJECT for floor conflicts; REVIEW for resolvable proportionality ambiguity; RESCOPE_REQUIRED when adequate controls change the task center.",
+      "next_step_rule": "Advance to M9 when selection constraints are explicit.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M9",
+      "name": "Select the smallest sufficient operative candidate set",
+      "action": "Select the minimum capability set sufficient for the active step while preserving mandatory floors, dependencies, knowledge depth, path completeness and evaluation ability.",
+      "preconditions": [
+        "M8 complete"
+      ],
+      "required_inputs": [
+        "proportionality matrix",
+        "candidate capability graph",
+        "path and benchmark",
+        "acceptance criteria"
+      ],
+      "expected_outputs": [
+        "selected capability set",
+        "deferred set with resume conditions",
+        "excluded set with reasons",
+        "dependency closure result"
+      ],
+      "evidence_to_advance": [
+        "the selected set is sufficient for correctness and evaluation",
+        "no required path stage or benchmark criterion is orphaned",
+        "scope is not silently expanded",
+        "selection is candidate-only until compiled into Orbit 0"
+      ],
+      "failure_behavior": "Return to M6 or M7 when selection reveals a missing dependency or benchmark hole; use REVIEW when sufficiency cannot be established.",
+      "next_step_rule": "Advance to M10 when the candidate set is coherent.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+        "ADAPTATION_AND_EXECUTION_PLANNING"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M10",
+      "name": "Construct branch-specific candidate artifacts",
+      "action": "Compile task-scoped outputs: capability envelope and Session Domain Overlay; synthetic role and benchmark; or Detailed Domain Package candidate using the Registry template and Translator outputs.",
+      "preconditions": [
+        "M9 complete"
+      ],
+      "required_inputs": [
+        "selected capability set",
+        "domain and source state",
+        "knowledge-to-execution path",
+        "branch-specific template and acceptance criteria"
+      ],
+      "expected_outputs": [
+        "branch-specific candidate artifacts",
+        "traceability from source and capability decisions",
+        "unresolved gaps and promotion requirements"
+      ],
+      "evidence_to_advance": [
+        "candidate artifacts preserve source-of-truth boundaries",
+        "Domain Package candidates contain all required template fields",
+        "Session overlays remain task-scoped",
+        "synthetic roles do not transfer human identity or authority"
+      ],
+      "failure_behavior": "Use REVIEW for incomplete candidate structure, EVIDENCE_REQUIRED for missing source backing, and REJECT for authority or fixture-runtime violations.",
+      "next_step_rule": "Advance to M11 when fixture or representative-task evaluation applies; otherwise record M11 as SKIPPED_APPROVED and advance to M12.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "ADAPTATION_AND_EXECUTION_PLANNING"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M11",
+      "name": "Evaluate fixtures, representative tasks and benchmark behavior",
+      "action": "Test Detailed Domain Package or synthetic benchmark candidates against golden fixtures, paired negative fixtures, representative tasks, defect classes, authority boundaries and path-completeness requirements.",
+      "preconditions": [
+        "M10 produced an applicable candidate"
+      ],
+      "required_inputs": [
+        "candidate artifact",
+        "Registry fixture suite",
+        "representative task set",
+        "canonical defect classes",
+        "benchmark acceptance criteria",
+        "test_evidence_mode",
+        "regulatory evidence obligation and required evidence class when material"
+      ],
+      "expected_outputs": [
+        "fixture and representative-task results",
+        "defect ledger",
+        "required remediation",
+        "promotion or approval readiness state",
+        "test-evidence summary",
+        "full test-evidence package references when enabled or required",
+        "reproducibility and sanitization limits"
+      ],
+      "evidence_to_advance": [
+        "golden cases pass expected structure and knowledge-processing checks",
+        "negative cases are rejected for expected reasons",
+        "fixtures never become runtime truth",
+        "representative tasks cover applicability, exceptions, failure localization and result evaluation",
+        "each evaluation is classified as REPRODUCIBLE_EXECUTABLE, REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED",
+        "FULL_TEST_EVIDENCE runs preserve actual definitions, invocation, inputs, results, available logs, fixtures and review instructions",
+        "SUMMARY_ONLY runs disclose that exact reproducibility evidence was not preserved when applicable",
+        "manual or model judgment is not mislabeled as deterministic execution",
+        "mandatory regulatory evidence obligations are satisfied by qualifying evidence or remain REVIEW/EVIDENCE_REQUIRED",
+        "prior summary-only runs are not retroactively reconstructed"
+      ],
+      "failure_behavior": "Route failed golden cases or accepted negative cases to REJECTED_INSUFFICIENT_PATH or REVIEW; prohibit Domain Package promotion until required tests pass. If full evidence is required but unavailable, route to EVIDENCE_REQUIRED. If full mode was enabled only after the prior run, require a new authorized run and do not reconstruct prior evidence.",
+      "next_step_rule": "Advance to M12 when evaluation evidence is complete or a clear REVIEW/REJECT decision is established.",
+      "applicable_branches": [
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "EXECUTION",
+        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    },
+    {
+      "step_id": "M12",
+      "name": "Finalize method decision, evidence ledger, routing and handoff",
+      "action": "Validate required evidence, set method and step states, surface APPROVE-candidate, REVIEW, REJECT, EVIDENCE_REQUIRED or RESCOPE_REQUIRED outcome, preserve unresolved requests and produce handoff-safe continuation state.",
+      "preconditions": [
+        "all required branch steps are complete, validly skipped, blocked with explicit gate, or failed with explicit decision"
+      ],
+      "required_inputs": [
+        "method execution state",
+        "step evidence ledger",
+        "candidate outputs",
+        "required-input state",
+        "benchmark or fixture results",
+        "blockers and approvals",
+        "test-evidence mode and evidence references",
+        "regulatory evidence obligation state",
+        "reproducibility and rerun state"
+      ],
+      "expected_outputs": [
+        "final method execution record",
+        "candidate outputs for bound artifact decision",
+        "exact next gate",
+        "handoff state with hashes, steps, requests and rebind triggers",
+        "handoff-safe test-evidence state",
+        "exact evidence references or visible summary-only limitation"
+      ],
+      "evidence_to_advance": [
+        "no step is closed without evidence or permitted waiver",
+        "method completion is not represented as task execution proof",
+        "receiver delivery state is explicit",
+        "unresolved inputs and stale dependencies survive handoff",
+        "test-evidence toggle is not represented as proof that tests ran",
+        "missing mandatory regulatory evidence blocks approval or closure",
+        "prior summary-only evidence is not retroactively fabricated"
+      ],
+      "failure_behavior": "If evidence is missing, emit EVIDENCE_REQUIRED or REVIEW and keep method incomplete. If a hard boundary fails, emit REJECT. If the task center changed, emit RESCOPE_REQUIRED. Otherwise return candidate outputs to the bound Orbit 0 benchmark.",
+      "next_step_rule": "End the method invocation; any later resumption must revalidate freshness, package identity, required inputs and the bound Orbit 0 artifact.",
+      "applicable_branches": [
+        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
+        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
+        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
+        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
+      ],
+      "knowledge_to_execution_stage_links": [
+        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+        "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+      ],
+      "method_step_gate_effects": {
+        "ALLOW": "advance when evidence_to_advance is satisfied",
+        "REVIEW": "suspend only the affected action and request the smallest resolving input",
+        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
+        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
+        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
+      }
+    }
+  ],
+  "proportionality_contract": {
+    "sets": [
+      "MANDATORY_FLOOR",
+      "SELECTED",
+      "DEFERRED_WITH_RETURN_CONDITION",
+      "REJECTED_OR_DISPROPORTIONATE"
+    ],
+    "selection_test": "A capability is selected only when it materially affects correctness, interpretation, safety, proportionality, usefulness, evidence quality or result evaluation for the active step.",
+    "floor_rule": "Safety, integrity, authority, source-rights and other mandatory floors cannot be deferred merely to reduce effort.",
+    "deferred_state_rule": "Deferred capabilities retain reason, dependency, resume condition and target step."
+  },
+  "fixture_validation_contract": {
+    "fixtures_are_runtime_authority": false,
+    "golden_fixture_role": "Positive construction and validation benchmark only.",
+    "negative_fixture_role": "Invalid construction case with expected defect classes and rejection behavior.",
+    "pairing_required": true,
+    "canonical_defect_classes": [
+      "LOOKUP_AND_EXECUTE_BASELINE_ONLY",
+      "PROCEDURAL_KNOWLEDGE_WITHOUT_DOMAIN_COMPREHENSION",
+      "INSUFFICIENT_COGNITIVE_DEPTH",
+      "UNSOURCED_EXPERIENCE_CLAIM",
+      "HUMAN_ROLE_OR_AUTHORITY_TRANSFER",
+      "APPLICABILITY_OR_EXCEPTION_ANALYSIS_MISSING",
+      "RESULT_EVALUATION_MISSING"
+    ],
+    "promotion_rule": "A candidate Detailed Domain Package cannot be approved from schema completeness alone; source validation, paired fixture behavior and representative-task evaluation are required."
+  },
+  "staleness_policy": {
+    "review_triggers": [
+      "foundation file hash or floor invariant changed",
+      "Registry, Translator or Architect designation, hash or schema changed",
+      "package manifest regenerated or superseded",
+      "approved Domain Package or source standard changed",
+      "jurisdiction, regulation, clinical guidance, platform behavior or other unstable authority changed",
+      "bound Orbit 0 task center, active step, risk, acceptance criteria or source set materially changed",
+      "handoff resumes after unresolved required inputs or stale state"
+    ],
+    "stale_state": "STALE_NEEDS_REGROUND",
+    "behavior": "Suspend only affected method steps, identify the stale dependency, request exact current inputs when needed, rerun impacted steps and invalidate downstream evidence that depended on the stale state.",
+    "no_silent_reuse": true
+  },
+  "handoff_requirements": {
+    "required_fields": [
+      "method_id and version",
+      "active branch",
+      "method_execution_state",
+      "current and completed step states",
+      "step evidence ledger",
+      "component designations, filenames and hashes",
+      "bound Orbit 0 artifact identity",
+      "selected, deferred and rejected capabilities",
+      "domain matches and Domain Package references",
+      "knowledge dimensions and cognitive depth",
+      "knowledge-to-execution path state",
+      "fixture or representative-task results",
+      "required-input request state",
+      "blockers, approvals and next gate",
+      "staleness and rebind triggers",
+      "test-evidence mode, mode source and effective-from boundary",
+      "test-evidence recommendation and regulatory evidence obligation state",
+      "produced suite, run manifest, per-test result, log, fixture and README references",
+      "test-evidence class, reproducibility limits, sanitization state and rerun requirement"
+    ],
+    "continuation_rule": "A Handoff Card is continuation-bootstrap input only. The receiver must validate the card, exact required files, source state and exactly one Orbit 0 artifact before restoring method state. Restore AIR-FLOOR-017 state without treating a handoff reference as proof of test execution or regulatory sufficiency.",
+    "missing_file_rule": "Fail closed for the affected action and name the exact missing canonical file or smallest resolving capability role."
+  },
+  "binding_requirements": {
+    "sequence": [
+      "ATTACHED_OR_DISCOVERED",
+      "CLASSIFIED",
+      "PACKAGE_INTEGRITY_CHECKED",
+      "COMPATIBILITY_REVIEWED",
+      "SELECTED",
+      "USER_APPROVED_FOR_USE_WHEN_REQUIRED",
+      "COMPILED_INTO_OR_EXPLICITLY_REFERENCED_BY_BOUND_ORBIT_0_ARTIFACT"
+    ],
+    "automatic_binding_prohibited": true,
+    "presence_effect": "AVAILABILITY_ONLY",
+    "required_record": [
+      "component designations and versions",
+      "manifest identity when available",
+      "exact approved scope",
+      "authorized and excluded effects",
+      "conflicts and precedence",
+      "required evidence",
+      "staleness state"
+    ],
+    "orbit_rule": "The Method Pack never becomes the Orbit 0 authority. Its selected procedure is represented in AIR_ARTIFACT.method."
+  },
+  "review_checkpoints": [
+    {
+      "checkpoint": "PACKAGE_AND_BINDING",
+      "step": "M0",
+      "decision_focus": "identity, freshness, exactly one Orbit 0 artifact and allowed branch"
+    },
+    {
+      "checkpoint": "SOURCE_AND_REQUIRED_INPUT",
+      "step": "M2",
+      "decision_focus": "availability, authority, rights, freshness, exact requests and safe fallback"
+    },
+    {
+      "checkpoint": "HUMAN_TO_MACHINE_BOUNDARY",
+      "step": "M4",
+      "decision_focus": "transferable capability versus protected human status, authority, embodiment and accountability"
+    },
+    {
+      "checkpoint": "KNOWLEDGE_DEPTH",
+      "step": "M5",
+      "decision_focus": "factual, conceptual, procedural and metacognitive completeness plus task-bounded cognitive depth"
+    },
+    {
+      "checkpoint": "PATH_AND_BENCHMARK",
+      "step": "M7",
+      "decision_focus": "all ten stages, observable evidence, defect classes and human boundaries"
+    },
+    {
+      "checkpoint": "PROPORTIONALITY_AND_SELECTION",
+      "steps": [
+        "M8",
+        "M9"
+      ],
+      "decision_focus": "mandatory floor, sufficiency, scope and dependency closure"
+    },
+    {
+      "checkpoint": "FIXTURE_AND_REPRESENTATIVE_TASK",
+      "step": "M11",
+      "decision_focus": "golden pass, negative rejection and representative-task evidence"
+    },
+    {
+      "checkpoint": "TEST_EVIDENCE_AND_REPRODUCIBILITY",
+      "steps": [
+        "M0",
+        "M11",
+        "M12"
+      ],
+      "decision_focus": "selected evidence mode, actual run evidence, reproducibility class, sanitization limits, retroactivity, regulatory obligation and closure effect"
+    },
+    {
+      "checkpoint": "CLOSURE_AND_HANDOFF",
+      "step": "M12",
+      "decision_focus": "evidence-to-close, receiver delivery, unresolved requests and rebind triggers"
+    }
+  ],
+  "legacy_method_mapping": {
+    "M1_ESTABLISH_PROJECT_AND_TASK_EXECUTION_ENVELOPES": [
+      "M1"
+    ],
+    "M2_MAP_CANDIDATE_DOMAINS": [
+      "M3"
+    ],
+    "M3_TRANSLATE_HUMAN_ORIENTED_FRAMEWORKS": [
+      "M4"
+    ],
+    "M4_EXPAND_CANDIDATE_CAPABILITY_ENVELOPE": [
+      "M5",
+      "M6",
+      "M7"
+    ],
+    "M5_APPLY_RISK_AND_PROPORTIONALITY": [
+      "M8"
+    ],
+    "M6_SELECT_SMALLEST_SUFFICIENT_OPERATIVE_SET": [
+      "M9"
+    ],
+    "M7_SURFACE_GAPS_AND_ROUTING": [
+      "M2",
+      "M12"
+    ],
+    "preservation_state": "ALL_SOURCE_METHOD_FUNCTIONS_PRESERVED_AND_EXPANDED"
+  },
+  "validation_contract": {
+    "component_validation_scope": "Strict JSON, duplicate-key, schema, source-preservation, foundation-compatibility, dependency-hash, method-step completeness, authority, knowledge-processing, path, required-input, fixture, test-evidence, reproducibility, staleness and handoff validation.",
+    "required_test_classes": [
+      "normal task capability-envelope branch",
+      "human-framework translation branch",
+      "synthetic-role and benchmark branch",
+      "Detailed Domain Package construction branch",
+      "documentation-only negative case",
+      "procedural-only negative case",
+      "insufficient cognitive-depth case",
+      "unsupported experience claim",
+      "human authority-transfer case",
+      "missing exact file or package case",
+      "stale dependency and handoff-resume case",
+      "fixture-runtime leakage case",
+      "result-evaluation missing case",
+      "summary-only default and compact reporting case",
+      "full test-evidence enabled before run case",
+      "full test-evidence enabled after prior summary-only run case",
+      "replayable semantic evaluation case",
+      "manual review classification case",
+      "sanitized log and restricted evidence case",
+      "Governance-present regulatory evidence recommendation case",
+      "mandatory regulatory evidence missing at closure case"
+    ],
+    "hard_pass_conditions": [
+      "strict JSON parse succeeds with no duplicate keys",
+      "all Core AIR_METHOD_PACK minimum fields are present",
+      "every ordered step contains all required Core method-step fields",
+      "all seven source method functions are preserved",
+      "all ten AIR-FLOOR-015 stages are represented",
+      "AIR-FLOOR-016 exact request and no-repeat behavior are present",
+      "lookup-and-execute-only behavior cannot complete the method",
+      "human title, licence, credential, employment, institutional authority and legal accountability do not transfer",
+      "fixtures have no runtime authority",
+      "Domain Packages remain sources of truth and Specialists remain optional consumers",
+      "method completion is not task execution proof",
+      "component hashes match current validated files",
+      "source file remains unchanged",
+      "exact delivery copy hash matches working copy",
+      "AIR-FLOOR-017 is present and SUMMARY_ONLY is the default",
+      "air -t on and air -t off affect subsequent evidence packaging without changing test rigor or scope",
+      "full evidence output names the actual suite or definitions, run manifest, per-test results, log, fixtures and README when available",
+      "manual or model judgment is not represented as deterministic execution",
+      "prior summary-only runs are not retroactively reconstructed",
+      "regulatory evidence required for closure remains REVIEW or EVIDENCE_REQUIRED until qualifying evidence exists",
+      "handoff preserves mode, evidence references, reproducibility limits and rerun state"
+    ],
+    "claim_scope": "Prompt-side, file-backed component validation only. No claim of backend enforcement, external taxonomy correctness, corpus completeness, professional competence, legal compliance, representative-task effectiveness or production readiness. Test evidence is reviewable only to the level of actual preserved definitions, inputs, commands, environment, outputs, logs, fixtures, rights and redaction state. No hidden reasoning or unavailable backend evidence is claimed."
+  },
+  "claim_boundary": "This Method Pack defines a reusable prompt-side procedure and evidence gates. It does not prove that a model comprehended a domain, executed a task correctly, possesses human experience or professional authority, or passed an external benchmark. Such claims require task-specific observable evidence and applicable qualified review.",
+  "package_state": {
+    "component_state": "VALIDATED_AVAILABLE_UNBOUND_PACKAGE_COMPLETE",
+    "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+    "completed_components": [
+      "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json"
+    ],
+    "remaining_required_components": [],
+    "manifest_regeneration_required": false,
+    "next_serial_checkpoint": null,
+    "known_cross_file_normalization_pending": [],
+    "package_completion_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+    "normalized_at": "2026-08-03T21:46:00+02:00",
+    "manifest_state": "GENERATED_VALIDATED_AVAILABLE_UNBOUND",
+    "completed_at": "2026-08-03T21:46:00+02:00"
+  },
+  "amendment_history": [
+    {
+      "amendment_id": "AIR_TEST_EVIDENCE_REPRODUCIBILITY_V2",
+      "amendment_version": "2.1.0",
+      "approved_scope": "Opt-in full test-evidence packages, SUMMARY_ONLY default, CLI-like air -t toggle, post-Q5 recommendation for Q2=C Q3=A Q4=A, regulatory evidence recommendation when Governance is present, no hidden reasoning and no retroactive fabrication.",
+      "source_v2_sha256": "0fafd752238d3a9554de5c52abfe9e7f197fd836fd81ca79aae0e49f727ceaae"
+    }
+  ],
+  "integration_refresh": {
+    "refresh_version": "2.2.0",
+    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
+    "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+  }
+}

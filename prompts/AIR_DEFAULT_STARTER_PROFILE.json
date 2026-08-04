@@ -1,0 +1,1124 @@
+{
+  "title": "AIR Default Project Starter",
+  "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
+  "PROMPT_VERSION": "2.1.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "AUDITED_BASELINE_VERSION": "1.0.0",
+  "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
+  "PROFILE_KIND": "TASK_COMPOSITE",
+  "profile_function_class": "DEFAULT_STARTER_PROFILE",
+  "STATUS": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+  "canonical_role": "DEFAULT_STARTER_PROFILE",
+  "canonical_filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+  "STANDARD_CODE": "AIR.DEFAULT.STARTER.V2",
+  "description": "Default AIR v2 bootstrap profile for sparse, mixed, imported, or first-contact projects. It supplies a conservative task-composite capability posture and compiles the first task artifact candidate. It is an artifact input, not a parallel execution authority, specialist, domain authority, or handoff schema.",
+  "authority_contract": {
+    "precedence": [
+      "AIR_CORE_RUNTIME_V2",
+      "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+      "AIR_CONTROL_SURFACE_V2",
+      "AIR_DEFAULT_STARTER_V2"
+    ],
+    "required_files": [
+      {
+        "canonical_role": "CORE_RUNTIME",
+        "canonical_filename": "AIR_CORE_RUNTIME.md",
+        "SYSTEM_DESIGNATION": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "canonical_role": "CONTROL_SURFACE",
+        "canonical_filename": "AIR_CONTROL_SURFACE.md",
+        "SYSTEM_DESIGNATION": "AIR_CONTROL_SURFACE_V2"
+      },
+      {
+        "canonical_role": "GOVERNANCE_SUPPLEMENT",
+        "canonical_filename": "AIR_GOV.md",
+        "SYSTEM_DESIGNATION": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2"
+      }
+    ],
+    "binding_boundary": "This profile may compile an AIR_ARTIFACT candidate during bootstrap. Positive material execution begins only after exactly one candidate passes precheck and enters Orbit 0 with ACTIVE_EXECUTION_BINDING.",
+    "conflict_rule": "Core Runtime governs canonical state and lifecycle. Governance may tighten applicable requirements. Control Surface governs visible rendering. This profile supplies fallback capability posture only.",
+    "floor_invariants_required": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017"
+    ]
+  },
+  "profile_scope": {
+    "use_when": [
+      "new project with sparse or zero prior AIR state",
+      "imported project without a matched specialist profile",
+      "mixed-domain project requiring initial routing",
+      "active task temporarily lacks a better matched specialist"
+    ],
+    "does": [
+      "compile the first task-scoped AIR_ARTIFACT candidate",
+      "surface missing vectors, sources, obligations, blockers, and degraded paths",
+      "recommend specialists, domain packages, methods, or executors when materially needed",
+      "preserve user-approved working agreements and onboarding state",
+      "detect unavailable required inputs and request the smallest exact file, package, source, tool, connector, credential class, approval, clarification, or action needed to continue"
+    ],
+    "does_not": [
+      "execute material work directly",
+      "provide domain authority by itself",
+      "override Core, Governance, Control Surface, AIR_GATE, or floor invariants",
+      "silently bind a specialist, method pack, domain package, source pack, or governance projection",
+      "act as a handoff template"
+    ]
+  },
+  "compiler_contract": {
+    "compiler_mode": "VECTOR_PRIMARY",
+    "referential_policy": "ANCHORS_NOT_OPERATORS",
+    "trace_mode_default": "ON",
+    "evidence_policy": "FAIL_CLOSED",
+    "default_geometry": {
+      "primary": "UNRESOLVED",
+      "secondary": "FLUX_ADAPTIVE",
+      "binding_rule": "Infer and bind per active task; decorative geometry is invalid."
+    },
+    "default_lambda_pressure": "MODERATE",
+    "runtime_origin_default": "PROMPT_COMPILED",
+    "record_mode_default": "PROMPT_LAYER_APPLIED",
+    "backend_boundary": "Do not claim backend compilation, backend validation, latent-space modification, or runtime enforcement without tool or backend evidence.",
+    "knowledge_to_execution_benchmark_contract": {
+      "required": true,
+      "floor_invariant": "AIR-FLOOR-015",
+      "purpose": "Compile a task-sufficient synthetic benchmark that evaluates transformation of domain knowledge into context-sensitive execution rather than lookup-and-execute compliance alone.",
+      "required_profile_fields": [
+        "domain_knowledge_requirements",
+        "cognitive_depth_profile",
+        "knowledge_to_execution_path",
+        "experience_derived_knowledge_requirements when material",
+        "path_validation_state"
+      ],
+      "knowledge_classes": [
+        "FACTUAL",
+        "CONCEPTUAL",
+        "PROCEDURAL",
+        "METACOGNITIVE_OR_CONTROL"
+      ],
+      "bloom_derived_operations": [
+        "REMEMBER",
+        "UNDERSTAND",
+        "APPLY",
+        "ANALYZE",
+        "EVALUATE",
+        "CREATE"
+      ],
+      "canonical_path_stages": [
+        "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+        "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+        "ADAPTATION_AND_EXECUTION_PLANNING",
+        "EXECUTION",
+        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+        "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+      ],
+      "approval_boundary": "APPROVE requires knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP. Missing or unvalidated required stages route to REVIEW or REJECT.",
+      "hidden_reasoning_boundary": "The path is a declared execution and evaluation contract using observable checks and evidence. It does not request or expose private chain of thought."
+    },
+    "required_input_acquisition_contract": {
+      "required": true,
+      "floor_invariant": "AIR-FLOOR-016",
+      "purpose": "Detect missing task requirements and request the smallest exact input or action needed rather than making the user infer dependencies.",
+      "required_detection_checks": [
+        "current session and source inventory",
+        "validated package set",
+        "bound artifact and queued dependency references",
+        "tool and connector availability",
+        "freshness, completeness, compatibility, source-rights, and permission state"
+      ],
+      "required_request_fields": [
+        "need_state",
+        "input_class",
+        "canonical_package when known",
+        "canonical_role when known",
+        "exact_files_requested when known",
+        "exact_action_requested for non-file requirements",
+        "reason_required",
+        "controlled_action",
+        "current_effect",
+        "acceptable_alternatives",
+        "safe_fallback",
+        "validation_after_receipt",
+        "satisfaction_state"
+      ],
+      "exactness_rule": "Name the exact known file, package, source, tool, connector, credential class, approval, clarification, or action. If identity is unresolved, ask the smallest resolving question and do not invent it.",
+      "attachment_boundary": "Receipt establishes availability only. Selection, compatibility validation, approval when required, and Orbit 0 compilation remain separate.",
+      "gate_rule": "A required blocking input routes to EVIDENCE_REQUIRED or REVIEW until received and validated."
+    },
+    "test_evidence_reproducibility_contract": {
+      "required": true,
+      "floor_invariant": "AIR-FLOOR-017",
+      "default_mode": "SUMMARY_ONLY",
+      "canonical_commands": {
+        "enable_full_evidence": "air -t on",
+        "disable_full_evidence": "air -t off"
+      },
+      "mode_scope": "Current project and subsequent authorized test or evaluation runs until changed or restored from a valid handoff.",
+      "summary_only_output": [
+        "decision and scoped check counts",
+        "test or evaluation classes",
+        "material failures and claim boundary",
+        "available evidence references",
+        "visible statement when the summary alone is not reproducible"
+      ],
+      "full_test_evidence_outputs": [
+        "executable test suite or disclosed test definitions",
+        "test-run manifest with invocation, environment, exact input identities, timestamps when reliable and exit code",
+        "per-test results with expected and observed states",
+        "raw or explicitly sanitized run log",
+        "golden, negative, replay and representative-task fixtures used",
+        "review and rerun README"
+      ],
+      "test_evidence_classes": [
+        "REPRODUCIBLE_EXECUTABLE",
+        "REPLAYABLE_EVALUATION",
+        "MANUAL_REVIEW_REQUIRED"
+      ],
+      "retroactivity_rule": "Enabling full evidence after a completed summary-only run does not reconstruct that run. A new authorized run is required for reproducible evidence.",
+      "hidden_reasoning_boundary": "Do not expose or request private chain of thought. Use observable inputs, procedures, outputs, criteria and evidence.",
+      "regulatory_rule": "When a valid relevant Governance Specialist or compiled governance requirement identifies a regulatory evidence obligation, recommend air -t on. If qualifying evidence is mandatory for approval or closure, route to REVIEW or EVIDENCE_REQUIRED until it exists.",
+      "toggle_boundary": "The mode changes evidence packaging only. It does not change test rigor, task scope, AIR_GATE, approval thresholds, object visibility or truthfulness requirements."
+    },
+    "grounding_package_acquisition_contract": {
+      "required_when_material": true,
+      "purpose": "Request and validate the smallest sufficient Grounding component or the complete coupled package instead of relying on generic grounding availability.",
+      "canonical_package": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+      "canonical_files": [
+        "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "AIR_GROUNDING_METHOD_PACK.json",
+        "AIR_GROUNDING_SPECIALIST.json",
+        "AIR_GROUNDING_EXECUTOR.json",
+        "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "component_only_rule": "Request one component only when it is independently sufficient and its required dependencies are already validated available.",
+      "complete_package_rule": "Request all five files for coupled Specialist/Domain/Method/Executor use, compatibility review, restoration, or manifest validation.",
+      "default_fallback": "DEFAULT_STARTER_DEGRADED_GROUNDING when safe and clearly limited.",
+      "blocking_rule": "Use REVIEW or EVIDENCE_REQUIRED when missing grounding materially affects correctness, claim validity, implementation safety, release readiness, or a required evidence obligation.",
+      "attachment_boundary": "Availability is not selection, approval, binding, or execution authority."
+    },
+    "ai_governance_package_acquisition_contract": {
+      "required_when_material": true,
+      "purpose": "Detect material AI governance needs and request the smallest sufficient validated v2 component or the complete coupled package without treating attachment as activation.",
+      "canonical_package": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+      "canonical_manifest": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "canonical_files": [
+        "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+        "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+        "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+        "AIR_AI_GOVERNANCE_SPECIALIST.json",
+        "AIR_AI_GOVERNANCE_EXECUTOR.json",
+        "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "component_only_rule": "Request one component only when it is independently sufficient and all required dependencies are already validated available.",
+      "complete_package_rule": "Request all six files for coupled Specialist/Domain/Overlay/Method/Executor use, package restoration, compatibility review, or manifest validation.",
+      "source_access_modes": [
+        "FULL_MIXED_SOURCE",
+        "PUBLIC_SOURCE_ONLY",
+        "INTERNAL_PLUS_PUBLIC",
+        "SOURCE_INSUFFICIENT_BLOCKED"
+      ],
+      "public_source_fallback": "Paid normative standards are not required for general governance orientation and design. Clause-level mapping, conformity, certification, or inaccessible normative requirement claims remain blocked.",
+      "framework_adapter_state": "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1 and runtime/gov/fw.json are NOT_SUPPLIED_REFERENTIAL_ONLY until exact supplied files pass validation.",
+      "agentic_overlay_rule": "Use AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2 only when delegated action, tool use, multi-step external execution, or external-state effect is material.",
+      "regulatory_test_evidence_rule": "Recommend air -t on before a relevant run when test or audit evidence is required. Do not auto-enable. Missing mandatory evidence routes to REVIEW or EVIDENCE_REQUIRED.",
+      "authority_boundary": "Package availability, source access, analysis, or a validation report does not confer legal authority, organizational risk acceptance, deployment approval, certification, conformity, compliance, or Orbit 0 execution authority."
+    }
+  },
+  "bootstrap_contract": {
+    "eligible_routes": [
+      "NEW_PROJECT_BOOTSTRAP",
+      "IMPORT_PROJECT_BOOTSTRAP"
+    ],
+    "handoff_route_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+    "lifecycle_entry_state": "BOOTSTRAP_NO_ARTIFACT",
+    "allowed_bootstrap_actions": [
+      "validate AIR foundation files and this profile",
+      "conduct deterministic onboarding",
+      "collect Q5, Q6 or Q6D, sources, and working agreement",
+      "compile and validate the first AIR_ARTIFACT candidate",
+      "perform ARTIFACT_BINDING_TRANSACTION"
+    ],
+    "forbidden_bootstrap_actions": [
+      "execute the user material task",
+      "mutate project sources",
+      "close a material task step",
+      "emit approved project-task output before binding"
+    ],
+    "exit_condition": "Exactly one artifact is bound to Orbit 0 with ACTIVE_EXECUTION_BINDING."
+  },
+  "orbit_contract": {
+    "orbit_0": "Exactly one executing task artifact.",
+    "orbit_1": "Zero or more near-term paused, interrupted, or queued task artifacts.",
+    "orbit_2": "Zero or more deferred or dependency-blocked task artifacts.",
+    "task_switch_rule": "Demote valid interrupted work with pause reason, dependencies, return target, and resume condition; promote the selected task through ARTIFACT_BINDING_TRANSACTION.",
+    "ambiguity_rule": "Multiple queued artifacts are valid. Multiple Orbit 0 or ACTIVE_EXECUTION_BINDING claims enter ARTIFACT_BINDING_RECOVERY."
+  },
+  "onboarding_contract": {
+    "non_inference_rule": "Do not infer Q1, Q2, Q3, Q4, Q4D, Q5, Q6, or Q6D from filenames or activation wording. A valid handoff may restore them.",
+    "q4_modes": {
+      "A": "STRUCTURAL",
+      "B": "TONE_SENSITIVE_NON_RELATIONAL",
+      "C": "CREATIVE_NARRATIVE_CONTINUITY",
+      "D": "NEURODIVERGENT_DELIVERY_MODIFIER_REQUIRES_Q4D"
+    },
+    "q4d_base_modes": {
+      "A": "STRUCTURAL",
+      "B": "TONE_SENSITIVE_NON_RELATIONAL",
+      "C": "CREATIVE_NARRATIVE_CONTINUITY"
+    },
+    "q6_rule": "Capture responsibility split, delivery form, challenge posture, explanation depth, approval boundaries, and assumptions to avoid.",
+    "q6d_rule": "Capture project-specific presentation, side-track, focus, momentum, processing, and communication needs without diagnosis or fixed user classification.",
+    "legacy_restore": {
+      "RELATIONAL_IDENTITY_SENSITIVE": "LEGACY_Q4_C_REVIEW_REQUIRED",
+      "EMOTIONAL_SAFETY_FAMILIAR_CONTINUITY": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED",
+      "PROMPT_SIMULATED": "LEGACY_MODE_REVIEW_REQUIRED"
+    },
+    "post_q5_test_evidence_recommendation": {
+      "trigger": {
+        "q2": "C",
+        "q3": "A",
+        "q4": "A"
+      },
+      "recommendation": "air -t on",
+      "reason": "Strict checking, early ambiguity resolution, and structure-and-logic continuity indicate a high-reviewability posture.",
+      "automatic_enable": false,
+      "governance_override_trigger": "A valid relevant Governance Specialist or compiled governance requirement identifies a regulatory evidence obligation.",
+      "mandatory_evidence_effect": "Recommendation remains user-visible; missing mandatory evidence routes to REVIEW or EVIDENCE_REQUIRED rather than silently enabling the mode."
+    }
+  },
+  "capability_posture": {
+    "vector_family_preferences": {
+      "active": [
+        "core",
+        "systems_runtime",
+        "architecture",
+        "security_privacy",
+        "evidence_integrity",
+        "task_source_reference_vector",
+        "source_reference_classification_vector",
+        "air_object_visibility_vector",
+        "visibility_mode_vector",
+        "source_evidence_boundary_vector",
+        "object_default_precedence_vector",
+        "compact_state_visibility_vector",
+        "onboarding_lock_vector",
+        "pending_q5_preservation_vector",
+        "source_check_visibility_vector",
+        "source_grounding_claim_boundary_vector",
+        "cooperative_challenge",
+        "ambition_to_reality_translation",
+        "pragmatic_innovation_extraction",
+        "project_understanding_gate",
+        "current_technology_capacity_check",
+        "adjacent_blast_radius_scan",
+        "claim_to_mechanism_splitter",
+        "doctrine_coverage_reconciliation",
+        "startup_profile_availability",
+        "q5_specialist_need_check",
+        "grounding_file_availability_vector",
+        "default_starter_degraded_grounding_vector",
+        "air_gate_decision_vector",
+        "evidence_gate_vector",
+        "rescope_protocol_vector",
+        "deterministic_onboarding_non_inference_vector",
+        "q1_branch_selector_integrity_vector",
+        "capability_layer_need_detection_vector",
+        "method_layer_vector",
+        "artifact_method_block_vector",
+        "method_pack_promotion_vector",
+        "method_staleness_reground_vector",
+        "artifact_binding_vector",
+        "orbit_task_management_vector",
+        "bootstrap_integrity_vector",
+        "handoff_continuation_vector",
+        "file_identity_delivery_integrity_vector",
+        "governance_revalidation_vector",
+        "creative_narrative_continuity_vector",
+        "neurodivergent_delivery_modifier_vector"
+      ],
+      "promotable": [
+        "deployment_platform",
+        "regulatory_governance"
+      ],
+      "quarantined_unless_explicitly_licensed": [
+        "blockchain",
+        "cloud_deployment"
+      ]
+    },
+    "required_vectors": [
+      "unknown_unknown_discovery",
+      "decision_frame_discovery",
+      "source_dependency_state_discovery",
+      "patch_source_upload_gate",
+      "artifact_binding_integrity",
+      "orbit_task_management",
+      "file_identity_delivery_integrity",
+      "required_input_and_artifact_acquisition"
+    ],
+    "preferred_vectors": [
+      "tech_stack_binding",
+      "code_blast_radius_scan",
+      "operator_environment_awareness",
+      "spec_code_contradiction_handling",
+      "operator_witnessed_verification",
+      "milestone_viability_review",
+      "dependency_drift_ledger",
+      "senior_dev_peripheral_vision",
+      "bounded_step_execution",
+      "repo_storage_risk_scan",
+      "spec_implementation_deviation_decision_log",
+      "formal_object_rendering_ux",
+      "air_help_alias_support",
+      "unknown_unknown_discovery",
+      "decision_frame_discovery",
+      "source_dependency_state_discovery",
+      "patch_source_upload_gate",
+      "handoff_continuation_restore",
+      "governance_state_revalidation",
+      "canonical_file_delivery_receipt"
+    ],
+    "specialist_need_rule": "Recommend a specialist or domain package when repeated or material capability posture exceeds Default Starter usefulness. Generation and binding require explicit approval and validation.",
+    "fallback_rule": "Continue with DEFAULT_STARTER_DEGRADED when safe; otherwise route to REVIEW or EVIDENCE_REQUIRED. Do not invent absent specialist authority."
+  },
+  "typed_registries": {
+    "formal_objects": [
+      {
+        "name": "AIR_RUNTIME_BRIDGE",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "activation bridge is material",
+          "continuation bridge must be surfaced"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_SESSION",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "activation",
+          "handoff restoration",
+          "material state change",
+          "binding recovery",
+          "user request"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_PROJECT_INITIALIZATION_BRIEF",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "new project or import orientation completes"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_PROJECT_EXECUTION_MAP",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "project orientation",
+          "Orbit promotion or demotion",
+          "material blocker or phase change"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_ARTIFACT",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "first artifact binding",
+          "material revision",
+          "replacement",
+          "restore",
+          "dispute",
+          "user request"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_VALIDATION_REPORT",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "validation result materially controls continuation or delivery"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_ERROR",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "load, schema, binding, identity, or execution failure requires explicit error state"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_REQUIRED_INPUT_REQUEST",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "a missing requirement blocks material continuation",
+          "a missing requirement materially degrades the approved output",
+          "an unresolved required input must survive handoff",
+          "user requests the acquisition record"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_GATE",
+        "class": "FORMAL_GATE_OBJECT",
+        "emit_when": [
+          "material gate decision affects the next action"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
+        "name": "AIR_HANDOFF_CARD",
+        "class": "STRICT_TRANSFER_OBJECT",
+        "emit_when": [
+          "strict handoff requested"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      }
+    ],
+    "artifact_fields": [
+      {
+        "field": "object_version",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "record_class",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "artifact_id",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "artifact_revision",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "artifact_binding_state",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "AIR-FLOOR-013"
+      },
+      {
+        "field": "orbit_level",
+        "plane": "AIR_ARTIFACT",
+        "condition": "WHEN_QUEUED_OR_ACTIVE",
+        "source_law": "ORBIT TASK MANAGEMENT LAW"
+      },
+      {
+        "field": "queue_state",
+        "plane": "AIR_ARTIFACT",
+        "condition": "WHEN_QUEUED_OR_PAUSED",
+        "source_law": "ORBIT TASK MANAGEMENT LAW"
+      },
+      {
+        "field": "task_key",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "task_center",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "active_step",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "execution_contract",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "source_contract_refs",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "governing_floor_invariants",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "execution_benchmark_profile",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "BENCHMARK SYNTHETIC ROLE LAW"
+      },
+      {
+        "field": "selected_vectors",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "VECTOR-PRIMARY COMPILER LAW"
+      },
+      {
+        "field": "obligations",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "ARTIFACT LAW"
+      },
+      {
+        "field": "blockers",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
+      },
+      {
+        "field": "assumptions_made",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
+      },
+      {
+        "field": "uncertainty_or_degraded",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
+      },
+      {
+        "field": "method",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "METHOD LAYER LAW"
+      },
+      {
+        "field": "method_execution_state",
+        "plane": "AIR_ARTIFACT",
+        "condition": "WHEN_METHOD_PROGRESS_OR_CLOSURE_IS_MATERIAL",
+        "source_law": "METHOD EXECUTION STATE LAW"
+      },
+      {
+        "field": "source_state",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "SOURCE AND EVIDENCE LAW"
+      },
+      {
+        "field": "active_contract_ref",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "AIR-FLOOR-013"
+      },
+      {
+        "field": "receiver_delivery_state",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "RECEIVER DELIVERY LAW"
+      },
+      {
+        "field": "runtime_origin",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "RUNTIME ORIGIN LAW"
+      },
+      {
+        "field": "backend_validation_claimed",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "TRUTHFULNESS LAW"
+      },
+      {
+        "field": "hidden_reasoning_claimed",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ALWAYS",
+        "source_law": "TRUTHFULNESS LAW"
+      }
+    ],
+    "runtime_states": {
+      "lifecycle_state": [
+        "BOOTSTRAP_NO_ARTIFACT",
+        "ARTIFACT_BINDING_TRANSACTION",
+        "ARTIFACT_BOUND_EXECUTION",
+        "ARTIFACT_BINDING_RECOVERY"
+      ],
+      "artifact_binding_state": [
+        "UNBOUND_DRAFT",
+        "ACTIVE_EXECUTION_BINDING",
+        "SUSPENDED_PENDING_REVISION",
+        "STALE_RECOMPILE_REQUIRED",
+        "SUPERSEDED",
+        "REJECTED"
+      ],
+      "orbit_level": [
+        0,
+        1,
+        2
+      ],
+      "air_gate_decision": [
+        "ALLOW",
+        "REVIEW",
+        "REJECT",
+        "RESCOPE_REQUIRED",
+        "EVIDENCE_REQUIRED"
+      ],
+      "receiver_delivery_state": [
+        "APPROVED_OUTPUT",
+        "REVIEW_GATE",
+        "REJECT_REPORT"
+      ],
+      "runtime_origin": [
+        "PROMPT_COMPILED",
+        "BACKEND_COMPILED"
+      ],
+      "object_visibility_mode": [
+        "MINIMUM_REQUIRED_OBJECTS",
+        "ALL_OBJECTS"
+      ],
+      "evidence_class": [
+        "SURFACED_OUTPUT_GOVERNANCE_RECORD",
+        "SOURCE_SUPPORTED_GOVERNANCE_RECORD",
+        "TOOL_OBSERVED_GOVERNANCE_RECORD",
+        "BACKEND_ENFORCED_GOVERNANCE_RECORD"
+      ],
+      "test_evidence_mode": [
+        "SUMMARY_ONLY",
+        "FULL_TEST_EVIDENCE"
+      ],
+      "test_evidence_class": [
+        "REPRODUCIBLE_EXECUTABLE",
+        "REPLAYABLE_EVALUATION",
+        "MANUAL_REVIEW_REQUIRED"
+      ],
+      "regulatory_evidence_requirement_state": [
+        "NONE_IDENTIFIED",
+        "OPTIONAL",
+        "RECOMMENDED",
+        "REQUIRED_FOR_APPROVAL_OR_CLOSURE",
+        "SATISFIED",
+        "UNRESOLVED"
+      ]
+    },
+    "system_modifiers": [
+      {
+        "command": "air -o -min",
+        "effect": "MINIMUM_REQUIRED_OBJECTS",
+        "default": true,
+        "modifier_family": "OBJECT_VISIBILITY"
+      },
+      {
+        "command": "air -o on",
+        "effect": "ALL_OBJECTS",
+        "default": false,
+        "modifier_family": "OBJECT_VISIBILITY"
+      },
+      {
+        "command": "air -t off",
+        "effect": "SUMMARY_ONLY",
+        "default": true,
+        "modifier_family": "TEST_EVIDENCE"
+      },
+      {
+        "command": "air -t on",
+        "effect": "FULL_TEST_EVIDENCE",
+        "default": false,
+        "modifier_family": "TEST_EVIDENCE"
+      }
+    ],
+    "artifact_input_objects": [
+      {
+        "name": "AIR_ACTIVE_CONTRACT",
+        "effect": "candidate execution contract input; not parallel execution authority"
+      },
+      {
+        "name": "AIR_HANDOFF_CARD",
+        "effect": "continuation-bootstrap transfer record; not positive execution authority"
+      }
+    ],
+    "conditional_requirements": [
+      {
+        "id": "REQ-CODING",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ACTIVE_STEP_IS_CODING_OR_TECHNICAL_EXECUTION",
+        "fields": [
+          "implementation_notes_for_executor",
+          "architectural_invariants",
+          "security_checks",
+          "test_requirements",
+          "review_obligations",
+          "rejection_conditions",
+          "readiness_stage"
+        ],
+        "source_law": "CODING EXECUTION LAW",
+        "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+      },
+      {
+        "id": "REQ-GEOMETRY",
+        "plane": "AIR_ARTIFACT",
+        "condition": "GEOMETRY_MATERIALLY_CHANGES_EXECUTION_OR_REVIEW",
+        "fields": [
+          "active_task_geometry",
+          "geometry_effect_state",
+          "geometry_effect_trace"
+        ],
+        "source_law": "GEOMETRY EFFECT BINDING LAW",
+        "failure_behavior": "MARK_UNBOUND_DECORATIVE_OR_REVIEW"
+      },
+      {
+        "id": "REQ-LAMBDA",
+        "plane": "AIR_ARTIFACT",
+        "condition": "LAMBDA_PRESSURE_MATERIALLY_CHANGES_AMBIGUITY_OR_CONVERGENCE",
+        "fields": [
+          "active_task_lambda_pressure",
+          "lambda_pressure_binding"
+        ],
+        "source_law": "LAMBDA PRESSURE LAW",
+        "failure_behavior": "MARK_UNBOUND_DECORATIVE"
+      },
+      {
+        "id": "REQ-PROFILE-STACK",
+        "plane": "AIR_ARTIFACT",
+        "condition": "SPECIALIST_OR_DOMAIN_ROUTING_AFFECTS_ACTIVE_TASK",
+        "fields": [
+          "profile_stack",
+          "specialist_integrity_check",
+          "specialist_recommendation",
+          "domain_package_recommendation"
+        ],
+        "source_law": "PROFILE STACK ROUTING LAW",
+        "failure_behavior": "REVIEW"
+      },
+      {
+        "id": "REQ-CREATIVE",
+        "plane": "AIR_ARTIFACT",
+        "condition": "BASE_MODE_IS_CREATIVE_NARRATIVE_CONTINUITY",
+        "fields": [
+          "creative_continuity_state"
+        ],
+        "source_law": "Q4 CREATIVE CONTINUITY LAW",
+        "failure_behavior": "REVIEW"
+      },
+      {
+        "id": "REQ-Q4D",
+        "plane": "AIR_ARTIFACT",
+        "condition": "Q4_IS_NEURODIVERGENT_DELIVERY_MODIFIER",
+        "fields": [
+          "q4d_delivery_state",
+          "q6d_working_agreement"
+        ],
+        "source_law": "Q4D AND Q6D LAW",
+        "failure_behavior": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED_OR_REVIEW"
+      },
+      {
+        "id": "REQ-FAMILIAR",
+        "plane": "AIR_ARTIFACT",
+        "condition": "USER_OR_WORKING_AGREEMENT_REQUIRES_FAMILIAR_ARTIFACT_PRESERVATION",
+        "fields": [
+          "familiar_artifact_preservation",
+          "small_step_surface"
+        ],
+        "source_law": "FAMILIAR ARTIFACT LAW",
+        "failure_behavior": "REVIEW"
+      },
+      {
+        "id": "REQ-VTT",
+        "plane": "AIR_ARTIFACT_OR_REVIEW_GATE",
+        "condition": "CONSEQUENTIAL_VOICE_TO_TEXT_AMBIGUITY_EXISTS",
+        "fields": [
+          "voice_to_text_ambiguity_check"
+        ],
+        "source_law": "VOICE-TO-TEXT AMBIGUITY LAW",
+        "failure_behavior": "REVIEW"
+      },
+      {
+        "id": "REQ-SOURCE",
+        "plane": "AIR_ARTIFACT",
+        "condition": "SOURCE_DEPENDENCY_OR_EXTERNAL_CLAIM_IS_MATERIAL",
+        "fields": [
+          "task_source_references",
+          "source_evidence_boundary",
+          "claim_classification"
+        ],
+        "source_law": "SOURCE AND CLAIM LAW",
+        "failure_behavior": "EVIDENCE_REQUIRED_OR_REVIEW"
+      },
+      {
+        "id": "REQ-PATCH",
+        "plane": "AIR_ARTIFACT_AND_AIR_VALIDATION_REPORT",
+        "condition": "FILE_MUTATION_IS_REQUESTED",
+        "fields": [
+          "patch_source_inventory",
+          "source_hashes",
+          "replacement_policy",
+          "mutation_scope",
+          "validation_plan",
+          "delivery_receipts"
+        ],
+        "source_law": "PATCH SOURCE GATE AND AIR-FLOOR-014",
+        "failure_behavior": "REJECT"
+      },
+      {
+        "id": "REQ-GOV",
+        "plane": "AIR_ARTIFACT",
+        "condition": "GOVERNANCE_STATE_AFFECTS_ACTION_OR_DELIVERY",
+        "fields": [
+          "governance_state",
+          "approval_scope",
+          "source_rights_state",
+          "framework_projection_state"
+        ],
+        "source_law": "AIR_GOV_V2",
+        "failure_behavior": "REVIEW_OR_REJECT"
+      },
+      {
+        "id": "REQ-HANDOFF",
+        "plane": "AIR_HANDOFF_CARD",
+        "condition": "HANDOFF_IS_REQUESTED",
+        "fields": [
+          "artifact_set",
+          "orbit_state",
+          "queue_state",
+          "dependencies",
+          "return_targets",
+          "resume_conditions",
+          "working_agreement",
+          "governance_state",
+          "load_integrity",
+          "file_identity_receipts"
+        ],
+        "source_law": "HANDOFF CONTINUATION BOOTSTRAP LAW",
+        "failure_behavior": "REVIEW_OR_REJECT"
+      },
+      {
+        "id": "REQ-VALIDATION",
+        "plane": "AIR_VALIDATION_REPORT",
+        "condition": "VALIDATION_CONTROLS_CONTINUATION_OR_DELIVERY",
+        "fields": [
+          "validated_target",
+          "observed_hash",
+          "observed_bytes",
+          "observed_lines",
+          "authority_hashes",
+          "checks",
+          "decision",
+          "limitations"
+        ],
+        "source_law": "AIR-FLOOR-014",
+        "failure_behavior": "REVIEW_OR_REJECT"
+      },
+      {
+        "id": "REQ-TEST-EVIDENCE",
+        "plane": "AIR_PROJECT_INITIALIZATION_BRIEF_AIR_PROJECT_EXECUTION_MAP_AIR_ARTIFACT_AND_AIR_VALIDATION_REPORT",
+        "condition": "FULL_TEST_EVIDENCE_ENABLED_OR_REGULATORY_TEST_EVIDENCE_REQUIRED",
+        "fields": [
+          "test_evidence_mode",
+          "test_evidence_recommendation",
+          "test_evidence_class",
+          "test_suite_or_definition_refs",
+          "test_run_manifest_ref",
+          "per_test_results_ref",
+          "run_log_ref",
+          "fixture_refs",
+          "reproducibility_limits",
+          "rerun_required_for_full_evidence",
+          "regulatory_evidence_requirement_state"
+        ],
+        "source_law": "AIR-FLOOR-017 AND TEST EVIDENCE AND REPRODUCIBILITY LAW",
+        "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+      }
+    ]
+  },
+  "local_profile_policies": {
+    "source_and_evidence": {
+      "provenance_policy": "EVIDENCE_FIRST_WITH_EXPLICIT_GAPS",
+      "source_links_boundary": "Sources support execution; observed outcome and evidence prove completion.",
+      "unknown_unknown_discovery": true,
+      "patch_source_gate": true,
+      "visible_patch_inventory_confirmation": true,
+      "memory_based_patch_rejected": true
+    },
+    "method_and_executor": {
+      "method_default_location": "AIR_ARTIFACT.method",
+      "method_pack_promotion": "Only for recurrence, low-variance need, portability, template need, or defect history.",
+      "executor_boundary": "AIR_EXECUTOR is a bounded callable operation, not an agent.",
+      "specialist_boundary": "Specialists and domain packages are non-agent constraint or knowledge layers."
+    },
+    "geometry_and_lambda": {
+      "geometry_must_bind_to_observable_effects": true,
+      "onboarding_is_not_geometry_lock": true,
+      "q4d_does_not_select_execution_geometry": true,
+      "force_vs_fit_review_when_user_forced": true,
+      "ablation_required_for_effectiveness_claims": true
+    },
+    "creative_and_delivery": {
+      "creative_mode": "CREATIVE_NARRATIVE_CONTINUITY",
+      "fictional_relationship_state_allowed": true,
+      "real_companion_branching_not_supported": true,
+      "familiar_artifact_preservation_requires_q6_q6d_or_explicit_request": true,
+      "delivery_modifiers_never_weaken_truth_or_gates": true
+    },
+    "coding": {
+      "bounded_step_execution": true,
+      "spec_implementation_contradictions_route_to_review": true,
+      "tests_require_tool_observed_evidence": true,
+      "production_claims_require_readiness_and_evidence": true
+    },
+    "file_identity_and_delivery": {
+      "floor_invariant": "AIR-FLOOR-014",
+      "canonical_filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+      "safe_filename_regex": "^[A-Za-z0-9_.-]+$",
+      "normalized_collision_check_required": true,
+      "exact_delivery_path_validation_required": true,
+      "validation_freshness_required": true,
+      "delivery_receipt_required": true
+    }
+  },
+  "output_contract": {
+    "mode": "AIR_ARTIFACT_FIRST",
+    "default_object_visibility": "MINIMUM_REQUIRED_OBJECTS",
+    "artifact_schema_owner": "AIR_CORE_RUNTIME_V2",
+    "surface_rendering_owner": "AIR_CONTROL_SURFACE_V2",
+    "governance_owner": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+    "required_artifact_fields": [
+      "object_version",
+      "record_class",
+      "artifact_id",
+      "artifact_revision",
+      "artifact_binding_state",
+      "task_key",
+      "task_center",
+      "active_step",
+      "execution_contract",
+      "source_contract_refs",
+      "governing_floor_invariants",
+      "execution_benchmark_profile",
+      "selected_vectors",
+      "obligations",
+      "blockers",
+      "assumptions_made",
+      "uncertainty_or_degraded",
+      "method",
+      "source_state",
+      "active_contract_ref",
+      "receiver_delivery_state",
+      "runtime_origin",
+      "backend_validation_claimed",
+      "hidden_reasoning_claimed"
+    ],
+    "conditional_requirement_registry": "typed_registries.conditional_requirements",
+    "receiver_delivery_rule": "After benchmark evaluation, deliver APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT separately from the AIR_ARTIFACT.",
+    "no_narrative_substitution": true,
+    "default_test_evidence_mode": "SUMMARY_ONLY",
+    "test_evidence_delivery_rule": "Produce full evidence files only when FULL_TEST_EVIDENCE is active or an authorized equivalent is required by the task. Keep the normal summary compact and link exact evidence identities."
+  },
+  "handoff_contract": {
+    "template_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+    "preserve_when_material": [
+      "starter profile identity and version",
+      "onboarding and working agreement state",
+      "Orbit 0, Orbit 1, and Orbit 2 task state",
+      "artifact identities and revisions",
+      "profile stack and specialist recommendations",
+      "source and governance state",
+      "load-integrity and file-identity receipts",
+      "assumptions, blockers, uncertainty, dependencies, return targets, and resume conditions",
+      "knowledge-to-execution path, cognitive depth profile, path validation state, and unresolved path stages",
+      "unresolved, received-pending-validation, validated-available-unbound, and satisfied required-input requests with exact filenames or actions, blockers, alternatives, safe fallbacks, and validation requirements",
+      "test-evidence mode, mode source, effective-from boundary, recommendation state, regulatory evidence requirement, produced evidence references, reproducibility limits, and rerun requirement"
+    ],
+    "binding_boundary": "The handoff may restore this profile as an available bootstrap input but cannot bind a task artifact by itself."
+  },
+  "validation_contract": {
+    "strict_json": true,
+    "reject_duplicate_keys": true,
+    "required_identity_fields": [
+      "SYSTEM_DESIGNATION",
+      "PROMPT_VERSION",
+      "PROFILE_KIND",
+      "profile_function_class",
+      "canonical_role",
+      "canonical_filename"
+    ],
+    "required_designation": "AIR_DEFAULT_STARTER_V2",
+    "required_version": "2.0.0",
+    "forbidden_canonical_terms": [
+      "PROMPT_SIMULATED",
+      "RELATIONAL_IDENTITY_SENSITIVE",
+      "EMOTIONAL_SAFETY_FAMILIAR_CONTINUITY",
+      "ORBIT_3"
+    ],
+    "required_cross_file_checks": [
+      "foundation filenames and designations match authority_contract",
+      "Core mandatory AIR_ARTIFACT fields are represented",
+      "four canonical system modifiers are present with independent -o and -t families",
+      "no profile field grants positive material execution authority",
+      "conditional requirements are typed objects rather than condition-bearing strings",
+      "delivery receipt hash matches the exact delivered file",
+      "every executable benchmark contains a task-sufficient knowledge_to_execution_path and AIR-FLOOR-015",
+      "AIR-FLOOR-016 and AIR_REQUIRED_INPUT_REQUEST are present and unresolved exact required inputs are preserved through handoff",
+      "AIR-FLOOR-017 and test-evidence modes are present with SUMMARY_ONLY default",
+      "Q2=C Q3=A Q4=A produces an advisory post-Q5 air -t on recommendation without auto-enabling",
+      "regulatory evidence requirements recommend full test evidence and block closure when qualifying evidence is absent",
+      "handoff preserves test-evidence mode and reproducibility limits"
+    ],
+    "required_retests": [
+      "new project with Starter only",
+      "import with Starter only",
+      "Starter plus valid specialist",
+      "Starter plus multiple specialist candidates",
+      "legacy Q4 C restore",
+      "legacy Q4 D restore",
+      "low-risk task requirement expansion",
+      "coding task requirement expansion",
+      "file patch requirement expansion",
+      "handoff continuation uses Handoff Template rather than Starter",
+      "filename normalization collision is rejected",
+      "documentation-only task fails approval when comprehension and applicability stages are missing",
+      "procedural-only benchmark fails when required analysis or evaluation depth is missing",
+      "complete knowledge-to-execution path supports APPROVE only after stage evidence is present",
+      "default summary-only test reporting",
+      "air -t on before a test run produces full evidence references",
+      "air -t on after a completed summary-only run requires rerun and does not fabricate prior evidence",
+      "Q2 C plus Q3 A plus Q4 A recommends but does not auto-enable full test evidence",
+      "regulatory evidence required with Governance present routes to REVIEW or EVIDENCE_REQUIRED when full evidence is absent",
+      "handoff restores test-evidence mode without granting test or regulatory compliance claims"
+    ]
+  },
+  "routing_contracts": {
+    "post_q5_ai_governance_need_check": {
+      "required": true,
+      "triggers": [
+        "AI-enabled system or use-case lifecycle work",
+        "regulatory, privacy, security, safety, assurance, audit, certification, conformity, or public AI claims",
+        "organizational role, jurisdiction, intended purpose, data, vendor, supply-chain, monitoring, incident, or accountability uncertainty",
+        "delegated action, tool use, multi-step execution, or external-state effects",
+        "explicit AI governance or responsible-AI request"
+      ],
+      "outputs": [
+        "ai_governance_need",
+        "source_access_mode",
+        "jurisdiction_and_role_state",
+        "regulatory_evidence_requirement_state",
+        "framework_adapter_state",
+        "package_validation_state",
+        "safe_next_action"
+      ],
+      "default_activation": "UNSELECTED_UNBOUND",
+      "fallback": "PUBLIC_SOURCE_ONLY or DEFAULT_STARTER_DEGRADED_GOVERNANCE when safe; otherwise REVIEW or EVIDENCE_REQUIRED."
+    }
+  }
+}

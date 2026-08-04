@@ -1,0 +1,297 @@
+{
+  "title": "AIR Grounding Executor v2",
+  "SYSTEM_DESIGNATION": "AIR_GROUNDING_EXECUTOR_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "EXECUTOR_CONTRACT",
+  "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+  "artifact_class": "AIR_EXECUTOR_LAYER",
+  "package_version": "2.2.0",
+  "package_subtype": "GROUNDING_EXECUTOR",
+  "STATUS": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "legal_compliance_claimed": false,
+  "professional_equivalence_claimed": false,
+  "STANDARD_CODE": "AIR.EXECUTOR.GROUNDING.V2.BOUNDED.CLASSIFICATION.SCAN.EVIDENCE.REQUEST.RESULT.CANDIDATE.NON_AGENT",
+  "description": "Bounded non-agent executor layer for deterministic or explicitly review-classified Grounding operations. It performs only operations authorized by the bound Orbit 0 artifact and governed by the Grounding Method Pack.",
+  "source_baseline": {
+    "source_filename": "AIR GROUNDING EXECUTOR(10).json",
+    "source_system_designation": "AIR_GROUNDING_EXECUTOR_V1",
+    "sha256": "39dfa46445158757e48d1ec990ba3ca00f718669689ec8897cb6de6fa058af21",
+    "size_bytes": 1646,
+    "line_count": 43,
+    "source_immutable": true,
+    "migration_class": "V1_TO_V2_ORBIT_0_ARTIFACT_GROUNDING_TEST_EVIDENCE_AND_PACKAGE_IDENTITY_REMEDIATION"
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
+        "size_bytes": 231127,
+        "line_count": 5495
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
+        "size_bytes": 112242,
+        "line_count": 2648
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+        "size_bytes": 19336,
+        "line_count": 448
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.1.0",
+        "class": "TASK_COMPOSITE",
+        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794",
+        "size_bytes": 44953,
+        "line_count": 1124
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.0.0",
+        "class": "TEMPLATE",
+        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
+        "size_bytes": 29402,
+        "line_count": 695
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017"
+    ],
+    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_GROUNDING_EXECUTOR.json",
+    "canonical_role": "GROUNDING_EXECUTOR_LAYER",
+    "safe_filename_required": true,
+    "exact_delivery_validation_required": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_EXECUTOR_LAYER",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "may_occupy_orbit_0_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "legacy_reference_migration": {
+    "legacy_designation": "AIR_GROUNDING_EXECUTOR_V1",
+    "canonical_designation": "AIR_GROUNDING_EXECUTOR_V2",
+    "legacy_alias_use": "REFERENTIAL_COMPATIBILITY_ONLY"
+  },
+  "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "dependencies": [
+    {
+      "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+      "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "sha256": "8e3e5af9f8c123302b59c0ce0cb42e648825e6cacda81b0bbd48ff7a193a5ecb",
+      "size_bytes": 52698,
+      "line_count": 876,
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+      "filename": "AIR_GROUNDING_METHOD_PACK.json",
+      "sha256": "1b9025aa8638c1801c53448397f63bf494bc2d6bf01bdfc186bacc3a4cfa1199",
+      "size_bytes": 57011,
+      "line_count": 1197,
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_GROUNDING_SPECIALIST_V2",
+      "filename": "AIR_GROUNDING_SPECIALIST.json",
+      "sha256": "66043f6c2b7d12464d180c6f50a6580e903d2f8aa18099935fc9efad15885156",
+      "size_bytes": 57780,
+      "line_count": 1023,
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "required_input_acquisition_contract": {
+    "floor_invariant": "AIR-FLOOR-016",
+    "required": true,
+    "behavior": "Check current session and validated package inventory first; request the smallest exact missing component, source, tool, connector, credential class, approval, clarification, or action; request the complete five-file Grounding package when coupled use or package validation is required.",
+    "complete_package_files": [
+      "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "AIR_GROUNDING_METHOD_PACK.json",
+      "AIR_GROUNDING_SPECIALIST.json",
+      "AIR_GROUNDING_EXECUTOR.json",
+      "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+    ],
+    "states": [
+      "REQUIRED_BLOCKING",
+      "REQUIRED_DEGRADED",
+      "OPTIONAL_ENHANCEMENT"
+    ],
+    "attachment_boundary": "Receipt establishes availability only, not selection, approval, binding, or execution authority."
+  },
+  "test_evidence_contract": {
+    "floor_invariant": "AIR-FLOOR-017",
+    "default_mode": "SUMMARY_ONLY",
+    "default_command": "air -t off",
+    "opt_in_command": "air -t on",
+    "classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "full_mode_outputs": [
+      "test definitions or executable suite",
+      "test-run manifest",
+      "per-test results",
+      "raw or visibly sanitized log",
+      "fixtures",
+      "review and rerun README"
+    ],
+    "retroactive_reconstruction_prohibited": true,
+    "hidden_reasoning_exposure_prohibited": true,
+    "regulatory_rule": "When a valid relevant Governance Specialist or compiled governance requirement requires test or audit evidence, recommend air -t on. Do not enable it silently. Missing required evidence remains REVIEW or EVIDENCE_REQUIRED."
+  },
+  "knowledge_to_execution_path_contract": {
+    "floor_invariant": "AIR-FLOOR-015",
+    "applies_to": "BOUNDED_GROUNDING_EXECUTION",
+    "knowledge_classes": [
+      "FACTUAL",
+      "CONCEPTUAL",
+      "PROCEDURAL",
+      "METACOGNITIVE_OR_CONTROL"
+    ],
+    "bloom_derived_operations": [
+      "REMEMBER",
+      "UNDERSTAND",
+      "APPLY",
+      "ANALYZE",
+      "EVALUATE",
+      "CREATE"
+    ],
+    "canonical_path_stages": [
+      "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+      "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+      "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+      "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+      "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+      "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+      "ADAPTATION_AND_EXECUTION_PLANNING",
+      "EXECUTION",
+      "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+      "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+    ],
+    "grounding_emphasis": [
+      "claim-state classification",
+      "applicability and exception testing",
+      "technology-capacity checking",
+      "adjacent blast-radius analysis",
+      "proportionality",
+      "result evaluation and error localization"
+    ],
+    "approval_boundary": "APPROVE requires COMPLETE_FOR_ACTIVE_STEP; missing required stages route to REVIEW or REJECT.",
+    "hidden_reasoning_boundary": "Use declared criteria, evidence and observable checks; do not request or expose private chain of thought."
+  },
+  "allowed_operations": [
+    "classify claim state from supplied evidence",
+    "classify technology-capacity state from supplied current evidence",
+    "construct adjacent blast-radius checklist",
+    "separate ambition, executable kernel, frontier, blocked and unknown layers",
+    "detect exact missing inputs and emit AIR_REQUIRED_INPUT_REQUEST candidate",
+    "apply disclosed rubric to fixture or representative task",
+    "produce a grounding result candidate with evidence references and limitations"
+  ],
+  "prohibited_operations": [
+    "independent task selection",
+    "independent scope expansion",
+    "self approval or binding",
+    "legal or regulatory conclusions",
+    "claiming current external facts without retrieval evidence",
+    "treating user acknowledgement as evidence satisfaction",
+    "representing qualitative review as deterministic execution",
+    "occupying Orbit 0 as a layer"
+  ],
+  "execution_preconditions": [
+    "exactly one bound Orbit 0 AIR_ARTIFACT authorizes the operation",
+    "Grounding Method Pack step and evidence gate are identified",
+    "required source, tool, permission and approval states are satisfied or explicitly unresolved",
+    "output acceptance criteria and failure route are present"
+  ],
+  "execution_outputs": [
+    "AIR_GROUNDING_EXECUTION_RESULT_CANDIDATE",
+    "AIR_REQUIRED_INPUT_REQUEST candidate",
+    "per-operation evidence references",
+    "failure localization",
+    "next gate recommendation"
+  ],
+  "execution_contract": {
+    "operation_type": "BOUNDED_REVIEW",
+    "autonomous_agent": false,
+    "network_required": false,
+    "tool_required": false,
+    "backend_validation_claimed": false
+  },
+  "package_role": "EXECUTOR",
+  "inputs": [
+    "active_contract_or_task_kernel",
+    "artifact_or_receiver_output_under_review",
+    "available_evidence_and_source_state",
+    "requested_grounding_scope"
+  ],
+  "outputs": [
+    "grounding_findings",
+    "claim_boundary",
+    "viability_and_dependency_findings",
+    "spec_or_evidence_contradictions",
+    "decision_proposal: ACCEPT | REVIEW | REJECT",
+    "one_bounded_next_action"
+  ],
+  "package_completion_contract": {
+    "component_count": 4,
+    "manifest_required": true,
+    "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND"
+  },
+  "integration_refresh": {
+    "refresh_version": "2.2.0",
+    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
+    "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+  }
+}

@@ -1,0 +1,695 @@
+{
+  "AIR_HANDOFF_CARD": {
+    "TEMPLATE_DESIGNATION": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+    "SCHEMA_VERSION": "2.0.0",
+    "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+    "schema_version": "2.0.0",
+    "card_id": null,
+    "card_revision": 2,
+    "record_class": "TRANSFER_RECORD",
+    "card_created_at": null,
+    "card_created_by": null,
+    "runtime_origin": null,
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false,
+    "project_state": {
+      "project_id": null,
+      "project_name": null,
+      "project_purpose": null,
+      "project_phase": null,
+      "platform_or_provider": null,
+      "session_or_thread_ref": null,
+      "persistent_task": null,
+      "last_stable_user_approved_scope": null,
+      "project_constraints": [],
+      "project_status": "TEMPORARY_AND_NOT_FINAL_UNTIL_REBOUND"
+    },
+    "platform_state": {
+      "source_platform": null,
+      "target_platform": null,
+      "portability_notes": [],
+      "provider_specific_assumptions": [],
+      "provider_guarantees_claimed": false
+    },
+    "active_artifact": {
+      "presence_state": "NO_USABLE_ACTIVE_ARTIFACT",
+      "artifact_id": null,
+      "artifact_revision": null,
+      "task_key": null,
+      "task_center": null,
+      "prior_binding_state": null,
+      "handoff_state": "NOMINATED_FOR_REBINDING",
+      "restoration_binding_state": "UNBOUND_DRAFT_PENDING_PRECHECK",
+      "artifact_payload": null,
+      "artifact_ref": null,
+      "sha256": null,
+      "completeness_state": "UNRESOLVED",
+      "source_contract_refs": [],
+      "governing_floor_invariants": [],
+      "receiver_delivery_state": null,
+      "binding_history": [],
+      "unresolved_conflicts": []
+    },
+    "active_contract": {
+      "presence_state": "NO_ACTIVE_CONTRACT_INPUT",
+      "contract_id": null,
+      "authority_level": null,
+      "active_step": null,
+      "goal": null,
+      "scope": [],
+      "out_of_scope": [],
+      "allowed_actions": [],
+      "stop_conditions": [],
+      "required_evidence_to_close": [],
+      "rescope_protocol": null,
+      "decision_state": null,
+      "receiver_delivery_state": null,
+      "contract_payload": null,
+      "contract_ref": null,
+      "sha256": null,
+      "effect": "ARTIFACT_INPUT_CONTRACT_NOT_PARALLEL_EXECUTION_AUTHORITY"
+    },
+    "task_binding": {
+      "nominated_orbit_0_task_key": null,
+      "nominated_orbit_0_task_center": null,
+      "current_active_step": null,
+      "parent_task_key": null,
+      "parent_contract_ref": null,
+      "topic": null,
+      "topic_type": null,
+      "current_action": null,
+      "return_target": null,
+      "resume_condition": null
+    },
+    "completed_steps": [],
+    "current_in_progress_step": null,
+    "next_recommended_step": null,
+    "blockers": [],
+    "required_input_state": {
+      "overall_state": "NONE_IDENTIFIED",
+      "requests": [],
+      "blocking_request_ids": [],
+      "degraded_request_ids": [],
+      "received_pending_validation_ids": [],
+      "validated_available_unbound_ids": [],
+      "satisfied_request_ids": [],
+      "last_request_update": null,
+      "restoration_rule": "Restore exact requested identities and actions. Recheck current availability, freshness, completeness, compatibility, source rights, permission, and satisfaction before repeating a request or resuming the controlled action."
+    },
+    "object_visibility_mode": "MINIMUM_REQUIRED_OBJECTS",
+    "onboarding_state": {
+      "restore_state": "UNRESOLVED",
+      "q1": null,
+      "q2": null,
+      "q3": null,
+      "q4": null,
+      "q4d": null,
+      "q5": null,
+      "q6": null,
+      "q6d": null,
+      "resolved_base_mode": null,
+      "creative_continuity_state": null,
+      "inference_or_deferral_state": {},
+      "legacy_onboarding_state": null
+    },
+    "working_agreement": {
+      "q6_state": null,
+      "q6d_state": null,
+      "responsibility_split": null,
+      "delivery_form": null,
+      "challenge_posture": null,
+      "explanation_depth": null,
+      "approval_boundaries": [],
+      "assumptions_to_avoid": [],
+      "side_track_handling": null,
+      "focus_support": null,
+      "momentum_support": null,
+      "processing_support": null,
+      "communication_needs": [],
+      "managed_break_contract": null,
+      "persistence_permission": null
+    },
+    "governance_state": {
+      "governance_supplement_designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+      "governance_supplement_version": "2.0.0",
+      "prompt_edition": "HUMAN_READABLE",
+      "governance_floor_version": "2.0.0",
+      "floor_invariant_reference": {
+        "registry_designation": "AIR_FLOOR_INVARIANT_REGISTRY_V2",
+        "registry_version": "2.0.0",
+        "active_invariant_ids": [],
+        "tightened_invariant_ids": [],
+        "attempted_relaxations": [],
+        "unresolved_conflicts": [],
+        "resolution_state": "UNRESOLVED"
+      },
+      "open_approval_scope_ref": "AIR_HANDOFF_CARD.open_approval_scope",
+      "active_framework_projections": [],
+      "governance_source_rights_state": [],
+      "token_debug_preference": null,
+      "governance_blockers": [],
+      "governance_evidence_references": [],
+      "restricted_content_excluded": true,
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "test_evidence_governance_state": {
+        "floor_invariant": "AIR-FLOOR-017",
+        "governance_specialist_recommendation_state": "NOT_EVALUATED",
+        "regulatory_evidence_requirement_state": "NONE_IDENTIFIED",
+        "evidence_obligation_refs": [],
+        "closure_effect": "NONE_UNLESS_REQUIRED_EVIDENCE_IS_IDENTIFIED"
+      }
+    },
+    "open_approval_scope": null,
+    "specialist_binding_state": {
+      "active_specialist": null,
+      "supporting_specialists": [],
+      "available_specialists": [],
+      "recommended_specialists": [],
+      "generated_pending_validation": [],
+      "rejected_specialists": [],
+      "binding_conflicts": [],
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT"
+    },
+    "profile_stack": {
+      "starter_profile": {
+        "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
+        "PROMPT_VERSION": "2.0.0",
+        "availability_state": "EXPECTED_OR_RESTORED"
+      },
+      "active_specialist_profile_ref": null,
+      "supporting_profile_refs": [],
+      "domain_overlay_refs": [],
+      "source_pack_refs": [],
+      "method_pack_refs": [],
+      "executor_refs": [],
+      "recommended_startup_files": [],
+      "missing_dependencies": []
+    },
+    "orbit_state": {
+      "orbit_model_version": "2.0.0",
+      "orbit_0_nomination": null,
+      "additional_orbit_0_candidates": [],
+      "orbit_1": [],
+      "orbit_2": [],
+      "completed_or_retired_artifacts": [],
+      "binding_conflicts": [],
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT"
+    },
+    "source_state": {
+      "source_set": [],
+      "source_rights_state": [],
+      "source_hashes": {},
+      "source_gaps": [],
+      "task_source_references": [],
+      "claim_sources": [],
+      "tool_observed_evidence": [],
+      "operator_witnessed_evidence": [],
+      "restricted_source_text_excluded": true
+    },
+    "evidence_state": {
+      "known_present": [],
+      "missing_or_uncertain": [],
+      "required_to_resume": [],
+      "required_to_close": [],
+      "evidence_classes_present": [],
+      "validation_reports": [],
+      "claim_classification": [],
+      "mechanism_claim_level": null
+    },
+    "test_evidence_state": {
+      "floor_invariant": "AIR-FLOOR-017",
+      "mode": "SUMMARY_ONLY",
+      "mode_source": "DEFAULT",
+      "effective_from": null,
+      "recommendation_state": "NOT_RECOMMENDED",
+      "recommendation_reasons": [],
+      "regulatory_evidence_requirement_state": "NONE_IDENTIFIED",
+      "regulatory_evidence_obligation_refs": [],
+      "produced_test_evidence_refs": {
+        "test_suite_or_definition_refs": [],
+        "test_run_manifest_refs": [],
+        "per_test_results_refs": [],
+        "run_log_refs": [],
+        "fixture_refs": [],
+        "review_readme_refs": []
+      },
+      "test_run_records": [],
+      "reproducibility_limits": [],
+      "sanitization_or_redaction_state": [],
+      "rerun_required_for_full_evidence": false,
+      "restoration_rule": "Restore the declared mode and evidence references, then validate current files, inputs, environment, permissions, obligation state, and run identities. A prior SUMMARY_ONLY result cannot be reconstructed into FULL_TEST_EVIDENCE without a new authorized run. The toggle does not prove testing, compliance, audit sufficiency, or regulatory conformity."
+    },
+    "execution_state": {
+      "execution_benchmark_profile": null,
+      "knowledge_to_execution_path_state": {
+        "path_id": null,
+        "path_scope": null,
+        "input_knowledge_classes": [],
+        "required_cognitive_operations": [],
+        "required_stages": [],
+        "stage_completion_states": {},
+        "stage_evidence_references": {},
+        "experience_derived_knowledge_requirements": [],
+        "human_boundaries_and_non_transferable_authority": [],
+        "path_validation_state": null,
+        "path_defects": [],
+        "rebind_triggers": []
+      },
+      "selected_vectors": [],
+      "missing_vectors": [],
+      "obligations": [],
+      "dependency_edges": [],
+      "vector_family_state_summary": [],
+      "degraded_execution_mode": null,
+      "method": null,
+      "method_execution_state": null,
+      "geometry_state": {
+        "active_task_geometry": null,
+        "active_task_lambda_pressure": null,
+        "geometry_effect_state": null,
+        "geometry_effect_trace": null,
+        "geometry_selection_review": null,
+        "geometry_force_vs_fit_review": null,
+        "prior_task_geometry_refs": []
+      },
+      "readiness_state": {
+        "readiness_stage": null,
+        "readiness_reason": null,
+        "stage_constraints": [],
+        "promotion_requirements": [],
+        "blocked_capabilities": [],
+        "review_obligations": [],
+        "security_checks": [],
+        "test_requirements": [],
+        "architectural_invariants": [],
+        "rejection_conditions": []
+      },
+      "review_state": {
+        "decision_state": null,
+        "benchmark_judge": null,
+        "judge_trace": null,
+        "ambiguity_triage": null,
+        "control_delta_report": null,
+        "efficiency_ledger": null,
+        "governance_overhead": null,
+        "benchmark_ledger": null,
+        "fail_forward_patch_loop": null
+      },
+      "grounding_state": {
+        "specialist_need_check": null,
+        "grounding_need": null,
+        "grounding_file_availability": null,
+        "doctrine_coverage_reconciliation": null,
+        "visionary_grounding_state": null,
+        "regulatory_pressure_discovery_state": null,
+        "grounding_package_designation": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "grounding_package_manifest_ref": null,
+        "grounding_component_refs": [],
+        "grounding_package_validation_state": "UNRESOLVED",
+        "grounding_package_selection_state": "UNSELECTED",
+        "grounding_package_binding_effect": "AVAILABILITY_ONLY_UNTIL_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+        "grounding_files_missing": [],
+        "grounding_files_stale_or_incompatible": [],
+        "grounding_fallback_mode": null,
+        "grounding_required_input_request_refs": [],
+        "restoration_rule": "Revalidate exact component and manifest identities, dependency compatibility, task fit, approval state, and current Orbit 0 compilation before treating Grounding support as operative."
+      },
+      "patch_state": {
+        "patch_source_checkpoint_state": null,
+        "source_inventory": [],
+        "replacement_policy": null,
+        "mutation_scope": [],
+        "validation_plan": null,
+        "last_validation_state": null
+      },
+      "ai_governance_state": {
+        "ai_governance_need": null,
+        "package_designation": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "package_manifest_ref": null,
+        "component_refs": [],
+        "package_validation_state": "UNRESOLVED",
+        "package_selection_state": "UNSELECTED",
+        "binding_effect": "AVAILABILITY_ONLY_UNTIL_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+        "source_access_mode": null,
+        "jurisdictions": [],
+        "organization_roles": [],
+        "lifecycle_stage": null,
+        "intended_purpose_state": null,
+        "regulatory_pressure_state": null,
+        "regulatory_evidence_requirement_state": "NONE_IDENTIFIED",
+        "regulatory_evidence_obligation_refs": [],
+        "agentic_overlay_state": "NOT_EVALUATED",
+        "framework_adapter_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+        "framework_adapter_refs": [],
+        "shared_framework_registry_refs": [],
+        "licensed_or_restricted_source_rights_refs": [],
+        "public_source_limitations": [],
+        "human_authority_gates": [],
+        "required_input_request_refs": [],
+        "missing_files": [],
+        "restoration_rule": "Revalidate exact package and component identities, current source authority and freshness, source rights, jurisdiction, organizational role, lifecycle, intended purpose, regulatory evidence obligations, framework-adapter availability, task fit, approval state, and Orbit 0 compilation. Do not treat prior analysis or validation as legal advice, compliance proof, certification, conformity, deployment approval, or current-source verification."
+      }
+    },
+    "receiver_delivery_state": {
+      "state": null,
+      "requirements": [],
+      "last_delivery_state": null,
+      "assumptions_made": [],
+      "blockers": [],
+      "uncertainty_or_degraded": []
+    },
+    "continuation_bootstrap": {
+      "bootstrap_route": "HANDOFF_CONTINUATION",
+      "entry_lifecycle_state": "BOOTSTRAP_NO_ARTIFACT",
+      "card_is_execution_authority": false,
+      "card_may_nominate_orbit_0": true,
+      "card_may_directly_bind_orbit_0": false,
+      "restore_only_explicit_state": true,
+      "artifact_precheck_required": true,
+      "binding_transaction_required": true,
+      "multiple_orbit_0_candidates_route": "ARTIFACT_BINDING_RECOVERY",
+      "material_execution_resume_condition": "Exactly one validated artifact is bound to Orbit 0 with ACTIVE_EXECUTION_BINDING.",
+      "missing_active_candidate_behavior": "Compile a new candidate from restored project state and current user direction.",
+      "user_task_change_behavior": "Treat selection as bootstrap input; promote selected task and queue the prior nomination if still valid.",
+      "required_input_recheck": "Before repeating a request or resuming its controlled action, recheck session availability, validated package state, freshness, completeness, compatibility, source rights, permission, and satisfaction. Preserve exact identities and do not infer satisfaction from attachment alone.",
+      "test_evidence_recheck": "Restore test_evidence_state without treating the card as proof that tests ran or evidence is sufficient. Revalidate each referenced suite, manifest, result, log, fixture, sanitization state, and regulatory obligation. If FULL_TEST_EVIDENCE was enabled only after a prior summary-only run, preserve rerun_required_for_full_evidence."
+    },
+    "migration_state": {
+      "source_schema_version": null,
+      "migration_required": false,
+      "migration_decision": "NOT_EVALUATED",
+      "legacy_q4_c_state": null,
+      "legacy_q4_d_state": null,
+      "legacy_prompt_mode_state": null,
+      "legacy_orbit_state": null,
+      "legacy_active_contract_state": null,
+      "legacy_governance_state": null,
+      "unresolved_legacy_states": [],
+      "rules": {
+        "v1_q4_c": "LEGACY_Q4_C_REVIEW_REQUIRED",
+        "v1_q4_d": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED",
+        "PROMPT_SIMULATED": "LEGACY_MODE_REVIEW_REQUIRED",
+        "ORBIT_3": "MIGRATE_TO_ORBIT_2_OR_REVIEW",
+        "v1_active_contract": "RESTORE_AS_ARTIFACT_INPUT_CONTRACT_PENDING_ARTIFACT_REBINDING",
+        "v1_governance": "LEGACY_GOVERNANCE_STATE_REVIEW_REQUIRED"
+      }
+    },
+    "load_integrity": {
+      "foundation_file_states": [],
+      "json_parse_state": "UNVERIFIED",
+      "duplicate_key_state": "UNVERIFIED",
+      "template_identity_state": "UNVERIFIED",
+      "schema_compatibility_state": "UNVERIFIED",
+      "overall_state": "UNVERIFIED"
+    },
+    "file_identity_and_delivery_state": {
+      "floor_invariant": "AIR-FLOOR-014",
+      "canonical_filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+      "file_receipts": [],
+      "normalized_collision_check_state": "UNVERIFIED",
+      "active_folder_isolation_state": "UNVERIFIED",
+      "validation_freshness_state": "UNVERIFIED",
+      "exact_delivery_path_state": "UNVERIFIED"
+    },
+    "schema_manifest": {
+      "schema_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+      "strict_emitted_root": "AIR_HANDOFF_CARD",
+      "strict_output_mode": "RAW_ONE_ROOT_JSON_NO_FENCE_NO_PROSE",
+      "required_fields": [
+        "TEMPLATE_DESIGNATION",
+        "SCHEMA_VERSION",
+        "template_designation",
+        "schema_version",
+        "card_id",
+        "card_revision",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "project_state",
+        "active_artifact",
+        "active_contract",
+        "task_binding",
+        "completed_steps",
+        "current_in_progress_step",
+        "next_recommended_step",
+        "blockers",
+        "required_input_state",
+        "object_visibility_mode",
+        "onboarding_state",
+        "working_agreement",
+        "governance_state",
+        "open_approval_scope",
+        "specialist_binding_state",
+        "profile_stack",
+        "orbit_state",
+        "source_state",
+        "evidence_state",
+        "test_evidence_state",
+        "execution_state",
+        "receiver_delivery_state",
+        "continuation_bootstrap",
+        "migration_state",
+        "load_integrity",
+        "file_identity_and_delivery_state",
+        "schema_manifest"
+      ],
+      "optional_fields": [
+        "card_created_at",
+        "card_created_by",
+        "platform_state",
+        "extensions"
+      ],
+      "conditional_rules": [
+        {
+          "id": "HC-COND-ACTIVE-ARTIFACT",
+          "condition": "active_artifact.presence_state = PRESENT",
+          "requirements": [
+            "artifact_id",
+            "artifact_revision",
+            "task_key",
+            "task_center",
+            "prior_binding_state",
+            "restoration_binding_state",
+            "completeness_state",
+            "artifact_payload or artifact_ref",
+            "sha256 when bytes are available"
+          ],
+          "failure_behavior": "REVIEW_OR_ARTIFACT_BINDING_RECOVERY"
+        },
+        {
+          "id": "HC-COND-KNOWLEDGE-PATH",
+          "condition": "execution_state.execution_benchmark_profile is present for an executable or resumable active artifact",
+          "requirements": [
+            "execution_benchmark_profile contains domain_knowledge_requirements",
+            "execution_benchmark_profile contains cognitive_depth_profile",
+            "execution_benchmark_profile contains knowledge_to_execution_path",
+            "execution_benchmark_profile contains path_validation_state",
+            "execution_state.knowledge_to_execution_path_state matches the canonical benchmark profile",
+            "required path stages preserve completion state and evidence references",
+            "APPROVE is carried only when path_validation_state = COMPLETE_FOR_ACTIVE_STEP"
+          ],
+          "failure_behavior": "REVIEW_OR_REJECTED_INSUFFICIENT_PATH"
+        },
+        {
+          "id": "HC-COND-TEST-EVIDENCE",
+          "condition": "test_evidence_state.mode = FULL_TEST_EVIDENCE, produced test-evidence references exist, rerun_required_for_full_evidence is true, or a regulatory evidence obligation is OPTIONAL, RECOMMENDED, REQUIRED_FOR_APPROVAL_OR_CLOSURE, SATISFIED, or UNRESOLVED",
+          "requirements": [
+            "mode is SUMMARY_ONLY or FULL_TEST_EVIDENCE",
+            "mode_source and effective_from preserve when the selection became effective",
+            "recommendation state and reasons are preserved without silently enabling the mode",
+            "regulatory evidence requirement and obligation references are preserved",
+            "produced suite or definition, run manifest, per-test result, log, fixture, and README references are preserved when available",
+            "each run record declares REPRODUCIBLE_EXECUTABLE, REPLAYABLE_EVALUATION, or MANUAL_REVIEW_REQUIRED",
+            "reproducibility limits and sanitization or redaction effects remain visible",
+            "a prior SUMMARY_ONLY run sets rerun_required_for_full_evidence when exact evidence was not preserved",
+            "missing mandatory regulatory evidence routes to REVIEW or EVIDENCE_REQUIRED"
+          ],
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+        },
+        {
+          "id": "HC-COND-REQUIRED-INPUT",
+          "condition": "required_input_state.requests is non-empty or an active/queued task depends on unavailable input, evidence, authority, or action",
+          "requirements": [
+            "each request has request_id, need_state, input_class, reason_required, controlled_action, current_effect, validation_after_receipt, and satisfaction_state",
+            "canonical package, role, and exact filenames are preserved when known",
+            "exact_action_requested is preserved for non-file requirements",
+            "identity-unresolved requests preserve the smallest resolving question rather than an invented identity",
+            "blocking, degraded, received-pending-validation, validated-available-unbound, and satisfied request indexes match request states",
+            "safe fallback and acceptable alternatives are preserved when present"
+          ],
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+        },
+        {
+          "id": "HC-COND-ORBIT-1",
+          "condition": "orbit_state.orbit_1 is non-empty",
+          "requirements": [
+            "every entry has artifact identity, task identity, queue_state, pause_or_queue_reason, return_target, resume_condition"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-ORBIT-2",
+          "condition": "orbit_state.orbit_2 is non-empty",
+          "requirements": [
+            "every entry has artifact identity, task identity, queue_state, dependency_edges, resume_condition"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-Q4D",
+          "condition": "onboarding_state.q4 = D",
+          "requirements": [
+            "onboarding_state.q4d",
+            "working_agreement.q6d_state"
+          ],
+          "failure_behavior": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED_OR_REVIEW"
+        },
+        {
+          "id": "HC-COND-CREATIVE",
+          "condition": "resolved base mode = CREATIVE_NARRATIVE_CONTINUITY",
+          "requirements": [
+            "onboarding_state.creative_continuity_state when material"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-APPROVAL",
+          "condition": "open_approval_scope is not null",
+          "requirements": [
+            "approval_scope_id",
+            "gate_id",
+            "exact_gate_question",
+            "requested_action",
+            "authorized_action_ids",
+            "excluded_action_ids",
+            "required_evidence",
+            "stop_conditions",
+            "expiry_or_completion_condition",
+            "approval_state",
+            "approval_source"
+          ],
+          "failure_behavior": "REVIEW_OR_REJECT"
+        },
+        {
+          "id": "HC-COND-GOV",
+          "condition": "governance state is material",
+          "requirements": [
+            "prompt_edition",
+            "governance_floor_version",
+            "floor_invariant_reference",
+            "active_framework_projections",
+            "governance_source_rights_state",
+            "governance_blockers"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-SPECIALIST",
+          "condition": "specialist or package state is restored",
+          "requirements": [
+            "identity",
+            "version",
+            "availability_state",
+            "selection_state",
+            "validation_state",
+            "binding_state",
+            "scope"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-METHOD",
+          "condition": "method execution state affects continuation",
+          "requirements": [
+            "method_id or inline method",
+            "active_method_state",
+            "active_method_step",
+            "method_gate",
+            "method_evidence_state",
+            "staleness_state"
+          ],
+          "failure_behavior": "REVIEW"
+        },
+        {
+          "id": "HC-COND-PATCH",
+          "condition": "current step is file mutation or patching",
+          "requirements": [
+            "execution_state.patch_state.source_inventory",
+            "source hashes",
+            "replacement policy",
+            "mutation scope",
+            "validation state"
+          ],
+          "failure_behavior": "EVIDENCE_REQUIRED_OR_REJECT"
+        },
+        {
+          "id": "HC-COND-FILE-RECEIPT",
+          "condition": "material AIR files are carried or referenced",
+          "requirements": [
+            "canonical_role",
+            "canonical_filename",
+            "sha256",
+            "bytes",
+            "system_designation or template_designation",
+            "version",
+            "delivery_state"
+          ],
+          "failure_behavior": "FILE_IDENTITY_COLLISION_OR_REVIEW"
+        }
+      ],
+      "nullability": {
+        "required_carriers_may_contain_null_subfields_in_the_template": true,
+        "generated_cards_must_satisfy_conditional_rules": true,
+        "missing_required_carrier": "INVALID_HANDOFF_CARD",
+        "unknown_fields": "ALLOW_ONLY_UNDER_extensions_OR_ROUTE_TO_REVIEW"
+      },
+      "canonical_claim_precedence": {
+        "backend_validation_claim_authority_path": "AIR_HANDOFF_CARD.backend_validation_claimed",
+        "hidden_reasoning_claim_authority_path": "AIR_HANDOFF_CARD.hidden_reasoning_claimed",
+        "open_approval_scope_authority_path": "AIR_HANDOFF_CARD.open_approval_scope",
+        "runtime_origin_authority_path": "AIR_HANDOFF_CARD.runtime_origin"
+      },
+      "forbidden_states": [
+        "More than one top-level JSON root",
+        "Nested backend_validation_claimed values that conflict with the card-level value",
+        "ACTIVE_EXECUTION_BINDING granted directly by the handoff card",
+        "Orbit 1 or Orbit 2 entries marked executing",
+        "Inferred approval scope or source rights",
+        "Silent v1-to-v2 migration",
+        "Unsafe or ambiguous canonical filenames",
+        "APPROVE restored while knowledge_to_execution_path is absent or not COMPLETE_FOR_ACTIVE_STEP",
+        "Lookup-and-execute behavior represented as complete domain comprehension",
+        "Unsourced human experience or professional authority transferred into the synthetic benchmark",
+        "Known required input or action omitted from required_input_state",
+        "Exact canonical identity known but replaced with a generic request",
+        "Invented filename, package, source, tool, connector, credential, or dependency stored as observed identity",
+        "Received input represented as selected or bound before compatibility validation and approval when required",
+        "Satisfied current request repeated without a stale, mismatch, incompleteness, access, or supersession reason",
+        "FULL_TEST_EVIDENCE restored without actual suite or disclosed definitions, run manifest, per-test results, log or declared limitation",
+        "SUMMARY_ONLY result represented as a complete reproducibility package",
+        "Prior commands, logs, environment, fixtures or test implementation reconstructed from a summary-only record",
+        "Manual, qualitative, model-judged or prompt-side review represented as deterministic automated execution",
+        "Hidden reasoning, private chain of thought, credentials, secrets, restricted source text or unavailable backend logs stored as test evidence",
+        "Test-evidence toggle represented as proof of testing, compliance, audit sufficiency or regulatory conformity",
+        "Mandatory regulatory evidence obligation marked satisfied without qualifying evidence references"
+      ],
+      "validation_sequence": [
+        "strict JSON and duplicate-key check",
+        "one-root check",
+        "template designation and schema version check",
+        "required-carrier check",
+        "canonical claim consistency check",
+        "legacy migration check",
+        "file identity receipt check",
+        "required-input identity, availability, validation, satisfaction, and AIR-FLOOR-016 check",
+        "test-evidence mode, AIR-FLOOR-017, run-evidence identity, reproducibility, sanitization, rerun and regulatory-obligation check",
+        "governance and approval-scope check",
+        "artifact and Orbit candidate check",
+        "knowledge-to-execution path completeness and AIR-FLOOR-015 check",
+        "continuation bootstrap precheck"
+      ]
+    },
+    "extensions": {}
+  }
+}

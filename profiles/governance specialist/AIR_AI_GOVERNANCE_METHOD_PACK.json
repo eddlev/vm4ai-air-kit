@@ -1,0 +1,915 @@
+{
+  "title": "AIR AI Governance Method Pack v2",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "METHOD_PACK",
+  "artifact_class": "AIR_METHOD_PACK",
+  "package_version": "2.2.0",
+  "package_subtype": "AI_GOVERNANCE_LIFECYCLE_ANALYSIS_CONTROL_AND_EVIDENCE_METHOD",
+  "STATUS": "V2_AI_GOVERNANCE_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "legal_compliance_claimed": false,
+  "regulatory_conformity_claimed": false,
+  "certification_claimed": false,
+  "professional_equivalence_claimed": false,
+  "STANDARD_CODE": "AIR.METHOD.AI_GOVERNANCE.V2.SOURCE.ACCESS.JURISDICTION.LIFECYCLE.RISK.CONTROL.EVIDENCE.MONITORING.AGENTIC.HUMAN.AUTHORITY.TEST.EVIDENCE.NON_AGENT",
+  "description": "Reusable evidence-gated non-agent method for source-grounded AI governance analysis and control design. It begins with visible source-access and rights intake, supports public-source fallback, separates documentation from execution evidence, conditionally activates delegated-action governance, and preserves human authority for legal, compliance, risk, deployment, certification, conformity, and external claims.",
+  "source_baseline": {
+    "source_filename": "AIR AI GOVERNANCE METHOD PACK(4).json",
+    "source_system_designation": "AIR_AI_GOVERNANCE_METHOD_PACK_V1",
+    "sha256": "521c48b2e1dcc68ecca7b96b5e3f3a318985990d5054417d8496a66ca1be27fb",
+    "size_bytes": 14133,
+    "line_count": 245,
+    "source_immutable": true,
+    "migration_class": "V1_TO_V2_ORBIT_0_ARTIFACT_SOURCE_RIGHTS_TEST_EVIDENCE_PACKAGE_IDENTITY_AND_MISSING_ADAPTER_REMEDIATION"
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
+        "size_bytes": 231127,
+        "line_count": 5495
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
+        "size_bytes": 112242,
+        "line_count": 2648
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.0.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+        "size_bytes": 19336,
+        "line_count": 448
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.0.0",
+        "class": "TASK_COMPOSITE",
+        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794",
+        "size_bytes": 44953,
+        "line_count": 1124
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.0.0",
+        "class": "TEMPLATE",
+        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
+        "size_bytes": 29402,
+        "line_count": 695
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017"
+    ],
+    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+    "canonical_role": "AI_GOVERNANCE_METHOD_PACK",
+    "safe_filename_required": true,
+    "exact_delivery_validation_required": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_METHOD_PACK",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "may_occupy_orbit_0_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "legal_authority": false,
+    "regulatory_authority": false,
+    "certification_authority": false,
+    "organizational_risk_acceptance_authority": false,
+    "deployment_approval_authority": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "source_access_and_rights_contract": {
+    "modes": [
+      "FULL_MIXED_SOURCE",
+      "PUBLIC_SOURCE_ONLY",
+      "INTERNAL_PLUS_PUBLIC",
+      "SOURCE_INSUFFICIENT_BLOCKED"
+    ],
+    "default_without_paid_normative_text": "PUBLIC_SOURCE_ONLY",
+    "current_source_rule": "Current law, regulator material, implementation timelines, official guidance, standards status, and jurisdiction-specific obligations require current authoritative retrieval at task time.",
+    "no_current_retrieval_claim": "Package remediation preserved source-routing references but did not verify current external source content.",
+    "public_metadata_boundary": "Public metadata and summaries may support relevance and scope only. They do not establish inaccessible clauses, conformity, certification, or satisfied normative requirements.",
+    "licensed_source_rule": "Apply AIR Governance source-rights state before processing, extracting, storing, mapping, redistributing, or publicly committing restricted material.",
+    "no_purchase_pressure": true
+  },
+  "external_framework_adapter_state": {
+    "legacy_framework_adapter": {
+      "designation": "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1",
+      "legacy_file_reference": "../../mo/gov-fw.json",
+      "legacy_repository_path": "profiles/mo/gov-fw.json",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "operational_effect": "NONE"
+    },
+    "legacy_shared_framework_registry": {
+      "legacy_reference": "runtime/gov/fw.json",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "operational_effect": "NONE"
+    },
+    "non_fabrication_rule": "Do not fabricate gov-fw.json, shared registry content, framework clauses, mappings, adapter outputs, structural validation, semantic review, or runtime execution.",
+    "embedded_interface_boundary": "A component may define a bounded framework-projection interface, but that interface is not evidence that an external adapter or registry exists or ran."
+  },
+  "required_input_acquisition_contract": {
+    "floor_invariant": "AIR-FLOOR-016",
+    "required": true,
+    "behavior": "Check the current session, source inventory, validated package set, tool and connector availability, source rights, freshness, jurisdiction, lifecycle, organizational role, intended purpose, and evidence obligations. Request the smallest exact missing input; request the complete six-file package for coupled use or package validation.",
+    "complete_package_files": [
+      "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+    ],
+    "states": [
+      "REQUIRED_BLOCKING",
+      "REQUIRED_DEGRADED",
+      "OPTIONAL_ENHANCEMENT"
+    ],
+    "paid_standard_rule": "Do not pressure purchase. Request lawfully accessible excerpts or mappings, or continue in PUBLIC_SOURCE_ONLY mode with explicit limits.",
+    "attachment_boundary": "Receipt establishes availability only, not selection, approval, binding, currentness, compliance, or execution authority."
+  },
+  "test_evidence_contract": {
+    "floor_invariant": "AIR-FLOOR-017",
+    "default_mode": "SUMMARY_ONLY",
+    "default_command": "air -t off",
+    "opt_in_command": "air -t on",
+    "classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "full_mode_outputs": [
+      "test definitions or executable suite",
+      "test-run manifest",
+      "per-test results",
+      "raw or visibly sanitized run log",
+      "fixtures",
+      "review and rerun README"
+    ],
+    "retroactive_reconstruction_prohibited": true,
+    "hidden_reasoning_exposure_prohibited": true,
+    "regulatory_rule": "When a test or audit evidence obligation is material, recommend air -t on before the run. Do not enable it silently. Missing mandatory evidence remains REVIEW or EVIDENCE_REQUIRED."
+  },
+  "knowledge_to_execution_path_contract": {
+    "floor_invariant": "AIR-FLOOR-015",
+    "applies_to": "AI_GOVERNANCE_METHOD_EXECUTION",
+    "knowledge_classes": [
+      "FACTUAL",
+      "CONCEPTUAL",
+      "PROCEDURAL",
+      "METACOGNITIVE_OR_CONTROL"
+    ],
+    "bloom_derived_operations": [
+      "REMEMBER",
+      "UNDERSTAND",
+      "APPLY",
+      "ANALYZE",
+      "EVALUATE",
+      "CREATE"
+    ],
+    "canonical_path_stages": [
+      "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+      "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+      "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+      "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+      "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+      "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+      "ADAPTATION_AND_EXECUTION_PLANNING",
+      "EXECUTION",
+      "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+      "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+    ],
+    "ai_governance_emphasis": [
+      "source authority and temporal validity",
+      "jurisdiction and organizational role",
+      "intended purpose and lifecycle context",
+      "applicability and exception analysis",
+      "control-to-evidence separation",
+      "human authority gates",
+      "monitoring change and incident feedback",
+      "claim proportionality"
+    ],
+    "approval_boundary": "APPROVE requires COMPLETE_FOR_ACTIVE_STEP; missing required stages route to REVIEW or REJECT.",
+    "hidden_reasoning_boundary": "Use declared criteria, source evidence, observable checks and output evidence; do not request or expose private chain of thought."
+  },
+  "source_v1_function_preservation": {
+    "procedure": [
+      {
+        "id": "S0",
+        "action": "Run visible source and access intake.",
+        "expected_output": "Source inventory, access mode, jurisdiction, and requested output class.",
+        "evidence_to_advance": "User response or explicit deferral; files and source references when provided.",
+        "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "If licensed standards are unavailable, set PUBLIC_SOURCE_ONLY and continue. If project truth is missing, return EVIDENCE_REQUIRED."
+      },
+      {
+        "id": "S1",
+        "action": "Establish the governance scope and execution envelope.",
+        "expected_output": "Scoped system/use case, intended purpose, lifecycle stage, affected parties, consequence, exposure, reversibility, and decision owners.",
+        "evidence_to_advance": "Project source truth and explicit assumptions.",
+        "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Return REVIEW if scope ambiguity would change role, risk, law, or controls."
+      },
+      {
+        "id": "S2",
+        "action": "Classify the AI system, organization roles, and material risk provisionally.",
+        "expected_output": "Provisional system and role classification with alternatives, confidence, triggers, and human-review gate.",
+        "evidence_to_advance": "Current official definitions, project architecture, contracts, and user confirmation.",
+        "verification_grade": "SOURCE_CITED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Do not close final legal classification. Mark REVIEW_REQUIRED where evidence or authority is incomplete."
+      },
+      {
+        "id": "S3",
+        "action": "Compile the source authority and freshness map.",
+        "expected_output": "Claim-to-source trace separating law, guidance, standards, frameworks, technical guidance, policy, and evidence.",
+        "evidence_to_advance": "Current official retrieval and supplied sources with access/licence state.",
+        "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Block unsupported current-law claims and fabricated standard clauses."
+      },
+      {
+        "id": "S4",
+        "action": "Map candidate obligations, governance outcomes, and policy requirements.",
+        "expected_output": "Provisional obligation map with applicability basis, uncertainty, owner, and required review.",
+        "evidence_to_advance": "Source trace and role/risk classification.",
+        "verification_grade": "SOURCE_CITED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "If final legal interpretation is required, route to qualified human review."
+      },
+      {
+        "id": "S5",
+        "action": "Translate governance outcomes into proportionate controls.",
+        "expected_output": "Control map with objective, owner, lifecycle stage, implementation mode, evidence, failure condition, and residual risk.",
+        "evidence_to_advance": "Task envelope, threat/impact context, source map, and organization controls.",
+        "verification_grade": "AGENT_REPORTED_WITH_SOURCE_TRACE",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Return RESCOPE_REQUIRED if controls exceed or undercut the active risk and maturity envelope."
+      },
+      {
+        "id": "S6",
+        "action": "Build the evidence, assurance, and review plan.",
+        "expected_output": "Evidence register plan distinguishing design, implementation, operation, test, audit, and approval evidence.",
+        "evidence_to_advance": "Control map, acceptance criteria, and reviewer requirements.",
+        "verification_grade": "AGENT_REPORTED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Do not treat planned evidence or documents as observed execution."
+      },
+      {
+        "id": "S7",
+        "action": "Build monitoring, material-change, incident, and corrective-action rules.",
+        "expected_output": "Monitoring and change plan with metrics, thresholds, reassessment triggers, incident handling, rollback, and escalation.",
+        "evidence_to_advance": "Lifecycle, dependencies, controls, and consequence state.",
+        "verification_grade": "AGENT_REPORTED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "If agentic actions are present, activate the agentic overlay before closure."
+      },
+      {
+        "id": "S8",
+        "action": "Review human authority, legal/professional gates, and external claims.",
+        "expected_output": "Authority map and claim-boundary report with ALLOW_PROVISIONAL, REVIEW, EVIDENCE_REQUIRED, REJECT, or RESCOPE_REQUIRED.",
+        "evidence_to_advance": "All prior artifacts and evidence state.",
+        "verification_grade": "OPERATOR_WITNESSED_WHEN_FINAL_OR_EXTERNAL",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Fail closed on final compliance, certification, deployment, risk acceptance, or public claims without accountable approval."
+      },
+      {
+        "id": "S9",
+        "action": "Produce governance handoff and delivery readiness.",
+        "expected_output": "Receiver-facing handoff with scope, sources, decisions, limitations, blockers, monitoring, and next owner.",
+        "evidence_to_advance": "Completed method state and satisfied evidence-to-advance.",
+        "verification_grade": "AGENT_REPORTED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Generated output remains REVIEW_GATE if required evidence or approval is missing."
+      },
+      {
+        "id": "S10",
+        "action": "Run staleness and rescope check before reuse.",
+        "expected_output": "CURRENT, PARTIAL_CHANGE, MATERIAL_CHANGE, or STALE_NEEDS_REGROUND with invalidated steps.",
+        "evidence_to_advance": "Current date, jurisdiction, source versions, system changes, and project envelope.",
+        "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+        "reversibility": "REVERSIBLE",
+        "on_failure": "Invalidate affected steps after material legal, standards, model, data, purpose, deployment, or organization change."
+      }
+    ],
+    "definition_of_done": [
+      "Source access mode is visible and paid-source absence is handled without purchase pressure.",
+      "Jurisdiction, sector, system, intended purpose, lifecycle, roles, affected parties, and decision owners are explicit enough for the scoped output.",
+      "Current source authority and freshness are recorded.",
+      "Provisional classification is separated from final legal or organizational determination.",
+      "Controls include owners, evidence, monitoring, failure handling, and review gates.",
+      "Documentation and execution evidence remain distinct.",
+      "Agentic overlay is activated when delegated action triggers are present.",
+      "External claims remain within evidence and authority boundaries.",
+      "Receiver delivery state reflects unresolved evidence and approvals.",
+      "Staleness and material-change triggers are preserved for reuse."
+    ],
+    "invalidation_conditions": [
+      "Jurisdiction or sector changes.",
+      "Intended purpose, users, affected people, model, data, tools, permissions, deployment, or external effects change materially.",
+      "Official law, implementation material, regulator guidance, or a referenced framework changes materially.",
+      "A previously unavailable normative standard text is supplied or a supplied version changes.",
+      "The project moves to a higher readiness or external release state.",
+      "Risk appetite, decision owner, or governance authority changes."
+    ],
+    "staleness_rules": {
+      "laws_and_official_implementation": "FAST_CHANGING - retrieve current official sources for material outputs.",
+      "standards": "VERSIONED - verify edition and access state; do not infer normative text.",
+      "technical_guidance_and_platform_behavior": "MODERATE_TO_FAST - recheck when system context or platform changes.",
+      "project_truth": "INVALIDATE_ON_MATERIAL_CHANGE",
+      "public_source_mode": "The coverage limitation persists until licensed or authoritative user-supplied text is added."
+    }
+  },
+  "dependency_migration": {
+    "source_circularity": "The v1 Method listed the Executor as a dependency while the Executor also depended on the Method. V2 removes the circularity: the Method defines the reusable procedure; the Executor consumes the Method.",
+    "source_overlay_mismatch": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1_WHEN_TRIGGERED did not match the supplied overlay designation. V2 uses AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2 and stores trigger state separately."
+  },
+  "dependencies": [
+    {
+      "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+      "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "sha256": "68ef6728663b3ccde254668594ae186a546d2707f8430aa45deeac9bcb4aa5fc",
+      "required": true,
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+      "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "sha256": "84c70081324ddd422bc17037d86c3c12c3db2ad969705f87cf74693fa0f4da26",
+      "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+      "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "sha256": "0012bc114c5459bf4792c7bff6fd7d159ac8c5c40476e4aa4c3d8b8b8488a83e",
+      "required": true,
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "created_at_utc": "2026-07-29T17:36:21Z",
+  "method_pack_type": "AI_GOVERNANCE_LIFECYCLE_ANALYSIS_AND_CONTROL_DESIGN",
+  "activation_conditions": [
+    "A repeatable AI governance analysis, control design, evidence plan, governance review, or governance handoff is required.",
+    "The task involves current law, standards, organization policy, risk, assurance, or external claims.",
+    "Method execution state and evidence-to-advance materially affect closure."
+  ],
+  "non_activation_conditions": [
+    "A single low-risk explanatory answer with no governance advancement.",
+    "Pure brainstorming without classification, control, evidence, approval, or handoff pressure.",
+    "A narrow bounded extraction better handled by the AI Governance Executor."
+  ],
+  "source_access_boot_protocol": {
+    "visible_request_required": true,
+    "request_once_at_boot": [
+      "Target jurisdictions and sectors",
+      "AI system or use-case description, lifecycle stage, and intended purpose",
+      "Organization role and likely AI Act role, if known",
+      "Internal policies, risk appetite, control library, contracts, DPIAs, model cards, system cards, vendor documents, and incident records",
+      "Any lawfully accessible licensed standards, extracts, or clause references the user wants mapped",
+      "Requested output: orientation, governance design, gap review, clause-level mapping, audit support, or external claim review"
+    ],
+    "source_access_modes": {
+      "FULL_MIXED_SOURCE": "User supplied internal/project sources and any licensed material needed, supplemented by current public official sources.",
+      "PUBLIC_SOURCE_ONLY": "No licensed normative text supplied. Continue using public law, regulator material, public framework text, public standard metadata/abstracts, and user project truth.",
+      "INTERNAL_PLUS_PUBLIC": "Internal/project sources supplied; licensed standards absent. Continue with public-source limitations.",
+      "SOURCE_INSUFFICIENT_BLOCKED": "Required project truth or authority is absent and safe provisional work is not possible."
+    },
+    "default_if_paid_material_absent": "PUBLIC_SOURCE_ONLY",
+    "public_source_only_tags": {
+      "source_access_mode": "PUBLIC_SOURCE_ONLY",
+      "normative_standard_text_access": "NOT_SUPPLIED",
+      "standards_usage": "SCOPE_RELEVANCE_AND_PUBLIC_METADATA_ONLY",
+      "clause_level_standard_mapping": "BLOCKED",
+      "standard_conformity_or_certification_claims": "BLOCKED",
+      "general_governance_design": "ALLOWED_WITH_LIMITATIONS",
+      "regulatory_analysis": "ALLOWED_PROVISIONALLY_WITH_CURRENT_OFFICIAL_PUBLIC_SOURCES_AND_HUMAN_REVIEW"
+    },
+    "no_purchase_pressure_rule": "The specialist must not instruct or pressure a user to purchase standards. It may explain the limitation and request lawfully accessible excerpts, organizational mappings, auditor-provided references, or continue in public-source mode.",
+    "licensed_material_handling": "Treat uploaded licensed text as user-supplied task source. Do not redistribute it, reproduce excessive text, or imply the package includes a licence.",
+    "repeat_request_rule": "Do not repeatedly ask for paid material after the user declines or states it is unavailable. Preserve the public-source tag and continue within the allowed boundary."
+  },
+  "procedure": [
+    {
+      "id": "S0",
+      "action": "Run visible source and access intake.",
+      "expected_output": "Source inventory, access mode, jurisdiction, and requested output class.",
+      "evidence_to_advance": "User response or explicit deferral; files and source references when provided.",
+      "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If licensed standards are unavailable, set PUBLIC_SOURCE_ONLY and continue. If project truth is missing, return EVIDENCE_REQUIRED."
+    },
+    {
+      "id": "S1",
+      "action": "Establish the governance scope and execution envelope.",
+      "expected_output": "Scoped system/use case, intended purpose, lifecycle stage, affected parties, consequence, exposure, reversibility, and decision owners.",
+      "evidence_to_advance": "Project source truth and explicit assumptions.",
+      "verification_grade": "SOURCE_CITED_OR_USER_CONFIRMED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Return REVIEW if scope ambiguity would change role, risk, law, or controls."
+    },
+    {
+      "id": "S2",
+      "action": "Classify the AI system, organization roles, and material risk provisionally.",
+      "expected_output": "Provisional system and role classification with alternatives, confidence, triggers, and human-review gate.",
+      "evidence_to_advance": "Current official definitions, project architecture, contracts, and user confirmation.",
+      "verification_grade": "SOURCE_CITED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Do not close final legal classification. Mark REVIEW_REQUIRED where evidence or authority is incomplete."
+    },
+    {
+      "id": "S3",
+      "action": "Compile the source authority and freshness map.",
+      "expected_output": "Claim-to-source trace separating law, guidance, standards, frameworks, technical guidance, policy, and evidence.",
+      "evidence_to_advance": "Current official retrieval and supplied sources with access/licence state.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Block unsupported current-law claims and fabricated standard clauses."
+    },
+    {
+      "id": "S4",
+      "action": "Map candidate obligations, governance outcomes, and policy requirements.",
+      "expected_output": "Provisional obligation map with applicability basis, uncertainty, owner, and required review.",
+      "evidence_to_advance": "Source trace and role/risk classification.",
+      "verification_grade": "SOURCE_CITED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If final legal interpretation is required, route to qualified human review."
+    },
+    {
+      "id": "S5",
+      "action": "Translate governance outcomes into proportionate controls.",
+      "expected_output": "Control map with objective, owner, lifecycle stage, implementation mode, evidence, failure condition, and residual risk.",
+      "evidence_to_advance": "Task envelope, threat/impact context, source map, and organization controls.",
+      "verification_grade": "AGENT_REPORTED_WITH_SOURCE_TRACE",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Return RESCOPE_REQUIRED if controls exceed or undercut the active risk and maturity envelope."
+    },
+    {
+      "id": "S6",
+      "action": "Build the evidence, assurance, and review plan.",
+      "expected_output": "Evidence register plan distinguishing design, implementation, operation, test, audit, and approval evidence.",
+      "evidence_to_advance": "Control map, acceptance criteria, and reviewer requirements.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Do not treat planned evidence or documents as observed execution."
+    },
+    {
+      "id": "S7",
+      "action": "Build monitoring, material-change, incident, and corrective-action rules.",
+      "expected_output": "Monitoring and change plan with metrics, thresholds, reassessment triggers, incident handling, rollback, and escalation.",
+      "evidence_to_advance": "Lifecycle, dependencies, controls, and consequence state.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "If agentic actions are present, activate the agentic overlay before closure."
+    },
+    {
+      "id": "S8",
+      "action": "Review human authority, legal/professional gates, and external claims.",
+      "expected_output": "Authority map and claim-boundary report with ALLOW_PROVISIONAL, REVIEW, EVIDENCE_REQUIRED, REJECT, or RESCOPE_REQUIRED.",
+      "evidence_to_advance": "All prior artifacts and evidence state.",
+      "verification_grade": "OPERATOR_WITNESSED_WHEN_FINAL_OR_EXTERNAL",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Fail closed on final compliance, certification, deployment, risk acceptance, or public claims without accountable approval."
+    },
+    {
+      "id": "S9",
+      "action": "Produce governance handoff and delivery readiness.",
+      "expected_output": "Receiver-facing handoff with scope, sources, decisions, limitations, blockers, monitoring, and next owner.",
+      "evidence_to_advance": "Completed method state and satisfied evidence-to-advance.",
+      "verification_grade": "AGENT_REPORTED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Generated output remains REVIEW_GATE if required evidence or approval is missing."
+    },
+    {
+      "id": "S10",
+      "action": "Run staleness and rescope check before reuse.",
+      "expected_output": "CURRENT, PARTIAL_CHANGE, MATERIAL_CHANGE, or STALE_NEEDS_REGROUND with invalidated steps.",
+      "evidence_to_advance": "Current date, jurisdiction, source versions, system changes, and project envelope.",
+      "verification_grade": "SOURCE_CITED_OR_TOOL_OBSERVED",
+      "reversibility": "REVERSIBLE",
+      "on_failure": "Invalidate affected steps after material legal, standards, model, data, purpose, deployment, or organization change."
+    }
+  ],
+  "definition_of_done": [
+    "Source access mode is visible and paid-source absence is handled without purchase pressure.",
+    "Jurisdiction, sector, system, intended purpose, lifecycle, roles, affected parties, and decision owners are explicit enough for the scoped output.",
+    "Current source authority and freshness are recorded.",
+    "Provisional classification is separated from final legal or organizational determination.",
+    "Controls include owners, evidence, monitoring, failure handling, and review gates.",
+    "Documentation and execution evidence remain distinct.",
+    "Agentic overlay is activated when delegated action triggers are present.",
+    "External claims remain within evidence and authority boundaries.",
+    "Receiver delivery state reflects unresolved evidence and approvals.",
+    "Staleness and material-change triggers are preserved for reuse."
+  ],
+  "method_execution_state_schema": {
+    "required_fields": [
+      "method_origin",
+      "method_id",
+      "compiled_against_task_envelope",
+      "active_step",
+      "step_states",
+      "evidence_log",
+      "source_access_mode",
+      "source_freshness_state",
+      "human_review_gates",
+      "decision_state",
+      "receiver_delivery_state"
+    ],
+    "step_states": [
+      "PENDING",
+      "ACTIVE",
+      "COMPLETED",
+      "BLOCKED",
+      "SKIPPED_APPROVED",
+      "FAILED",
+      "INVALIDATED",
+      "STALE_NEEDS_REGROUND"
+    ]
+  },
+  "invalidation_conditions": [
+    "Jurisdiction or sector changes.",
+    "Intended purpose, users, affected people, model, data, tools, permissions, deployment, or external effects change materially.",
+    "Official law, implementation material, regulator guidance, or a referenced framework changes materially.",
+    "A previously unavailable normative standard text is supplied or a supplied version changes.",
+    "The project moves to a higher readiness or external release state.",
+    "Risk appetite, decision owner, or governance authority changes."
+  ],
+  "staleness_rules": {
+    "laws_and_official_implementation": "FAST_CHANGING - retrieve current official sources for material outputs.",
+    "standards": "VERSIONED - verify edition and access state; do not infer normative text.",
+    "technical_guidance_and_platform_behavior": "MODERATE_TO_FAST - recheck when system context or platform changes.",
+    "project_truth": "INVALIDATE_ON_MATERIAL_CHANGE",
+    "public_source_mode": "The coverage limitation persists until licensed or authoritative user-supplied text is added."
+  },
+  "failure_modes_prevented": [
+    "clause fabrication",
+    "compliance by citation",
+    "silent provider/deployer role collapse",
+    "policy-as-execution proof",
+    "unowned human oversight",
+    "stale regulatory conclusions",
+    "unbounded agentic authority",
+    "wrong delivery readiness",
+    "purchase pressure for standards"
+  ],
+  "method_steps": [
+    {
+      "step_id": "G01",
+      "name": "SCOPE_JURISDICTION_ROLE_AND_INTENDED_PURPOSE",
+      "operation": "Establish active task, AI system or use case, lifecycle, intended purpose, jurisdictions, sectors, organization roles, affected people, data, vendors and external claims.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G02",
+      "name": "SOURCE_ACCESS_RIGHTS_AND_FRESHNESS",
+      "operation": "Classify project truth, official public sources, internal sources, licensed normative text, access rights, authority class, version and freshness.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "step_id": "G03",
+      "name": "CURRENT_AUTHORITATIVE_SOURCE_ACQUISITION",
+      "operation": "Retrieve or request current authoritative sources when material; preserve PUBLIC_SOURCE_ONLY limits and block unsupported clause claims.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G04",
+      "name": "SYSTEM_LIFECYCLE_AND_ROLE_INVENTORY",
+      "operation": "Map system boundaries, model and data dependencies, provider/deployer/importer/distributor or other relevant roles without collapsing them.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G05",
+      "name": "RISK_APPLICABILITY_AND_CLASSIFICATION",
+      "operation": "Perform bounded applicability, exception, consequence, reversibility, affected-person and risk classification with explicit uncertainty.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G06",
+      "name": "GOVERNANCE_OBLIGATION_AND_CONTROL_OBJECTIVE_DESIGN",
+      "operation": "Translate supported obligations and governance needs into scoped control objectives, owners, triggers, stop conditions and evidence expectations.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G07",
+      "name": "DATA_PRIVACY_SECURITY_SAFETY_AND_THIRD_PARTY_REVIEW",
+      "operation": "Review material data, privacy, security, safety, misuse, vendor, contract, supply-chain and assurance surfaces.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G08",
+      "name": "DELEGATED_ACTION_OVERLAY_TRIGGER",
+      "operation": "Determine whether tool selection, delegated action, multi-step external execution or external-state effects require AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "step_id": "G09",
+      "name": "CONTROL_TO_EVIDENCE_AND_TEST_PLAN",
+      "operation": "Separate control design from operating evidence and define test, monitoring, operator, audit and artifact evidence required.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G10",
+      "name": "MONITORING_CHANGE_INCIDENT_AND_REVALIDATION",
+      "operation": "Define monitoring, change triggers, incident escalation, correction, rollback, retirement and revalidation signals.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G11",
+      "name": "HUMAN_AUTHORITY_AND_EXTERNAL_CLAIM_GATE",
+      "operation": "Preserve human legal, compliance, risk-acceptance, deployment, certification, conformity and public-claim decisions; calibrate claims to evidence.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "MANUAL_REVIEW_REQUIRED"
+    },
+    {
+      "step_id": "G12",
+      "name": "FRAMEWORK_PROJECTION_OR_CROSSWALK",
+      "operation": "When exact sources and rights permit, produce a reversible, provenance-linked framework projection. If the adapter is absent, use a bounded disclosed manual method or mark blocked.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G13",
+      "name": "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+      "operation": "Evaluate the governance packet against scope, source, evidence, role, lifecycle, authority and claim boundaries; localize defects.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPLAYABLE_EVALUATION"
+    },
+    {
+      "step_id": "G14",
+      "name": "HANDOFF_EVIDENCE_OBLIGATION_AND_REVALIDATION_STATE",
+      "operation": "Preserve source access, unresolved inputs, regulatory evidence obligations, adapter state, overlay trigger, human gates, staleness and safe next action.",
+      "required_inputs": [
+        "bound Orbit 0 artifact scope",
+        "available source and rights state",
+        "prior step evidence when applicable"
+      ],
+      "evidence_gate": "Required claims, source classes, limitations, unresolved inputs, and observable checks are recorded before advancement.",
+      "failure_route": "Emit AIR_REQUIRED_INPUT_REQUEST, REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED, or REJECT according to the defect and safe continuation state.",
+      "outputs": [
+        "AIR_AI_GOVERNANCE_METHOD_EXECUTION_STATE update",
+        "task-scoped governance candidate artifacts",
+        "evidence and limitation references"
+      ],
+      "handoff_safe": true,
+      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE"
+    }
+  ],
+  "method_execution_state_schema_v2": {
+    "method_execution_id": null,
+    "active_step_id": null,
+    "step_states": [],
+    "source_access_mode": null,
+    "jurisdiction_and_role_state": null,
+    "agentic_overlay_state": "NOT_EVALUATED",
+    "framework_adapter_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+    "regulatory_evidence_requirement_state": "NONE_IDENTIFIED",
+    "human_authority_gates": [],
+    "unresolved_required_inputs": [],
+    "staleness_triggers": [],
+    "next_safe_action": null,
+    "completion_state": "NOT_STARTED"
+  },
+  "may_bind_as": "METHOD_CONTRIBUTION_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+  "must_not_bind_as": [
+    "ACTIVE_EXECUTION_BINDING",
+    "ORBIT_0_ARTIFACT",
+    "LEGAL_OR_REGULATORY_AUTHORITY",
+    "COMPLIANCE_OR_CERTIFICATION_PROOF"
+  ],
+  "package_completion_state": {
+    "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+    "manifest_designation": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V2",
+    "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+    "state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+    "manifest_hash_resolved_by_package_manifest_only": true
+  },
+  "package_component_status": {
+    "domain_package": "FINALIZED",
+    "agentic_overlay": "FINALIZED",
+    "specialist": "FINALIZED",
+    "executor": "FINALIZED",
+    "manifest": "GENERATED_LAST"
+  },
+  "integration_refresh": {
+    "refresh_version": "2.2.0",
+    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
+    "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+  }
+}
