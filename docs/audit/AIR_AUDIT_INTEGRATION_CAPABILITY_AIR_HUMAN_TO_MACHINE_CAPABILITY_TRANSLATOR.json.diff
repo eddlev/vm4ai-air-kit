@@ -1,0 +1,62 @@
+--- /mnt/data/AIR_SPECIALIST_PROFILE_PACKS_PATCHED/01_CAPABILITY_ECOLOGY_ARCHITECT/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json	2026-08-03 19:53:37.671033780 +0000
++++ /mnt/data/AIR_SPECIALIST_LAYER_INTEGRATION_REFRESH/02_CAPABILITY_ECOLOGY/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json	2026-08-03 20:36:17.499117823 +0000
+@@ -5,7 +5,7 @@
+   "SCHEMA_FAMILY": "AIR_V2",
+   "PROFILE_KIND": "EXECUTOR_CONTRACT",
+   "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
+-  "package_version": "2.1.0",
++  "package_version": "2.2.0",
+   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
+   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+   "STATUS": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+@@ -45,7 +45,8 @@
+     ],
+     "record_mode": "PROMPT_LAYER_APPLIED",
+     "backend_enforcement_claimed": false,
+-    "hidden_reasoning_claimed": false
++    "hidden_reasoning_claimed": false,
++    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+   },
+   "file_identity_contract": {
+     "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+@@ -81,8 +82,8 @@
+     "domain_capability_registry": {
+       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
+       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_PACKAGE_NORMALIZED",
+-      "observed_sha256": "345942f5ccfe3f33b85beb8aae41eb5ffef7c2950e8007991c3a7d92b3fc696d"
++      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
++      "observed_sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976"
+     },
+     "source_and_control_registry": {
+       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
+@@ -1044,5 +1045,28 @@
+       "approved_scope": "Opt-in full review evidence for translation, fixture, representative-task and benchmark contribution tests; SUMMARY_ONLY default; regulatory evidence recommendation; no hidden reasoning or retroactive reconstruction.",
+       "source_v2_sha256": "aadf7859fcbe63cd942de13b246cc9eee3abfc5980e0cf76c3f337d31803acc0"
+     }
+-  ]
++  ],
++  "integration_refresh": {
++    "refresh_version": "2.2.0",
++    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
++    "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
++    "optional_cross_package_compatibility": [
++      {
++        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
++        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      },
++      {
++        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
++        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      }
++    ],
++    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
++    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
++  }
+ }

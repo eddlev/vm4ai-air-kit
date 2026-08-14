@@ -1,11 +1,11 @@
 {
   "AIR_HANDOFF_CARD": {
     "TEMPLATE_DESIGNATION": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-    "SCHEMA_VERSION": "2.0.0",
+    "SCHEMA_VERSION": "2.2.0",
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-    "schema_version": "2.0.0",
+    "schema_version": "2.2.0",
     "card_id": null,
-    "card_revision": 2,
+    "card_revision": 5,
     "record_class": "TRANSFER_RECORD",
     "card_created_at": null,
     "card_created_by": null,
@@ -48,7 +48,23 @@
       "governing_floor_invariants": [],
       "receiver_delivery_state": null,
       "binding_history": [],
-      "unresolved_conflicts": []
+      "unresolved_conflicts": [],
+      "artifact_lease": {
+        "lease_id": null,
+        "lease_state_before_handoff": null,
+        "restoration_lease_state": "EXPIRED_REBIND_REQUIRED",
+        "valid_task_center": null,
+        "valid_active_step": null,
+        "valid_action_classes": [],
+        "resource_scope_pin_ref": null,
+        "source_fingerprint": null,
+        "approval_fingerprint": null,
+        "environment_fingerprint": null,
+        "invalidation_triggers": [],
+        "last_validation_state": null
+      },
+      "resource_scope_pin": null,
+      "action_governance_state": null
     },
     "active_contract": {
       "presence_state": "NO_ACTIVE_CONTRACT_INPUT",
@@ -94,7 +110,7 @@
       "validated_available_unbound_ids": [],
       "satisfied_request_ids": [],
       "last_request_update": null,
-      "restoration_rule": "Restore exact requested identities and actions. Recheck current availability, freshness, completeness, compatibility, source rights, permission, and satisfaction before repeating a request or resuming the controlled action."
+      "restoration_rule": "Restore exact requested identities and actions, including responsive-binding scope/effects/exclusions and approval gate references when present. Recheck current availability, freshness, completeness, compatibility, source rights, permission, approval validity, and satisfaction before repeating a request or resuming the controlled action."
     },
     "object_visibility_mode": "MINIMUM_REQUIRED_OBJECTS",
     "onboarding_state": {
@@ -173,7 +189,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.0.0",
+        "PROMPT_VERSION": "2.4.0",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -348,6 +364,20 @@
         "required_input_request_refs": [],
         "missing_files": [],
         "restoration_rule": "Revalidate exact package and component identities, current source authority and freshness, source rights, jurisdiction, organizational role, lifecycle, intended purpose, regulatory evidence obligations, framework-adapter availability, task fit, approval state, and Orbit 0 compilation. Do not treat prior analysis or validation as legal advice, compliance proof, certification, conformity, deployment approval, or current-source verification."
+      },
+      "method_handoff_state": {
+        "method_identity": null,
+        "method_origin": null,
+        "method_version": null,
+        "active_method_state": null,
+        "active_method_step": null,
+        "method_step_gate": null,
+        "method_evidence_state": null,
+        "staleness_state": null,
+        "unresolved_blockers": [],
+        "next_allowed_action": null,
+        "evidence_refs": [],
+        "method_specific_state": {}
       }
     },
     "receiver_delivery_state": {
@@ -372,7 +402,9 @@
       "missing_active_candidate_behavior": "Compile a new candidate from restored project state and current user direction.",
       "user_task_change_behavior": "Treat selection as bootstrap input; promote selected task and queue the prior nomination if still valid.",
       "required_input_recheck": "Before repeating a request or resuming its controlled action, recheck session availability, validated package state, freshness, completeness, compatibility, source rights, permission, and satisfaction. Preserve exact identities and do not infer satisfaction from attachment alone.",
-      "test_evidence_recheck": "Restore test_evidence_state without treating the card as proof that tests ran or evidence is sufficient. Revalidate each referenced suite, manifest, result, log, fixture, sanitization state, and regulatory obligation. If FULL_TEST_EVIDENCE was enabled only after a prior summary-only run, preserve rerun_required_for_full_evidence."
+      "test_evidence_recheck": "Restore test_evidence_state without treating the card as proof that tests ran or evidence is sufficient. Revalidate each referenced suite, manifest, result, log, fixture, sanitization state, and regulatory obligation. If FULL_TEST_EVIDENCE was enabled only after a prior summary-only run, preserve rerun_required_for_full_evidence.",
+      "method_handoff_recheck": "When method continuation is material, validate method identity/version/origin, active method state/step/gate, staleness, evidence references, blockers, next action, and method_specific_state against the current method requirements before artifact rebinding. Missing material state routes to REVIEW; do not invent it.",
+      "responsive_binding_recheck": "Restore responsive-binding requests and approval evidence only as continuation input. Revalidate the exact approval gate, disclosed scope/effects, component identity, freshness, compatibility, selection, and artifact compilation before binding. Attachment history alone is not approval."
     },
     "migration_state": {
       "source_schema_version": null,
@@ -391,7 +423,9 @@
         "PROMPT_SIMULATED": "LEGACY_MODE_REVIEW_REQUIRED",
         "ORBIT_3": "MIGRATE_TO_ORBIT_2_OR_REVIEW",
         "v1_active_contract": "RESTORE_AS_ARTIFACT_INPUT_CONTRACT_PENDING_ARTIFACT_REBINDING",
-        "v1_governance": "LEGACY_GOVERNANCE_STATE_REVIEW_REQUIRED"
+        "v1_governance": "LEGACY_GOVERNANCE_STATE_REVIEW_REQUIRED",
+        "v2_1_method_state": "MIGRATE_EXPLICIT_METHOD_AND_METHOD_EXECUTION_STATE_TO_2_2_METHOD_HANDOFF_STATE_WHEN_FULLY_RECOVERABLE; OTHERWISE_REVIEW",
+        "v2_1_schema": "RESTORE_ONLY_AS_MIGRATION_INPUT_PENDING_REVIEW_UNTIL_2_2_REQUIRED_STATE_IS_MAPPED"
       }
     },
     "load_integrity": {
@@ -400,7 +434,15 @@
       "duplicate_key_state": "UNVERIFIED",
       "template_identity_state": "UNVERIFIED",
       "schema_compatibility_state": "UNVERIFIED",
-      "overall_state": "UNVERIFIED"
+      "overall_state": "UNVERIFIED",
+      "validation_profile": null,
+      "routine_boot_state": "UNVERIFIED",
+      "targeted_revalidation_state": "NOT_APPLICABLE",
+      "full_release_integrity_audit_state": "NOT_RUN_NOT_REQUIRED",
+      "deep_audit_required_reason": null,
+      "deferred_checks": [],
+      "receipt_comparison_state": "NOT_EVALUATED",
+      "last_full_audit_ref": null
     },
     "file_identity_and_delivery_state": {
       "floor_invariant": "AIR-FLOOR-014",
@@ -458,7 +500,8 @@
         "card_created_at",
         "card_created_by",
         "platform_state",
-        "extensions"
+        "extensions",
+        "action_governance_state"
       ],
       "conditional_rules": [
         {
@@ -516,7 +559,9 @@
             "exact_action_requested is preserved for non-file requirements",
             "identity-unresolved requests preserve the smallest resolving question rather than an invented identity",
             "blocking, degraded, received-pending-validation, validated-available-unbound, and satisfied request indexes match request states",
-            "safe fallback and acceptable alternatives are preserved when present"
+            "safe fallback and acceptable alternatives are preserved when present",
+            "when a request is for responsive binding approval, preserve requested_for_binding, binding_scope, binding_effects_disclosed, binding_excluded_effects, approval_gate_ref, responsive_action_semantics, and approval-captured/validation-pending state",
+            "unsolicited attachment history never restores as binding approval"
           ],
           "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
         },
@@ -600,16 +645,21 @@
         },
         {
           "id": "HC-COND-METHOD",
-          "condition": "method execution state affects continuation",
+          "condition": "method execution state affects continuation or a Method Pack is active/stale",
           "requirements": [
-            "method_id or inline method",
+            "execution_state.method_handoff_state.method_identity or execution_state.method inline identity",
+            "method_origin",
             "active_method_state",
             "active_method_step",
-            "method_gate",
+            "method_step_gate",
             "method_evidence_state",
-            "staleness_state"
+            "staleness_state",
+            "unresolved_blockers",
+            "next_allowed_action",
+            "evidence_refs",
+            "method_specific_state satisfies active Method Pack handoff_requirements when applicable"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW_WITHOUT_INVENTING_MISSING_METHOD_STATE"
         },
         {
           "id": "HC-COND-PATCH",
@@ -636,6 +686,42 @@
             "delivery_state"
           ],
           "failure_behavior": "FILE_IDENTITY_COLLISION_OR_REVIEW"
+        },
+        {
+          "id": "HC-COND-ACTION-GOVERNANCE",
+          "condition": "material action, action authorization, action receipt, artifact lease, resource scope pin, or unbound prior effect is material to continuation",
+          "requirements": [
+            "active_artifact.artifact_lease preserves the prior lease and restores it as EXPIRED_REBIND_REQUIRED",
+            "resource scope pins preserve exact repository, branch, path, system, environment, credential, and action-class boundaries when known",
+            "historical authorizations and receipts preserve identity and evidence without becoming continuation authority",
+            "open authorizations are empty or explicitly invalidated",
+            "unbound prior effects preserve reconciliation and human-review state",
+            "runtime watchdog is rerun before any material action"
+          ],
+          "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW"
+        },
+        {
+          "id": "HC-COND-BOOT-VALIDATION-PROPORTIONALITY",
+          "condition": "load-integrity validation profile or deferred deep-audit state is material to continuation",
+          "requirements": [
+            "validation_profile is ROUTINE_BOOT_MINIMUM_SUFFICIENT, TARGETED_REVALIDATION, or FULL_RELEASE_INTEGRITY_AUDIT",
+            "routine_boot_state and targeted_revalidation_state preserve their last material result",
+            "full_release_integrity_audit_state distinguishes PASS, FAILED, NOT_RUN_NOT_REQUIRED, and REQUIRED_NOT_RUN",
+            "deep_audit_required_reason is present when the full audit is required but not run",
+            "deferred_checks do not conceal checks required for the next material action",
+            "a prior full audit reference is revalidated before being treated as current evidence"
+          ],
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+        },
+        {
+          "id": "HC-COND-OPERATIVE-AUTHORITY",
+          "condition": "handoff template identity or Starter compatibility is evaluated",
+          "requirements": [
+            "compare only schema_manifest operative compatibility paths",
+            "do not infer current requirements from release history, amendment, audit, migration, or hotfix records",
+            "block only when canonical operative paths disagree"
+          ],
+          "failure_behavior": "BLOCK_ONLY_ON_OPERATIVE_PATH_CONFLICT"
         }
       ],
       "nullability": {
@@ -672,7 +758,11 @@
         "Manual, qualitative, model-judged or prompt-side review represented as deterministic automated execution",
         "Hidden reasoning, private chain of thought, credentials, secrets, restricted source text or unavailable backend logs stored as test evidence",
         "Test-evidence toggle represented as proof of testing, compliance, audit sufficiency or regulatory conformity",
-        "Mandatory regulatory evidence obligation marked satisfied without qualifying evidence references"
+        "Mandatory regulatory evidence obligation marked satisfied without qualifying evidence references",
+        "AIR_ACTION_AUTHORIZATION restored across handoff as current executable authority",
+        "Prior material effect retroactively labeled authorized by a later artifact, approval, or handoff",
+        "Material continuation action executed before artifact lease and resource scope pin revalidation",
+        "Pending material action receipt or unbound prior effect omitted from continuation state"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
@@ -687,9 +777,69 @@
         "governance and approval-scope check",
         "artifact and Orbit candidate check",
         "knowledge-to-execution path completeness and AIR-FLOOR-015 check",
-        "continuation bootstrap precheck"
-      ]
+        "artifact lease and resource scope pin restoration check",
+        "action authorization invalidation and receipt continuity check",
+        "unbound prior effect reconciliation check",
+        "runtime watchdog pre-action readiness check",
+        "continuation bootstrap precheck",
+        "generic method_handoff_state completeness and method-specific handoff requirement check",
+        "responsive binding approval scope/effect/identity revalidation check",
+        "schema 2.1.0 to 2.2.0 method-state migration check"
+      ],
+      "schema_compatibility_contract": {
+        "canonical_schema_version": "2.2.0",
+        "core_required_version_owner": "AIR_CORE_RUNTIME_V2",
+        "cross_file_equality_required": true,
+        "template_fields_required_equal": [
+          "SCHEMA_VERSION",
+          "schema_version"
+        ],
+        "starter_identity_version_required": "2.4.0",
+        "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
+      },
+      "operative_compatibility_authority": {
+        "authority_class": "RUNTIME_OPERATIVE",
+        "authoritative_paths": [
+          "AIR_HANDOFF_CARD.TEMPLATE_DESIGNATION",
+          "AIR_HANDOFF_CARD.SCHEMA_VERSION",
+          "AIR_HANDOFF_CARD.template_designation",
+          "AIR_HANDOFF_CARD.schema_version",
+          "AIR_HANDOFF_CARD.profile_stack.starter_profile.SYSTEM_DESIGNATION",
+          "AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION",
+          "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract"
+        ],
+        "historical_release_metadata_effect": "NON_OPERATIVE_MUST_NOT_BLOCK_BOOT_OR_RESTORATION"
+      }
     },
-    "extensions": {}
+    "extensions": {},
+    "action_governance_state": {
+      "artifact_lease_state": "EXPIRED_REBIND_REQUIRED_ON_RESTORE",
+      "resource_scope_pins": [],
+      "historical_action_authorizations": [],
+      "open_authorizations": [],
+      "authorization_restoration_rule": "No AIR_ACTION_AUTHORIZATION survives handoff as executable authority. Preserve history and requested action context, then issue a new authorization only after restore validation and artifact rebinding.",
+      "action_receipts": [],
+      "unbound_prior_effects": [],
+      "pending_reconciliation_ids": [],
+      "runtime_watchdog_state": {
+        "last_check_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+        "failed_checks": [],
+        "next_required_check": "RUN_AFTER_RESTORE_PRECHECK_AND_BEFORE_ANY_MATERIAL_ACTION"
+      },
+      "material_action_resume_rule": "Revalidate artifact, lease, scope pin, sources, environment, permissions, approvals, pending receipts, and prior effects before issuing a new action authorization."
+    },
+    "runtime_drift_hardening_schema_extension": {
+      "schema_extension_version": "2.1.0",
+      "floor_invariant": "AIR-FLOOR-018",
+      "added_carriers": [
+        "artifact lease state",
+        "resource scope pin",
+        "action authorization history and invalidation",
+        "action receipts",
+        "unbound prior effects",
+        "runtime watchdog state"
+      ],
+      "restore_boundary": "Historical authorizations never restore as executable authority."
+    }
   }
 }

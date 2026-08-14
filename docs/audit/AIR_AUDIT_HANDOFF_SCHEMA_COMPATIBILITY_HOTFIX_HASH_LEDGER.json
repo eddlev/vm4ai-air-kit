@@ -1,0 +1,196 @@
+{
+  "ledger_id": "AIR_AUDIT_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX_HASH_LEDGER_001",
+  "generated_at": "2026-08-04T21:39:00+02:00",
+  "source_release": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_0",
+  "target_release": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_1",
+  "source_boot_files": {
+    "AIR_CORE_RUNTIME.md": {
+      "filename": "AIR_CORE_RUNTIME.md",
+      "sha256": "69a3be35e138782d699c92f0d58265793af16f687dafdf2a2493de2330b54c79",
+      "size_bytes": 243327,
+      "line_count": 5772
+    },
+    "AIR_CONTROL_SURFACE.md": {
+      "filename": "AIR_CONTROL_SURFACE.md",
+      "sha256": "a5880e0ded7bae067a851cf461cd0efd9646b0fdc2ec40996f20bd0bb04bee6f",
+      "size_bytes": 115145,
+      "line_count": 2721
+    },
+    "AIR_GOV.md": {
+      "filename": "AIR_GOV.md",
+      "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+      "size_bytes": 19336,
+      "line_count": 448
+    },
+    "AIR_DEFAULT_STARTER_PROFILE.json": {
+      "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+      "sha256": "1a9c486eb677655d4001128081d6c8114797e02b1dc300af3046066c010cfc8a",
+      "size_bytes": 51360,
+      "line_count": 1234
+    },
+    "AIR_HANDOFF_CARD_TEMPLATE.json": {
+      "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+      "sha256": "00de25e77941ea67783532e8288d7f248cf49384be4fc68ed397917a86fe648f",
+      "size_bytes": 33098,
+      "line_count": 762
+    }
+  },
+  "files": {
+    "01_FOUNDATION": {
+      "AIR_CONTROL_SURFACE.md": {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "sha256": "3d539f27f0952cd02f6d0ddc4e284beb55083a50b5e273bb6c4b949633d8f915",
+        "size_bytes": 115577,
+        "line_count": 2727
+      },
+      "AIR_CORE_RUNTIME.md": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "sha256": "6f2ab99b82d3834012600dd6944472fefc88be49243569651b1ab16c538d1b7d",
+        "size_bytes": 243833,
+        "line_count": 5779
+      },
+      "AIR_DEFAULT_STARTER_PROFILE.json": {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "sha256": "9fcbf8c1e13e25b803496551627b60b76f4e29be043b74204ae36475fe1d146f",
+        "size_bytes": 52334,
+        "line_count": 1248
+      },
+      "AIR_GOV.md": {
+        "filename": "AIR_GOV.md",
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+        "size_bytes": 19336,
+        "line_count": 448
+      },
+      "AIR_HANDOFF_CARD_TEMPLATE.json": {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "sha256": "867ccac3713a138cef2e4d7c5a4533f616a9c380c31c99f95ded5d1ef5b91353",
+        "size_bytes": 33863,
+        "line_count": 780
+      }
+    },
+    "02_CAPABILITY_ECOLOGY": {
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json": {
+        "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+        "sha256": "3da786359c6596976ed388609630d5ad68963c0d36e75d488801cac87939e93d",
+        "size_bytes": 84341,
+        "line_count": 1605
+      },
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json": {
+        "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "sha256": "45494f867e4da166d780bf50e747398447e2ac25edfd0fe647662af8dfa0c2d4",
+        "size_bytes": 14677,
+        "line_count": 319
+      },
+      "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json": {
+        "filename": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+        "sha256": "911cf087b4baf52c5ddd98bf655a267884124906e529e0b541a4139331dd15ac",
+        "size_bytes": 73764,
+        "line_count": 1454
+      },
+      "AIR_DOMAIN_CAPABILITY_REGISTRY.json": {
+        "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+        "sha256": "fb81d4c178727d22403781fb2a93fb4b9cde735f76108ccbc3397aa2c0f70aea",
+        "size_bytes": 227961,
+        "line_count": 5107
+      },
+      "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json": {
+        "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+        "sha256": "03e1dc8e89a4960b310cf7c0872701e7de6d5b579d3eac2bbc58cec0398863f0",
+        "size_bytes": 55485,
+        "line_count": 1089
+      }
+    },
+    "03_GROUNDING": {
+      "AIR_GROUNDING_DOMAIN_PACKAGE.json": {
+        "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "sha256": "eb69fb72586a23e2474cb85b05c265601f5f2524b0accfe3807c6f8941c329d4",
+        "size_bytes": 53908,
+        "line_count": 899
+      },
+      "AIR_GROUNDING_EXECUTOR.json": {
+        "filename": "AIR_GROUNDING_EXECUTOR.json",
+        "sha256": "fb06267e711691426ee9fa537d384e7e493512be277f3fb6afeb48ccbb1ea1f0",
+        "size_bytes": 13453,
+        "line_count": 320
+      },
+      "AIR_GROUNDING_METHOD_PACK.json": {
+        "filename": "AIR_GROUNDING_METHOD_PACK.json",
+        "sha256": "40b75f70c80881a4ce0c0e330505aec368d8e72a470ea8a9824e292ec28a90e1",
+        "size_bytes": 58221,
+        "line_count": 1220
+      },
+      "AIR_GROUNDING_SPECIALIST.json": {
+        "filename": "AIR_GROUNDING_SPECIALIST.json",
+        "sha256": "66973cdb0afd92e926e522758c0cd3c108a824b7cdcc31ae9128d303a89f0ae0",
+        "size_bytes": 62407,
+        "line_count": 1090
+      },
+      "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json": {
+        "filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "sha256": "f971306470ff95611e371e4de9075d117a2dc83c09502325ff8943d1a935be61",
+        "size_bytes": 15182,
+        "line_count": 359
+      }
+    },
+    "04_AI_GOVERNANCE": {
+      "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json": {
+        "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+        "sha256": "aa52083f959d3e44193fea3b769f161240086dd31015e3d6e24822052f9ef7c2",
+        "size_bytes": 19683,
+        "line_count": 415
+      },
+      "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json": {
+        "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+        "sha256": "656242f5c5b396e9ee9098350137186e012cbb1c6086df674315e4fb5b1dba5a",
+        "size_bytes": 36946,
+        "line_count": 746
+      },
+      "AIR_AI_GOVERNANCE_EXECUTOR.json": {
+        "filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
+        "sha256": "19cc96432d79795f5879e74bcddc14d69f1c501de1d471cfe05ecd2a70e46938",
+        "size_bytes": 21322,
+        "line_count": 454
+      },
+      "AIR_AI_GOVERNANCE_METHOD_PACK.json": {
+        "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+        "sha256": "55216eba37a8b36d7b32dfa397e95469a721dfcbc82464ae147d32e310b0f274",
+        "size_bytes": 50461,
+        "line_count": 938
+      },
+      "AIR_AI_GOVERNANCE_SPECIALIST.json": {
+        "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
+        "sha256": "2c0e32f7d09cbd4e2991f22316353582adfae529dd06e433a554604e85a0ebe7",
+        "size_bytes": 32644,
+        "line_count": 675
+      },
+      "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json": {
+        "filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "sha256": "bcb125f1090a8e547449f0928ce6dba40a891f455752b9731c14eb8e41b1ffa0",
+        "size_bytes": 16715,
+        "line_count": 397
+      }
+    },
+    "06_DOCS": {
+      "AIR_DRIFT_REGRESSION_MATRIX.md": {
+        "filename": "AIR_DRIFT_REGRESSION_MATRIX.md",
+        "sha256": "afc20bdfa638560a649c812556ca97a574ab2831ed188172e754ef8d9c782125",
+        "size_bytes": 4759,
+        "line_count": 47
+      },
+      "AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md": {
+        "filename": "AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
+        "sha256": "0bf91c032841c7ca89c9134a68144af3ec7dfda8ff103277b21bada45a7e7b33",
+        "size_bytes": 993,
+        "line_count": 21
+      },
+      "AIR_RUNTIME_DRIFT_HARDENING.md": {
+        "filename": "AIR_RUNTIME_DRIFT_HARDENING.md",
+        "sha256": "294d9e7bd3e14b710d1b5568a3d3dbb8ae39b3787133df07bc5b1418c24e8980",
+        "size_bytes": 4136,
+        "line_count": 77
+      }
+    }
+  },
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false
+}

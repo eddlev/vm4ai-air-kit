@@ -1,0 +1,115 @@
+{
+  "foundation": {
+    "AIR_CONTROL_SURFACE.md": {
+      "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
+      "size_bytes": 112242,
+      "line_count": 2648
+    },
+    "AIR_DEFAULT_STARTER_PROFILE.json": {
+      "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794",
+      "size_bytes": 44953,
+      "line_count": 1124
+    },
+    "AIR_HANDOFF_CARD_TEMPLATE.json": {
+      "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
+      "size_bytes": 29402,
+      "line_count": 695
+    },
+    "AIR_CORE_RUNTIME.md": {
+      "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
+      "size_bytes": 231127,
+      "line_count": 5495
+    },
+    "AIR_GOV.md": {
+      "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+      "size_bytes": 19336,
+      "line_count": 448
+    }
+  },
+  "capability": {
+    "registry": {
+      "sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976",
+      "size_bytes": 227103,
+      "line_count": 5090
+    },
+    "translator": {
+      "sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed",
+      "size_bytes": 54627,
+      "line_count": 1072
+    },
+    "architect": {
+      "sha256": "d8004396c437fdc6a1fa419ac81286442440a3015ef67863f3efdb89c372365a",
+      "size_bytes": 83132,
+      "line_count": 1582
+    },
+    "method": {
+      "sha256": "e5f9b5d3b52f0be74147450be1283d63d313c819efc2b80024f5301149a32a60",
+      "size_bytes": 72555,
+      "line_count": 1431
+    },
+    "manifest": {
+      "sha256": "7aff4b40e73a643ba840cfd8c20b4c52905aeb94a938f064b6c776b8e48f686e",
+      "size_bytes": 13718,
+      "line_count": 300
+    }
+  },
+  "grounding": {
+    "domain": {
+      "sha256": "8e3e5af9f8c123302b59c0ce0cb42e648825e6cacda81b0bbd48ff7a193a5ecb",
+      "size_bytes": 52698,
+      "line_count": 876
+    },
+    "method": {
+      "sha256": "1b9025aa8638c1801c53448397f63bf494bc2d6bf01bdfc186bacc3a4cfa1199",
+      "size_bytes": 57011,
+      "line_count": 1197
+    },
+    "specialist": {
+      "sha256": "66043f6c2b7d12464d180c6f50a6580e903d2f8aa18099935fc9efad15885156",
+      "size_bytes": 57780,
+      "line_count": 1023
+    },
+    "executor": {
+      "sha256": "74179836d2eaa1b6d95219f88a4ba19b6ada5a32462b41bca70b8a551196b8ee",
+      "size_bytes": 12243,
+      "line_count": 297
+    },
+    "manifest": {
+      "sha256": "6283383ef8fde7ce7967772735cb158ab553aff9aa5e33b69058ed8746dc4adf",
+      "size_bytes": 14223,
+      "line_count": 340
+    }
+  },
+  "ai_governance": {
+    "domain": {
+      "sha256": "68ef6728663b3ccde254668594ae186a546d2707f8430aa45deeac9bcb4aa5fc",
+      "size_bytes": 35740,
+      "line_count": 723
+    },
+    "overlay": {
+      "sha256": "84c70081324ddd422bc17037d86c3c12c3db2ad969705f87cf74693fa0f4da26",
+      "size_bytes": 18477,
+      "line_count": 392
+    },
+    "specialist": {
+      "sha256": "0012bc114c5459bf4792c7bff6fd7d159ac8c5c40476e4aa4c3d8b8b8488a83e",
+      "size_bytes": 31438,
+      "line_count": 652
+    },
+    "method": {
+      "sha256": "c038d71995fac14831a2bc765c8389a19185e9cacf199c6c9b7b8dcb4470527f",
+      "size_bytes": 49255,
+      "line_count": 915
+    },
+    "executor": {
+      "sha256": "46b368c82a4fba7ada7edeb77e131d29d611cc7241a8b0ed1a24d5659b650328",
+      "size_bytes": 20116,
+      "line_count": 431
+    },
+    "manifest": {
+      "sha256": "2561ac382353c2d07153c7522a0925bf3bbe0dcfc3b13c1d935df5a45e3f2bb8",
+      "size_bytes": 15756,
+      "line_count": 378
+    }
+  }
+}

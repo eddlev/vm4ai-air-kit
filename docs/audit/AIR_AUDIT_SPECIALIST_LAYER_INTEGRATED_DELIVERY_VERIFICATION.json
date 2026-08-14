@@ -1,0 +1,255 @@
+{
+  "report_id": "AIR_AUDIT_SPECIALIST_LAYER_INTEGRATED_DELIVERY_VERIFICATION_001",
+  "mode": "PROMPT_LAYER_APPLIED",
+  "test_evidence_mode": "SUMMARY_ONLY",
+  "decision": "PASS",
+  "checks_passed": 48,
+  "checks_total": 48,
+  "checks": [
+    {
+      "check": "copy_foundation_AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "copy_foundation_AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "copy_foundation_AIR_GOV.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "copy_foundation_AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_foundation_AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_foundation_AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_foundation_AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_capability_AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_capability_AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_capability_AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_capability_AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_capability_AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_capability_AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_capability_AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_capability_AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_capability_AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_capability_AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_grounding_AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_grounding_AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_grounding_AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_grounding_AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_grounding_AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_grounding_AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_grounding_AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_grounding_AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_grounding_AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_grounding_AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "copy_ai_governance_AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no_duplicates_ai_governance_AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "sentinel_AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "sentinel_AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "sentinel_AIR_GOV.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "zip_exact_AIR_V2_FOUNDATION_FINAL_INTEGRATED_SPECIALIST_LAYER.zip",
+      "pass": true,
+      "detail": "['AIR_CORE_RUNTIME.md', 'AIR_CONTROL_SURFACE.md', 'AIR_GOV.md', 'AIR_DEFAULT_STARTER_PROFILE.json', 'AIR_HANDOFF_CARD_TEMPLATE.json']"
+    },
+    {
+      "check": "zip_exact_AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2_2.zip",
+      "pass": true,
+      "detail": "['AIR_DOMAIN_CAPABILITY_REGISTRY.json', 'AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json', 'AIR_CAPABILITY_ECOLOGY_ARCHITECT.json', 'AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json', 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json']"
+    },
+    {
+      "check": "zip_exact_AIR_GROUNDING_SPECIALIST_PACKAGE_V2_2.zip",
+      "pass": true,
+      "detail": "['AIR_GROUNDING_DOMAIN_PACKAGE.json', 'AIR_GROUNDING_METHOD_PACK.json', 'AIR_GROUNDING_SPECIALIST.json', 'AIR_GROUNDING_EXECUTOR.json', 'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json']"
+    },
+    {
+      "check": "zip_exact_AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2_2.zip",
+      "pass": true,
+      "detail": "['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json', 'AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json', 'AIR_AI_GOVERNANCE_SPECIALIST.json', 'AIR_AI_GOVERNANCE_METHOD_PACK.json', 'AIR_AI_GOVERNANCE_EXECUTOR.json', 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json']"
+    },
+    {
+      "check": "integration_validation_pass",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "ai_validation_pass",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "limitations": [
+    "Checks exact copied bytes, JSON duplicate keys, sentinels and archive membership. Does not establish current external regulatory truth, compliance, certification, backend enforcement or future task correctness."
+  ],
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false
+}

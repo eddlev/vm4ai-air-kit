@@ -1,0 +1,638 @@
+{
+  "title": "AIR Specification-First Verification Method V2",
+  "SYSTEM_DESIGNATION": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "METHOD_PACK",
+  "STATUS": "VALIDATED_AVAILABLE_UNBOUND",
+  "canonical_role": "METHOD_PACK",
+  "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+  "STANDARD_CODE": "AIR.METHOD.SFV.V2",
+  "method_id": "SPECIFICATION_FIRST_VERIFICATION",
+  "description": "Reusable evidence-gated universal method for making the intended outcome and verification basis explicit before material execution, testing specification adequacy, collecting correctly classified evidence, and reconciling the result back to canonical AIR intent and acceptance criteria.",
+  "purpose": "Reduce execution drift and false closure across coding and non-coding work by using a proportionate intent -> specification -> verification -> evidence -> reconciliation procedure without creating a second source of truth beside canonical AIR state.",
+  "scope": {
+    "use_when": [
+      "material outcome depends on correct interpretation of intent or requirements",
+      "consequence of wrong interpretation is material",
+      "evidence must justify approval, closure, publication, release, or downstream use",
+      "verification is difficult or spans multiple evidence types",
+      "work is recurrent or must transfer reliably across sessions/models/teams",
+      "behavior-bearing software or technical work",
+      "research, analysis, decisions, documents, design, policy, process, or other bounded work where success can be evaluated"
+    ],
+    "conditional_use": [
+      "exploratory or divergent work where verification may be deferred until selection/commitment",
+      "low-risk tasks where only the light inline SFV path is necessary",
+      "human-evaluated outcomes where operator or reviewer evidence is the correct abstraction"
+    ],
+    "do_not_use_as": [
+      "a specialist profile",
+      "a universal mandate for unit tests or TDD",
+      "a substitute for user intent or authoritative sources",
+      "a second source of truth for task center, scope, approval, or observed evidence",
+      "proof that passing verification means the intended result is correct",
+      "an execution authority independent of the current Orbit 0 AIR_ARTIFACT"
+    ]
+  },
+  "principles": [
+    "Use canonical AIR task center, execution contract, acceptance criteria, ambiguity state, approval state, and evidence records as source of truth.",
+    "Define what evidence or observation would justify success before material execution when feasible.",
+    "Resolve material user-intent ambiguity through AIR-FLOOR-019 rather than silent inference.",
+    "Select verification according to the outcome being promised, not a preferred test technology.",
+    "Keep planned verification distinct from observed evidence.",
+    "Ask whether all planned verification could pass while the intended result is still materially wrong.",
+    "Reconcile the final result against original canonical intent and current acceptance criteria before closure."
+  ],
+  "inputs": [
+    "current bound AIR_ARTIFACT and execution contract",
+    "canonical task center and acceptance criteria",
+    "authoritative sources or source-light limitations when material",
+    "current ambiguity, assumptions, blockers, and approval boundaries",
+    "available evidence, tools, environments, evaluators, or operator routes",
+    "domain or specialist constraints when legitimately bound"
+  ],
+  "outputs": [
+    "specification_target_refs",
+    "task_classification",
+    "ambiguity_register",
+    "verification_strategy",
+    "verification_specification",
+    "specification_adequacy_state",
+    "preexecution_baseline_evidence when useful",
+    "execution_handoff",
+    "verification_results",
+    "integrity_review",
+    "intent_reconciliation_result",
+    "method_execution_state",
+    "method_handoff_state"
+  ],
+  "dependencies": {
+    "required": [
+      "exactly one current Orbit 0 AIR_ARTIFACT for material execution",
+      "AIR_GATE for material actions and closure",
+      "current acceptance criteria or explicit unresolved-intent state",
+      "AIR-FLOOR-019 for material ambiguity",
+      "required human approval when intent, binding, mutation, publication, release, or other authority is material"
+    ],
+    "conditional": [
+      "authoritative sources",
+      "tools or runtime environment",
+      "human/operator/reviewer evidence",
+      "domain package or specialist where domain correctness requires it",
+      "FULL_TEST_EVIDENCE when active evidence obligations require reproducibility"
+    ],
+    "not_dependencies": [
+      "software development",
+      "a programming language",
+      "a unit-test framework",
+      "TDD",
+      "backend compilation for prompt-layer work",
+      "automatic binding from upload or filename"
+    ]
+  },
+  "verification_layers": [
+    {
+      "layer": "OUTCOME_ACCEPTANCE",
+      "purpose": "Observe whether the promised user, system, document, decision, process, or research outcome is satisfied."
+    },
+    {
+      "layer": "CONTRACT_OR_INVARIANT",
+      "purpose": "Check explicit promises, boundaries, rules, invariants, or states that must hold or must never occur."
+    },
+    {
+      "layer": "SOURCE_EVIDENCE",
+      "purpose": "Check claims against authoritative, current, and appropriately scoped sources."
+    },
+    {
+      "layer": "SCENARIO_OR_CASE",
+      "purpose": "Evaluate representative, boundary, exception, and failure scenarios."
+    },
+    {
+      "layer": "EXECUTABLE_TEST",
+      "purpose": "Use unit, property, fixture, regression, integration, or other executable tests when they are the correct abstraction."
+    },
+    {
+      "layer": "INTEGRATION_OR_ENVIRONMENT",
+      "purpose": "Verify outcomes that depend on runtime, external systems, tools, configuration, interfaces, or multiple components."
+    },
+    {
+      "layer": "NEGATIVE_OR_ABUSE",
+      "purpose": "Evaluate forbidden, adversarial, unsafe, unauthorized, misuse, or failure paths when material."
+    },
+    {
+      "layer": "HUMAN_OR_OPERATOR_REVIEW",
+      "purpose": "Use human judgment or operator-witnessed evidence when success cannot be reduced safely to deterministic checks."
+    },
+    {
+      "layer": "OTHER_OBSERVABLE_EVIDENCE",
+      "purpose": "Permit task-appropriate observable evidence not captured by the standard layers."
+    }
+  ],
+  "adaptation_routes": {
+    "SOFTWARE": [
+      "add behavior_specification when behavior-bearing",
+      "select software verification layers according to promised behavior and risk",
+      "retain coding readiness/security/architecture review under Core coding law"
+    ],
+    "RESEARCH": [
+      "define research question and decision-use boundary",
+      "select source authority/freshness/triangulation requirements",
+      "test contrary evidence and unresolved gaps",
+      "reconcile findings to the original question rather than source volume"
+    ],
+    "ANALYSIS_DECISION": [
+      "define decision criteria and constraints",
+      "evaluate scenarios, alternatives, counterexamples, and sensitivity",
+      "separate evidence from judgment",
+      "reconcile recommendation to original decision need"
+    ],
+    "DOCUMENT_COMMUNICATION": [
+      "define audience, purpose, required content, constraints, and source fidelity",
+      "verify completeness, factual support, internal coherence, and delivery format",
+      "use human review where tone or persuasive quality is material"
+    ],
+    "DESIGN_UX": [
+      "define intended user-visible outcome and constraints",
+      "verify interaction states, accessibility, comprehension, and representative user paths",
+      "use human evaluation when aesthetic or experiential judgment is material"
+    ],
+    "POLICY_PROCESS": [
+      "define rule/process outcome, scope, exceptions, actors, and escalation paths",
+      "verify scenario coverage, conflicts, exceptions, and operational feasibility",
+      "preserve human authority where policy decisions are non-transferable"
+    ],
+    "EXPLORATORY": [
+      "allow incomplete verification while experimental status is explicit",
+      "do not infer readiness, approval, or closure from exploration",
+      "apply appropriate SFV before commitment/publication/production/closure"
+    ],
+    "OTHER": [
+      "map canonical intent and acceptance criteria",
+      "choose observable evidence appropriate to the task",
+      "apply adequacy and final reconciliation"
+    ]
+  },
+  "ordered_steps": [
+    {
+      "step_id": "SFV-01",
+      "name": "SPECIFICATION_TARGET_AND_TASK_CLASSIFICATION",
+      "action": "Resolve references to the canonical AIR intent, goal, scope, acceptance criteria, and task class without creating a duplicate intent source.",
+      "preconditions": [
+        "current task exists at least in preliminary form"
+      ],
+      "required_inputs": [
+        "bound artifact or candidate specification state",
+        "task center",
+        "execution contract",
+        "current acceptance criteria"
+      ],
+      "expected_outputs": [
+        "specification_target_refs",
+        "task_classification",
+        "initial_open_questions"
+      ],
+      "evidence_to_advance": [
+        "canonical specification sources are identified",
+        "materially unknown intent is visible",
+        "method-local state does not replace canonical AIR state"
+      ],
+      "failure_behavior": "REVIEW when the intended outcome cannot be distinguished from an assumption or the canonical target is materially unresolved.",
+      "next_step_rule": "Advance to SFV-02 when the specification target is sufficiently explicit."
+    },
+    {
+      "step_id": "SFV-02",
+      "name": "OUTCOME_AND_BOUNDARY_MODEL",
+      "action": "Map success, boundaries, material failure/exception states, and domain-specific realization against canonical acceptance criteria.",
+      "preconditions": [
+        "SFV-01 completed"
+      ],
+      "required_inputs": [
+        "specification_target_refs",
+        "task_classification",
+        "canonical acceptance criteria and constraints"
+      ],
+      "expected_outputs": [
+        "outcome_coverage_model",
+        "boundary_cases",
+        "failure_or_exception_cases",
+        "domain_realization_requirements"
+      ],
+      "evidence_to_advance": [
+        "material success and failure/exception semantics have been considered",
+        "model references canonical criteria instead of creating a second source of truth"
+      ],
+      "failure_behavior": "REVIEW when verification cannot yet distinguish satisfactory from materially wrong outcomes.",
+      "next_step_rule": "Advance to SFV-03 after a reviewable outcome/boundary model exists."
+    },
+    {
+      "step_id": "SFV-03",
+      "name": "AMBIGUITY_AND_UNCERTAINTY_CHALLENGE",
+      "action": "Identify materially different interpretations, hidden assumptions, missing authoritative evidence, and underspecified failure semantics.",
+      "preconditions": [
+        "outcome/boundary model exists"
+      ],
+      "required_inputs": [
+        "canonical intent and criteria",
+        "known constraints",
+        "authoritative sources when present"
+      ],
+      "expected_outputs": [
+        "ambiguity_register",
+        "assumption_register",
+        "human_resolution_requests",
+        "evidence_requests"
+      ],
+      "evidence_to_advance": [
+        "material user-intent ambiguity is resolved by the authorized human or explicitly blocked",
+        "externally verifiable uncertainty is evidenced or correctly gated",
+        "no material ambiguity is converted into an operative assumption"
+      ],
+      "failure_behavior": "REVIEW for unresolved user-controlled ambiguity; EVIDENCE_REQUIRED for missing required authoritative evidence.",
+      "next_step_rule": "Advance to SFV-04 when remaining ambiguity is non-material, explicitly unresolved without affecting the step, or safely gated."
+    },
+    {
+      "step_id": "SFV-04",
+      "name": "VERIFICATION_STRATEGY_SELECTION",
+      "action": "Select the smallest sufficient combination of observable verification layers appropriate to the promised outcome, risks, sources, and domain.",
+      "preconditions": [
+        "blocking ambiguity for the affected step is resolved or gated"
+      ],
+      "required_inputs": [
+        "outcome/boundary model",
+        "task classification",
+        "risk constraints",
+        "available evidence routes"
+      ],
+      "expected_outputs": [
+        "verification_strategy",
+        "selected_verification_layers",
+        "excluded_layers_with_reason"
+      ],
+      "evidence_to_advance": [
+        "each selected layer maps to an intended outcome, constraint, or risk",
+        "technology-specific tests are not selected merely by habit",
+        "human/operator/source evidence is selected when it is the correct abstraction"
+      ],
+      "failure_behavior": "REVIEW when the chosen verification cannot establish the promised outcome.",
+      "next_step_rule": "Advance to SFV-05 when the verification strategy fits the canonical specification."
+    },
+    {
+      "step_id": "SFV-05",
+      "name": "VERIFICATION_SPECIFICATION",
+      "action": "Define planned checks, observations, scenarios, source comparisons, evaluations, fixtures, tests, or operator reviews and their expected results before execution when feasible.",
+      "preconditions": [
+        "verification strategy selected"
+      ],
+      "required_inputs": [
+        "specification_target_refs",
+        "selected verification layers"
+      ],
+      "expected_outputs": [
+        "verification_specification",
+        "expected_results_or_observations",
+        "fixture_source_environment_requirements",
+        "planned_evidence_classes"
+      ],
+      "evidence_to_advance": [
+        "verification items map back to canonical specification targets",
+        "expected results are stated before observation when feasible",
+        "planned verification is clearly distinguished from observed evidence"
+      ],
+      "failure_behavior": "REVIEW when verification primarily encodes an anticipated solution instead of the intended outcome.",
+      "next_step_rule": "Advance to SFV-06 when verification is concrete enough to judge adequacy."
+    },
+    {
+      "step_id": "SFV-06",
+      "name": "SPECIFICATION_ADEQUACY_GATE",
+      "action": "Ask whether every proposed verification item could pass while the intended result is still materially wrong.",
+      "preconditions": [
+        "verification specification exists"
+      ],
+      "required_inputs": [
+        "specification_target_refs",
+        "outcome/boundary model",
+        "verification specification",
+        "ambiguity register"
+      ],
+      "expected_outputs": [
+        "specification_adequacy_state",
+        "coverage_gaps",
+        "required_specification_changes"
+      ],
+      "evidence_to_advance": [
+        "each material intended outcome has a verification path or explicit justified exception",
+        "material failure/exception semantics are represented",
+        "a positive verification result would constitute meaningful evidence for the current specification"
+      ],
+      "failure_behavior": "REVIEW for resolvable adequacy gaps; EVIDENCE_REQUIRED when design depends on unavailable information; REJECT when verification contradicts the intended outcome; RESCOPE_REQUIRED when resolution changes task center or criteria.",
+      "next_step_rule": "Advance to SFV-07 only when method_step_gate is ALLOW."
+    },
+    {
+      "step_id": "SFV-07",
+      "name": "PREEXECUTION_BASELINE",
+      "action": "When useful, establish a reference state showing that the selected verification can distinguish current/pre-change state from the intended state.",
+      "preconditions": [
+        "SFV-06 ALLOW"
+      ],
+      "required_inputs": [
+        "verification specification",
+        "current state or reference state when available",
+        "available source/tool/environment/evaluator route"
+      ],
+      "expected_outputs": [
+        "baseline_evidence",
+        "expected_difference_or_characterization_state",
+        "baseline_limitations"
+      ],
+      "evidence_to_advance": [
+        "baseline is established when it materially improves discrimination",
+        "inability to establish a baseline is explicit rather than fabricated",
+        "baseline evidence is correctly classified"
+      ],
+      "failure_behavior": "EVIDENCE_REQUIRED when a required baseline cannot be obtained; REVIEW when baseline contradicts the specification.",
+      "next_step_rule": "Advance to SFV-08 after sufficient baseline evidence exists or a justified non-baseline route is recorded."
+    },
+    {
+      "step_id": "SFV-08",
+      "name": "EXECUTION_HANDOFF",
+      "action": "Permit execution only under the current bound AIR artifact, current verification specification, current approvals, and AIR_GATE.",
+      "preconditions": [
+        "specification adequacy ALLOW",
+        "baseline condition satisfied or justifiably omitted",
+        "current AIR artifact and AIR_GATE permit execution"
+      ],
+      "required_inputs": [
+        "verification specification",
+        "execution constraints",
+        "current approvals and stop conditions"
+      ],
+      "expected_outputs": [
+        "execution_handoff",
+        "execution_constraints",
+        "stop_conditions"
+      ],
+      "evidence_to_advance": [
+        "execution scope matches the canonical specification",
+        "no new material outcome is silently introduced",
+        "required AIR action authorization exists before material mutation or external action"
+      ],
+      "failure_behavior": "BLOCKED_BY_CONTRACT or RESCOPE_REQUIRED when execution would exceed the active contract.",
+      "next_step_rule": "Execution may proceed only when both method_step_gate and AIR_GATE permit it."
+    },
+    {
+      "step_id": "SFV-09",
+      "name": "VERIFICATION_EXECUTION",
+      "action": "Run, obtain, or observe the selected verification evidence and compare observations with the predeclared expectations.",
+      "preconditions": [
+        "execution/result exists as required",
+        "required evidence route and authorization exist"
+      ],
+      "required_inputs": [
+        "result or executed change",
+        "verification specification",
+        "required tools/sources/environment/evaluators"
+      ],
+      "expected_outputs": [
+        "verification_results",
+        "observed_evidence",
+        "failure_localization",
+        "coverage_limitations"
+      ],
+      "evidence_to_advance": [
+        "results are tool-observed, operator-witnessed, source-supported, human-reviewed, replayable, or otherwise correctly classified",
+        "planned and observed evidence remain distinct",
+        "material failures remain visible"
+      ],
+      "failure_behavior": "REVIEW on resolvable failures; EVIDENCE_REQUIRED when required evidence is unavailable; REJECT when required outcome fails and no permitted remediation remains.",
+      "next_step_rule": "Advance to SFV-10 only after required verification passes or an explicit AIR-approved remediation route exists."
+    },
+    {
+      "step_id": "SFV-10",
+      "name": "INTEGRITY_REVIEW",
+      "action": "Review the result for task-appropriate integrity beyond the narrow verification set, including coherence, source fidelity, architecture/security, constraint preservation, quality, or downstream compatibility as applicable.",
+      "preconditions": [
+        "required verification has completed sufficiently for review"
+      ],
+      "required_inputs": [
+        "result",
+        "verification results",
+        "canonical constraints and domain obligations"
+      ],
+      "expected_outputs": [
+        "integrity_review",
+        "reverification_result when changes occur",
+        "remaining_risks"
+      ],
+      "evidence_to_advance": [
+        "verified outcomes remain intact after any corrections",
+        "material constraints and risk obligations remain satisfied or visibly unresolved"
+      ],
+      "failure_behavior": "REVIEW when integrity review exposes resolvable defects; EVIDENCE_REQUIRED when required evidence is missing.",
+      "next_step_rule": "Advance to SFV-11 after integrity state is acceptable for closure review."
+    },
+    {
+      "step_id": "SFV-11",
+      "name": "INTENT_RECONCILIATION_AND_CLOSURE",
+      "action": "Compare the verified result back to the original canonical AIR intent and current acceptance criteria instead of closing solely because selected verification passed.",
+      "preconditions": [
+        "verification execution and integrity review completed as required"
+      ],
+      "required_inputs": [
+        "specification_target_refs",
+        "verification results",
+        "final result",
+        "current acceptance criteria",
+        "remaining limitations"
+      ],
+      "expected_outputs": [
+        "intent_reconciliation_result",
+        "unrepresented_requirement_or_outcome",
+        "closure_decision",
+        "update_or_rescope_signal"
+      ],
+      "evidence_to_advance": [
+        "original intended outcome remains represented",
+        "no material requirement was lost through verification shaping",
+        "unrepresented/newly discovered outcomes are explicitly handled",
+        "AIR closure evidence requirements are satisfied"
+      ],
+      "failure_behavior": "REVIEW when verification passes but intent reconciliation fails; RESCOPE_REQUIRED when discovered intent materially changes the task; REJECT when required outcome remains unsatisfied.",
+      "next_step_rule": "Method may become COMPLETE only when reconciliation and AIR_GATE both permit closure."
+    }
+  ],
+  "staleness_policy": {
+    "stale_when": [
+      "task center materially changes",
+      "acceptance criteria materially change",
+      "authoritative specification/source changes",
+      "verification-relevant boundaries change",
+      "tool/runtime/environment/evaluator changes invalidate evidence assumptions",
+      "risk posture changes",
+      "human approval boundaries change",
+      "bound method scope or domain realization changes materially"
+    ],
+    "stale_state": "STALE_NEEDS_REGROUND",
+    "recovery": [
+      "return to the earliest affected method step",
+      "invalidate dependent later-step evidence",
+      "preserve unaffected evidence only where applicability remains demonstrable",
+      "rerun specification adequacy before affected execution resumes"
+    ]
+  },
+  "handoff_requirements": [
+    "method identity and version",
+    "method origin",
+    "active_method_state",
+    "active_method_step",
+    "method_step_gate",
+    "method_evidence_state",
+    "staleness_state",
+    "unresolved blockers",
+    "next allowed action",
+    "evidence references",
+    "method_specific_state containing specification_target_refs, task_classification, open ambiguity/assumption/evidence requests, selected verification layers, verification_specification identity/content or canonical reference, specification adequacy decision, baseline evidence state, observed verification evidence refs, integrity review state, intent reconciliation state, and test_evidence_mode when material"
+  ],
+  "binding_requirements": {
+    "schema_validation_required": true,
+    "compatibility_review_required": true,
+    "explicit_selection_required": true,
+    "explicit_user_binding_approval_required": true,
+    "responsive_binding_approval_supported": true,
+    "artifact_compilation_required": true,
+    "responsive_approval_rule": "A direct exact upload may satisfy explicit user binding approval only when Core opened a pre-disclosed responsive binding gate naming this exact pack, scope, effects, and excluded effects. Validation and binding remain separate.",
+    "orbit_rule": "The Method Pack never becomes Orbit 0 and never independently grants execution authority. Applicable method requirements become operative only when compiled into or explicitly referenced by the current active AIR_ARTIFACT.",
+    "gate_rule": "Use the stricter practical result when method_step_gate and AIR_GATE differ.",
+    "floor_rule": "The Method Pack may tighten but never relax AIR floor invariants.",
+    "automatic_binding_prohibited": true
+  },
+  "method_gate_contract": {
+    "decisions": [
+      "ALLOW",
+      "REVIEW",
+      "EVIDENCE_REQUIRED",
+      "REJECT",
+      "RESCOPE_REQUIRED",
+      "BLOCKED_BY_CONTRACT",
+      "BLOCKED_BY_STALENESS"
+    ],
+    "state_boundary": "EVIDENCE_REQUIRED and RESCOPE_REQUIRED are gate decisions, not method-step states.",
+    "air_gate_precedence": "AIR_GATE controls material task action and closure. method_step_gate is an input; the stricter practical consequence governs."
+  },
+  "claim_boundary": {
+    "supported_claim": "This Method Pack defines a reusable universal AIR procedure for specification-first verification across task classes with domain-specific realizations.",
+    "unsupported_without_empirical_evidence": [
+      "that it reduces defects or errors",
+      "that it increases speed",
+      "that it is superior to TDD or another method",
+      "that it improves product-market fit or decision quality",
+      "that it guarantees correct requirements or intent",
+      "that passing its verification proves production readiness, compliance, safety, or truth"
+    ]
+  },
+  "validation_contract": {
+    "strict_json": true,
+    "reject_duplicate_keys": true,
+    "required_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+    "required_version": "2.0.0",
+    "required_top_level_fields": [
+      "SYSTEM_DESIGNATION",
+      "PROMPT_VERSION",
+      "PROFILE_KIND",
+      "method_id",
+      "purpose",
+      "scope",
+      "inputs",
+      "outputs",
+      "dependencies",
+      "ordered_steps",
+      "staleness_policy",
+      "handoff_requirements",
+      "binding_requirements",
+      "canonical_state_mapping",
+      "verification_layers",
+      "adaptation_routes",
+      "method_gate_contract"
+    ],
+    "required_step_fields": [
+      "step_id",
+      "name",
+      "action",
+      "preconditions",
+      "required_inputs",
+      "expected_outputs",
+      "evidence_to_advance",
+      "failure_behavior",
+      "next_step_rule"
+    ],
+    "required_checks": [
+      "all ordered steps contain required step fields",
+      "method never grants Orbit 0 authority independently",
+      "canonical_state_mapping prevents duplicate task-intent, scope, approval, or observed-evidence authority",
+      "planned verification is distinct from observed evidence",
+      "unit testing and TDD are not mandatory universal first layers",
+      "non-coding adaptation routes exist",
+      "material ambiguity routes through AIR-FLOOR-019",
+      "responsive upload can satisfy approval only through a pre-disclosed Core/Governance binding gate",
+      "final intent reconciliation is required before closure of material method-governed work"
+    ]
+  },
+  "runtime_origin": "PROMPT_COMPILED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "canonical_state_mapping": {
+    "intent": [
+      "AIR_ARTIFACT.task_center",
+      "AIR_ARTIFACT.execution_contract.goal"
+    ],
+    "scope": [
+      "AIR_ARTIFACT.execution_contract.scope",
+      "AIR_ARTIFACT.execution_contract.out_of_scope"
+    ],
+    "outcome_specification": [
+      "AIR_ARTIFACT.execution_benchmark_profile.output_acceptance_criteria",
+      "AIR_ARTIFACT.obligations",
+      "AIR_ARTIFACT.source_contract_refs"
+    ],
+    "ambiguity": [
+      "ambiguity_triage",
+      "assumptions_made",
+      "blockers",
+      "AIR-FLOOR-019"
+    ],
+    "planned_verification": "AIR_ARTIFACT.verification_specification",
+    "evidence_to_close": "AIR_ARTIFACT.execution_contract.required_evidence_to_close and canonical evidence records",
+    "execution": "AIR_ARTIFACT.active_step",
+    "reconciliation": [
+      "benchmark objective_fit/output_acceptability",
+      "task/domain review",
+      "AIR_GATE closure decision"
+    ]
+  },
+  "software_realization": {
+    "behavior_specification_required_when": "coding changes externally observable behavior, contracts, state transitions, security boundaries, or defect outcomes",
+    "verification_options": [
+      "acceptance behavior",
+      "contract",
+      "invariant/negative",
+      "unit",
+      "property",
+      "fixture",
+      "integration",
+      "regression",
+      "security/abuse",
+      "operator observation"
+    ],
+    "rules": [
+      "unit testing is not the universal first layer",
+      "bug fixes favor reproduction/regression evidence",
+      "refactors may favor characterization/invariants",
+      "API work favors contracts/compatibility/failure behavior",
+      "integration work favors contract/integration evidence",
+      "security-sensitive work requires negative/abuse coverage where material",
+      "UI/UX requires observable interaction/acceptance evidence",
+      "schema/configuration may use fixtures/invariants/compatibility instead of conventional unit tests"
+    ]
+  }
+}

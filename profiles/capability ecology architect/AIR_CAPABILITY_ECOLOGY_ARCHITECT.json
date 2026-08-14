@@ -3,13 +3,13 @@
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-  "STATUS": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
   "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015 knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and selects the smallest sufficient operative vector set. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
   "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "package_version": "2.2.0",
+  "package_version": "2.3.2",
   "package_subtype": "CAPABILITY_ECOLOGY_ARCHITECT",
   "remediated_at": "2026-08-03T21:25:00+02:00",
   "source_baseline": {
@@ -25,29 +25,45 @@
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
-        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41"
+        "sha256": "79cbda19b8adae71402199a6d5941262dab90cd84b12157cf219483ff41bcd7c",
+        "version": "2.1.3",
+        "size_bytes": 251603,
+        "line_count": 5895
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
-        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b"
+        "sha256": "9ef85b7d2ef3d4f827dfbffa0e28a41cd8a8aa72cc6290da7502bb0863583c96",
+        "version": "2.1.3",
+        "size_bytes": 117554,
+        "line_count": 2757
       },
       {
         "filename": "AIR_GOV.md",
-        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f"
+        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
+        "version": "2.0.0",
+        "size_bytes": 19336,
+        "line_count": 448
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
-        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794"
+        "sha256": "6e474308bb530a9c026a8971b1f681efbd2dd0480308bf3251673b1e37df6896",
+        "version": "2.2.3",
+        "size_bytes": 55495,
+        "line_count": 1288
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
-        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1"
+        "sha256": "ae2efcb76cfc75556648eec6278bfb0daf00a1f046f6618b703f220ad61ac709",
+        "version": "2.1.0",
+        "size_bytes": 36028,
+        "line_count": 817
       }
     ],
     "required_floor_invariants": [
       "AIR-FLOOR-015",
       "AIR-FLOOR-016",
-      "AIR-FLOOR-017"
+      "AIR-FLOOR-017",
+      "AIR-FLOOR-018"
     ],
     "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
   },
@@ -79,13 +95,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976",
+      "sha256": "cc320acd916104e9637c8ba1e8328cde3eecbc068a96659577b996743a26f506",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed",
+      "sha256": "744392b5b993a03b4f0f57a86347f457b0c495931d32bf84262361b6c7b6334b",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "source_and_control_registry": {
@@ -1557,8 +1573,6 @@
     }
   ],
   "integration_refresh": {
-    "refresh_version": "2.2.0",
-    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
     "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
     "optional_cross_package_compatibility": [
       {
@@ -1577,6 +1591,21 @@
       }
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
-    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "refresh_version": "2.3.3",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "mainline_release_binding": {
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_3",
+      "integration_version": "2.3.3",
+      "foundation_versions": {
+        "core": "2.1.3",
+        "control": "2.1.3",
+        "governance": "2.0.0",
+        "starter": "2.2.3",
+        "handoff_schema": "2.1.0"
+      },
+      "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
+      "functional_component_change": false
+    }
   }
 }

@@ -5,10 +5,10 @@
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
   "artifact_class": "DOMAIN_CAPABILITY_REGISTRY",
-  "package_version": "2.2.0",
+  "package_version": "2.3.2",
   "package_subtype": "DOMAIN_CAPABILITY_REGISTRY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-  "STATUS": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
   "STANDARD_CODE": "AIR.DOMAIN.CAPABILITY.REGISTRY.V2.NON_AGENT.DOMAIN_GRAPH.EPISTEMIC_REGIMES.SOURCE_REQUIREMENTS.VECTOR_EXPANSION.ORBIT_0_ARTIFACT_COMPILATION.FILE_IDENTITY_INTEGRITY",
   "description": "Extensible source-backed non-agent domain routing registry. It preserves the user-researched high-level domain-family taxonomy, defines the canonical construction schema for reusable detailed Domain Packages, and supplies tagged golden and negative fixtures for construction validation. Detailed fixtures have no runtime authority. Approved detailed domains are separate versioned Domain Packages and reusable sources of truth; optional Specialists may consume them but may not replace them. Human-oriented frameworks route through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2, and every executable benchmark must carry the AIR-FLOOR-015 knowledge-to-execution path.",
   "source_baseline": {
@@ -34,7 +34,8 @@
       "AIR-FLOOR-014",
       "AIR-FLOOR-015",
       "AIR-FLOOR-016",
-      "AIR-FLOOR-017"
+      "AIR-FLOOR-017",
+      "AIR-FLOOR-018"
     ],
     "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
   },
@@ -5065,8 +5066,6 @@
     "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND"
   },
   "integration_refresh": {
-    "refresh_version": "2.2.0",
-    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
     "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
     "optional_cross_package_compatibility": [
       {
@@ -5085,6 +5084,21 @@
       }
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
-    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "refresh_version": "2.3.3",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "mainline_release_binding": {
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_3",
+      "integration_version": "2.3.3",
+      "foundation_versions": {
+        "core": "2.1.3",
+        "control": "2.1.3",
+        "governance": "2.0.0",
+        "starter": "2.2.3",
+        "handoff_schema": "2.1.0"
+      },
+      "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
+      "functional_component_change": false
+    }
   }
 }

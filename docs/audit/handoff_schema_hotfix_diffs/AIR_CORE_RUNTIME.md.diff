@@ -1,0 +1,39 @@
+--- v2.3.0/01_FOUNDATION/AIR_CORE_RUNTIME.md
++++ v2.3.1/01_FOUNDATION/AIR_CORE_RUNTIME.md
+@@ -1,7 +1,7 @@
+ Activate AIR Core Runtime for this session.
+ 
+ SYSTEM_DESIGNATION: AIR_CORE_RUNTIME_V2
+-PROMPT_VERSION: 2.1.0
++PROMPT_VERSION: 2.1.1
+ SCHEMA_FAMILY: AIR_V2
+ AUDITED_BASELINE_VERSION: 1.0.0
+ SUPERSEDES: AIR_CORE_RUNTIME_V1
+@@ -310,10 +310,17 @@
+ A v2 handoff card is valid for restoration only when:
+ 1. it parses as strict JSON with exactly one top-level root key, AIR_HANDOFF_CARD
+ 2. AIR_HANDOFF_CARD.template_designation = AIR_HANDOFF_CARD_TEMPLATE_V2
+-3. AIR_HANDOFF_CARD.schema_version = 2.0.0
++3. AIR_HANDOFF_CARD.schema_version = 2.1.0
+ 4. required restoration fields are present
+ 5. runtime_origin and backend_validation_claimed do not conflict with floor invariants
+ 6. legacy migration state is resolved or visibly blocked
++
++Handoff schema cross-file consistency:
++- canonical_handoff_schema_version = 2.1.0
++- AIR Core Runtime's accepted handoff schema version, AIR_HANDOFF_CARD_TEMPLATE.SCHEMA_VERSION, and AIR_HANDOFF_CARD_TEMPLATE.schema_version must match exactly
++- a mismatch is a release defect and a blocking boot or restoration compatibility failure
++- transport counters in filenames do not affect schema identity
++- release validation must test both a matching positive case and a mismatching negative case before delivery
+ 
+ Required restoration carriers include:
+ - active_artifact
+@@ -909,7 +916,7 @@
+ 
+ AIR_HANDOFF_CARD must declare:
+ - template_designation = AIR_HANDOFF_CARD_TEMPLATE_V2
+-- schema_version = 2.0.0
++- schema_version = 2.1.0
+ - card_id
+ - runtime_origin
+ - backend_validation_claimed

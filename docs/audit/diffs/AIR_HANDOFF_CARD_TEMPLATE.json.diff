@@ -1,0 +1,129 @@
+--- 01_FOUNDATION/AIR_HANDOFF_CARD_TEMPLATE.json.before
++++ 01_FOUNDATION/AIR_HANDOFF_CARD_TEMPLATE.json
+@@ -1,11 +1,11 @@
+ {
+   "AIR_HANDOFF_CARD": {
+     "TEMPLATE_DESIGNATION": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+-    "SCHEMA_VERSION": "2.0.0",
++    "SCHEMA_VERSION": "2.1.0",
+     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+-    "schema_version": "2.0.0",
++    "schema_version": "2.1.0",
+     "card_id": null,
+-    "card_revision": 2,
++    "card_revision": 3,
+     "record_class": "TRANSFER_RECORD",
+     "card_created_at": null,
+     "card_created_by": null,
+@@ -48,7 +48,23 @@
+       "governing_floor_invariants": [],
+       "receiver_delivery_state": null,
+       "binding_history": [],
+-      "unresolved_conflicts": []
++      "unresolved_conflicts": [],
++      "artifact_lease": {
++        "lease_id": null,
++        "lease_state_before_handoff": null,
++        "restoration_lease_state": "EXPIRED_REBIND_REQUIRED",
++        "valid_task_center": null,
++        "valid_active_step": null,
++        "valid_action_classes": [],
++        "resource_scope_pin_ref": null,
++        "source_fingerprint": null,
++        "approval_fingerprint": null,
++        "environment_fingerprint": null,
++        "invalidation_triggers": [],
++        "last_validation_state": null
++      },
++      "resource_scope_pin": null,
++      "action_governance_state": null
+     },
+     "active_contract": {
+       "presence_state": "NO_ACTIVE_CONTRACT_INPUT",
+@@ -458,7 +474,8 @@
+         "card_created_at",
+         "card_created_by",
+         "platform_state",
+-        "extensions"
++        "extensions",
++        "action_governance_state"
+       ],
+       "conditional_rules": [
+         {
+@@ -636,6 +653,19 @@
+             "delivery_state"
+           ],
+           "failure_behavior": "FILE_IDENTITY_COLLISION_OR_REVIEW"
++        },
++        {
++          "id": "HC-COND-ACTION-GOVERNANCE",
++          "condition": "material action, action authorization, action receipt, artifact lease, resource scope pin, or unbound prior effect is material to continuation",
++          "requirements": [
++            "active_artifact.artifact_lease preserves the prior lease and restores it as EXPIRED_REBIND_REQUIRED",
++            "resource scope pins preserve exact repository, branch, path, system, environment, credential, and action-class boundaries when known",
++            "historical authorizations and receipts preserve identity and evidence without becoming continuation authority",
++            "open authorizations are empty or explicitly invalidated",
++            "unbound prior effects preserve reconciliation and human-review state",
++            "runtime watchdog is rerun before any material action"
++          ],
++          "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW"
+         }
+       ],
+       "nullability": {
+@@ -672,7 +702,11 @@
+         "Manual, qualitative, model-judged or prompt-side review represented as deterministic automated execution",
+         "Hidden reasoning, private chain of thought, credentials, secrets, restricted source text or unavailable backend logs stored as test evidence",
+         "Test-evidence toggle represented as proof of testing, compliance, audit sufficiency or regulatory conformity",
+-        "Mandatory regulatory evidence obligation marked satisfied without qualifying evidence references"
++        "Mandatory regulatory evidence obligation marked satisfied without qualifying evidence references",
++        "AIR_ACTION_AUTHORIZATION restored across handoff as current executable authority",
++        "Prior material effect retroactively labeled authorized by a later artifact, approval, or handoff",
++        "Material continuation action executed before artifact lease and resource scope pin revalidation",
++        "Pending material action receipt or unbound prior effect omitted from continuation state"
+       ],
+       "validation_sequence": [
+         "strict JSON and duplicate-key check",
+@@ -687,9 +721,42 @@
+         "governance and approval-scope check",
+         "artifact and Orbit candidate check",
+         "knowledge-to-execution path completeness and AIR-FLOOR-015 check",
++        "artifact lease and resource scope pin restoration check",
++        "action authorization invalidation and receipt continuity check",
++        "unbound prior effect reconciliation check",
++        "runtime watchdog pre-action readiness check",
+         "continuation bootstrap precheck"
+       ]
+     },
+-    "extensions": {}
++    "extensions": {},
++    "action_governance_state": {
++      "artifact_lease_state": "EXPIRED_REBIND_REQUIRED_ON_RESTORE",
++      "resource_scope_pins": [],
++      "historical_action_authorizations": [],
++      "open_authorizations": [],
++      "authorization_restoration_rule": "No AIR_ACTION_AUTHORIZATION survives handoff as executable authority. Preserve history and requested action context, then issue a new authorization only after restore validation and artifact rebinding.",
++      "action_receipts": [],
++      "unbound_prior_effects": [],
++      "pending_reconciliation_ids": [],
++      "runtime_watchdog_state": {
++        "last_check_state": "UNVALIDATED_BOOTSTRAP_INPUT",
++        "failed_checks": [],
++        "next_required_check": "RUN_AFTER_RESTORE_PRECHECK_AND_BEFORE_ANY_MATERIAL_ACTION"
++      },
++      "material_action_resume_rule": "Revalidate artifact, lease, scope pin, sources, environment, permissions, approvals, pending receipts, and prior effects before issuing a new action authorization."
++    },
++    "runtime_drift_hardening_schema_extension": {
++      "schema_extension_version": "2.1.0",
++      "floor_invariant": "AIR-FLOOR-018",
++      "added_carriers": [
++        "artifact lease state",
++        "resource scope pin",
++        "action authorization history and invalidation",
++        "action receipts",
++        "unbound prior effects",
++        "runtime watchdog state"
++      ],
++      "restore_boundary": "Historical authorizations never restore as executable authority."
++    }
+   }
+ }

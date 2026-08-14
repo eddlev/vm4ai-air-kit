@@ -1,0 +1,729 @@
+{
+  "report_id": "AIR_AUDIT_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX_VALIDATION_001",
+  "object_version": "2.0.0",
+  "record_class": "TOOL_OBSERVED_GOVERNANCE_RECORD",
+  "generated_at": "2026-08-04T21:39:00+02:00",
+  "mode": "PROMPT_LAYER_APPLIED",
+  "test_evidence_mode": "SUMMARY_ONLY",
+  "decision": "PASS",
+  "checks_passed": 135,
+  "checks_total": 135,
+  "failed_checks": [],
+  "boot_simulation": {
+    "decision": "PASS",
+    "core_required_schema": "2.1.0",
+    "template_schema_upper": "2.1.0",
+    "template_schema_lower": "2.1.0",
+    "starter_version": "2.2.1",
+    "starter_required_version": "2.2.1",
+    "transport_counter_classification": "PASS",
+    "welcome_and_q1_allowed": true
+  },
+  "negative_boot_cases": [
+    {
+      "decision": "FAIL",
+      "core_required_schema": "2.1.0",
+      "template_schema_upper": "2.1.0",
+      "template_schema_lower": "2.0.0",
+      "starter_version": "2.2.1",
+      "starter_required_version": "2.2.1",
+      "transport_counter_classification": "PASS",
+      "welcome_and_q1_allowed": false
+    },
+    {
+      "decision": "FAIL",
+      "core_required_schema": "2.0.0",
+      "template_schema_upper": "2.1.0",
+      "template_schema_lower": "2.1.0",
+      "starter_version": "2.2.1",
+      "starter_required_version": "2.2.1",
+      "transport_counter_classification": "PASS",
+      "welcome_and_q1_allowed": false
+    }
+  ],
+  "source_boot_files_exactly_match_v2_3_0_release": true,
+  "limitations": [
+    "The boot simulation is deterministic structural policy validation, not an observed fresh host-model boot.",
+    "SUMMARY_ONLY does not provide a complete reproducibility package.",
+    "No backend enforcement or hidden reasoning is claimed."
+  ],
+  "checks": [
+    {
+      "check": "parse_no_duplicates::01_FOUNDATION/AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::01_FOUNDATION/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::02_CAPABILITY_ECOLOGY/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::02_CAPABILITY_ECOLOGY/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::02_CAPABILITY_ECOLOGY/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::02_CAPABILITY_ECOLOGY/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::02_CAPABILITY_ECOLOGY/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::03_GROUNDING/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::03_GROUNDING/AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::03_GROUNDING/AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::03_GROUNDING/AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::03_GROUNDING/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_no_duplicates::04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "sentinel::AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": "AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+    },
+    {
+      "check": "sentinel::AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": "AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+    },
+    {
+      "check": "sentinel::AIR_GOV.md",
+      "pass": true,
+      "detail": "AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+    },
+    {
+      "check": "core_version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "control_version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "starter_version",
+      "pass": true,
+      "detail": "2.2.1"
+    },
+    {
+      "check": "starter_self_version",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "handoff_schema_upper",
+      "pass": true,
+      "detail": "2.1.0"
+    },
+    {
+      "check": "handoff_schema_lower",
+      "pass": true,
+      "detail": "2.1.0"
+    },
+    {
+      "check": "core_inbound_schema_current",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "core_output_schema_current",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "core_no_stale_handoff_schema",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "core_cross_file_consistency_law",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "control_cross_file_consistency_surface",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "starter_cross_file_check",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "template_starter_identity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "template_compatibility_contract",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "governance_unchanged",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "boot_sim_positive",
+      "pass": true,
+      "detail": "{\"decision\": \"PASS\", \"core_required_schema\": \"2.1.0\", \"template_schema_upper\": \"2.1.0\", \"template_schema_lower\": \"2.1.0\", \"starter_version\": \"2.2.1\", \"starter_required_version\": \"2.2.1\", \"transport_counter_classification\": \"PASS\", \"welcome_and_q1_allowed\": true}"
+    },
+    {
+      "check": "boot_sim_negative_template_mismatch",
+      "pass": true,
+      "detail": "{\"decision\": \"FAIL\", \"core_required_schema\": \"2.1.0\", \"template_schema_upper\": \"2.1.0\", \"template_schema_lower\": \"2.0.0\", \"starter_version\": \"2.2.1\", \"starter_required_version\": \"2.2.1\", \"transport_counter_classification\": \"PASS\", \"welcome_and_q1_allowed\": false}"
+    },
+    {
+      "check": "boot_sim_negative_core_mismatch",
+      "pass": true,
+      "detail": "{\"decision\": \"FAIL\", \"core_required_schema\": \"2.0.0\", \"template_schema_upper\": \"2.1.0\", \"template_schema_lower\": \"2.1.0\", \"starter_version\": \"2.2.1\", \"starter_required_version\": \"2.2.1\", \"transport_counter_classification\": \"PASS\", \"welcome_and_q1_allowed\": false}"
+    },
+    {
+      "check": "manifest_package_version::CAPABILITY_ECOLOGY",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_package_version::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": "fb81d4c178727d22403781fb2a93fb4b9cde735f76108ccbc3397aa2c0f70aea / fb81d4c178727d22403781fb2a93fb4b9cde735f76108ccbc3397aa2c0f70aea"
+    },
+    {
+      "check": "manifest_bytes::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::CAPABILITY_ECOLOGY::AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": "03e1dc8e89a4960b310cf7c0872701e7de6d5b579d3eac2bbc58cec0398863f0 / 03e1dc8e89a4960b310cf7c0872701e7de6d5b579d3eac2bbc58cec0398863f0"
+    },
+    {
+      "check": "manifest_bytes::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::CAPABILITY_ECOLOGY::AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": "3da786359c6596976ed388609630d5ad68963c0d36e75d488801cac87939e93d / 3da786359c6596976ed388609630d5ad68963c0d36e75d488801cac87939e93d"
+    },
+    {
+      "check": "manifest_bytes::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": "911cf087b4baf52c5ddd98bf655a267884124906e529e0b541a4139331dd15ac / 911cf087b4baf52c5ddd98bf655a267884124906e529e0b541a4139331dd15ac"
+    },
+    {
+      "check": "manifest_bytes::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::CAPABILITY_ECOLOGY::AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::CAPABILITY_ECOLOGY::AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::CAPABILITY_ECOLOGY::AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::CAPABILITY_ECOLOGY::AIR_GOV.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::CAPABILITY_ECOLOGY::AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::CAPABILITY_ECOLOGY::AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_package_version::GROUNDING",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_package_version::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "eb69fb72586a23e2474cb85b05c265601f5f2524b0accfe3807c6f8941c329d4 / eb69fb72586a23e2474cb85b05c265601f5f2524b0accfe3807c6f8941c329d4"
+    },
+    {
+      "check": "manifest_bytes::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::GROUNDING::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": "40b75f70c80881a4ce0c0e330505aec368d8e72a470ea8a9824e292ec28a90e1 / 40b75f70c80881a4ce0c0e330505aec368d8e72a470ea8a9824e292ec28a90e1"
+    },
+    {
+      "check": "manifest_bytes::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::GROUNDING::AIR_GROUNDING_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": "66973cdb0afd92e926e522758c0cd3c108a824b7cdcc31ae9128d303a89f0ae0 / 66973cdb0afd92e926e522758c0cd3c108a824b7cdcc31ae9128d303a89f0ae0"
+    },
+    {
+      "check": "manifest_bytes::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::GROUNDING::AIR_GROUNDING_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": "fb06267e711691426ee9fa537d384e7e493512be277f3fb6afeb48ccbb1ea1f0 / fb06267e711691426ee9fa537d384e7e493512be277f3fb6afeb48ccbb1ea1f0"
+    },
+    {
+      "check": "manifest_bytes::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::GROUNDING::AIR_GROUNDING_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::GROUNDING::AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::GROUNDING::AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::GROUNDING::AIR_GOV.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::GROUNDING::AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::GROUNDING::AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_package_version::AI_GOVERNANCE",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_package_version::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": "656242f5c5b396e9ee9098350137186e012cbb1c6086df674315e4fb5b1dba5a / 656242f5c5b396e9ee9098350137186e012cbb1c6086df674315e4fb5b1dba5a"
+    },
+    {
+      "check": "manifest_bytes::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::AI_GOVERNANCE::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": "aa52083f959d3e44193fea3b769f161240086dd31015e3d6e24822052f9ef7c2 / aa52083f959d3e44193fea3b769f161240086dd31015e3d6e24822052f9ef7c2"
+    },
+    {
+      "check": "manifest_bytes::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::AI_GOVERNANCE::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": "2c0e32f7d09cbd4e2991f22316353582adfae529dd06e433a554604e85a0ebe7 / 2c0e32f7d09cbd4e2991f22316353582adfae529dd06e433a554604e85a0ebe7"
+    },
+    {
+      "check": "manifest_bytes::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::AI_GOVERNANCE::AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": "55216eba37a8b36d7b32dfa397e95469a721dfcbc82464ae147d32e310b0f274 / 55216eba37a8b36d7b32dfa397e95469a721dfcbc82464ae147d32e310b0f274"
+    },
+    {
+      "check": "manifest_bytes::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::AI_GOVERNANCE::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "component_package_version::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": "2.3.1"
+    },
+    {
+      "check": "component_no_stale_foundation_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_component_present::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_hash::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": "19cc96432d79795f5879e74bcddc14d69f1c501de1d471cfe05ecd2a70e46938 / 19cc96432d79795f5879e74bcddc14d69f1c501de1d471cfe05ecd2a70e46938"
+    },
+    {
+      "check": "manifest_bytes::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_lines::AI_GOVERNANCE::AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::AI_GOVERNANCE::AIR_CORE_RUNTIME.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::AI_GOVERNANCE::AIR_CONTROL_SURFACE.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::AI_GOVERNANCE::AIR_GOV.md",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::AI_GOVERNANCE::AIR_DEFAULT_STARTER_PROFILE.json",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "manifest_foundation_hash::AI_GOVERNANCE::AIR_HANDOFF_CARD_TEMPLATE.json",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false
+}

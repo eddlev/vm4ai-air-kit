@@ -1,0 +1,74 @@
+--- /mnt/data/AIR_AI_GOVERNANCE_REMEDIATION_WORK/02_PACKAGE/AIR_AI_GOVERNANCE_METHOD_PACK.json	2026-08-03 20:30:50.331107081 +0000
++++ /mnt/data/AIR_SPECIALIST_LAYER_INTEGRATION_REFRESH/04_AI_GOVERNANCE/AIR_AI_GOVERNANCE_METHOD_PACK.json	2026-08-03 20:36:17.507117823 +0000
+@@ -6,7 +6,7 @@
+   "PROFILE_KIND": "METHOD_PACK",
+   "profile_function_class": "METHOD_PACK",
+   "artifact_class": "AIR_METHOD_PACK",
+-  "package_version": "2.1.0",
++  "package_version": "2.2.0",
+   "package_subtype": "AI_GOVERNANCE_LIFECYCLE_ANALYSIS_CONTROL_AND_EVIDENCE_METHOD",
+   "STATUS": "V2_AI_GOVERNANCE_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+   "record_mode": "PROMPT_LAYER_APPLIED",
+@@ -83,7 +83,7 @@
+       "AIR-FLOOR-016",
+       "AIR-FLOOR-017"
+     ],
+-    "compatibility_state": "VALIDATED_AGAINST_AI_GOVERNANCE_V2_NORMALIZED_GROUNDING_AND_OPT_IN_TEST_EVIDENCE_FOUNDATION"
++    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+   },
+   "file_identity_contract": {
+     "canonical_filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+@@ -360,21 +360,21 @@
+     {
+       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+-      "sha256": "20a6e763a17d66973f78cb685c7514564ff7dfb22ecad28c3f54db8c844449ba",
++      "sha256": "68ef6728663b3ccde254668594ae186a546d2707f8430aa45deeac9bcb4aa5fc",
+       "required": true,
+       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+     },
+     {
+       "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+       "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+-      "sha256": "f6dc12d195bb3da67829457ea46c227d34aced5a13d42297399cebf526cf82e6",
++      "sha256": "84c70081324ddd422bc17037d86c3c12c3db2ad969705f87cf74693fa0f4da26",
+       "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
+       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+     },
+     {
+       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+       "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
+-      "sha256": "c7050bf707f79ace42142efe953cac21f1b804ffa14651c7595ab525c4d207b1",
++      "sha256": "0012bc114c5459bf4792c7bff6fd7d159ac8c5c40476e4aa4c3d8b8b8488a83e",
+       "required": true,
+       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+     }
+@@ -888,5 +888,28 @@
+     "specialist": "FINALIZED",
+     "executor": "FINALIZED",
+     "manifest": "GENERATED_LAST"
++  },
++  "integration_refresh": {
++    "refresh_version": "2.2.0",
++    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
++    "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
++    "optional_cross_package_compatibility": [
++      {
++        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
++        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      },
++      {
++        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
++        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      }
++    ],
++    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
++    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
+   }
+ }

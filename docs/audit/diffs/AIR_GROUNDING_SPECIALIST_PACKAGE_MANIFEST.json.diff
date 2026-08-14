@@ -1,0 +1,188 @@
+--- 03_GROUNDING/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json.before
++++ 03_GROUNDING/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+@@ -2,14 +2,14 @@
+   "title": "AIR Grounding Specialist Package Manifest v2",
+   "PACKAGE_DESIGNATION": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST_V2",
+   "SYSTEM_DESIGNATION": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST_V2",
+-  "PACKAGE_VERSION": "2.2.1",
++  "PACKAGE_VERSION": "2.3.0",
+   "PROMPT_VERSION": "2.0.0",
+   "SCHEMA_FAMILY": "AIR_V2",
+   "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+   "package_class": "NON_AGENT_SPECIALIST_PACKAGE",
+   "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+   "canonical_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+-  "status": "PACKAGE_COMPLETE_STARTER_VERSION_HOTFIX_VALIDATED_AVAILABLE_UNBOUND",
++  "status": "PACKAGE_COMPLETE_RUNTIME_DRIFT_HARDENING_VALIDATED_AVAILABLE_UNBOUND",
+   "generated_at": "2026-08-03T22:09:00+02:00",
+   "source_baseline": {
+     "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(18).json",
+@@ -77,14 +77,14 @@
+       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+       "canonical_role": "DOMAIN_PACKAGE",
+       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+-      "version": "2.2.1",
++      "version": "2.3.0",
+       "artifact_class": "AIR_DOMAIN_PACKAGE",
+       "profile_kind": "DOMAIN_OVERLAY",
+       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+       "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "fae14d33a31571368186bb3c2393327ff7784ef3906cc37036e8197f61229b74",
+-      "size_bytes": 53086,
+-      "line_count": 882,
++      "sha256": "39401b36b8c69dcf433f5c91946ce2ead08c5601073fd888cb95284b6da4a562",
++      "size_bytes": 53497,
++      "line_count": 890,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -92,14 +92,14 @@
+       "filename": "AIR_GROUNDING_METHOD_PACK.json",
+       "canonical_role": "METHOD_PACK",
+       "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+-      "version": "2.2.1",
++      "version": "2.3.0",
+       "artifact_class": "AIR_METHOD_PACK",
+       "profile_kind": "METHOD_PACK",
+       "profile_function_class": "METHOD_PACK",
+       "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "7def9c2ff4e4543a2c05b9903d5d15e2cca180019984ae5e79f5941c6c18c9b5",
+-      "size_bytes": 57399,
+-      "line_count": 1203,
++      "sha256": "ce021457a4a8df7b9c6926e4b0a0a982ee4b5f85beaeff1705b8958f24ca4078",
++      "size_bytes": 57810,
++      "line_count": 1211,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -107,14 +107,14 @@
+       "filename": "AIR_GROUNDING_SPECIALIST.json",
+       "canonical_role": "SPECIALIST_PROFILE",
+       "designation": "AIR_GROUNDING_SPECIALIST_V2",
+-      "version": "2.2.1",
++      "version": "2.3.0",
+       "artifact_class": "AIR_SPECIALIST_PROFILE",
+       "profile_kind": "TASK_COMPOSITE",
+       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
+       "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "40de3d583cc8a36301cacf1cc32e5e84a8a2cf214e9746979262d28b06b6bb24",
+-      "size_bytes": 58168,
+-      "line_count": 1029,
++      "sha256": "cc1aea181caa455a9c2da53f43434ffeeb0ecebec2626240a635506bd839ec94",
++      "size_bytes": 61996,
++      "line_count": 1081,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -122,14 +122,14 @@
+       "filename": "AIR_GROUNDING_EXECUTOR.json",
+       "canonical_role": "EXECUTOR_LAYER",
+       "designation": "AIR_GROUNDING_EXECUTOR_V2",
+-      "version": "2.2.1",
++      "version": "2.3.0",
+       "artifact_class": "AIR_EXECUTOR_LAYER",
+       "profile_kind": "EXECUTOR_CONTRACT",
+       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+       "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "5e9f3b98f0e782f49d3fc59f9847329e27e2c0207cc1954ef8c12d4633dbd0e9",
+-      "size_bytes": 12631,
+-      "line_count": 303,
++      "sha256": "4538703b68bc3930a8761f7c0e406397cd06f0f90cbaf3f52eb43a2b1d38dc98",
++      "size_bytes": 13042,
++      "line_count": 311,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     }
+@@ -171,20 +171,20 @@
+       {
+         "filename": "AIR_CORE_RUNTIME.md",
+         "designation": "AIR_CORE_RUNTIME_V2",
+-        "version": "2.0.0",
++        "version": "2.1.0",
+         "class": "FOUNDATION_PROMPT",
+-        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
+-        "size_bytes": 231127,
+-        "line_count": 5495
++        "sha256": "69a3be35e138782d699c92f0d58265793af16f687dafdf2a2493de2330b54c79",
++        "size_bytes": 243327,
++        "line_count": 5772
+       },
+       {
+         "filename": "AIR_CONTROL_SURFACE.md",
+         "designation": "AIR_CONTROL_SURFACE_V2",
+-        "version": "2.0.0",
++        "version": "2.1.0",
+         "class": "FOUNDATION_PROMPT",
+-        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
+-        "size_bytes": 112242,
+-        "line_count": 2648
++        "sha256": "a5880e0ded7bae067a851cf461cd0efd9646b0fdc2ec40996f20bd0bb04bee6f",
++        "size_bytes": 115145,
++        "line_count": 2721
+       },
+       {
+         "filename": "AIR_GOV.md",
+@@ -198,20 +198,20 @@
+       {
+         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+         "designation": "AIR_DEFAULT_STARTER_V2",
+-        "version": "2.1.1",
++        "version": "2.2.0",
+         "class": "TASK_COMPOSITE",
+-        "sha256": "68f49f4a4cc862342dc3765a267d6e3b9d7976828642bf754a01e92790e7d023",
+-        "size_bytes": 46072,
+-        "line_count": 1141
++        "sha256": "1a9c486eb677655d4001128081d6c8114797e02b1dc300af3046066c010cfc8a",
++        "size_bytes": 51360,
++        "line_count": 1234
+       },
+       {
+         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+-        "version": "2.0.0",
++        "version": "2.1.0",
+         "class": "TEMPLATE",
+-        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
+-        "size_bytes": 29402,
+-        "line_count": 695
++        "sha256": "00de25e77941ea67783532e8288d7f248cf49384be4fc68ed397917a86fe648f",
++        "size_bytes": 33098,
++        "line_count": 762
+       }
+     ],
+     "required_floor_invariants": [
+@@ -219,7 +219,8 @@
+       "AIR-FLOOR-014",
+       "AIR-FLOOR-015",
+       "AIR-FLOOR-016",
+-      "AIR-FLOOR-017"
++      "AIR-FLOOR-017",
++      "AIR-FLOOR-018"
+     ],
+     "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+   },
+@@ -315,8 +316,8 @@
+     "future_task_correctness_claimed": false
+   },
+   "integration_refresh": {
+-    "refresh_version": "2.2.1",
+-    "foundation_identity_state": "STARTER_VERSION_CONSISTENCY_HOTFIX_EXACT_HASH_SET",
++    "refresh_version": "2.3.0",
++    "foundation_identity_state": "RUNTIME_DRIFT_HARDENED_EXACT_HASH_SET",
+     "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+     "optional_cross_package_compatibility": [
+       {
+@@ -340,6 +341,13 @@
+       "hotfix_id": "AIR_STARTER_VERSION_CONSISTENCY_HOTFIX_001",
+       "applied_at": "2026-08-04T20:49:00+02:00",
+       "scope": "Refresh exact foundation and component identities after Starter self-version correction."
++    },
++    "runtime_drift_hardening": {
++      "release_id": "AIR_RUNTIME_DRIFT_HARDENING_MAINLINE_001",
++      "applied_at": "2026-08-04T21:00:00+02:00",
++      "floor_invariant": "AIR-FLOOR-018",
++      "candidate_source": "AIR_DRIFT_HARDENING_PATCH_BUNDLE",
++      "mainline_rebase_source": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_2_1"
+     }
+   }
+ }

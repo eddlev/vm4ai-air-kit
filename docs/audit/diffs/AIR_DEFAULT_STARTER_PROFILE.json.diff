@@ -1,0 +1,201 @@
+--- 01_FOUNDATION/AIR_DEFAULT_STARTER_PROFILE.json.before
++++ 01_FOUNDATION/AIR_DEFAULT_STARTER_PROFILE.json
+@@ -1,13 +1,13 @@
+ {
+   "title": "AIR Default Project Starter",
+   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
+-  "PROMPT_VERSION": "2.1.1",
++  "PROMPT_VERSION": "2.2.0",
+   "SCHEMA_FAMILY": "AIR_V2",
+   "AUDITED_BASELINE_VERSION": "1.0.0",
+   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
+   "PROFILE_KIND": "TASK_COMPOSITE",
+   "profile_function_class": "DEFAULT_STARTER_PROFILE",
+-  "STATUS": "V2_STARTER_VERSION_CONSISTENCY_HOTFIX_VALIDATED_AVAILABLE_UNBOUND",
++  "STATUS": "V2_RUNTIME_DRIFT_HARDENING_VALIDATED_AVAILABLE_UNBOUND",
+   "canonical_role": "DEFAULT_STARTER_PROFILE",
+   "canonical_filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+   "STANDARD_CODE": "AIR.DEFAULT.STARTER.V2",
+@@ -43,7 +43,8 @@
+       "AIR-FLOOR-014",
+       "AIR-FLOOR-015",
+       "AIR-FLOOR-016",
+-      "AIR-FLOOR-017"
++      "AIR-FLOOR-017",
++      "AIR-FLOOR-018"
+     ]
+   },
+   "profile_scope": {
+@@ -249,7 +250,9 @@
+       "execute the user material task",
+       "mutate project sources",
+       "close a material task step",
+-      "emit approved project-task output before binding"
++      "emit approved project-task output before binding",
++      "invoke a mutating or externally consequential tool before artifact binding",
++      "create branches, commits, pull requests, issues, releases, deployments, publications, sends, exports, deletions, overwrites, migrations, or other material effects during bootstrap"
+     ],
+     "exit_condition": "Exactly one artifact is bound to Orbit 0 with ACTIVE_EXECUTION_BINDING."
+   },
+@@ -939,6 +942,33 @@
+         ],
+         "source_law": "AIR-FLOOR-017 AND TEST EVIDENCE AND REPRODUCIBILITY LAW",
+         "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
++      },
++      {
++        "id": "REQ-MATERIAL-ACTION-INTERLOCK",
++        "plane": "AIR_ARTIFACT_AIR_ACTION_AUTHORIZATION_AND_AIR_ACTION_RECEIPT",
++        "condition": "MATERIAL_ACTION_IS_PROPOSED_OR_ATTEMPTED",
++        "fields": [
++          "artifact_lease",
++          "resource_scope_pin",
++          "action_governance_state",
++          "AIR_ACTION_AUTHORIZATION",
++          "AIR_ACTION_RECEIPT"
++        ],
++        "source_law": "MATERIAL ACTION INTERLOCK, ARTIFACT LEASE, RESOURCE SCOPE PIN, AND ACTION RECEIPT LAWS",
++        "failure_behavior": "REJECT_OR_ARTIFACT_BINDING_RECOVERY"
++      },
++      {
++        "id": "REQ-UNBOUND-PRIOR-EFFECT",
++        "plane": "AIR_SESSION_AIR_ARTIFACT_AIR_PRIOR_EFFECT_RECORD_AND_AIR_HANDOFF_CARD",
++        "condition": "MATERIAL_EFFECT_EXISTS_WITHOUT_VALID_CURRENT_AUTHORIZATION_OR_SCOPE_MATCH",
++        "fields": [
++          "unbound_prior_effect_state",
++          "AIR_PRIOR_EFFECT_RECORD",
++          "reconciliation_state",
++          "human_review_requirement"
++        ],
++        "source_law": "UNBOUND PRIOR EFFECT RECOVERY LAW",
++        "failure_behavior": "REVIEW_OR_REJECT_WITHOUT_RETROACTIVE_AUTHORIZATION"
+       }
+     ]
+   },
+@@ -985,6 +1015,16 @@
+       "exact_delivery_path_validation_required": true,
+       "validation_freshness_required": true,
+       "delivery_receipt_required": true
++    },
++    "action_governance": {
++      "bootstrap_write_lock": true,
++      "single_use_action_authorization": true,
++      "post_action_receipt_required": true,
++      "artifact_lease_revalidation_required": true,
++      "resource_scope_pin_fail_closed": true,
++      "prior_effect_retroactive_authorization_prohibited": true,
++      "prompt_only_enforcement_claimed": true,
++      "backend_enforcement_claimed": false
+     }
+   },
+   "output_contract": {
+@@ -1000,6 +1040,8 @@
+       "artifact_revision",
+       "artifact_binding_state",
+       "task_key",
++      "artifact_lease",
++      "action_governance_state",
+       "task_center",
+       "active_step",
+       "execution_contract",
+@@ -1054,7 +1096,7 @@
+       "canonical_filename"
+     ],
+     "required_designation": "AIR_DEFAULT_STARTER_V2",
+-    "required_version": "2.1.1",
++    "required_version": "2.2.0",
+     "forbidden_canonical_terms": [
+       "PROMPT_SIMULATED",
+       "RELATIONAL_IDENTITY_SENSITIVE",
+@@ -1074,6 +1116,11 @@
+       "Q2=C Q3=A Q4=A produces an advisory post-Q5 air -t on recommendation without auto-enabling",
+       "regulatory evidence requirements recommend full test evidence and block closure when qualifying evidence is absent",
+       "handoff preserves test-evidence mode and reproducibility limits",
++      "Core and Control Surface contain material-action interlock, artifact-lease, scope-pin, receipt, prior-effect recovery, and watchdog laws",
++      "every material action requires a single-use AIR_ACTION_AUTHORIZATION before execution",
++      "every attempted material action produces AIR_ACTION_RECEIPT before closure or dependent action",
++      "artifact lease invalidates on active-step, target, scope, source, approval, tool, environment, or acceptance-criteria change",
++      "unbound prior effects cannot be retroactively authorized and are preserved through handoff",
+       "validation_contract.required_version equals top-level PROMPT_VERSION"
+     ],
+     "required_retests": [
+@@ -1097,9 +1144,22 @@
+       "Q2 C plus Q3 A plus Q4 A recommends but does not auto-enable full test evidence",
+       "regulatory evidence required with Governance present routes to REVIEW or EVIDENCE_REQUIRED when full evidence is absent",
+       "handoff restores test-evidence mode without granting test or regulatory compliance claims",
++      "material task supplied during onboarding cannot trigger mutation",
++      "account with multiple repositories requires one pinned target before mutation",
++      "active-step change expires artifact lease before next material action",
++      "nearby repository target is rejected by resource scope pin",
++      "single-use authorization cannot be replayed for a second write",
++      "artifact emitted after an unauthorized action does not retroactively authorize the prior effect",
++      "PR or file state change invalidates prior validation and requires a new receipt or revalidation",
++      "side question does not silently replace Orbit 0 or expand scope",
++      "long conversation forces re-anchoring before material action when lease freshness is uncertain",
++      "material receiver delivery is blocked when artifact, lease, authorization, receipt, or watchdog state is missing",
+       "new-project boot accepts the current Starter when top-level PROMPT_VERSION equals validation_contract.required_version",
+       "Starter self-version mismatch fails validation before onboarding",
+-      "transport-counter filename suffixes do not affect semantic version validation"
++      "transport-counter filename suffixes do not affect semantic version validation",
++      "material action attempt during onboarding emits BOOTSTRAP_WRITE_ATTEMPT and performs no mutation",
++      "active-step change expires the artifact lease before the next material action",
++      "a later artifact never retroactively authorizes an unbound prior effect"
+     ],
+     "required_version_source": "TOP_LEVEL_PROMPT_VERSION",
+     "version_consistency_rule": "validation_contract.required_version MUST equal top-level PROMPT_VERSION. A mismatch is an internal component defect and blocks release validation."
+@@ -1127,15 +1187,48 @@
+       "fallback": "PUBLIC_SOURCE_ONLY or DEFAULT_STARTER_DEGRADED_GOVERNANCE when safe; otherwise REVIEW or EVIDENCE_REQUIRED."
+     }
+   },
++  "action_governance_contract": {
++    "mode": "FAIL_CLOSED",
++    "artifact_lease_required": true,
++    "resource_scope_pin_required_when": "TOOL_FILE_REPOSITORY_EXTERNAL_SYSTEM_OR_CREDENTIAL_ACTION_IS_POSSIBLE",
++    "authorization_object": "AIR_ACTION_AUTHORIZATION",
++    "receipt_object": "AIR_ACTION_RECEIPT",
++    "prior_effect_object": "AIR_PRIOR_EFFECT_RECORD",
++    "single_use_authorization_required": true,
++    "retroactive_authorization_prohibited": true,
++    "watchdog_checkpoints": [
++      "BEFORE_EACH_MATERIAL_ACTION",
++      "AFTER_EACH_MATERIAL_ACTION",
++      "BEFORE_MATERIAL_DELIVERY_OR_CLOSURE",
++      "AFTER_ACTIVE_STEP_SCOPE_SOURCE_APPROVAL_TOOL_ENVIRONMENT_OR_ARTIFACT_CHANGE"
++    ],
++    "default_material_action_classes": [
++      "REPOSITORY_OR_FILE_MUTATION",
++      "EXTERNAL_STATE_MUTATION",
++      "PUBLICATION_RELEASE_OR_DEPLOYMENT",
++      "DESTRUCTIVE_OR_IRREVERSIBLE_ACTION",
++      "CREDENTIAL_OR_PERMISSION_BEARING_ACTION",
++      "MATERIAL_EXECUTION_OR_CLOSURE_CLAIM"
++    ],
++    "gateway_recommendation": "When a backend or client tool gateway exists, require and atomically consume a valid authorization before executing the material tool call.",
++    "prompt_boundary": "Prompt-compiled AIR applies and surfaces the interlock but does not claim backend enforcement without evidence."
++  },
+   "version_consistency_hotfix": {
+     "hotfix_id": "AIR_STARTER_VERSION_CONSISTENCY_HOTFIX_001",
+-    "applied_at": "2026-08-04T20:49:00+02:00",
+-    "previous_prompt_version": "2.1.0",
+-    "previous_required_version": "2.0.0",
+-    "current_prompt_version": "2.1.1",
+-    "current_required_version": "2.1.1",
+-    "defect_class": "INTERNAL_VERSION_IDENTITY_CONTRADICTION",
+-    "boot_effect_before_fix": "BLOCKED_LOAD_INTEGRITY",
+-    "boot_effect_after_fix": "ELIGIBLE_FOR_NORMAL_LOAD_VALIDATION"
++    "state": "PRESERVED_IN_MAINLINE",
++    "previous_defect": "PROMPT_VERSION 2.1.0 contradicted validation_contract.required_version 2.0.0",
++    "current_prompt_version": "2.2.0",
++    "current_required_version": "2.2.0"
++  },
++  "runtime_drift_hardening_release": {
++    "release_id": "AIR_RUNTIME_DRIFT_HARDENING_MAINLINE_001",
++    "applied_at": "2026-08-04T21:00:00+02:00",
++    "floor_invariant": "AIR-FLOOR-018",
++    "candidate_basis": "AIR_DRIFT_HARDENING_PATCH_BUNDLE",
++    "maintainer_corrections": [
++      "Registered material-action coupling as AIR-FLOOR-018.",
++      "Preserved the Starter self-version equality hotfix.",
++      "Required all specialist packages to be resealed against the final foundation."
++    ]
+   }
+ }

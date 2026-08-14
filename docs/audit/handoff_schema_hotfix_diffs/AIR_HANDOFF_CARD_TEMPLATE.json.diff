@@ -1,0 +1,45 @@
+--- v2.3.0/01_FOUNDATION/AIR_HANDOFF_CARD_TEMPLATE.json
++++ v2.3.1/01_FOUNDATION/AIR_HANDOFF_CARD_TEMPLATE.json
+@@ -189,7 +189,7 @@
+     "profile_stack": {
+       "starter_profile": {
+         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
+-        "PROMPT_VERSION": "2.0.0",
++        "PROMPT_VERSION": "2.2.1",
+         "availability_state": "EXPECTED_OR_RESTORED"
+       },
+       "active_specialist_profile_ref": null,
+@@ -726,7 +726,18 @@
+         "unbound prior effect reconciliation check",
+         "runtime watchdog pre-action readiness check",
+         "continuation bootstrap precheck"
+-      ]
++      ],
++      "schema_compatibility_contract": {
++        "canonical_schema_version": "2.1.0",
++        "core_required_version_owner": "AIR_CORE_RUNTIME_V2",
++        "cross_file_equality_required": true,
++        "template_fields_required_equal": [
++          "SCHEMA_VERSION",
++          "schema_version"
++        ],
++        "starter_identity_version_required": "2.2.1",
++        "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
++      }
+     },
+     "extensions": {},
+     "action_governance_state": {
+@@ -757,6 +768,13 @@
+         "runtime watchdog state"
+       ],
+       "restore_boundary": "Historical authorizations never restore as executable authority."
++    },
++    "handoff_schema_compatibility_hotfix": {
++      "hotfix_id": "AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX_001",
++      "state": "APPLIED_WITHOUT_SCHEMA_ROLLBACK",
++      "schema_version_preserved": "2.1.0",
++      "starter_profile_version_corrected_to": "2.2.1",
++      "applied_at": "2026-08-04T21:39:00+02:00"
+     }
+   }
+ }

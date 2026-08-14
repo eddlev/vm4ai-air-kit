@@ -1,0 +1,34 @@
+{
+  "record_id": "AIR_AUDIT_AI_GOVERNANCE_AND_SPECIALIST_LAYER_INTEGRATION_001",
+  "object_version": "2.0.0",
+  "record_class": "TOOL_OBSERVED_GOVERNANCE_RECORD",
+  "mode": "PROMPT_LAYER_APPLIED",
+  "test_evidence_mode": "SUMMARY_ONLY",
+  "decision": "PASS",
+  "ai_governance_validation": {
+    "checks_passed": 550,
+    "checks_total": 550
+  },
+  "integration_validation": {
+    "checks_passed": 458,
+    "checks_total": 458
+  },
+  "foundation_state": "FINAL_INTEGRATED_SPECIALIST_LAYER_FOUNDATION",
+  "packages": [
+    {
+      "identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+      "version": "2.2.0"
+    },
+    {
+      "identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+      "version": "2.2.0"
+    },
+    {
+      "identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+      "version": "2.2.0"
+    }
+  ],
+  "optional_peer_hash_policy": "SELECTION_TIME_EXACT_IDENTITY_VALIDATION_NO_MUTUAL_HASH_PINNING",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false
+}

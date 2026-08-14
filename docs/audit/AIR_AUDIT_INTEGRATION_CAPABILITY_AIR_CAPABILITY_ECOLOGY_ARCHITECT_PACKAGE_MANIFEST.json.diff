@@ -1,0 +1,165 @@
+--- /mnt/data/AIR_SPECIALIST_PROFILE_PACKS_PATCHED/01_CAPABILITY_ECOLOGY_ARCHITECT/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json	2026-08-03 19:53:37.683033780 +0000
++++ /mnt/data/AIR_SPECIALIST_LAYER_INTEGRATION_REFRESH/02_CAPABILITY_ECOLOGY/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json	2026-08-03 20:36:17.503117823 +0000
+@@ -2,14 +2,14 @@
+   "title": "AIR Capability Ecology Architect Package Manifest v2",
+   "PACKAGE_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
+   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
+-  "PACKAGE_VERSION": "2.0.0",
++  "PACKAGE_VERSION": "2.2.0",
+   "PROMPT_VERSION": "2.0.0",
+   "SCHEMA_FAMILY": "AIR_V2",
+   "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+   "package_class": "AIR_SPECIALIST_CAPABILITY_PACKAGE",
+   "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+   "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+-  "status": "VALIDATED_AVAILABLE_UNBOUND",
++  "status": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+   "generated_at": "2026-08-03T21:46:00+02:00",
+   "source_baseline": {
+     "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(17).json",
+@@ -43,9 +43,9 @@
+       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
+       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+       "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "345942f5ccfe3f33b85beb8aae41eb5ffef7c2950e8007991c3a7d92b3fc696d",
+-      "size_bytes": 225826,
+-      "line_count": 5067,
++      "sha256": "0dec0916265660c9e6795b96b422e52481640030c076e897c6fb5881f72f6976",
++      "size_bytes": 227103,
++      "line_count": 5090,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -58,9 +58,9 @@
+       "profile_kind": "EXECUTOR_CONTRACT",
+       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+       "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "eabef692731aa4a0671538743a540ca5a67d8ae865599c40f5e7a7cfee6620ba",
+-      "size_bytes": 53259,
+-      "line_count": 1048,
++      "sha256": "5d7877a3d4f02f8a50aa335cf61cd741af351ebc6f1fd41a4e6b79268e5403ed",
++      "size_bytes": 54627,
++      "line_count": 1072,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -73,9 +73,9 @@
+       "profile_kind": "TASK_COMPOSITE",
+       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
+       "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "38b413a41ac3a7d90973928d0221d1ea51233816514cf476be8ba88c5d9e4a59",
+-      "size_bytes": 81849,
+-      "line_count": 1559,
++      "sha256": "d8004396c437fdc6a1fa419ac81286442440a3015ef67863f3efdb89c372365a",
++      "size_bytes": 83132,
++      "line_count": 1582,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     },
+@@ -88,9 +88,9 @@
+       "profile_kind": "METHOD_PACK",
+       "profile_function_class": "METHOD_PACK",
+       "status": "V2_TEST_EVIDENCE_AMENDED_VALIDATED_AVAILABLE_UNBOUND",
+-      "sha256": "e2a9594a9f7509f04c12a513a141848de8e37fe93fa4ab20b34ed43f618d6f91",
+-      "size_bytes": 71269,
+-      "line_count": 1408,
++      "sha256": "e5f9b5d3b52f0be74147450be1283d63d313c819efc2b80024f5301149a32a60",
++      "size_bytes": 72555,
++      "line_count": 1431,
+       "required": true,
+       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+     }
+@@ -134,18 +134,18 @@
+         "designation": "AIR_CORE_RUNTIME_V2",
+         "version": "2.0.0",
+         "class": "FOUNDATION_PROMPT",
+-        "sha256": "1ec30dd68b2e60af2aabf9433b591f20cd9087e5ae37cf254712f384c2ac7003",
+-        "size_bytes": 223216,
+-        "line_count": 5403
++        "sha256": "19a8ded8c16af3cdb360f4c6c035d0192ae0ea74cb52cdfe250c63a895c91f41",
++        "size_bytes": 231127,
++        "line_count": 5495
+       },
+       {
+         "filename": "AIR_CONTROL_SURFACE.md",
+         "designation": "AIR_CONTROL_SURFACE_V2",
+         "version": "2.0.0",
+         "class": "FOUNDATION_PROMPT",
+-        "sha256": "38f376db3f1d894cd13a9eddb84daf0544d7609877f1cc11f7547540da772dde",
+-        "size_bytes": 109488,
+-        "line_count": 2604
++        "sha256": "e3a2f907a8820d895c62b301d95d347a6c7ba702a6769630a0251c5c9c6d600b",
++        "size_bytes": 112242,
++        "line_count": 2648
+       },
+       {
+         "filename": "AIR_GOV.md",
+@@ -161,18 +161,18 @@
+         "designation": "AIR_DEFAULT_STARTER_V2",
+         "version": "2.1.0",
+         "class": "TASK_COMPOSITE",
+-        "sha256": "111b03fec036b760b8073d5c1d6a82ece2030af2865204c92c4803aa7d331a64",
+-        "size_bytes": 40253,
+-        "line_count": 1057
++        "sha256": "9186eebba2dc8836448887bf131d21fd0df795aec1f7ae90f63077cbd6661794",
++        "size_bytes": 44953,
++        "line_count": 1124
+       },
+       {
+         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+         "version": "2.0.0",
+         "class": "TEMPLATE",
+-        "sha256": "1c1a982b676d9fba19b8ce2778b1128027c0060e02b337ce74fe8367cadad4d5",
+-        "size_bytes": 26983,
+-        "line_count": 657
++        "sha256": "755edd6cf2488b3d82ef45850c3801e7e49da23aaaba476b69450c31af938fe1",
++        "size_bytes": 29402,
++        "line_count": 695
+       }
+     ],
+     "required_floor_invariants": [
+@@ -182,7 +182,7 @@
+       "AIR-FLOOR-016",
+       "AIR-FLOOR-017"
+     ],
+-    "compatibility_state": "VALIDATED_AGAINST_OPT_IN_TEST_EVIDENCE_AMENDED_FOUNDATION"
++    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+   },
+   "package_integrity_contract": {
+     "strict_json_required": true,
+@@ -269,7 +269,32 @@
+     "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+     "receiver_delivery_state": "APPROVED_OUTPUT",
+     "backend_validation_claimed": false,
+-    "hidden_reasoning_claimed": false
++    "hidden_reasoning_claimed": false,
++    "cross_file": "PASS_INTEGRATED_FOUNDATION_REFRESH",
++    "regression": "PASS_SUMMARY_MODE"
+   },
+-  "claim_boundary": "This manifest proves only the tool-observed identity and validated package relationships recorded for the delivered files. It does not prove backend enforcement, hidden reasoning, human professional equivalence, regulatory compliance, empirical task superiority, or correct execution of any future task."
++  "claim_boundary": "This manifest proves only the tool-observed identity and validated package relationships recorded for the delivered files. It does not prove backend enforcement, hidden reasoning, human professional equivalence, regulatory compliance, empirical task superiority, or correct execution of any future task.",
++  "integration_refresh": {
++    "refresh_version": "2.2.0",
++    "foundation_identity_state": "EXACT_CURRENT_HASH_SET",
++    "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
++    "optional_cross_package_compatibility": [
++      {
++        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
++        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      },
++      {
++        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
++        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
++        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
++        "manifest_hash_pinned": false,
++        "selection_time_exact_identity_validation_required": true
++      }
++    ],
++    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
++    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
++  }
+ }
