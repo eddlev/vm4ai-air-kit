@@ -2,16 +2,22 @@
   "schema_version": "1.0.0",
   "suite_id": "AIR_FOUNDATION_REPRODUCIBILITY_CONTRACT_V1",
   "material_inputs": [
-    "prompts/AIR_CORE_RUNTIME.md",
-    "prompts/AIR_CONTROL_SURFACE.md",
-    "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
-    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
-    "prompts/AIR_GOV.md",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
     "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+    "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
     "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
     "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
-    "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
-    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+    "prompts/AIR_CONTROL_SURFACE.md",
+    "prompts/AIR_CORE_RUNTIME.md",
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+    "prompts/AIR_GOV.md",
+    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
   ],
   "tests": [
     {
@@ -936,6 +942,1398 @@
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
       "requirement": "AIR_GROUNDING_EXECUTOR.json sibling pin dependencies.2 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "GOV4-01-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json"
+    },
+    {
+      "id": "GOV4-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-02-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json"
+    },
+    {
+      "id": "GOV4-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+    },
+    {
+      "id": "GOV4-03-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json"
+    },
+    {
+      "id": "GOV4-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+    },
+    {
+      "id": "GOV4-04-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json"
+    },
+    {
+      "id": "GOV4-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+    },
+    {
+      "id": "GOV4-05-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json"
+    },
+    {
+      "id": "GOV4-05-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "expected": "850ea186f880c997fb9fef4a8e8f39e45fa99480fa9b175b848fe55b74175700"
+    },
+    {
+      "id": "GOV4-06-PARSE",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must parse as strict JSON",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+    },
+    {
+      "id": "GOV4-06-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json exact bytes must match the resealed identity",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "expected": "bccfed71c349d9a888c7f2059ab6d7c800be72b48cbf8ebfd8537e58798a8405"
+    },
+    {
+      "id": "GOV4-V01",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "package_version",
+      "expected": "2.3.3"
+    },
+    {
+      "id": "GOV4-F01-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F01-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F01-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F01-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F01-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F01-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F01-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F01-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F01-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F01-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R01-00",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R01-01",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R01-02",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R01-03",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R01-04",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R01-05",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R01-06",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R01-07",
+      "requirement": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-V02",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "package_version",
+      "expected": "2.3.3"
+    },
+    {
+      "id": "GOV4-F02-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F02-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F02-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F02-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F02-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F02-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F02-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F02-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F02-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F02-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R02-00",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R02-01",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R02-02",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R02-03",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R02-04",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R02-05",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R02-06",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R02-07",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-I02-001",
+      "requirement": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json sibling/component identity field dependencies.0.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "json_path": "dependencies.0.sha256",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-V03",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "package_version",
+      "expected": "2.3.3"
+    },
+    {
+      "id": "GOV4-F03-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F03-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F03-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F03-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F03-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F03-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F03-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F03-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F03-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F03-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R03-00",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R03-01",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R03-02",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R03-03",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R03-04",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R03-05",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R03-06",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R03-07",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-I03-001",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json sibling/component identity field dependencies.0.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "dependencies.0.sha256",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-I03-002",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST.json sibling/component identity field dependencies.1.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "json_path": "dependencies.1.sha256",
+      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+    },
+    {
+      "id": "GOV4-V04",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "package_version",
+      "expected": "2.3.3"
+    },
+    {
+      "id": "GOV4-F04-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F04-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F04-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F04-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F04-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F04-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F04-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F04-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F04-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F04-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R04-00",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R04-01",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R04-02",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R04-03",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R04-04",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R04-05",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R04-06",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R04-07",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-I04-001",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json sibling/component identity field dependencies.0.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "dependencies.0.sha256",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-I04-002",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json sibling/component identity field dependencies.1.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "dependencies.1.sha256",
+      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+    },
+    {
+      "id": "GOV4-I04-003",
+      "requirement": "AIR_AI_GOVERNANCE_METHOD_PACK.json sibling/component identity field dependencies.2.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "dependencies.2.sha256",
+      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+    },
+    {
+      "id": "GOV4-V05",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "package_version",
+      "expected": "2.3.3"
+    },
+    {
+      "id": "GOV4-F05-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F05-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F05-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F05-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F05-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F05-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F05-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F05-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F05-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F05-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R05-00",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R05-01",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R05-02",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R05-03",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R05-04",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R05-05",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R05-06",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R05-07",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-I05-001",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json sibling/component identity field dependencies.0.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "dependencies.0.sha256",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-I05-002",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json sibling/component identity field dependencies.1.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "dependencies.1.sha256",
+      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+    },
+    {
+      "id": "GOV4-I05-003",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json sibling/component identity field dependencies.2.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "dependencies.2.sha256",
+      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+    },
+    {
+      "id": "GOV4-I05-004",
+      "requirement": "AIR_AI_GOVERNANCE_EXECUTOR.json sibling/component identity field dependencies.3.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "json_path": "dependencies.3.sha256",
+      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+    },
+    {
+      "id": "GOV4-V06",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must carry the Group 4 package version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "PACKAGE_VERSION",
+      "expected": "2.3.4"
+    },
+    {
+      "id": "GOV4-F06-00-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin current AIR_CORE_RUNTIME.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.0.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F06-00-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin exact current AIR_CORE_RUNTIME.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.0.sha256",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+    },
+    {
+      "id": "GOV4-F06-01-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin current AIR_CONTROL_SURFACE.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.1.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F06-01-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin exact current AIR_CONTROL_SURFACE.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.1.sha256",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+    },
+    {
+      "id": "GOV4-F06-02-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin current AIR_GOV.md version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.2.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F06-02-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin exact current AIR_GOV.md SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.2.sha256",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2"
+    },
+    {
+      "id": "GOV4-F06-03-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin current AIR_DEFAULT_STARTER_PROFILE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.3.version",
+      "expected": "2.4.1"
+    },
+    {
+      "id": "GOV4-F06-03-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin exact current AIR_DEFAULT_STARTER_PROFILE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.3.sha256",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+    },
+    {
+      "id": "GOV4-F06-04-VER",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin current AIR_HANDOFF_CARD_TEMPLATE.json version",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.4.version",
+      "expected": "2.2.0"
+    },
+    {
+      "id": "GOV4-F06-04-SHA",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must pin exact current AIR_HANDOFF_CARD_TEMPLATE.json SHA-256",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files.4.sha256",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+    },
+    {
+      "id": "GOV4-R06-00",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-013",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.0",
+      "expected": "AIR-FLOOR-013"
+    },
+    {
+      "id": "GOV4-R06-01",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-014",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.1",
+      "expected": "AIR-FLOOR-014"
+    },
+    {
+      "id": "GOV4-R06-02",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-015",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.2",
+      "expected": "AIR-FLOOR-015"
+    },
+    {
+      "id": "GOV4-R06-03",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-016",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.3",
+      "expected": "AIR-FLOOR-016"
+    },
+    {
+      "id": "GOV4-R06-04",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-017",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.4",
+      "expected": "AIR-FLOOR-017"
+    },
+    {
+      "id": "GOV4-R06-05",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-018",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.5",
+      "expected": "AIR-FLOOR-018"
+    },
+    {
+      "id": "GOV4-R06-06",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-019",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.6",
+      "expected": "AIR-FLOOR-019"
+    },
+    {
+      "id": "GOV4-R06-07",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json must include current required governance floor AIR-FLOOR-020",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants.7",
+      "expected": "AIR-FLOOR-020"
+    },
+    {
+      "id": "GOV4-I06-001",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.0.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.0.sha256",
+      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+    },
+    {
+      "id": "GOV4-I06-002",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.0.size_bytes must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.0.size_bytes",
+      "expected": 36310
+    },
+    {
+      "id": "GOV4-I06-003",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.0.line_count must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.0.line_count",
+      "expected": 739
+    },
+    {
+      "id": "GOV4-I06-004",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.1.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.1.sha256",
+      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+    },
+    {
+      "id": "GOV4-I06-005",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.1.size_bytes must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.1.size_bytes",
+      "expected": 19047
+    },
+    {
+      "id": "GOV4-I06-006",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.1.line_count must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.1.line_count",
+      "expected": 408
+    },
+    {
+      "id": "GOV4-I06-007",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.2.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.2.sha256",
+      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+    },
+    {
+      "id": "GOV4-I06-008",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.2.size_bytes must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.2.size_bytes",
+      "expected": 32008
+    },
+    {
+      "id": "GOV4-I06-009",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.2.line_count must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.2.line_count",
+      "expected": 668
+    },
+    {
+      "id": "GOV4-I06-010",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.3.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.3.sha256",
+      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+    },
+    {
+      "id": "GOV4-I06-011",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.3.size_bytes must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.3.size_bytes",
+      "expected": 50775
+    },
+    {
+      "id": "GOV4-I06-012",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.3.line_count must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.3.line_count",
+      "expected": 947
+    },
+    {
+      "id": "GOV4-I06-013",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.4.sha256 must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.4.sha256",
+      "expected": "850ea186f880c997fb9fef4a8e8f39e45fa99480fa9b175b848fe55b74175700"
+    },
+    {
+      "id": "GOV4-I06-014",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.4.size_bytes must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.4.size_bytes",
+      "expected": 20686
+    },
+    {
+      "id": "GOV4-I06-015",
+      "requirement": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json sibling/component identity field components.4.line_count must match resealed bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components.4.line_count",
+      "expected": 447
+    },
+    {
+      "id": "GOV4-SEM-01",
+      "requirement": "Legacy AGENT_REPORTED verification vocabulary must be retired from operative Method bytes",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "text": "\"verification_grade\": \"AGENT_REPORTED"
+    },
+    {
+      "id": "GOV4-SEM-02",
+      "requirement": "Method must use explicit prompt-layer declared grade",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "text": "PROMPT_LAYER_DECLARED"
+    },
+    {
+      "id": "GOV4-SEM-03",
+      "requirement": "Method must use prompt-layer declared with source trace where applicable",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "text": "PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE"
+    },
+    {
+      "id": "GOV4-SEM-04",
+      "requirement": "Method verification grades must be explicitly scoped as method-local",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "verification_grade_semantics.field_scope",
+      "expected": "METHOD_LOCAL_WORKFLOW_GRADE"
+    },
+    {
+      "id": "GOV4-SEM-05",
+      "requirement": "Prompt-layer declared must map to surfaced-output governance record",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "verification_grade_semantics.canonical_record_mapping.PROMPT_LAYER_DECLARED",
+      "expected": "SURFACED_OUTPUT_GOVERNANCE_RECORD"
+    },
+    {
+      "id": "GOV4-SEM-06",
+      "requirement": "Prompt-layer declared with source trace must map to source-supported governance record",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "json_path": "verification_grade_semantics.canonical_record_mapping.PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE",
+      "expected": "SOURCE_SUPPORTED_GOVERNANCE_RECORD"
     }
   ]
 }
