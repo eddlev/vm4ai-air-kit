@@ -76,7 +76,8 @@ manifest['tests'] = [t for t in manifest['tests'] if not str(t.get('id', '')).st
 new_tests = [
     {
         'id': 'CLEANUP-001', 'requirement': 'Repository-local docs tree is absent',
-        'test_class': 'REPRODUCIBLE_EXECUTABLE', 'type': 'file_exists', 'path': 'docs', 'expected': False
+        'test_class': 'REPRODUCIBLE_EXECUTABLE', 'type': 'command',
+        'argv': ['python', '-c', "from pathlib import Path; raise SystemExit(0 if not Path('docs').exists() else 1)"]
     },
     {
         'id': 'CLEANUP-002', 'requirement': 'README explains why AIR is prompt-based',
@@ -124,7 +125,8 @@ new_tests = [
     },
     {
         'id': 'CLEANUP-013', 'requirement': 'No root methods directory is introduced',
-        'test_class': 'REPRODUCIBLE_EXECUTABLE', 'type': 'file_exists', 'path': 'methods', 'expected': False
+        'test_class': 'REPRODUCIBLE_EXECUTABLE', 'type': 'command',
+        'argv': ['python', '-c', "from pathlib import Path; raise SystemExit(0 if not Path('methods').exists() else 1)"]
     },
 ]
 existing_ids = {t.get('id') for t in manifest['tests']}
