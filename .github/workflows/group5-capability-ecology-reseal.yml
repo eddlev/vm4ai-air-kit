@@ -1,0 +1,45 @@
+name: Group 5 Capability Ecology reseal
+
+on:
+  push:
+    branches:
+      - agent/group5-capability-ecology-reseal
+    paths:
+      - .github/tmp/group5_capability_ecology_reseal.py
+      - .github/workflows/group5-capability-ecology-reseal.yml
+
+permissions:
+  contents: write
+
+jobs:
+  reseal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reseal Capability Ecology package against current main foundation
+        run: python3 .github/tmp/group5_capability_ecology_reseal.py
+
+      - name: Remove temporary reseal tooling
+        run: |
+          rm .github/tmp/group5_capability_ecology_reseal.py
+          rm .github/workflows/group5-capability-ecology-reseal.yml
+
+      - name: Commit focused Group 5 patch
+        run: |
+          git config user.name "AIR repair workflow"
+          git config user.email "actions@users.noreply.github.com"
+          git add \
+            "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json" \
+            "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json" \
+            "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json" \
+            "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json" \
+            "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json" \
+            tests/air-test-manifest.json \
+            .github/tmp/group5_capability_ecology_reseal.py \
+            .github/workflows/group5-capability-ecology-reseal.yml
+          git diff --cached --check
+          git commit -m "Group 5: reseal Capability Ecology package"
+          git push
