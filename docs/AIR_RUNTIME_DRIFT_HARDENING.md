@@ -1,5 +1,7 @@
 # AIR Runtime Drift Hardening
 
+> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests.
+
 ## Purpose
 
 This patch hardens the gap between AIR's declared runtime rules and the moment a material action actually occurs.

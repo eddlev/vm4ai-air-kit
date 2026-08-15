@@ -22,7 +22,10 @@
     "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
     "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
     "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
-    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+    "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+    "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
+    "docs/AIR_RUNTIME_DRIFT_HARDENING.md"
   ],
   "tests": [
     {
@@ -3122,6 +3125,62 @@
       "requirement": "Translator must pin the exact resealed Domain Capability Registry hash",
       "id": "CAP5-065",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "DOC6-001",
+      "requirement": "Regression matrix identifies the current v2.4.1 floor-regression section",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+      "text": "## Current v2.4.1 floor regression additions"
+    },
+    {
+      "id": "DOC6-002",
+      "requirement": "Regression matrix includes AIR-FLOOR-019 coverage",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+      "text": "| `AIR-FLOOR-019` | Material ambiguity exists and execution would require a silent guess. |"
+    },
+    {
+      "id": "DOC6-003",
+      "requirement": "Regression matrix includes AIR-FLOOR-020 coverage",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+      "text": "| `AIR-FLOOR-020` | A restored, declared, or current active-state field conflicts with a newer operative state. |"
+    },
+    {
+      "id": "DOC6-004",
+      "requirement": "Regression documentation states that air -t on does not itself make execution deterministic",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+      "text": "That switch requests the evidence mode; it does not itself make execution deterministic."
+    },
+    {
+      "id": "DOC6-005",
+      "requirement": "Release-grade executable evidence requires repeat isolation and identical decision fingerprints",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+      "text": "Repeat the exact suite in isolated environments and require identical decision fingerprints."
+    },
+    {
+      "id": "DOC6-006",
+      "requirement": "Handoff hotfix document is visibly historical and non-operative",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
+      "text": "> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests."
+    },
+    {
+      "id": "DOC6-007",
+      "requirement": "Runtime drift hardening document is visibly historical and non-operative",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "docs/AIR_RUNTIME_DRIFT_HARDENING.md",
+      "text": "> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests."
     }
   ]
 }
