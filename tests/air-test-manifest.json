@@ -5,7 +5,8 @@
     "prompts/AIR_CORE_RUNTIME.md",
     "prompts/AIR_CONTROL_SURFACE.md",
     "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
-    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+    "prompts/AIR_GOV.md"
   ],
   "tests": [
     {
@@ -103,6 +104,59 @@
       "json_path": "AIR_HANDOFF_CARD.test_evidence_state.reproducibility_state",
       "expected": "UNVERIFIED",
       "requirement": "Handoff preserves explicit reproducibility state instead of inferring determinism."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-001",
+      "type": "text_contains",
+      "path": "prompts/AIR_GOV.md",
+      "text": "PROMPT_VERSION: 2.2.0",
+      "requirement": "Governance Supplement identity is pinned as a material compatibility input."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-002",
+      "type": "text_contains",
+      "path": "prompts/AIR_GOV.md",
+      "text": "- governance_floor_version = 2.1.0",
+      "requirement": "Governance declares the current handoff governance floor version."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-003",
+      "type": "text_contains",
+      "path": "prompts/AIR_GOV.md",
+      "text": "- registry_version = 2.1.0",
+      "requirement": "Governance declares the current canonical floor registry version."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-004",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.governance_state.governance_supplement_version",
+      "expected": "2.2.0",
+      "requirement": "Handoff serialized Governance Supplement version matches the current supplement."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-005",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.governance_state.governance_floor_version",
+      "expected": "2.1.0",
+      "requirement": "Handoff serialized governance floor matches the current Governance carrier shape."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-006",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.governance_state.floor_invariant_reference.registry_version",
+      "expected": "2.1.0",
+      "requirement": "Handoff serialized floor registry version matches current Governance."
+    },
+    {
+      "id": "AIR-HANDOFF-GOV-007",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.card_revision",
+      "expected": 7,
+      "requirement": "Template revision advances for the corrected serialized defaults without changing Handoff schema identity."
     }
   ]
 }
