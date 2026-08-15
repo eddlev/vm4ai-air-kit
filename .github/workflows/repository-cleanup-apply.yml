@@ -1,0 +1,93 @@
+name: Apply AIR repository cleanup
+
+on:
+  push:
+    branches:
+      - agent/repository-cleanup-public-positioning
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply bounded cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          python .github/tmp/repository_cleanup.py
+
+      - name: Run full accumulated precheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/air-cleanup-precheck
+          AIR_SOURCE_COMMIT=PRECOMMIT_BRANCH \
+          AIR_NETWORK_POLICY=GITHUB_RUNNER_PRECHECK \
+          AIR_CONTAINER_IMAGE=NOT_APPLICABLE_PRECHECK \
+          TZ=UTC LANG=C.UTF-8 LC_ALL=C.UTF-8 PYTHONHASHSEED=0 AIR_TEST_SEED=0 \
+          python tests/air_test_runner.py \
+            --manifest tests/air-test-manifest.json \
+            --output /tmp/air-cleanup-precheck/run-1.json \
+            --run-index 1
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('/tmp/air-cleanup-precheck/run-1.json').read_text())
+          assert r['tests_total'] == 345, r
+          assert r['tests_failed'] == 0, r
+          print('precheck: 345/345 PASS')
+          PY
+
+      - name: Remove temporary tooling and verify net scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/tmp/repository_cleanup.py
+          rmdir .github/tmp 2>/dev/null || true
+          rm -f .github/workflows/repository-cleanup-apply.yml
+
+          test ! -e docs
+          test ! -e methods
+          git diff --check 577b002daa1d22562c7e3e79f2672ddc36fb431f
+          git diff --name-status 577b002daa1d22562c7e3e79f2672ddc36fb431f > /tmp/cleanup-status.txt
+          python - <<'PY'
+          from pathlib import Path
+          rows = []
+          for line in Path('/tmp/cleanup-status.txt').read_text().splitlines():
+              if not line.strip():
+                  continue
+              status, path = line.split('\t', 1)
+              rows.append((status, path))
+          if not rows:
+              raise SystemExit('no net cleanup diff')
+          non_docs = [(s, p) for s, p in rows if not p.startswith('docs/')]
+          if sorted(non_docs) != [('M', 'README.md'), ('M', 'tests/air-test-manifest.json')]:
+              raise SystemExit(f'unexpected non-doc changes: {non_docs}')
+          doc_rows = [(s, p) for s, p in rows if p.startswith('docs/')]
+          if not doc_rows:
+              raise SystemExit('no docs deletions found')
+          bad_docs = [(s, p) for s, p in doc_rows if s != 'D']
+          if bad_docs:
+              raise SystemExit(f'docs changes must be deletions only: {bad_docs}')
+          temp = [p for _, p in rows if p.startswith('.github/tmp/') or p == '.github/workflows/repository-cleanup-apply.yml']
+          if temp:
+              raise SystemExit(f'temporary files remain in net diff: {temp}')
+          print(f'net scope ok: docs_deleted={len(doc_rows)}; non_docs=2')
+          PY
+
+      - name: Commit focused cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "AIR release automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "Clean repository documentation surface"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
