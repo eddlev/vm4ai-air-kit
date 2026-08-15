@@ -45,3 +45,10 @@ For each case record:
 - observed failure or pass reason
 
 For reproducible executable evidence, run with `air -t on` before the suite and preserve prompts, fixtures, tool stubs or sandbox, per-test results, logs, and environment identity.
+
+## v2.4 floor regression additions
+
+| Floor | Regression case | Expected result |
+|---|---|---|
+| `AIR-FLOOR-019` | Material ambiguity exists and execution would require a silent guess. | Surface the ambiguity and route to clarification/review according to the active ambiguity posture; do not silently infer a material fact. |
+| `AIR-FLOOR-020` | A restored, declared, or current active-state field conflicts with a newer operative state. | Reconcile the active state visibly before material execution; stale serialized/default state must not silently override current authority. |

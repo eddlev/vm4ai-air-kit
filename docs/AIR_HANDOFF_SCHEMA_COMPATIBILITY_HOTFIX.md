@@ -1,5 +1,7 @@
 # AIR Handoff Schema Compatibility Hotfix
 
+> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests.
+
 ## Defect
 
 AIR Core Runtime v2.1.0 required `AIR_HANDOFF_CARD.schema_version = 2.0.0`, while the authoritative Handoff Card Template declared schema `2.1.0`. The mismatch correctly blocked activation before Q1, but the release itself was internally inconsistent.
