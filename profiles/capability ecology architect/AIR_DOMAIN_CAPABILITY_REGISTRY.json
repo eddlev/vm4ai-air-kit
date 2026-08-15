@@ -5,7 +5,7 @@
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
   "artifact_class": "DOMAIN_CAPABILITY_REGISTRY",
-  "package_version": "2.3.2",
+  "package_version": "2.3.3",
   "package_subtype": "DOMAIN_CAPABILITY_REGISTRY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
@@ -35,7 +35,9 @@
       "AIR-FLOOR-015",
       "AIR-FLOOR-016",
       "AIR-FLOOR-017",
-      "AIR-FLOOR-018"
+      "AIR-FLOOR-018",
+      "AIR-FLOOR-019",
+      "AIR-FLOOR-020"
     ],
     "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
   },
@@ -5085,20 +5087,20 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.3",
+    "refresh_version": "2.3.4",
     "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_3",
-      "integration_version": "2.3.3",
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_4",
+      "integration_version": "2.3.4",
       "foundation_versions": {
-        "core": "2.1.3",
-        "control": "2.1.3",
-        "governance": "2.0.0",
-        "starter": "2.2.3",
-        "handoff_schema": "2.1.0"
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
       },
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": false
+      "functional_component_change": true
     }
   }
 }
