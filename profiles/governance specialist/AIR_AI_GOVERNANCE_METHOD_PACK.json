@@ -6,7 +6,7 @@
   "PROFILE_KIND": "METHOD_PACK",
   "profile_function_class": "METHOD_PACK",
   "artifact_class": "AIR_METHOD_PACK",
-  "package_version": "2.3.2",
+  "package_version": "2.3.3",
   "package_subtype": "AI_GOVERNANCE_LIFECYCLE_ANALYSIS_CONTROL_AND_EVIDENCE_METHOD",
   "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
   "record_mode": "PROMPT_LAYER_APPLIED",
@@ -33,47 +33,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.1.3",
+        "version": "2.4.1",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "79cbda19b8adae71402199a6d5941262dab90cd84b12157cf219483ff41bcd7c",
-        "size_bytes": 251603,
-        "line_count": 5895
+        "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+        "size_bytes": 284040,
+        "line_count": 6295
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.1.3",
+        "version": "2.4.1",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "9ef85b7d2ef3d4f827dfbffa0e28a41cd8a8aa72cc6290da7502bb0863583c96",
-        "size_bytes": 117554,
-        "line_count": 2757
+        "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+        "size_bytes": 129595,
+        "line_count": 2892
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.0.0",
+        "version": "2.2.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "e20ddca10d93f7832f8a58dd54cc90f5b6c39951ba30d18cc53493150f9f8a7f",
-        "size_bytes": 19336,
-        "line_count": 448
+        "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+        "size_bytes": 20226,
+        "line_count": 451
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.2.3",
+        "version": "2.4.1",
         "class": "TASK_COMPOSITE",
-        "sha256": "6e474308bb530a9c026a8971b1f681efbd2dd0480308bf3251673b1e37df6896",
-        "size_bytes": 55495,
-        "line_count": 1288
+        "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+        "size_bytes": 66452,
+        "line_count": 1462
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-        "version": "2.1.0",
+        "version": "2.2.0",
         "class": "TEMPLATE",
-        "sha256": "ae2efcb76cfc75556648eec6278bfb0daf00a1f046f6618b703f220ad61ac709",
-        "size_bytes": 36028,
-        "line_count": 817
+        "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+        "size_bytes": 39418,
+        "line_count": 853
       }
     ],
     "required_floor_invariants": [
@@ -82,9 +82,11 @@
       "AIR-FLOOR-015",
       "AIR-FLOOR-016",
       "AIR-FLOOR-017",
-      "AIR-FLOOR-018"
+      "AIR-FLOOR-018",
+      "AIR-FLOOR-019",
+      "AIR-FLOOR-020"
     ],
-    "compatibility_state": "VALIDATED_AGAINST_INTEGRATED_AI_GOVERNANCE_NORMALIZED_FOUNDATION"
+    "compatibility_state": "VALIDATED_AGAINST_CURRENT_AIR_V2_FOUNDATION_EXACT_IDENTITIES"
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
@@ -275,7 +277,7 @@
         "action": "Translate governance outcomes into proportionate controls.",
         "expected_output": "Control map with objective, owner, lifecycle stage, implementation mode, evidence, failure condition, and residual risk.",
         "evidence_to_advance": "Task envelope, threat/impact context, source map, and organization controls.",
-        "verification_grade": "AGENT_REPORTED_WITH_SOURCE_TRACE",
+        "verification_grade": "PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE",
         "reversibility": "REVERSIBLE",
         "on_failure": "Return RESCOPE_REQUIRED if controls exceed or undercut the active risk and maturity envelope."
       },
@@ -284,7 +286,7 @@
         "action": "Build the evidence, assurance, and review plan.",
         "expected_output": "Evidence register plan distinguishing design, implementation, operation, test, audit, and approval evidence.",
         "evidence_to_advance": "Control map, acceptance criteria, and reviewer requirements.",
-        "verification_grade": "AGENT_REPORTED",
+        "verification_grade": "PROMPT_LAYER_DECLARED",
         "reversibility": "REVERSIBLE",
         "on_failure": "Do not treat planned evidence or documents as observed execution."
       },
@@ -293,7 +295,7 @@
         "action": "Build monitoring, material-change, incident, and corrective-action rules.",
         "expected_output": "Monitoring and change plan with metrics, thresholds, reassessment triggers, incident handling, rollback, and escalation.",
         "evidence_to_advance": "Lifecycle, dependencies, controls, and consequence state.",
-        "verification_grade": "AGENT_REPORTED",
+        "verification_grade": "PROMPT_LAYER_DECLARED",
         "reversibility": "REVERSIBLE",
         "on_failure": "If agentic actions are present, activate the agentic overlay before closure."
       },
@@ -311,7 +313,7 @@
         "action": "Produce governance handoff and delivery readiness.",
         "expected_output": "Receiver-facing handoff with scope, sources, decisions, limitations, blockers, monitoring, and next owner.",
         "evidence_to_advance": "Completed method state and satisfied evidence-to-advance.",
-        "verification_grade": "AGENT_REPORTED",
+        "verification_grade": "PROMPT_LAYER_DECLARED",
         "reversibility": "REVERSIBLE",
         "on_failure": "Generated output remains REVIEW_GATE if required evidence or approval is missing."
       },
@@ -361,21 +363,21 @@
     {
       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "sha256": "1b0e3f2e41a5bfd1626bc6e9c6a91b66d334d21132d4905cbf4cf696d0a55e33",
+      "sha256": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
       "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
-      "sha256": "931afcb9671dca9818ccb42a8654007c9f7b0e2a5d32011586718c355d6da786",
+      "sha256": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167",
       "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "sha256": "9f6186867778a06bfcd3cc04966cb2531852679168dc6be8317d1a6acb88d790",
+      "sha256": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -473,7 +475,7 @@
       "action": "Translate governance outcomes into proportionate controls.",
       "expected_output": "Control map with objective, owner, lifecycle stage, implementation mode, evidence, failure condition, and residual risk.",
       "evidence_to_advance": "Task envelope, threat/impact context, source map, and organization controls.",
-      "verification_grade": "AGENT_REPORTED_WITH_SOURCE_TRACE",
+      "verification_grade": "PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE",
       "reversibility": "REVERSIBLE",
       "on_failure": "Return RESCOPE_REQUIRED if controls exceed or undercut the active risk and maturity envelope."
     },
@@ -482,7 +484,7 @@
       "action": "Build the evidence, assurance, and review plan.",
       "expected_output": "Evidence register plan distinguishing design, implementation, operation, test, audit, and approval evidence.",
       "evidence_to_advance": "Control map, acceptance criteria, and reviewer requirements.",
-      "verification_grade": "AGENT_REPORTED",
+      "verification_grade": "PROMPT_LAYER_DECLARED",
       "reversibility": "REVERSIBLE",
       "on_failure": "Do not treat planned evidence or documents as observed execution."
     },
@@ -491,7 +493,7 @@
       "action": "Build monitoring, material-change, incident, and corrective-action rules.",
       "expected_output": "Monitoring and change plan with metrics, thresholds, reassessment triggers, incident handling, rollback, and escalation.",
       "evidence_to_advance": "Lifecycle, dependencies, controls, and consequence state.",
-      "verification_grade": "AGENT_REPORTED",
+      "verification_grade": "PROMPT_LAYER_DECLARED",
       "reversibility": "REVERSIBLE",
       "on_failure": "If agentic actions are present, activate the agentic overlay before closure."
     },
@@ -509,7 +511,7 @@
       "action": "Produce governance handoff and delivery readiness.",
       "expected_output": "Receiver-facing handoff with scope, sources, decisions, limitations, blockers, monitoring, and next owner.",
       "evidence_to_advance": "Completed method state and satisfied evidence-to-advance.",
-      "verification_grade": "AGENT_REPORTED",
+      "verification_grade": "PROMPT_LAYER_DECLARED",
       "reversibility": "REVERSIBLE",
       "on_failure": "Generated output remains REVIEW_GATE if required evidence or approval is missing."
     },
@@ -910,20 +912,36 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.3",
+    "refresh_version": "2.3.4",
     "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_3",
-      "integration_version": "2.3.3",
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_4",
+      "integration_version": "2.3.4",
       "foundation_versions": {
-        "core": "2.1.3",
-        "control": "2.1.3",
-        "governance": "2.0.0",
-        "starter": "2.2.3",
-        "handoff_schema": "2.1.0"
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
       },
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": false
+      "functional_component_change": true
     }
+  },
+  "verification_grade_semantics": {
+    "field_scope": "METHOD_LOCAL_WORKFLOW_GRADE",
+    "current_prompt_layer_values": [
+      "PROMPT_LAYER_DECLARED",
+      "PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE"
+    ],
+    "legacy_aliases_retired": [
+      "AGENT_REPORTED",
+      "AGENT_REPORTED_WITH_SOURCE_TRACE"
+    ],
+    "canonical_record_mapping": {
+      "PROMPT_LAYER_DECLARED": "SURFACED_OUTPUT_GOVERNANCE_RECORD",
+      "PROMPT_LAYER_DECLARED_WITH_SOURCE_TRACE": "SOURCE_SUPPORTED_GOVERNANCE_RECORD"
+    },
+    "interpretation_boundary": "Method-local prompt-layer grades describe surfaced declared output and, where stated, visible source support. They are not TOOL_OBSERVED_GOVERNANCE_RECORD, BACKEND_ENFORCED_GOVERNANCE_RECORD, hidden reasoning, independent verification, or deterministic execution evidence unless separately supported by the corresponding Core-owned evidence class."
   }
 }
