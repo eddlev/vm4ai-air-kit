@@ -1,0 +1,31 @@
+name: Group 7 README entrypoint
+
+on:
+  push:
+    branches:
+      - agent/group7-readme-entrypoint
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch README and extend deterministic assertions
+        run: python3 .github/tmp/group7_readme_entrypoint.py
+      - name: Remove temporary Group 7 tooling
+        run: |
+          rm .github/tmp/group7_readme_entrypoint.py
+          rm .github/workflows/group7-readme-entrypoint.yml
+      - name: Commit focused Group 7 patch
+        run: |
+          git config user.name "AIR repair workflow"
+          git config user.email "actions@users.noreply.github.com"
+          git add README.md tests/air-test-manifest.json .github/tmp/group7_readme_entrypoint.py .github/workflows/group7-readme-entrypoint.yml
+          git diff --cached --check
+          git commit -m "Group 7: simplify README public entry point"
+          git push
