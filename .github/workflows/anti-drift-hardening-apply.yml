@@ -45,8 +45,10 @@ jobs:
           import json
           from pathlib import Path
           r = json.loads(Path('/tmp/air-precheck/run-1.json').read_text())
-          assert r['summary']['tests_total'] == 339, r['summary']
-          assert r['summary']['tests_failed'] == 0, r['summary']
+          assert r['tests_total'] == 339, r
+          assert r['tests_passed'] == 339, r
+          assert r['tests_failed'] == 0, r
+          assert r['decision'] == 'PASS', r
           print('precheck: 339/339 PASS')
           PY
 
