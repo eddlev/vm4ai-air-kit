@@ -1,0 +1,103 @@
+name: Apply AIR anti-drift hardening
+
+on:
+  push:
+    branches:
+      - agent/anti-drift-runtime-hardening
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reassemble and apply deterministic patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .github/tmp/anti-drift-chunk-*.b64 \
+            | tr -d '\n\r ' \
+            | base64 -d \
+            | gzip -d \
+            > /tmp/patch_air_hardening.py
+          test "$(sha256sum /tmp/patch_air_hardening.py | awk '{print $1}')" = "4a148b9328038109edca212b90a21d8231e9376dda49895bb83344a0e2062754"
+          AIR_PATCH_ROOT=. python /tmp/patch_air_hardening.py
+
+      - name: Run full accumulated precheck
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/air-precheck
+          AIR_SOURCE_COMMIT=PRECOMMIT_BRANCH \
+          AIR_NETWORK_POLICY=GITHUB_RUNNER_PRECHECK \
+          AIR_CONTAINER_IMAGE=NOT_APPLICABLE_PRECHECK \
+          TZ=UTC LANG=C.UTF-8 LC_ALL=C.UTF-8 PYTHONHASHSEED=0 AIR_TEST_SEED=0 \
+          python tests/air_test_runner.py \
+            --manifest tests/air-test-manifest.json \
+            --output /tmp/air-precheck/run-1.json \
+            --run-index 1
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r = json.loads(Path('/tmp/air-precheck/run-1.json').read_text())
+          assert r['summary']['tests_total'] == 339, r['summary']
+          assert r['summary']['tests_failed'] == 0, r['summary']
+          print('precheck: 339/339 PASS')
+          PY
+
+      - name: Remove temporary transport and verify net scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/tmp/anti-drift-chunk-*.b64
+          rmdir .github/tmp 2>/dev/null || true
+          rm -f .github/workflows/anti-drift-hardening-apply.yml
+
+          git diff --check e9a790287d4a91deb9a8bf0cf72ff83680a06344
+          git diff --name-only e9a790287d4a91deb9a8bf0cf72ff83680a06344 | sort > /tmp/actual-files.txt
+          cat > /tmp/expected-files.txt <<'EOF'
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json
+          profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json
+          profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json
+          profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json
+          profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+          prompts/AIR_CONTROL_SURFACE.md
+          prompts/AIR_CORE_RUNTIME.md
+          prompts/AIR_DEFAULT_STARTER_PROFILE.json
+          prompts/AIR_HANDOFF_CARD_TEMPLATE.json
+          tests/air-test-manifest.json
+          EOF
+          sort -o /tmp/expected-files.txt /tmp/expected-files.txt
+          diff -u /tmp/expected-files.txt /tmp/actual-files.txt
+          test "$(wc -l < /tmp/actual-files.txt)" -eq 21
+          ! grep -q '^docs/' /tmp/actual-files.txt
+          ! grep -q '^README.md$' /tmp/actual-files.txt
+          ! grep -q '^\.github/tmp/' /tmp/actual-files.txt
+          ! grep -q '^\.github/workflows/anti-drift-hardening-apply.yml$' /tmp/actual-files.txt
+
+      - name: Commit focused hardening patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "AIR release automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "Harden runtime alignment watchdog"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
