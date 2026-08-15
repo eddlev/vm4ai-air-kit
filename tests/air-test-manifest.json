@@ -6,7 +6,12 @@
     "prompts/AIR_CONTROL_SURFACE.md",
     "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
     "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
-    "prompts/AIR_GOV.md"
+    "prompts/AIR_GOV.md",
+    "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+    "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+    "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
   ],
   "tests": [
     {
@@ -157,6 +162,780 @@
       "json_path": "AIR_HANDOFF_CARD.card_revision",
       "expected": 7,
       "requirement": "Template revision advances for the corrected serialized defaults without changing Handoff schema identity."
+    },
+    {
+      "id": "AIR-GROUND-001",
+      "type": "json_strict_parse",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json remains strict JSON without duplicate keys."
+    },
+    {
+      "id": "AIR-GROUND-002",
+      "type": "sha256_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "expected": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json bytes match the resealed identity."
+    },
+    {
+      "id": "AIR-GROUND-003",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "package_version",
+      "expected": "2.3.3",
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json carries Grounding component version 2.3.3."
+    },
+    {
+      "id": "AIR-GROUND-004",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_files",
+      "expected": [
+        {
+          "filename": "AIR_CORE_RUNTIME.md",
+          "designation": "AIR_CORE_RUNTIME_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+          "size_bytes": 284040,
+          "line_count": 6295
+        },
+        {
+          "filename": "AIR_CONTROL_SURFACE.md",
+          "designation": "AIR_CONTROL_SURFACE_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+          "size_bytes": 129595,
+          "line_count": 2892
+        },
+        {
+          "filename": "AIR_GOV.md",
+          "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+          "version": "2.2.0",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+          "size_bytes": 20226,
+          "line_count": 451
+        },
+        {
+          "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+          "designation": "AIR_DEFAULT_STARTER_V2",
+          "version": "2.4.1",
+          "class": "TASK_COMPOSITE",
+          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+          "size_bytes": 66452,
+          "line_count": 1462
+        },
+        {
+          "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+          "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "version": "2.2.0",
+          "class": "TEMPLATE",
+          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+          "size_bytes": 39418,
+          "line_count": 853
+        }
+      ],
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json is sealed to the exact current five-file AIR foundation."
+    },
+    {
+      "id": "AIR-GROUND-005",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "foundation_compatibility.required_floor_invariants",
+      "expected": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-014",
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-017",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-020"
+      ],
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json requires AIR-FLOOR-013 through AIR-FLOOR-020."
+    },
+    {
+      "id": "AIR-GROUND-006",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "integration_refresh.refresh_version",
+      "expected": "2.3.4",
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json carries the Grounding integration refresh version 2.3.4."
+    },
+    {
+      "id": "AIR-GROUND-007",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
+      "expected": {
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
+      },
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json mainline binding names the current AIR foundation versions."
+    },
+    {
+      "id": "AIR-GROUND-008",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "json_path": "integration_refresh.mainline_release_binding.functional_component_change",
+      "expected": true,
+      "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json records the new floor/foundation compatibility as a functional compatibility change."
+    },
+    {
+      "id": "AIR-GROUND-009",
+      "type": "json_strict_parse",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json remains strict JSON without duplicate keys."
+    },
+    {
+      "id": "AIR-GROUND-010",
+      "type": "sha256_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "expected": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json bytes match the resealed identity."
+    },
+    {
+      "id": "AIR-GROUND-011",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "package_version",
+      "expected": "2.3.3",
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json carries Grounding component version 2.3.3."
+    },
+    {
+      "id": "AIR-GROUND-012",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_files",
+      "expected": [
+        {
+          "filename": "AIR_CORE_RUNTIME.md",
+          "designation": "AIR_CORE_RUNTIME_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+          "size_bytes": 284040,
+          "line_count": 6295
+        },
+        {
+          "filename": "AIR_CONTROL_SURFACE.md",
+          "designation": "AIR_CONTROL_SURFACE_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+          "size_bytes": 129595,
+          "line_count": 2892
+        },
+        {
+          "filename": "AIR_GOV.md",
+          "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+          "version": "2.2.0",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+          "size_bytes": 20226,
+          "line_count": 451
+        },
+        {
+          "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+          "designation": "AIR_DEFAULT_STARTER_V2",
+          "version": "2.4.1",
+          "class": "TASK_COMPOSITE",
+          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+          "size_bytes": 66452,
+          "line_count": 1462
+        },
+        {
+          "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+          "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "version": "2.2.0",
+          "class": "TEMPLATE",
+          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+          "size_bytes": 39418,
+          "line_count": 853
+        }
+      ],
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json is sealed to the exact current five-file AIR foundation."
+    },
+    {
+      "id": "AIR-GROUND-013",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "foundation_compatibility.required_floor_invariants",
+      "expected": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-014",
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-017",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-020"
+      ],
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json requires AIR-FLOOR-013 through AIR-FLOOR-020."
+    },
+    {
+      "id": "AIR-GROUND-014",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "integration_refresh.refresh_version",
+      "expected": "2.3.4",
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json carries the Grounding integration refresh version 2.3.4."
+    },
+    {
+      "id": "AIR-GROUND-015",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
+      "expected": {
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
+      },
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json mainline binding names the current AIR foundation versions."
+    },
+    {
+      "id": "AIR-GROUND-016",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "integration_refresh.mainline_release_binding.functional_component_change",
+      "expected": true,
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json records the new floor/foundation compatibility as a functional compatibility change."
+    },
+    {
+      "id": "AIR-GROUND-017",
+      "type": "json_strict_parse",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "requirement": "AIR_GROUNDING_SPECIALIST.json remains strict JSON without duplicate keys."
+    },
+    {
+      "id": "AIR-GROUND-018",
+      "type": "sha256_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "expected": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
+      "requirement": "AIR_GROUNDING_SPECIALIST.json bytes match the resealed identity."
+    },
+    {
+      "id": "AIR-GROUND-019",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "package_version",
+      "expected": "2.3.3",
+      "requirement": "AIR_GROUNDING_SPECIALIST.json carries Grounding component version 2.3.3."
+    },
+    {
+      "id": "AIR-GROUND-020",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_files",
+      "expected": [
+        {
+          "filename": "AIR_CORE_RUNTIME.md",
+          "designation": "AIR_CORE_RUNTIME_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+          "size_bytes": 284040,
+          "line_count": 6295
+        },
+        {
+          "filename": "AIR_CONTROL_SURFACE.md",
+          "designation": "AIR_CONTROL_SURFACE_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+          "size_bytes": 129595,
+          "line_count": 2892
+        },
+        {
+          "filename": "AIR_GOV.md",
+          "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+          "version": "2.2.0",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+          "size_bytes": 20226,
+          "line_count": 451
+        },
+        {
+          "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+          "designation": "AIR_DEFAULT_STARTER_V2",
+          "version": "2.4.1",
+          "class": "TASK_COMPOSITE",
+          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+          "size_bytes": 66452,
+          "line_count": 1462
+        },
+        {
+          "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+          "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "version": "2.2.0",
+          "class": "TEMPLATE",
+          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+          "size_bytes": 39418,
+          "line_count": 853
+        }
+      ],
+      "requirement": "AIR_GROUNDING_SPECIALIST.json is sealed to the exact current five-file AIR foundation."
+    },
+    {
+      "id": "AIR-GROUND-021",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants",
+      "expected": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-014",
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-017",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-020"
+      ],
+      "requirement": "AIR_GROUNDING_SPECIALIST.json requires AIR-FLOOR-013 through AIR-FLOOR-020."
+    },
+    {
+      "id": "AIR-GROUND-022",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "integration_refresh.refresh_version",
+      "expected": "2.3.4",
+      "requirement": "AIR_GROUNDING_SPECIALIST.json carries the Grounding integration refresh version 2.3.4."
+    },
+    {
+      "id": "AIR-GROUND-023",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
+      "expected": {
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
+      },
+      "requirement": "AIR_GROUNDING_SPECIALIST.json mainline binding names the current AIR foundation versions."
+    },
+    {
+      "id": "AIR-GROUND-024",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "integration_refresh.mainline_release_binding.functional_component_change",
+      "expected": true,
+      "requirement": "AIR_GROUNDING_SPECIALIST.json records the new floor/foundation compatibility as a functional compatibility change."
+    },
+    {
+      "id": "AIR-GROUND-025",
+      "type": "json_strict_parse",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "requirement": "AIR_GROUNDING_EXECUTOR.json remains strict JSON without duplicate keys."
+    },
+    {
+      "id": "AIR-GROUND-026",
+      "type": "sha256_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "expected": "3642077cac2300adf120dfe63db24bbfb10ac58738c5a96193f4f23fa023474a",
+      "requirement": "AIR_GROUNDING_EXECUTOR.json bytes match the resealed identity."
+    },
+    {
+      "id": "AIR-GROUND-027",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "package_version",
+      "expected": "2.3.3",
+      "requirement": "AIR_GROUNDING_EXECUTOR.json carries Grounding component version 2.3.3."
+    },
+    {
+      "id": "AIR-GROUND-028",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_files",
+      "expected": [
+        {
+          "filename": "AIR_CORE_RUNTIME.md",
+          "designation": "AIR_CORE_RUNTIME_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+          "size_bytes": 284040,
+          "line_count": 6295
+        },
+        {
+          "filename": "AIR_CONTROL_SURFACE.md",
+          "designation": "AIR_CONTROL_SURFACE_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+          "size_bytes": 129595,
+          "line_count": 2892
+        },
+        {
+          "filename": "AIR_GOV.md",
+          "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+          "version": "2.2.0",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+          "size_bytes": 20226,
+          "line_count": 451
+        },
+        {
+          "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+          "designation": "AIR_DEFAULT_STARTER_V2",
+          "version": "2.4.1",
+          "class": "TASK_COMPOSITE",
+          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+          "size_bytes": 66452,
+          "line_count": 1462
+        },
+        {
+          "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+          "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "version": "2.2.0",
+          "class": "TEMPLATE",
+          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+          "size_bytes": 39418,
+          "line_count": 853
+        }
+      ],
+      "requirement": "AIR_GROUNDING_EXECUTOR.json is sealed to the exact current five-file AIR foundation."
+    },
+    {
+      "id": "AIR-GROUND-029",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "foundation_compatibility.required_floor_invariants",
+      "expected": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-014",
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-017",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-020"
+      ],
+      "requirement": "AIR_GROUNDING_EXECUTOR.json requires AIR-FLOOR-013 through AIR-FLOOR-020."
+    },
+    {
+      "id": "AIR-GROUND-030",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "integration_refresh.refresh_version",
+      "expected": "2.3.4",
+      "requirement": "AIR_GROUNDING_EXECUTOR.json carries the Grounding integration refresh version 2.3.4."
+    },
+    {
+      "id": "AIR-GROUND-031",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
+      "expected": {
+        "core": "2.4.1",
+        "control": "2.4.1",
+        "governance": "2.2.0",
+        "starter": "2.4.1",
+        "handoff_schema": "2.2.0"
+      },
+      "requirement": "AIR_GROUNDING_EXECUTOR.json mainline binding names the current AIR foundation versions."
+    },
+    {
+      "id": "AIR-GROUND-032",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "integration_refresh.mainline_release_binding.functional_component_change",
+      "expected": true,
+      "requirement": "AIR_GROUNDING_EXECUTOR.json records the new floor/foundation compatibility as a functional compatibility change."
+    },
+    {
+      "id": "AIR-GROUND-033",
+      "type": "json_strict_parse",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "requirement": "Grounding package manifest remains strict JSON without duplicate keys."
+    },
+    {
+      "id": "AIR-GROUND-034",
+      "type": "sha256_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "expected": "04b8db5d0b6ec1d231febd3730ecae5f1bc349af260c012e407dd0941850fd58",
+      "requirement": "Grounding package manifest bytes match the regenerated identity."
+    },
+    {
+      "id": "AIR-GROUND-035",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "PACKAGE_VERSION",
+      "expected": "2.3.4",
+      "requirement": "Grounding manifest version is 2.3.4."
+    },
+    {
+      "id": "AIR-GROUND-036",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_files",
+      "expected": [
+        {
+          "filename": "AIR_CORE_RUNTIME.md",
+          "designation": "AIR_CORE_RUNTIME_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+          "size_bytes": 284040,
+          "line_count": 6295
+        },
+        {
+          "filename": "AIR_CONTROL_SURFACE.md",
+          "designation": "AIR_CONTROL_SURFACE_V2",
+          "version": "2.4.1",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+          "size_bytes": 129595,
+          "line_count": 2892
+        },
+        {
+          "filename": "AIR_GOV.md",
+          "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+          "version": "2.2.0",
+          "class": "FOUNDATION_PROMPT",
+          "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+          "size_bytes": 20226,
+          "line_count": 451
+        },
+        {
+          "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+          "designation": "AIR_DEFAULT_STARTER_V2",
+          "version": "2.4.1",
+          "class": "TASK_COMPOSITE",
+          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+          "size_bytes": 66452,
+          "line_count": 1462
+        },
+        {
+          "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+          "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "version": "2.2.0",
+          "class": "TEMPLATE",
+          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+          "size_bytes": 39418,
+          "line_count": 853
+        }
+      ],
+      "requirement": "Grounding manifest is sealed to the exact current five-file AIR foundation."
+    },
+    {
+      "id": "AIR-GROUND-037",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "foundation_compatibility.required_floor_invariants",
+      "expected": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-014",
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-017",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-020"
+      ],
+      "requirement": "Grounding manifest requires AIR-FLOOR-013 through AIR-FLOOR-020."
+    },
+    {
+      "id": "AIR-GROUND-038",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "json_path": "components",
+      "expected": [
+        {
+          "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+          "canonical_role": "DOMAIN_PACKAGE",
+          "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+          "version": "2.3.3",
+          "artifact_class": "AIR_DOMAIN_PACKAGE",
+          "profile_kind": "DOMAIN_OVERLAY",
+          "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+          "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+          "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+          "size_bytes": 53276,
+          "line_count": 892,
+          "required": true,
+          "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+        },
+        {
+          "filename": "AIR_GROUNDING_METHOD_PACK.json",
+          "canonical_role": "METHOD_PACK",
+          "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+          "version": "2.3.3",
+          "artifact_class": "AIR_METHOD_PACK",
+          "profile_kind": "METHOD_PACK",
+          "profile_function_class": "METHOD_PACK",
+          "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+          "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
+          "size_bytes": 57589,
+          "line_count": 1213,
+          "required": true,
+          "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+        },
+        {
+          "filename": "AIR_GROUNDING_SPECIALIST.json",
+          "canonical_role": "SPECIALIST_PROFILE",
+          "designation": "AIR_GROUNDING_SPECIALIST_V2",
+          "version": "2.3.3",
+          "artifact_class": "AIR_SPECIALIST_PROFILE",
+          "profile_kind": "TASK_COMPOSITE",
+          "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
+          "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+          "sha256": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
+          "size_bytes": 62127,
+          "line_count": 1089,
+          "required": true,
+          "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+        },
+        {
+          "filename": "AIR_GROUNDING_EXECUTOR.json",
+          "canonical_role": "EXECUTOR_LAYER",
+          "designation": "AIR_GROUNDING_EXECUTOR_V2",
+          "version": "2.3.3",
+          "artifact_class": "AIR_EXECUTOR_LAYER",
+          "profile_kind": "EXECUTOR_CONTRACT",
+          "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+          "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
+          "sha256": "3642077cac2300adf120dfe63db24bbfb10ac58738c5a96193f4f23fa023474a",
+          "size_bytes": 12821,
+          "line_count": 313,
+          "required": true,
+          "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
+        }
+      ],
+      "requirement": "Grounding manifest component identities exactly match the resealed component bytes."
+    },
+    {
+      "id": "AIR-GROUND-039",
+      "type": "sha256_equals",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+      "requirement": "Grounding foundation seal remains bound to current AIR_CORE_RUNTIME.md bytes."
+    },
+    {
+      "id": "AIR-GROUND-040",
+      "type": "sha256_equals",
+      "path": "prompts/AIR_CONTROL_SURFACE.md",
+      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+      "requirement": "Grounding foundation seal remains bound to current AIR_CONTROL_SURFACE.md bytes."
+    },
+    {
+      "id": "AIR-GROUND-041",
+      "type": "sha256_equals",
+      "path": "prompts/AIR_GOV.md",
+      "expected": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
+      "requirement": "Grounding foundation seal remains bound to current AIR_GOV.md bytes."
+    },
+    {
+      "id": "AIR-GROUND-042",
+      "type": "sha256_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+      "requirement": "Grounding foundation seal remains bound to current AIR_DEFAULT_STARTER_PROFILE.json bytes."
+    },
+    {
+      "id": "AIR-GROUND-043",
+      "type": "sha256_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+      "requirement": "Grounding foundation seal remains bound to current AIR_HANDOFF_CARD_TEMPLATE.json bytes."
+    },
+    {
+      "id": "AIR-GROUND-044",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "json_path": "dependencies.0",
+      "expected": {
+        "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+        "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+        "size_bytes": 53276,
+        "line_count": 892,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_METHOD_PACK.json sibling pin dependencies.0 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "AIR-GROUND-045",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "dependencies.0",
+      "expected": {
+        "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+        "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+        "size_bytes": 53276,
+        "line_count": 892,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_SPECIALIST.json sibling pin dependencies.0 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "AIR-GROUND-046",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "json_path": "dependencies.1",
+      "expected": {
+        "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+        "filename": "AIR_GROUNDING_METHOD_PACK.json",
+        "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
+        "size_bytes": 57589,
+        "line_count": 1213,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_SPECIALIST.json sibling pin dependencies.1 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "AIR-GROUND-047",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "dependencies.0",
+      "expected": {
+        "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+        "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+        "size_bytes": 53276,
+        "line_count": 892,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_EXECUTOR.json sibling pin dependencies.0 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "AIR-GROUND-048",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "dependencies.1",
+      "expected": {
+        "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+        "filename": "AIR_GROUNDING_METHOD_PACK.json",
+        "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
+        "size_bytes": 57589,
+        "line_count": 1213,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_EXECUTOR.json sibling pin dependencies.1 matches the resealed Grounding component identity."
+    },
+    {
+      "id": "AIR-GROUND-049",
+      "type": "json_value_equals",
+      "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "json_path": "dependencies.2",
+      "expected": {
+        "designation": "AIR_GROUNDING_SPECIALIST_V2",
+        "filename": "AIR_GROUNDING_SPECIALIST.json",
+        "sha256": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
+        "size_bytes": 62127,
+        "line_count": 1089,
+        "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      "requirement": "AIR_GROUNDING_EXECUTOR.json sibling pin dependencies.2 matches the resealed Grounding component identity."
     }
   ]
 }
