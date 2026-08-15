@@ -19,17 +19,26 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Correct nested Handoff schema lookup in temporary reseal script
+      - name: Correct temporary Group 4 validator assumptions
         run: |
           python3 - <<'PY'
           from pathlib import Path
           path = Path('.github/tmp/group4_governance_reseal.py')
           text = path.read_text(encoding='utf-8')
-          old = 'observed = obj.get("schema_version")'
-          new = 'observed = obj.get("AIR_HANDOFF_CARD", {}).get("schema_version")'
-          if text.count(old) != 1:
-              raise SystemExit(f'expected exactly one Handoff schema lookup, found {text.count(old)}')
-          path.write_text(text.replace(old, new), encoding='utf-8')
+
+          old_schema = 'observed = obj.get("schema_version")'
+          new_schema = 'observed = obj.get("AIR_HANDOFF_CARD", {}).get("schema_version")'
+          if text.count(old_schema) != 1:
+              raise SystemExit(f'expected exactly one Handoff schema lookup, found {text.count(old_schema)}')
+          text = text.replace(old_schema, new_schema)
+
+          old_grade = 'text="AGENT_REPORTED"'
+          new_grade = "text='\"verification_grade\": \"AGENT_REPORTED'"
+          if text.count(old_grade) != 1:
+              raise SystemExit(f'expected exactly one legacy-grade assertion, found {text.count(old_grade)}')
+          text = text.replace(old_grade, new_grade)
+
+          path.write_text(text, encoding='utf-8')
           PY
 
       - name: Reseal AI Governance package against current main foundation
