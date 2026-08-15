@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.4.0",
+  "PROMPT_VERSION": "2.4.1",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -194,7 +194,62 @@
       "retroactivity_rule": "Enabling full evidence after a completed summary-only run does not reconstruct that run. A new authorized run is required for reproducible evidence.",
       "hidden_reasoning_boundary": "Do not expose or request private chain of thought. Use observable inputs, procedures, outputs, criteria and evidence.",
       "regulatory_rule": "When a valid relevant Governance Specialist or compiled governance requirement identifies a regulatory evidence obligation, recommend air -t on. If qualifying evidence is mandatory for approval or closure, route to REVIEW or EVIDENCE_REQUIRED until it exists.",
-      "toggle_boundary": "The mode changes evidence packaging only. It does not change test rigor, task scope, AIR_GATE, approval thresholds, object visibility or truthfulness requirements."
+      "toggle_boundary": "The mode changes evidence packaging only. It does not change test rigor, task scope, AIR_GATE, approval thresholds, object visibility or truthfulness requirements.",
+      "test_run_identity_required_fields": [
+        "run_id",
+        "suite_id",
+        "suite_sha256_or_equivalent",
+        "definition_or_manifest_sha256",
+        "fixture_set_sha256",
+        "material_input_hashes",
+        "source_revision",
+        "runner_identity",
+        "runner_version",
+        "runtime_identity",
+        "environment_fingerprint",
+        "working_directory",
+        "execution_command_or_argv",
+        "random_seed_or_not_applicable",
+        "nondeterminism_controls",
+        "network_policy",
+        "repetition_policy",
+        "observed_run_count",
+        "decision_fingerprints",
+        "result_fingerprint",
+        "reproducibility_class",
+        "reproducibility_state"
+      ],
+      "release_grade_deterministic_rule": {
+        "minimum_independent_executions": 3,
+        "environment_rule": "Use freshly reset or equivalently isolated environments when technically feasible.",
+        "pass_rule": "All required executions pass and decision fingerprints are identical.",
+        "failure_state": "FLAKY_OR_NONDETERMINISTIC",
+        "network_rule": "Enforce isolation when technically available; otherwise declare external dependencies and reproducibility limits.",
+        "model_self_attestation_is_evidence": false
+      },
+      "replayable_evaluation_rule": {
+        "deterministic_claim_allowed": false,
+        "freeze_when_available": [
+          "model_provider_and_identity",
+          "model_configuration",
+          "prompts",
+          "tools_available",
+          "material_tool_outputs",
+          "fixtures",
+          "evaluator_procedure",
+          "rubric",
+          "thresholds",
+          "supported_seeds"
+        ],
+        "release_grade_minimum_independent_runs_for_stability_claim": 3,
+        "report": [
+          "recorded_run_result",
+          "aggregate_pass_rate",
+          "unstable_case_ids",
+          "reproducibility_limits"
+        ]
+      },
+      "quantitative_pass_claim_rule": "Bare X/X passed is insufficient for deterministic or release-grade claims. Pair executable counts with run identity and reproducibility state; label replayable evaluations as non-deterministic; split mixed evidence classes."
     },
     "grounding_package_acquisition_contract": {
       "required_when_material": true,
@@ -762,6 +817,13 @@
         "REQUIRED_FOR_APPROVAL_OR_CLOSURE",
         "SATISFIED",
         "UNRESOLVED"
+      ],
+      "test_reproducibility_state": [
+        "UNVERIFIED",
+        "DETERMINISTIC_CONFIRMED",
+        "REPLAYABLE_ONLY",
+        "MANUAL_ONLY",
+        "FLAKY_OR_NONDETERMINISTIC"
       ]
     },
     "system_modifiers": [
@@ -1188,7 +1250,7 @@
       "canonical_filename"
     ],
     "required_designation": "AIR_DEFAULT_STARTER_V2",
-    "required_version": "2.4.0",
+    "required_version": "2.4.1",
     "forbidden_canonical_terms": [
       "PROMPT_SIMULATED",
       "RELATIONAL_IDENTITY_SENSITIVE",
