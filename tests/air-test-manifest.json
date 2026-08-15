@@ -2,6 +2,15 @@
   "schema_version": "1.0.0",
   "suite_id": "AIR_FOUNDATION_REPRODUCIBILITY_CONTRACT_V1",
   "material_inputs": [
+    "README.md",
+    "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
+    "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
+    "docs/AIR_RUNTIME_DRIFT_HARDENING.md",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+    "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+    "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
     "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
     "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
     "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
@@ -17,15 +26,7 @@
     "prompts/AIR_CORE_RUNTIME.md",
     "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
     "prompts/AIR_GOV.md",
-    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
-    "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-    "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
-    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
-    "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-    "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
-    "docs/AIR_RUNTIME_DRIFT_HARDENING.md"
+    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
   ],
   "tests": [
     {
@@ -3181,6 +3182,203 @@
       "type": "text_contains",
       "path": "docs/AIR_RUNTIME_DRIFT_HARDENING.md",
       "text": "> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests."
+    },
+    {
+      "id": "README-001",
+      "requirement": "README exists",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "file_exists",
+      "path": "README.md",
+      "expected": true
+    },
+    {
+      "id": "README-002",
+      "requirement": "prompts/AIR_CORE_RUNTIME.md",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "prompts/AIR_CORE_RUNTIME.md",
+      "expected": true
+    },
+    {
+      "id": "README-003",
+      "requirement": "prompts/AIR_CONTROL_SURFACE.md",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "prompts/AIR_CONTROL_SURFACE.md",
+      "expected": true
+    },
+    {
+      "id": "README-004",
+      "requirement": "prompts/AIR_GOV.md",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "prompts/AIR_GOV.md",
+      "expected": true
+    },
+    {
+      "id": "README-005",
+      "requirement": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "expected": true
+    },
+    {
+      "id": "README-006",
+      "requirement": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "expected": true
+    },
+    {
+      "id": "README-007",
+      "requirement": "does **not turn a probabilistic host model into deterministic infrastructure**",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "does **not turn a probabilistic host model into deterministic infrastructure**",
+      "expected": true
+    },
+    {
+      "id": "README-008",
+      "requirement": "air -o on",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "air -o on",
+      "expected": true
+    },
+    {
+      "id": "README-009",
+      "requirement": "air -o -min",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "air -o -min",
+      "expected": true
+    },
+    {
+      "id": "README-010",
+      "requirement": "air -t on",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "air -t on",
+      "expected": true
+    },
+    {
+      "id": "README-011",
+      "requirement": "air -t off",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "air -t off",
+      "expected": true
+    },
+    {
+      "id": "README-012",
+      "requirement": "REPRODUCIBLE_EXECUTABLE",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "REPRODUCIBLE_EXECUTABLE",
+      "expected": true
+    },
+    {
+      "id": "README-013",
+      "requirement": "REPLAYABLE_EVALUATION",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "REPLAYABLE_EVALUATION",
+      "expected": true
+    },
+    {
+      "id": "README-014",
+      "requirement": "MANUAL_REVIEW_REQUIRED",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "MANUAL_REVIEW_REQUIRED",
+      "expected": true
+    },
+    {
+      "id": "README-015",
+      "requirement": "A naked `150/150 passed` is not enough to establish determinism.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "A naked `150/150 passed` is not enough to establish determinism.",
+      "expected": true
+    },
+    {
+      "id": "README-016",
+      "requirement": "JSON is a representation, not the assurance claim.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "JSON is a representation, not the assurance claim.",
+      "expected": true
+    },
+    {
+      "id": "README-017",
+      "requirement": "https://vm4ai.com/how-it-works.html",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "https://vm4ai.com/how-it-works.html",
+      "expected": true
+    },
+    {
+      "id": "README-018",
+      "requirement": "img.shields.io/github/v/release/eddlev/vm4ai-air-kit",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "img.shields.io/github/v/release/eddlev/vm4ai-air-kit",
+      "expected": true
+    },
+    {
+      "id": "README-019",
+      "requirement": "README must not contain stale text: prompts/AIR CORE RUNTIME.md",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "prompts/AIR CORE RUNTIME.md",
+      "expected": true
+    },
+    {
+      "id": "README-020",
+      "requirement": "README must not contain stale text: ~130k tokens",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "~130k tokens",
+      "expected": true
+    },
+    {
+      "id": "README-021",
+      "requirement": "README must not contain stale text: 200k tokens or more",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "200k tokens or more",
+      "expected": true
+    },
+    {
+      "id": "README-022",
+      "requirement": "README must not contain stale text: release-v0.2.5",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "release-v0.2.5",
+      "expected": true
     }
   ]
 }
