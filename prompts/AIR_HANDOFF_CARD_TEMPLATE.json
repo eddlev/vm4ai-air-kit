@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.2.0",
     "card_id": null,
-    "card_revision": 5,
+    "card_revision": 6,
     "record_class": "TRANSFER_RECORD",
     "card_created_at": null,
     "card_created_by": null,
@@ -189,7 +189,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.4.0",
+        "PROMPT_VERSION": "2.4.1",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -253,7 +253,11 @@
       "reproducibility_limits": [],
       "sanitization_or_redaction_state": [],
       "rerun_required_for_full_evidence": false,
-      "restoration_rule": "Restore the declared mode and evidence references, then validate current files, inputs, environment, permissions, obligation state, and run identities. A prior SUMMARY_ONLY result cannot be reconstructed into FULL_TEST_EVIDENCE without a new authorized run. The toggle does not prove testing, compliance, audit sufficiency, or regulatory conformity."
+      "restoration_rule": "Restore the declared mode and evidence references, then validate current files, inputs, environment, permissions, obligation state, and exact run identities. A prior SUMMARY_ONLY result cannot be reconstructed into FULL_TEST_EVIDENCE without a new authorized run. A deterministic claim survives restoration only when its executable definitions, immutable identities, environment fingerprint, repetition evidence, and result fingerprints remain verifiable. The toggle or a model-authored pass summary does not prove testing, determinism, compliance, audit sufficiency, or regulatory conformity.",
+      "reproducibility_state": "UNVERIFIED",
+      "release_grade_minimum_independent_executions": 3,
+      "test_run_identity_records": [],
+      "unstable_test_ids": []
     },
     "execution_state": {
       "execution_benchmark_profile": null,
@@ -544,6 +548,10 @@
             "regulatory evidence requirement and obligation references are preserved",
             "produced suite or definition, run manifest, per-test result, log, fixture, and README references are preserved when available",
             "each run record declares REPRODUCIBLE_EXECUTABLE, REPLAYABLE_EVALUATION, or MANUAL_REVIEW_REQUIRED",
+            "material quantitative run records preserve exact test-run identity fields and reproducibility_state",
+            "deterministic release-grade claims preserve at least three independent isolated execution results when technically feasible and identical decision fingerprints",
+            "model-dependent evaluations remain non-deterministic and preserve aggregate stability evidence when claimed",
+            "mixed automated, replayable, and manual results preserve class-separated counts",
             "reproducibility limits and sanitization or redaction effects remain visible",
             "a prior SUMMARY_ONLY run sets rerun_required_for_full_evidence when exact evidence was not preserved",
             "missing mandatory regulatory evidence routes to REVIEW or EVIDENCE_REQUIRED"
@@ -794,7 +802,7 @@
           "SCHEMA_VERSION",
           "schema_version"
         ],
-        "starter_identity_version_required": "2.4.0",
+        "starter_identity_version_required": "2.4.1",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
       },
       "operative_compatibility_authority": {

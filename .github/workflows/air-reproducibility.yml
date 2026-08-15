@@ -1,0 +1,77 @@
+name: AIR reproducibility contract
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-foundation-check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve isolated Python image
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker pull python:3.12.11-slim
+          IMAGE_REF="$(docker image inspect python:3.12.11-slim --format '{{index .RepoDigests 0}}')"
+          test -n "$IMAGE_REF"
+          echo "AIR_TEST_IMAGE=$IMAGE_REF" >> "$GITHUB_ENV"
+          mkdir -p .air-test-evidence
+          printf '%s\n' "$IMAGE_REF" > .air-test-evidence/container-image.txt
+
+      - name: Run three isolated executable checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in 1 2 3; do
+            docker run --rm --network none \
+              -e TZ=UTC \
+              -e LANG=C.UTF-8 \
+              -e LC_ALL=C.UTF-8 \
+              -e PYTHONHASHSEED=0 \
+              -e AIR_TEST_SEED=0 \
+              -e AIR_NETWORK_POLICY=DISABLED_ENFORCED_DOCKER \
+              -e AIR_CONTAINER_IMAGE="$AIR_TEST_IMAGE" \
+              -e AIR_SOURCE_COMMIT="$GITHUB_SHA" \
+              -v "$PWD:/repo:ro" \
+              -v "$PWD/.air-test-evidence:/evidence" \
+              -w /repo \
+              "$AIR_TEST_IMAGE" \
+              python tests/air_test_runner.py \
+                --manifest tests/air-test-manifest.json \
+                --output "/evidence/run-$i.json" \
+                --run-index "$i"
+          done
+
+      - name: Compare independent run fingerprints
+        shell: bash
+        run: |
+          set -euo pipefail
+          docker run --rm --network none \
+            -e TZ=UTC \
+            -e LANG=C.UTF-8 \
+            -e LC_ALL=C.UTF-8 \
+            -e PYTHONHASHSEED=0 \
+            -v "$PWD:/repo:ro" \
+            -v "$PWD/.air-test-evidence:/evidence" \
+            -w /repo \
+            "$AIR_TEST_IMAGE" \
+            python tests/air_test_compare.py \
+              --runs /evidence/run-1.json /evidence/run-2.json /evidence/run-3.json \
+              --output /evidence/determinism-report.json \
+              --required-identical-runs 3
+
+      - name: Upload full test evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: air-reproducibility-evidence-${{ github.sha }}
+          path: .air-test-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
