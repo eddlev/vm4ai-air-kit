@@ -3,9 +3,6 @@
   "suite_id": "AIR_FOUNDATION_REPRODUCIBILITY_CONTRACT_V1",
   "material_inputs": [
     "README.md",
-    "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-    "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
-    "docs/AIR_RUNTIME_DRIFT_HARDENING.md",
     "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
     "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
     "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
@@ -3128,62 +3125,6 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE"
     },
     {
-      "id": "DOC6-001",
-      "requirement": "Regression matrix identifies the current v2.4.1 floor-regression section",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-      "text": "## Current v2.4.1 floor regression additions"
-    },
-    {
-      "id": "DOC6-002",
-      "requirement": "Regression matrix includes AIR-FLOOR-019 coverage",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-      "text": "| `AIR-FLOOR-019` | Material ambiguity exists and execution would require a silent guess. |"
-    },
-    {
-      "id": "DOC6-003",
-      "requirement": "Regression matrix includes AIR-FLOOR-020 coverage",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-      "text": "| `AIR-FLOOR-020` | A restored, declared, or current active-state field conflicts with a newer operative state. |"
-    },
-    {
-      "id": "DOC6-004",
-      "requirement": "Regression documentation states that air -t on does not itself make execution deterministic",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-      "text": "That switch requests the evidence mode; it does not itself make execution deterministic."
-    },
-    {
-      "id": "DOC6-005",
-      "requirement": "Release-grade executable evidence requires repeat isolation and identical decision fingerprints",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_DRIFT_REGRESSION_MATRIX.md",
-      "text": "Repeat the exact suite in isolated environments and require identical decision fingerprints."
-    },
-    {
-      "id": "DOC6-006",
-      "requirement": "Handoff hotfix document is visibly historical and non-operative",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_HANDOFF_SCHEMA_COMPATIBILITY_HOTFIX.md",
-      "text": "> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests."
-    },
-    {
-      "id": "DOC6-007",
-      "requirement": "Runtime drift hardening document is visibly historical and non-operative",
-      "test_class": "REPRODUCIBLE_EXECUTABLE",
-      "type": "text_contains",
-      "path": "docs/AIR_RUNTIME_DRIFT_HARDENING.md",
-      "text": "> **Historical record — non-operative.** This document preserves patch/audit history. Current runtime, governance, compatibility, and release authority comes from the current files under `prompts/` and current package manifests."
-    },
-    {
       "id": "README-001",
       "requirement": "README exists",
       "test_class": "REPRODUCIBLE_EXECUTABLE",
@@ -3540,6 +3481,127 @@
       "expected": 8,
       "requirement": "Handoff template revision advances for anti-drift cadence/default serialization.",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "CLEANUP-001",
+      "requirement": "Repository-local docs tree is absent",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "command",
+      "argv": [
+        "python",
+        "-c",
+        "from pathlib import Path; raise SystemExit(0 if not Path('docs').exists() else 1)"
+      ]
+    },
+    {
+      "id": "CLEANUP-002",
+      "requirement": "README explains why AIR is prompt-based",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "## Why AIR is prompt-based",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-003",
+      "requirement": "README states vendor independence rationale",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "**Vendor independence**",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-004",
+      "requirement": "README states platform-agnostic core rationale",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "**Platform-agnostic core**",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-005",
+      "requirement": "README states cross-platform portability rationale",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "**Cross-platform portability**",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-006",
+      "requirement": "README states multi-session continuity rationale",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "**Multi-session continuity**",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-007",
+      "requirement": "README states progressive enforcement rationale",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "**Progressive enforcement**",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-008",
+      "requirement": "README states ALL_OBJECTS default",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "AIR defaults to `ALL_OBJECTS`",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-009",
+      "requirement": "README footer links vm4ai.com",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "path": "README.md",
+      "text": "[vm4ai.com](https://vm4ai.com/)",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-010",
+      "requirement": "README no longer advertises nonexistent root methods directory",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "methods/",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-011",
+      "requirement": "README no longer links repository-local docs tree",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "docs/",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-012",
+      "requirement": "README no longer describes historical audit records as current tree content",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_not_contains",
+      "path": "README.md",
+      "text": "historical audit records",
+      "expected": true
+    },
+    {
+      "id": "CLEANUP-013",
+      "requirement": "No root methods directory is introduced",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "command",
+      "argv": [
+        "python",
+        "-c",
+        "from pathlib import Path; raise SystemExit(0 if not Path('methods').exists() else 1)"
+      ]
     }
   ]
 }

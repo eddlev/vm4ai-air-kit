@@ -16,6 +16,18 @@ AIR works inside capable chat/model interfaces. It does **not turn a probabilist
 
 ---
 
+## Why AIR is prompt-based
+
+AIR uses a prompt-based core deliberately. The working contract is expressed in portable text and machine-readable records so the project can travel with the user instead of being owned by one vendor runtime.
+
+- **Vendor independence** — AIR does not require one provider's private project state, permission model, or agent runtime to define the project contract. Platform-specific features can be used as adapters without becoming the AIR core.
+- **Platform-agnostic core** — Orbit, artifacts, gates, evidence boundaries, approval state, and Handoff are designed to remain recognizable across compatible model interfaces even when host capabilities differ.
+- **Cross-platform portability** — users can move work when models or platforms change without rebuilding the project's explicit governance and execution state from scratch.
+- **Multi-session continuity** — the Handoff Card serializes explicit project state so a compatible receiving session can validate, rebind, and continue the work instead of relying on hidden conversation state.
+- **Progressive enforcement** — the portable prompt layer can work without dedicated infrastructure, while future host hooks, gateways, and workflow adapters can add deterministic permissions, receipts, and action blocking where the platform supports them.
+
+That portability is the reason the AIR core is prompt-based. Its assurance limitations are also why AIR keeps deterministic host enforcement separate and requires external evidence for claims that depend on tools, repositories, deployments, or backend events.
+
 ## Why use AIR?
 
 AIR is useful when you want the AI session itself to keep a disciplined working contract instead of relying on an ever-growing pile of conversational context. It can help you:
@@ -98,6 +110,8 @@ air -t on
 air -t off
 ```
 
+AIR defaults to `ALL_OBJECTS`; `air -o -min` is an explicit compact visibility mode selected by the user or restored from a valid explicit prior selection.
+
 These are prompt-side controls. They do not bypass approval, evidence, scope, or release gates.
 
 ## Repository map
@@ -114,18 +128,17 @@ profiles/
   grounding specialist/
   governance specialist/
   capability ecology architect/
-
-methods/
-  specification-first verification material
-
-docs/
-  current regression material + historical audit/patch records
+  specification first method pack/
 
 tests/
-  deterministic/replayable AIR verification harness
+  executable AIR verification harness
+
+.github/
+  workflows/
+    repository CI and reproducibility contract
 ```
 
-The files under `prompts/` are the current foundation. Specialist, domain, and method packages are **available but unbound** until selected, compatibility-validated, approved when required, and bound according to the runtime. Historical patch and audit records are evidence/history, not current runtime authority.
+The files under `prompts/` are the current foundation. Specialist, domain, and method material lives under `profiles/` and is **available but unbound** until selected, compatibility-validated, approved when required, and bound according to the runtime. The standalone Specification-First Verification Method Pack remains a single experimental method pack under `profiles/` until further package work is justified.
 
 ## Machine-readable records
 
@@ -134,9 +147,8 @@ AIR uses structured records, often JSON, because they are portable and machine-r
 ## Documentation
 
 - [How AIR works](https://vm4ai.com/how-it-works.html) — public architecture and visual explanation
-- [`docs/AIR_DRIFT_REGRESSION_MATRIX.md`](docs/AIR_DRIFT_REGRESSION_MATRIX.md) — current drift/regression expectations
-- [`docs/AIR_MODEL_PORTABILITY_NOTES.md`](docs/AIR_MODEL_PORTABILITY_NOTES.md) — empirical portability notes
-- [`docs/`](docs/) — additional current guidance and historical audit records
+- [VM4AI website](https://vm4ai.com/) — current public documentation, examples, and release guidance
+- [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) — questions, implementation discussion, and community patterns
 
 ## License and brand
 
@@ -146,4 +158,4 @@ The AIR/VM4AI names and brand marks are separate from the code license. Reusable
 
 ---
 
-The AIR brand system and vm4ai.com are developed using AIR with human review and approval. See the public site for the current account and examples.
+The AIR brand system and [vm4ai.com](https://vm4ai.com/) are developed using AIR with human review and approval. See the public site for the current account and examples.
