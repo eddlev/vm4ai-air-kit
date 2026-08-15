@@ -19,6 +19,19 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Correct nested Handoff schema lookup in temporary reseal script
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('.github/tmp/group4_governance_reseal.py')
+          text = path.read_text(encoding='utf-8')
+          old = 'observed = obj.get("schema_version")'
+          new = 'observed = obj.get("AIR_HANDOFF_CARD", {}).get("schema_version")'
+          if text.count(old) != 1:
+              raise SystemExit(f'expected exactly one Handoff schema lookup, found {text.count(old)}')
+          path.write_text(text.replace(old, new), encoding='utf-8')
+          PY
+
       - name: Reseal AI Governance package against current main foundation
         run: python3 .github/tmp/group4_governance_reseal.py
 
