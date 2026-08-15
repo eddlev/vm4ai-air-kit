@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "suite_id": "AIR_FOUNDATION_REPRODUCIBILITY_CONTRACT_V1",
+  "material_inputs": [
+    "prompts/AIR_CORE_RUNTIME.md",
+    "prompts/AIR_CONTROL_SURFACE.md",
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+  ],
+  "tests": [
+    {
+      "id": "AIR-REPRO-001",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "PROMPT_VERSION: 2.4.1",
+      "requirement": "Core version identifies the reproducibility contract revision."
+    },
+    {
+      "id": "AIR-REPRO-002",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "Test run identity minimum contract:",
+      "requirement": "Core defines exact test-run identity requirements."
+    },
+    {
+      "id": "AIR-REPRO-003",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "A bare statement such as `150/150 tests passed` is insufficient",
+      "requirement": "Core rejects unqualified aggregate pass claims as deterministic evidence."
+    },
+    {
+      "id": "AIR-REPRO-004",
+      "type": "text_contains",
+      "path": "prompts/AIR_CONTROL_SURFACE.md",
+      "text": "REPRODUCIBILITY_FAILURE",
+      "requirement": "Control Surface visibly reports divergent repeated runs."
+    },
+    {
+      "id": "AIR-REPRO-005",
+      "type": "json_strict_parse",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "requirement": "Starter remains strict JSON with no duplicate keys."
+    },
+    {
+      "id": "AIR-REPRO-006",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "PROMPT_VERSION",
+      "expected": "2.4.1",
+      "requirement": "Starter version matches the reproducibility contract revision."
+    },
+    {
+      "id": "AIR-REPRO-007",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "validation_contract.required_version",
+      "expected": "2.4.1",
+      "requirement": "Starter self-version validation remains coherent."
+    },
+    {
+      "id": "AIR-REPRO-008",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "compiler_contract.test_evidence_reproducibility_contract.release_grade_deterministic_rule.minimum_independent_executions",
+      "expected": 3,
+      "requirement": "Release-grade deterministic claims require three independent executions."
+    },
+    {
+      "id": "AIR-REPRO-009",
+      "type": "json_strict_parse",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "requirement": "Handoff template remains strict JSON with no duplicate keys."
+    },
+    {
+      "id": "AIR-REPRO-010",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.schema_version",
+      "expected": "2.2.0",
+      "requirement": "The test reproducibility change does not alter Handoff schema identity."
+    },
+    {
+      "id": "AIR-REPRO-011",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION",
+      "expected": "2.4.1",
+      "requirement": "Handoff starter identity matches the current Starter."
+    },
+    {
+      "id": "AIR-REPRO-012",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_required",
+      "expected": "2.4.1",
+      "requirement": "Handoff compatibility contract requires the current Starter identity."
+    },
+    {
+      "id": "AIR-REPRO-013",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.test_evidence_state.reproducibility_state",
+      "expected": "UNVERIFIED",
+      "requirement": "Handoff preserves explicit reproducibility state instead of inferring determinism."
+    }
+  ]
+}
