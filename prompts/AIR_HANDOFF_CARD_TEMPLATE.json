@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.2.0",
     "card_id": null,
-    "card_revision": 7,
+    "card_revision": 8,
     "record_class": "TRANSFER_RECORD",
     "card_created_at": null,
     "card_created_by": null,
@@ -112,7 +112,7 @@
       "last_request_update": null,
       "restoration_rule": "Restore exact requested identities and actions, including responsive-binding scope/effects/exclusions and approval gate references when present. Recheck current availability, freshness, completeness, compatibility, source rights, permission, approval validity, and satisfaction before repeating a request or resuming the controlled action."
     },
-    "object_visibility_mode": "MINIMUM_REQUIRED_OBJECTS",
+    "object_visibility_mode": "ALL_OBJECTS",
     "onboarding_state": {
       "restore_state": "UNRESOLVED",
       "q1": null,
@@ -189,7 +189,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.4.1",
+        "PROMPT_VERSION": "2.4.2",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -802,7 +802,7 @@
           "SCHEMA_VERSION",
           "schema_version"
         ],
-        "starter_identity_version_required": "2.4.1",
+        "starter_identity_version_required": "2.4.2",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
       },
       "operative_compatibility_authority": {
@@ -832,12 +832,27 @@
       "runtime_watchdog_state": {
         "last_check_state": "UNVALIDATED_BOOTSTRAP_INPUT",
         "failed_checks": [],
-        "next_required_check": "RUN_AFTER_RESTORE_PRECHECK_AND_BEFORE_ANY_MATERIAL_ACTION"
+        "next_required_check": "RUN_AFTER_RESTORE_PRECHECK_AND_BEFORE_ANY_MATERIAL_ACTION",
+        "post_activation_user_message_count": 0,
+        "alignment_check_interval_user_messages": 5,
+        "last_periodic_alignment_check_at_count": 0,
+        "next_periodic_alignment_check_at_count": 5,
+        "last_periodic_alignment_result": "NOT_RUN",
+        "last_alignment_check_ref": null,
+        "counted_event": "SUBSTANTIVE_USER_MESSAGE",
+        "excluded_events": [
+          "ASSISTANT_MESSAGE",
+          "TOOL_CALL",
+          "CONNECTOR_CALLBACK",
+          "SYSTEM_EVENT",
+          "HIDDEN_HOST_EVENT",
+          "ARTIFACT_REVISION"
+        ]
       },
       "material_action_resume_rule": "Revalidate artifact, lease, scope pin, sources, environment, permissions, approvals, pending receipts, and prior effects before issuing a new action authorization."
     },
     "runtime_drift_hardening_schema_extension": {
-      "schema_extension_version": "2.1.0",
+      "schema_extension_version": "2.2.0",
       "floor_invariant": "AIR-FLOOR-018",
       "added_carriers": [
         "artifact lease state",
@@ -845,9 +860,11 @@
         "action authorization history and invalidation",
         "action receipts",
         "unbound prior effects",
-        "runtime watchdog state"
+        "runtime watchdog state",
+        "periodic alignment check cadence state"
       ],
-      "restore_boundary": "Historical authorizations never restore as executable authority."
+      "restore_boundary": "Historical authorizations never restore as executable authority. Restore the explicit object-visibility selection source and periodic alignment cadence state; validation and rebinding remain required before material execution.",
+      "alignment_floor_invariant": "AIR-FLOOR-020"
     }
   }
 }

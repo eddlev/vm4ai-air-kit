@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.4.1",
+  "PROMPT_VERSION": "2.4.2",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -556,6 +556,15 @@
         "owner": "AIR_CORE_RUNTIME_V2"
       },
       {
+        "name": "AIR_ALIGNMENT_CHECK",
+        "class": "FORMAL_OBJECT",
+        "emit_when": [
+          "every fifth substantive post-activation user message after ARTIFACT_BOUND_EXECUTION",
+          "user requests an alignment check"
+        ],
+        "owner": "AIR_CORE_RUNTIME_V2"
+      },
+      {
         "name": "AIR_ERROR",
         "class": "FORMAL_OBJECT",
         "emit_when": [
@@ -824,19 +833,27 @@
         "REPLAYABLE_ONLY",
         "MANUAL_ONLY",
         "FLAKY_OR_NONDETERMINISTIC"
+      ],
+      "alignment_state": [
+        "ALIGNED",
+        "DRIFT_DETECTED"
+      ],
+      "alignment_recovery_state": [
+        "NOT_REQUIRED",
+        "ALIGNMENT_RECOVERY_SURFACE_TRIGGERED"
       ]
     },
     "system_modifiers": [
       {
         "command": "air -o -min",
         "effect": "MINIMUM_REQUIRED_OBJECTS",
-        "default": true,
+        "default": false,
         "modifier_family": "OBJECT_VISIBILITY"
       },
       {
         "command": "air -o on",
         "effect": "ALL_OBJECTS",
-        "default": false,
+        "default": true,
         "modifier_family": "OBJECT_VISIBILITY"
       },
       {
@@ -1180,7 +1197,7 @@
   },
   "output_contract": {
     "mode": "AIR_ARTIFACT_FIRST",
-    "default_object_visibility": "MINIMUM_REQUIRED_OBJECTS",
+    "default_object_visibility": "ALL_OBJECTS",
     "artifact_schema_owner": "AIR_CORE_RUNTIME_V2",
     "surface_rendering_owner": "AIR_CONTROL_SURFACE_V2",
     "governance_owner": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
@@ -1250,7 +1267,7 @@
       "canonical_filename"
     ],
     "required_designation": "AIR_DEFAULT_STARTER_V2",
-    "required_version": "2.4.1",
+    "required_version": "2.4.2",
     "forbidden_canonical_terms": [
       "PROMPT_SIMULATED",
       "RELATIONAL_IDENTITY_SENSITIVE",
@@ -1446,7 +1463,8 @@
       "BEFORE_EACH_MATERIAL_ACTION",
       "AFTER_EACH_MATERIAL_ACTION",
       "BEFORE_MATERIAL_DELIVERY_OR_CLOSURE",
-      "AFTER_ACTIVE_STEP_SCOPE_SOURCE_APPROVAL_TOOL_ENVIRONMENT_OR_ARTIFACT_CHANGE"
+      "AFTER_ACTIVE_STEP_SCOPE_SOURCE_APPROVAL_TOOL_ENVIRONMENT_OR_ARTIFACT_CHANGE",
+      "EVERY_FIFTH_SUBSTANTIVE_POST_ACTIVATION_USER_MESSAGE"
     ],
     "default_material_action_classes": [
       "REPOSITORY_OR_FILE_MUTATION",
@@ -1457,6 +1475,28 @@
       "MATERIAL_EXECUTION_OR_CLOSURE_CLAIM"
     ],
     "gateway_recommendation": "When a backend or client tool gateway exists, require and atomically consume a valid authorization before executing the material tool call.",
-    "prompt_boundary": "Prompt-compiled AIR applies and surfaces the interlock but does not claim backend enforcement without evidence."
+    "prompt_boundary": "Prompt-compiled AIR applies and surfaces the interlock but does not claim backend enforcement without evidence.",
+    "periodic_alignment_contract": {
+      "alignment_check_object": "AIR_ALIGNMENT_CHECK",
+      "validation_object": "AIR_VALIDATION_REPORT",
+      "alignment_check_interval_user_messages": 5,
+      "counter": "post_activation_user_message_count",
+      "counter_start": "ARTIFACT_BOUND_EXECUTION_ESTABLISHED",
+      "counted_event": "SUBSTANTIVE_USER_MESSAGE",
+      "excluded_events": [
+        "ASSISTANT_MESSAGE",
+        "TOOL_CALL",
+        "CONNECTOR_CALLBACK",
+        "SYSTEM_EVENT",
+        "HIDDEN_HOST_EVENT",
+        "ARTIFACT_REVISION"
+      ],
+      "event_watchdog_resets_periodic_counter": false,
+      "no_drift_result": "ALIGNED_AND_CONTINUE_AFTER_REQUIRED_OBJECTS",
+      "drift_result": "ALIGNMENT_RECOVERY_SURFACE_TRIGGERED_BEFORE_AFFECTED_WORK_CONTINUES",
+      "minimum_mode_can_suppress_check": false,
+      "prompt_only_enforcement_claimed": true,
+      "backend_enforcement_claimed": false
+    }
   }
 }

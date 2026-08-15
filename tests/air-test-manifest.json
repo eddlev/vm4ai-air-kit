@@ -33,8 +33,8 @@
       "id": "AIR-REPRO-001",
       "type": "text_contains",
       "path": "prompts/AIR_CORE_RUNTIME.md",
-      "text": "PROMPT_VERSION: 2.4.1",
-      "requirement": "Core version identifies the reproducibility contract revision."
+      "text": "PROMPT_VERSION: 2.4.2",
+      "requirement": "Core version identifies the reproducibility contract anti-drift runtime revision."
     },
     {
       "id": "AIR-REPRO-002",
@@ -68,7 +68,7 @@
       "type": "json_value_equals",
       "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
       "json_path": "PROMPT_VERSION",
-      "expected": "2.4.1",
+      "expected": "2.4.2",
       "requirement": "Starter version matches the reproducibility contract revision."
     },
     {
@@ -76,7 +76,7 @@
       "type": "json_value_equals",
       "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
       "json_path": "validation_contract.required_version",
-      "expected": "2.4.1",
+      "expected": "2.4.2",
       "requirement": "Starter self-version validation remains coherent."
     },
     {
@@ -106,7 +106,7 @@
       "type": "json_value_equals",
       "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
       "json_path": "AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION",
-      "expected": "2.4.1",
+      "expected": "2.4.2",
       "requirement": "Handoff starter identity matches the current Starter."
     },
     {
@@ -114,7 +114,7 @@
       "type": "json_value_equals",
       "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
       "json_path": "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_required",
-      "expected": "2.4.1",
+      "expected": "2.4.2",
       "requirement": "Handoff compatibility contract requires the current Starter identity."
     },
     {
@@ -175,7 +175,7 @@
       "type": "json_value_equals",
       "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
       "json_path": "AIR_HANDOFF_CARD.card_revision",
-      "expected": 7,
+      "expected": 8,
       "requirement": "Template revision advances for the corrected serialized defaults without changing Handoff schema identity."
     },
     {
@@ -188,7 +188,7 @@
       "id": "AIR-GROUND-002",
       "type": "sha256_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "expected": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
+      "expected": "3138ceacc37b3934f4ae967a170c6c1740f6b30c6cfdbb5f390d62d2de43884b",
       "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json bytes match the resealed identity."
     },
     {
@@ -196,7 +196,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json carries Grounding component version 2.3.3."
     },
     {
@@ -208,20 +208,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -235,20 +235,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json is sealed to the exact current five-file AIR foundation."
@@ -275,7 +275,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json carries the Grounding integration refresh version 2.3.4."
     },
     {
@@ -284,10 +284,10 @@
       "path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_GROUNDING_DOMAIN_PACKAGE.json mainline binding names the current AIR foundation versions."
@@ -310,7 +310,7 @@
       "id": "AIR-GROUND-010",
       "type": "sha256_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
-      "expected": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
+      "expected": "266a163a23b9ff4907e91e9c49b76cfd9bdf58e2807e13921bda6b42bccccb9b",
       "requirement": "AIR_GROUNDING_METHOD_PACK.json bytes match the resealed identity."
     },
     {
@@ -318,7 +318,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_GROUNDING_METHOD_PACK.json carries Grounding component version 2.3.3."
     },
     {
@@ -330,20 +330,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -357,20 +357,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_GROUNDING_METHOD_PACK.json is sealed to the exact current five-file AIR foundation."
@@ -397,7 +397,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_GROUNDING_METHOD_PACK.json carries the Grounding integration refresh version 2.3.4."
     },
     {
@@ -406,10 +406,10 @@
       "path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_GROUNDING_METHOD_PACK.json mainline binding names the current AIR foundation versions."
@@ -432,7 +432,7 @@
       "id": "AIR-GROUND-018",
       "type": "sha256_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
-      "expected": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
+      "expected": "0ab29737fd31a122219d939206eba59a116ec2b1c77f58ec77741e86dfbdcadb",
       "requirement": "AIR_GROUNDING_SPECIALIST.json bytes match the resealed identity."
     },
     {
@@ -440,7 +440,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_GROUNDING_SPECIALIST.json carries Grounding component version 2.3.3."
     },
     {
@@ -452,20 +452,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -479,20 +479,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_GROUNDING_SPECIALIST.json is sealed to the exact current five-file AIR foundation."
@@ -519,7 +519,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_GROUNDING_SPECIALIST.json carries the Grounding integration refresh version 2.3.4."
     },
     {
@@ -528,10 +528,10 @@
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_GROUNDING_SPECIALIST.json mainline binding names the current AIR foundation versions."
@@ -554,7 +554,7 @@
       "id": "AIR-GROUND-026",
       "type": "sha256_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
-      "expected": "3642077cac2300adf120dfe63db24bbfb10ac58738c5a96193f4f23fa023474a",
+      "expected": "a0694a8844ecdcb8b95b6fbbcb7e790a64f4049a6ba995f7da472ad1b545a8cb",
       "requirement": "AIR_GROUNDING_EXECUTOR.json bytes match the resealed identity."
     },
     {
@@ -562,7 +562,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_GROUNDING_EXECUTOR.json carries Grounding component version 2.3.3."
     },
     {
@@ -574,20 +574,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -601,20 +601,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_GROUNDING_EXECUTOR.json is sealed to the exact current five-file AIR foundation."
@@ -641,7 +641,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_GROUNDING_EXECUTOR.json carries the Grounding integration refresh version 2.3.4."
     },
     {
@@ -650,10 +650,10 @@
       "path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_GROUNDING_EXECUTOR.json mainline binding names the current AIR foundation versions."
@@ -676,7 +676,7 @@
       "id": "AIR-GROUND-034",
       "type": "sha256_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
-      "expected": "04b8db5d0b6ec1d231febd3730ecae5f1bc349af260c012e407dd0941850fd58",
+      "expected": "fde995e2be7bf065a6d9df9b16dde807d0990ecb3c6ab3257aaf6548d6081071",
       "requirement": "Grounding package manifest bytes match the regenerated identity."
     },
     {
@@ -684,7 +684,7 @@
       "type": "json_value_equals",
       "path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "PACKAGE_VERSION",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "Grounding manifest version is 2.3.4."
     },
     {
@@ -696,20 +696,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -723,20 +723,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "Grounding manifest is sealed to the exact current five-file AIR foundation."
@@ -768,13 +768,13 @@
           "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
           "canonical_role": "DOMAIN_PACKAGE",
           "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
-          "version": "2.3.3",
+          "version": "2.3.4",
           "artifact_class": "AIR_DOMAIN_PACKAGE",
           "profile_kind": "DOMAIN_OVERLAY",
           "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
           "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
-          "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
-          "size_bytes": 53276,
+          "sha256": "3138ceacc37b3934f4ae967a170c6c1740f6b30c6cfdbb5f390d62d2de43884b",
+          "size_bytes": 53260,
           "line_count": 892,
           "required": true,
           "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -783,13 +783,13 @@
           "filename": "AIR_GROUNDING_METHOD_PACK.json",
           "canonical_role": "METHOD_PACK",
           "designation": "AIR_GROUNDING_METHOD_PACK_V2",
-          "version": "2.3.3",
+          "version": "2.3.4",
           "artifact_class": "AIR_METHOD_PACK",
           "profile_kind": "METHOD_PACK",
           "profile_function_class": "METHOD_PACK",
           "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
-          "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
-          "size_bytes": 57589,
+          "sha256": "266a163a23b9ff4907e91e9c49b76cfd9bdf58e2807e13921bda6b42bccccb9b",
+          "size_bytes": 57573,
           "line_count": 1213,
           "required": true,
           "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -798,13 +798,13 @@
           "filename": "AIR_GROUNDING_SPECIALIST.json",
           "canonical_role": "SPECIALIST_PROFILE",
           "designation": "AIR_GROUNDING_SPECIALIST_V2",
-          "version": "2.3.3",
+          "version": "2.3.4",
           "artifact_class": "AIR_SPECIALIST_PROFILE",
           "profile_kind": "TASK_COMPOSITE",
           "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
           "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
-          "sha256": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
-          "size_bytes": 62127,
+          "sha256": "0ab29737fd31a122219d939206eba59a116ec2b1c77f58ec77741e86dfbdcadb",
+          "size_bytes": 62125,
           "line_count": 1089,
           "required": true,
           "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -813,13 +813,13 @@
           "filename": "AIR_GROUNDING_EXECUTOR.json",
           "canonical_role": "EXECUTOR_LAYER",
           "designation": "AIR_GROUNDING_EXECUTOR_V2",
-          "version": "2.3.3",
+          "version": "2.3.4",
           "artifact_class": "AIR_EXECUTOR_LAYER",
           "profile_kind": "EXECUTOR_CONTRACT",
           "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
           "status": "V2_GROUNDING_REMEDIATED_VALIDATED_AVAILABLE_UNBOUND",
-          "sha256": "3642077cac2300adf120dfe63db24bbfb10ac58738c5a96193f4f23fa023474a",
-          "size_bytes": 12821,
+          "sha256": "a0694a8844ecdcb8b95b6fbbcb7e790a64f4049a6ba995f7da472ad1b545a8cb",
+          "size_bytes": 12805,
           "line_count": 313,
           "required": true,
           "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -831,14 +831,14 @@
       "id": "AIR-GROUND-039",
       "type": "sha256_equals",
       "path": "prompts/AIR_CORE_RUNTIME.md",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
       "requirement": "Grounding foundation seal remains bound to current AIR_CORE_RUNTIME.md bytes."
     },
     {
       "id": "AIR-GROUND-040",
       "type": "sha256_equals",
       "path": "prompts/AIR_CONTROL_SURFACE.md",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
       "requirement": "Grounding foundation seal remains bound to current AIR_CONTROL_SURFACE.md bytes."
     },
     {
@@ -852,14 +852,14 @@
       "id": "AIR-GROUND-042",
       "type": "sha256_equals",
       "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
       "requirement": "Grounding foundation seal remains bound to current AIR_DEFAULT_STARTER_PROFILE.json bytes."
     },
     {
       "id": "AIR-GROUND-043",
       "type": "sha256_equals",
       "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
       "requirement": "Grounding foundation seal remains bound to current AIR_HANDOFF_CARD_TEMPLATE.json bytes."
     },
     {
@@ -870,8 +870,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
         "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
-        "size_bytes": 53276,
+        "sha256": "3138ceacc37b3934f4ae967a170c6c1740f6b30c6cfdbb5f390d62d2de43884b",
+        "size_bytes": 53260,
         "line_count": 892,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -885,8 +885,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
         "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
-        "size_bytes": 53276,
+        "sha256": "3138ceacc37b3934f4ae967a170c6c1740f6b30c6cfdbb5f390d62d2de43884b",
+        "size_bytes": 53260,
         "line_count": 892,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -900,8 +900,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_METHOD_PACK_V2",
         "filename": "AIR_GROUNDING_METHOD_PACK.json",
-        "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
-        "size_bytes": 57589,
+        "sha256": "266a163a23b9ff4907e91e9c49b76cfd9bdf58e2807e13921bda6b42bccccb9b",
+        "size_bytes": 57573,
         "line_count": 1213,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -915,8 +915,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
         "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-        "sha256": "26c8b4ecc2ca2c3621e196c5df36bd529414f58fe7172feef6c22b7aa4c52ba5",
-        "size_bytes": 53276,
+        "sha256": "3138ceacc37b3934f4ae967a170c6c1740f6b30c6cfdbb5f390d62d2de43884b",
+        "size_bytes": 53260,
         "line_count": 892,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -930,8 +930,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_METHOD_PACK_V2",
         "filename": "AIR_GROUNDING_METHOD_PACK.json",
-        "sha256": "4dea45c48188308e2580aec60d7f04d67148d6d3b615da23caef258f33cf46bd",
-        "size_bytes": 57589,
+        "sha256": "266a163a23b9ff4907e91e9c49b76cfd9bdf58e2807e13921bda6b42bccccb9b",
+        "size_bytes": 57573,
         "line_count": 1213,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -945,8 +945,8 @@
       "expected": {
         "designation": "AIR_GROUNDING_SPECIALIST_V2",
         "filename": "AIR_GROUNDING_SPECIALIST.json",
-        "sha256": "9329ee1e3c0c8178eaa973af20d64326b8a8bb411eb355b40f2c6477012f1ea6",
-        "size_bytes": 62127,
+        "sha256": "0ab29737fd31a122219d939206eba59a116ec2b1c77f58ec77741e86dfbdcadb",
+        "size_bytes": 62125,
         "line_count": 1089,
         "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
       },
@@ -965,7 +965,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-02-PARSE",
@@ -980,7 +980,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
-      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+      "expected": "fe87dccea180683b4b8be72940ab455954b8354cf91a6190d1c9688ea3bcdb07"
     },
     {
       "id": "GOV4-03-PARSE",
@@ -995,7 +995,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+      "expected": "7c9b75a1cc7698c3923196bbca360c5859bf14abb1b7ccfbac50e2e7c508e424"
     },
     {
       "id": "GOV4-04-PARSE",
@@ -1010,7 +1010,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
-      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+      "expected": "98e2307ecec854baad39bf8066e17efe3ac6e8ba281544aec3a2d793fa14f0a7"
     },
     {
       "id": "GOV4-05-PARSE",
@@ -1025,7 +1025,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
-      "expected": "850ea186f880c997fb9fef4a8e8f39e45fa99480fa9b175b848fe55b74175700"
+      "expected": "b18f1e7dfd370d611f72b569a5457393947f4c0fde70472fde5926137bfac32f"
     },
     {
       "id": "GOV4-06-PARSE",
@@ -1040,7 +1040,7 @@
       "test_class": "REPRODUCIBLE_EXECUTABLE",
       "type": "sha256_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
-      "expected": "bccfed71c349d9a888c7f2059ab6d7c800be72b48cbf8ebfd8537e58798a8405"
+      "expected": "44597a6b52dcd2cebd1518cf26b3e209aa6dd319fac8404d26ccebbe7df12ffc"
     },
     {
       "id": "GOV4-V01",
@@ -1049,7 +1049,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "package_version",
-      "expected": "2.3.3"
+      "expected": "2.3.4"
     },
     {
       "id": "GOV4-F01-00-VER",
@@ -1058,7 +1058,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F01-00-SHA",
@@ -1067,7 +1067,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F01-01-VER",
@@ -1076,7 +1076,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F01-01-SHA",
@@ -1085,7 +1085,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F01-02-VER",
@@ -1112,7 +1112,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F01-03-SHA",
@@ -1121,7 +1121,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F01-04-VER",
@@ -1139,7 +1139,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R01-00",
@@ -1220,7 +1220,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "package_version",
-      "expected": "2.3.3"
+      "expected": "2.3.4"
     },
     {
       "id": "GOV4-F02-00-VER",
@@ -1229,7 +1229,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F02-00-SHA",
@@ -1238,7 +1238,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F02-01-VER",
@@ -1247,7 +1247,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F02-01-SHA",
@@ -1256,7 +1256,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F02-02-VER",
@@ -1283,7 +1283,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F02-03-SHA",
@@ -1292,7 +1292,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F02-04-VER",
@@ -1310,7 +1310,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R02-00",
@@ -1391,7 +1391,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "json_path": "dependencies.0.sha256",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-V03",
@@ -1400,7 +1400,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "package_version",
-      "expected": "2.3.3"
+      "expected": "2.3.4"
     },
     {
       "id": "GOV4-F03-00-VER",
@@ -1409,7 +1409,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F03-00-SHA",
@@ -1418,7 +1418,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F03-01-VER",
@@ -1427,7 +1427,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F03-01-SHA",
@@ -1436,7 +1436,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F03-02-VER",
@@ -1463,7 +1463,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F03-03-SHA",
@@ -1472,7 +1472,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F03-04-VER",
@@ -1490,7 +1490,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R03-00",
@@ -1571,7 +1571,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "dependencies.0.sha256",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-I03-002",
@@ -1580,7 +1580,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
       "json_path": "dependencies.1.sha256",
-      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+      "expected": "fe87dccea180683b4b8be72940ab455954b8354cf91a6190d1c9688ea3bcdb07"
     },
     {
       "id": "GOV4-V04",
@@ -1589,7 +1589,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "package_version",
-      "expected": "2.3.3"
+      "expected": "2.3.4"
     },
     {
       "id": "GOV4-F04-00-VER",
@@ -1598,7 +1598,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F04-00-SHA",
@@ -1607,7 +1607,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F04-01-VER",
@@ -1616,7 +1616,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F04-01-SHA",
@@ -1625,7 +1625,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F04-02-VER",
@@ -1652,7 +1652,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F04-03-SHA",
@@ -1661,7 +1661,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F04-04-VER",
@@ -1679,7 +1679,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R04-00",
@@ -1760,7 +1760,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "dependencies.0.sha256",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-I04-002",
@@ -1769,7 +1769,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "dependencies.1.sha256",
-      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+      "expected": "fe87dccea180683b4b8be72940ab455954b8354cf91a6190d1c9688ea3bcdb07"
     },
     {
       "id": "GOV4-I04-003",
@@ -1778,7 +1778,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
       "json_path": "dependencies.2.sha256",
-      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+      "expected": "7c9b75a1cc7698c3923196bbca360c5859bf14abb1b7ccfbac50e2e7c508e424"
     },
     {
       "id": "GOV4-V05",
@@ -1787,7 +1787,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "package_version",
-      "expected": "2.3.3"
+      "expected": "2.3.4"
     },
     {
       "id": "GOV4-F05-00-VER",
@@ -1796,7 +1796,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F05-00-SHA",
@@ -1805,7 +1805,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F05-01-VER",
@@ -1814,7 +1814,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F05-01-SHA",
@@ -1823,7 +1823,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F05-02-VER",
@@ -1850,7 +1850,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F05-03-SHA",
@@ -1859,7 +1859,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F05-04-VER",
@@ -1877,7 +1877,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R05-00",
@@ -1958,7 +1958,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "dependencies.0.sha256",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-I05-002",
@@ -1967,7 +1967,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "dependencies.1.sha256",
-      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+      "expected": "fe87dccea180683b4b8be72940ab455954b8354cf91a6190d1c9688ea3bcdb07"
     },
     {
       "id": "GOV4-I05-003",
@@ -1976,7 +1976,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "dependencies.2.sha256",
-      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+      "expected": "7c9b75a1cc7698c3923196bbca360c5859bf14abb1b7ccfbac50e2e7c508e424"
     },
     {
       "id": "GOV4-I05-004",
@@ -1985,7 +1985,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
       "json_path": "dependencies.3.sha256",
-      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+      "expected": "98e2307ecec854baad39bf8066e17efe3ac6e8ba281544aec3a2d793fa14f0a7"
     },
     {
       "id": "GOV4-V06",
@@ -1994,7 +1994,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "PACKAGE_VERSION",
-      "expected": "2.3.4"
+      "expected": "2.3.5"
     },
     {
       "id": "GOV4-F06-00-VER",
@@ -2003,7 +2003,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.0.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F06-00-SHA",
@@ -2012,7 +2012,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.0.sha256",
-      "expected": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6"
+      "expected": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516"
     },
     {
       "id": "GOV4-F06-01-VER",
@@ -2021,7 +2021,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.1.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F06-01-SHA",
@@ -2030,7 +2030,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.1.sha256",
-      "expected": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c"
+      "expected": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001"
     },
     {
       "id": "GOV4-F06-02-VER",
@@ -2057,7 +2057,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.3.version",
-      "expected": "2.4.1"
+      "expected": "2.4.2"
     },
     {
       "id": "GOV4-F06-03-SHA",
@@ -2066,7 +2066,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.3.sha256",
-      "expected": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b"
+      "expected": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32"
     },
     {
       "id": "GOV4-F06-04-VER",
@@ -2084,7 +2084,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "foundation_compatibility.required_files.4.sha256",
-      "expected": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0"
+      "expected": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5"
     },
     {
       "id": "GOV4-R06-00",
@@ -2165,7 +2165,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.0.sha256",
-      "expected": "31ecd6b5334e858416ccc59af5d3ac143f811ab60b2d4cf51f0352f9b570b90a"
+      "expected": "dda2ac96a70d2f1a07772dbbd4937a1b1386d87b74149d1857436bf22f3db797"
     },
     {
       "id": "GOV4-I06-002",
@@ -2174,7 +2174,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.0.size_bytes",
-      "expected": 36310
+      "expected": 36298
     },
     {
       "id": "GOV4-I06-003",
@@ -2192,7 +2192,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.1.sha256",
-      "expected": "8d37dcdb2fd88a80f4916f05a548625de673ec1493f98c0a187ef81117dfb167"
+      "expected": "fe87dccea180683b4b8be72940ab455954b8354cf91a6190d1c9688ea3bcdb07"
     },
     {
       "id": "GOV4-I06-005",
@@ -2201,7 +2201,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.1.size_bytes",
-      "expected": 19047
+      "expected": 19035
     },
     {
       "id": "GOV4-I06-006",
@@ -2219,7 +2219,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.2.sha256",
-      "expected": "5d73f8b14087b8859fcc4483c72393f3b2c8cdede1fec4aaf7a9e968031303c3"
+      "expected": "7c9b75a1cc7698c3923196bbca360c5859bf14abb1b7ccfbac50e2e7c508e424"
     },
     {
       "id": "GOV4-I06-008",
@@ -2228,7 +2228,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.2.size_bytes",
-      "expected": 32008
+      "expected": 31996
     },
     {
       "id": "GOV4-I06-009",
@@ -2246,7 +2246,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.3.sha256",
-      "expected": "94af77c2073ab6527bd61f6988b5426c54fe32c9cd0053475839e9e7379dfd5e"
+      "expected": "98e2307ecec854baad39bf8066e17efe3ac6e8ba281544aec3a2d793fa14f0a7"
     },
     {
       "id": "GOV4-I06-011",
@@ -2255,7 +2255,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.3.size_bytes",
-      "expected": 50775
+      "expected": 50763
     },
     {
       "id": "GOV4-I06-012",
@@ -2273,7 +2273,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.4.sha256",
-      "expected": "850ea186f880c997fb9fef4a8e8f39e45fa99480fa9b175b848fe55b74175700"
+      "expected": "b18f1e7dfd370d611f72b569a5457393947f4c0fde70472fde5926137bfac32f"
     },
     {
       "id": "GOV4-I06-014",
@@ -2282,7 +2282,7 @@
       "type": "json_value_equals",
       "path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "json_path": "components.4.size_bytes",
-      "expected": 20686
+      "expected": 20674
     },
     {
       "id": "GOV4-I06-015",
@@ -2354,7 +2354,7 @@
     {
       "type": "sha256_equals",
       "path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "AIR_DOMAIN_CAPABILITY_REGISTRY.json exact bytes must match the Group 5 seal",
       "id": "CAP5-002",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2363,7 +2363,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_DOMAIN_CAPABILITY_REGISTRY.json must expose the Group 5 package version",
       "id": "CAP5-003",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2390,7 +2390,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_DOMAIN_CAPABILITY_REGISTRY.json integration refresh must be 2.3.4",
       "id": "CAP5-005",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2400,10 +2400,10 @@
       "path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_DOMAIN_CAPABILITY_REGISTRY.json must declare current five-file foundation versions",
@@ -2429,7 +2429,7 @@
     {
       "type": "sha256_equals",
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "expected": "1050a7cf5fc445971d539a2f1a180f3daafbbad4fbbef9aa6ba122466e77b71b",
+      "expected": "2d4217d87df961e5893e2973380272d6724afd6bc380a468b3831d45d88416f6",
       "requirement": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json exact bytes must match the Group 5 seal",
       "id": "CAP5-009",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2438,7 +2438,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json must expose the Group 5 package version",
       "id": "CAP5-010",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2465,7 +2465,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json integration refresh must be 2.3.4",
       "id": "CAP5-012",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2475,10 +2475,10 @@
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json must declare current five-file foundation versions",
@@ -2498,7 +2498,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "json_path": "external_dependency_state.domain_capability_registry.observed_sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json observed_sha256",
       "id": "CAP5-015",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2513,7 +2513,7 @@
     {
       "type": "sha256_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "expected": "f5a4f4358a39c31bdbe5210e6267d17de6b548387a02f5469a574fc8e896077a",
+      "expected": "05f9651d08dbc8406b83e0e4130ecddb053f379b59018bc630c32e3857a4fe9d",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json exact bytes must match the Group 5 seal",
       "id": "CAP5-017",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2522,7 +2522,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json must expose the Group 5 package version",
       "id": "CAP5-018",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2549,7 +2549,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json integration refresh must be 2.3.4",
       "id": "CAP5-020",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2559,10 +2559,10 @@
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json must declare current five-file foundation versions",
@@ -2586,20 +2586,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -2613,20 +2613,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json exact foundation identities must match current main",
@@ -2637,7 +2637,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "json_path": "external_dependency_state.domain_capability_registry.sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json sha256",
       "id": "CAP5-024",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2646,7 +2646,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "json_path": "external_dependency_state.human_to_machine_capability_translator.sha256",
-      "expected": "1050a7cf5fc445971d539a2f1a180f3daafbbad4fbbef9aa6ba122466e77b71b",
+      "expected": "2d4217d87df961e5893e2973380272d6724afd6bc380a468b3831d45d88416f6",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json must pin current AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json sha256",
       "id": "CAP5-025",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2661,7 +2661,7 @@
     {
       "type": "sha256_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
-      "expected": "c291648d3eaa4d539a606662b78f65213ac356fd4b19efbe9207d5096f9d160e",
+      "expected": "987d759e737c02b74dd905cd817034c42b8250ad5b667f746953a4d53f9acd45",
       "requirement": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json exact bytes must match the Group 5 seal",
       "id": "CAP5-027",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2670,7 +2670,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "package_version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must expose the Group 5 package version",
       "id": "CAP5-028",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2697,7 +2697,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json integration refresh must be 2.3.4",
       "id": "CAP5-030",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2707,10 +2707,10 @@
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must declare current five-file foundation versions",
@@ -2734,20 +2734,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -2761,20 +2761,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json exact foundation identities must match current main",
@@ -2785,7 +2785,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "external_dependency_state.domain_capability_registry.observed_sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json observed_sha256",
       "id": "CAP5-034",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2794,7 +2794,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "external_dependency_state.human_to_machine_capability_translator.observed_sha256",
-      "expected": "1050a7cf5fc445971d539a2f1a180f3daafbbad4fbbef9aa6ba122466e77b71b",
+      "expected": "2d4217d87df961e5893e2973380272d6724afd6bc380a468b3831d45d88416f6",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json observed_sha256",
       "id": "CAP5-035",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2803,7 +2803,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "external_dependency_state.capability_ecology_architect.observed_sha256",
-      "expected": "f5a4f4358a39c31bdbe5210e6267d17de6b548387a02f5469a574fc8e896077a",
+      "expected": "05f9651d08dbc8406b83e0e4130ecddb053f379b59018bc630c32e3857a4fe9d",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_CAPABILITY_ECOLOGY_ARCHITECT.json observed_sha256",
       "id": "CAP5-036",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2812,7 +2812,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "dependencies.0.sha256",
-      "expected": "f5a4f4358a39c31bdbe5210e6267d17de6b548387a02f5469a574fc8e896077a",
+      "expected": "05f9651d08dbc8406b83e0e4130ecddb053f379b59018bc630c32e3857a4fe9d",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_CAPABILITY_ECOLOGY_ARCHITECT.json sha256",
       "id": "CAP5-037",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2821,7 +2821,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "dependencies.1.sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json sha256",
       "id": "CAP5-038",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2830,7 +2830,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "json_path": "dependencies.2.sha256",
-      "expected": "1050a7cf5fc445971d539a2f1a180f3daafbbad4fbbef9aa6ba122466e77b71b",
+      "expected": "2d4217d87df961e5893e2973380272d6724afd6bc380a468b3831d45d88416f6",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json must pin current AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json sha256",
       "id": "CAP5-039",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2845,7 +2845,7 @@
     {
       "type": "sha256_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
-      "expected": "90f24f7cad136e2ffd6873380f7a18ab3a53cc3b2b37ba5fe458a21621eeb351",
+      "expected": "4e1b041d725c954c2e8cc17b086e0b6faa864c825d7fe3dc3bc3b405ed3ab278",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json exact bytes must match the Group 5 seal",
       "id": "CAP5-041",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2854,7 +2854,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "PACKAGE_VERSION",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must expose the Group 5 package version",
       "id": "CAP5-042",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2881,7 +2881,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "integration_refresh.refresh_version",
-      "expected": "2.3.4",
+      "expected": "2.3.5",
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json integration refresh must be 2.3.4",
       "id": "CAP5-044",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2891,10 +2891,10 @@
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "integration_refresh.mainline_release_binding.foundation_versions",
       "expected": {
-        "core": "2.4.1",
-        "control": "2.4.1",
+        "core": "2.4.2",
+        "control": "2.4.2",
         "governance": "2.2.0",
-        "starter": "2.4.1",
+        "starter": "2.4.2",
         "handoff_schema": "2.2.0"
       },
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must declare current five-file foundation versions",
@@ -2918,20 +2918,20 @@
         {
           "filename": "AIR_CORE_RUNTIME.md",
           "designation": "AIR_CORE_RUNTIME_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "137e11e7214f6d0fb1b6a15ffadbf2836d3ff1d19a81feda05d55dc4fee05ce6",
-          "size_bytes": 284040,
-          "line_count": 6295
+          "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
+          "size_bytes": 287895,
+          "line_count": 6328
         },
         {
           "filename": "AIR_CONTROL_SURFACE.md",
           "designation": "AIR_CONTROL_SURFACE_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "FOUNDATION_PROMPT",
-          "sha256": "e38a7eb7316fb4785dc2d7ca72e41b2a031356e02e4e03346d5cd3def8a6aa0c",
-          "size_bytes": 129595,
-          "line_count": 2892
+          "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
+          "size_bytes": 131505,
+          "line_count": 2924
         },
         {
           "filename": "AIR_GOV.md",
@@ -2945,20 +2945,20 @@
         {
           "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
           "designation": "AIR_DEFAULT_STARTER_V2",
-          "version": "2.4.1",
+          "version": "2.4.2",
           "class": "TASK_COMPOSITE",
-          "sha256": "9fe3db812e90bc8bb1f2201695c279f465c41b16bc0dbd5a564272119d54f56b",
-          "size_bytes": 66452,
-          "line_count": 1462
+          "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
+          "size_bytes": 67928,
+          "line_count": 1502
         },
         {
           "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
           "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
           "version": "2.2.0",
           "class": "TEMPLATE",
-          "sha256": "582c41b0dd0af97ae1774fe19ef2f1dd605a1cd1507837239d8dd8e204284dd0",
-          "size_bytes": 39418,
-          "line_count": 853
+          "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+          "size_bytes": 40238,
+          "line_count": 870
         }
       ],
       "requirement": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json exact foundation identities must match current main",
@@ -2969,7 +2969,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.0.sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json sha256",
       "id": "CAP5-048",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -2996,7 +2996,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.0.version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_DOMAIN_CAPABILITY_REGISTRY.json component version",
       "id": "CAP5-051",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3005,7 +3005,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.1.sha256",
-      "expected": "1050a7cf5fc445971d539a2f1a180f3daafbbad4fbbef9aa6ba122466e77b71b",
+      "expected": "2d4217d87df961e5893e2973380272d6724afd6bc380a468b3831d45d88416f6",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json sha256",
       "id": "CAP5-052",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3032,7 +3032,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.1.version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json component version",
       "id": "CAP5-055",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3041,7 +3041,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.2.sha256",
-      "expected": "f5a4f4358a39c31bdbe5210e6267d17de6b548387a02f5469a574fc8e896077a",
+      "expected": "05f9651d08dbc8406b83e0e4130ecddb053f379b59018bc630c32e3857a4fe9d",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_ARCHITECT.json sha256",
       "id": "CAP5-056",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3050,7 +3050,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.2.size_bytes",
-      "expected": 84615,
+      "expected": 84599,
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_ARCHITECT.json size_bytes",
       "id": "CAP5-057",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3068,7 +3068,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.2.version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_ARCHITECT.json component version",
       "id": "CAP5-059",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3077,7 +3077,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.3.sha256",
-      "expected": "c291648d3eaa4d539a606662b78f65213ac356fd4b19efbe9207d5096f9d160e",
+      "expected": "987d759e737c02b74dd905cd817034c42b8250ad5b667f746953a4d53f9acd45",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json sha256",
       "id": "CAP5-060",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3086,7 +3086,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.3.size_bytes",
-      "expected": 73992,
+      "expected": 73976,
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json size_bytes",
       "id": "CAP5-061",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3104,7 +3104,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "components.3.version",
-      "expected": "2.3.3",
+      "expected": "2.3.4",
       "requirement": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json must pin current AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json component version",
       "id": "CAP5-063",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3113,7 +3113,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "json_path": "status",
-      "expected": "V2_3_4_OPERATIVE_COMPATIBILITY_AUTHORITY_RESEALED_AVAILABLE_UNBOUND",
+      "expected": "V2_3_5_OPERATIVE_COMPATIBILITY_AUTHORITY_RESEALED_AVAILABLE_UNBOUND",
       "requirement": "Capability Ecology manifest status must match package version 2.3.4",
       "id": "CAP5-064",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3122,7 +3122,7 @@
       "type": "json_value_equals",
       "path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "json_path": "external_dependency_state.domain_capability_registry.observed_sha256",
-      "expected": "9f770bffe0f19fcaf2c7a3fac329cdf23e1be2523ddd975da84f7aac7dbb20d8",
+      "expected": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857",
       "requirement": "Translator must pin the exact resealed Domain Capability Registry hash",
       "id": "CAP5-065",
       "test_class": "REPRODUCIBLE_EXECUTABLE"
@@ -3379,6 +3379,167 @@
       "path": "README.md",
       "text": "release-v0.2.5",
       "expected": true
+    },
+    {
+      "id": "ANTI-DRIFT-001",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "PROMPT_VERSION: 2.4.2",
+      "requirement": "Core identifies the anti-drift runtime revision.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-002",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "Default object visibility mode:\n- ALL_OBJECTS",
+      "requirement": "Core defaults object visibility to ALL_OBJECTS.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-003",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "MINIMUM_REQUIRED_OBJECTS may become active only from an explicit user command/selection or restoration of that explicit selection from a valid Handoff Card.",
+      "requirement": "Core forbids silent switch to minimum object mode.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-004",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "- AIR_ALIGNMENT_CHECK: ALIGNMENT_WATCHDOG_RECORD",
+      "requirement": "Core registers AIR_ALIGNMENT_CHECK as a canonical formal object.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-005",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "- PERIODIC_ALIGNMENT_CHECK: run on every fifth substantive post-activation user message after ARTIFACT_BOUND_EXECUTION is established",
+      "requirement": "Core defines the five-user-message periodic alignment cadence.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-006",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "Artifact revision, assistant-message count, tool-call count, connector callback count, system-event count, and hidden host-event count are not cadence counters.",
+      "requirement": "Artifact revision and non-user events cannot drive the alignment cadence.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-007",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "Every periodic check must emit AIR_ALIGNMENT_CHECK followed immediately by AIR_VALIDATION_REPORT",
+      "requirement": "Periodic alignment checks always surface the dedicated check and validation report.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-008",
+      "type": "text_contains",
+      "path": "prompts/AIR_CORE_RUNTIME.md",
+      "text": "If drift is detected, set drift_detected=true, alignment_state=DRIFT_DETECTED, recovery_state=ALIGNMENT_RECOVERY_SURFACE_TRIGGERED",
+      "requirement": "Detected drift triggers alignment recovery.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-009",
+      "type": "text_contains",
+      "path": "prompts/AIR_CONTROL_SURFACE.md",
+      "text": "ALL_OBJECTS is the default. MINIMUM_REQUIRED_OBJECTS may be entered only through explicit user selection",
+      "requirement": "Control Surface renders ALL_OBJECTS as the default and protects the override boundary.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-010",
+      "type": "text_contains",
+      "path": "prompts/AIR_CONTROL_SURFACE.md",
+      "text": "AIR PERIODIC ALIGNMENT CHECK SURFACE LAW",
+      "requirement": "Control Surface defines dedicated periodic alignment rendering.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-011",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "output_contract.default_object_visibility",
+      "expected": "ALL_OBJECTS",
+      "requirement": "Starter defaults object visibility to ALL_OBJECTS.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-012",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "typed_registries.system_modifiers.1.default",
+      "expected": true,
+      "requirement": "air -o on is the default object-visibility modifier state.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-013",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "typed_registries.system_modifiers.0.default",
+      "expected": false,
+      "requirement": "air -o -min is opt-in rather than default.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-014",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "action_governance_contract.periodic_alignment_contract.alignment_check_interval_user_messages",
+      "expected": 5,
+      "requirement": "Starter pins the periodic alignment interval to five user messages.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-015",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "json_path": "action_governance_contract.periodic_alignment_contract.event_watchdog_resets_periodic_counter",
+      "expected": false,
+      "requirement": "Event-triggered watchdog runs cannot reset the periodic counter.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-016",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.object_visibility_mode",
+      "expected": "ALL_OBJECTS",
+      "requirement": "Handoff default visible-state posture is ALL_OBJECTS.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-017",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.action_governance_state.runtime_watchdog_state.alignment_check_interval_user_messages",
+      "expected": 5,
+      "requirement": "Handoff preserves the five-user-message alignment cadence.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-018",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.action_governance_state.runtime_watchdog_state.next_periodic_alignment_check_at_count",
+      "expected": 5,
+      "requirement": "Fresh Handoff cadence initializes the next check at count five.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
+    },
+    {
+      "id": "ANTI-DRIFT-019",
+      "type": "json_value_equals",
+      "path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "json_path": "AIR_HANDOFF_CARD.card_revision",
+      "expected": 8,
+      "requirement": "Handoff template revision advances for anti-drift cadence/default serialization.",
+      "test_class": "REPRODUCIBLE_EXECUTABLE"
     }
   ]
 }
