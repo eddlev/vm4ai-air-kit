@@ -1,0 +1,237 @@
+{
+  "title": "AIR Specification-First Verification Executor v2",
+  "SYSTEM_DESIGNATION": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "EXECUTOR_CONTRACT",
+  "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+  "artifact_class": "AIR_EXECUTOR_LAYER",
+  "package_version": "2.3.6",
+  "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_EXECUTOR",
+  "STATUS": "V2_3_6_FOCUSED_BEHAVIORAL_SMOKE_PASS_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "legal_compliance_claimed": false,
+  "professional_equivalence_claimed": false,
+  "STANDARD_CODE": "AIR.EXECUTOR.SFV.V2.BOUNDED.TRACE.CHECK.CLASSIFY.COMPARE.RECONCILE.NON_AGENT",
+  "description": "Bounded non-agent Executor layer for mechanical or explicitly review-classified Specification-First Verification operations authorized by the bound Orbit 0 AIR_ARTIFACT and governed by the SFV Method Pack.",
+  "source_baseline": {
+    "source_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK(4).json",
+    "repository_path": "profiles/specification first method pack/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+    "repository_commit": "2d27a00829ef95f33e4a7b9eac7b6f817a25078a",
+    "repository_git_blob_sha1": "5b219c2d264df8e0c3e79360953b58d0ae82b532",
+    "source_system_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+    "sha256": "1bf9f36195784552c6c6518c29ca23283cd7d4044be10562f043ffae9aa6d639",
+    "size_bytes": 29150,
+    "line_count": 638,
+    "source_immutable": true,
+    "promotion_class": "STANDALONE_METHOD_TO_COMPLETE_SPECIALIST_PACKAGE"
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
+        "size_bytes": 317031,
+        "line_count": 6511
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
+        "size_bytes": 141998,
+        "line_count": 2983
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.2.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
+        "size_bytes": 20557,
+        "line_count": 453
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.4.3",
+        "class": "TASK_COMPOSITE",
+        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
+        "size_bytes": 78895,
+        "line_count": 1565
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.2.0",
+        "class": "TEMPLATE",
+        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
+        "size_bytes": 40238,
+        "line_count": 870
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017",
+      "AIR-FLOOR-018",
+      "AIR-FLOOR-019",
+      "AIR-FLOOR-020"
+    ],
+    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+    "canonical_role": "SPECIFICATION_FIRST_VERIFICATION_EXECUTOR_LAYER",
+    "safe_filename_required": true,
+    "exact_delivery_validation_required": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_EXECUTOR_LAYER",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "may_occupy_orbit_0_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Execute only bounded verification operations explicitly authorized by the bound Orbit 0 AIR_ARTIFACT, current method step, current evidence/tool permissions, and AIR_GATE."
+  },
+  "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "dependencies": [
+    {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "sha256": "79f039b42e9593a46884ec8e1535fc321b8cee737a6e535abcb0ed82e32d7c7d",
+      "size_bytes": 19019,
+      "line_count": 376,
+      "required": true,
+      "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "sha256": "2e2be32b1c7272c3a239f22224bf6130ef602c5474716c9deaaa2432fd446f8e",
+      "size_bytes": 36825,
+      "line_count": 806,
+      "required": true,
+      "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "sha256": "80506e8ecf6bcaa215922d2f52bce949129b1b3c2fcd20464512cad57dce8a9a",
+      "size_bytes": 14111,
+      "line_count": 310,
+      "required": true,
+      "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "allowed_operations": [
+    "construct traceability mappings from canonical acceptance criteria to verification items",
+    "classify verification items by verification layer",
+    "check for canonical criteria with no verification path",
+    "check for verification items with no canonical target",
+    "classify planned versus observed evidence",
+    "compare observed results with predeclared expectations",
+    "identify stale or invalidated verification evidence from supplied state",
+    "compile deterministic fixtures or test definitions when the active method selects executable testing",
+    "run authorized bounded checks with available permitted tools when the active contract explicitly allows tool execution",
+    "localize failed verification items to affected specification targets",
+    "produce intent-reconciliation and closure-readiness candidates without approving closure"
+  ],
+  "prohibited_operations": [
+    "independent task selection",
+    "independent scope expansion",
+    "self approval or binding",
+    "creating or changing canonical intent or acceptance criteria without authorized rescope",
+    "treating planned verification as observed evidence",
+    "claiming a check ran when no tool, source, operator, or reviewer evidence exists",
+    "claiming production readiness, compliance, safety, or truth from narrow verification results",
+    "occupying Orbit 0 as a layer",
+    "using external tools, systems, credentials, or mutation authority without explicit current authorization"
+  ],
+  "execution_preconditions": [
+    "exactly one bound Orbit 0 AIR_ARTIFACT authorizes the operation",
+    "current SFV method step and method_step_gate are known or the operation is an explicitly allowed light-path check",
+    "required source, tool, environment, evaluator, permission and approval states are satisfied or explicitly unresolved",
+    "expected output and failure route are defined"
+  ],
+  "execution_outputs": [
+    "AIR_SFV_EXECUTION_RESULT_CANDIDATE",
+    "traceability_map",
+    "verification_layer_classification",
+    "coverage_gap_report",
+    "evidence_classification",
+    "verification_result_comparison",
+    "failure_localization",
+    "staleness_signal",
+    "intent_reconciliation_candidate",
+    "next_gate_recommendation"
+  ],
+  "execution_contract": {
+    "operation_type": "BOUNDED_VERIFICATION",
+    "autonomous_agent": false,
+    "network_required": "TASK_DEPENDENT",
+    "tool_required": "TASK_DEPENDENT",
+    "external_effect_authority": "NONE_UNLESS_EXPLICITLY_GRANTED_BY_CURRENT_BOUND_ARTIFACT_AND_AIR_GATE",
+    "backend_validation_claimed": false
+  },
+  "package_completion_contract": {
+    "component_count": 4,
+    "manifest_required": true,
+    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+  },
+  "integration_refresh": {
+    "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+    "refresh_version": "2.3.6",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "mainline_release_binding": {
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
+      "integration_version": "2.3.6",
+      "foundation_versions": {
+        "core": "2.4.3",
+        "control": "2.4.3",
+        "governance": "2.2.0",
+        "starter": "2.4.3",
+        "handoff_schema": "2.2.0"
+      },
+      "functional_component_change": true,
+      "promotion_state": "NEW_EXECUTOR_COMPONENT_FOCUSED_SMOKE_PASS_OPERATIONALLY_ACCEPTED"
+    }
+  }
+}

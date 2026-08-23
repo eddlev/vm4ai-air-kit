@@ -6,9 +6,9 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "artifact_class": "AIR_DOMAIN_PACKAGE",
-  "package_version": "2.3.4",
+  "package_version": "2.3.5",
   "package_subtype": "AI_GOVERNANCE_DOMAIN_PACKAGE",
-  "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -33,45 +33,45 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.4.2",
+        "version": "2.4.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "8841a9478eec756442311b8f31ae57253678a0bf9829e0fd1629263677bbb516",
-        "size_bytes": 287895,
-        "line_count": 6328
+        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
+        "size_bytes": 317031,
+        "line_count": 6511
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.4.2",
+        "version": "2.4.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "0041ca5229ab19feeb2013b14e52517723e60bfd8155fc854833ee2fab461001",
-        "size_bytes": 131505,
-        "line_count": 2924
+        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
+        "size_bytes": 141998,
+        "line_count": 2983
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.2.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "bab7761585dd7cee1da4f457f23ad8f4b87f00e5a45abe1fb3ba4cb443b89aa2",
-        "size_bytes": 20226,
-        "line_count": 451
+        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
+        "size_bytes": 20557,
+        "line_count": 453
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.4.2",
+        "version": "2.4.3",
         "class": "TASK_COMPOSITE",
-        "sha256": "26f914d1e88d0716665e4701eeba719ff3e62aed5c3ae8a7c1c556862f551e32",
-        "size_bytes": 67928,
-        "line_count": 1502
+        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
+        "size_bytes": 78895,
+        "line_count": 1565
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.2.0",
         "class": "TEMPLATE",
-        "sha256": "ac5193c85328c1df5d651123ca59d5632a483517b2fce93c30aae46d1d97aab5",
+        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
         "size_bytes": 40238,
         "line_count": 870
       }
@@ -720,20 +720,20 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.5",
+    "refresh_version": "2.3.6",
     "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_5",
-      "integration_version": "2.3.5",
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
+      "integration_version": "2.3.6",
       "foundation_versions": {
-        "core": "2.4.2",
-        "control": "2.4.2",
+        "core": "2.4.3",
+        "control": "2.4.3",
         "governance": "2.2.0",
-        "starter": "2.4.2",
+        "starter": "2.4.3",
         "handoff_schema": "2.2.0"
       },
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": true
+      "functional_component_change": false
     }
   }
 }

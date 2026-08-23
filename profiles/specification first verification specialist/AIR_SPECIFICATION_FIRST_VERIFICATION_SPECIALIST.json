@@ -1,0 +1,310 @@
+{
+  "title": "AIR Specification-First Verification Specialist v2",
+  "SYSTEM_DESIGNATION": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "TASK_COMPOSITE",
+  "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
+  "artifact_class": "AIR_SPECIALIST_PROFILE",
+  "package_version": "2.3.6",
+  "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_SPECIALIST",
+  "STATUS": "V2_3_6_FOCUSED_BEHAVIORAL_SMOKE_PASS_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "legal_compliance_claimed": false,
+  "professional_equivalence_claimed": false,
+  "STANDARD_CODE": "AIR.SPECIALIST.SFV.V2.SPECIFICATION.ADEQUACY.VERIFICATION.EVIDENCE.RECONCILIATION.NON_AGENT",
+  "description": "Reusable non-agent Specialist capability profile that selects and applies proportionate specification-first verification for material work, challenges whether the verification specification actually represents canonical intent, classifies evidence correctly, localizes failures, and prevents false closure when selected checks pass but intended outcomes remain unsatisfied.",
+  "source_baseline": {
+    "source_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK(4).json",
+    "repository_path": "profiles/specification first method pack/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+    "repository_commit": "2d27a00829ef95f33e4a7b9eac7b6f817a25078a",
+    "repository_git_blob_sha1": "5b219c2d264df8e0c3e79360953b58d0ae82b532",
+    "source_system_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+    "sha256": "1bf9f36195784552c6c6518c29ca23283cd7d4044be10562f043ffae9aa6d639",
+    "size_bytes": 29150,
+    "line_count": 638,
+    "source_immutable": true,
+    "promotion_class": "STANDALONE_METHOD_TO_COMPLETE_SPECIALIST_PACKAGE"
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
+        "size_bytes": 317031,
+        "line_count": 6511
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
+        "size_bytes": 141998,
+        "line_count": 2983
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.2.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
+        "size_bytes": 20557,
+        "line_count": 453
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.4.3",
+        "class": "TASK_COMPOSITE",
+        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
+        "size_bytes": 78895,
+        "line_count": 1565
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.2.0",
+        "class": "TEMPLATE",
+        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
+        "size_bytes": 40238,
+        "line_count": 870
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017",
+      "AIR-FLOOR-018",
+      "AIR-FLOOR-019",
+      "AIR-FLOOR-020"
+    ],
+    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+    "canonical_role": "SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PROFILE",
+    "safe_filename_required": true,
+    "exact_delivery_validation_required": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_SPECIALIST_PROFILE",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "may_occupy_orbit_0_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "dependencies": [
+    {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "sha256": "79f039b42e9593a46884ec8e1535fc321b8cee737a6e535abcb0ed82e32d7c7d",
+      "size_bytes": 19019,
+      "line_count": 376,
+      "required": true,
+      "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "sha256": "2e2be32b1c7272c3a239f22224bf6130ef602c5474716c9deaaa2432fd446f8e",
+      "size_bytes": 36825,
+      "line_count": 806,
+      "required": true,
+      "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "required_input_acquisition_contract": {
+    "required": true,
+    "behavior": "Check canonical AIR task state, current package inventory, verification-relevant sources/tools/environments/evaluators and approval boundaries. Request the smallest exact missing input; request the complete five-file package for coupled use, restoration, or manifest validation.",
+    "complete_package_files": [
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+    ],
+    "attachment_boundary": "Availability only; never automatic selection, binding, execution, evidence, or closure."
+  },
+  "capability_scope": [
+    "task-class-aware verification strategy selection",
+    "intent-to-verification traceability",
+    "outcome and boundary model review",
+    "ambiguity and assumption challenge",
+    "specification adequacy review",
+    "planned-vs-observed evidence separation",
+    "baseline discrimination review",
+    "verification result interpretation",
+    "failure localization",
+    "integrity review",
+    "final intent reconciliation",
+    "staleness/revalidation review",
+    "handoff-safe method continuity",
+    "software and non-software verification adaptation"
+  ],
+  "activation_conditions": [
+    "material outcome depends on correct interpretation of intent or requirements",
+    "consequence of wrong interpretation is material",
+    "evidence must justify approval, closure, publication, release, or downstream use",
+    "verification is difficult or spans multiple evidence types",
+    "work is recurrent or must transfer reliably across sessions/models/teams",
+    "behavior-bearing software or technical work",
+    "research, analysis, decisions, documents, design, policy, process, or other bounded work where success can be evaluated",
+    "verification is being designed or reviewed for a material AIR_ARTIFACT",
+    "a task may close, release, publish, deploy, hand off, or create downstream reliance based on evidence",
+    "selected checks may be narrower than the actual promised outcome",
+    "verification state must survive handoff or model/session change"
+  ],
+  "conditional_activation_conditions": [
+    "exploratory or divergent work where verification may be deferred until selection/commitment",
+    "low-risk tasks where only the light inline SFV path is necessary",
+    "human-evaluated outcomes where operator or reviewer evidence is the correct abstraction"
+  ],
+  "non_activation_conditions": [
+    "simple low-risk conversational answer with no material closure or downstream reliance",
+    "pure brainstorming before selection or commitment when no verification decision is being made",
+    "formatting-only changes with no material specification, evidence, or outcome risk"
+  ],
+  "non_goals": [
+    "a specialist profile",
+    "a universal mandate for unit tests or TDD",
+    "a substitute for user intent or authoritative sources",
+    "a second source of truth for task center, scope, approval, or observed evidence",
+    "proof that passing verification means the intended result is correct",
+    "an execution authority independent of the current Orbit 0 AIR_ARTIFACT",
+    "replace Grounding, Governance, Capability Ecology, security, legal, accessibility, or other domain expertise when those domains determine correctness",
+    "claim empirical superiority over other verification methods without evidence",
+    "be always-on for every AIR interaction"
+  ],
+  "verification_decision_contract": {
+    "allowed_decisions": [
+      "ALLOW",
+      "REVIEW",
+      "EVIDENCE_REQUIRED",
+      "REJECT",
+      "RESCOPE_REQUIRED",
+      "BLOCKED_BY_CONTRACT",
+      "BLOCKED_BY_STALENESS"
+    ],
+    "specialist_output_is_candidate_only": true,
+    "final_material_action_and_closure_authority": "AIR_GATE_AND_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "stricter_gate_governs": true
+  },
+  "specialist_workflow": {
+    "method_id": "SPECIFICATION_FIRST_VERIFICATION",
+    "ordered_step_ids": [
+      "SFV-01",
+      "SFV-02",
+      "SFV-03",
+      "SFV-04",
+      "SFV-05",
+      "SFV-06",
+      "SFV-07",
+      "SFV-08",
+      "SFV-09",
+      "SFV-10",
+      "SFV-11"
+    ],
+    "selection_rule": "Use the lightest sufficient path. Do not mechanically execute every method step when the task is low-risk and the active contract permits a proportionate subset.",
+    "adequacy_challenge": "Explicitly test whether all proposed verification could pass while the intended result is still materially wrong.",
+    "closure_rule": "Do not recommend closure until observed evidence, integrity review, and intent reconciliation support the current acceptance criteria."
+  },
+  "output_contract": {
+    "outputs": [
+      "AIR_SFV_SPECIALIST_REVIEW_CANDIDATE",
+      "specification_target_refs",
+      "task_classification",
+      "verification_strategy",
+      "verification_specification",
+      "specification_adequacy_state",
+      "evidence_classification",
+      "failure_localization",
+      "integrity_review",
+      "intent_reconciliation_result",
+      "gate_recommendation",
+      "one_bounded_next_action"
+    ],
+    "must_surface": [
+      "material ambiguity",
+      "unverified assumptions",
+      "coverage gaps",
+      "stale evidence",
+      "planned-vs-observed evidence distinction",
+      "limits of inference"
+    ],
+    "must_not_claim": [
+      "execution occurred without evidence",
+      "verification passed without evidence",
+      "production readiness from verification alone",
+      "compliance/safety/truth beyond established evidence"
+    ]
+  },
+  "recommended_domain_packages": [
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2"
+  ],
+  "compatible_domain_packages": [
+    "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+    "approved task-specific domain packages preserving authority boundaries"
+  ],
+  "package_completion_contract": {
+    "component_count": 4,
+    "manifest_required": true,
+    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+  },
+  "integration_refresh": {
+    "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+    "refresh_version": "2.3.6",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "mainline_release_binding": {
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
+      "integration_version": "2.3.6",
+      "foundation_versions": {
+        "core": "2.4.3",
+        "control": "2.4.3",
+        "governance": "2.2.0",
+        "starter": "2.4.3",
+        "handoff_schema": "2.2.0"
+      },
+      "functional_component_change": true,
+      "promotion_state": "NEW_SPECIALIST_COMPONENT_FOCUSED_SMOKE_PASS_OPERATIONALLY_ACCEPTED"
+    }
+  }
+}

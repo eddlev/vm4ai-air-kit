@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.2.0",
     "card_id": null,
-    "card_revision": 8,
+    "card_revision": 9,
     "record_class": "TRANSFER_RECORD",
     "card_created_at": null,
     "card_created_by": null,
@@ -189,7 +189,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.4.2",
+        "PROMPT_VERSION": "2.4.3",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -802,7 +802,7 @@
           "SCHEMA_VERSION",
           "schema_version"
         ],
-        "starter_identity_version_required": "2.4.2",
+        "starter_identity_version_required": "2.4.3",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
       },
       "operative_compatibility_authority": {

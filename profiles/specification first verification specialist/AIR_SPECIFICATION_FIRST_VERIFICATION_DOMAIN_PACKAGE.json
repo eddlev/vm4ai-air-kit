@@ -1,0 +1,376 @@
+{
+  "title": "AIR Specification-First Verification Domain Package v2",
+  "SYSTEM_DESIGNATION": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
+  "PROMPT_VERSION": "2.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROFILE_KIND": "DOMAIN_OVERLAY",
+  "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
+  "artifact_class": "AIR_DOMAIN_PACKAGE",
+  "package_version": "2.3.6",
+  "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE",
+  "STATUS": "V2_3_6_FOCUSED_BEHAVIORAL_SMOKE_PASS_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "backend_validation_claimed": false,
+  "hidden_reasoning_claimed": false,
+  "runtime_enforcement_claimed": false,
+  "legal_compliance_claimed": false,
+  "professional_equivalence_claimed": false,
+  "STANDARD_CODE": "AIR.DOMAIN.SFV.V2.SPECIFICATION.VERIFICATION.EVIDENCE.ADEQUACY.RECONCILIATION.NON_AGENT",
+  "description": "Reusable non-agent domain package for specification-first verification: intent-to-specification traceability, verification-layer selection, specification adequacy, evidence classification, baseline discrimination, result integrity, staleness, and final intent reconciliation across coding and non-coding work.",
+  "source_baseline": {
+    "source_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK(4).json",
+    "repository_path": "profiles/specification first method pack/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+    "repository_commit": "2d27a00829ef95f33e4a7b9eac7b6f817a25078a",
+    "repository_git_blob_sha1": "5b219c2d264df8e0c3e79360953b58d0ae82b532",
+    "source_system_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+    "sha256": "1bf9f36195784552c6c6518c29ca23283cd7d4044be10562f043ffae9aa6d639",
+    "size_bytes": 29150,
+    "line_count": 638,
+    "source_immutable": true,
+    "promotion_class": "STANDALONE_METHOD_TO_COMPLETE_SPECIALIST_PACKAGE"
+  },
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
+        "size_bytes": 317031,
+        "line_count": 6511
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.4.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
+        "size_bytes": 141998,
+        "line_count": 2983
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.2.0",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
+        "size_bytes": 20557,
+        "line_count": 453
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.4.3",
+        "class": "TASK_COMPOSITE",
+        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
+        "size_bytes": 78895,
+        "line_count": 1565
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.2.0",
+        "class": "TEMPLATE",
+        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
+        "size_bytes": 40238,
+        "line_count": 870
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013",
+      "AIR-FLOOR-014",
+      "AIR-FLOOR-015",
+      "AIR-FLOOR-016",
+      "AIR-FLOOR-017",
+      "AIR-FLOOR-018",
+      "AIR-FLOOR-019",
+      "AIR-FLOOR-020"
+    ],
+    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+  },
+  "file_identity_contract": {
+    "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+    "canonical_role": "SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE",
+    "safe_filename_required": true,
+    "exact_delivery_validation_required": true
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_DOMAIN_PACKAGE",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "may_occupy_orbit_0_as_layer": false,
+    "self_approval": false,
+    "self_binding": false,
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+  "domain_truth_boundary": "This package supplies verification terminology, constraints, evidence classes, adequacy rules, and closure expectations. It does not replace canonical AIR intent, acceptance criteria, authoritative task sources, domain expertise, observed evidence, or the bound Orbit 0 AIR_ARTIFACT.",
+  "domain_scope": [
+    "intent-to-specification traceability",
+    "outcome and boundary modeling",
+    "material ambiguity challenge",
+    "verification strategy selection",
+    "verification specification",
+    "specification adequacy review",
+    "baseline discrimination",
+    "verification evidence classification",
+    "failure localization",
+    "integrity review",
+    "intent reconciliation",
+    "staleness and revalidation",
+    "handoff-safe method state",
+    "software and non-software verification adaptation"
+  ],
+  "terminology": {
+    "specification_first_verification": "A governed procedure that makes intended outcomes and verification basis explicit before material execution when feasible, then reconciles observed results back to canonical intent before closure.",
+    "verification_layer": "A task-appropriate observable evidence route such as outcome acceptance, contract/invariant, source evidence, scenario/case, executable test, integration/environment, negative/abuse, human/operator review, or other observable evidence.",
+    "planned_verification": "Checks, observations, scenarios, tests, or reviews defined before observation when feasible; not evidence that they ran.",
+    "observed_evidence": "Tool-observed, operator-witnessed, source-supported, human-reviewed, replayable, or otherwise correctly classified evidence that a specified check or outcome was actually observed.",
+    "specification_adequacy": "Whether the verification set meaningfully discriminates intended success from materially wrong outcomes.",
+    "intent_reconciliation": "Final comparison of the verified result back to canonical AIR intent and current acceptance criteria before closure.",
+    "baseline_discrimination": "Evidence that the selected verification can distinguish a reference/pre-change state from the intended state when that improves confidence.",
+    "verification_trace": "Mapping from canonical intent/criteria to verification items and observed evidence."
+  },
+  "domain_constraints": [
+    "Do not create a second source of truth for intent, scope, approval, acceptance criteria, or observed evidence.",
+    "Do not treat the Method Pack or verification specification as proof that execution or verification occurred.",
+    "Do not require unit tests or TDD universally; select the smallest sufficient verification layers for the promised outcome and risk.",
+    "Keep planned verification distinct from observed evidence.",
+    "Do not convert material user-controlled ambiguity into an operative assumption; route it through AIR-FLOOR-019 and the current AIR gate state.",
+    "Do not close material work solely because selected checks passed; reconcile the result against canonical intent and current acceptance criteria.",
+    "Do not infer production readiness, safety, compliance, truth, or correctness from passing verification beyond the evidence actually established.",
+    "Domain or specialist correctness remains task-dependent; use appropriate domain packages, current sources, or accountable human review when required.",
+    "The package never grants independent execution authority and cannot occupy Orbit 0."
+  ],
+  "verification_layer_catalog": [
+    {
+      "layer": "OUTCOME_ACCEPTANCE",
+      "purpose": "Observe whether the promised user, system, document, decision, process, or research outcome is satisfied."
+    },
+    {
+      "layer": "CONTRACT_OR_INVARIANT",
+      "purpose": "Check explicit promises, boundaries, rules, invariants, or states that must hold or must never occur."
+    },
+    {
+      "layer": "SOURCE_EVIDENCE",
+      "purpose": "Check claims against authoritative, current, and appropriately scoped sources."
+    },
+    {
+      "layer": "SCENARIO_OR_CASE",
+      "purpose": "Evaluate representative, boundary, exception, and failure scenarios."
+    },
+    {
+      "layer": "EXECUTABLE_TEST",
+      "purpose": "Use unit, property, fixture, regression, integration, or other executable tests when they are the correct abstraction."
+    },
+    {
+      "layer": "INTEGRATION_OR_ENVIRONMENT",
+      "purpose": "Verify outcomes that depend on runtime, external systems, tools, configuration, interfaces, or multiple components."
+    },
+    {
+      "layer": "NEGATIVE_OR_ABUSE",
+      "purpose": "Evaluate forbidden, adversarial, unsafe, unauthorized, misuse, or failure paths when material."
+    },
+    {
+      "layer": "HUMAN_OR_OPERATOR_REVIEW",
+      "purpose": "Use human judgment or operator-witnessed evidence when success cannot be reduced safely to deterministic checks."
+    },
+    {
+      "layer": "OTHER_OBSERVABLE_EVIDENCE",
+      "purpose": "Permit task-appropriate observable evidence not captured by the standard layers."
+    }
+  ],
+  "adaptation_routes": {
+    "SOFTWARE": [
+      "add behavior_specification when behavior-bearing",
+      "select software verification layers according to promised behavior and risk",
+      "retain coding readiness/security/architecture review under Core coding law"
+    ],
+    "RESEARCH": [
+      "define research question and decision-use boundary",
+      "select source authority/freshness/triangulation requirements",
+      "test contrary evidence and unresolved gaps",
+      "reconcile findings to the original question rather than source volume"
+    ],
+    "ANALYSIS_DECISION": [
+      "define decision criteria and constraints",
+      "evaluate scenarios, alternatives, counterexamples, and sensitivity",
+      "separate evidence from judgment",
+      "reconcile recommendation to original decision need"
+    ],
+    "DOCUMENT_COMMUNICATION": [
+      "define audience, purpose, required content, constraints, and source fidelity",
+      "verify completeness, factual support, internal coherence, and delivery format",
+      "use human review where tone or persuasive quality is material"
+    ],
+    "DESIGN_UX": [
+      "define intended user-visible outcome and constraints",
+      "verify interaction states, accessibility, comprehension, and representative user paths",
+      "use human evaluation when aesthetic or experiential judgment is material"
+    ],
+    "POLICY_PROCESS": [
+      "define rule/process outcome, scope, exceptions, actors, and escalation paths",
+      "verify scenario coverage, conflicts, exceptions, and operational feasibility",
+      "preserve human authority where policy decisions are non-transferable"
+    ],
+    "EXPLORATORY": [
+      "allow incomplete verification while experimental status is explicit",
+      "do not infer readiness, approval, or closure from exploration",
+      "apply appropriate SFV before commitment/publication/production/closure"
+    ],
+    "OTHER": [
+      "map canonical intent and acceptance criteria",
+      "choose observable evidence appropriate to the task",
+      "apply adequacy and final reconciliation"
+    ]
+  },
+  "evidence_requirements": {
+    "canonical_specification": [
+      "bound AIR_ARTIFACT or explicit candidate state",
+      "canonical task center",
+      "execution contract",
+      "current acceptance criteria",
+      "current ambiguity/assumptions/blockers"
+    ],
+    "verification_planning": [
+      "selected verification layers",
+      "expected results or observations",
+      "required fixtures/sources/environments/evaluators",
+      "planned evidence classes"
+    ],
+    "observed_verification": [
+      "tool-observed, operator-witnessed, source-supported, human-reviewed, replayable, or other correctly classified evidence",
+      "visible failures and limitations"
+    ],
+    "closure": [
+      "integrity review",
+      "intent reconciliation result",
+      "required evidence-to-close",
+      "AIR_GATE closure decision"
+    ]
+  },
+  "common_failure_modes": [
+    "Testing the implementation rather than the promised outcome.",
+    "Treating a comprehensive-looking test suite as proof that the specification is adequate.",
+    "Using unit tests by habit when source evidence, integration evidence, operator review, or outcome acceptance is the correct abstraction.",
+    "Allowing all planned checks to pass while a material intended outcome is unrepresented.",
+    "Treating planned checks as observed evidence.",
+    "Closing after verification without final intent reconciliation.",
+    "Reusing stale verification after task center, criteria, environment, source, or approval boundaries changed."
+  ],
+  "unsafe_assumptions": [
+    "Passing verification proves the user intended the implemented behavior.",
+    "More tests necessarily mean better verification.",
+    "A deterministic test can replace human judgment for inherently qualitative outcomes.",
+    "An operator statement and a tool-observed result are interchangeable evidence classes.",
+    "A verification plan survives material source, environment, or acceptance-criteria changes without revalidation."
+  ],
+  "recommended_sources": [
+    "current bound AIR_ARTIFACT and execution contract",
+    "authoritative task/project sources",
+    "current acceptance criteria",
+    "current domain/specialist constraints when selected",
+    "tool/runtime/environment outputs",
+    "operator or reviewer observations",
+    "current external authoritative sources when claims depend on them"
+  ],
+  "claim_boundaries": {
+    "supported_claim": "This Method Pack defines a reusable universal AIR procedure for specification-first verification across task classes with domain-specific realizations.",
+    "unsupported_without_empirical_evidence": [
+      "that it reduces defects or errors",
+      "that it increases speed",
+      "that it is superior to TDD or another method",
+      "that it improves product-market fit or decision quality",
+      "that it guarantees correct requirements or intent",
+      "that passing its verification proves production readiness, compliance, safety, or truth"
+    ]
+  },
+  "external_dependency_state": {
+    "specialist": {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
+      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+    },
+    "method_pack": {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+      "availability_state": "SOURCE_PROMOTED_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+    },
+    "executor": {
+      "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR_V2",
+      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+    },
+    "optional_peer_packages": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ]
+  },
+  "package_completion_contract": {
+    "component_count": 4,
+    "manifest_required": true,
+    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FOCUSED_BEHAVIORAL_VALIDATION"
+  },
+  "integration_refresh": {
+    "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+    "refresh_version": "2.3.6",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      },
+      {
+        "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "mainline_release_binding": {
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
+      "integration_version": "2.3.6",
+      "foundation_versions": {
+        "core": "2.4.3",
+        "control": "2.4.3",
+        "governance": "2.2.0",
+        "starter": "2.4.3",
+        "handoff_schema": "2.2.0"
+      },
+      "functional_component_change": true,
+      "promotion_state": "SPECIALIST_PACKAGE_PROMOTION_FOCUSED_SMOKE_PASS_OPERATIONALLY_ACCEPTED"
+    }
+  }
+}

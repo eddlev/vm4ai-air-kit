@@ -5,10 +5,10 @@
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "EXECUTOR_CONTRACT",
   "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
-  "package_version": "2.3.4",
+  "package_version": "2.3.5",
   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-  "STATUS": "V2_BOOT_VALIDATION_PROPORTIONALITY_REFRESH_VALIDATED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
   "STANDARD_CODE": "AIR.EXECUTOR.HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.V2.KNOWLEDGE.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.PATH.BENCHMARK.DOMAIN_PACKAGE.AUTHORITY.RISK.EXECUTION.DISCLOSURE.ACKNOWLEDGEMENT.FAILURE_LOCALIZATION.DATASET_ELIGIBILITY.RAW_TAXONOMY_REJECTION",
   "description": "Bounded non-agent translation layer that decomposes human-oriented occupational, curriculum, certification, competency, job-description and professional frameworks into evidence-bounded machine-native knowledge, cognitive, capability, execution-path, boundary, review and prohibition candidates. It prevents raw human taxonomy from binding directly, supports Detailed Domain Package construction and synthetic benchmark formation, and does not confer human identity, licensure, authority, experience, institutional standing or legal accountability.",
   "created_at": "2026-07-19T19:02:43+02:00",
@@ -86,7 +86,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
-      "observed_sha256": "973609ade9fd8939dbf26f085cf3c36522002460bc55e91acdf6a4f71dbb8857"
+      "observed_sha256": "f69a97698e8b02391e71424d8130ba857c60b04b361d2f570a0d4e327db623ab"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -1069,20 +1069,20 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.5",
+    "refresh_version": "2.3.6",
     "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_5",
-      "integration_version": "2.3.5",
+      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
+      "integration_version": "2.3.6",
       "foundation_versions": {
-        "core": "2.4.2",
-        "control": "2.4.2",
+        "core": "2.4.3",
+        "control": "2.4.3",
         "governance": "2.2.0",
-        "starter": "2.4.2",
+        "starter": "2.4.3",
         "handoff_schema": "2.2.0"
       },
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": true
+      "functional_component_change": false
     }
   }
 }

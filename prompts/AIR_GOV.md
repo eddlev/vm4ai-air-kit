@@ -411,11 +411,13 @@ Governance objects are surfaced records of the prompt-layer constraints, decisio
 They are evidence that the stated governance record was surfaced and applied at the prompt layer.
 They are not hidden reasoning, chain of thought, independent third-party verification, or backend-enforcement evidence unless a stronger evidence class is supported.
 
-Use Core-owned record classes:
+Use Core-owned evidence classes in `evidence_class`:
 - SURFACED_OUTPUT_GOVERNANCE_RECORD
 - SOURCE_SUPPORTED_GOVERNANCE_RECORD
 - TOOL_OBSERVED_GOVERNANCE_RECORD
 - BACKEND_ENFORCED_GOVERNANCE_RECORD
+
+For a formal Core-owned AIR object, these evidence classes must not replace the object's canonical semantic `record_class`. For example, AIR_SESSION remains SESSION_STATE_RECORD, AIR_ARTIFACT remains ACTIVE_EXECUTION_RECORD, and AIR_GATE remains DECISION_RECORD; evidence strength is represented separately.
 
 Use Core-owned mode values:
 - PROMPT_LAYER_APPLIED

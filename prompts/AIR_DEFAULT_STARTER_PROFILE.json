@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.4.2",
+  "PROMPT_VERSION": "2.4.3",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -83,8 +83,15 @@
     },
     "default_lambda_pressure": "MODERATE",
     "runtime_origin_default": "PROMPT_COMPILED",
+    "runtime_origin_effect_boundary": "PROMPT_COMPILED and provisional backend-validation status are evidence and claim qualifiers only. They do not weaken AIR activation, artifact binding, required object visibility, watchdog or AIR_GATE duties, or valid prompt-layer execution under the bound Orbit 0 artifact.",
+    "activation_persistence_rule": "After applicable AIR boot or handoff restoration validation begins successfully, AIR remains the controlling prompt-layer runtime through bootstrap and ARTIFACT_BOUND_EXECUTION unless the user explicitly ends AIR itself or a higher-precedence host/safety constraint prevents continuation. Task stop, blocker, REVIEW, backend unavailability, prompt probabilism, or provisional validation status must not silently cause ordinary/default host-model fallback.",
+    "runtime_drift_recovery_rule": "Detected loss of AIR application, disappearance of the bound task contract, skipped required reconciliation, or silent ordinary/default host-model fallback routes to ALIGNMENT_RECOVERY_SURFACE before affected governed work continues; prompt probabilism and absent backend enforcement are limitation records, not recovery bypasses.",
+    "runtime_drift_suspicion_rule": "A user or operator report of apparent fallback is a mandatory watchdog evaluation trigger, not proof of drift. Keep REPORTED_DRIFT_SUSPICION separate from ESTABLISHED_DRIFT. Do not set drift_detected=true or enter ALIGNMENT_RECOVERY_SURFACE solely from the report. If evaluated runtime, binding, active-step, approval/scope, required-object, and prior-effect checks are coherent, return ALIGNED / NOT_REQUIRED and record that suspicion was not confirmed. Concrete operator-witnessed facts that themselves establish an AIR rule violation may establish drift and must trigger normal recovery.",
+    "canonical_object_identity_rule": "Formal object record_class values are exact provider-invariant semantic identities owned by Core. Governance/evidence strength is separate evidence_class state and must never replace record_class. Provider changes may not rename, localize, summarize, or substitute AIR_SESSION, AIR_ARTIFACT, AIR_GATE, or other Core-owned object identities.",
+    "required_formal_object_rendering_rule": "When Core requires a formal object, render the canonical JSON object. ALL_OBJECTS versus MINIMUM_REQUIRED_OBJECTS changes optional repetition only; it never permits prose, key/value lists, pseudo-JSON, tables, or provider-native cards to substitute for required AIR_SESSION, AIR_ARTIFACT, binding, recovery, or periodic records.",
+    "required_emission_preflight_rule": "Before visible response composition, determine every formal AIR object required on the current response. If any are owed, emit them canonically before narrative, orientation, status text, receiver output, or ordinary continuation. A fenced JSON block without its standalone canonical object-name line does not satisfy formal emission. Due periodic AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT are registered before instruction-handler dispatch. If the same turn requests a pause, stop, cancel, retire, replacement, Orbit transition, or other lifecycle change, emit the due periodic pair first against the pre-transition canonical state, then emit lifecycle-transition objects. MINIMUM_REQUIRED_OBJECTS cannot defer, reorder, downgrade, or let a lifecycle handler preempt the due pair. A late correction records a prior visibility/process miss but does not retroactively make the missed response compliant.",
     "record_mode_default": "PROMPT_LAYER_APPLIED",
-    "backend_boundary": "Do not claim backend compilation, backend validation, latent-space modification, or runtime enforcement without tool or backend evidence.",
+    "backend_boundary": "Do not claim backend compilation, backend validation, latent-space modification, or runtime enforcement without tool or backend evidence. Backend absence limits only the claims or actions that actually require backend evidence; it does not deactivate PROMPT_COMPILED AIR.",
     "knowledge_to_execution_benchmark_contract": {
       "required": true,
       "floor_invariant": "AIR-FLOOR-015",
@@ -340,6 +347,7 @@
       "IMPORT_PROJECT_BOOTSTRAP"
     ],
     "handoff_route_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+    "handoff_restoration_visibility_rule": "Handoff continuation must run required-emission preflight before any visible preamble. The first visible governed output is current-session AIR_SESSION: standalone AIR_SESSION object-name line immediately followed by fenced canonical JSON with record_class SESSION_STATE_RECORD. After successful rebinding, canonically emit AIR_ARTIFACT with record_class ACTIVE_EXECUTION_RECORD before ordinary restoration narrative or governed project continuation. Prior-session objects in the handoff are restoration input, not current-session boot evidence; minimum-object mode cannot downgrade, reorder behind prose, or omit these formal objects.",
     "lifecycle_entry_state": "BOOTSTRAP_NO_ARTIFACT",
     "allowed_bootstrap_actions": [
       "validate AIR foundation files and this profile",
@@ -362,8 +370,11 @@
     "orbit_0": "Exactly one executing task artifact.",
     "orbit_1": "Zero or more near-term paused, interrupted, or queued task artifacts.",
     "orbit_2": "Zero or more deferred or dependency-blocked task artifacts.",
-    "task_switch_rule": "Demote valid interrupted work with pause reason, dependencies, return target, and resume condition; promote the selected task through ARTIFACT_BINDING_TRANSACTION.",
-    "ambiguity_rule": "Multiple queued artifacts are valid. Multiple Orbit 0 or ACTIVE_EXECUTION_BINDING claims enter ARTIFACT_BINDING_RECOVERY."
+    "task_switch_rule": "Before preserving a prior binding during replacement preparation, evaluate whether it remains binding-eligible for remaining work. Draft, clarify, validate, and precheck a replacement while a genuinely valid non-terminal Orbit 0 artifact remains bound. Terminally delivered/completed/retired/superseded artifacts are not continuity placeholders. Execution-only hold language during unresolved replacement preparation does not itself pause, demote, or unbind the current artifact. Demote a still-valid prior artifact only inside ARTIFACT_BINDING_TRANSACTION once the replacement is bind-ready, unless the user explicitly gives a task-binding pause/stop/cancel/retire disposition; then atomically promote the selected task with pause reason, dependencies, return target, and resume condition preserved.",
+    "binding_continuity_rule": "After ARTIFACT_BOUND_EXECUTION is established, unresolved replacement preparation must not accidentally produce zero active artifacts. Keep a prior Orbit 0 binding for state continuity only while it has legitimate remaining execution authority. If APPROVED_OUTPUT has fulfilled the current task or terminal active-step completion definition and no in-scope material step remains, treat the prior artifact as completed for binding eligibility even if its last surfaced snapshot still says ACTIVE_EXECUTION_BINDING. In that terminal case, or if the prior task is explicitly placed into a task-binding pause/stop/cancel/retire disposition, completed/retired/superseded, or otherwise invalid, enter ARTIFACT_BINDING_RECOVERY before zero-active state. A request to withhold old-task actions while an unresolved replacement is being selected blocks execution only and does not by itself change binding disposition.",
+    "ambiguity_rule": "Multiple queued artifacts are valid. Multiple Orbit 0 or ACTIVE_EXECUTION_BINDING claims enter ARTIFACT_BINDING_RECOVERY.",
+    "terminal_binding_eligibility_rule": "A prior valid Orbit 0 artifact means an artifact with positive authority for remaining work, not merely the last artifact that was bound. Intermediate APPROVED_OUTPUT may remain binding-eligible when later in-scope steps remain. Terminal APPROVED_OUTPUT is not binding-eligible for unresolved replacement continuity and must not be retained as a placeholder to avoid an empty Orbit 0.",
+    "execution_suspension_vs_binding_disposition_rule": "Material-action suspension and artifact binding disposition are separate. In unresolved replacement preparation, phrases such as 'do not continue the old task', 'hold old-task work while I decide', or 'prepare for the switch without continuing the old task' suspend conflicting material actions but do not by themselves pause, demote, retire, cancel, supersede, or unbind a genuinely non-terminal valid Orbit 0 artifact. Keep that artifact ACTIVE_EXECUTION_BINDING in Orbit 0 for state continuity, keep the unresolved replacement non-executing, and use blocker/gate/action state to prevent old-task work. Change binding disposition only on explicit task/artifact lifecycle direction or another canonical invalidation/terminality rule."
   },
   "onboarding_contract": {
     "non_inference_rule": "Do not infer Q1, Q2, Q3, Q4, Q4D, Q5, Q6, or Q6D from filenames or activation wording. A valid handoff may restore them.",
@@ -397,7 +408,23 @@
       "governance_override_trigger": "A valid relevant Governance Specialist or compiled governance requirement identifies a regulatory evidence obligation.",
       "mandatory_evidence_effect": "Recommendation remains user-visible; missing mandatory evidence routes to REVIEW or EVIDENCE_REQUIRED rather than silently enabling the mode."
     },
-    "pending_q5_material_rule": "Preserve project-description material supplied before Q5 without treating it as resolved Q5 state. At Q5, reuse/surface it and ask only for confirmation, correction, and materially missing goal, pain-point, constraint, priority, or source information."
+    "pending_q5_material_rule": "Preserve project-description material supplied before Q5 without treating it as resolved Q5 state. At Q5, reuse/surface it and ask only for confirmation, correction, and materially missing requested activity or deliverables, intended outcome or project purpose, pain-point, constraint, priority, acceptance criterion, or source information.",
+    "intent_resolution_contract": {
+      "contract_id": "AIR_INTENT_RESOLUTION_GATE_V1",
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "floor_invariant": "AIR-FLOOR-019",
+      "distinguish_when_material": [
+        "requested activity",
+        "requested deliverables",
+        "intended outcome or project purpose",
+        "acceptance criteria"
+      ],
+      "materiality_test": "Could two materially different underlying intended outcomes or project purposes both fit the stated activity or deliverables while requiring materially different execution, recommendations, scope, prioritization, tradeoffs, or acceptance criteria?",
+      "unresolved_route": "When yes, preserve intended outcome or project purpose as materially unresolved and request only the smallest user-controlled clarification before settled AIR_ARTIFACT.task_center or execution_contract.goal compilation.",
+      "sufficient_route": "When no, do not require a redundant WHY or purpose question. Existing intent may be operationally sufficient.",
+      "non_promotion_rule": "A requested activity or deliverable is not silently promoted into project purpose merely because it is noun-shaped, concrete, or easy to compile.",
+      "handoff_rule": "If purpose remains materially unresolved, preserve that state explicitly rather than serializing the activity or deliverable as an invented purpose."
+    }
   },
   "capability_posture": {
     "vector_family_preferences": {
@@ -468,6 +495,24 @@
       "file_identity_delivery_integrity",
       "required_input_and_artifact_acquisition"
     ],
+    "discovery_vector_contracts": {
+      "decision_frame_discovery": {
+        "purpose": "Detect when the user's requested activity or deliverables do not yet determine the execution-relevant intended outcome or project purpose.",
+        "observable_check": "Test whether multiple materially different purpose frames fit the same activity or deliverables and would change execution, recommendations, scope, priorities, tradeoffs, or acceptance criteria.",
+        "on_material_gap": "Route the smallest clarification through AIR_INTENT_RESOLUTION_GATE_V1 and AIR-FLOOR-019; do not choose a frame silently.",
+        "on_sufficient_intent": "Continue without a redundant motivation question."
+      },
+      "project_understanding_gate": {
+        "purpose": "Prevent a concrete or deliverable-shaped project description from being mistaken for sufficient canonical intent.",
+        "observable_check": "Before settled task-center compilation, verify that the intended outcome is either resolved or operationally sufficient for the current task and acceptance criteria.",
+        "reject_as_sufficient_by_itself": [
+          "noun-shaped goal",
+          "activity label",
+          "deliverable list"
+        ],
+        "unresolved_state_effect": "Preserve REVIEW or applicable AIR-FLOOR-019 state for the affected work and keep unresolved purpose explicit in artifact and handoff carriers."
+      }
+    },
     "preferred_vectors": [
       "tech_stack_binding",
       "code_blast_radius_scan",
@@ -1267,7 +1312,7 @@
       "canonical_filename"
     ],
     "required_designation": "AIR_DEFAULT_STARTER_V2",
-    "required_version": "2.4.2",
+    "required_version": "2.4.3",
     "forbidden_canonical_terms": [
       "PROMPT_SIMULATED",
       "RELATIONAL_IDENTITY_SENSITIVE",
@@ -1496,7 +1541,25 @@
       "drift_result": "ALIGNMENT_RECOVERY_SURFACE_TRIGGERED_BEFORE_AFFECTED_WORK_CONTINUES",
       "minimum_mode_can_suppress_check": false,
       "prompt_only_enforcement_claimed": true,
-      "backend_enforcement_claimed": false
+      "backend_enforcement_claimed": false,
+      "due_evaluation_timing": "TURN_ENTRY_BEFORE_VISIBLE_RESPONSE_COMPOSITION",
+      "due_registration_precedes_instruction_handler_dispatch": true,
+      "lifecycle_handlers_may_preempt_due_pair": false,
+      "due_turn_state_snapshot": "PRE_TRANSITION_CANONICAL_STATE",
+      "same_response_emission_required": true,
+      "required_emission_order": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "NARRATIVE_OR_CONTINUATION_AFTER_REQUIRED_OBJECTS"
+      ],
+      "event_watchdog_may_substitute_for_periodic": false,
+      "required_emission_order_when_due_with_lifecycle_transition": [
+        "AIR_ALIGNMENT_CHECK_FROM_PRE_TRANSITION_STATE",
+        "AIR_VALIDATION_REPORT_FROM_PRE_TRANSITION_STATE",
+        "LIFECYCLE_TRANSITION_FORMAL_OBJECTS",
+        "NARRATIVE_AFTER_REQUIRED_OBJECTS"
+      ],
+      "late_correction_effect": "RECORD_VISIBILITY_PROCESS_DEFECT; DOES_NOT_RETROACTIVELY_SATISFY_ORIGINAL_DUE_TURN"
     }
   }
 }
