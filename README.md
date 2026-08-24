@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-light.svg?v=20260824-r4">
-    <img src="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-dark.svg?v=20260824-r4" alt="AIR by VM4AI — Focused. Fluid. AIR. AI work, carried forward." width="100%">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-light.svg?v=20260824-r5">
+    <img src="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-dark.svg?v=20260824-r5" alt="AIR by VM4AI — Focused. Fluid. AIR. AI work, carried forward." width="100%">
   </picture>
 </p>
 
