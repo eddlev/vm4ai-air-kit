@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 import shutil
 import zipfile
@@ -12,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
+VERSION_FILE = ROOT / "VERSION"
 
 FOUNDATION = [
     ("AIR_CORE_RUNTIME.md", ROOT / "prompts" / "AIR_CORE_RUNTIME.md"),
@@ -29,6 +31,7 @@ EXTRA_FILES = [
 
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 FILE_MODE = 0o100644 << 16
+SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$")
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -41,6 +44,15 @@ def require_text_version(path: Path, field: str) -> str:
     if not match:
         raise SystemExit(f"missing {field} in {path.relative_to(ROOT)}")
     return match.group(1)
+
+
+def require_kit_release_version() -> str:
+    if not VERSION_FILE.is_file():
+        raise SystemExit("missing VERSION file")
+    value = VERSION_FILE.read_text(encoding="utf-8").strip()
+    if not SEMVER_RE.fullmatch(value):
+        raise SystemExit(f"invalid AIR Kit release version in VERSION: {value!r}")
+    return value
 
 
 def load_json(path: Path) -> dict:
@@ -59,6 +71,7 @@ def zip_bytes(entries: dict[str, bytes], output: Path) -> None:
 
 
 def main() -> None:
+    kit_release_version = require_kit_release_version()
     core_version = require_text_version(FOUNDATION[0][1], "PROMPT_VERSION")
     control_version = require_text_version(FOUNDATION[1][1], "PROMPT_VERSION")
     governance_version = require_text_version(FOUNDATION[2][1], "PROMPT_VERSION")
@@ -96,9 +109,15 @@ def main() -> None:
             raise SystemExit(f"missing release file: {source_path.relative_to(ROOT)}")
         source_entries[bundle_name] = source_path.read_bytes()
 
+    release_tag = os.environ.get("AIR_RELEASE_TAG") or None
+    source_revision = os.environ.get("AIR_SOURCE_COMMIT") or None
+
     manifest = {
         "bundle_designation": "AIR_CORE_RELEASE_BUNDLE_V2",
-        "bundle_version": core_version,
+        "bundle_version": kit_release_version,
+        "kit_release_version": kit_release_version,
+        "release_tag": release_tag,
+        "source_revision": source_revision,
         "runtime_origin": "PROMPT_COMPILED",
         "backend_validation_claimed": False,
         "hidden_reasoning_claimed": False,
@@ -111,6 +130,7 @@ def main() -> None:
         },
         "foundation_files": file_manifest,
         "bundle_contents": sorted([*source_entries.keys(), "AIR_CORE_MANIFEST.json"]),
+        "versioning_boundary": "AIR Kit release version and AIR runtime component versions are separate version axes.",
         "assurance_boundary": "The manifest identifies packaged repository bytes. It does not prove host-model behavior, backend enforcement, correctness, or provider compatibility.",
     }
     manifest_bytes = (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("utf-8")
@@ -121,7 +141,7 @@ def main() -> None:
     DIST.mkdir(parents=True)
 
     stable_zip = DIST / "AIR-core.zip"
-    versioned_zip = DIST / f"AIR-v{core_version}-core.zip"
+    versioned_zip = DIST / f"AIR-v{kit_release_version}-core.zip"
     zip_bytes(source_entries, stable_zip)
     shutil.copyfile(stable_zip, versioned_zip)
     (DIST / "AIR_CORE_MANIFEST.json").write_bytes(manifest_bytes)
@@ -139,7 +159,10 @@ def main() -> None:
     if stable_zip.read_bytes() != versioned_zip.read_bytes():
         raise SystemExit("stable and versioned AIR bundle bytes differ")
 
-    print(f"AIR release assets built for foundation {core_version}")
+    print(
+        f"AIR Kit v{kit_release_version} assets built "
+        f"for Core {core_version} / Control {control_version} / Starter {starter_version}"
+    )
     for path in sorted(DIST.iterdir()):
         print(f"{path.name}: {len(path.read_bytes())} bytes sha256={sha256_bytes(path.read_bytes())}")
 

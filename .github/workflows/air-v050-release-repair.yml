@@ -1,0 +1,109 @@
+name: AIR v0.5.0 release repair
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - VERSION
+      - RELEASE_NOTES_0.5.0.md
+      - tools/build_release_bundle.py
+      - .github/workflows/air-v050-release-repair.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair-v050-release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out main with tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify v0.5.0 source material is unchanged from the release tag
+        shell: bash
+        env:
+          TAG: v0.5.0
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < VERSION)" = "0.5.0"
+          git rev-parse "$TAG" >/dev/null
+          for path in \
+            prompts/AIR_CORE_RUNTIME.md \
+            prompts/AIR_CONTROL_SURFACE.md \
+            prompts/AIR_GOV.md \
+            prompts/AIR_DEFAULT_STARTER_PROFILE.json \
+            prompts/AIR_HANDOFF_CARD_TEMPLATE.json \
+            START_HERE.md \
+            LICENSE \
+            NOTICE
+          do
+            tag_hash="$(git show "$TAG:$path" | sha256sum | awk '{print $1}')"
+            main_hash="$(sha256sum "$path" | awk '{print $1}')"
+            test "$tag_hash" = "$main_hash"
+          done
+
+      - name: Build corrected v0.5.0 assets
+        shell: bash
+        env:
+          AIR_RELEASE_TAG: v0.5.0
+        run: |
+          set -euo pipefail
+          export AIR_SOURCE_COMMIT="$(git rev-list -n 1 v0.5.0)"
+          python tools/build_release_bundle.py
+          test -f dist/AIR-core.zip
+          test -f dist/AIR-v0.5.0-core.zip
+          test -f dist/AIR_CORE_MANIFEST.json
+          test -f dist/SHA256SUMS.txt
+
+      - name: Repair release notes and assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v0.5.0
+        run: |
+          set -euo pipefail
+          gh release view "$TAG" >/dev/null
+          gh release delete-asset "$TAG" AIR-v2.4.3-core.zip -y || true
+          gh release upload "$TAG" \
+            dist/AIR-core.zip \
+            dist/AIR-v0.5.0-core.zip \
+            dist/AIR_CORE_MANIFEST.json \
+            dist/SHA256SUMS.txt \
+            --clobber
+          gh release edit "$TAG" \
+            --title "VM4AI AIR Kit v0.5.0" \
+            --notes-file RELEASE_NOTES_0.5.0.md
+
+      - name: Verify repaired release assets
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v0.5.0
+        run: |
+          set -euo pipefail
+          assets="$(gh release view "$TAG" --json assets --jq '.assets[].name')"
+          grep -Fxq 'AIR-core.zip' <<<"$assets"
+          grep -Fxq 'AIR-v0.5.0-core.zip' <<<"$assets"
+          grep -Fxq 'AIR_CORE_MANIFEST.json' <<<"$assets"
+          grep -Fxq 'SHA256SUMS.txt' <<<"$assets"
+          if grep -Fxq 'AIR-v2.4.3-core.zip' <<<"$assets"; then
+            echo 'stale runtime-versioned release asset remains' >&2
+            exit 1
+          fi
+
+      - name: Remove one-shot repair workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "AIR release automation"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/air-v050-release-repair.yml
+          git commit -m "Remove one-shot v0.5.0 release repair workflow"
+          git push

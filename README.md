@@ -80,12 +80,13 @@ An `AIR_HANDOFF_CARD` carries recorded AIR project state into a new compatible s
 
 Load the current foundation together with the populated Handoff Card and choose the continuation route. Handoff preserves explicit transfer state; it does not promise hidden-state transfer or byte-for-byte identical inference.
 
-## Current foundation
+## Current release and foundation
 
-The current repository foundation is:
+**Versioning:** AIR Kit releases use the public `v0.x` release line. The bundled runtime components keep their own component versions. **AIR Kit v0.5.0** packages Core/Control/Starter `2.4.3`, Governance/Handoff `2.2.0`, and the current specialist package line `2.3.6`.
 
 | Component | Current version |
 | --- | ---: |
+| AIR Kit release | 0.5.0 |
 | AIR Core Runtime | 2.4.3 |
 | AIR Control Surface | 2.4.3 |
 | AIR Governance Supplement | 2.2.0 |
@@ -142,7 +143,7 @@ The repository's permanent reproducibility workflow executes the release manifes
 
 See [`tests/README.md`](tests/README.md) for the evidence contract and local commands.
 
-The release asset pipeline is separate: [`tools/build_release_bundle.py`](tools/build_release_bundle.py) builds a deterministic `AIR-core.zip`, a versioned copy, a machine-readable file manifest, and SHA-256 checksums from the exact repository foundation. Pull requests verify that the bundle can be built before release publication.
+The release asset pipeline is separate: [`tools/build_release_bundle.py`](tools/build_release_bundle.py) builds a deterministic `AIR-core.zip`, a Kit-versioned copy, a machine-readable file manifest, and SHA-256 checksums from the exact repository foundation. Pull requests verify that the bundle can be built before release publication.
 
 ## Canonical prompt-side controls
 
@@ -168,7 +169,8 @@ tests/                           executable reproducibility harness
 tools/build_release_bundle.py    deterministic release bundle builder
 START_HERE.md                    shortest path from download to first AIR project
 COMPATIBILITY.md                 maintainer-observed host compatibility notes
-RELEASE_NOTES_2.4.3.md           prepared notes for the current unreleased source version
+VERSION                          public AIR Kit release version
+RELEASE_NOTES_0.5.0.md           release notes for AIR Kit v0.5.0
 .github/workflows/               reproducibility + release-asset verification
 ```
 
