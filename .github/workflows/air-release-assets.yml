@@ -1,0 +1,98 @@
+name: AIR release assets
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - START_HERE.md
+      - COMPATIBILITY.md
+      - RELEASE_NOTES_2.4.3.md
+      - LICENSE
+      - NOTICE
+      - prompts/**
+      - tools/build_release_bundle.py
+      - .github/workflows/air-release-assets.yml
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  build-release-assets:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Check out release source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build deterministic AIR bundle
+        run: python tools/build_release_bundle.py
+
+      - name: Verify required bundle contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import zipfile
+          required = {
+              'AIR_CORE_RUNTIME.md',
+              'AIR_CONTROL_SURFACE.md',
+              'AIR_GOV.md',
+              'AIR_DEFAULT_STARTER_PROFILE.json',
+              'AIR_HANDOFF_CARD_TEMPLATE.json',
+              'START_HERE.md',
+              'LICENSE',
+              'NOTICE',
+              'AIR_CORE_MANIFEST.json',
+          }
+          with zipfile.ZipFile('dist/AIR-core.zip') as z:
+              names = set(z.namelist())
+          if names != required:
+              raise SystemExit(f'bundle contents mismatch: {sorted(names)}')
+          print('AIR-core.zip contents verified')
+          PY
+          test -f dist/AIR_CORE_MANIFEST.json
+          test -f dist/SHA256SUMS.txt
+          ls dist/AIR-v*-core.zip >/dev/null
+
+      - name: Upload release-asset candidate
+        uses: actions/upload-artifact@v4
+        with:
+          name: air-release-assets-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
+
+  attach-to-release:
+    if: github.event_name == 'release'
+    needs: build-release-assets
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download built release assets
+        uses: actions/download-artifact@v4
+        with:
+          name: air-release-assets-${{ github.sha }}
+          path: dist
+
+      - name: Attach assets to published release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+          gh release upload "$TAG" \
+            dist/AIR-core.zip \
+            dist/AIR-v*-core.zip \
+            dist/AIR_CORE_MANIFEST.json \
+            dist/SHA256SUMS.txt \
+            --clobber
