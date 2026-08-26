@@ -1,0 +1,43 @@
+name: Validate AIR empirical evaluation contract
+
+on:
+  push:
+    paths:
+      - 'evals/**'
+      - '.github/workflows/air-evals-structure.yml'
+  pull_request:
+    paths:
+      - 'evals/**'
+      - '.github/workflows/air-evals-structure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate empirical evaluation definitions
+        run: python3 evals/validate_eval_suite.py
+
+      - name: Assert evaluation CI makes no performance claim
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          readme = Path('evals/README.md').read_text(encoding='utf-8')
+          protocol = Path('evals/AIR_EVAL_PROTOCOL_V0_1.md').read_text(encoding='utf-8')
+          required = [
+              'A green structural check proves only that the evaluation definitions are internally consistent.',
+              'Creating or structurally validating this protocol is **not** evidence that AIR improves performance.',
+          ]
+          haystack = readme + '\n' + protocol
+          missing = [marker for marker in required if marker not in haystack]
+          if missing:
+              raise SystemExit('Missing evaluation claim-boundary markers: ' + repr(missing))
+          print('Evaluation CI claim boundary: PASS')
+          PY
