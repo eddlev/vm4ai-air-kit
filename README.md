@@ -145,6 +145,14 @@ See [`tests/README.md`](tests/README.md) for the evidence contract and local com
 
 The release asset pipeline is separate: [`tools/build_release_bundle.py`](tools/build_release_bundle.py) builds a deterministic `AIR-core.zip`, a Kit-versioned copy, a machine-readable file manifest, and SHA-256 checksums from the exact repository foundation. Pull requests verify that the bundle can be built before release publication.
 
+## Empirical model evaluation
+
+Deterministic release checks and model-performance evidence are deliberately kept separate. Model-, judge-, tool-use-, and long-horizon evaluations are recorded as `REPLAYABLE_EVALUATION`, with task/condition identity, model and environment provenance, trajectories or evidence references, repeated-run results, governance metrics, and execution overhead.
+
+The [`evals/`](evals/) surface contains the first public AIR empirical-evaluation protocol, machine-readable run schema, and AIR-specific governance/continuity perturbation templates. The headline design is a matched comparison: hold model, tools, task, environment, and budget policy constant, then compare `BASE`, a prompt-matched `CONTROL`, and `AIR`; mechanism ablations are defined separately.
+
+The evaluation definitions do **not** constitute evidence that AIR improves performance. Actual benchmark/model results must be published separately with the recorded protocol, scorers, sample selection, uncertainty, and limitations.
+
 ## Canonical prompt-side controls
 
 ```text
@@ -166,12 +174,13 @@ profiles/
   capability ecology architect/
   specification first verification specialist/
 tests/                           executable reproducibility harness
+evals/                           replayable empirical model-evaluation contract
 tools/build_release_bundle.py    deterministic release bundle builder
 START_HERE.md                    shortest path from download to first AIR project
 COMPATIBILITY.md                 maintainer-observed host compatibility notes
 VERSION                          public AIR Kit release version
 RELEASE_NOTES_0.5.0.md           release notes for AIR Kit v0.5.0
-.github/workflows/               reproducibility + release-asset verification
+.github/workflows/               reproducibility + release-asset + eval-definition validation
 ```
 
 ## Community
