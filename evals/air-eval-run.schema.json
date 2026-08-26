@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vm4ai.com/schemas/air-eval-run-0.1.0.json",
+  "title": "AIR empirical evaluation run record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "suite_id",
+    "task_id",
+    "condition",
+    "model",
+    "environment",
+    "inputs",
+    "result",
+    "metrics",
+    "overhead",
+    "validity"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "suite_id": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "condition": {
+      "enum": ["BASE", "CONTROL", "AIR", "AIR_NO_SFV", "AIR_NO_CONTINUITY"]
+    },
+    "repeat_index": {"type": "integer", "minimum": 1},
+    "random_seed": {"type": ["integer", "string", "null"]},
+    "started_at": {"type": ["string", "null"], "format": "date-time"},
+    "ended_at": {"type": ["string", "null"], "format": "date-time"},
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model_id"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1},
+        "model_id": {"type": "string", "minLength": 1},
+        "model_version": {"type": ["string", "null"]},
+        "temperature": {"type": ["number", "null"]},
+        "top_p": {"type": ["number", "null"]},
+        "max_output_tokens": {"type": ["integer", "null"], "minimum": 1},
+        "other_inference_settings": {"type": "object"}
+      }
+    },
+    "air": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "kit_release": {"type": ["string", "null"]},
+        "repository_revision": {"type": "string", "minLength": 1},
+        "runtime_origin": {"type": "string"},
+        "foundation_files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+            }
+          }
+        },
+        "ablation_procedure": {"type": ["string", "null"]},
+        "task_local_configuration_hash": {"type": ["string", "null"]}
+      },
+      "required": ["repository_revision", "runtime_origin"]
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["environment_id", "reset_identity", "tools"],
+      "properties": {
+        "environment_id": {"type": "string", "minLength": 1},
+        "reset_identity": {"type": "string", "minLength": 1},
+        "repository_revision": {"type": ["string", "null"]},
+        "container_or_image": {"type": ["string", "null"]},
+        "network_policy": {"type": ["string", "null"]},
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "version": {"type": ["string", "null"]},
+              "identity": {"type": ["string", "null"]}
+            }
+          }
+        }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_hash", "condition_prompt_hash"],
+      "properties": {
+        "task_hash": {"type": "string", "minLength": 1},
+        "condition_prompt_hash": {"type": "string", "minLength": 1},
+        "perturbation_id": {"type": ["string", "null"]},
+        "fixture_hashes": {"type": "array", "items": {"type": "string"}},
+        "selection_notes": {"type": ["string", "null"]}
+      }
+    },
+    "trajectory": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "inline_log_path": {"type": ["string", "null"]},
+        "external_archive_uri": {"type": ["string", "null"]},
+        "trajectory_hash": {"type": ["string", "null"]}
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_native_status"],
+      "properties": {
+        "task_native_status": {"enum": ["PASS", "FAIL", "PARTIAL", "NOT_SCORED"]},
+        "task_native_score": {"type": ["number", "null"]},
+        "task_native_details": {"type": ["object", "null"]},
+        "closure_claimed": {"type": ["boolean", "null"]}
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "task_success": {"type": ["number", "boolean", "null"]},
+        "scope_violation_rate": {"$ref": "#/$defs/rateMetric"},
+        "approval_violation_rate": {"$ref": "#/$defs/rateMetric"},
+        "false_closure_rate": {"$ref": "#/$defs/rateMetric"},
+        "unsupported_evidence_rate": {"$ref": "#/$defs/rateMetric"},
+        "rescope_detection_rate": {"$ref": "#/$defs/rateMetric"},
+        "specification_adequacy_detection_rate": {"$ref": "#/$defs/rateMetric"},
+        "interruption_recovery_rate": {"$ref": "#/$defs/rateMetric"},
+        "state_loss_rate": {"$ref": "#/$defs/rateMetric"},
+        "human_review_burden": {"type": ["object", "null"]},
+        "run_consistency": {"type": ["object", "null"]}
+      }
+    },
+    "overhead": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "input_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "output_tokens": {"type": ["integer", "null"], "minimum": 0},
+        "latency_seconds": {"type": ["number", "null"], "minimum": 0},
+        "tool_calls": {"type": ["integer", "null"], "minimum": 0},
+        "approval_turns": {"type": ["integer", "null"], "minimum": 0},
+        "cost_usd": {"type": ["number", "null"], "minimum": 0}
+      }
+    },
+    "interruptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "point_identity"],
+        "properties": {
+          "kind": {"type": "string", "minLength": 1},
+          "point_identity": {"type": "string", "minLength": 1},
+          "continuation_material_hash": {"type": ["string", "null"]},
+          "recovery_notes": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "judges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["judge_type", "identity"],
+        "properties": {
+          "judge_type": {"enum": ["TASK_NATIVE", "DETERMINISTIC_CONTRACT", "HUMAN", "MODEL"]},
+          "identity": {"type": "string", "minLength": 1},
+          "rubric_hash": {"type": ["string", "null"]},
+          "blind_to_condition": {"type": ["boolean", "null"]}
+        }
+      }
+    },
+    "validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state"],
+      "properties": {
+        "state": {"enum": ["VALID", "INVALID", "EXCLUDED"]},
+        "reason": {"type": ["string", "null"]},
+        "protocol_deviations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "rateMetric": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["numerator", "denominator"],
+      "properties": {
+        "numerator": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 0},
+        "rate": {"type": ["number", "null"], "minimum": 0, "maximum": 1}
+      }
+    }
+  }
+}
