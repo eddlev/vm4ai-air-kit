@@ -23,75 +23,74 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import base64, lzma, hashlib, tarfile, io
+          import base64, lzma, hashlib, tarfile
 
           files = sorted(Path('.air-deploy').glob('chunk-*'))
           chunks = [p.read_text().replace('\r','').replace('\n','') for p in files]
-          # Known diagnostics: chunk 4 has one extra base64 character.
-          # Chunk 7 has one literal dot plus one extra base64 character.
           chunks[7] = chunks[7].replace('.', '')
 
-          def prefix_ok(text: str) -> bool:
+          def decode(text):
+              return base64.b64decode(text, validate=True)
+
+          def stream_prefix_ok(text: str) -> bool:
               try:
-                  raw = base64.b64decode(text, validate=True)
                   d = lzma.LZMADecompressor()
-                  d.decompress(raw)
+                  d.decompress(decode(text))
                   return True
-              except lzma.LZMAError:
-                  return False
               except Exception:
                   return False
 
-          # Recover chunk 4 by finding the unique deletion that keeps the XZ stream valid.
-          prefix = ''.join(chunks[:4])
-          candidates4 = []
+          # A valid chunk-4 repair must remain decodable through known-clean chunks 5 and 6.
+          before4 = ''.join(chunks[:4])
+          after4 = chunks[5] + chunks[6]
           c4 = chunks[4]
+          candidates4=[]
           for i in range(len(c4)):
-              candidate = c4[:i] + c4[i+1:]
-              if prefix_ok(prefix + candidate):
-                  candidates4.append((i, c4[i], candidate))
+              repaired = c4[:i] + c4[i+1:]
+              if stream_prefix_ok(before4 + repaired + after4):
+                  candidates4.append((i,c4[i],repaired))
           if len(candidates4) != 1:
-              raise SystemExit(f'chunk4 recovery ambiguous: {[(i,c) for i,c,_ in candidates4]}')
-          i4, ch4, chunks[4] = candidates4[0]
+              raise SystemExit(f'chunk4 extended recovery ambiguous count={len(candidates4)} candidates={[(i,c) for i,c,_ in candidates4[:50]]}')
+          i4,ch4,chunks[4]=candidates4[0]
 
-          # Recover chunk 7 with the now-correct prefix through chunk 6.
-          prefix = ''.join(chunks[:7])
-          candidates7 = []
-          c7 = chunks[7]
+          # A valid chunk-7 repair must make the COMPLETE stream decompress successfully.
+          prefix7=''.join(chunks[:7])
+          c7=chunks[7]
+          suffix8=chunks[8]
+          candidates7=[]
           for i in range(len(c7)):
-              candidate = c7[:i] + c7[i+1:]
-              if prefix_ok(prefix + candidate):
-                  candidates7.append((i, c7[i], candidate))
+              repaired=c7[:i]+c7[i+1:]
+              text=prefix7+repaired+suffix8
+              try:
+                  raw=decode(text)
+                  data=lzma.decompress(raw)
+                  candidates7.append((i,c7[i],repaired,raw,data))
+              except Exception:
+                  pass
           if len(candidates7) != 1:
-              raise SystemExit(f'chunk7 recovery ambiguous: {[(i,c) for i,c,_ in candidates7]}')
-          i7, ch7, chunks[7] = candidates7[0]
+              raise SystemExit(f'chunk7 full recovery ambiguous count={len(candidates7)} candidates={[(i,c) for i,c,_,_,_ in candidates7[:50]]}')
+          i7,ch7,chunks[7],raw,data=candidates7[0]
 
-          combined = ''.join(chunks)
-          raw = base64.b64decode(combined, validate=True)
-          data = lzma.decompress(raw)
-          out = Path('/tmp/air250-payload.tar')
+          out=Path('/tmp/air250-payload.tar')
           out.write_bytes(data)
-
-          report = []
+          report=[]
           report.append('AIR 2.5.0 staged deployment recovery + inspection')
           report.append(f'chunk4_deleted_index={i4} char={ch4!r}')
-          report.append(f'chunk7_removed_literal_dot=true')
+          report.append('chunk7_removed_literal_dot=true')
           report.append(f'chunk7_deleted_index={i7} char={ch7!r}')
-          report.append(f'base64_chars={len(combined)}')
           report.append(f'xz_stream_sha256={hashlib.sha256(raw).hexdigest()}')
           report.append(f'tar_bytes={len(data)}')
           report.append('--- FILES ---')
-          with tarfile.open(out, 'r:') as tf:
-              names = sorted(m.name for m in tf.getmembers() if m.isfile())
+          with tarfile.open(out,'r:') as tf:
+              names=sorted(m.name for m in tf.getmembers() if m.isfile())
               report.extend(names)
               report.append('--- SELECTED SHA256 ---')
               for name in names:
-                  if any(k in name for k in ['AIR_CORE_RUNTIME.md','AIR_HANDOFF_CARD_TEMPLATE.json','AIR_RUNTIME_ROUTE_MAP','AIR_SPECIALIST_PACKAGE_INDEX','VERSION','README.md']):
-                      f = tf.extractfile(name)
+                  if any(k in name for k in ['AIR_CORE_RUNTIME.md','AIR_HANDOFF_CARD_TEMPLATE.json','AIR_RUNTIME_ROUTE_MAP','AIR_SPECIALIST_PACKAGE_INDEX','VERSION','README.md','air-test-manifest.json']):
+                      f=tf.extractfile(name)
                       if f:
                           report.append(f'{hashlib.sha256(f.read()).hexdigest()}  {name}')
           Path('.air-deploy/INSPECTION_REPORT.txt').write_text('\n'.join(report)+'\n')
-          Path('/tmp/recovered.b64').write_text(combined)
           PY
 
       - name: Commit inspection report
