@@ -17,38 +17,84 @@ jobs:
         with:
           ref: air250-preview-deploy
 
-      - name: Diagnose staged chunks
+      - name: Recover and inspect staged payload
         shell: bash
         run: |
           set -euo pipefail
-          {
-            echo 'AIR 2.5.0 staged deployment chunk diagnostics'
-            for f in $(find .air-deploy -maxdepth 1 -type f -name 'chunk-*' | sort); do
-              clean="$(tr -d '\r\n' < "$f")"
-              printf '%s bytes=%s clean_chars=%s mod4=%s invalid=' "$f" "$(stat -c%s "$f")" "${#clean}" "$(( ${#clean} % 4 ))"
-              printf '%s' "$clean" | LC_ALL=C grep -o '[^A-Za-z0-9+/=]' | sort | uniq -c | tr '\n' ';' || true
-              echo
-            done
-            cat $(find .air-deploy -maxdepth 1 -type f -name 'chunk-*' | sort) | tr -d '\r\n' > /tmp/payload.b64
-            echo "combined_chars=$(wc -c < /tmp/payload.b64)"
-            echo "combined_mod4=$(( $(wc -c < /tmp/payload.b64) % 4 ))"
-            if base64 -d /tmp/payload.b64 > /tmp/payload.bin 2>/tmp/base64.err; then
-              echo 'base64_decode=PASS'
-              echo "decoded_bytes=$(stat -c%s /tmp/payload.bin)"
-              echo "decoded_sha256=$(sha256sum /tmp/payload.bin | awk '{print $1}')"
-              if xz -t /tmp/payload.bin 2>/tmp/xz.err; then
-                echo 'xz_test=PASS'
-              else
-                echo 'xz_test=FAIL'
-                cat /tmp/xz.err
-              fi
-            else
-              echo 'base64_decode=FAIL'
-              cat /tmp/base64.err
-            fi
-          } > .air-deploy/INSPECTION_REPORT.txt
+          python - <<'PY'
+          from pathlib import Path
+          import base64, lzma, hashlib, tarfile, io
 
-      - name: Commit diagnostics
+          files = sorted(Path('.air-deploy').glob('chunk-*'))
+          chunks = [p.read_text().replace('\r','').replace('\n','') for p in files]
+          # Known diagnostics: chunk 4 has one extra base64 character.
+          # Chunk 7 has one literal dot plus one extra base64 character.
+          chunks[7] = chunks[7].replace('.', '')
+
+          def prefix_ok(text: str) -> bool:
+              try:
+                  raw = base64.b64decode(text, validate=True)
+                  d = lzma.LZMADecompressor()
+                  d.decompress(raw)
+                  return True
+              except lzma.LZMAError:
+                  return False
+              except Exception:
+                  return False
+
+          # Recover chunk 4 by finding the unique deletion that keeps the XZ stream valid.
+          prefix = ''.join(chunks[:4])
+          candidates4 = []
+          c4 = chunks[4]
+          for i in range(len(c4)):
+              candidate = c4[:i] + c4[i+1:]
+              if prefix_ok(prefix + candidate):
+                  candidates4.append((i, c4[i], candidate))
+          if len(candidates4) != 1:
+              raise SystemExit(f'chunk4 recovery ambiguous: {[(i,c) for i,c,_ in candidates4]}')
+          i4, ch4, chunks[4] = candidates4[0]
+
+          # Recover chunk 7 with the now-correct prefix through chunk 6.
+          prefix = ''.join(chunks[:7])
+          candidates7 = []
+          c7 = chunks[7]
+          for i in range(len(c7)):
+              candidate = c7[:i] + c7[i+1:]
+              if prefix_ok(prefix + candidate):
+                  candidates7.append((i, c7[i], candidate))
+          if len(candidates7) != 1:
+              raise SystemExit(f'chunk7 recovery ambiguous: {[(i,c) for i,c,_ in candidates7]}')
+          i7, ch7, chunks[7] = candidates7[0]
+
+          combined = ''.join(chunks)
+          raw = base64.b64decode(combined, validate=True)
+          data = lzma.decompress(raw)
+          out = Path('/tmp/air250-payload.tar')
+          out.write_bytes(data)
+
+          report = []
+          report.append('AIR 2.5.0 staged deployment recovery + inspection')
+          report.append(f'chunk4_deleted_index={i4} char={ch4!r}')
+          report.append(f'chunk7_removed_literal_dot=true')
+          report.append(f'chunk7_deleted_index={i7} char={ch7!r}')
+          report.append(f'base64_chars={len(combined)}')
+          report.append(f'xz_stream_sha256={hashlib.sha256(raw).hexdigest()}')
+          report.append(f'tar_bytes={len(data)}')
+          report.append('--- FILES ---')
+          with tarfile.open(out, 'r:') as tf:
+              names = sorted(m.name for m in tf.getmembers() if m.isfile())
+              report.extend(names)
+              report.append('--- SELECTED SHA256 ---')
+              for name in names:
+                  if any(k in name for k in ['AIR_CORE_RUNTIME.md','AIR_HANDOFF_CARD_TEMPLATE.json','AIR_RUNTIME_ROUTE_MAP','AIR_SPECIALIST_PACKAGE_INDEX','VERSION','README.md']):
+                      f = tf.extractfile(name)
+                      if f:
+                          report.append(f'{hashlib.sha256(f.read()).hexdigest()}  {name}')
+          Path('.air-deploy/INSPECTION_REPORT.txt').write_text('\n'.join(report)+'\n')
+          Path('/tmp/recovered.b64').write_text(combined)
+          PY
+
+      - name: Commit inspection report
         shell: bash
         run: |
           set -euo pipefail
@@ -56,5 +102,5 @@ jobs:
           git config user.email 'actions@users.noreply.github.com'
           git add .air-deploy/INSPECTION_REPORT.txt
           git diff --cached --quiet && exit 0
-          git commit -m 'Diagnose staged AIR 2.5.0 deployment payload'
+          git commit -m 'Recover and inspect staged AIR 2.5.0 deployment payload'
           git push origin HEAD:air250-preview-deploy
