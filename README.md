@@ -80,8 +80,11 @@ For this preview, the repaired candidate completed:
 - integrated static validation: **895/895 PASS, 0 warnings**
 - independent reproduction of the semantic file hash map and validation reports: **byte-identical**
 - targeted isolated/field smoke: **BR-001, BR-004, BR-005, BR-006, BR-007 PASS**
+- staging workstation executable suite: **75/75 PASS across three runs with identical decision fingerprints**
+- PR-hosted reproducibility workflow: **PASS** — three network-disabled Docker executions plus fingerprint comparison
+- PR-hosted release-asset build: **PASS** — release identity, deterministic bundle build, required contents, and artifact upload
 
-The behavioral observations are `REPLAYABLE_EVALUATION` / field evidence, not deterministic model proof. This preview does **not** claim stable behavioral certification, universal model/provider/platform compatibility, backend enforcement, or guaranteed correctness. See [`VALIDATION_EVIDENCE_0.6.0-preview.1.md`](VALIDATION_EVIDENCE_0.6.0-preview.1.md).
+The behavioral observations are `REPLAYABLE_EVALUATION` / field evidence, not deterministic model proof. This preview does **not** claim stable behavioral certification, universal model/provider/platform compatibility, backend enforcement, or guaranteed correctness. The current PR head must remain green at merge. See [`VALIDATION_EVIDENCE_0.6.0-preview.1.md`](VALIDATION_EVIDENCE_0.6.0-preview.1.md).
 
 ## Continue a project
 

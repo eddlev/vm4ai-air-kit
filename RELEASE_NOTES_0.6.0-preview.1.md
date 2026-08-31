@@ -43,6 +43,14 @@ The targeted preview smoke covered:
 
 These are **replayable model observations**, not deterministic executable proof. They support the Preview release decision but do not replace the fuller Stable-release behavioral gate.
 
+### Repository and hosted validation
+
+- Staging workstation executable suite: **75/75 PASS across three runs with identical decision fingerprints**. These workstation runs are repeated local Preview evidence, not the isolated deterministic Stable claim.
+- GitHub PR reproducibility workflow: **PASS**. The workflow resolved an isolated Python container image, ran three executable checks with Docker network disabled, compared independent run fingerprints, and uploaded the evidence artifact.
+- GitHub PR release-asset workflow: **PASS**. Release identity resolution, deterministic AIR bundle construction, required bundle-content verification, and release-asset candidate upload all completed successfully. The release-attachment job was skipped on the PR event as intended.
+
+Any later PR commit must leave the **current PR head green at merge**; an earlier green run is not permission to merge a changed head without revalidation.
+
 ## Release assets and provenance
 
 The GitHub release workflow builds the public AIR Kit assets from the tagged repository source:

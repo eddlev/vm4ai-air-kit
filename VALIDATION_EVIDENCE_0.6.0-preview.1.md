@@ -65,11 +65,15 @@ Notable observed behavior:
 - `air -t on` selected `EXPANDED_EVIDENCE_PRESENTATION`; `air -t off` returned to `STANDARD_EVIDENCE_PRESENTATION`; neither altered evidence rigor, acquisition, preservation, evaluation, or approval requirements.
 - A fresh new-project request entered bootstrap while keeping Q1 explicitly unanswered until the user selected A/B/C/D.
 
-## Repository staging evidence
+## Repository staging and hosted evidence
 
-Before release-identity correction, the staged AIR 2.5.0 source overlay passed the aligned repository executable suite **75/75 across three local runs with identical decision fingerprints**. Those workstation runs are repeated local Preview evidence; they are not claimed as the isolated deterministic Stable gate.
+The staged AIR 2.5.0 source overlay passed the aligned repository executable suite **75/75 across three workstation runs with identical decision fingerprints**. Those workstation runs are repeated local Preview evidence; they are not claimed as the isolated deterministic Stable gate.
 
-The pull request for AIR Kit v0.6.0-preview.1 is intended to run the repository's GitHub-hosted reproducibility workflow in three separate network-disabled Docker executions, plus the release-asset build check, before any merge to `main`.
+During PR preparation, the GitHub-hosted **AIR reproducibility contract** completed successfully: the workflow resolved an isolated Python image, ran three executable checks in network-disabled Docker executions, compared the independent run fingerprints, and uploaded the resulting evidence.
+
+The GitHub-hosted **AIR release assets** workflow also completed successfully: release identity resolution, deterministic bundle generation, required bundle-content verification, and release-asset candidate upload all passed. The release-attachment job was skipped on the pull-request event, as designed.
+
+Because GitHub Actions revalidates later PR commits, the merge decision must require the **current PR head** to remain green. A successful earlier head is evidence, not authorization to merge a changed head without its own checks.
 
 ## Evidence still deferred to a Stable milestone
 
@@ -79,7 +83,7 @@ Because model behavior is replayable rather than deterministic, the Stable miles
 
 ## Release decision represented by this evidence
 
-`ELIGIBLE_FOR_PUBLIC_PREVIEW_PENDING_PR_HOSTED_VALIDATION`
+`ELIGIBLE_FOR_PUBLIC_PREVIEW_WITH_CURRENT_PR_HEAD_REQUIRED_GREEN_AT_MERGE`
 
 Not equivalent to:
 
