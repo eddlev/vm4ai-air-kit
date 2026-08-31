@@ -23,11 +23,12 @@ AIR is not a hidden-memory system or backend enforcement layer. It is prompt-com
 
 ## Current public channel
 
-**AIR v2.5.0-preview.1** is the current Preview / Development source line.
+**AIR Kit v0.6.0-preview.1** is the current Preview / Development release line. It packages the AIR Foundation `2.5.0` candidate while preserving AIR's separate component-version axes.
 
 | Component | Current version |
 | --- | ---: |
-| Public channel | `v2.5.0-preview.1` |
+| AIR Kit release | `v0.6.0-preview.1` |
+| Release channel | `Preview / Development` |
 | AIR Core Runtime | `2.5.0` |
 | AIR Control Surface | `2.5.0` |
 | AIR Governance Supplement | `2.3.0` |
@@ -59,9 +60,9 @@ AIR validates the Foundation and starts onboarding at Q1. The activation phrase 
 
 See [`START_HERE.md`](START_HERE.md) for the shortest new-project, import, and Handoff paths.
 
-## What v2.5.0-preview.1 changes
+## What AIR Kit v0.6.0-preview.1 changes
 
-This preview closes the remaining AIR 2.5.0 Foundation-consistency defects found during integrated repair:
+This preview packages the repaired AIR 2.5.0 Foundation and closes the remaining Foundation-consistency defects found during integrated repair:
 
 - strict-Handoff Governance metadata now aligns to Governance/Floor `2.3.0`;
 - Handoff restoration uses the schema-2.3 evidence carriers `presentation_mode`, `presentation_mode_source`, and `evidence_capture_gaps`;
@@ -80,7 +81,7 @@ For this preview, the repaired candidate completed:
 - independent reproduction of the semantic file hash map and validation reports: **byte-identical**
 - targeted isolated/field smoke: **BR-001, BR-004, BR-005, BR-006, BR-007 PASS**
 
-The behavioral observations are `REPLAYABLE_EVALUATION` / field evidence, not deterministic model proof. This preview does **not** claim stable behavioral certification, universal model/provider/platform compatibility, backend enforcement, or guaranteed correctness. See [`VALIDATION_EVIDENCE_2.5.0-preview.1.md`](VALIDATION_EVIDENCE_2.5.0-preview.1.md).
+The behavioral observations are `REPLAYABLE_EVALUATION` / field evidence, not deterministic model proof. This preview does **not** claim stable behavioral certification, universal model/provider/platform compatibility, backend enforcement, or guaranteed correctness. See [`VALIDATION_EVIDENCE_0.6.0-preview.1.md`](VALIDATION_EVIDENCE_0.6.0-preview.1.md).
 
 ## Continue a project
 

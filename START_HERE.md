@@ -1,6 +1,8 @@
-# Start AIR — v2.5.0-preview.1
+# Start AIR — AIR Kit v0.6.0-preview.1
 
 This is the shortest path from the current AIR Preview Foundation to a working project.
+
+AIR Kit v0.6.0-preview.1 packages the AIR Foundation `2.5.0` candidate. The Kit release version and AIR component versions are separate version axes.
 
 ## New project
 
@@ -32,12 +34,12 @@ The receiving runtime validates the card and current source state before rebindi
 
 ## Current release boundary
 
-`v2.5.0-preview.1` is a Preview / Development release. Static/integrity validation and targeted behavioral smoke have passed for the current repair surface; the broader repeated behavioral matrix is reserved for a Stable milestone.
+`AIR Kit v0.6.0-preview.1` is a Preview / Development release carrying AIR Foundation `2.5.0`. Static/integrity validation and targeted behavioral smoke have passed for the current repair surface; the broader repeated behavioral matrix is reserved for a Stable milestone.
 
 See:
 
 - [Release channel policy](RELEASE_CHANNEL_POLICY.md)
-- [Validation evidence](VALIDATION_EVIDENCE_2.5.0-preview.1.md)
+- [Validation evidence](VALIDATION_EVIDENCE_0.6.0-preview.1.md)
 - [Bug reporting](BUG_REPORTING.md)
 - [Compatibility](COMPATIBILITY.md)
 - [Website get-started guide](https://vm4ai.com/get-started.html)
