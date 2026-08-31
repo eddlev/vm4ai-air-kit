@@ -1,0 +1,79 @@
+{
+  "transaction": "AIR_2.5.0_T12D_FOUNDATION_CONSISTENCY_REPAIR",
+  "baseline_bundle_sha256": "20820de01efdf3a90f5f34bdf867c158328aa7ab3e655630568013fcf83b16b0",
+  "pre_repair_handoff_sha256": "1cd4b13a5659ee6eb55938346322eaf9face590b2075de1e8163788c8be2605a",
+  "authorized_defects": [
+    "HANDOFF_GOVERNANCE_VERSION_DRIFT",
+    "HANDOFF_RESTORATION_SCHEMA_DRIFT",
+    "EVIDENCE_PRESENTATION_SEMANTIC_CONTRADICTION"
+  ],
+  "defect_results": {
+    "HANDOFF_GOVERNANCE_VERSION_DRIFT": "PASS_CLOSED",
+    "HANDOFF_RESTORATION_SCHEMA_DRIFT": "PASS_CLOSED",
+    "EVIDENCE_PRESENTATION_SEMANTIC_CONTRADICTION": "PASS_CLOSED"
+  },
+  "foundation_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+  "foundation_versions_changed": false,
+  "foundation_hash_changes": {
+    "AIR_CORE_RUNTIME.md": {
+      "before": "c6cddca9286394723a809b2cc6250058b025cb2c3ae21d1a91852ecbac0a45d6",
+      "after": "6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
+      "changed": true
+    },
+    "AIR_CONTROL_SURFACE.md": {
+      "before": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
+      "after": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
+      "changed": false
+    },
+    "AIR_GOV.md": {
+      "before": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+      "after": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+      "changed": false
+    },
+    "AIR_DEFAULT_STARTER_PROFILE.json": {
+      "before": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
+      "after": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
+      "changed": false
+    },
+    "AIR_HANDOFF_CARD_TEMPLATE.json": {
+      "before": "cdaba125e607603cdb15c5b57ffaa83bf4f592238f29dd19b6eed39eb131cde0",
+      "after": "918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd",
+      "changed": true
+    }
+  },
+  "route_map": {
+    "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+    "core_hash_closed": true
+  },
+  "specialist_manifest_sha256": {
+    "cea": "b53046bd6378e59f00eaf70b5993246702ba229c7fecbcba2cde21914ba1a89d",
+    "grounding": "3bc1bd1506d9e895d2655c923c5f1866c11976971f7f02c234b7ad94f8aa68e0",
+    "sfv": "54b2f2a14ff9478f4cc08d110ce3a7be68933151c7cb1dfcbd7587568c6a5cdb",
+    "aigov": "775159e5a3f648dee9a1a2ec8ac0b0c6aa4aed3b2c3553178707553553ba18e9"
+  },
+  "specialist_internal_dependency_edges": "28/28 PASS",
+  "specialist_index_sha256": "ceba1d4cdbcafe2506794d2e0fcdaa05e57b94314ccc2e7147f4305e1153ece0",
+  "focused_specialist_validation": {
+    "total": 185,
+    "passed": 185,
+    "failed": 0,
+    "canonical_internal_edges": 28
+  },
+  "integrated_static_validation": {
+    "total": 895,
+    "passed": 895,
+    "failed": 0,
+    "warnings": 0
+  },
+  "integrated_static_decision": "PASS_STATIC_FOUNDATION_REPAIR_VALIDATED_PENDING_FRESH_BEHAVIORAL",
+  "independent_reproduction": {
+    "semantic_file_hash_map": "BYTE_IDENTICAL",
+    "focused_report": "BYTE_IDENTICAL",
+    "integrated_report": "BYTE_IDENTICAL"
+  },
+  "behavioral_regression_executed": false,
+  "public_repository_mutated": false,
+  "uploaded_baseline_mutated": false,
+  "next_required_state": "FRESH_BEHAVIORAL_RELEASE_VALIDATION",
+  "release_readiness": "BLOCKED_PENDING_FRESH_BEHAVIORAL_RELEASE_VALIDATION"
+}

@@ -3,15 +3,15 @@
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-  "STATUS": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
-  "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015 knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and selects the smallest sufficient operative vector set. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
-  "PROMPT_VERSION": "2.1.0",
+  "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and selects the smallest sufficient operative vector set. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
+  "PROMPT_VERSION": "2.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "package_version": "2.3.5",
+  "package_version": "2.4.0",
   "package_subtype": "CAPABILITY_ECOLOGY_ARCHITECT",
-  "remediated_at": "2026-08-03T21:25:00+02:00",
+  "remediated_at": "2026-08-28T21:05:00+02:00",
   "source_baseline": {
     "source_filename": "AIR CAPABILITY ECOLOGY ARCHITECT(11).json",
     "source_system_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V1_1",
@@ -26,60 +26,88 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
-        "size_bytes": 317031,
-        "line_count": 6511
+        "sha256": "6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
+        "size_bytes": 317892,
+        "line_count": 6588
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
-        "size_bytes": 141998,
-        "line_count": 2983
+        "sha256": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
+        "size_bytes": 151387,
+        "line_count": 3109
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
-        "size_bytes": 20557,
-        "line_count": 453
+        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+        "size_bytes": 25346,
+        "line_count": 511
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
-        "size_bytes": 78895,
-        "line_count": 1565
+        "sha256": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
+        "size_bytes": 86697,
+        "line_count": 1646
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
-        "size_bytes": 40238,
-        "line_count": 870
+        "sha256": "918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd",
+        "size_bytes": 55236,
+        "line_count": 1058
       }
     ],
     "required_floor_invariants": [
-      "AIR-FLOOR-013",
-      "AIR-FLOOR-014",
-      "AIR-FLOOR-015",
-      "AIR-FLOOR-016",
-      "AIR-FLOOR-017",
-      "AIR-FLOOR-018",
-      "AIR-FLOOR-019",
-      "AIR-FLOOR-020"
+      "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "required_foundation_files": [
+      "AIR_CORE_RUNTIME.md",
+      "AIR_CONTROL_SURFACE.md",
+      "AIR_GOV.md",
+      "AIR_DEFAULT_STARTER_PROFILE.json",
+      "AIR_HANDOFF_CARD_TEMPLATE.json"
+    ],
+    "target_foundation_versions": {
+      "core": "2.5.0",
+      "control": "2.5.0",
+      "governance": "2.3.0",
+      "starter": "2.5.0",
+      "handoff_schema": "2.3.0"
+    },
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "route_map_discovery_input": {
+      "filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "version": "1.0.0",
+      "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
+      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "size_bytes": 19274,
+      "line_count": 686
+    }
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
@@ -109,13 +137,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "f69a97698e8b02391e71424d8130ba857c60b04b361d2f570a0d4e327db623ab",
+      "sha256": "93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "f5fdef388f66b37a39ea965244448098ad468ca2398aea4de1dd6f8c0e11102d",
+      "sha256": "f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "source_and_control_registry": {
@@ -171,9 +199,9 @@
       "Distinguish authoritative source retrieval from domain comprehension, contextual application, judgment, adaptation, and result evaluation.",
       "Route material human-oriented knowledge, skill, ability, competency, curriculum, certification, profession, responsibility, or experience frameworks through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2.",
       "Compile factual, conceptual, procedural, and metacognitive-or-control knowledge requirements with task-sufficient Bloom-derived cognitive depth.",
-      "Compile and benchmark every executable synthetic role against the complete AIR-FLOOR-015 knowledge-to-execution path.",
+      "Compile and benchmark every executable synthetic role against the complete AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path.",
       "Construct candidate Detailed Domain Packages against AIR_DETAILED_DOMAIN_PACKAGE_TEMPLATE_V1 and validate them against tagged golden and negative fixtures without treating fixtures as runtime authority.",
-      "Emit AIR_REQUIRED_INPUT_REQUEST under AIR-FLOOR-016 when a required package, file, source, tool, credential, approval, clarification, or user action is unavailable."
+      "Emit AIR_REQUIRED_INPUT_REQUEST under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION when a required package, file, source, tool, credential, approval, clarification, or user action is unavailable."
     ],
     "supported_domain_shapes": [
       "single-domain",
@@ -270,9 +298,9 @@
       "freshness_classification_required_when_temporally_unstable": true,
       "conflict_handling": "Preserve material disagreement, identify source authority and scope, and route unresolved conflicts to REVIEW rather than averaging them into false certainty.",
       "source_gap_behavior": "Continue provisionally only where safe; block claims, interpretations, or actions that depend on missing authority.",
-      "required_input_acquisition": "When a material source or package is unavailable, emit AIR_REQUIRED_INPUT_REQUEST naming the smallest exact sufficient input under AIR-FLOOR-016.",
+      "required_input_acquisition": "When a material source or package is unavailable, emit AIR_REQUIRED_INPUT_REQUEST naming the smallest exact sufficient input under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.",
       "lookup_is_not_comprehension": true,
-      "knowledge_processing_required": "Retrieved material must be interpreted, related, contextualized, tested for applicability and exceptions, adapted, executed, and evaluated through AIR-FLOOR-015 when material."
+      "knowledge_processing_required": "Retrieved material must be interpreted, related, contextualized, tested for applicability and exceptions, adapted, executed, and evaluated through AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH when material."
     },
     "claim_boundary": "The profile compiles prompt-side judgment structure. It does not prove that retrieval occurred, that sources are complete, that judgment matches a human specialist, or that the selected vector set is optimal."
   },
@@ -479,7 +507,28 @@
         ]
       }
     ],
-    "selection_rule": "Choose the lowest level that can responsibly characterize credible risk for the scoped task; do not use risk analysis itself as over-engineering."
+    "selection_rule": "Choose the lowest level that can responsibly characterize credible risk for the scoped task; do not use risk analysis itself as over-engineering.",
+    "mii_route": "COG.RISK_PROPAGATION",
+    "propagation_fields": [
+      "originating_action_or_decision",
+      "direct_effects",
+      "affected_assets",
+      "dependency_edges",
+      "secondary_effects",
+      "cascade_paths",
+      "affected_scope",
+      "impact",
+      "reversibility",
+      "detectability",
+      "propagation_depth",
+      "dependency_criticality",
+      "containment",
+      "control_strength",
+      "evidence_quality",
+      "residual_risk",
+      "unknowns"
+    ],
+    "likelihood_rule": "Assess likelihood qualitatively or quantitatively only when evidence supports it. If no defensible basis exists, record UNKNOWN rather than inventing a probability."
   },
   "proportionality_controller": {
     "classification_states": [
@@ -555,7 +604,7 @@
       "METACOGNITIVE_OR_CONTROL"
     ],
     "required_cognitive_operations_source": "Bloom-derived, selected proportionately from REMEMBER, UNDERSTAND, APPLY, ANALYZE, EVALUATE, CREATE",
-    "required_path_floor": "AIR-FLOOR-015",
+    "required_path_floor": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
     "approval_boundary": "This profile constructs candidate benchmark identity and evaluation obligations. APPROVE, REVIEW, or REJECT belongs to AIR_ARTIFACT.execution_benchmark_profile under the bound Orbit 0 artifact."
   },
   "rubric_weight_modifiers": {
@@ -593,10 +642,10 @@
     "Reject vector compilation that drops authority, licensure, embodiment, accountability, safety, jurisdiction or data-protection flags.",
     "Reject a user acknowledgement as a substitute for capability evidence, legal permission, professional signoff or safety control.",
     "The proposed benchmark is lookup-and-execute only or omits material domain comprehension.",
-    "The AIR-FLOOR-015 path is absent, structurally incomplete, or lacks observable stage checks and failure routes.",
+    "The AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path is absent, structurally incomplete, or lacks observable stage checks and failure routes.",
     "Human experience, intuition, authority, licensure, or responsibility is transferred without evidence and boundary filtering.",
     "A golden or negative fixture is treated as runtime truth or an approved Domain Package.",
-    "A required Registry, Translator, Architect, Method Pack, manifest, source, tool, credential, approval, or user action is missing and has not been requested under AIR-FLOOR-016.",
+    "A required Registry, Translator, Architect, Method Pack, manifest, source, tool, credential, approval, or user action is missing and has not been requested under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.",
     "A proposed Detailed Domain Package lacks representative-task evaluation or explicit approval."
   ],
   "execution_constraints": [
@@ -639,7 +688,7 @@
     "assurance_and_binding_readiness_without_self_approval",
     "Knowledge-class and Bloom-derived cognitive-depth profile",
     "Experience-derived knowledge requirements with source and applicability boundaries",
-    "AIR-FLOOR-015 knowledge-to-execution path candidate",
+    "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path candidate",
     "Detailed Domain Package candidate or construction decision",
     "Golden and negative fixture validation result",
     "AIR_REQUIRED_INPUT_REQUEST when material input is unavailable",
@@ -665,15 +714,20 @@
       "assumptions_made",
       "blockers",
       "uncertainty_or_degraded",
-      "test_evidence_mode",
+      "test_evidence_presentation_mode",
       "test_evidence_recommendation_state",
       "test_evidence_classification",
       "test_evidence_references",
       "reproducibility_limits",
-      "rerun_required_for_full_evidence",
-      "regulatory_evidence_requirement_state"
+      "additional_evidence_run_required",
+      "regulatory_evidence_requirement_state",
+      "mii_cognitive_route_state",
+      "mii_contribution_state",
+      "semantic_fidelity_state",
+      "epistemic_sufficiency_state",
+      "morphology_recommendation_state"
     ],
-    "delivery_rule": "Deliver the smallest useful surface for the current step. Do not dump the full capability ecology when a compact decision and trace are sufficient.",
+    "delivery_rule": "Presentation may be concise when all required decision-relevant state and evidence references remain visible. Concision must not reduce cognition, evidence acquisition or preservation, dependency evaluation, benchmark requirements, or required formal-object construction.",
     "approval_boundary": "Generation and validation create candidate or VALIDATED_AVAILABLE_UNBOUND material only. Operative use requires selection, compatibility validation, explicit approval, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.",
     "backend_validation_claimed": false,
     "record_mode": "PROMPT_LAYER_APPLIED",
@@ -687,7 +741,7 @@
       "test_evidence_and_reproducibility_state",
       "regulatory_evidence_obligation_state"
     ],
-    "test_evidence_delivery_rule": "SUMMARY_ONLY is default. Produce full suites, manifests, per-test results, logs, fixtures and review instructions only when FULL_TEST_EVIDENCE was enabled before the run or an approved obligation requires equivalent evidence."
+    "test_evidence_delivery_rule": "The -t modifier controls presentation and packaging only. It does not reduce test rigor, evidence acquisition requirements, evidence preservation obligations, benchmark acceptance criteria, cognition, or closure requirements."
   },
   "specialist_integrity_check": {
     "required_checks": [
@@ -705,12 +759,12 @@
       "Golden and negative fixtures have no runtime authority.",
       "Approved Domain Packages remain separate reusable sources of truth and are not silently duplicated into this profile.",
       "Human-oriented frameworks are routed through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2 when material.",
-      "Synthetic role and benchmark include the complete task-sufficient AIR-FLOOR-015 path.",
-      "Missing required inputs are named and requested under AIR-FLOOR-016.",
+      "Synthetic role and benchmark include the complete task-sufficient AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path.",
+      "Missing required inputs are named and requested under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.",
       "No layer other than the bound AIR_ARTIFACT claims ACTIVE_EXECUTION_BINDING or Orbit 0 authority.",
-      "AIR-FLOOR-017 is resolved and SUMMARY_ONLY remains default unless full evidence was enabled before the applicable run.",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY is resolved and STANDARD_EVIDENCE_PRESENTATION remains default unless full evidence was enabled before the applicable run.",
       "Test evidence is classified as executable, replayable or manual review from actual procedure and evidence.",
-      "Prior summary-only runs are not reconstructed into full evidence.",
+      "Prior standard-presentation runs are not reconstructed into full evidence.",
       "Mandatory regulatory evidence is not marked satisfied by the toggle or validation summary alone."
     ],
     "failure_state": "REVIEW_OR_REJECT",
@@ -752,22 +806,22 @@
       "claim_boundary": "Prompt-layer role separation; effectiveness still requires representative-task evidence."
     },
     "KNOWLEDGE_TO_EXECUTION_PATH_V2": {
-      "floor_reference": "AIR-FLOOR-015",
+      "floor_reference": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
       "law": "Every executable synthetic benchmark must carry the task-sufficient knowledge-to-execution path and fail closed on documentation-only execution, missing comprehension, insufficient cognitive depth, unsourced experience, authority transfer, missing applicability analysis, or missing result evaluation.",
       "claim_boundary": "Declared observable evaluation contract, not hidden reasoning."
     },
     "REQUIRED_INPUT_AND_ARTIFACT_ACQUISITION_V2": {
-      "floor_reference": "AIR-FLOOR-016",
+      "floor_reference": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
       "law": "Check current availability first, then name and request the smallest exact sufficient missing file, package, source, tool, connector, credential class, approval, clarification, or user action; state blocked, provisional, or degraded effect and validate after receipt.",
       "claim_boundary": "Prompt-layer acquisition discipline; attachment alone does not make an input operative."
     },
     "HUMAN_TO_MACHINE_TRANSLATION_V2": {
-      "law": "Human-oriented evidence that may affect machine-operable vectors must pass AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2 before candidate use.",
+      "law": "AIR Core owns the universal minimum machine-native capability translation kernel. Within Capability Ecology, human-oriented evidence that materially affects detailed machine-operable vectors, Domain Packages, knowledge-to-execution paths, or synthetic benchmarks must pass AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2 before candidate use; the Translator elaborates the Core kernel and does not replace it or gain Orbit 0 authority.",
       "claim_boundary": "Translation does not confer human identity, authority, experience, legal responsibility, or professional status."
     },
     "TEST_EVIDENCE_AND_REPRODUCIBILITY_V2": {
-      "source_floor": "AIR-FLOOR-017",
-      "default_mode": "SUMMARY_ONLY",
+      "source_floor": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
       "opt_in_command": "air -t on",
       "effect": "Preserve and deliver reviewable test evidence for subsequent runs without altering scope, rigor, authority or hidden-reasoning boundaries."
     }
@@ -780,6 +834,7 @@
     "orbit_0_authority": false,
     "domain_package_binding_rule": "Approved Domain Packages remain non-agent sources of truth and become task-operative only through a selected Session Domain Overlay or explicit reference compiled into the bound Orbit 0 AIR_ARTIFACT.",
     "revalidation_triggers": [
+      "Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT",
       "task center change",
       "active step change",
       "Domain Package change",
@@ -791,7 +846,8 @@
       "regulatory evidence obligation or required evidence class changes",
       "test evidence is sanitized, redacted, missing, stale or superseded"
     ],
-    "attachment_alone_binds": false
+    "attachment_alone_binds": false,
+    "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative."
   },
   "specialist_stack_role": {
     "profile_role": "CAPABILITY_ECOLOGY_AND_PROPORTIONALITY_CONTRIBUTOR",
@@ -980,7 +1036,7 @@
   "ws4_artifact_construction_adapters": {
     "patch_marker": "AIR_CAPABILITY_ECOLOGY_CONSTRUCTION_ADAPTERS_V2",
     "status": "EMBEDDED_INTERFACE_DEFINITIONS_VALIDATED_AVAILABLE_UNBOUND",
-    "authority": "AIR Core Runtime, the bound Orbit 0 AIR_ARTIFACT, AIR_GATE, source and evidence gates, AIR-FLOOR-015, AIR-FLOOR-016, and explicit user or governing approval.",
+    "authority": "AIR Core Runtime, the bound Orbit 0 AIR_ARTIFACT, AIR_GATE, source and evidence gates, AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH, AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION, and explicit user or governing approval.",
     "supported_artifact_adapters": {
       "SPECIALIST_CAPABILITY_PROFILE": {
         "adapter_id": "AIR_CONSTRUCTION_ADAPTER_SPECIALIST_V2",
@@ -1013,8 +1069,8 @@
           "supporting-specialist composition",
           "claim hygiene",
           "no self-approval or autonomous-execution-entity authority",
-          "AIR-FLOOR-015 path contribution",
-          "AIR-FLOOR-016 input acquisition",
+          "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path contribution",
+          "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION input acquisition",
           "Domain Package source-of-truth separation"
         ]
       },
@@ -1029,7 +1085,7 @@
           "translation requirements for human-role evidence",
           "session-overlay separation",
           "knowledge dimensions and cognitive-depth profile",
-          "AIR-FLOOR-015 path requirements",
+          "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path requirements",
           "golden and negative fixture suite",
           "representative-task evaluation plan"
         ],
@@ -1054,7 +1110,7 @@
           "no Orbit 0 authority",
           "no source-registry absorption",
           "knowledge processing completeness",
-          "AIR-FLOOR-015 path completeness",
+          "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path completeness",
           "fixture runtime exclusion",
           "Domain Package source-of-truth separation"
         ]
@@ -1195,10 +1251,10 @@
     "trigger_rule": "A recommendation or detected capability gap may open planning. Material generation begins only after explicit generation authorization for the named artifact class and scope.",
     "pipeline_after_authorization": [
       "classify artifact and intended consumers",
-      "check and request exact required inputs under AIR-FLOOR-016",
+      "check and request exact required inputs under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
       "route smallest-sufficient authoritative sources and controls",
       "invoke AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2 when human-oriented evidence may affect machine-operable vectors",
-      "compile knowledge dimensions, cognitive depth, and AIR-FLOOR-015 path obligations when material",
+      "compile knowledge dimensions, cognitive depth, and AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path obligations when material",
       "compile class-specific build plan",
       "construct candidate without making it operative",
       "run structural, semantic, fixture, cross-file, representative-task, and regression validation appropriate to class",
@@ -1221,8 +1277,8 @@
       "prompt_native_offline_baseline": true,
       "mandatory_hosted_dependency_allowed": false,
       "domain_registry_ref": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
-      "knowledge_to_execution_floor": "AIR-FLOOR-015",
-      "required_input_floor": "AIR-FLOOR-016"
+      "knowledge_to_execution_floor": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "required_input_floor": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION"
     },
     "failure_and_rollback": {
       "construction_failure": "Return to the earliest affected lifecycle state and preserve evidence and partial artifacts as unbound review material.",
@@ -1312,7 +1368,7 @@
     "translator_route": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2_WHEN_TRIGGERED"
   },
   "knowledge_to_execution_path_architecture": {
-    "floor_reference": "AIR-FLOOR-015",
+    "floor_reference": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
     "canonical_ordered_stages": [
       "SOURCE_ACQUISITION_AND_CLASSIFICATION",
       "COMPREHENSION_AND_CONCEPTUAL_RELATION",
@@ -1391,7 +1447,15 @@
       "test_evidence_classification",
       "test_evidence_references",
       "reproducibility_limits",
-      "regulatory_evidence_requirement_state"
+      "regulatory_evidence_requirement_state",
+      "mii_required_routes",
+      "mii_contribution_refs",
+      "accepted_contribution_refs",
+      "held_contribution_refs",
+      "unresolved_cognitive_conflicts",
+      "semantic_acceptance_criteria",
+      "epistemic_acceptance_criteria",
+      "morphology_requirements"
     ],
     "benchmark_must_evaluate": [
       "source sufficiency",
@@ -1402,7 +1466,12 @@
       "adaptation and execution planning",
       "execution evidence",
       "result evaluation and error localization",
-      "update or escalation response"
+      "update or escalation response",
+      "semantic intent/context fidelity",
+      "epistemic sufficiency",
+      "selected MII cognitive-route coverage",
+      "material contribution conflict preservation",
+      "morphology fit when material"
     ],
     "approval_states": [
       "APPROVE",
@@ -1413,7 +1482,8 @@
     "review_rule": "Required when a stage is incomplete, ambiguous, weakly evidenced, or awaits exact user or Specialist input and a safe remediation path exists.",
     "reject_rule": "Required when the path is absent or inadequate, comprehension is bypassed, experience is invented, authority is transferred, or safe execution cannot be supported.",
     "architect_boundary": "Constructs and validates candidate benchmark content; does not independently issue final approval outside the bound AIR_ARTIFACT benchmark.",
-    "test_evidence_rule": "Benchmark evaluation rigor is independent of output mode. FULL_TEST_EVIDENCE changes preservation and delivery, not acceptance criteria. Manual or model judgment must be classified accordingly."
+    "test_evidence_rule": "The -t modifier controls presentation and packaging only. It does not reduce test rigor, evidence acquisition requirements, evidence preservation obligations, benchmark acceptance criteria, cognition, or closure requirements.",
+    "mii_authority_rule": "Cognitive contributions are candidate inputs until validated and compiled into the bound AIR_ARTIFACT benchmark; no contribution authorizes execution."
   },
   "detailed_domain_package_construction_contract": {
     "registry_template": "AIR_DETAILED_DOMAIN_PACKAGE_TEMPLATE_V1",
@@ -1425,7 +1495,7 @@
       "acquire authoritative sources",
       "route human-oriented frameworks through Translator when material",
       "compile knowledge dimensions and cognitive depth",
-      "compile AIR-FLOOR-015 path obligations",
+      "compile AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH path obligations",
       "assemble canonical template",
       "validate against golden and negative fixtures",
       "evaluate representative tasks",
@@ -1485,10 +1555,10 @@
       "self-registration",
       "independent execution authority"
     ],
-    "test_evidence_rule": "Fixture and representative-task runs default to SUMMARY_ONLY. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities."
+    "test_evidence_rule": "Fixture and representative-task runs default to STANDARD_EVIDENCE_PRESENTATION. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities."
   },
   "required_input_acquisition_contract": {
-    "floor_reference": "AIR-FLOOR-016",
+    "floor_reference": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
     "canonical_object": "AIR_REQUIRED_INPUT_REQUEST",
     "single_file_sufficient_cases": {
       "registry_only": [
@@ -1529,36 +1599,23 @@
     "attachment_boundary": "Attachment establishes availability only. Selection, compatibility validation, explicit approval, and Orbit 0 artifact compilation remain required."
   },
   "test_evidence_reproducibility_contract": {
-    "floor_reference": "AIR-FLOOR-017",
-    "default_mode": "SUMMARY_ONLY",
+    "floor_reference": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+    "default_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "canonical_commands": {
-      "enable_full_evidence": "air -t on",
-      "disable_full_evidence": "air -t off"
+      "expanded_presentation": "air -t on",
+      "standard_presentation": "air -t off"
     },
-    "recommendation_triggers": [
-      "Q2=C, Q3=A and Q4=A after Q5 project orientation",
-      "valid relevant Governance Specialist identifies a regulatory test or audit evidence obligation",
-      "compiled governance requirement requires evidence for approval, audit preparation, conformity, release or closure"
-    ],
-    "automatic_enable": false,
-    "summary_only_behavior": "Return compact decision, scoped counts, test classes, material failures, claim boundary and available evidence references. State when the summary alone is not reproducible.",
-    "full_test_evidence_outputs": [
-      "test suite or disclosed test definitions",
-      "test-run manifest",
-      "per-test results",
-      "raw or explicitly sanitized log",
-      "golden, negative, replay and representative-task fixtures",
-      "review and rerun README"
-    ],
-    "test_evidence_classes": [
+    "presentation_only_rule": "The -t modifier controls presentation and packaging only. It does not reduce test rigor, evidence acquisition requirements, evidence preservation obligations, benchmark acceptance criteria, cognition, or closure requirements.",
+    "standard_presentation_rule": "Show the decision, scoped counts, evidence classes, material failures, claim boundary, and sufficient evidence references without omitting evidence required to justify the decision.",
+    "expanded_presentation_rule": "Surface the available reviewable evidence package, including test definitions or suite identity, run/evaluation manifest, per-test results, logs or visible sanitization, fixtures, and review/rerun instructions when those artifacts exist and may be disclosed.",
+    "evidence_classes": [
       "REPRODUCIBLE_EXECUTABLE",
       "REPLAYABLE_EVALUATION",
       "MANUAL_REVIEW_REQUIRED"
     ],
-    "retroactivity_rule": "Do not reconstruct prior summary-only commands, logs, environment, fixtures or test implementation. Require a new authorized run.",
-    "regulatory_closure_rule": "Missing qualifying evidence required for approval or closure routes to REVIEW or EVIDENCE_REQUIRED. The toggle itself never proves compliance or audit sufficiency.",
-    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text or unavailable backend logs. Preserve visible sanitization and reproducibility limits.",
-    "authority_boundary": "The Architect constructs and validates candidate evidence requirements and packages. Final testing claims and approval remain governed by observed evidence, AIR_GATE and the bound Orbit 0 AIR_ARTIFACT."
+    "retroactivity_rule": "Changing presentation mode after a run may reveal already preserved evidence but must not fabricate evidence that was never produced, observed, retained, or available. A new authorized run is required only when evidence itself is missing for the applicable acceptance or regulatory obligation, not merely because standard presentation was used.",
+    "regulatory_rule": "When a valid governance requirement makes qualifying evidence mandatory, the required evidence must exist regardless of presentation mode. Missing evidence remains REVIEW or EVIDENCE_REQUIRED.",
+    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text, or unavailable backend logs. Preserve visible sanitization, redaction, provenance, and reproducibility limits."
   },
   "package_state": {
     "component_state": "VALIDATED_AVAILABLE_UNBOUND_PACKAGE_COMPLETE",
@@ -1583,9 +1640,97 @@
       "amendment_version": "2.1.0",
       "floor_invariant": "AIR-FLOOR-017",
       "approved_scope": "Opt-in reviewable test-evidence packages for benchmark, fixture, representative-task and Domain Package construction validation; SUMMARY_ONLY default; post-Q5 and Governance regulatory recommendations; no hidden reasoning or retroactive fabrication.",
-      "source_v2_sha256": "921620871264b20f5952f25c2015f7e1a19413d01c50cb60076ba65ea8142eac"
+      "source_v2_sha256": "921620871264b20f5952f25c2015f7e1a19413d01c50cb60076ba65ea8142eac",
+      "historical_behavior_state": "SUPERSEDED_BY_AIR_2_5_0_EVIDENCE_PRESENTATION_SEPARATION"
+    },
+    {
+      "amendment_id": "AIR_MII_MAJOR_ARCHITECTURE_INTEGRATION_001",
+      "amendment_version": "2.2.0",
+      "package_version": "2.4.0",
+      "approved_scope": "AIR 2.5.0 MII contribution integration; universal semantic-translation relationship; task-fit multi-lens, causal, risk, uncertainty and morphology recommendations; epistemic sufficiency; evidence/presentation separation; exact Foundation F1 compatibility; no execution/binding authority expansion.",
+      "floor_invariants": [
+        "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+        "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+        "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+        "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      ],
+      "runtime_authority_change": "NONE",
+      "applied_at": "2026-08-28T21:05:00+02:00"
     }
   ],
+  "foundation_routing_compatibility": {
+    "core_machine_native_capability_translation_kernel": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "relationship": "UNIVERSAL_MINIMUM_MACHINE_NATIVE_TRANSLATION_DOCTRINE",
+      "package_effect": "Capability Ecology may elaborate the Core capability-translation kernel but must not redefine it, bypass it, or create parallel execution authority."
+    },
+    "core_mii_semantic_translation_kernel": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.INPUT_TRANSLATE",
+      "marker": "AIR_MII_SEMANTIC_TRANSLATION_KERNEL_V1",
+      "relationship": "UNIVERSAL_NATURAL_LANGUAGE_INTENT_CONTEXT_TRANSLATION_OWNER",
+      "package_effect": "The Human-to-Machine Capability Translator is a specialized translator for human frameworks and capability taxonomies. It may consume the Core semantic representation and contribute structured capability translation, but it does not replace universal NL input translation."
+    },
+    "human_to_machine_capability_translator": {
+      "role": "DETAILED_CONDITIONAL_IMPLEMENTATION",
+      "activation_rule": "Invoke when human-oriented roles, frameworks, curricula, competencies, credentials, practitioner evidence, or other human-taxonomy material materially affects machine-operable capability, knowledge, benchmark, Domain Package, cognitive-route requirements, or execution-path construction.",
+      "authority": "CANDIDATE_TRANSLATION_AND_MII_CONTRIBUTION_ONLY_NO_ORBIT_0_AUTHORITY"
+    },
+    "core_mii_cognitive_resolution": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.COGNITIVE_RESOLVE",
+      "relationship": "CORE_SELECTS_TASK_FIT_COGNITIVE_ROUTES",
+      "package_effect": "Capability Ecology may recommend or require candidate MII cognitive routes based on domain and capability analysis. Final route selection remains Core-owned and becomes operative only through the bound AIR_ARTIFACT benchmark."
+    },
+    "core_mii_morphology_binding": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.MORPHOLOGY_BIND",
+      "relationship": "CORE_OWNS_TASK_AND_NODE_MORPHOLOGY_SELECTION",
+      "package_effect": "Capability Ecology may propose geometry and lambda recommendations with observable effects. It may not directly bind execution geometry or lambda."
+    },
+    "core_epistemic_sufficiency": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.UNCERTAINTY_RESOLVE",
+      "relationship": "CORE_OWNS_MATERIAL_UNCERTAINTY_RESOLUTION",
+      "package_effect": "Capability Ecology identifies missing basis, evidence, source, direction, capability, environment or authority and proposes the smallest sufficient required input. It must not silently infer through material uncertainty."
+    },
+    "mii_contribution_authority": {
+      "floor_reference": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "relationship": "CANDIDATE_CONTRIBUTION_ONLY",
+      "operative_rule": "Registry, Translator, Architect, Method Pack, Domain Package and Specialist outputs remain candidate contributions until validated and compiled into or explicitly referenced by the sole bound Orbit 0 AIR_ARTIFACT.execution_benchmark_profile."
+    },
+    "core_specialist_capability_resolution_router": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.CAPABILITY_RESOLVE",
+      "relationship": "CORE_OWNS_SPECIALIZATION_GAP_DETECTION_EXISTING_PACKAGE_DISCOVERY_AND_CONSTRUCTION_ESCALATION",
+      "package_effect": "Capability Ecology is a construction destination when Core cannot resolve a material specialization gap through a suitable available Specialist and reusable capability construction is warranted; Capability Ecology does not replace Core discovery routing."
+    },
+    "capability_ecology_construction_role": {
+      "task_local_vs_reusable_rule": "Use task-local capability, benchmark, method, Domain Package, cognitive-route requirements, or contribution construction for one-off gaps when sufficient. Construct a reusable Specialist only when recurrence or distinctive method sequencing, risk gates, evaluation logic, output contracts, evidence reconciliation, escalation, or proportionality behavior justifies reusable specialization.",
+      "specialist_adapter": "AIR_CONSTRUCTION_ADAPTER_SPECIALIST_V2",
+      "generation_authority": "EXPLICIT_USER_OR_GOVERNING_APPROVAL_REQUIRED",
+      "binding_effect": "NONE_UNTIL_VALIDATED_SELECTED_APPROVED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT"
+    },
+    "runtime_route_map": {
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "version": "1.0.0",
+      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
+      "semantic_authority": "NONE",
+      "execution_authority": "NONE",
+      "binding_authority": "NONE",
+      "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
+      "size_bytes": 19274,
+      "line_count": 686
+    },
+    "specialist_package_index": {
+      "role": "DISCOVERY_METADATA_ONLY",
+      "package_content_authority": false,
+      "selection_or_binding_authority": false,
+      "selection_time_exact_package_validation_required": true
+    }
+  },
   "integration_refresh": {
     "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
     "optional_cross_package_compatibility": [
@@ -1606,20 +1751,137 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.6",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "refresh_version": "2.4.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
-      "integration_version": "2.3.6",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "integration_version": "2.4.0",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
       "foundation_versions": {
-        "core": "2.4.3",
-        "control": "2.4.3",
-        "governance": "2.2.0",
-        "starter": "2.4.3",
-        "handoff_schema": "2.2.0"
+        "core": "2.5.0",
+        "control": "2.5.0",
+        "governance": "2.3.0",
+        "starter": "2.5.0",
+        "handoff_schema": "2.3.0"
       },
+      "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": false
+      "functional_component_change": true,
+      "validation_state": "T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
+  },
+  "mii_integration_contract": {
+    "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+    "core_route_owner": "RT.COGNITIVE_RESOLVE",
+    "package_role": "CANDIDATE_CAPABILITY_AND_COGNITIVE_CONTRIBUTOR",
+    "candidate_route_ids": [
+      "COG.KNOWLEDGE_TO_EXECUTION",
+      "COG.MULTI_LENS",
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.RISK_PROPAGATION",
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.DECISION_TRADEOFF",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.TEMPORAL_SYSTEM_DYNAMICS",
+      "COG.INFORMATION_GAIN",
+      "COG.EVIDENCE_TRIANGULATION"
+    ],
+    "contribution_fields": [
+      "recommended_mii_routes",
+      "required_mii_routes",
+      "multi_lens_candidate_dimensions",
+      "causal_counterfactual_requirements",
+      "risk_propagation_requirements",
+      "adversarial_disconfirmation_requirements",
+      "decision_tradeoff_requirements",
+      "uncertainty_fusion_requirements",
+      "temporal_system_dynamics_requirements",
+      "information_gain_requirements",
+      "evidence_triangulation_requirements",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "mii_contribution_acceptance_criteria"
+    ],
+    "selection_boundary": "Capability Ecology may propose task-fit cognitive routes and requirements from sourced capability/domain analysis. Core owns route selection; the bound AIR_ARTIFACT benchmark owns operative cognitive requirements.",
+    "authority_boundary": "MII recommendations and contributions have no independent execution, approval, selection or binding authority.",
+    "architect_role": "CONSTRUCT_AND_VALIDATE_CANDIDATE_COGNITIVE_REQUIREMENTS_AND_CONTRIBUTION_CONTRACTS",
+    "fusion_boundary": "Architect may define contribution structure and reconciliation requirements but does not own runtime MII fusion or final cognitive-route selection."
+  },
+  "mii_cognitive_route_construction_contract": {
+    "inputs": [
+      "resolved intent/context",
+      "task center",
+      "domain matches",
+      "knowledge dimensions",
+      "cognitive depth",
+      "risk/consequence",
+      "source/evidence state",
+      "human boundaries",
+      "method state"
+    ],
+    "candidate_routes": [
+      "COG.KNOWLEDGE_TO_EXECUTION",
+      "COG.MULTI_LENS",
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.RISK_PROPAGATION",
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.DECISION_TRADEOFF",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.TEMPORAL_SYSTEM_DYNAMICS",
+      "COG.INFORMATION_GAIN",
+      "COG.EVIDENCE_TRIANGULATION"
+    ],
+    "selection_dimensions": [
+      "task objective",
+      "epistemic regime",
+      "risk and consequence",
+      "ambiguity",
+      "source conflict",
+      "causal dependence",
+      "decision tradeoff",
+      "temporal dynamics",
+      "need for disconfirmation",
+      "information gap"
+    ],
+    "outputs": [
+      "recommended_mii_routes",
+      "required_mii_routes",
+      "multi_lens_candidate_dimensions",
+      "causal_counterfactual_requirements",
+      "risk_propagation_requirements",
+      "adversarial_disconfirmation_requirements",
+      "decision_tradeoff_requirements",
+      "uncertainty_fusion_requirements",
+      "temporal_system_dynamics_requirements",
+      "information_gain_requirements",
+      "evidence_triangulation_requirements",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "mii_contribution_acceptance_criteria"
+    ],
+    "core_owner": "RT.COGNITIVE_RESOLVE",
+    "non_authority_rule": "Architect recommendations remain candidate content until bound artifact compilation."
+  },
+  "mii_morphology_recommendation_contract": {
+    "core_owner": "RT.MORPHOLOGY_BIND",
+    "allowed_recommendations": [
+      "task-level geometry",
+      "node-local geometry",
+      "task-level lambda",
+      "node-local lambda",
+      "observable morphology effects"
+    ],
+    "selection_basis": [
+      "cognitive objective",
+      "dependency structure",
+      "constraint density",
+      "ambiguity posture",
+      "risk/evidence pressure",
+      "output class"
+    ],
+    "binding_authority": "NONE",
+    "claim_boundary": "Recommendations may describe prompt-layer behavioral/structured-state effects only unless backend/instrumented evidence supports stronger claims."
   }
 }

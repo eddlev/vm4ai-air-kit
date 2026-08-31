@@ -1,200 +1,151 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-light.svg?v=20260824-r5">
-    <img src="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-dark.svg?v=20260824-r5" alt="AIR by VM4AI — Focused. Fluid. AIR. AI work, carried forward." width="100%">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-light.svg?v=20260830-air250">
+    <img src="https://raw.githubusercontent.com/eddlev/air-brand/main/github/readme-header-v2-dark.svg?v=20260830-air250" alt="AIR by VM4AI — Focused. Fluid. AIR. AI work, carried forward." width="100%">
   </picture>
 </p>
 
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.4.3-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
-[![Latest release](https://img.shields.io/github/v/release/eddlev/vm4ai-air-kit?label=release&labelColor=1A1613&color=FF5A1F)](https://github.com/eddlev/vm4ai-air-kit/releases)
+[![Foundation](https://img.shields.io/badge/foundation-2.5.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
+[![Channel](https://img.shields.io/badge/channel-preview-FF5A1F?labelColor=1A1613)](RELEASE_CHANNEL_POLICY.md)
 
 **AI work, carried forward.**
 
-**Carry complex AI projects across sessions and platforms without rebuilding the work every time.**
+**Carry complex AI projects across sessions and compatible platforms without rebuilding the work every time.**
 
-**[Download AIR](https://github.com/eddlev/vm4ai-air-kit/releases/latest/download/AIR-core.zip)** · [Get started](https://vm4ai.com/get-started.html) · [See how it works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions)
+[Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
 AIR (**AI Resource**) is a prompt-based project runtime for sustained AI work. It keeps one material task active, makes the working contract explicit, surfaces evidence and approval boundaries, and carries recorded project state forward through Handoff.
 
-It is not a replacement chat app, hidden memory system, or autonomous agent layer. The project state is meant to travel with the work instead of being trapped inside one session or provider.
+AIR is not a hidden-memory system or backend enforcement layer. It is prompt-compiled and host-model governed. Compatibility depends on the host being able to load and sustain the AIR contract.
 
----
+## Current public channel
 
-## The idea in 30 seconds
+**AIR v2.5.0-preview.1** is the current Preview / Development source line.
 
-| Focused | Fluid | AIR |
-| --- | --- | --- |
-| One material task stays active. | Continue from structured project state instead of reconstructing it. | Carry the project across sessions and compatible platforms. |
+| Component | Current version |
+| --- | ---: |
+| Public channel | `v2.5.0-preview.1` |
+| AIR Core Runtime | `2.5.0` |
+| AIR Control Surface | `2.5.0` |
+| AIR Governance Supplement | `2.3.0` |
+| AIR Default Starter | `2.5.0` |
+| AIR Handoff schema | `2.3.0` |
+| Specialist package line | `2.4.0` |
+| Runtime Route Map | `1.0.0` |
+| Specialist Index | `1.1.1` |
 
-```text
-Session A
-  scope -> work -> decisions -> evidence -> approval state
-                                      |
-                                 Handoff Card
-                                      |
-                                      v
-Session B / another compatible platform
-  validate -> rebind -> continue from the recorded project state
-```
-
-AIR does not copy a transcript and call it memory. It makes the current working state explicit enough to validate, hand off, and continue.
+The preview/stable distinction is intentional. Preview releases use static validation, change-sensitive regression checks, a small core behavioral smoke set, and field feedback. A stronger Stable designation is reserved for the broader repeated behavioral gate described in [RELEASE_CHANNEL_POLICY.md](RELEASE_CHANNEL_POLICY.md).
 
 ## Start in two minutes
 
-### Fastest route
+Use the complete current five-file Foundation from [`prompts/`](prompts/):
 
-1. **[Download `AIR-core.zip`](https://github.com/eddlev/vm4ai-air-kit/releases/latest/download/AIR-core.zip)** from the latest release.
-2. Extract it.
-3. Attach the five AIR foundation files to a capable AI session.
-4. Send:
+1. `AIR_CORE_RUNTIME.md`
+2. `AIR_CONTROL_SURFACE.md`
+3. `AIR_GOV.md`
+4. `AIR_DEFAULT_STARTER_PROFILE.json`
+5. `AIR_HANDOFF_CARD_TEMPLATE.json`
+
+Attach all five to a fresh compatible AI session and send:
 
 ```text
 Start a new AIR project.
 ```
 
-AIR validates the supplied foundation and starts onboarding at Q1. The activation phrase does **not** silently answer Q1.
+AIR validates the Foundation and starts onboarding at Q1. The activation phrase selects the fresh-start route but does **not** silently answer Q1.
 
-If the latest published release does not yet expose `AIR-core.zip`, use the five current files directly from [`prompts/`](prompts/) instead. [`START_HERE.md`](START_HERE.md) gives the short new-project, import, and Handoff paths.
+See [`START_HERE.md`](START_HERE.md) for the shortest new-project, import, and Handoff paths.
 
-> If AIR saves you from rebuilding a project, **star this repository** so other people can find it.
+## What v2.5.0-preview.1 changes
 
-## Why use AIR?
+This preview closes the remaining AIR 2.5.0 Foundation-consistency defects found during integrated repair:
 
-AIR is useful when the cost of losing project state is higher than the cost of a little structure.
+- strict-Handoff Governance metadata now aligns to Governance/Floor `2.3.0`;
+- Handoff restoration uses the schema-2.3 evidence carriers `presentation_mode`, `presentation_mode_source`, and `evidence_capture_gaps`;
+- evidence sufficiency is explicitly independent of standard vs expanded evidence presentation.
 
-- **Keep one active task centered.** Orbit 0 holds the current executing task and its bound artifact.
-- **Stop silent reconstruction.** Decisions, constraints, evidence, approvals, blockers, and next state stay explicit.
-- **Bind how you and the AI work together.** Onboarding includes delivery, ambiguity, continuity, and working-agreement choices rather than leaving them to model habit.
-- **Carry the project forward.** Handoff serializes recorded AIR state for validation and rebinding in another session.
-- **Use capability without transferring authority.** Specialists, domain packages, methods, and executors can shape the task while the bound AIR artifact remains the execution authority.
-- **Keep claims proportional to evidence.** AIR distinguishes prompt-layer records from external proof such as tests, repository state, deployments, sources, or operator actions.
+The Runtime Route Map and all four Specialist package dependency closures were resealed against the repaired Foundation hashes. Specialist package versions remain `2.4.0`.
 
-For practical onboarding patterns—including Q5 and Q6 working-contract examples for code, research, writing, creative, brand, and strategy—see [Use cases](https://vm4ai.com/use-cases.html).
+## Validation boundary
+
+For this preview, the repaired candidate completed:
+
+- Foundation defects: **3/3 closed**
+- canonical internal dependency edges: **28/28 PASS**
+- focused Specialist validation: **185/185 PASS**
+- integrated static validation: **895/895 PASS, 0 warnings**
+- independent reproduction of the semantic file hash map and validation reports: **byte-identical**
+- targeted isolated/field smoke: **BR-001, BR-004, BR-005, BR-006, BR-007 PASS**
+
+The behavioral observations are `REPLAYABLE_EVALUATION` / field evidence, not deterministic model proof. This preview does **not** claim stable behavioral certification, universal model/provider/platform compatibility, backend enforcement, or guaranteed correctness. See [`VALIDATION_EVIDENCE_2.5.0-preview.1.md`](VALIDATION_EVIDENCE_2.5.0-preview.1.md).
 
 ## Continue a project
 
-An `AIR_HANDOFF_CARD` carries recorded AIR project state into a new compatible session. The receiving runtime validates and rebinds that state before execution resumes.
+An `AIR_HANDOFF_CARD` carries recorded AIR project state into a new compatible session. The receiving runtime validates the card and current sources, performs a current-session restore evaluation, and rebinds the nominated artifact before material execution resumes.
 
-Load the current foundation together with the populated Handoff Card and choose the continuation route. Handoff preserves explicit transfer state; it does not promise hidden-state transfer or byte-for-byte identical inference.
-
-## Current release and foundation
-
-**Versioning:** AIR Kit releases use the public `v0.x` release line. The bundled runtime components keep their own component versions. **AIR Kit v0.5.0** packages Core/Control/Starter `2.4.3`, Governance/Handoff `2.2.0`, and the current specialist package line `2.3.6`.
-
-| Component | Current version |
-| --- | ---: |
-| AIR Kit release | 0.5.0 |
-| AIR Core Runtime | 2.4.3 |
-| AIR Control Surface | 2.4.3 |
-| AIR Governance Supplement | 2.2.0 |
-| AIR Default Starter | 2.4.3 |
-| AIR Handoff schema | 2.2.0 |
-
-The five files under [`prompts/`](prompts/) are the boot foundation:
-
-1. [`AIR_CORE_RUNTIME.md`](prompts/AIR_CORE_RUNTIME.md)
-2. [`AIR_CONTROL_SURFACE.md`](prompts/AIR_CONTROL_SURFACE.md)
-3. [`AIR_GOV.md`](prompts/AIR_GOV.md)
-4. [`AIR_DEFAULT_STARTER_PROFILE.json`](prompts/AIR_DEFAULT_STARTER_PROFILE.json)
-5. [`AIR_HANDOFF_CARD_TEMPLATE.json`](prompts/AIR_HANDOFF_CARD_TEMPLATE.json)
-
-The complete required files must fit in the host interface without truncation. AIR does not claim one universal context-window threshold because attachment handling and tokenization vary by provider and model.
+State may travel; execution authority must be re-earned in the destination environment. Handoff does not claim transfer of hidden model state or byte-for-byte identical inference.
 
 ## Capability packages
 
-Reusable non-agent capability packages live under [`profiles/`](profiles/). They are **available but unbound** until selected, compatibility-validated, approved when required, and compiled into the bound Orbit 0 artifact.
+Reusable non-agent capability packages live under [`profiles/`](profiles/):
 
-Current package families include:
+- Grounding Specialist
+- AI Governance Specialist
+- Capability Ecology Architect
+- Specification-First Verification Specialist
 
-- **Grounding Specialist**
-- **AI Governance Specialist**
-- **Capability Ecology Architect**
-- **Specification-First Verification Specialist** — complete package, current package version **2.3.6**, including domain, method, specialist, executor, and package manifest components
+The current Specialist package line is **2.4.0**. Availability does not automatically create selection, approval, compilation, binding, or execution authority.
 
-Capability does not inherit project authority merely because it is loaded.
+Discovery metadata is under [`catalog/`](catalog/):
+
+- `AIR_RUNTIME_ROUTE_MAP.json`
+- `AIR_SPECIALIST_PACKAGE_INDEX.json`
+
+These are discovery/salience surfaces; operative authority remains with the validated Foundation and the bound Orbit 0 artifact.
+
+## Evidence and assurance
+
+AIR separates prompt-runtime records from evidence about the world outside the prompt runtime. A surfaced AIR record may prove what AIR declared; it does not by itself prove that a tool call happened, a deployment succeeded, a source is correct, or a backend enforced a gate.
+
+Likewise:
+
+- deterministic/static checks do not make LLM inference deterministic;
+- successful model sessions do not prove static package integrity;
+- human approval does not prove external events the reviewer did not observe.
+
+See [`validation/`](validation/), [`tests/`](tests/), and the website's Testing & Evidence page for the evidence boundary.
 
 ## Compatibility
 
-AIR is prompt-based, so compatibility depends on the host being able to load the full foundation and follow the required instruction, object, and continuity discipline.
+Compatibility is empirical and configuration-dependent. Provider/model versions, context budget, attachment handling, system instructions, available tools, and host behavior can all affect AIR.
 
-See [`COMPATIBILITY.md`](COMPATIBILITY.md) for the current maintainer-observed matrix, limitations, and a field-report format. Compatibility observations are not vendor certification or a guarantee that every model/version on a platform will behave identically.
-
-## Assurance boundary
-
-The public AIR Kit is prompt-based cooperative behavioral governance. It can materially shape how a host model frames, executes, reviews, and hands off work, but the prompt-only kit does not independently provide:
-
-- deterministic backend or hook-level enforcement
-- guaranteed tool execution
-- tamper-evident or signed receipts
-- hidden chain-of-thought or latent-state telemetry
-- guaranteed correctness
-- legal, regulatory, security, or production certification
-
-When a claim depends on something outside the prompt runtime—tests, repository state, deployment state, a source, an operator action, a tool call, or a backend event—the matching external evidence is required.
-
-## Test evidence and reproducibility
-
-AIR separates the request to surface evidence from independent proof that an executable check was reproducible.
-
-The repository's permanent reproducibility workflow executes the release manifest three times in separate network-disabled Docker containers and compares the resulting decision fingerprints. A bare statement such as `150/150 tests passed` is not enough to establish deterministic release evidence.
-
-See [`tests/README.md`](tests/README.md) for the evidence contract and local commands.
-
-The release asset pipeline is separate: [`tools/build_release_bundle.py`](tools/build_release_bundle.py) builds a deterministic `AIR-core.zip`, a Kit-versioned copy, a machine-readable file manifest, and SHA-256 checksums from the exact repository foundation. Pull requests verify that the bundle can be built before release publication.
-
-## Empirical model evaluation
-
-Deterministic release checks and model-performance evidence are deliberately kept separate. Model-, judge-, tool-use-, and long-horizon evaluations are recorded as `REPLAYABLE_EVALUATION`, with task/condition identity, model and environment provenance, trajectories or evidence references, repeated-run results, governance metrics, and execution overhead.
-
-The [`evals/`](evals/) surface contains the first public AIR empirical-evaluation protocol, machine-readable run schema, and AIR-specific governance/continuity perturbation templates. The headline design is a matched comparison: hold model, tools, task, environment, and budget policy constant, then compare `BASE`, a prompt-matched `CONTROL`, and `AIR`; mechanism ablations are defined separately.
-
-The evaluation definitions do **not** constitute evidence that AIR improves performance. Actual benchmark/model results must be published separately with the recorded protocol, scorers, sample selection, uncertainty, and limitations.
-
-## Canonical prompt-side controls
-
-```text
-air -o on
-air -o -min
-air -t on
-air -t off
-```
-
-AIR defaults to `ALL_OBJECTS`. These controls change prompt-side visibility/evidence presentation; they do not bypass scope, approval, evidence, or release gates.
+See [`COMPATIBILITY.md`](COMPATIBILITY.md). A successful observation is evidence for the tested configuration, not vendor certification or a promise about every model/version.
 
 ## Repository map
 
 ```text
-prompts/                         current five-file AIR foundation
-profiles/
-  grounding specialist/
-  governance specialist/
-  capability ecology architect/
-  specification first verification specialist/
-tests/                           executable reproducibility harness
-evals/                           replayable empirical model-evaluation contract
-tools/build_release_bundle.py    deterministic release bundle builder
-START_HERE.md                    shortest path from download to first AIR project
-COMPATIBILITY.md                 maintainer-observed host compatibility notes
-VERSION                          public AIR Kit release version
-RELEASE_NOTES_0.5.0.md           release notes for AIR Kit v0.5.0
-.github/workflows/               reproducibility + release-asset + eval-definition validation
+prompts/        canonical five-file AIR Foundation
+catalog/        runtime route map + Specialist package index
+profiles/       four Specialist package families
+validation/     current T12D static + preview smoke evidence
+tests/          public reproducibility harness
+evals/          replayable empirical evaluation protocol
+tools/          release and validation tooling
 ```
 
-## Community
+## Community and bugs
 
-Questions, field reports, implementation patterns, Q6 working contracts, compatibility results, and project showcases belong in [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions).
+Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible AIR defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
 
-If you find a concrete defect in AIR itself, open an issue with the smallest reproducible example and the AIR version you used.
+See [`BUG_REPORTING.md`](BUG_REPORTING.md) for the report format. Do not post exploitable security details publicly.
 
 ## License and brand
 
-The project code and prompt materials are licensed under **Apache-2.0**; see [LICENSE](LICENSE) and [NOTICE](NOTICE).
-
-The AIR/VM4AI names and brand marks are separate from the code license. Reusable logos, visualizations, design tokens, and the “Made with AIR” mark live in the [AIR brand repository](https://github.com/eddlev/air-brand).
+The project code and prompt materials are licensed under **Apache-2.0**; see [LICENSE](LICENSE) and [NOTICE](NOTICE). AIR/VM4AI names and brand marks are separate from the code license; reusable brand assets live in [eddlev/air-brand](https://github.com/eddlev/air-brand).
 
 ---
 
-**Built with AIR, reviewed by a human.** See [vm4ai.com](https://vm4ai.com/) for the product story, examples, and current public documentation.
+**Built with AIR, reviewed by a human.**

@@ -2,15 +2,15 @@
   "title": "AIR Capability Ecology Architect Package Manifest v2",
   "PACKAGE_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
-  "PACKAGE_VERSION": "2.3.6",
-  "PROMPT_VERSION": "2.0.0",
+  "PACKAGE_VERSION": "2.4.0",
+  "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
   "package_class": "AIR_SPECIALIST_CAPABILITY_PACKAGE",
   "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
   "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
-  "status": "V2_3_6_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
-  "generated_at": "2026-08-23T19:01:00+02:00",
+  "status": "PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "generated_at": "2026-08-29T20:29:26Z",
   "source_baseline": {
     "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(17).json",
     "source_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V1",
@@ -38,14 +38,15 @@
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "canonical_role": "DOMAIN_REGISTRY",
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
-      "version": "2.3.5",
+      "version": "2.4.0",
+      "prompt_version": "2.2.0",
       "artifact_class": "DOMAIN_CAPABILITY_REGISTRY",
       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-      "status": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
-      "sha256": "f69a97698e8b02391e71424d8130ba857c60b04b361d2f570a0d4e327db623ab",
-      "size_bytes": 227661,
-      "line_count": 5106,
+      "status": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+      "sha256": "93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6",
+      "size_bytes": 243983,
+      "line_count": 5332,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -53,14 +54,15 @@
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "canonical_role": "EXECUTOR_LAYER",
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
-      "version": "2.3.5",
+      "version": "2.4.0",
+      "prompt_version": "2.2.0",
       "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-      "status": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
-      "sha256": "f5fdef388f66b37a39ea965244448098ad468ca2398aea4de1dd6f8c0e11102d",
-      "size_bytes": 55185,
-      "line_count": 1088,
+      "status": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+      "sha256": "f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358",
+      "size_bytes": 69712,
+      "line_count": 1283,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -68,14 +70,15 @@
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "canonical_role": "SPECIALIST_PROFILE",
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
-      "version": "2.3.5",
+      "version": "2.4.0",
+      "prompt_version": "2.2.0",
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-      "status": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
-      "sha256": "ca0ad172faa8de76c3c0be4cef4154f5cee81a1fc9e03feb4b71c61dec6230d8",
-      "size_bytes": 84580,
-      "line_count": 1625,
+      "status": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+      "sha256": "559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e",
+      "size_bytes": 100563,
+      "line_count": 1887,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -83,14 +86,15 @@
       "filename": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
       "canonical_role": "METHOD_PACK",
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_METHOD_PACK_V2",
-      "version": "2.3.5",
+      "version": "2.4.0",
+      "prompt_version": "2.2.0",
       "artifact_class": "AIR_METHOD_PACK",
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
-      "status": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
-      "sha256": "7a66f17572698f9c108e61900d4dca64b4612d53339c3fece1fe4bdc61b7e01f",
-      "size_bytes": 73957,
-      "line_count": 1472,
+      "status": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+      "sha256": "8120a76dbe13758c0cdbbc1bb1ff180682e1ba8825cfeb99ed1c3c4e2c0dbc51",
+      "size_bytes": 86597,
+      "line_count": 1627,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -132,60 +136,65 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
-        "size_bytes": 317031,
-        "line_count": 6511
+        "sha256": "6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
+        "size_bytes": 317892,
+        "line_count": 6588
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
-        "size_bytes": 141998,
-        "line_count": 2983
+        "sha256": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
+        "size_bytes": 151387,
+        "line_count": 3109
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
-        "size_bytes": 20557,
-        "line_count": 453
+        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+        "size_bytes": 25346,
+        "line_count": 511
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
-        "size_bytes": 78895,
-        "line_count": 1565
+        "sha256": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
+        "size_bytes": 86697,
+        "line_count": 1646
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
-        "size_bytes": 40238,
-        "line_count": 870
+        "sha256": "918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd",
+        "size_bytes": 55236,
+        "line_count": 1058
       }
     ],
     "required_floor_invariants": [
-      "AIR-FLOOR-013",
-      "AIR-FLOOR-014",
-      "AIR-FLOOR-015",
-      "AIR-FLOOR-016",
-      "AIR-FLOOR-017",
-      "AIR-FLOOR-018",
-      "AIR-FLOOR-019",
-      "AIR-FLOOR-020"
+      "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002"
   },
   "package_integrity_contract": {
     "strict_json_required": true,
@@ -221,18 +230,23 @@
     "fixtures_runtime_authority": "NONE"
   },
   "test_evidence_contract": {
-    "floor_reference": "AIR-FLOOR-017",
-    "default_mode": "SUMMARY_ONLY",
-    "enable_command": "air -t on",
-    "disable_command": "air -t off",
-    "automatic_enable": false,
+    "floor_reference": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+    "default_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "canonical_commands": {
+      "expanded_presentation": "air -t on",
+      "standard_presentation": "air -t off"
+    },
+    "presentation_only_rule": "The -t modifier controls presentation and packaging only. It does not reduce test rigor, evidence acquisition requirements, evidence preservation obligations, benchmark acceptance criteria, cognition, or closure requirements.",
+    "standard_presentation_rule": "Show the decision, scoped counts, evidence classes, material failures, claim boundary, and sufficient evidence references without omitting evidence required to justify the decision.",
+    "expanded_presentation_rule": "Surface the available reviewable evidence package, including test definitions or suite identity, run/evaluation manifest, per-test results, logs or visible sanitization, fixtures, and review/rerun instructions when those artifacts exist and may be disclosed.",
     "evidence_classes": [
       "REPRODUCIBLE_EXECUTABLE",
       "REPLAYABLE_EVALUATION",
       "MANUAL_REVIEW_REQUIRED"
     ],
-    "retroactive_reconstruction": "PROHIBITED",
-    "regulatory_evidence_rule": "When a valid governance requirement makes test evidence mandatory, recommend enabling full evidence before the run; if required evidence is not produced, keep the obligation unresolved rather than claiming it satisfied."
+    "retroactivity_rule": "Changing presentation mode after a run may reveal already preserved evidence but must not fabricate evidence that was never produced, observed, retained, or available. A new authorized run is required only when evidence itself is missing for the applicable acceptance or regulatory obligation, not merely because standard presentation was used.",
+    "regulatory_rule": "When a valid governance requirement makes qualifying evidence mandatory, the required evidence must exist regardless of presentation mode. Missing evidence remains REVIEW or EVIDENCE_REQUIRED.",
+    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text, or unavailable backend logs. Preserve visible sanitization, redaction, provenance, and reproducibility limits."
   },
   "external_dependency_state": {
     "source_and_control_registry": {
@@ -253,7 +267,7 @@
     }
   },
   "required_input_behavior": {
-    "floor_reference": "AIR-FLOOR-016",
+    "floor_reference": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
     "complete_package_files": [
       "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -269,17 +283,95 @@
     "required_component_count": 4,
     "all_required_components_present": true,
     "all_required_components_hash_sealed": true,
-    "package_state": "PACKAGE_COMPLETE_STATICALLY_VALIDATED_AVAILABLE_UNBOUND",
-    "receiver_delivery_state": "APPROVED_OUTPUT",
+    "package_state": "PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+    "receiver_delivery_state": "REVIEW_GATE",
     "backend_validation_claimed": false,
     "hidden_reasoning_claimed": false,
-    "cross_file": "PASS_FOUNDATION_2_4_3_RESEAL",
-    "regression": "NOT_RERUN_IDENTITY_AND_COMPATIBILITY_METADATA_ONLY"
+    "cross_file": "PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
+    "t7_static_validation": "SUPERSEDED_BY_T12C_SPECIALIST_CLOSURE_REVALIDATION",
+    "regression": "PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+    "prior_behavioral_evidence_inheritance": "NOT_VALIDATION_OF_CHANGED_2_4_0_BYTES",
+    "decision": "PASS_T12D_FOUNDATION_RESEAL_STATIC",
+    "t12c_specialist_closure_validation": "PASS",
+    "t12d_foundation_reseal_validation": "PASS"
   },
   "claim_boundary": "This manifest proves only the tool-observed identity and validated package relationships recorded for the delivered files. It does not prove backend enforcement, hidden reasoning, human professional equivalence, regulatory compliance, empirical task superiority, or correct execution of any future task.",
+  "foundation_routing_compatibility": {
+    "core_machine_native_capability_translation_kernel": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "relationship": "UNIVERSAL_MINIMUM_MACHINE_NATIVE_TRANSLATION_DOCTRINE",
+      "package_effect": "Capability Ecology may elaborate the Core capability-translation kernel but must not redefine it, bypass it, or create parallel execution authority."
+    },
+    "core_mii_semantic_translation_kernel": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.INPUT_TRANSLATE",
+      "marker": "AIR_MII_SEMANTIC_TRANSLATION_KERNEL_V1",
+      "relationship": "UNIVERSAL_NATURAL_LANGUAGE_INTENT_CONTEXT_TRANSLATION_OWNER",
+      "package_effect": "The Human-to-Machine Capability Translator is a specialized translator for human frameworks and capability taxonomies. It may consume the Core semantic representation and contribute structured capability translation, but it does not replace universal NL input translation."
+    },
+    "human_to_machine_capability_translator": {
+      "role": "DETAILED_CONDITIONAL_IMPLEMENTATION",
+      "activation_rule": "Invoke when human-oriented roles, frameworks, curricula, competencies, credentials, practitioner evidence, or other human-taxonomy material materially affects machine-operable capability, knowledge, benchmark, Domain Package, cognitive-route requirements, or execution-path construction.",
+      "authority": "CANDIDATE_TRANSLATION_AND_MII_CONTRIBUTION_ONLY_NO_ORBIT_0_AUTHORITY"
+    },
+    "core_mii_cognitive_resolution": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.COGNITIVE_RESOLVE",
+      "relationship": "CORE_SELECTS_TASK_FIT_COGNITIVE_ROUTES",
+      "package_effect": "Capability Ecology may recommend or require candidate MII cognitive routes based on domain and capability analysis. Final route selection remains Core-owned and becomes operative only through the bound AIR_ARTIFACT benchmark."
+    },
+    "core_mii_morphology_binding": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.MORPHOLOGY_BIND",
+      "relationship": "CORE_OWNS_TASK_AND_NODE_MORPHOLOGY_SELECTION",
+      "package_effect": "Capability Ecology may propose geometry and lambda recommendations with observable effects. It may not directly bind execution geometry or lambda."
+    },
+    "core_epistemic_sufficiency": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.UNCERTAINTY_RESOLVE",
+      "relationship": "CORE_OWNS_MATERIAL_UNCERTAINTY_RESOLUTION",
+      "package_effect": "Capability Ecology identifies missing basis, evidence, source, direction, capability, environment or authority and proposes the smallest sufficient required input. It must not silently infer through material uncertainty."
+    },
+    "mii_contribution_authority": {
+      "floor_reference": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "relationship": "CANDIDATE_CONTRIBUTION_ONLY",
+      "operative_rule": "Registry, Translator, Architect, Method Pack, Domain Package and Specialist outputs remain candidate contributions until validated and compiled into or explicitly referenced by the sole bound Orbit 0 AIR_ARTIFACT.execution_benchmark_profile."
+    },
+    "core_specialist_capability_resolution_router": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "route_owner": "RT.CAPABILITY_RESOLVE",
+      "relationship": "CORE_OWNS_SPECIALIZATION_GAP_DETECTION_EXISTING_PACKAGE_DISCOVERY_AND_CONSTRUCTION_ESCALATION",
+      "package_effect": "Capability Ecology is a construction destination when Core cannot resolve a material specialization gap through a suitable available Specialist and reusable capability construction is warranted; Capability Ecology does not replace Core discovery routing."
+    },
+    "capability_ecology_construction_role": {
+      "task_local_vs_reusable_rule": "Use task-local capability, benchmark, method, Domain Package, cognitive-route requirements, or contribution construction for one-off gaps when sufficient. Construct a reusable Specialist only when recurrence or distinctive method sequencing, risk gates, evaluation logic, output contracts, evidence reconciliation, escalation, or proportionality behavior justifies reusable specialization.",
+      "specialist_adapter": "AIR_CONSTRUCTION_ADAPTER_SPECIALIST_V2",
+      "generation_authority": "EXPLICIT_USER_OR_GOVERNING_APPROVAL_REQUIRED",
+      "binding_effect": "NONE_UNTIL_VALIDATED_SELECTED_APPROVED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT"
+    },
+    "runtime_route_map": {
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "version": "1.0.0",
+      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
+      "semantic_authority": "NONE",
+      "execution_authority": "NONE",
+      "binding_authority": "NONE",
+      "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
+      "size_bytes": 19274,
+      "line_count": 686
+    },
+    "specialist_package_index": {
+      "role": "DISCOVERY_METADATA_ONLY",
+      "package_content_authority": false,
+      "selection_or_binding_authority": false,
+      "selection_time_exact_package_validation_required": true
+    }
+  },
   "integration_refresh": {
-    "refresh_version": "2.3.6",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "refresh_version": "2.4.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
     "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
     "optional_cross_package_compatibility": [
       {
@@ -300,17 +392,80 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
-      "integration_version": "2.3.6",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "integration_version": "2.4.0",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
       "foundation_versions": {
-        "core": "2.4.3",
-        "control": "2.4.3",
-        "governance": "2.2.0",
-        "starter": "2.4.3",
-        "handoff_schema": "2.2.0"
+        "core": "2.5.0",
+        "control": "2.5.0",
+        "governance": "2.3.0",
+        "starter": "2.5.0",
+        "handoff_schema": "2.3.0"
       },
+      "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": false
+      "functional_component_change": true,
+      "validation_state": "T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
+  },
+  "task_boundary_compatibility": {
+    "core_rule": "AIR_NEW_TASK_BINDING_BARRIER_V1",
+    "package_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative.",
+    "reusable_source_material": "MAY_REMAIN_CANDIDATE_ONLY_SUBJECT_TO_APPLICABILITY_REVALIDATION",
+    "prior_task_operative_state": "INVALIDATED_UNTIL_REVALIDATED"
+  },
+  "alignment_change_class": "SEMANTIC_MII_INTEGRATION_FOUNDATION_2_5_0_RECONCILIATION_AND_EVIDENCE_PRESENTATION_SEPARATION",
+  "mii_package_integration_contract": {
+    "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+    "core_route_owner": "RT.COGNITIVE_RESOLVE",
+    "package_role": "CANDIDATE_CAPABILITY_AND_COGNITIVE_CONTRIBUTOR",
+    "candidate_route_ids": [
+      "COG.KNOWLEDGE_TO_EXECUTION",
+      "COG.MULTI_LENS",
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.RISK_PROPAGATION",
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.DECISION_TRADEOFF",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.TEMPORAL_SYSTEM_DYNAMICS",
+      "COG.INFORMATION_GAIN",
+      "COG.EVIDENCE_TRIANGULATION"
+    ],
+    "contribution_fields": [
+      "recommended_mii_routes",
+      "required_mii_routes",
+      "multi_lens_candidate_dimensions",
+      "causal_counterfactual_requirements",
+      "risk_propagation_requirements",
+      "adversarial_disconfirmation_requirements",
+      "decision_tradeoff_requirements",
+      "uncertainty_fusion_requirements",
+      "temporal_system_dynamics_requirements",
+      "information_gain_requirements",
+      "evidence_triangulation_requirements",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "mii_contribution_acceptance_criteria",
+      "uncertainty_resolution_requirements"
+    ],
+    "selection_boundary": "Capability Ecology may propose task-fit cognitive routes and requirements from sourced capability/domain analysis. Core owns route selection; the bound AIR_ARTIFACT benchmark owns operative cognitive requirements.",
+    "authority_boundary": "MII recommendations and contributions have no independent execution, approval, selection or binding authority.",
+    "package_component_roles": {
+      "AIR_DOMAIN_CAPABILITY_REGISTRY.json": "domain/capability requirement source",
+      "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json": "specialized human-framework translator",
+      "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json": "candidate capability/cognitive architecture constructor",
+      "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json": "construction and validation procedure"
+    }
+  },
+  "t7_change_record": {
+    "change_id": "AIR_T7_CEA_MII_INTEGRATION_001",
+    "package_version": "2.4.0",
+    "component_prompt_version": "2.2.0",
+    "manifest_prompt_version": "2.1.0",
+    "change_class": "MINOR_SEMANTIC_PACKAGE_EXPANSION_WITH_NO_AUTHORITY_EXPANSION",
+    "reason_for_version": "2.4.0 selected after actual diff because all four operative components gain additive MII/semantic/epistemic/morphology contribution contracts and evidence-presentation semantics while package identity and authority class remain v2-compatible.",
+    "source_package_version": "2.3.9",
+    "applied_at": "2026-08-28T21:05:00+02:00"
   }
 }

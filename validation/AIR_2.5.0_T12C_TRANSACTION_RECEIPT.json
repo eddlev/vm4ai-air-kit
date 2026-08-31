@@ -1,0 +1,56 @@
+{
+  "AIR_ACTION_RECEIPT": {
+    "receipt_id": "RECEIPT-AIR250-T12C-SPECIALIST-CLOSURE-001",
+    "object_version": "2.0.0",
+    "record_class": "ACTION_RECEIPT_RECORD",
+    "authorization_ref": "AUTH-AIR250-T12C-SPECIALIST-CLOSURE-001",
+    "action_attempted": "AIR_2_5_0_COORDINATED_SPECIALIST_DEPENDENCY_CLOSURE_REPAIR",
+    "result": "SUCCESS_SPECIALIST_LAYER_REPAIRED_AND_REVALIDATED",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "integrated_candidate_set_identity": "AIR_2_5_0_MII_INTEGRATED_STATIC_CANDIDATE_SET_003",
+    "specialist_package_versions": "2.4.0_UNCHANGED",
+    "specialist_index_version": "1.1.1",
+    "canonical_internal_dependency_edges": "28/28 PASS",
+    "focused_specialist_validation": {
+      "total": 185,
+      "passed": 185,
+      "failed": 0,
+      "canonical_internal_edges": 28
+    },
+    "focused_validation_report_sha256": "78fe99f627ca5e82b4393e87d26368bf25ae9e2e893e48631012c764f4e8c057",
+    "integrated_static_validation": {
+      "total": 892,
+      "passed": 892,
+      "failed": 0,
+      "warnings": 0
+    },
+    "integrated_static_decision": "PASS_STATIC_IMPLEMENTED_CHECKSET_KNOWN_FOUNDATION_REPAIR_PENDING",
+    "integrated_static_report_sha256": "f13feca25e15b3e5c58f88024edaa560676de4c9519aa61909717d56e5638cca",
+    "independent_reproduction": {
+      "focused_report": "BYTE_IDENTICAL",
+      "focused_report_sha256": "78fe99f627ca5e82b4393e87d26368bf25ae9e2e893e48631012c764f4e8c057",
+      "full_static_report": "BYTE_IDENTICAL",
+      "full_static_report_sha256": "f13feca25e15b3e5c58f88024edaa560676de4c9519aa61909717d56e5638cca"
+    },
+    "specialist_manifests": {
+      "capability_ecology": "05a34ae61559da49faf261b078a3a64f44d8190d95691fef5c5a88afda6761ff",
+      "grounding": "b61d8a8348f380a8d21d5e298e0e96e0f4d2c6a941804104cff1aeea0a60ebdf",
+      "sfv": "6c316314cf63c5c81437a71608bd1cce574db2bbe6bfebf9f5fd8b202f68af42",
+      "ai_governance": "ca04a3b96337e0277296eab3d1e29cb518ceeba9746e0509448fbf7db3787b72"
+    },
+    "specialist_index_sha256": "fabb802bc4746bd8f35f404f3cad5c9435eb3de21964d30841582c4ffc3d65e9",
+    "foundation_files_modified": false,
+    "behavioral_regression_executed": false,
+    "public_repository_mutated": false,
+    "known_out_of_scope_foundation_blockers": [
+      "HANDOFF_GOVERNANCE_VERSION_DRIFT",
+      "HANDOFF_RESTORATION_SCHEMA_DRIFT",
+      "EVIDENCE_PRESENTATION_SEMANTIC_CONTRADICTION"
+    ],
+    "overall_release_readiness": "BLOCKED_PENDING_SEPARATE_FOUNDATION_CONSISTENCY_REPAIR_AND_REVALIDATION",
+    "next_required_state": "AUTHORIZE_FOUNDATION_CONSISTENCY_CORRECTION_THEN_RERUN_STATIC_BEFORE_BEHAVIORAL",
+    "runtime_origin": "TOOL_OBSERVED",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false
+  }
+}
