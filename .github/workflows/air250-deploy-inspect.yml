@@ -1,0 +1,52 @@
+name: AIR 2.5.0 staged payload inspection
+
+on:
+  push:
+    branches: [air250-preview-deploy]
+    paths:
+      - .air-deploy/READY
+
+permissions:
+  contents: write
+
+jobs:
+  inspect-payload:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: air250-preview-deploy
+
+      - name: Reconstruct and inspect staged payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/air250-payload
+          cat $(find .air-deploy -maxdepth 1 -type f -name 'chunk-*' | sort) | tr -d '\r\n' | base64 -d > /tmp/air250-payload/payload.tar.xz
+          xz -t /tmp/air250-payload/payload.tar.xz
+          mkdir -p /tmp/air250-payload/extracted
+          tar -xJf /tmp/air250-payload/payload.tar.xz -C /tmp/air250-payload/extracted
+          {
+            echo 'AIR 2.5.0 staged deployment inspection'
+            echo "branch=$GITHUB_REF_NAME"
+            echo "source_commit=$GITHUB_SHA"
+            echo "payload_sha256=$(sha256sum /tmp/air250-payload/payload.tar.xz | awk '{print $1}')"
+            echo "payload_bytes=$(stat -c%s /tmp/air250-payload/payload.tar.xz)"
+            echo '--- FILES ---'
+            find /tmp/air250-payload/extracted -type f -printf '%P\n' | sort
+            echo '--- VERSION MARKERS ---'
+            grep -R -n -E '2\.5\.0|2\.3\.0|2\.4\.0|preview\.1' /tmp/air250-payload/extracted 2>/dev/null | head -n 120 || true
+            echo '--- SHA256 ---'
+            find /tmp/air250-payload/extracted -type f -print0 | sort -z | xargs -0 sha256sum
+          } > .air-deploy/INSPECTION_REPORT.txt
+
+      - name: Commit inspection report
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'AIR Deployment Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add .air-deploy/INSPECTION_REPORT.txt
+          git diff --cached --quiet && exit 0
+          git commit -m 'Inspect staged AIR 2.5.0 deployment payload'
+          git push origin HEAD:air250-preview-deploy
