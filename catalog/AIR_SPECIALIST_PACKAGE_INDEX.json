@@ -22,7 +22,7 @@
     }
   },
   "foundation_compatibility_catalog": {
-    "identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
     "state": "EXACT_HASH_SET",
     "required_files": [
       {
@@ -30,18 +30,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
-        "size_bytes": 317892,
-        "line_count": 6588
+        "sha256": "fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
+        "size_bytes": 333225,
+        "line_count": 6915
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
-        "size_bytes": 151387,
-        "line_count": 3109
+        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+        "size_bytes": 152528,
+        "line_count": 3126
       },
       {
         "filename": "AIR_GOV.md",
@@ -57,18 +57,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
-        "size_bytes": 86697,
-        "line_count": 1646
+        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "size_bytes": 86064,
+        "line_count": 1571
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd",
-        "size_bytes": 55236,
-        "line_count": 1058,
+        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+        "size_bytes": 58378,
+        "line_count": 1096,
         "card_revision": 13
       }
     ]
@@ -80,7 +80,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "size_bytes": 19274,
       "line_count": 686,
       "authority": {
@@ -137,7 +137,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.4.0",
-      "manifest_sha256": "775159e5a3f648dee9a1a2ec8ac0b0c6aa4aed3b2c3553178707553553ba18e9",
+      "manifest_sha256": "834352672530f99268b801b677ee2c9c25d8349b93791f659b703b90cccf6d4c",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -168,7 +168,7 @@
       ],
       "short_activation_summary": "Use when AI governance, risk, assurance, policy-to-control translation, regulatory/enterprise oversight, evidence planning, or agentic-AI governance materially affects the task.",
       "short_non_activation_summary": "Do not select for simple low-risk AI explanation, pure creative ideation without governance consequence, or a narrow legal conclusion requiring qualified legal authority.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "availability_state": "RELEASE_CATALOG_ENTRY"
     },
     {
@@ -176,7 +176,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.4.0",
-      "manifest_sha256": "b53046bd6378e59f00eaf70b5993246702ba229c7fecbcba2cde21914ba1a89d",
+      "manifest_sha256": "912404029ce60a65b876bff9f50be2910b56a7371d4542f0f11d9cea2a8ddb79",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -204,7 +204,7 @@
       ],
       "short_activation_summary": "Use when the material task capability envelope is incomplete, cross-disciplinary, unknown/emerging, disproportionate, or requires Domain Package, machine-native benchmark, or reusable Specialist construction.",
       "short_non_activation_summary": "Do not select when the task capability envelope, benchmark, domain requirements, and operative vector set are already sufficiently specified and no reusable capability construction gap exists.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "availability_state": "RELEASE_CATALOG_ENTRY"
     },
     {
@@ -212,7 +212,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.4.0",
-      "manifest_sha256": "3bc1bd1506d9e895d2655c923c5f1866c11976971f7f02c234b7ad94f8aa68e0",
+      "manifest_sha256": "edd163a6d60f567f82524da641a16e7e9f2d42169d12d3f823e1e08904699d89",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -241,7 +241,7 @@
       ],
       "short_activation_summary": "Use when implementation consequence, viability, architecture, current capability, public/technical claims, blast radius, evidence sufficiency, or execution realism materially affects the result.",
       "short_non_activation_summary": "Do not select for simple low-risk factual Q&A, general conversation, pure creative exploration without execution/claim pressure, or formatting-only work without material risk.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "availability_state": "RELEASE_CATALOG_ENTRY"
     },
     {
@@ -249,7 +249,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.4.0",
-      "manifest_sha256": "54b2f2a14ff9478f4cc08d110ce3a7be68933151c7cb1dfcbd7587568c6a5cdb",
+      "manifest_sha256": "c2e0296592c96bf0f999f54f90255e451760f27c7760d9ae2ed990fb88baaa83",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -276,7 +276,7 @@
       ],
       "short_activation_summary": "Use when a material outcome depends on correctly interpreting intent/requirements and evidence must justify verification, closure, release, publication, handoff, or downstream reliance.",
       "short_non_activation_summary": "Do not select for simple low-risk conversation, pre-commitment brainstorming with no verification decision, or formatting-only changes with no material specification/evidence risk.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "availability_state": "RELEASE_CATALOG_ENTRY"
     }
   ],

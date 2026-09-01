@@ -63,7 +63,7 @@ def add(cid, ok, category, detail, severity='ERROR', evidence=None):
         root_prefix=str(ROOT)
         if sx.startswith(root_prefix):
             sx='.'+sx[len(root_prefix):]
-        ev.append(sx)
+        ev.append(sx.replace(os.sep,'/').replace('\\','/'))
     checks.append({
       'check_id':cid,
       'status':'PASS' if ok else ('WARN' if severity=='WARNING' else 'FAIL'),
@@ -109,6 +109,55 @@ add('FOUNDATION.HANDOFF_RESTORATION_SCHEMA_DRIFT_CLOSED',restore_ok,'FOUNDATION_
 old_presentation_contradiction='STANDARD_EVIDENCE_PRESENTATION cannot satisfy it without an authorized equivalent evidence source'
 presentation_ok=old_presentation_contradiction not in core and 'regardless of presentation mode' in core and 'Both modes preserve the same underlying evidence state.' in core
 add('FOUNDATION.EVIDENCE_PRESENTATION_SEMANTIC_CONTRADICTION_CLOSED',presentation_ok,'FOUNDATION_CONSISTENCY',f'Presentation-only evidence semantics coherent={presentation_ok}.')
+
+# Formal-object responsibility closure checks.
+canonical_object_ids=[
+ 'AIR_RUNTIME_BRIDGE','AIR_SESSION','AIR_PROJECT_INITIALIZATION_BRIEF','AIR_PROJECT_EXECUTION_MAP',
+ 'AIR_ARTIFACT','AIR_ACTIVE_CONTRACT','AIR_GATE','AIR_VALIDATION_REPORT','AIR_ALIGNMENT_CHECK',
+ 'AIR_ERROR','AIR_ACTION_AUTHORIZATION','AIR_ACTION_RECEIPT','AIR_PRIOR_EFFECT_RECORD',
+ 'AIR_REQUIRED_INPUT_REQUEST','AIR_HANDOFF_CARD']
+add('OBJECTS.REGISTRY_MARKER','AIR_CANONICAL_OBJECT_CONTRACTS_V4' in core and 'AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1' in core,'OBJECT_RESPONSIBILITY','Core V4 canonical registry and responsibility-closure marker are present.')
+class_seg=core[core.index('Canonical formal object classes:'):core.index('Object identity and record category:')] if 'Canonical formal object classes:' in core and 'Object identity and record category:' in core else ''
+core_object_ids=re.findall(r'^-\s+(AIR_[A-Z0-9_]+):\s+[A-Z_]+\s*$',class_seg,re.M)
+add('OBJECTS.CANONICAL_SET',core_object_ids==canonical_object_ids,'OBJECT_RESPONSIBILITY',f'Core canonical object set/order={core_object_ids!r}.')
+add('OBJECTS.ROOT_IDENTITY_RULE','The top-level AIR object root name identifies semantic object identity.' in core and 'record_class identifies the semantic record category' in core,'OBJECT_RESPONSIBILITY','Root name owns object identity; record_class is a category.')
+add('OBJECTS.CLOSED_WORLD_RULE','OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION' in core and 'CLOSED-WORLD TOP-LEVEL FIELD LAW' in core,'OBJECT_RESPONSIBILITY','Unknown/foreign top-level formal-object fields fail closed.')
+for oid in canonical_object_ids:
+    if oid=='AIR_HANDOFF_CARD':
+        ok='AIR_HANDOFF_CARD allowed top-level fields are exactly those declared by its current template schema' in core
+    elif oid=='AIR_ARTIFACT':
+        ok='AIR_ARTIFACT base allowed object-owned top-level fields' in core
+    else:
+        ok=f'{oid} allowed object-owned top-level fields' in core
+    add(f'OBJECTS.OWNERSHIP.{oid}',ok,'OBJECT_RESPONSIBILITY',f'{oid} has a Core-owned closed responsibility declaration.')
+# Reservation surfaces must match the canonical set and contain no retired pseudo-object.
+def _reserved(text,start_phrase,end_phrase):
+    try: seg=text[text.index(start_phrase)+len(start_phrase):text.index(end_phrase,text.index(start_phrase)+len(start_phrase))]
+    except ValueError: return []
+    return re.findall(r'^-\s+(AIR_[A-Z0-9_]+)\s*$',seg,re.M)
+core_reserved=_reserved(core,'Reserved formal object labels include:','AIR must not use reserved formal object labels')
+control_reserved=_reserved(control,'Reserved labels:','In compact interaction')
+add('OBJECTS.RESERVED.CORE',core_reserved==canonical_object_ids and 'AIR_PRIMED_ONBOARDING' not in core,'OBJECT_RESPONSIBILITY',f'Core reserved labels={core_reserved!r}.')
+add('OBJECTS.RESERVED.CONTROL',control_reserved==canonical_object_ids and 'AIR_PRIMED_ONBOARDING' not in control,'OBJECT_RESPONSIBILITY',f'Control reserved labels={control_reserved!r}.')
+formal_reg=starter.get('typed_registries',{}).get('formal_objects',{})
+add('OBJECTS.STARTER.REGISTRY',formal_reg.get('registry_designation')=='AIR_CANONICAL_OBJECT_CONTRACTS_V4' and formal_reg.get('object_ids')==canonical_object_ids,'OBJECT_RESPONSIBILITY',f'Starter registry designation={formal_reg.get("registry_designation")!r}; object count={len(formal_reg.get("object_ids",[]))}.')
+add('OBJECTS.STARTER.CLOSED_WORLD',formal_reg.get('top_level_schema_rule')=='CLOSED_WORLD_CORE_OWNED_FIELDS_ONLY','OBJECT_RESPONSIBILITY',f'Starter top-level schema rule={formal_reg.get("top_level_schema_rule")!r}.')
+af=starter.get('typed_registries',{}).get('artifact_fields',{})
+add('OBJECTS.STARTER.NO_BASE_REDECLARATION',isinstance(af,dict) and af.get('semantic_fields_redeclared') is False and af.get('source_marker')=='AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1','OBJECT_RESPONSIBILITY',f'Starter Artifact registry consumer state={af!r}.')
+formal_labels=set(canonical_object_ids)
+foreign=[]
+for r in starter.get('typed_registries',{}).get('conditional_requirements',[]):
+    for f in r.get('fields',[]):
+        if f in formal_labels: foreign.append((r.get('id'),f))
+add('OBJECTS.STARTER.NO_OBJECT_AS_FIELD',not foreign,'OBJECT_RESPONSIBILITY',f'Formal object labels embedded as fields={foreign!r}.')
+add('OBJECTS.EXACT_GATE_SCHEMA','AIR_GATE_V3' in core and '"evaluation_checks"' in core and 'The prior Gate fields mode, artifact_binding_state, authority_level' in core,'OBJECT_RESPONSIBILITY','Gate is a compact decision projection rather than a copy of Artifact/Contract state.')
+add('OBJECTS.EXACT_ACTION_AUTH','AIR_ACTION_AUTHORIZATION exact schema:' in core and '"gate_ref"' in core and '"controlling_artifact_ref"' in core,'OBJECT_RESPONSIBILITY','Authorization exact single-use ticket schema is defined by Core.')
+add('OBJECTS.EXACT_ACTION_RECEIPT','AIR_ACTION_RECEIPT exact schema:' in core and '"state_comparison"' in core and '"unexpected_side_effects"' in core,'OBJECT_RESPONSIBILITY','Receipt exact intended-versus-actual schema is defined by Core.')
+add('OBJECTS.EXACT_PRIOR_EFFECT','AIR_PRIOR_EFFECT_RECORD exact schema:' in core and '"retroactive_authorization_forbidden"' in core,'OBJECT_RESPONSIBILITY','Prior-effect exact recovery schema is defined by Core.')
+add('OBJECTS.ACTIVE_CONTRACT.VOCABULARY','deprecated aliases scope_in, scope_out, prohibited_actions, required_evidence, rescope_rule, and binding_state' in core,'OBJECT_RESPONSIBILITY','Active Contract aliases are retired in favor of Artifact execution-contract vocabulary.')
+add('OBJECTS.HANDOFF.REV14',handoff_card.get('card_revision')==14,'OBJECT_RESPONSIBILITY',f'Handoff card revision={handoff_card.get("card_revision")!r}; expected 14.')
+toc=handoff_card.get('transfer_ownership_contract',{})
+add('OBJECTS.HANDOFF.TRANSFER_OWNERSHIP',isinstance(toc,dict) and toc.get('contract_version')=='1.0.0' and 'current_task_binding' in toc.get('canonical_transfer_carriers',{}),'OBJECT_RESPONSIBILITY','Handoff transfer ownership/precedence contract is present for rev14.')
 
 # Prior stage validations are evidence inputs, not substitutes.
 # The distributable T12C integrated report preserves the six earlier stage decisions.
@@ -222,7 +271,7 @@ for p in semantic_paths:
     for m in re.finditer(r'\bRT\.[A-Z0-9_]+\b',txt): rt_refs[m.group()].append((p,m.start()))
     for m in re.finditer(r'\bCOG\.[A-Z0-9_]+\b',txt): cog_refs[m.group()].append((p,m.start()))
 extra_rt=sorted(set(rt_refs)-canonical_routes)
-add('ROUTE.NAMESPACE_NO_UNDECLARED_RT',not extra_rt,'ROUTE_GRAPH',f'Undeclared RT.* references={extra_rt}.',evidence=[str(x[0].relative_to(ROOT)) for r in extra_rt for x in rt_refs[r][:1]])
+add('ROUTE.NAMESPACE_NO_UNDECLARED_RT',not extra_rt,'ROUTE_GRAPH',f'Undeclared RT.* references={extra_rt}.',evidence=[x[0].relative_to(ROOT).as_posix() for r in extra_rt for x in rt_refs[r][:1]])
 
 # Canonical COG routes.
 mii_sec=core.split('Patch marker: AIR_MII_COGNITIVE_ARCHITECTURE_V1',1)[1].split('MII SEMANTIC TRANSLATION AND FIDELITY LAW',1)[0]
@@ -239,7 +288,7 @@ expected_registry={
 'AIR_RUNTIME_BRIDGE':'STATE_TRANSITION_RECORD','AIR_SESSION':'SESSION_STATE_RECORD','AIR_PROJECT_INITIALIZATION_BRIEF':'PROJECT_STATE_RECORD','AIR_PROJECT_EXECUTION_MAP':'PROJECT_STATE_RECORD','AIR_ARTIFACT':'ACTIVE_EXECUTION_RECORD','AIR_ACTIVE_CONTRACT':'EXECUTION_CONTRACT','AIR_GATE':'DECISION_RECORD','AIR_VALIDATION_REPORT':'VALIDATION_RECORD','AIR_ALIGNMENT_CHECK':'ALIGNMENT_EVALUATION_RECORD','AIR_ERROR':'ERROR_RECORD','AIR_ACTION_AUTHORIZATION':'ACTION_AUTHORIZATION_RECORD','AIR_ACTION_RECEIPT':'ACTION_RECEIPT_RECORD','AIR_PRIOR_EFFECT_RECORD':'RECOVERY_RECORD','AIR_REQUIRED_INPUT_REQUEST':'REQUIRED_INPUT_REQUEST_RECORD','AIR_HANDOFF_CARD':'TRANSFER_RECORD'}
 add('OBJECT.REGISTRY_EXACT',registry==expected_registry,'FORMAL_OBJECTS',f'Core registry entries={len(registry)}; exact expected mapping={registry==expected_registry}.')
 add('OBJECT.NO_OLD_ALIGNMENT_CLASS',all('ALIGNMENT_WATCHDOG_RECORD' not in p.read_text(encoding='utf-8',errors='replace') for p in semantic_paths),'FORMAL_OBJECTS','No operative semantic candidate file uses retired ALIGNMENT_WATCHDOG_RECORD.')
-add('OBJECT.REQUIRED_INPUT_CLASS_STARTER','REQUIRED_INPUT_REQUEST_RECORD' in FILES['foundation.starter'].read_text(),'FORMAL_OBJECTS','Starter references Core REQUIRED_INPUT_REQUEST_RECORD.')
+add('OBJECT.REQUIRED_INPUT_CLASS_STARTER','REQUIRED_INPUT_REQUEST_RECORD' in FILES['foundation.starter'].read_text(encoding='utf-8'),'FORMAL_OBJECTS','Starter references Core REQUIRED_INPUT_REQUEST_RECORD.')
 
 # Alignment constructor dependency graph checks.
 exempt={'AIR_ALIGNMENT_CHECK','AIR_VALIDATION_REPORT'}
@@ -288,7 +337,7 @@ for db in ['AIR_GATE','BENCHMARK_JUDGE','AIR-FLOOR-022']:
 # Q1 entry/answer separation.
 add('Q1.ENTRY_SEPARATION_MARKER','AIR_ENTRY_PATH_Q1_SEPARATION_V1' in core,'ONBOARDING','Core contains entry/Q1 separation marker.')
 add('Q1.START_PHRASE_LEAVES_UNANSWERED','This sets only entry_path. It leaves Q1 = UNANSWERED' in core,'ONBOARDING','Fresh-start entry phrase sets entry path only and leaves Q1 unanswered.')
-add('Q1.STARTER_UNCERTAINTY_ROUTE','RT.UNCERTAINTY_RESOLVE' in FILES['foundation.starter'].read_text(),'ONBOARDING','Starter routes unresolved material intent through Core uncertainty resolution.')
+add('Q1.STARTER_UNCERTAINTY_ROUTE','RT.UNCERTAINTY_RESOLVE' in FILES['foundation.starter'].read_text(encoding='utf-8'),'ONBOARDING','Starter routes unresolved material intent through Core uncertainty resolution.')
 
 # Floor registry.
 floor_names={int(m.group(1)):m.group(0).split(':',1)[0][2:] for m in re.finditer(r'^- AIR-FLOOR-(\d{3})-[A-Z0-9-]+:',core,re.M)}
@@ -301,7 +350,7 @@ for num,name in {
 # Handoff schema, migration and startup discovery.
 handoff_root=handoff.get('AIR_HANDOFF_CARD',handoff)
 add('HANDOFF.SCHEMA_2_3_0',handoff_root.get('SCHEMA_VERSION')=='2.3.0' and handoff_root.get('schema_version')=='2.3.0','HANDOFF',f'Handoff schema versions: SCHEMA_VERSION={handoff_root.get("SCHEMA_VERSION")}, schema_version={handoff_root.get("schema_version")}.')
-htxt=FILES['foundation.handoff'].read_text()
+htxt=FILES['foundation.handoff'].read_text(encoding='utf-8')
 add('HANDOFF.NO_OPERATIVE_CADENCE','alignment_check_interval_user_messages' not in htxt,'HANDOFF','No cadence interval carrier remains in Handoff 2.3.0.')
 add('HANDOFF.RUNTIME_ALIGNMENT_STATE','runtime_alignment_state' in htxt,'HANDOFF','Handoff serializes runtime_alignment_state.')
 add('HANDOFF.ROUTE_MAP_STARTUP','AIR_RUNTIME_ROUTE_MAP.json' in htxt,'HANDOFF','Handoff recommends Runtime Route Map as startup discovery input.')
@@ -310,7 +359,7 @@ add('HANDOFF.STRICT_SERIALIZATION_NOT_BYPASS','serialization exception only' in 
 
 # Evidence/presentation separation and legacy terms only in explicitly historical/migration contexts.
 for key in ['foundation.core','foundation.control','foundation.gov']:
-    txt=FILES[key].read_text()
+    txt=FILES[key].read_text(encoding='utf-8')
     add(f'EVIDENCE.NO_SUMMARY_ONLY.{key}','SUMMARY_ONLY' not in txt,'EVIDENCE_PRESENTATION',f'{key} has no SUMMARY_ONLY token.')
     add(f'EVIDENCE.NO_FULL_TEST_EVIDENCE.{key}','FULL_TEST_EVIDENCE' not in txt,'EVIDENCE_PRESENTATION',f'{key} has no FULL_TEST_EVIDENCE token.')
 add('EVIDENCE.CORE_STANDARD_MODE','STANDARD_EVIDENCE_PRESENTATION' in core and 'EXPANDED_EVIDENCE_PRESENTATION' in core,'EVIDENCE_PRESENTATION','Core defines standard/expanded presentation modes.')
@@ -445,7 +494,7 @@ for pkg,(mp,dirp) in package_specs.items():
     # Current Foundation identity and lifecycle carriers must not retain overtaken set/stage state.
     for fn,o in list(component_data.items())+[(mp.name,m)]:
         fc=o.get('foundation_compatibility',{}) if isinstance(o,dict) else {}
-        add(f'PKG.OPERATIVE_FOUNDATION_STATE.{pkg}.{fn}',fc.get('compatibility_state')=='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002' and fc.get('foundation_candidate_set_identity')=='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002','PACKAGE_LIFECYCLE_COHERENCE',f'{pkg}/{fn}: compatibility_state={fc.get("compatibility_state")!r}, identity={fc.get("foundation_candidate_set_identity")!r}.')
+        add(f'PKG.OPERATIVE_FOUNDATION_STATE.{pkg}.{fn}',fc.get('compatibility_state')=='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003' and fc.get('foundation_candidate_set_identity')=='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003','PACKAGE_LIFECYCLE_COHERENCE',f'{pkg}/{fn}: compatibility_state={fc.get("compatibility_state")!r}, identity={fc.get("foundation_candidate_set_identity")!r}.')
         status=str(o.get('STATUS',o.get('status','')))
         add(f'PKG.OPERATIVE_STATUS_CURRENT.{pkg}.{fn}',not any(tok in status for tok in stale_lifecycle_tokens),'PACKAGE_LIFECYCLE_COHERENCE',f'{pkg}/{fn}: current status={status!r}.')
     pvs=m.get('package_validation_state',{})
@@ -466,7 +515,7 @@ for pkg,pid in expected_pkg_ids.items():
         add(f'INDEX.PACKAGE_VERSION.{pkg}',e.get('package_version')==m.get('PACKAGE_VERSION'),'INDEX_CLOSURE',f'{pkg} Index version={e.get("package_version")}; manifest={m.get("PACKAGE_VERSION")}.')
         manifest_fns=[x.get('filename') for x in m.get('components',[])]
         add(f'INDEX.COMPONENT_FILENAMES.{pkg}',e.get('canonical_component_filenames')==manifest_fns,'INDEX_CLOSURE',f'{pkg} Index component filenames match manifest load list.')
-        add(f'INDEX.FOUNDATION_ID.{pkg}',e.get('foundation_compatibility_identity')=='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002','INDEX_CLOSURE',f'{pkg} Index Foundation identity={e.get("foundation_compatibility_identity")}.')
+        add(f'INDEX.FOUNDATION_ID.{pkg}',e.get('foundation_compatibility_identity')=='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003','INDEX_CLOSURE',f'{pkg} Index Foundation identity={e.get("foundation_compatibility_identity")}.')
 
 # Index authority boundary.
 iab=index.get('authority_boundary',{})
@@ -532,7 +581,7 @@ for pkg,m in manifests.items():
 stage_warnings=[]
 for key,p in FILES.items():
     if p.suffix!='.json' or not any(key.startswith(x) for x in ['cea.','grounding.','sfv.','aigov.']): continue
-    txt=p.read_text()
+    txt=p.read_text(encoding='utf-8')
     if 'PENDING_SPECIALIST_INDEX_RESEAL' in txt:
         stage_warnings.append((key,'PENDING_SPECIALIST_INDEX_RESEAL'))
     if 'PENDING_T9_T10' in txt or 'PENDING_T10_AND' in txt or 'PENDING_CROSS_SPECIALIST' in txt:
@@ -542,20 +591,20 @@ add('STATUS.STAGE_LOCAL_PENDING_MARKERS',not stage_warnings,'STATUS_METADATA',f'
 # Full-system hash inventory.
 inventory=[]
 for key,p in sorted(FILES.items()):
-    inventory.append({'logical_id':key,'filename':p.name,'sha256':sha(p),'size_bytes':p.stat().st_size,'line_count':line_count(p),'source_path':str(p.relative_to(ROOT))})
+    inventory.append({'logical_id':key,'filename':p.name,'sha256':sha(p),'size_bytes':p.stat().st_size,'line_count':line_count(p),'source_path':p.relative_to(ROOT).as_posix()})
 
 # Count and decision.
 failed=[c for c in checks if c['status']=='FAIL']
 warned=[c for c in checks if c['status']=='WARN']
 passed=[c for c in checks if c['status']=='PASS']
-decision='PASS_STATIC_FOUNDATION_REPAIR_VALIDATED_PENDING_FRESH_BEHAVIORAL' if not failed else 'FAIL_STATIC_BLOCKED_PENDING_PATCH_AND_REVALIDATION'
+decision='PASS_STATIC_OBJECT_CONTRACT_CLOSURE_VALIDATED_PENDING_FRESH_BEHAVIORAL' if not failed else 'FAIL_STATIC_BLOCKED_PENDING_PATCH_AND_REVALIDATION'
 report={
  'AIR_VALIDATION_REPORT':{
-   'report_id':'AIR-VAL-AIR250-FULL-STATIC-T12D-001',
+   'report_id':'AIR-VAL-AIR250-OBJECT-CONTRACT-FULL-STATIC-001',
    'object_version':'2.0.0',
    'record_class':'VALIDATION_RECORD',
    'validated_target':'AIR 2.5.0 integrated Foundation + Route Map + four Specialist packages + Specialist Package Index candidate graph',
-   'candidate_set_identity':'AIR_2_5_0_MII_INTEGRATED_STATIC_CANDIDATE_SET_004',
+   'candidate_set_identity':'AIR_2_5_0_OBJECT_CONTRACT_INTEGRATED_STATIC_SET_005',
    'validation_kind':'REPRODUCIBLE_EXECUTABLE_STATIC_ANALYSIS',
    'evidence_class':'TOOL_OBSERVED_GOVERNANCE_RECORD',
    'decision':decision,
@@ -567,8 +616,8 @@ report={
    'warnings':[c for c in warned],
    'limitations':[
       'Static validation evaluates the supplied prompt/package bytes and declared graph/contracts; it is not fresh-host behavioral evidence.',
-      'Prior stage PASS evidence is preserved from the T12C integrated validation record and is not treated as a substitute for this T12D rerun.',
-      'T12D closes the three known Foundation consistency defects and revalidates downstream exact-hash closure. Fresh behavioral release validation is still required before release approval.'
+      'Prior stage PASS evidence is preserved from earlier integrated validation records and is not treated as a substitute for this Object Contract Closure rerun.',
+      'Object Contract Closure preserves the repaired Foundation consistency baseline, closes formal-object ownership/schema defects, and revalidates downstream exact-hash closure. Fresh behavioral evidence remains a separate release consideration.'
    ],
    'known_out_of_scope_findings':[
       'FRESH_BEHAVIORAL_RELEASE_VALIDATION_NOT_EXECUTED: static repair validation does not establish fresh-host behavioral release readiness.'
@@ -580,19 +629,19 @@ report={
  }
 }
 report_path=OUT/'AIR_2.5.0_FULL_CROSS_SYSTEM_STATIC_VALIDATION.json'
-report_path.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+report_path.write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 inv_path=OUT/'AIR_2.5.0_INTEGRATED_CANDIDATE_INVENTORY.json'
-inv_obj={'candidate_set_identity':'AIR_2_5_0_MII_INTEGRATED_STATIC_CANDIDATE_SET_004','semantic_file_count':len(inventory),'files':inventory,'validation_report_filename':report_path.name,'validation_report_sha256':sha(report_path)}
-inv_path.write_text(json.dumps(inv_obj,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+inv_obj={'candidate_set_identity':'AIR_2_5_0_OBJECT_CONTRACT_INTEGRATED_STATIC_SET_005','semantic_file_count':len(inventory),'files':inventory,'validation_report_filename':report_path.name,'validation_report_sha256':sha(report_path)}
+inv_path.write_text(json.dumps(inv_obj,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
 
 # Receipt for validation action (validation execution can succeed even if candidate fails).
 receipt={
  'AIR_ACTION_RECEIPT':{
-  'receipt_id':'RECEIPT-AIR250-T12D-FULL-STATIC-001',
-  'object_version':'2.0.0','record_class':'ACTION_RECEIPT_RECORD','authorization_ref':'AUTH-AIR250-T12D-FOUNDATION-REPAIR-RETRY-002',
+  'receipt_id':'RECEIPT-AIR250-OBJECT-CONTRACT-FULL-STATIC-001',
+  'object_version':'2.0.0','record_class':'ACTION_RECEIPT_RECORD','authorization_ref':'AUTH-AIR250-OBJECT-CONTRACT-CLOSURE-001',
   'action_attempted':'AIR_2_5_0_FULL_CROSS_SYSTEM_STATIC_VALIDATION',
   'result':'SUCCESS_VALIDATION_COMPLETED',
-  'validation_report_ref':'AIR-VAL-AIR250-FULL-STATIC-T12D-001',
+  'validation_report_ref':'AIR-VAL-AIR250-OBJECT-CONTRACT-FULL-STATIC-001',
   'validation_decision':decision,
   'validation_counts':report['AIR_VALIDATION_REPORT']['summary'],
   'candidate_bytes_mutated':False,
@@ -603,22 +652,22 @@ receipt={
  }
 }
 receipt_path=OUT/'AIR_2.5.0_FULL_STATIC_TRANSACTION_RECEIPT.json'
-receipt_path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8')
+receipt_path.write_text(json.dumps(receipt,indent=2)+'\n',encoding='utf-8',newline='\n')
 
 # Human-readable concise defect map.
 defect_path=OUT/'AIR_2.5.0_FULL_STATIC_DEFECT_MAP.md'
-lines=['# AIR 2.5.0 T12D Full Cross-System Static Validation — Defect Map','',f'Decision: **{decision}**',f'Checks: {len(passed)} PASS / {len(failed)} FAIL / {len(warned)} WARN ({len(checks)} total)','']
+lines=['# AIR 2.5.0 Object Contract Closure — Full Cross-System Static Validation Defect Map','',f'Decision: **{decision}**',f'Checks: {len(passed)} PASS / {len(failed)} FAIL / {len(warned)} WARN ({len(checks)} total)','']
 if failed:
     lines += ['## Blocking findings','']
     for c in failed:
         lines += [f'- `{c["check_id"]}` — {c["detail"]}']
 else:
-    lines += ['No blocking findings in the implemented T12D static checkset.', '', 'The three known Foundation consistency defects are closed. Fresh behavioral release validation remains required before release approval.']
+    lines += ['No blocking findings in the implemented Object Contract Closure static checkset.', '', 'The prior Foundation consistency defects remain closed and the Object Contract Closure checks pass. Fresh behavioral evidence remains a separate release consideration.']
 if warned:
     lines += ['', '## Warnings','']
     for c in warned: lines += [f'- `{c["check_id"]}` — {c["detail"]}']
 lines += ['', 'No candidate source/component/manifest/index bytes were modified by this validation.']
-defect_path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+defect_path.write_text('\n'.join(lines)+'\n',encoding='utf-8',newline='\n')
 
 # Create integrated checkpoint bundle with semantic candidates copied under canonical-ish layout plus reports.
 bundle_root=ROOT/'bundle'
@@ -651,7 +700,7 @@ shutil.copy2(report_path,bundle_root/'validation'/report_path.name)
 shutil.copy2(inv_path,bundle_root/'validation'/inv_path.name)
 shutil.copy2(defect_path,bundle_root/'validation'/defect_path.name)
 shutil.copy2(receipt_path,bundle_root/'receipts'/receipt_path.name)
-zip_path=ROOT/'validation/AIR_2.5.0_T12D_FULL_STATIC_VALIDATION_CHECKPOINT.zip'
+zip_path=ROOT/'validation/AIR_2.5.0_OBJECT_CONTRACT_FULL_STATIC_VALIDATION_CHECKPOINT.zip'
 if zip_path.exists(): zip_path.unlink()
 with zipfile.ZipFile(zip_path,'w',zipfile.ZIP_DEFLATED) as z:
     for p in sorted(bundle_root.rglob('*')):

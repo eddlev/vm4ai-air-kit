@@ -1,16 +1,16 @@
 {
   "AIR_ACTION_RECEIPT": {
-    "receipt_id": "RECEIPT-AIR250-T12D-FULL-STATIC-001",
+    "receipt_id": "RECEIPT-AIR250-OBJECT-CONTRACT-FULL-STATIC-001",
     "object_version": "2.0.0",
     "record_class": "ACTION_RECEIPT_RECORD",
-    "authorization_ref": "AUTH-AIR250-T12D-FOUNDATION-REPAIR-RETRY-002",
+    "authorization_ref": "AUTH-AIR250-OBJECT-CONTRACT-CLOSURE-001",
     "action_attempted": "AIR_2_5_0_FULL_CROSS_SYSTEM_STATIC_VALIDATION",
     "result": "SUCCESS_VALIDATION_COMPLETED",
-    "validation_report_ref": "AIR-VAL-AIR250-FULL-STATIC-T12D-001",
-    "validation_decision": "PASS_STATIC_FOUNDATION_REPAIR_VALIDATED_PENDING_FRESH_BEHAVIORAL",
+    "validation_report_ref": "AIR-VAL-AIR250-OBJECT-CONTRACT-FULL-STATIC-001",
+    "validation_decision": "PASS_STATIC_OBJECT_CONTRACT_CLOSURE_VALIDATED_PENDING_FRESH_BEHAVIORAL",
     "validation_counts": {
-      "total": 895,
-      "passed": 895,
+      "total": 927,
+      "passed": 927,
       "failed": 0,
       "warnings": 0
     },

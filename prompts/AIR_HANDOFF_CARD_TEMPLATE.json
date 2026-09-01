@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 13,
+    "card_revision": 14,
     "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
     "evaluation_basis": {
@@ -539,7 +539,8 @@
         "card_created_by",
         "platform_state",
         "extensions",
-        "action_governance_state"
+        "action_governance_state",
+        "transfer_ownership_contract"
       ],
       "conditional_rules": [
         {
@@ -829,6 +830,17 @@
             "Core semantics remain authoritative if map is absent or stale"
           ],
           "failure_behavior": "DEGRADE_ROUTE_DISCOVERY_ONLY"
+        },
+        {
+          "id": "HC-COND-OBJECT-RESPONSIBILITY-REV14",
+          "condition": "card_revision >= 14",
+          "requirements": [
+            "transfer_ownership_contract is present",
+            "current transfer-level carriers are interpreted according to canonical_transfer_carriers",
+            "active_artifact and active_contract repeated values are source snapshots, not competing current authority",
+            "unlabelled redundant transfer state is rejected rather than resolved by recency or convenience"
+          ],
+          "failure_behavior": "REVIEW_OR_REJECT_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION"
         }
       ],
       "nullability": {
@@ -970,6 +982,32 @@
           "Migration to schema 2.3.0 does not grant the Specialist Package Index route, selection, approval, compilation, binding, or execution authority."
         ]
       }
+    },
+    "transfer_ownership_contract": {
+      "contract_version": "1.0.0",
+      "purpose": "Define one canonical transfer carrier for current transfer-level state while preserving source-object snapshots as non-executable provenance.",
+      "rules": [
+        "AIR_HANDOFF_CARD is a transfer record and may serialize source-object snapshots; snapshots never become current execution authority on restore.",
+        "When the same conceptual datum appears in a source-object snapshot and a transfer-level carrier, the source snapshot preserves provenance while the transfer-level carrier named below governs transfer interpretation.",
+        "A repeated value without a distinct source-snapshot role or explicit reference is invalid redundant transfer state.",
+        "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object."
+      ],
+      "canonical_transfer_carriers": {
+        "current_task_binding": "AIR_HANDOFF_CARD.task_binding",
+        "current_orbit_state": "AIR_HANDOFF_CARD.orbit_state",
+        "current_receiver_delivery_state": "AIR_HANDOFF_CARD.receiver_delivery_state",
+        "current_action_history_and_unresolved_effects": "AIR_HANDOFF_CARD.action_governance_state",
+        "current_runtime_alignment_transfer_state": "AIR_HANDOFF_CARD.runtime_alignment_state",
+        "current_semantic_fidelity_transfer_state": "AIR_HANDOFF_CARD.semantic_fidelity_state",
+        "current_epistemic_sufficiency_transfer_state": "AIR_HANDOFF_CARD.epistemic_sufficiency_state"
+      },
+      "source_snapshot_roles": {
+        "AIR_HANDOFF_CARD.active_artifact": "IMMUTABLE_PROVENANCE_SNAPSHOT_OF_SOURCE_ARTIFACT; prior binding/action/delivery values cannot override transfer-level carriers or restore execution authority.",
+        "AIR_HANDOFF_CARD.active_contract": "IMMUTABLE_PROVENANCE_SNAPSHOT_OF_CONTRACT_INPUT; cannot override the Artifact or create execution authority.",
+        "AIR_HANDOFF_CARD.project_state": "TRANSFER_OWNED_PROJECT_SNAPSHOT",
+        "AIR_HANDOFF_CARD.profile_stack": "TRANSFER_OWNED_CAPABILITY_SELECTION_SNAPSHOT"
+      },
+      "restore_rule": "Resolve transfer-level carriers first, preserve source snapshots as provenance, then execute current-session validation/alignment and artifact rebinding. Never select a newer duplicate by convenience."
     },
     "action_governance_state": {
       "artifact_lease_state": "EXPIRED_REBIND_REQUIRED_ON_RESTORE",

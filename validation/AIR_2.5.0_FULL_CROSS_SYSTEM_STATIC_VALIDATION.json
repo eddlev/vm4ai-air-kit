@@ -1,16 +1,16 @@
 {
   "AIR_VALIDATION_REPORT": {
-    "report_id": "AIR-VAL-AIR250-FULL-STATIC-T12D-001",
+    "report_id": "AIR-VAL-AIR250-OBJECT-CONTRACT-FULL-STATIC-001",
     "object_version": "2.0.0",
     "record_class": "VALIDATION_RECORD",
     "validated_target": "AIR 2.5.0 integrated Foundation + Route Map + four Specialist packages + Specialist Package Index candidate graph",
-    "candidate_set_identity": "AIR_2_5_0_MII_INTEGRATED_STATIC_CANDIDATE_SET_004",
+    "candidate_set_identity": "AIR_2_5_0_OBJECT_CONTRACT_INTEGRATED_STATIC_SET_005",
     "validation_kind": "REPRODUCIBLE_EXECUTABLE_STATIC_ANALYSIS",
     "evidence_class": "TOOL_OBSERVED_GOVERNANCE_RECORD",
-    "decision": "PASS_STATIC_FOUNDATION_REPAIR_VALIDATED_PENDING_FRESH_BEHAVIORAL",
+    "decision": "PASS_STATIC_OBJECT_CONTRACT_CLOSURE_VALIDATED_PENDING_FRESH_BEHAVIORAL",
     "summary": {
-      "total": 895,
-      "passed": 895,
+      "total": 927,
+      "passed": 927,
       "failed": 0,
       "warnings": 0
     },
@@ -32,7 +32,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "foundation.core non-empty (317892 bytes)",
+        "detail": "foundation.core non-empty (333225 bytes)",
         "evidence": [
           "./foundation/AIR_CORE_RUNTIME.md"
         ]
@@ -52,7 +52,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "foundation.control non-empty (151387 bytes)",
+        "detail": "foundation.control non-empty (152528 bytes)",
         "evidence": [
           "./foundation/AIR_CONTROL_SURFACE.md"
         ]
@@ -92,7 +92,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "foundation.starter non-empty (86697 bytes)",
+        "detail": "foundation.starter non-empty (86064 bytes)",
         "evidence": [
           "./foundation/AIR_DEFAULT_STARTER_PROFILE.json"
         ]
@@ -122,7 +122,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "foundation.handoff non-empty (55236 bytes)",
+        "detail": "foundation.handoff non-empty (58378 bytes)",
         "evidence": [
           "./foundation/AIR_HANDOFF_CARD_TEMPLATE.json"
         ]
@@ -182,7 +182,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "catalog.specialist_index non-empty (14328 bytes)",
+        "detail": "catalog.specialist_index non-empty (14338 bytes)",
         "evidence": [
           "./catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
         ]
@@ -212,7 +212,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "cea.registry non-empty (243983 bytes)",
+        "detail": "cea.registry non-empty (244005 bytes)",
         "evidence": [
           "./specialists/capability-ecology/AIR_DOMAIN_CAPABILITY_REGISTRY.json"
         ]
@@ -242,7 +242,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "cea.translator non-empty (69712 bytes)",
+        "detail": "cea.translator non-empty (69734 bytes)",
         "evidence": [
           "./specialists/capability-ecology/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json"
         ]
@@ -272,7 +272,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "cea.architect non-empty (100563 bytes)",
+        "detail": "cea.architect non-empty (100585 bytes)",
         "evidence": [
           "./specialists/capability-ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json"
         ]
@@ -302,7 +302,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "cea.method non-empty (86597 bytes)",
+        "detail": "cea.method non-empty (86619 bytes)",
         "evidence": [
           "./specialists/capability-ecology/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json"
         ]
@@ -332,7 +332,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "cea.manifest non-empty (26409 bytes)",
+        "detail": "cea.manifest non-empty (26479 bytes)",
         "evidence": [
           "./specialists/capability-ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
         ]
@@ -362,7 +362,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "grounding.domain non-empty (68007 bytes)",
+        "detail": "grounding.domain non-empty (68029 bytes)",
         "evidence": [
           "./specialists/grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json"
         ]
@@ -392,7 +392,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "grounding.method non-empty (75135 bytes)",
+        "detail": "grounding.method non-empty (75157 bytes)",
         "evidence": [
           "./specialists/grounding/AIR_GROUNDING_METHOD_PACK.json"
         ]
@@ -422,7 +422,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "grounding.specialist non-empty (78811 bytes)",
+        "detail": "grounding.specialist non-empty (78833 bytes)",
         "evidence": [
           "./specialists/grounding/AIR_GROUNDING_SPECIALIST.json"
         ]
@@ -452,7 +452,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "grounding.executor non-empty (27883 bytes)",
+        "detail": "grounding.executor non-empty (27905 bytes)",
         "evidence": [
           "./specialists/grounding/AIR_GROUNDING_EXECUTOR.json"
         ]
@@ -482,7 +482,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "grounding.manifest non-empty (29566 bytes)",
+        "detail": "grounding.manifest non-empty (29636 bytes)",
         "evidence": [
           "./specialists/grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
         ]
@@ -512,7 +512,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "sfv.domain non-empty (32318 bytes)",
+        "detail": "sfv.domain non-empty (32340 bytes)",
         "evidence": [
           "./specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json"
         ]
@@ -542,7 +542,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "sfv.method non-empty (51566 bytes)",
+        "detail": "sfv.method non-empty (51588 bytes)",
         "evidence": [
           "./specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json"
         ]
@@ -572,7 +572,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "sfv.specialist non-empty (27323 bytes)",
+        "detail": "sfv.specialist non-empty (27345 bytes)",
         "evidence": [
           "./specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json"
         ]
@@ -602,7 +602,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "sfv.executor non-empty (24166 bytes)",
+        "detail": "sfv.executor non-empty (24188 bytes)",
         "evidence": [
           "./specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json"
         ]
@@ -632,7 +632,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "sfv.manifest non-empty (28443 bytes)",
+        "detail": "sfv.manifest non-empty (28513 bytes)",
         "evidence": [
           "./specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
         ]
@@ -662,7 +662,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.domain non-empty (55137 bytes)",
+        "detail": "aigov.domain non-empty (55159 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json"
         ]
@@ -692,7 +692,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.overlay non-empty (38153 bytes)",
+        "detail": "aigov.overlay non-empty (38175 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json"
         ]
@@ -722,7 +722,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.specialist non-empty (52220 bytes)",
+        "detail": "aigov.specialist non-empty (52242 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_SPECIALIST.json"
         ]
@@ -752,7 +752,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.method non-empty (74244 bytes)",
+        "detail": "aigov.method non-empty (74266 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_METHOD_PACK.json"
         ]
@@ -782,7 +782,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.executor non-empty (39798 bytes)",
+        "detail": "aigov.executor non-empty (39820 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_EXECUTOR.json"
         ]
@@ -812,7 +812,7 @@
         "status": "PASS",
         "category": "INVENTORY",
         "severity": "ERROR",
-        "detail": "aigov.manifest non-empty (37317 bytes)",
+        "detail": "aigov.manifest non-empty (37371 bytes)",
         "evidence": [
           "./specialists/ai-governance/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
         ]
@@ -857,6 +857,262 @@
         "category": "FOUNDATION_CONSISTENCY",
         "severity": "ERROR",
         "detail": "Presentation-only evidence semantics coherent=True.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.REGISTRY_MARKER",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Core V4 canonical registry and responsibility-closure marker are present.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.CANONICAL_SET",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Core canonical object set/order=['AIR_RUNTIME_BRIDGE', 'AIR_SESSION', 'AIR_PROJECT_INITIALIZATION_BRIEF', 'AIR_PROJECT_EXECUTION_MAP', 'AIR_ARTIFACT', 'AIR_ACTIVE_CONTRACT', 'AIR_GATE', 'AIR_VALIDATION_REPORT', 'AIR_ALIGNMENT_CHECK', 'AIR_ERROR', 'AIR_ACTION_AUTHORIZATION', 'AIR_ACTION_RECEIPT', 'AIR_PRIOR_EFFECT_RECORD', 'AIR_REQUIRED_INPUT_REQUEST', 'AIR_HANDOFF_CARD'].",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.ROOT_IDENTITY_RULE",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Root name owns object identity; record_class is a category.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.CLOSED_WORLD_RULE",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Unknown/foreign top-level formal-object fields fail closed.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_RUNTIME_BRIDGE",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_RUNTIME_BRIDGE has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_SESSION",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_SESSION has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_PROJECT_INITIALIZATION_BRIEF",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_PROJECT_INITIALIZATION_BRIEF has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_PROJECT_EXECUTION_MAP",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_PROJECT_EXECUTION_MAP has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ARTIFACT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ARTIFACT has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ACTIVE_CONTRACT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ACTIVE_CONTRACT has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_GATE",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_GATE has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_VALIDATION_REPORT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_VALIDATION_REPORT has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ALIGNMENT_CHECK",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ALIGNMENT_CHECK has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ERROR",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ERROR has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ACTION_AUTHORIZATION",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ACTION_AUTHORIZATION has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_ACTION_RECEIPT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_ACTION_RECEIPT has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_PRIOR_EFFECT_RECORD",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_PRIOR_EFFECT_RECORD has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_REQUIRED_INPUT_REQUEST",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_REQUIRED_INPUT_REQUEST has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.OWNERSHIP.AIR_HANDOFF_CARD",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "AIR_HANDOFF_CARD has a Core-owned closed responsibility declaration.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.RESERVED.CORE",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Core reserved labels=['AIR_RUNTIME_BRIDGE', 'AIR_SESSION', 'AIR_PROJECT_INITIALIZATION_BRIEF', 'AIR_PROJECT_EXECUTION_MAP', 'AIR_ARTIFACT', 'AIR_ACTIVE_CONTRACT', 'AIR_GATE', 'AIR_VALIDATION_REPORT', 'AIR_ALIGNMENT_CHECK', 'AIR_ERROR', 'AIR_ACTION_AUTHORIZATION', 'AIR_ACTION_RECEIPT', 'AIR_PRIOR_EFFECT_RECORD', 'AIR_REQUIRED_INPUT_REQUEST', 'AIR_HANDOFF_CARD'].",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.RESERVED.CONTROL",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Control reserved labels=['AIR_RUNTIME_BRIDGE', 'AIR_SESSION', 'AIR_PROJECT_INITIALIZATION_BRIEF', 'AIR_PROJECT_EXECUTION_MAP', 'AIR_ARTIFACT', 'AIR_ACTIVE_CONTRACT', 'AIR_GATE', 'AIR_VALIDATION_REPORT', 'AIR_ALIGNMENT_CHECK', 'AIR_ERROR', 'AIR_ACTION_AUTHORIZATION', 'AIR_ACTION_RECEIPT', 'AIR_PRIOR_EFFECT_RECORD', 'AIR_REQUIRED_INPUT_REQUEST', 'AIR_HANDOFF_CARD'].",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.STARTER.REGISTRY",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Starter registry designation='AIR_CANONICAL_OBJECT_CONTRACTS_V4'; object count=15.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.STARTER.CLOSED_WORLD",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Starter top-level schema rule='CLOSED_WORLD_CORE_OWNED_FIELDS_ONLY'.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.STARTER.NO_BASE_REDECLARATION",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Starter Artifact registry consumer state={'registry_owner': 'AIR_CORE_RUNTIME_V2', 'source_marker': 'AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1', 'semantic_fields_redeclared': False, 'consumer_rule': 'Use Core AIR_ARTIFACT closed-world allowed-field registry. Starter may activate a Core-allowed conditional field but may not create a new top-level Artifact field.'}.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.STARTER.NO_OBJECT_AS_FIELD",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Formal object labels embedded as fields=[].",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.EXACT_GATE_SCHEMA",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Gate is a compact decision projection rather than a copy of Artifact/Contract state.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.EXACT_ACTION_AUTH",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Authorization exact single-use ticket schema is defined by Core.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.EXACT_ACTION_RECEIPT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Receipt exact intended-versus-actual schema is defined by Core.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.EXACT_PRIOR_EFFECT",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Prior-effect exact recovery schema is defined by Core.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.ACTIVE_CONTRACT.VOCABULARY",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Active Contract aliases are retired in favor of Artifact execution-contract vocabulary.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.HANDOFF.REV14",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Handoff card revision=14; expected 14.",
+        "evidence": []
+      },
+      {
+        "check_id": "OBJECTS.HANDOFF.TRANSFER_OWNERSHIP",
+        "status": "PASS",
+        "category": "OBJECT_RESPONSIBILITY",
+        "severity": "ERROR",
+        "detail": "Handoff transfer ownership/precedence contract is present for rev14.",
         "evidence": []
       },
       {
@@ -940,7 +1196,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CORE_RUNTIME.md sha256: index='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877', actual='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877'",
+        "detail": "AIR_CORE_RUNTIME.md sha256: index='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb', actual='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb'",
         "evidence": []
       },
       {
@@ -948,7 +1204,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CORE_RUNTIME.md size_bytes: index=317892, actual=317892",
+        "detail": "AIR_CORE_RUNTIME.md size_bytes: index=333225, actual=333225",
         "evidence": []
       },
       {
@@ -956,7 +1212,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CORE_RUNTIME.md line_count: index=6588, actual=6588",
+        "detail": "AIR_CORE_RUNTIME.md line_count: index=6915, actual=6915",
         "evidence": []
       },
       {
@@ -996,7 +1252,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CONTROL_SURFACE.md sha256: index='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713', actual='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713'",
+        "detail": "AIR_CONTROL_SURFACE.md sha256: index='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252', actual='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252'",
         "evidence": []
       },
       {
@@ -1004,7 +1260,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CONTROL_SURFACE.md size_bytes: index=151387, actual=151387",
+        "detail": "AIR_CONTROL_SURFACE.md size_bytes: index=152528, actual=152528",
         "evidence": []
       },
       {
@@ -1012,7 +1268,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_CONTROL_SURFACE.md line_count: index=3109, actual=3109",
+        "detail": "AIR_CONTROL_SURFACE.md line_count: index=3126, actual=3126",
         "evidence": []
       },
       {
@@ -1108,7 +1364,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_DEFAULT_STARTER_PROFILE.json sha256: index='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615', actual='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615'",
+        "detail": "AIR_DEFAULT_STARTER_PROFILE.json sha256: index='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4', actual='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4'",
         "evidence": []
       },
       {
@@ -1116,7 +1372,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_DEFAULT_STARTER_PROFILE.json size_bytes: index=86697, actual=86697",
+        "detail": "AIR_DEFAULT_STARTER_PROFILE.json size_bytes: index=86064, actual=86064",
         "evidence": []
       },
       {
@@ -1124,7 +1380,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_DEFAULT_STARTER_PROFILE.json line_count: index=1646, actual=1646",
+        "detail": "AIR_DEFAULT_STARTER_PROFILE.json line_count: index=1571, actual=1571",
         "evidence": []
       },
       {
@@ -1164,7 +1420,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json sha256: index='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd', actual='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd'",
+        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json sha256: index='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6', actual='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6'",
         "evidence": []
       },
       {
@@ -1172,7 +1428,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: index=55236, actual=55236",
+        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: index=58378, actual=58378",
         "evidence": []
       },
       {
@@ -1180,7 +1436,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json line_count: index=1058, actual=1058",
+        "detail": "AIR_HANDOFF_CARD_TEMPLATE.json line_count: index=1096, actual=1096",
         "evidence": []
       },
       {
@@ -1212,7 +1468,7 @@
         "status": "PASS",
         "category": "ROUTE_GRAPH",
         "severity": "ERROR",
-        "detail": "Route Map Core SHA=6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877; actual=6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
+        "detail": "Route Map Core SHA=fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb; actual=fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
         "evidence": []
       },
       {
@@ -4052,7 +4308,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json sha256: manifest='93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6', actual='93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6'.",
+        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json sha256: manifest='73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', actual='73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d'.",
         "evidence": []
       },
       {
@@ -4060,7 +4316,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json size_bytes: manifest=243983, actual=243983.",
+        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json size_bytes: manifest=244005, actual=244005.",
         "evidence": []
       },
       {
@@ -4084,7 +4340,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json sha256: manifest='f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358', actual='f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358'.",
+        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json sha256: manifest='85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', actual='85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca'.",
         "evidence": []
       },
       {
@@ -4092,7 +4348,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json size_bytes: manifest=69712, actual=69712.",
+        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json size_bytes: manifest=69734, actual=69734.",
         "evidence": []
       },
       {
@@ -4116,7 +4372,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json sha256: manifest='559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e', actual='559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json sha256: manifest='1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb', actual='1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb'.",
         "evidence": []
       },
       {
@@ -4124,7 +4380,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json size_bytes: manifest=100563, actual=100563.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json size_bytes: manifest=100585, actual=100585.",
         "evidence": []
       },
       {
@@ -4148,7 +4404,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json sha256: manifest='8120a76dbe13758c0cdbbc1bb1ff180682e1ba8825cfeb99ed1c3c4e2c0dbc51', actual='8120a76dbe13758c0cdbbc1bb1ff180682e1ba8825cfeb99ed1c3c4e2c0dbc51'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json sha256: manifest='b1471989eae608e6934ad0b7a60ef9f1fcf7e4bc1f1ef9985d8d4ba67a8fa304', actual='b1471989eae608e6934ad0b7a60ef9f1fcf7e4bc1f1ef9985d8d4ba67a8fa304'.",
         "evidence": []
       },
       {
@@ -4156,7 +4412,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json size_bytes: manifest=86597, actual=86597.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json size_bytes: manifest=86619, actual=86619.",
         "evidence": []
       },
       {
@@ -4188,7 +4444,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CORE_RUNTIME.md sha256: manifest='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877', actual='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877'.",
+        "detail": "cea/AIR_CORE_RUNTIME.md sha256: manifest='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb', actual='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb'.",
         "evidence": []
       },
       {
@@ -4196,7 +4452,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CORE_RUNTIME.md size_bytes: manifest=317892, actual=317892.",
+        "detail": "cea/AIR_CORE_RUNTIME.md size_bytes: manifest=333225, actual=333225.",
         "evidence": []
       },
       {
@@ -4204,7 +4460,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CORE_RUNTIME.md line_count: manifest=6588, actual=6588.",
+        "detail": "cea/AIR_CORE_RUNTIME.md line_count: manifest=6915, actual=6915.",
         "evidence": []
       },
       {
@@ -4244,7 +4500,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CONTROL_SURFACE.md sha256: manifest='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713', actual='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713'.",
+        "detail": "cea/AIR_CONTROL_SURFACE.md sha256: manifest='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252', actual='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252'.",
         "evidence": []
       },
       {
@@ -4252,7 +4508,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CONTROL_SURFACE.md size_bytes: manifest=151387, actual=151387.",
+        "detail": "cea/AIR_CONTROL_SURFACE.md size_bytes: manifest=152528, actual=152528.",
         "evidence": []
       },
       {
@@ -4260,7 +4516,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_CONTROL_SURFACE.md line_count: manifest=3109, actual=3109.",
+        "detail": "cea/AIR_CONTROL_SURFACE.md line_count: manifest=3126, actual=3126.",
         "evidence": []
       },
       {
@@ -4356,7 +4612,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615', actual='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615'.",
+        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4', actual='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4'.",
         "evidence": []
       },
       {
@@ -4364,7 +4620,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86697, actual=86697.",
+        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86064, actual=86064.",
         "evidence": []
       },
       {
@@ -4372,7 +4628,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1646, actual=1646.",
+        "detail": "cea/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1571, actual=1571.",
         "evidence": []
       },
       {
@@ -4412,7 +4668,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd', actual='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd'.",
+        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6', actual='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6'.",
         "evidence": []
       },
       {
@@ -4420,7 +4676,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=55236, actual=55236.",
+        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=58378, actual=58378.",
         "evidence": []
       },
       {
@@ -4428,7 +4684,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1058, actual=1058.",
+        "detail": "cea/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1096, actual=1096.",
         "evidence": []
       },
       {
@@ -4532,7 +4788,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json sha256: manifest='bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e', actual='bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e'.",
+        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json sha256: manifest='bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', actual='bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81'.",
         "evidence": []
       },
       {
@@ -4540,7 +4796,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json size_bytes: manifest=68007, actual=68007.",
+        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json size_bytes: manifest=68029, actual=68029.",
         "evidence": []
       },
       {
@@ -4564,7 +4820,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json sha256: manifest='6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0', actual='6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0'.",
+        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json sha256: manifest='d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2', actual='d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2'.",
         "evidence": []
       },
       {
@@ -4572,7 +4828,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json size_bytes: manifest=75135, actual=75135.",
+        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json size_bytes: manifest=75157, actual=75157.",
         "evidence": []
       },
       {
@@ -4596,7 +4852,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json sha256: manifest='75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876', actual='75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876'.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json sha256: manifest='d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09', actual='d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09'.",
         "evidence": []
       },
       {
@@ -4604,7 +4860,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json size_bytes: manifest=78811, actual=78811.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json size_bytes: manifest=78833, actual=78833.",
         "evidence": []
       },
       {
@@ -4628,7 +4884,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json sha256: manifest='3355ac865652ebcc5bbaa4d58a42a8f3b9bea82229a4eb1f2aaa1d825cbf1448', actual='3355ac865652ebcc5bbaa4d58a42a8f3b9bea82229a4eb1f2aaa1d825cbf1448'.",
+        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json sha256: manifest='f7411715e572d61238166b4fb1320030b4edc575dda0476253cb14d918d2adcb', actual='f7411715e572d61238166b4fb1320030b4edc575dda0476253cb14d918d2adcb'.",
         "evidence": []
       },
       {
@@ -4636,7 +4892,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json size_bytes: manifest=27883, actual=27883.",
+        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json size_bytes: manifest=27905, actual=27905.",
         "evidence": []
       },
       {
@@ -4668,7 +4924,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CORE_RUNTIME.md sha256: manifest='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877', actual='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877'.",
+        "detail": "grounding/AIR_CORE_RUNTIME.md sha256: manifest='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb', actual='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb'.",
         "evidence": []
       },
       {
@@ -4676,7 +4932,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CORE_RUNTIME.md size_bytes: manifest=317892, actual=317892.",
+        "detail": "grounding/AIR_CORE_RUNTIME.md size_bytes: manifest=333225, actual=333225.",
         "evidence": []
       },
       {
@@ -4684,7 +4940,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CORE_RUNTIME.md line_count: manifest=6588, actual=6588.",
+        "detail": "grounding/AIR_CORE_RUNTIME.md line_count: manifest=6915, actual=6915.",
         "evidence": []
       },
       {
@@ -4724,7 +4980,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CONTROL_SURFACE.md sha256: manifest='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713', actual='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713'.",
+        "detail": "grounding/AIR_CONTROL_SURFACE.md sha256: manifest='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252', actual='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252'.",
         "evidence": []
       },
       {
@@ -4732,7 +4988,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CONTROL_SURFACE.md size_bytes: manifest=151387, actual=151387.",
+        "detail": "grounding/AIR_CONTROL_SURFACE.md size_bytes: manifest=152528, actual=152528.",
         "evidence": []
       },
       {
@@ -4740,7 +4996,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_CONTROL_SURFACE.md line_count: manifest=3109, actual=3109.",
+        "detail": "grounding/AIR_CONTROL_SURFACE.md line_count: manifest=3126, actual=3126.",
         "evidence": []
       },
       {
@@ -4836,7 +5092,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615', actual='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615'.",
+        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4', actual='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4'.",
         "evidence": []
       },
       {
@@ -4844,7 +5100,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86697, actual=86697.",
+        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86064, actual=86064.",
         "evidence": []
       },
       {
@@ -4852,7 +5108,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1646, actual=1646.",
+        "detail": "grounding/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1571, actual=1571.",
         "evidence": []
       },
       {
@@ -4892,7 +5148,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd', actual='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd'.",
+        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6', actual='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6'.",
         "evidence": []
       },
       {
@@ -4900,7 +5156,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=55236, actual=55236.",
+        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=58378, actual=58378.",
         "evidence": []
       },
       {
@@ -4908,7 +5164,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1058, actual=1058.",
+        "detail": "grounding/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1096, actual=1096.",
         "evidence": []
       },
       {
@@ -5012,7 +5268,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json sha256: manifest='30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf', actual='30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json sha256: manifest='733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', actual='733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2'.",
         "evidence": []
       },
       {
@@ -5020,7 +5276,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json size_bytes: manifest=32318, actual=32318.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json size_bytes: manifest=32340, actual=32340.",
         "evidence": []
       },
       {
@@ -5044,7 +5300,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json sha256: manifest='527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da', actual='527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json sha256: manifest='9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893', actual='9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893'.",
         "evidence": []
       },
       {
@@ -5052,7 +5308,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json size_bytes: manifest=51566, actual=51566.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json size_bytes: manifest=51588, actual=51588.",
         "evidence": []
       },
       {
@@ -5076,7 +5332,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json sha256: manifest='b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3', actual='b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json sha256: manifest='22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439', actual='22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439'.",
         "evidence": []
       },
       {
@@ -5084,7 +5340,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json size_bytes: manifest=27323, actual=27323.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json size_bytes: manifest=27345, actual=27345.",
         "evidence": []
       },
       {
@@ -5108,7 +5364,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json sha256: manifest='0aa9a206fb92c3b02a60dd819f925531010bd5f72b01a8249f46ddb679382475', actual='0aa9a206fb92c3b02a60dd819f925531010bd5f72b01a8249f46ddb679382475'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json sha256: manifest='f95cd03a220931bfc1e2aeb3426de1ac9275b8cdb3e1c61a5513d1680905103d', actual='f95cd03a220931bfc1e2aeb3426de1ac9275b8cdb3e1c61a5513d1680905103d'.",
         "evidence": []
       },
       {
@@ -5116,7 +5372,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json size_bytes: manifest=24166, actual=24166.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json size_bytes: manifest=24188, actual=24188.",
         "evidence": []
       },
       {
@@ -5148,7 +5404,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CORE_RUNTIME.md sha256: manifest='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877', actual='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877'.",
+        "detail": "sfv/AIR_CORE_RUNTIME.md sha256: manifest='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb', actual='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb'.",
         "evidence": []
       },
       {
@@ -5156,7 +5412,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CORE_RUNTIME.md size_bytes: manifest=317892, actual=317892.",
+        "detail": "sfv/AIR_CORE_RUNTIME.md size_bytes: manifest=333225, actual=333225.",
         "evidence": []
       },
       {
@@ -5164,7 +5420,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CORE_RUNTIME.md line_count: manifest=6588, actual=6588.",
+        "detail": "sfv/AIR_CORE_RUNTIME.md line_count: manifest=6915, actual=6915.",
         "evidence": []
       },
       {
@@ -5204,7 +5460,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CONTROL_SURFACE.md sha256: manifest='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713', actual='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713'.",
+        "detail": "sfv/AIR_CONTROL_SURFACE.md sha256: manifest='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252', actual='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252'.",
         "evidence": []
       },
       {
@@ -5212,7 +5468,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CONTROL_SURFACE.md size_bytes: manifest=151387, actual=151387.",
+        "detail": "sfv/AIR_CONTROL_SURFACE.md size_bytes: manifest=152528, actual=152528.",
         "evidence": []
       },
       {
@@ -5220,7 +5476,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_CONTROL_SURFACE.md line_count: manifest=3109, actual=3109.",
+        "detail": "sfv/AIR_CONTROL_SURFACE.md line_count: manifest=3126, actual=3126.",
         "evidence": []
       },
       {
@@ -5316,7 +5572,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615', actual='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615'.",
+        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4', actual='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4'.",
         "evidence": []
       },
       {
@@ -5324,7 +5580,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86697, actual=86697.",
+        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86064, actual=86064.",
         "evidence": []
       },
       {
@@ -5332,7 +5588,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1646, actual=1646.",
+        "detail": "sfv/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1571, actual=1571.",
         "evidence": []
       },
       {
@@ -5372,7 +5628,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd', actual='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd'.",
+        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6', actual='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6'.",
         "evidence": []
       },
       {
@@ -5380,7 +5636,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=55236, actual=55236.",
+        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=58378, actual=58378.",
         "evidence": []
       },
       {
@@ -5388,7 +5644,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1058, actual=1058.",
+        "detail": "sfv/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1096, actual=1096.",
         "evidence": []
       },
       {
@@ -5492,7 +5748,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json sha256: manifest='25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7', actual='25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json sha256: manifest='74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', actual='74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583'.",
         "evidence": []
       },
       {
@@ -5500,7 +5756,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json size_bytes: manifest=55137, actual=55137.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json size_bytes: manifest=55159, actual=55159.",
         "evidence": []
       },
       {
@@ -5524,7 +5780,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json sha256: manifest='8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876', actual='8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json sha256: manifest='b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', actual='b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110'.",
         "evidence": []
       },
       {
@@ -5532,7 +5788,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json size_bytes: manifest=38153, actual=38153.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json size_bytes: manifest=38175, actual=38175.",
         "evidence": []
       },
       {
@@ -5556,7 +5812,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json sha256: manifest='ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84', actual='ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json sha256: manifest='51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac', actual='51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac'.",
         "evidence": []
       },
       {
@@ -5564,7 +5820,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json size_bytes: manifest=52220, actual=52220.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json size_bytes: manifest=52242, actual=52242.",
         "evidence": []
       },
       {
@@ -5588,7 +5844,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json sha256: manifest='5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31', actual='5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json sha256: manifest='3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97', actual='3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97'.",
         "evidence": []
       },
       {
@@ -5596,7 +5852,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json size_bytes: manifest=74244, actual=74244.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json size_bytes: manifest=74266, actual=74266.",
         "evidence": []
       },
       {
@@ -5620,7 +5876,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json sha256: manifest='f277b5dfc12714da9810ae583d1f369116401a6fe7f90600a47787aadf371196', actual='f277b5dfc12714da9810ae583d1f369116401a6fe7f90600a47787aadf371196'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json sha256: manifest='7564365e74297e4215f92e1149f981d648939e9b1c5bb2eda773fdddda3bf6c8', actual='7564365e74297e4215f92e1149f981d648939e9b1c5bb2eda773fdddda3bf6c8'.",
         "evidence": []
       },
       {
@@ -5628,7 +5884,7 @@
         "status": "PASS",
         "category": "PACKAGE_INTEGRITY",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json size_bytes: manifest=39798, actual=39798.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json size_bytes: manifest=39820, actual=39820.",
         "evidence": []
       },
       {
@@ -5660,7 +5916,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CORE_RUNTIME.md sha256: manifest='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877', actual='6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877'.",
+        "detail": "aigov/AIR_CORE_RUNTIME.md sha256: manifest='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb', actual='fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb'.",
         "evidence": []
       },
       {
@@ -5668,7 +5924,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CORE_RUNTIME.md size_bytes: manifest=317892, actual=317892.",
+        "detail": "aigov/AIR_CORE_RUNTIME.md size_bytes: manifest=333225, actual=333225.",
         "evidence": []
       },
       {
@@ -5676,7 +5932,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CORE_RUNTIME.md line_count: manifest=6588, actual=6588.",
+        "detail": "aigov/AIR_CORE_RUNTIME.md line_count: manifest=6915, actual=6915.",
         "evidence": []
       },
       {
@@ -5716,7 +5972,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CONTROL_SURFACE.md sha256: manifest='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713', actual='298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713'.",
+        "detail": "aigov/AIR_CONTROL_SURFACE.md sha256: manifest='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252', actual='701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252'.",
         "evidence": []
       },
       {
@@ -5724,7 +5980,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CONTROL_SURFACE.md size_bytes: manifest=151387, actual=151387.",
+        "detail": "aigov/AIR_CONTROL_SURFACE.md size_bytes: manifest=152528, actual=152528.",
         "evidence": []
       },
       {
@@ -5732,7 +5988,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_CONTROL_SURFACE.md line_count: manifest=3109, actual=3109.",
+        "detail": "aigov/AIR_CONTROL_SURFACE.md line_count: manifest=3126, actual=3126.",
         "evidence": []
       },
       {
@@ -5828,7 +6084,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615', actual='79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615'.",
+        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json sha256: manifest='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4', actual='dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4'.",
         "evidence": []
       },
       {
@@ -5836,7 +6092,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86697, actual=86697.",
+        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json size_bytes: manifest=86064, actual=86064.",
         "evidence": []
       },
       {
@@ -5844,7 +6100,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1646, actual=1646.",
+        "detail": "aigov/AIR_DEFAULT_STARTER_PROFILE.json line_count: manifest=1571, actual=1571.",
         "evidence": []
       },
       {
@@ -5884,7 +6140,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd', actual='918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd'.",
+        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json sha256: manifest='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6', actual='8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6'.",
         "evidence": []
       },
       {
@@ -5892,7 +6148,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=55236, actual=55236.",
+        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json size_bytes: manifest=58378, actual=58378.",
         "evidence": []
       },
       {
@@ -5900,7 +6156,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1058, actual=1058.",
+        "detail": "aigov/AIR_HANDOFF_CARD_TEMPLATE.json line_count: manifest=1096, actual=1096.",
         "evidence": []
       },
       {
@@ -5988,7 +6244,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; declared refs=[('93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6', 'external_dependency_state.domain_capability_registry.observed_sha256')].",
+        "detail": "cea AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; declared refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.observed_sha256')].",
         "evidence": []
       },
       {
@@ -5996,7 +6252,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; declared refs=[('93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6', 'external_dependency_state.domain_capability_registry.sha256')].",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; declared refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.sha256')].",
         "evidence": []
       },
       {
@@ -6004,7 +6260,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: actual target SHA=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358; declared refs=[('f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358', 'external_dependency_state.human_to_machine_capability_translator.sha256')].",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: actual target SHA=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; declared refs=[('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'external_dependency_state.human_to_machine_capability_translator.sha256')].",
         "evidence": []
       },
       {
@@ -6012,7 +6268,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; declared refs=[('93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6', 'external_dependency_state.domain_capability_registry.observed_sha256'), ('93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6', 'dependencies.1.sha256')].",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json: actual target SHA=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; declared refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.observed_sha256'), ('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6020,7 +6276,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: actual target SHA=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358; declared refs=[('f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358', 'external_dependency_state.human_to_machine_capability_translator.observed_sha256'), ('f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358', 'dependencies.2.sha256')].",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: actual target SHA=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; declared refs=[('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'external_dependency_state.human_to_machine_capability_translator.observed_sha256'), ('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'dependencies.2.sha256')].",
         "evidence": []
       },
       {
@@ -6028,7 +6284,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: actual target SHA=559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e; declared refs=[('559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e', 'external_dependency_state.capability_ecology_architect.observed_sha256'), ('559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e', 'dependencies.0.sha256')].",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: actual target SHA=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb; declared refs=[('1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb', 'external_dependency_state.capability_ecology_architect.observed_sha256'), ('1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6036,7 +6292,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json:external_dependency_state.domain_capability_registry.observed_sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; actual=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6.",
+        "detail": "cea AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json:external_dependency_state.domain_capability_registry.observed_sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d.",
         "evidence": []
       },
       {
@@ -6044,7 +6300,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json:external_dependency_state.domain_capability_registry.sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; actual=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json:external_dependency_state.domain_capability_registry.sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d.",
         "evidence": []
       },
       {
@@ -6052,7 +6308,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json:external_dependency_state.human_to_machine_capability_translator.sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358; actual=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_ARCHITECT.json:external_dependency_state.human_to_machine_capability_translator.sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca.",
         "evidence": []
       },
       {
@@ -6060,7 +6316,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.domain_capability_registry.observed_sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; actual=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.domain_capability_registry.observed_sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d.",
         "evidence": []
       },
       {
@@ -6068,7 +6324,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.human_to_machine_capability_translator.observed_sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358; actual=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.human_to_machine_capability_translator.observed_sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca.",
         "evidence": []
       },
       {
@@ -6076,7 +6332,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.capability_ecology_architect.observed_sha256 -> AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e; actual=559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:external_dependency_state.capability_ecology_architect.observed_sha256 -> AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb; actual=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb.",
         "evidence": []
       },
       {
@@ -6084,7 +6340,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.0.sha256 -> AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e; actual=559f1e4fd8cd46947493259a9cc1c778fd2d155c6edc8de9b53357160af2884e.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.0.sha256 -> AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb; actual=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb.",
         "evidence": []
       },
       {
@@ -6092,7 +6348,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.1.sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6; actual=93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.1.sha256 -> AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d.",
         "evidence": []
       },
       {
@@ -6100,7 +6356,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.2.sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358; actual=f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358.",
+        "detail": "cea AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json:dependencies.2.sha256 -> AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca.",
         "evidence": []
       },
       {
@@ -6108,7 +6364,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6116,7 +6372,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea/AIR_DOMAIN_CAPABILITY_REGISTRY.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6124,7 +6380,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6132,7 +6388,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6140,7 +6396,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6148,7 +6404,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6156,7 +6412,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6164,7 +6420,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6172,7 +6428,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6180,7 +6436,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6188,7 +6444,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "cea current package validation carriers='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "cea current package validation carriers='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6196,7 +6452,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_METHOD_PACK.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; declared refs=[('bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e', 'dependencies.0.sha256')].",
+        "detail": "grounding AIR_GROUNDING_METHOD_PACK.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; declared refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6204,7 +6460,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; declared refs=[('bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e', 'dependencies.0.sha256')].",
+        "detail": "grounding AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; declared refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6212,7 +6468,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_METHOD_PACK.json: actual target SHA=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0; declared refs=[('6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0', 'dependencies.1.sha256')].",
+        "detail": "grounding AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_METHOD_PACK.json: actual target SHA=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; declared refs=[('d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6220,7 +6476,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; declared refs=[('bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e', 'dependencies.0.sha256')].",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_DOMAIN_PACKAGE.json: actual target SHA=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; declared refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6228,7 +6484,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_METHOD_PACK.json: actual target SHA=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0; declared refs=[('6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0', 'dependencies.1.sha256')].",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_METHOD_PACK.json: actual target SHA=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; declared refs=[('d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6236,7 +6492,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_SPECIALIST.json: actual target SHA=75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876; declared refs=[('75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876', 'dependencies.2.sha256')].",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_SPECIALIST.json: actual target SHA=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09; declared refs=[('d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09', 'dependencies.2.sha256')].",
         "evidence": []
       },
       {
@@ -6244,7 +6500,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_METHOD_PACK.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; actual=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e.",
+        "detail": "grounding AIR_GROUNDING_METHOD_PACK.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81.",
         "evidence": []
       },
       {
@@ -6252,7 +6508,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_SPECIALIST.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; actual=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e.",
+        "detail": "grounding AIR_GROUNDING_SPECIALIST.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81.",
         "evidence": []
       },
       {
@@ -6260,7 +6516,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_SPECIALIST.json:dependencies.1.sha256 -> AIR_GROUNDING_METHOD_PACK.json: declared=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0; actual=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0.",
+        "detail": "grounding AIR_GROUNDING_SPECIALIST.json:dependencies.1.sha256 -> AIR_GROUNDING_METHOD_PACK.json: declared=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2.",
         "evidence": []
       },
       {
@@ -6268,7 +6524,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e; actual=bcfecb27ba209fde9d5dd58893523d65849112f7247246f990ace28d10fde49e.",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.0.sha256 -> AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81.",
         "evidence": []
       },
       {
@@ -6276,7 +6532,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.1.sha256 -> AIR_GROUNDING_METHOD_PACK.json: declared=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0; actual=6fbab7002798e686ba3ac0733ae2d8fc01d534c0fac5bfee981d3f2c29cb74d0.",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.1.sha256 -> AIR_GROUNDING_METHOD_PACK.json: declared=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2.",
         "evidence": []
       },
       {
@@ -6284,7 +6540,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.2.sha256 -> AIR_GROUNDING_SPECIALIST.json: declared=75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876; actual=75306df4d30c2c7485346b80fce299edb1032a4ae6152eaf184be7dcbe6f5876.",
+        "detail": "grounding AIR_GROUNDING_EXECUTOR.json:dependencies.2.sha256 -> AIR_GROUNDING_SPECIALIST.json: declared=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09; actual=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09.",
         "evidence": []
       },
       {
@@ -6292,7 +6548,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6300,7 +6556,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6308,7 +6564,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6316,7 +6572,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding/AIR_GROUNDING_METHOD_PACK.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6324,7 +6580,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6332,7 +6588,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6340,7 +6596,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6348,7 +6604,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding/AIR_GROUNDING_EXECUTOR.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6356,7 +6612,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6364,7 +6620,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6372,7 +6628,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "grounding current package validation carriers='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "grounding current package validation carriers='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6380,7 +6636,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; declared refs=[('30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf', 'package_component_dependencies.0.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; declared refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'package_component_dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6388,7 +6644,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; declared refs=[('30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf', 'dependencies.0.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; declared refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6396,7 +6652,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: actual target SHA=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da; declared refs=[('527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da', 'dependencies.1.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: actual target SHA=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; declared refs=[('9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6404,7 +6660,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; declared refs=[('30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf', 'dependencies.0.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: actual target SHA=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; declared refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6412,7 +6668,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: actual target SHA=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da; declared refs=[('527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da', 'dependencies.1.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: actual target SHA=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; declared refs=[('9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6420,7 +6676,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: actual target SHA=b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3; declared refs=[('b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3', 'dependencies.2.sha256')].",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: actual target SHA=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439; declared refs=[('22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439', 'dependencies.2.sha256')].",
         "evidence": []
       },
       {
@@ -6428,7 +6684,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json:package_component_dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; actual=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json:package_component_dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2.",
         "evidence": []
       },
       {
@@ -6436,7 +6692,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json:dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; actual=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json:dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2.",
         "evidence": []
       },
       {
@@ -6444,7 +6700,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json:dependencies.1.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da; actual=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json:dependencies.1.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893.",
         "evidence": []
       },
       {
@@ -6452,7 +6708,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf; actual=30403eb1ff6289a8a5a0486dce152dcdb61fb4ca21d968240d4ad5a6cc8ed2cf.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.0.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2.",
         "evidence": []
       },
       {
@@ -6460,7 +6716,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.1.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da; actual=527329166168ca1ce43dab5d748862f95b545fc64154b47d54b22421ec80e4da.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.1.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893.",
         "evidence": []
       },
       {
@@ -6468,7 +6724,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.2.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: declared=b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3; actual=b119cb63675d10a214a14c613c980989e26b9fe410cd955cc7b547ee1d4afce3.",
+        "detail": "sfv AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json:dependencies.2.sha256 -> AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: declared=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439; actual=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439.",
         "evidence": []
       },
       {
@@ -6476,7 +6732,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6484,7 +6740,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6492,7 +6748,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6500,7 +6756,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6508,7 +6764,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6516,7 +6772,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6524,7 +6780,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6532,7 +6788,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6540,7 +6796,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6548,7 +6804,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6556,7 +6812,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "sfv current package validation carriers='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "sfv current package validation carriers='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6564,7 +6820,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; declared refs=[('25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7', 'dependencies.0.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; declared refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6572,7 +6828,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; declared refs=[('25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7', 'dependencies.0.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; declared refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6580,7 +6836,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; declared refs=[('8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876', 'dependencies.1.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; declared refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6588,7 +6844,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; declared refs=[('25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7', 'dependencies.0.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; declared refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6596,7 +6852,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; declared refs=[('8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876', 'dependencies.1.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; declared refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6604,7 +6860,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_SPECIALIST.json: actual target SHA=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84; declared refs=[('ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84', 'dependencies.2.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_SPECIALIST.json: actual target SHA=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; declared refs=[('51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac', 'dependencies.2.sha256')].",
         "evidence": []
       },
       {
@@ -6612,7 +6868,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; declared refs=[('25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7', 'dependencies.0.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: actual target SHA=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; declared refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')].",
         "evidence": []
       },
       {
@@ -6620,7 +6876,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; declared refs=[('8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876', 'dependencies.1.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: actual target SHA=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; declared refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')].",
         "evidence": []
       },
       {
@@ -6628,7 +6884,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_SPECIALIST.json: actual target SHA=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84; declared refs=[('ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84', 'dependencies.2.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_SPECIALIST.json: actual target SHA=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; declared refs=[('51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac', 'dependencies.2.sha256')].",
         "evidence": []
       },
       {
@@ -6636,7 +6892,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_METHOD_PACK.json: actual target SHA=5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31; declared refs=[('5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31', 'dependencies.3.sha256')].",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_METHOD_PACK.json: actual target SHA=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97; declared refs=[('3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97', 'dependencies.3.sha256')].",
         "evidence": []
       },
       {
@@ -6644,7 +6900,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; actual=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7.",
+        "detail": "aigov AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583.",
         "evidence": []
       },
       {
@@ -6652,7 +6908,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; actual=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7.",
+        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583.",
         "evidence": []
       },
       {
@@ -6660,7 +6916,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; actual=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876.",
+        "detail": "aigov AIR_AI_GOVERNANCE_SPECIALIST.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110.",
         "evidence": []
       },
       {
@@ -6668,7 +6924,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; actual=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7.",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583.",
         "evidence": []
       },
       {
@@ -6676,7 +6932,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; actual=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876.",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110.",
         "evidence": []
       },
       {
@@ -6684,7 +6940,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.2.sha256 -> AIR_AI_GOVERNANCE_SPECIALIST.json: declared=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84; actual=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84.",
+        "detail": "aigov AIR_AI_GOVERNANCE_METHOD_PACK.json:dependencies.2.sha256 -> AIR_AI_GOVERNANCE_SPECIALIST.json: declared=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac.",
         "evidence": []
       },
       {
@@ -6692,7 +6948,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7; actual=25dff782467da3ea403d13009f44d3d00841b7daf7e8a7cbb58e2ff43f7684c7.",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.0.sha256 -> AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583.",
         "evidence": []
       },
       {
@@ -6700,7 +6956,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876; actual=8ad75b9b57b3e2c78ccf59c2dfa3a9c947fe83f05496cd158444dd8f7eb4f876.",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.1.sha256 -> AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110.",
         "evidence": []
       },
       {
@@ -6708,7 +6964,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.2.sha256 -> AIR_AI_GOVERNANCE_SPECIALIST.json: declared=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84; actual=ee9c64c4fea3a1fc032a455779738094829a3c24ccd5267430ad3b1d7e6eae84.",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.2.sha256 -> AIR_AI_GOVERNANCE_SPECIALIST.json: declared=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac.",
         "evidence": []
       },
       {
@@ -6716,7 +6972,7 @@
         "status": "PASS",
         "category": "PACKAGE_DEPENDENCY_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.3.sha256 -> AIR_AI_GOVERNANCE_METHOD_PACK.json: declared=5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31; actual=5b33f2b081a2859d6b052e3079d4d77b416c8f84fa4178c8265c92a1542c2b31.",
+        "detail": "aigov AIR_AI_GOVERNANCE_EXECUTOR.json:dependencies.3.sha256 -> AIR_AI_GOVERNANCE_METHOD_PACK.json: declared=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97; actual=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97.",
         "evidence": []
       },
       {
@@ -6724,7 +6980,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6732,7 +6988,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6740,7 +6996,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6748,7 +7004,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6756,7 +7012,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6764,7 +7020,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6772,7 +7028,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6780,7 +7036,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_METHOD_PACK.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6788,7 +7044,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6796,7 +7052,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json: current status='V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_EXECUTOR.json: current status='V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6804,7 +7060,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002', identity='AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json: compatibility_state='ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003', identity='AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003'.",
         "evidence": []
       },
       {
@@ -6812,7 +7068,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json: current status='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6820,7 +7076,7 @@
         "status": "PASS",
         "category": "PACKAGE_LIFECYCLE_COHERENCE",
         "severity": "ERROR",
-        "detail": "aigov current package validation carriers='PACKAGE_COMPLETE_T12D_FOUNDATION_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
+        "detail": "aigov current package validation carriers='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_003_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION | PASS_AIR_2_5_0_FOUNDATION_SET_002_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE | PENDING_FRESH_BEHAVIORAL_REVALIDATION'.",
         "evidence": []
       },
       {
@@ -6844,7 +7100,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea Index manifest SHA=b53046bd6378e59f00eaf70b5993246702ba229c7fecbcba2cde21914ba1a89d; actual=b53046bd6378e59f00eaf70b5993246702ba229c7fecbcba2cde21914ba1a89d.",
+        "detail": "cea Index manifest SHA=912404029ce60a65b876bff9f50be2910b56a7371d4542f0f11d9cea2a8ddb79; actual=912404029ce60a65b876bff9f50be2910b56a7371d4542f0f11d9cea2a8ddb79.",
         "evidence": []
       },
       {
@@ -6868,7 +7124,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "cea Index Foundation identity=AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002.",
+        "detail": "cea Index Foundation identity=AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003.",
         "evidence": []
       },
       {
@@ -6884,7 +7140,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding Index manifest SHA=3bc1bd1506d9e895d2655c923c5f1866c11976971f7f02c234b7ad94f8aa68e0; actual=3bc1bd1506d9e895d2655c923c5f1866c11976971f7f02c234b7ad94f8aa68e0.",
+        "detail": "grounding Index manifest SHA=edd163a6d60f567f82524da641a16e7e9f2d42169d12d3f823e1e08904699d89; actual=edd163a6d60f567f82524da641a16e7e9f2d42169d12d3f823e1e08904699d89.",
         "evidence": []
       },
       {
@@ -6908,7 +7164,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "grounding Index Foundation identity=AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002.",
+        "detail": "grounding Index Foundation identity=AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003.",
         "evidence": []
       },
       {
@@ -6924,7 +7180,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv Index manifest SHA=54b2f2a14ff9478f4cc08d110ce3a7be68933151c7cb1dfcbd7587568c6a5cdb; actual=54b2f2a14ff9478f4cc08d110ce3a7be68933151c7cb1dfcbd7587568c6a5cdb.",
+        "detail": "sfv Index manifest SHA=c2e0296592c96bf0f999f54f90255e451760f27c7760d9ae2ed990fb88baaa83; actual=c2e0296592c96bf0f999f54f90255e451760f27c7760d9ae2ed990fb88baaa83.",
         "evidence": []
       },
       {
@@ -6948,7 +7204,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "sfv Index Foundation identity=AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002.",
+        "detail": "sfv Index Foundation identity=AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003.",
         "evidence": []
       },
       {
@@ -6964,7 +7220,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov Index manifest SHA=775159e5a3f648dee9a1a2ec8ac0b0c6aa4aed3b2c3553178707553553ba18e9; actual=775159e5a3f648dee9a1a2ec8ac0b0c6aa4aed3b2c3553178707553553ba18e9.",
+        "detail": "aigov Index manifest SHA=834352672530f99268b801b677ee2c9c25d8349b93791f659b703b90cccf6d4c; actual=834352672530f99268b801b677ee2c9c25d8349b93791f659b703b90cccf6d4c.",
         "evidence": []
       },
       {
@@ -6988,7 +7244,7 @@
         "status": "PASS",
         "category": "INDEX_CLOSURE",
         "severity": "ERROR",
-        "detail": "aigov Index Foundation identity=AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002.",
+        "detail": "aigov Index Foundation identity=AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003.",
         "evidence": []
       },
       {
@@ -7044,7 +7300,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "cea records current Route Map SHA 27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148.",
+        "detail": "cea records current Route Map SHA 5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f.",
         "evidence": []
       },
       {
@@ -7052,7 +7308,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "grounding records current Route Map SHA 27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148.",
+        "detail": "grounding records current Route Map SHA 5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f.",
         "evidence": []
       },
       {
@@ -7060,7 +7316,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "sfv records current Route Map SHA 27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148.",
+        "detail": "sfv records current Route Map SHA 5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f.",
         "evidence": []
       },
       {
@@ -7068,7 +7324,7 @@
         "status": "PASS",
         "category": "CROSS_FOUNDATION",
         "severity": "ERROR",
-        "detail": "aigov records current Route Map SHA 27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148.",
+        "detail": "aigov records current Route Map SHA 5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f.",
         "evidence": []
       },
       {
@@ -7356,8 +7612,8 @@
     "warnings": [],
     "limitations": [
       "Static validation evaluates the supplied prompt/package bytes and declared graph/contracts; it is not fresh-host behavioral evidence.",
-      "Prior stage PASS evidence is preserved from the T12C integrated validation record and is not treated as a substitute for this T12D rerun.",
-      "T12D closes the three known Foundation consistency defects and revalidates downstream exact-hash closure. Fresh behavioral release validation is still required before release approval."
+      "Prior stage PASS evidence is preserved from earlier integrated validation records and is not treated as a substitute for this Object Contract Closure rerun.",
+      "Object Contract Closure preserves the repaired Foundation consistency baseline, closes formal-object ownership/schema defects, and revalidates downstream exact-hash closure. Fresh behavioral evidence remains a separate release consideration."
     ],
     "known_out_of_scope_findings": [
       "FRESH_BEHAVIORAL_RELEASE_VALIDATION_NOT_EXECUTED: static repair validation does not establish fresh-host behavioral release readiness."

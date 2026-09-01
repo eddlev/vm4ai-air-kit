@@ -1,0 +1,253 @@
+{
+  "report_designation": "AIR_OBJECT_RESPONSIBILITY_AUDIT_V1",
+  "artifact_version": "1.0.0",
+  "target": {
+    "repository": "eddlev/vm4ai-air-kit",
+    "branch": "air250-preview-stage-t12d",
+    "head_at_audit_start": "9009cef5a470310edf9e6bff6a83a3ce92ea7ca7",
+    "foundation": "2.5.0",
+    "air_kit_release_candidate": "0.6.0-preview.1"
+  },
+  "audit_rule": "Each formal AIR object must own only the data required by its semantic responsibility. Cross-object state is permitted only as an explicit reference, a clearly non-authoritative derived projection, a comparison datum required by a receipt/decision, or transfer-only serialization in AIR_HANDOFF_CARD. Common self-describing provenance fields are not treated as improper redundancy.",
+  "common_fields_allowed_on_all_formal_objects": [
+    "object_version",
+    "record_class",
+    "runtime_origin",
+    "backend_validation_claimed",
+    "hidden_reasoning_claimed",
+    "evaluation_basis when required"
+  ],
+  "overall_decision": "BLOCK_PRE_MAIN_OBJECT_CONTRACT_HARDENING_REQUIRED",
+  "cross_cutting_findings": [
+    {
+      "id": "OBJ-X01",
+      "severity": "HIGH",
+      "finding": "Most canonical objects are defined by minimum fields, not closed allowed-field schemas. The current contract cannot prevent unrelated or duplicate fields from being added to a formal JSON object.",
+      "recommended_fix": "Create Core-owned closed object schemas with allowed, conditional, reference-only, derived-projection, and prohibited fields; reject unknown top-level object fields unless explicitly permitted."
+    },
+    {
+      "id": "OBJ-X02",
+      "severity": "MEDIUM",
+      "finding": "Core states that record_class identifies semantic object identity, but AIR_PROJECT_INITIALIZATION_BRIEF and AIR_PROJECT_EXECUTION_MAP both use PROJECT_STATE_RECORD. Root object name identifies object identity; record_class identifies category.",
+      "recommended_fix": "Correct the law wording or introduce a distinct object_type while keeping record_class as category."
+    },
+    {
+      "id": "OBJ-X03",
+      "severity": "HIGH",
+      "finding": "Formal label reservation is not synchronized with the canonical object registry. AIR_ACTIVE_CONTRACT, AIR_GATE, and AIR_REQUIRED_INPUT_REQUEST are missing from Core's reserved-label list; Control omits additional current formal objects. AIR_PRIMED_ONBOARDING is reserved but is not in the canonical formal-object registry.",
+      "recommended_fix": "Generate one reserved-label set directly from the canonical registry and retire or formally define AIR_PRIMED_ONBOARDING."
+    },
+    {
+      "id": "OBJ-X04",
+      "severity": "HIGH",
+      "finding": "Starter's artifact field registry does not match Core's mandatory AIR_ARTIFACT fields. Core requires artifact_lease and action_governance_state on the bound artifact, while Starter only introduces them conditionally for material actions; several other conditional Core fields are absent from the typed artifact field registry.",
+      "recommended_fix": "Make Starter consume the Core schema by reference or mechanically mirror a generated registry; do not maintain a second hand-authored field list."
+    },
+    {
+      "id": "OBJ-X05",
+      "severity": "HIGH",
+      "finding": "Starter explicitly assigns the same test-evidence field set to AIR_PROJECT_INITIALIZATION_BRIEF, AIR_PROJECT_EXECUTION_MAP, AIR_ARTIFACT, and AIR_VALIDATION_REPORT, and assigns prior-effect state across AIR_SESSION, AIR_ARTIFACT, AIR_PRIOR_EFFECT_RECORD, and AIR_HANDOFF_CARD. This creates multiple writable copies of the same conceptual state.",
+      "recommended_fix": "Split data by owner: orientation/recommendation in Brief, roadmap gate summary in Map, execution obligations/refs in Artifact, observed validation evidence in Validation Report, full unauthorized-effect facts in Prior Effect Record, and reference/aggregate state elsewhere."
+    },
+    {
+      "id": "OBJ-X06",
+      "severity": "HIGH",
+      "finding": "Recent surfaced AIR_ALIGNMENT_CHECK and AIR_VALIDATION_REPORT objects in the active project did not satisfy the 2.5.0 Core minimum schemas, demonstrating that the current prompt contracts do not reliably constrain emitted object shape.",
+      "recommended_fix": "Add object-shape regression fixtures that parse emitted examples and reject missing, foreign, alias, and unknown fields."
+    }
+  ],
+  "objects": [
+    {
+      "object": "AIR_RUNTIME_BRIDGE",
+      "record_class": "STATE_TRANSITION_RECORD",
+      "decision": "HARDEN",
+      "responsibility": "Record the onboarding-to-runtime state transition and provenance of compiled onboarding inputs.",
+      "findings": [
+        "Current schema embeds canonical_intent_state, active_context_state, user_alignment_state, source_state, specialist_selection_state, and blockers as full state carriers.",
+        "Those states have downstream owners in Session/Artifact/Required Input and can drift if the bridge is treated as current state rather than historical transition evidence."
+      ],
+      "recommended_boundary": "Own entry_path, onboarding answer/source provenance, transition decision/result, compiled state refs, transition blockers, and truthfulness provenance. Downstream runtime state should be referenced, not independently restated as current authority."
+    },
+    {
+      "object": "AIR_SESSION",
+      "record_class": "SESSION_STATE_RECORD",
+      "decision": "HARDEN",
+      "responsibility": "Own session/runtime lifecycle, Orbit placement, boot/load state, visibility mode, compiler/runtime frame, and session-level restoration state.",
+      "findings": [
+        "semantic_fidelity_state and epistemic_sufficiency_state duplicate task-level state owned by the active artifact unless constrained to aggregate/reference form.",
+        "unbound_prior_effect_state risks duplicating full recovery records unless restricted to IDs/aggregate status.",
+        "specialist_binding_state should describe session availability/restoration state, not duplicate the artifact's operative specialist compilation."
+      ],
+      "recommended_boundary": "Store session-level aggregates and refs only for artifact-owned semantic/epistemic/prior-effect/specialist execution state."
+    },
+    {
+      "object": "AIR_PROJECT_INITIALIZATION_BRIEF",
+      "record_class": "PROJECT_STATE_RECORD",
+      "decision": "REDESIGN",
+      "responsibility": "Orient the user once at project activation.",
+      "findings": [
+        "No exact field schema is defined; only narrative requirements are listed.",
+        "It duplicates phase, next step, next task state, attachments, test-evidence mode/recommendation, regulatory evidence, and completion framing with AIR_PROJECT_EXECUTION_MAP."
+      ],
+      "recommended_boundary": "Keep orientation-only fields: started_state, runtime_mode, why_artifacts_first, artifact_classes_expected, execution_map_ref, active_artifact_ref, next_user_orientation. Derive roadmap/test evidence details from the Map/Artifact rather than copying them."
+    },
+    {
+      "object": "AIR_PROJECT_EXECUTION_MAP",
+      "record_class": "PROJECT_STATE_RECORD",
+      "decision": "HARDEN",
+      "responsibility": "Provide the non-authoritative project roadmap and step sequencing projection.",
+      "findings": [
+        "Fields such as blockers, readiness_stage/readiness_reason, test-evidence state, and completion_definition can duplicate active-artifact execution state.",
+        "Current schema does not mark projected fields as derived/non-authoritative."
+      ],
+      "recommended_boundary": "Own project sequencing, project-level dependencies, completed/upcoming steps and references to active task state. Use project_blockers only for cross-step blockers; refer to artifact blockers/readiness/evidence rather than restating them."
+    },
+    {
+      "object": "AIR_ARTIFACT",
+      "record_class": "ACTIVE_EXECUTION_RECORD",
+      "decision": "PASS_WITH_SCHEMA_REPAIR",
+      "responsibility": "Be the sole operative task execution record and binding authority after activation.",
+      "findings": [
+        "Its broad task-level field set is appropriate to its responsibility.",
+        "Starter's typed artifact registry is stale/incomplete relative to Core mandatory fields.",
+        "Conditional registry rules can cause unrelated fields to be copied into Artifact rather than referenced."
+      ],
+      "recommended_boundary": "Keep task execution contract, benchmark, method, source state, semantic/epistemic state, lease, scope pin, obligations/blockers/uncertainty and receiver delivery state here. Foreign records should appear as refs, not copied object payloads."
+    },
+    {
+      "object": "AIR_ACTIVE_CONTRACT",
+      "record_class": "EXECUTION_CONTRACT",
+      "decision": "REDESIGN",
+      "responsibility": "Represent an input contract whose applicable terms may be compiled into AIR_ARTIFACT.",
+      "findings": [
+        "Field names differ materially from AIR_ARTIFACT.execution_contract aliases: scope_in/scope_out vs scope/out_of_scope, prohibited_actions vs excluded_actions, required_evidence vs required_evidence_to_close, rescope_rule vs rescope_protocol.",
+        "binding_state is semantically misleading because the Active Contract is explicitly not an execution-binding authority.",
+        "receiver_delivery_state appears in the embedded execution-contract field set even though actual receiver-delivery state is an Artifact/output decision, not a contract input."
+      ],
+      "recommended_boundary": "Unify term names with execution_contract, replace binding_state with contract_input_state/compilation_state, and express delivery requirements rather than current receiver_delivery_state."
+    },
+    {
+      "object": "AIR_GATE",
+      "record_class": "DECISION_RECORD",
+      "decision": "REDESIGN",
+      "responsibility": "Record one gate decision for one requested action/transition based on current refs and checks.",
+      "findings": [
+        "Schema copies artifact binding state, contract authority, authorized/excluded action IDs, required evidence and stop conditions even though those are owned by Artifact/Contract.",
+        "evaluation_basis plus exact artifact/contract refs can provide auditability without duplicating mutable policy lists."
+      ],
+      "recommended_boundary": "Own gate_id/question, requested_action, evaluated artifact/contract/approval refs, check results, decision, reasons and safe_next_action. Use references for policy data."
+    },
+    {
+      "object": "AIR_VALIDATION_REPORT",
+      "record_class": "VALIDATION_RECORD",
+      "decision": "HARDEN",
+      "responsibility": "Record what target was validated, by what basis/checks/evidence, result and limitations.",
+      "findings": [
+        "Core minimum schema is appropriately validation-focused.",
+        "Control requires alignment-coupled reports to carry the same evaluation_id, but Core minimum fields do not define that conditional field.",
+        "Starter's patch conditional assigns planning fields such as replacement_policy, mutation_scope and validation_plan to both Artifact and Validation Report, which leaks plan/authority state into a result record."
+      ],
+      "recommended_boundary": "Keep validation facts/results only. For alignment reports add explicit conditional evaluation_id/evaluated_dimensions. Patch planning remains Artifact; action/delivery receipts remain their own records."
+    },
+    {
+      "object": "AIR_ALIGNMENT_CHECK",
+      "record_class": "ALIGNMENT_EVALUATION_RECORD",
+      "decision": "PASS_WITH_CLOSED_SCHEMA",
+      "responsibility": "Project the result of one Core alignment evaluation.",
+      "findings": [
+        "Current minimum fields are reference-oriented and appropriately limited.",
+        "The missing closed-world rule still permits arbitrary extras."
+      ],
+      "recommended_boundary": "Keep evaluation identity/profile/epoch, evaluated refs, drift/alignment/recovery state, validation_report_ref and common provenance only."
+    },
+    {
+      "object": "AIR_ERROR",
+      "record_class": "ERROR_RECORD",
+      "decision": "PASS_WITH_CLOSED_SCHEMA",
+      "responsibility": "Record a surfaced AIR process/data/runtime error and safe recovery direction.",
+      "findings": [
+        "Current minimum fields are appropriately error-specific.",
+        "The missing closed-world rule still permits unrelated state."
+      ],
+      "recommended_boundary": "Keep error identity/class, affected refs, blocking/recoverable state, reason and safe_next_action plus common provenance."
+    },
+    {
+      "object": "AIR_ACTION_AUTHORIZATION",
+      "record_class": "ACTION_AUTHORIZATION_RECORD",
+      "decision": "REDESIGN",
+      "responsibility": "Be a single-use execution ticket for one exact material effect after AIR_GATE=ALLOW.",
+      "findings": [
+        "Core has no exact minimum field schema for the object.",
+        "Control asks Authorization to repeat contract-fit, scope-pin result, approval basis, excluded actions, stop conditions and rollback/recovery information already owned/evaluated by Artifact/Gate.",
+        "This makes Authorization partly a second Gate rather than a compact ticket."
+      ],
+      "recommended_boundary": "Own authorization_id, action_id/class, exact effect/target, artifact_id/revision/lease_id, scope_pin_ref, gate_ref, approval_ref, expected_effect, required_receipt_evidence, single_use_state, decision and expiry/consumption state."
+    },
+    {
+      "object": "AIR_ACTION_RECEIPT",
+      "record_class": "ACTION_RECEIPT_RECORD",
+      "decision": "PASS_WITH_EXACT_SCHEMA_REQUIRED",
+      "responsibility": "Record the observed result of one attempted material action and reconcile expected vs actual effect.",
+      "findings": [
+        "The conceptual responsibility is clean, but Core does not define an exact minimum field schema.",
+        "Intended target/effect duplication is justified because comparison with actual effect is the receipt's job."
+      ],
+      "recommended_boundary": "Own receipt/action/authorization refs, observed evidence, intended-vs-actual comparison, result/effect IDs, side effects, validation result, lease impact and required follow-up refs."
+    },
+    {
+      "object": "AIR_PRIOR_EFFECT_RECORD",
+      "record_class": "RECOVERY_RECORD",
+      "decision": "REDESIGN",
+      "responsibility": "Record and reconcile a material effect that occurred without valid current authorization/scope/lease.",
+      "findings": [
+        "It is canonical but has no exact minimum schema at all; only prose requirements/classifications are defined.",
+        "Starter also spreads prior-effect state into Session, Artifact and Handoff, increasing duplicate authority risk."
+      ],
+      "recommended_boundary": "Define exact fields for effect identity, observed target/effect, evidence, why authorization was invalid/missing, risk, rollback feasibility, disposition, affected refs, human decision required and reconciliation status. Other objects carry refs/aggregate state only."
+    },
+    {
+      "object": "AIR_REQUIRED_INPUT_REQUEST",
+      "record_class": "REQUIRED_INPUT_REQUEST_RECORD",
+      "decision": "HARDEN",
+      "responsibility": "Request the smallest exact missing input/authority/action needed to resolve an identified basis gap.",
+      "findings": [
+        "Core schema is mostly well bounded.",
+        "Responsive-binding continuation rules refer to binding_scope/effects/exclusions/gate/approval-captured state that are not defined as conditional fields in the Core request schema.",
+        "already_checked_locations_or_states can become verbose diagnostic trace; it should be compact evidence refs if retained."
+      ],
+      "recommended_boundary": "Add an explicit responsive_binding extension/conditional schema. Keep request identity, need, exact ask, reason/effect, alternatives/fallback, validation plan and satisfaction state."
+    },
+    {
+      "object": "AIR_HANDOFF_CARD",
+      "record_class": "TRANSFER_RECORD",
+      "decision": "REDESIGN_NORMALIZATION",
+      "responsibility": "Serialize sufficient explicit project/runtime state for safe continuation without transferring current execution authority.",
+      "findings": [
+        "Cross-object data is legitimately necessary here, but the current card often restates the same datum independently rather than carrying an explicitly source-owned snapshot/ref.",
+        "receiver_delivery_state appears under active_artifact, active_contract and again at card root.",
+        "task identity/step appears in active_artifact, active_contract, task_binding and Orbit state.",
+        "action governance is carried both inside active_artifact and in root action_governance_state.",
+        "canonical_claim_precedence currently resolves only a small set of top-level claims, leaving many duplicate carriers vulnerable to disagreement."
+      ],
+      "recommended_boundary": "Keep Handoff as the transfer exception, but normalize it: each datum has one canonical transferred owner; other locations use refs/derived projections. Preserve full source-object payload only when needed for reconstruction and mark it TRANSFER_ONLY_NONAUTHORITATIVE. Carry only unresolved/material action history, not redundant consumed history by default."
+    }
+  ],
+  "non_object_registry_defect": {
+    "label": "AIR_PRIMED_ONBOARDING",
+    "finding": "Reserved as a formal label in Core/Control but absent from the canonical formal-object registry.",
+    "decision": "REMOVE_STALE_LABEL_OR_DEFINE_CANONICAL_OBJECT"
+  },
+  "recommended_patch_order": [
+    "1. Add Core closed-world object ownership/schema law and one canonical registry.",
+    "2. Normalize Active Contract -> Artifact execution_contract field names and ownership.",
+    "3. Split Brief vs Execution Map responsibilities.",
+    "4. Slim Gate and Action Authorization to references plus their own decisions/tickets.",
+    "5. Define exact Authorization, Receipt and Prior Effect schemas.",
+    "6. Fix Starter typed registries and conditional multi-plane duplication.",
+    "7. Normalize Handoff duplicate carriers and canonical precedence.",
+    "8. Synchronize formal-label reservation lists and remove AIR_PRIMED_ONBOARDING ghost label.",
+    "9. Add static object-schema/ownership tests plus emitted-object fixtures.",
+    "10. Rerun 895 static closure, specialist validation, 75 executable tests and targeted object-emission smoke before main promotion."
+  ],
+  "main_promotion": "BLOCKED_PENDING_OBJECT_CONTRACT_HARDENING"
+}

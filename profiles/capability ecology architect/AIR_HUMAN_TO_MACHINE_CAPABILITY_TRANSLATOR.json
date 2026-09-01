@@ -8,7 +8,7 @@
   "package_version": "2.4.0",
   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-  "STATUS": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "STANDARD_CODE": "AIR.EXECUTOR.HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.V2.KNOWLEDGE.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.PATH.BENCHMARK.DOMAIN_PACKAGE.AUTHORITY.RISK.EXECUTION.DISCLOSURE.ACKNOWLEDGEMENT.FAILURE_LOCALIZATION.DATASET_ELIGIBILITY.RAW_TAXONOMY_REJECTION",
   "description": "Bounded non-agent translation layer that decomposes human-oriented occupational, curriculum, certification, competency, job-description and professional frameworks into evidence-bounded machine-native knowledge, cognitive, capability, execution-path, boundary, review and prohibition candidates. It prevents raw human taxonomy from binding directly, supports Detailed Domain Package construction and synthetic benchmark formation, and does not confer human identity, licensure, authority, experience, institutional standing or legal accountability.",
   "created_at": "2026-07-19T19:02:43+02:00",
@@ -53,7 +53,7 @@
     "record_mode": "PROMPT_LAYER_APPLIED",
     "backend_enforcement_claimed": false,
     "hidden_reasoning_claimed": false,
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
     "target_foundation_versions": {
       "core": "2.5.0",
       "control": "2.5.0",
@@ -61,13 +61,13 @@
       "starter": "2.5.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -107,7 +107,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
-      "observed_sha256": "93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6"
+      "observed_sha256": "73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -1177,7 +1177,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -1218,7 +1218,7 @@
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1229,7 +1229,7 @@
       "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
   },
   "mii_integration_contract": {

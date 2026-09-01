@@ -8,7 +8,7 @@
   "package_version": "2.4.0",
   "package_subtype": "DOMAIN_CAPABILITY_REGISTRY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-  "STATUS": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "STANDARD_CODE": "AIR.DOMAIN.CAPABILITY.REGISTRY.V2.NON_AGENT.DOMAIN_GRAPH.EPISTEMIC_REGIMES.SOURCE_REQUIREMENTS.VECTOR_EXPANSION.ORBIT_0_ARTIFACT_COMPILATION.FILE_IDENTITY_INTEGRITY",
   "description": "Extensible source-backed non-agent domain routing registry. It preserves the user-researched high-level domain-family taxonomy, defines the canonical construction schema for reusable detailed Domain Packages, and supplies tagged golden and negative fixtures for construction validation. Detailed fixtures have no runtime authority. Approved detailed domains are separate versioned Domain Packages and reusable sources of truth; optional Specialists may consume them but may not replace them. Human-oriented frameworks route through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2, and every executable benchmark must carry the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path.",
   "source_baseline": {
@@ -43,7 +43,7 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
     "target_foundation_versions": {
       "core": "2.5.0",
       "control": "2.5.0",
@@ -58,13 +58,13 @@
       "AIR_DEFAULT_STARTER_PROFILE.json",
       "AIR_HANDOFF_CARD_TEMPLATE.json"
     ],
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -5210,7 +5210,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -5251,7 +5251,7 @@
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -5262,7 +5262,7 @@
       "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
   },
   "remediated_at": "2026-08-28T21:05:00+02:00",

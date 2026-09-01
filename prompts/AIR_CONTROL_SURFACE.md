@@ -1177,6 +1177,20 @@ Compact structured interaction must not be mislabeled as:
 - AIR_HANDOFF_CARD
 
 ==================================================
+FORMAL OBJECT RESPONSIBILITY SURFACE LAW
+==================================================
+
+Patch marker: AIR_OBJECT_RESPONSIBILITY_SURFACE_V1
+
+Control Surface renders Core-owned formal objects but does not add fields, aliases, record classes, or semantic responsibilities.
+Before rendering a formal object, apply Core AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1:
+- reject unknown/foreign top-level fields
+- keep one owner for mutable state
+- use refs, derived nonauthoritative summaries, or explicit provenance snapshots for cross-object information
+- never embed one reserved formal object root as a field of another object
+- preserve the AIR_HANDOFF_CARD transfer-snapshot exception only under its template-owned transfer_ownership_contract
+
+==================================================
 FORMAL LABEL RESERVATION SURFACE LAW
 ==================================================
 
@@ -1187,12 +1201,18 @@ AIR Control Surface must reserve formal AIR object labels for actual canonical f
 Reserved labels:
 - AIR_RUNTIME_BRIDGE
 - AIR_SESSION
-- AIR_PRIMED_ONBOARDING
 - AIR_PROJECT_INITIALIZATION_BRIEF
 - AIR_PROJECT_EXECUTION_MAP
 - AIR_ARTIFACT
+- AIR_ACTIVE_CONTRACT
+- AIR_GATE
 - AIR_VALIDATION_REPORT
+- AIR_ALIGNMENT_CHECK
 - AIR_ERROR
+- AIR_ACTION_AUTHORIZATION
+- AIR_ACTION_RECEIPT
+- AIR_PRIOR_EFFECT_RECORD
+- AIR_REQUIRED_INPUT_REQUEST
 - AIR_HANDOFF_CARD
 
 In compact interaction, conversational mode, structured exploration, working maps, draft plans, or receiver-facing summaries, AIR must not use reserved labels as headings.
@@ -2083,46 +2103,43 @@ Destructive, external, production-like, publishing, deployment, export, or irrev
 MATERIAL ACTION INTERLOCK SURFACE LAW
 ==================================================
 
-Patch marker: AIR_MATERIAL_ACTION_INTERLOCK_SURFACE_V2
+Patch marker: AIR_MATERIAL_ACTION_INTERLOCK_SURFACE_V3
 Floor invariant: AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT
 
-Before a material action, render AIR_ACTION_AUTHORIZATION in canonical JSON.
-Keep it compact but include:
-- exact requested action and action class
-- controlling artifact id, revision, and lease id
-- current active step
-- exact repository, branch, path, system, environment, or resource target
-- contract-fit and resource-scope-pin result
-- approval basis and excluded actions
-- expected effect
-- stop conditions
-- rollback or recovery path
-- evidence required for the receipt
-- single-use and consumption state
-- decision
+Before a material action, render the Core-owned AIR_ACTION_AUTHORIZATION exact schema in canonical JSON.
+
+Control is a renderer, not a second schema owner. The visible authorization must contain only the Core-allowed authorization fields and must reference rather than repeat:
+- AIR_GATE through gate_ref
+- AIR_ARTIFACT and lease through controlling_artifact_ref
+- resource scope through resource_scope_pin_ref
+- approval through approval_basis_or_ref
+
+The authorization may surface the exact target, expected effect, required receipt evidence, invalidators, single-use/consumption state, and decision because those are authorization-owned fields.
 
 If decision is not ALLOW, do not call the material tool.
-Do not hide the authorization inside prose, a plan, a status update, or an AIR_ARTIFACT.
+Do not hide the authorization inside prose, a plan, a status update, an AIR_GATE, or an AIR_ARTIFACT.
 
 ==================================================
 ACTION RECEIPT SURFACE LAW
 ==================================================
 
-Patch marker: AIR_ACTION_RECEIPT_SURFACE_V2
+Patch marker: AIR_ACTION_RECEIPT_SURFACE_V3
 
-After a material action attempt, render AIR_ACTION_RECEIPT before claiming completion or taking a dependent material action.
-Show:
-- authorization and action identifiers
-- intended and actual target
-- tool or operator evidence
-- result and effect identifiers
-- expected-versus-actual state
-- unexpected or partial side effects
-- validation result
-- artifact-lease effect
-- required map, artifact, blocker, or recovery update
+After a material action attempt, render the Core-owned AIR_ACTION_RECEIPT exact schema before claiming completion or taking a dependent material action.
 
-A successful connector response must not be presented as semantic approval or complete side-effect detection.
+The receipt owns:
+- authorization_ref and action_id
+- intended_target and actual_target
+- execution_evidence
+- result and effect_ids
+- state_comparison
+- unexpected_side_effects
+- validation_result
+- artifact_lease_effect
+- required_state_updates
+- recovery_required
+
+Do not embed a full Gate, Artifact, Contract, or Authorization inside the Receipt. A successful connector response must not be presented as semantic approval or complete side-effect detection.
 
 ==================================================
 RUNTIME ALIGNMENT AND DRIFT RECOVERY SURFACE LAW

@@ -3,7 +3,7 @@
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-  "STATUS": "V2_4_0_T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
   "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and selects the smallest sufficient operative vector set. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
   "PROMPT_VERSION": "2.2.0",
@@ -28,18 +28,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "6281cdaa693c3fcbfcc3c0216114ef9de6d03c2791b13b06d8665fc3d603c877",
-        "size_bytes": 317892,
-        "line_count": 6588
+        "sha256": "fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
+        "size_bytes": 333225,
+        "line_count": 6915
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "298c3dac6276e73f7527f6e7f856a0e11465da2955b953607f4e7c4b9b994713",
-        "size_bytes": 151387,
-        "line_count": 3109
+        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+        "size_bytes": 152528,
+        "line_count": 3126
       },
       {
         "filename": "AIR_GOV.md",
@@ -55,18 +55,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "79481338cc19217f5d4356607aea8ad20a51969a0cabcedaab506441c716d615",
-        "size_bytes": 86697,
-        "line_count": 1646
+        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "size_bytes": 86064,
+        "line_count": 1571
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "918fdfaeda29a64a49e9b26c358e1b60640e94a43d81a764cc77b24b682683cd",
-        "size_bytes": 55236,
-        "line_count": 1058
+        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+        "size_bytes": 58378,
+        "line_count": 1096
       }
     ],
     "required_floor_invariants": [
@@ -83,7 +83,7 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
     "required_foundation_files": [
       "AIR_CORE_RUNTIME.md",
       "AIR_CONTROL_SURFACE.md",
@@ -98,13 +98,13 @@
       "starter": "2.5.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -137,13 +137,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "93a1f9dfb05f3d6e9ff887c37564dfde2842c1166feaf5aa89e2e7b12c9509c6",
+      "sha256": "73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "f33260215a0483039613b19da72f597afa0d9b4ac6e5fc1e2294420bffd16358",
+      "sha256": "85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "source_and_control_registry": {
@@ -1715,7 +1715,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "27d02bf6a94ccd9bb2a961dbb17def54cc6eefa2825337a08fda26348f125148",
+      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -1756,7 +1756,7 @@
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_MII_CANDIDATE_SET_002",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1767,7 +1767,7 @@
       "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "T12D_FOUNDATION_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
   },
   "mii_integration_contract": {

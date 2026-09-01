@@ -569,7 +569,7 @@
   "typed_registries": {
     "formal_objects": {
       "registry_owner": "AIR_CORE_RUNTIME_V2",
-      "registry_designation": "AIR_CANONICAL_OBJECT_CONTRACTS_V3",
+      "registry_designation": "AIR_CANONICAL_OBJECT_CONTRACTS_V4",
       "semantic_classes_redeclared": false,
       "emit_semantics_redeclared": false,
       "object_ids": [
@@ -589,209 +589,20 @@
         "AIR_REQUIRED_INPUT_REQUEST",
         "AIR_HANDOFF_CARD"
       ],
-      "record_class_rule": "Use exact Core-owned record_class. AIR_ALIGNMENT_CHECK uses ALIGNMENT_EVALUATION_RECORD; AIR_REQUIRED_INPUT_REQUEST uses REQUIRED_INPUT_REQUEST_RECORD.",
-      "constructor_rule": "Every formal object except Core-defined alignment projections and alignment-evaluation-failure AIR_ERROR requires current evaluation_basis."
+      "record_class_rule": "Use exact Core-owned record_class category. Object identity is the top-level root name. AIR_ALIGNMENT_CHECK uses ALIGNMENT_EVALUATION_RECORD; AIR_REQUIRED_INPUT_REQUEST uses REQUIRED_INPUT_REQUEST_RECORD.",
+      "constructor_rule": "Every formal object except Core-defined alignment projections and alignment-evaluation-failure AIR_ERROR requires current evaluation_basis.",
+      "object_identity_rule": "Top-level AIR object root name identifies semantic object identity; record_class identifies semantic record category and may be shared.",
+      "top_level_schema_rule": "CLOSED_WORLD_CORE_OWNED_FIELDS_ONLY",
+      "foreign_field_rule": "UNKNOWN_ALIAS_OR_WRONG_OBJECT_TOP_LEVEL_FIELD_IS_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION",
+      "cross_object_rule": "NON_OWNER_USES_REFERENCE_ONLY_DERIVED_NONAUTHORITATIVE_OR_IMMUTABLE_PROVENANCE_SNAPSHOT; FORMAL_OBJECT_ROOT_LABELS_ARE_NOT_FIELDS",
+      "schema_source_marker": "AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1"
     },
-    "artifact_fields": [
-      {
-        "field": "object_version",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "record_class",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "artifact_id",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "artifact_revision",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "artifact_binding_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING"
-      },
-      {
-        "field": "orbit_level",
-        "plane": "AIR_ARTIFACT",
-        "condition": "WHEN_QUEUED_OR_ACTIVE",
-        "source_law": "ORBIT TASK MANAGEMENT LAW"
-      },
-      {
-        "field": "queue_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "WHEN_QUEUED_OR_PAUSED",
-        "source_law": "ORBIT TASK MANAGEMENT LAW"
-      },
-      {
-        "field": "task_key",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "task_center",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "active_step",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "execution_contract",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "source_contract_refs",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "governing_floor_invariants",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "execution_benchmark_profile",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "BENCHMARK SYNTHETIC ROLE LAW"
-      },
-      {
-        "field": "evaluation_basis",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1"
-      },
-      {
-        "field": "semantic_fidelity_contract",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_MII_SEMANTIC_FIDELITY_V1"
-      },
-      {
-        "field": "epistemic_sufficiency_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_MII_EPISTEMIC_SUFFICIENCY_V1"
-      },
-      {
-        "field": "mii_cognitive_lattice",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_MII_COGNITIVE_ARCHITECTURE_V1"
-      },
-      {
-        "field": "mii_fusion_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_MII_CONTRIBUTION_FUSION_V1"
-      },
-      {
-        "field": "morphology_binding",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR_MII_MORPHOLOGY_BINDING_V1"
-      },
-      {
-        "field": "selected_vectors",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "VECTOR-PRIMARY COMPILER LAW"
-      },
-      {
-        "field": "obligations",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "ARTIFACT LAW"
-      },
-      {
-        "field": "blockers",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
-      },
-      {
-        "field": "assumptions_made",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
-      },
-      {
-        "field": "uncertainty_or_degraded",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW"
-      },
-      {
-        "field": "method",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "METHOD LAYER LAW"
-      },
-      {
-        "field": "method_execution_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "WHEN_METHOD_PROGRESS_OR_CLOSURE_IS_MATERIAL",
-        "source_law": "METHOD EXECUTION STATE LAW"
-      },
-      {
-        "field": "source_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "SOURCE AND EVIDENCE LAW"
-      },
-      {
-        "field": "active_contract_ref",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING"
-      },
-      {
-        "field": "receiver_delivery_state",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "RECEIVER DELIVERY LAW"
-      },
-      {
-        "field": "runtime_origin",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "RUNTIME ORIGIN LAW"
-      },
-      {
-        "field": "backend_validation_claimed",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "TRUTHFULNESS LAW"
-      },
-      {
-        "field": "hidden_reasoning_claimed",
-        "plane": "AIR_ARTIFACT",
-        "condition": "ALWAYS",
-        "source_law": "TRUTHFULNESS LAW"
-      }
-    ],
+    "artifact_fields": {
+      "registry_owner": "AIR_CORE_RUNTIME_V2",
+      "source_marker": "AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1",
+      "semantic_fields_redeclared": false,
+      "consumer_rule": "Use Core AIR_ARTIFACT closed-world allowed-field registry. Starter may activate a Core-allowed conditional field but may not create a new top-level Artifact field."
+    },
     "runtime_states": {
       "lifecycle_state": [
         "BOOTSTRAP_NO_ARTIFACT",
@@ -1044,7 +855,7 @@
       },
       {
         "id": "REQ-VTT",
-        "plane": "AIR_ARTIFACT_OR_REVIEW_GATE",
+        "plane": "AIR_ARTIFACT",
         "condition": "CONSEQUENTIAL_VOICE_TO_TEXT_AMBIGUITY_EXISTS",
         "fields": [
           "voice_to_text_ambiguity_check"
@@ -1065,8 +876,8 @@
         "failure_behavior": "EVIDENCE_REQUIRED_OR_REVIEW"
       },
       {
-        "id": "REQ-PATCH",
-        "plane": "AIR_ARTIFACT_AND_AIR_VALIDATION_REPORT",
+        "id": "REQ-PATCH-ARTIFACT",
+        "plane": "AIR_ARTIFACT",
         "condition": "FILE_MUTATION_IS_REQUESTED",
         "fields": [
           "patch_source_inventory",
@@ -1074,10 +885,24 @@
           "replacement_policy",
           "mutation_scope",
           "validation_plan",
-          "delivery_receipts"
+          "delivery_receipt_refs"
         ],
         "source_law": "PATCH SOURCE GATE AND AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
         "failure_behavior": "REJECT"
+      },
+      {
+        "id": "REQ-PATCH-VALIDATION",
+        "plane": "AIR_VALIDATION_REPORT",
+        "condition": "FILE_IDENTITY_OR_PATCH_RESULT_IS_VALIDATED",
+        "fields": [
+          "observed_identity",
+          "checks",
+          "decision",
+          "limitations",
+          "source_or_tool_evidence"
+        ],
+        "source_law": "PATCH SOURCE GATE AND AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+        "failure_behavior": "REVIEW_OR_REJECT"
       },
       {
         "id": "REQ-GOV",
@@ -1085,7 +910,6 @@
         "condition": "GOVERNANCE_STATE_AFFECTS_ACTION_OR_DELIVERY",
         "fields": [
           "governance_state",
-          "approval_scope",
           "source_rights_state",
           "framework_projection_state"
         ],
@@ -1097,18 +921,26 @@
         "plane": "AIR_HANDOFF_CARD",
         "condition": "HANDOFF_IS_REQUESTED",
         "fields": [
-          "artifact_set",
-          "orbit_state",
-          "queue_state",
-          "dependencies",
-          "return_targets",
-          "resume_conditions",
+          "active_artifact",
+          "active_contract",
+          "task_binding",
+          "required_input_state",
           "working_agreement",
           "governance_state",
+          "profile_stack",
+          "orbit_state",
+          "source_state",
+          "evidence_state",
+          "test_evidence_state",
+          "execution_state",
+          "receiver_delivery_state",
           "load_integrity",
-          "file_identity_receipts"
+          "file_identity_and_delivery_state",
+          "action_governance_state",
+          "runtime_alignment_state",
+          "transfer_ownership_contract"
         ],
-        "source_law": "HANDOFF CONTINUATION BOOTSTRAP LAW",
+        "source_law": "HANDOFF CONTINUATION BOOTSTRAP LAW AND AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1",
         "failure_behavior": "REVIEW_OR_REJECT"
       },
       {
@@ -1117,63 +949,156 @@
         "condition": "VALIDATION_CONTROLS_CONTINUATION_OR_DELIVERY",
         "fields": [
           "validated_target",
-          "observed_hash",
-          "observed_bytes",
-          "observed_lines",
-          "authority_hashes",
+          "observed_identity",
           "checks",
           "decision",
-          "limitations"
+          "limitations",
+          "source_or_tool_evidence"
         ],
         "source_law": "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
         "failure_behavior": "REVIEW_OR_REJECT"
       },
       {
-        "id": "REQ-TEST-EVIDENCE",
-        "plane": "AIR_PROJECT_INITIALIZATION_BRIEF_AIR_PROJECT_EXECUTION_MAP_AIR_ARTIFACT_AND_AIR_VALIDATION_REPORT",
+        "id": "REQ-TEST-EVIDENCE-BRIEF",
+        "plane": "AIR_PROJECT_INITIALIZATION_BRIEF",
         "condition": "TEST_OR_AUDIT_EVIDENCE_IS_MATERIAL",
         "fields": [
-          "evidence_presentation_mode",
-          "test_evidence_recommendation",
-          "test_evidence_class",
-          "test_suite_or_definition_refs",
-          "test_run_manifest_ref",
-          "per_test_results_ref",
-          "run_log_ref",
-          "fixture_refs",
-          "reproducibility_limits",
-          "evidence_capture_gaps",
-          "regulatory_evidence_requirement_state"
+          "evidence_posture"
         ],
         "source_law": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY AND AIR EVIDENCE/PRESENTATION SEPARATION",
         "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
       },
       {
-        "id": "REQ-MATERIAL-ACTION-INTERLOCK",
-        "plane": "AIR_ARTIFACT_AIR_ACTION_AUTHORIZATION_AND_AIR_ACTION_RECEIPT",
+        "id": "REQ-TEST-EVIDENCE-MAP",
+        "plane": "AIR_PROJECT_EXECUTION_MAP",
+        "condition": "TEST_OR_AUDIT_EVIDENCE_IS_MATERIAL",
+        "fields": [
+          "evidence_milestones"
+        ],
+        "source_law": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY AND AIR EVIDENCE/PRESENTATION SEPARATION",
+        "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+      },
+      {
+        "id": "REQ-TEST-EVIDENCE-ARTIFACT",
+        "plane": "AIR_ARTIFACT",
+        "condition": "TEST_OR_AUDIT_EVIDENCE_IS_MATERIAL",
+        "fields": [
+          "test_evidence_requirements"
+        ],
+        "source_law": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY AND AIR EVIDENCE/PRESENTATION SEPARATION",
+        "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+      },
+      {
+        "id": "REQ-TEST-EVIDENCE-VALIDATION",
+        "plane": "AIR_VALIDATION_REPORT",
+        "condition": "TEST_OR_AUDIT_EVIDENCE_IS_MATERIAL",
+        "fields": [
+          "test_evidence_observations"
+        ],
+        "source_law": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY AND AIR EVIDENCE/PRESENTATION SEPARATION",
+        "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+      },
+      {
+        "id": "REQ-MATERIAL-ACTION-ARTIFACT",
+        "plane": "AIR_ARTIFACT",
         "condition": "MATERIAL_ACTION_IS_PROPOSED_OR_ATTEMPTED",
         "fields": [
           "artifact_lease",
           "resource_scope_pin",
-          "action_governance_state",
-          "AIR_ACTION_AUTHORIZATION",
-          "AIR_ACTION_RECEIPT"
+          "action_governance_state"
         ],
         "source_law": "MATERIAL ACTION INTERLOCK, ARTIFACT LEASE, RESOURCE SCOPE PIN, AND ACTION RECEIPT LAWS",
         "failure_behavior": "REJECT_OR_ARTIFACT_BINDING_RECOVERY"
       },
       {
-        "id": "REQ-UNBOUND-PRIOR-EFFECT",
-        "plane": "AIR_SESSION_AIR_ARTIFACT_AIR_PRIOR_EFFECT_RECORD_AND_AIR_HANDOFF_CARD",
+        "id": "REQ-MATERIAL-ACTION-AUTHORIZATION",
+        "plane": "AIR_ACTION_AUTHORIZATION",
+        "condition": "MATERIAL_ACTION_IS_PROPOSED_OR_ATTEMPTED",
+        "fields": [
+          "authorization_id",
+          "action_id",
+          "action_class",
+          "requested_action",
+          "controlling_artifact_ref",
+          "target",
+          "gate_ref",
+          "approval_basis_or_ref",
+          "resource_scope_pin_ref",
+          "expected_effect",
+          "receipt_evidence_required",
+          "authorization_invalidators",
+          "single_use",
+          "consumption_state",
+          "decision"
+        ],
+        "source_law": "MATERIAL ACTION INTERLOCK, ARTIFACT LEASE, RESOURCE SCOPE PIN, AND ACTION RECEIPT LAWS",
+        "failure_behavior": "REJECT"
+      },
+      {
+        "id": "REQ-MATERIAL-ACTION-RECEIPT",
+        "plane": "AIR_ACTION_RECEIPT",
+        "condition": "MATERIAL_ACTION_WAS_ATTEMPTED",
+        "fields": [
+          "receipt_id",
+          "authorization_ref",
+          "action_id",
+          "intended_target",
+          "actual_target",
+          "execution_evidence",
+          "result",
+          "effect_ids",
+          "state_comparison",
+          "unexpected_side_effects",
+          "validation_result",
+          "artifact_lease_effect",
+          "required_state_updates",
+          "recovery_required"
+        ],
+        "source_law": "MATERIAL ACTION INTERLOCK, ARTIFACT LEASE, RESOURCE SCOPE PIN, AND ACTION RECEIPT LAWS",
+        "failure_behavior": "BLOCK_DEPENDENT_ACTION_OR_CLOSURE"
+      },
+      {
+        "id": "REQ-UNBOUND-PRIOR-EFFECT-SESSION",
+        "plane": "AIR_SESSION",
         "condition": "MATERIAL_EFFECT_EXISTS_WITHOUT_VALID_CURRENT_AUTHORIZATION_OR_SCOPE_MATCH",
         "fields": [
-          "unbound_prior_effect_state",
-          "AIR_PRIOR_EFFECT_RECORD",
-          "reconciliation_state",
-          "human_review_requirement"
+          "unbound_prior_effect_state"
         ],
         "source_law": "UNBOUND PRIOR EFFECT RECOVERY LAW",
         "failure_behavior": "REVIEW_OR_REJECT_WITHOUT_RETROACTIVE_AUTHORIZATION"
+      },
+      {
+        "id": "REQ-UNBOUND-PRIOR-EFFECT-RECORD",
+        "plane": "AIR_PRIOR_EFFECT_RECORD",
+        "condition": "MATERIAL_EFFECT_EXISTS_WITHOUT_VALID_CURRENT_AUTHORIZATION_OR_SCOPE_MATCH",
+        "fields": [
+          "prior_effect_id",
+          "discovered_effect",
+          "observed_target",
+          "effect_evidence",
+          "authorization_state_at_effect",
+          "scope_match_state_at_effect",
+          "lease_state_at_effect",
+          "affected_artifact_ref",
+          "risk_state",
+          "rollback_feasibility",
+          "reconciliation_state",
+          "human_review_requirement",
+          "safe_next_action",
+          "retroactive_authorization_forbidden"
+        ],
+        "source_law": "UNBOUND PRIOR EFFECT RECOVERY LAW",
+        "failure_behavior": "REVIEW_OR_REJECT_WITHOUT_RETROACTIVE_AUTHORIZATION"
+      },
+      {
+        "id": "REQ-UNBOUND-PRIOR-EFFECT-HANDOFF",
+        "plane": "AIR_HANDOFF_CARD",
+        "condition": "UNRESOLVED_PRIOR_EFFECT_EXISTS_AT_HANDOFF",
+        "fields": [
+          "action_governance_state"
+        ],
+        "source_law": "UNBOUND PRIOR EFFECT RECOVERY LAW",
+        "failure_behavior": "PRESERVE_UNRESOLVED_RECOVERY_STATE"
       },
       {
         "id": "REQ-ALIGNMENT-BASIS",

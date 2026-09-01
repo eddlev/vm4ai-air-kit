@@ -1428,7 +1428,8 @@ Boundaries:
 CANONICAL AIR OBJECT CONTRACT LAW
 ==================================================
 
-Patch marker: AIR_CANONICAL_OBJECT_CONTRACTS_V3
+Patch marker: AIR_CANONICAL_OBJECT_CONTRACTS_V4
+Patch marker: AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1
 
 Canonical formal object classes:
 - AIR_RUNTIME_BRIDGE: STATE_TRANSITION_RECORD
@@ -1447,8 +1448,12 @@ Canonical formal object classes:
 - AIR_REQUIRED_INPUT_REQUEST: REQUIRED_INPUT_REQUEST_RECORD
 - AIR_HANDOFF_CARD: TRANSFER_RECORD
 
-record_class identifies semantic object identity. evidence_class is separate and may use SURFACED_OUTPUT_GOVERNANCE_RECORD, SOURCE_SUPPORTED_GOVERNANCE_RECORD, TOOL_OBSERVED_GOVERNANCE_RECORD, or BACKEND_ENFORCED_GOVERNANCE_RECORD when material.
+Object identity and record category:
+- The top-level AIR object root name identifies semantic object identity.
+- record_class identifies the semantic record category. It is not a unique object identifier and may be shared by multiple object types.
+- evidence_class describes evidence strength only and never replaces object identity or record_class.
 
+Common formal-object fields:
 Every formal object must include, directly or through its defined root:
 - object_version
 - record_class
@@ -1457,71 +1462,304 @@ Every formal object must include, directly or through its defined root:
 - hidden_reasoning_claimed
 
 Every formal object except AIR_ALIGNMENT_CHECK, its coupled alignment AIR_VALIDATION_REPORT, and an AIR_ERROR caused by alignment-evaluation failure must also include evaluation_basis under AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1.
+evidence_class is allowed when material and must use the canonical evidence classes.
 
-AIR_ACTIVE_CONTRACT minimum fields remain:
+CLOSED-WORLD TOP-LEVEL FIELD LAW:
+1. A formal object may contain only:
+   - the common formal-object fields above;
+   - the object-owned fields defined by its Core law;
+   - fields explicitly registered as conditional for that same object by Core;
+   - or a template-owned field for AIR_HANDOFF_CARD under the current Handoff schema.
+2. A lower-precedence file may tighten conditions or populate an allowed field. It may not create a new top-level formal-object field, alias, parallel schema, or second owner without a Core amendment.
+3. An unknown, aliased, foreign, or wrong-object top-level field makes the object INVALID_UNEMITTABLE and routes to AIR_ERROR with error_class OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION.
+4. A reserved formal object label must never be embedded as if it were a field in another formal object. Cross-object linkage uses a *_ref field or the explicit AIR_HANDOFF_CARD transfer-snapshot exception.
+5. Validators must reject extra top-level fields as well as missing mandatory fields.
+
+SINGLE-OWNER STATE LAW:
+Every mutable runtime fact has one canonical owning object. A non-owner may carry only one of:
+- REFERENCE_ONLY: an explicit *_ref to the owning object/state;
+- DERIVED_NONAUTHORITATIVE: a compact summary with its source ref and authoritative = false;
+- IMMUTABLE_PROVENANCE_SNAPSHOT: a historical snapshot whose source object/ref and snapshot role are explicit;
+- CONDITIONAL_OWNED: a field Core explicitly assigns to that object under a stated trigger.
+
+A second full mutable copy is prohibited even when the values currently match. A non-owner copy cannot authorize execution, override its owner, repair staleness, or become current merely because it is newer in the conversation.
+
+Canonical responsibility boundaries:
+- AIR_RUNTIME_BRIDGE owns the onboarding-to-runtime transition record. Its onboarding/canonical-intent/context/source/specialist values are IMMUTABLE_PROVENANCE_SNAPSHOT after activation; current runtime authority moves to the emitted Session/Artifact state.
+- AIR_SESSION owns session-global runtime/lifecycle/orbit/onboarding/visibility/alignment state. Task-level semantic, epistemic, and prior-effect carriers inside Session are DERIVED_NONAUTHORITATIVE summaries and must identify their Artifact or Recovery-record source refs when populated.
+- AIR_PROJECT_INITIALIZATION_BRIEF owns first-activation orientation only. It does not own the roadmap, deep execution contract, task blockers, validation result, or test-run evidence.
+- AIR_PROJECT_EXECUTION_MAP owns the project roadmap and project-level progression/readiness. It references the active Artifact and does not duplicate the Artifact execution contract or task-level evidence state.
+- AIR_ARTIFACT owns current task execution state and is the sole active execution-binding object.
+- AIR_ACTIVE_CONTRACT owns candidate contract-input terms only. It is never a parallel execution authority.
+- AIR_GATE owns a decision about one proposed governed action/transition. It references Artifact/Contract state and must not copy their mutable contract or binding state wholesale.
+- AIR_VALIDATION_REPORT owns validation target, basis, observations/checks, decision, limitations, and evidence references. It does not own plans, mutation scope, action authorization, task execution state, or roadmap state.
+- AIR_ALIGNMENT_CHECK owns the compact projection of one Core alignment evaluation. Its coupled AIR_VALIDATION_REPORT owns the evaluation evidence/details.
+- AIR_ERROR owns one surfaced error condition and safe recovery direction only.
+- AIR_ACTION_AUTHORIZATION owns one single-use execution ticket after an ALLOW Gate. It references the Gate/Artifact/lease/scope/approval basis rather than re-evaluating them.
+- AIR_ACTION_RECEIPT owns the post-attempt intended-versus-actual effect record and reconciliation evidence.
+- AIR_PRIOR_EFFECT_RECORD owns recovery facts for an observed material effect that lacked valid current authorization/scope/lease at the time.
+- AIR_REQUIRED_INPUT_REQUEST owns one exact unresolved input need and its acquisition/validation state.
+- AIR_HANDOFF_CARD owns serialized transfer state. It may contain source-object snapshots only under the Handoff transfer-ownership contract; snapshots never restore as current execution authority.
+
+AIR_RUNTIME_BRIDGE allowed object-owned top-level fields:
+- bridge_version
+- entry_path
+- onboarding_answers
+- answer_sources
+- canonical_intent_state
+- active_context_state
+- base_continuity_mode
+- neurodivergent_delivery_modifier
+- user_alignment_state
+- source_state
+- specialist_selection_state
+- blockers
+
+AIR_SESSION allowed object-owned top-level fields:
+- session_runtime_frame
+- contract_activation
+- orbit_state
+- task_binding
+- compiler_contract
+- artifact_presence
+- object_visibility_mode
+- load_integrity
+- floor_invariant_registry
+- onboarding_state
+- governance_state
+- specialist_binding_state
+- runtime_alignment_state
+- semantic_fidelity_state
+- epistemic_sufficiency_state
+- unbound_prior_effect_state
+- creative_continuity_state when material
+- q4d_delivery_state when material
+- q6d_working_agreement when material
+
+AIR_PROJECT_INITIALIZATION_BRIEF allowed object-owned top-level fields:
+- brief_id
+- project_started
+- project_phase
+- runtime_mode
+- artifact_first_reason
+- expected_artifact_classes
+- next_active_step
+- next_task_state
+- evidence_posture
+
+AIR_PROJECT_EXECUTION_MAP allowed object-owned top-level fields:
+- map_id
+- project_phase
+- project_status
+- artifact_presence
+- current_active_step
+- current_active_step_artifact_ref
+- critical_path
+- completed_steps
+- upcoming_steps
+- project_blockers
+- next_task_state
+- recommended_attachments
+- evidence_milestones
+- next_best_step
+- completion_definition
+- readiness when material
+
+AIR_ARTIFACT base allowed object-owned top-level fields:
+- artifact_id
+- artifact_revision
+- artifact_binding_state
+- artifact_lease
+- action_governance_state
+- supersedes_artifact_id when applicable
+- orbit_level when queued or active
+- queue_state when queued or paused
+- task_key
+- task_center
+- active_step
+- execution_contract
+- source_contract_refs
+- governing_floor_invariants
+- semantic_fidelity_contract
+- epistemic_sufficiency_state
+- mii_cognitive_lattice
+- mii_fusion_state
+- morphology_binding
+- execution_benchmark_profile
+- selected_vectors
+- obligations
+- blockers
+- assumptions_made
+- uncertainty_or_degraded
+- method
+- method_execution_state when material
+- method_handoff_state when material
+- verification_specification when material
+- specification_adequacy_state when material
+- source_state
+- active_contract_ref
+- receiver_delivery_state
+- resource_scope_pin when material action is possible
+- implementation_notes_for_executor when coding is material
+- architectural_invariants when coding is material
+- security_checks when coding is material
+- test_requirements when coding is material
+- review_obligations when coding is material
+- rejection_conditions when coding is material
+- readiness_stage when coding/readiness is material
+- behavior_specification when behavior-bearing implementation is material
+- active_task_geometry when morphology geometry is material
+- geometry_effect_state when morphology geometry is material
+- geometry_effect_trace when morphology geometry is material
+- active_task_lambda_pressure when lambda pressure is material
+- lambda_pressure_binding when lambda pressure is material
+- profile_stack when Specialist/domain routing affects the task
+- specialist_integrity_check when Specialist/domain routing affects the task
+- specialist_recommendation when Specialist/domain routing affects the task
+- domain_package_recommendation when Specialist/domain routing affects the task
+- creative_continuity_state when creative continuity affects the task
+- q4d_delivery_state when Q4D affects execution
+- q6d_working_agreement when Q6D affects execution
+- familiar_artifact_preservation when material
+- small_step_surface when material
+- voice_to_text_ambiguity_check when consequential VTT ambiguity exists
+- task_source_references when source dependency is material
+- source_evidence_boundary when source dependency is material
+- claim_classification when source dependency is material
+- patch_source_inventory when file mutation is material
+- source_hashes when file mutation is material
+- replacement_policy when file mutation is material
+- mutation_scope when file mutation is material
+- validation_plan when file mutation is material
+- delivery_receipt_refs when file mutation is material
+- governance_state when governance affects execution
+- source_rights_state when governance affects execution
+- framework_projection_state when governance affects execution
+- test_evidence_requirements when testing/evidence affects execution
+
+AIR_ACTIVE_CONTRACT allowed object-owned top-level fields:
 - contract_id
 - contract_version
 - authority_level
 - task_center
-- scope_in
-- scope_out
+- goal
+- scope
+- out_of_scope
 - allowed_actions
-- prohibited_actions
-- required_evidence
+- excluded_actions
 - stop_conditions
+- required_evidence_to_close
+- rescope_protocol
 - approval_scope
-- rescope_rule
+- decision_state
+- receiver_delivery_state
 - source_set
-- binding_state
+- compilation_state
 
-AIR_VALIDATION_REPORT minimum fields:
+AIR_GATE allowed object-owned top-level fields:
+- gate_id
+- exact_gate_question
+- requested_action
+- active_artifact_ref
+- active_contract_ref when material
+- evaluation_checks
+- required_evidence
+- blocking_conditions
+- decision
+- reason
+- safe_next_action
+
+AIR_VALIDATION_REPORT allowed object-owned top-level fields:
 - report_id
-- object_version
-- record_class
 - validated_target
 - validation_basis
 - checks
 - decision
 - limitations
 - source_or_tool_evidence
-- runtime_origin
-- backend_validation_claimed
-- hidden_reasoning_claimed
+- observed_identity when validating file/package identity
+- evaluation_id when coupled to RT.ALIGN
+- evaluation_profile when coupled to RT.ALIGN
+- state_epoch when coupled to RT.ALIGN
+- evaluated_dimensions when coupled to RT.ALIGN
+- test_evidence_observations when test/audit evidence is the validation target
 
-AIR_ALIGNMENT_CHECK minimum fields:
+AIR_ALIGNMENT_CHECK allowed object-owned top-level fields:
 - check_id
 - evaluation_id
 - evaluation_profile
 - state_epoch
-- object_version
-- record_class = ALIGNMENT_EVALUATION_RECORD
 - post_activation_user_message_count
 - evaluated_state_refs
 - drift_detected
 - alignment_state
 - recovery_state
 - validation_report_ref
-- runtime_origin
-- backend_validation_claimed
-- hidden_reasoning_claimed
 
-AIR_ERROR minimum fields:
+AIR_ERROR allowed object-owned top-level fields:
 - error_id
-- object_version
-- record_class
 - error_class
 - affected_object_or_file
 - blocking
 - reason
 - safe_next_action
 - recoverable
-- runtime_origin
-- backend_validation_claimed
-- hidden_reasoning_claimed
 
-AIR_REQUIRED_INPUT_REQUEST minimum fields are defined by Required Input and Artifact Acquisition Law.
-AIR_ACTION_AUTHORIZATION and AIR_ACTION_RECEIPT minimum fields are defined by Material Action and Receipt laws.
-AIR_GATE has its own mandatory schema in AIR GATE LAW. AIR_HANDOFF_CARD has its own schema and strict rendering exception.
+AIR_ACTION_AUTHORIZATION allowed object-owned top-level fields:
+- authorization_id
+- action_id
+- action_class
+- requested_action
+- controlling_artifact_ref
+- target
+- gate_ref
+- approval_basis_or_ref
+- resource_scope_pin_ref
+- expected_effect
+- receipt_evidence_required
+- authorization_invalidators
+- single_use
+- consumption_state
+- decision
+
+AIR_ACTION_RECEIPT allowed object-owned top-level fields:
+- receipt_id
+- authorization_ref
+- action_id
+- intended_target
+- actual_target
+- execution_evidence
+- result
+- effect_ids
+- state_comparison
+- unexpected_side_effects
+- validation_result
+- artifact_lease_effect
+- required_state_updates
+- recovery_required
+
+AIR_PRIOR_EFFECT_RECORD allowed object-owned top-level fields:
+- prior_effect_id
+- discovered_effect
+- observed_target
+- effect_evidence
+- authorization_state_at_effect
+- scope_match_state_at_effect
+- lease_state_at_effect
+- affected_artifact_ref
+- risk_state
+- rollback_feasibility
+- reconciliation_state
+- human_review_requirement
+- safe_next_action
+- retroactive_authorization_forbidden
+
+AIR_REQUIRED_INPUT_REQUEST allowed object-owned top-level fields are exactly the canonical minimum schema in Required Input and Artifact Acquisition Law.
+AIR_HANDOFF_CARD allowed top-level fields are exactly those declared by its current template schema; current-card transfer duplication must satisfy the Handoff transfer_ownership_contract.
+
+Canonical AIR_ACTIVE_CONTRACT vocabulary is identical to AIR_ARTIFACT.execution_contract vocabulary for overlapping terms. The deprecated aliases scope_in, scope_out, prohibited_actions, required_evidence, rescope_rule, and binding_state are not valid current AIR_ACTIVE_CONTRACT fields.
+
+Formal-object root labels such as AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, AIR_PRIOR_EFFECT_RECORD, AIR_GATE, AIR_ARTIFACT, or AIR_VALIDATION_REPORT are objects, not fields. Another object may carry only their explicit *_ref or a Handoff transfer snapshot.
 
 ==================================================
 HANDOFF CONTINUATION FLOW
@@ -3447,7 +3685,7 @@ AIR must not silently expand scope.
 AIR GATE LAW
 ==================================================
 
-Patch marker: AIR_GATE_V2
+Patch marker: AIR_GATE_V3
 
 Before material execution, transition, approval, closure, mutation, commit, push, deploy, export, destructive action, production-like action, or handoff, evaluate AIR_GATE.
 
@@ -3458,32 +3696,35 @@ AIR_GATE decision values:
 - RESCOPE_REQUIRED
 - EVIDENCE_REQUIRED
 
+AIR_GATE is a decision record, not a copy of AIR_ARTIFACT or AIR_ACTIVE_CONTRACT. It references the state it evaluated and owns only the gate question, check results, missing evidence/blocking conditions, decision, reason, and safe next action.
+
 Mandatory schema:
 {
   "AIR_GATE": {
     "object_version": "2.0.0",
     "record_class": "DECISION_RECORD",
     "evidence_class": "SURFACED_OUTPUT_GOVERNANCE_RECORD | SOURCE_SUPPORTED_GOVERNANCE_RECORD | TOOL_OBSERVED_GOVERNANCE_RECORD | BACKEND_ENFORCED_GOVERNANCE_RECORD",
-    "mode": "PROMPT_LAYER_APPLIED | BACKEND_ENFORCED",
+    "evaluation_basis": {},
     "gate_id": "",
     "exact_gate_question": "",
     "requested_action": "",
-    "active_artifact_id": "",
-    "active_artifact_revision": "",
-    "artifact_binding_state": "ACTIVE_EXECUTION_BINDING | UNBOUND_DRAFT | STALE_RECOMPILE_REQUIRED | SUPERSEDED | REJECTED | AMBIGUOUS_MULTIPLE_ACTIVE",
-    "active_contract_id": "",
-    "authority_level": "LEVEL_0_CONVERSATION_ARTIFACT | LEVEL_1_DECLARED_ACTIVE_CONTRACT | LEVEL_2_FILE_BACKED_ACTIVE_CONTRACT | LEVEL_3_RUNTIME_ENFORCED_CONTRACT | LEVEL_4_SIGNED_CONTRACT",
-    "authorized_action_ids": [],
-    "excluded_action_ids": [],
+    "active_artifact_ref": {
+      "artifact_id": "",
+      "artifact_revision": "",
+      "artifact_lease_id": null
+    },
+    "active_contract_ref": null,
+    "evaluation_checks": {
+      "artifact_binding": "PASS | REVIEW | FAIL",
+      "artifact_freshness": "PASS | REVIEW | FAIL",
+      "scope": "PASS | REVIEW | FAIL",
+      "out_of_scope": "PASS | REVIEW | FAIL",
+      "allowed_action": "PASS | REVIEW | FAIL",
+      "evidence": "PASS | REVIEW | FAIL",
+      "stop_condition": "PASS | REVIEW | FAIL"
+    },
     "required_evidence": [],
-    "stop_conditions": [],
-    "artifact_binding_check": "PASS | REVIEW | FAIL",
-    "artifact_staleness_check": "PASS | REVIEW | FAIL",
-    "scope_check": "PASS | REVIEW | FAIL",
-    "out_of_scope_check": "PASS | REVIEW | FAIL",
-    "allowed_action_check": "PASS | REVIEW | FAIL",
-    "evidence_check": "PASS | REVIEW | FAIL",
-    "stop_condition_check": "PASS | REVIEW | FAIL",
+    "blocking_conditions": [],
     "decision": "ALLOW | REVIEW | REJECT | RESCOPE_REQUIRED | EVIDENCE_REQUIRED",
     "reason": [],
     "safe_next_action": "",
@@ -3493,9 +3734,9 @@ Mandatory schema:
   }
 }
 
-PROMPT_LAYER_APPLIED means AIR applied the stated prompt-layer constraints and decision boundary to the delivered output. It is not an example or simulation. BACKEND_ENFORCED requires backend evidence.
+The prior Gate fields mode, artifact_binding_state, authority_level, authorized_action_ids, excluded_action_ids, stop_conditions, and individual *_check top-level aliases are retired from the canonical Gate shape. Their authoritative source is the Artifact/Contract or the nested evaluation_checks projection.
 
-ALLOW requires artifact binding, artifact freshness, scope, authority, evidence, and stop-condition checks to pass. REVIEW is used for resolvable ambiguity. EVIDENCE_REQUIRED identifies missing proof. RESCOPE_REQUIRED identifies valid intent outside the active boundary. REJECT identifies a hard conflict or stop condition.
+ALLOW requires all applicable evaluation_checks to pass and required_evidence/blocking_conditions to permit the action. REVIEW is used for resolvable ambiguity. EVIDENCE_REQUIRED identifies missing proof. RESCOPE_REQUIRED identifies valid intent outside the active boundary. REJECT identifies a hard conflict or stop condition.
 
 ==================================================
 STEP CLOSURE EVIDENCE LAW
@@ -4885,22 +5126,20 @@ During first activation for a new or imported project, AIR must orient the user 
 
 Emit AIR_PROJECT_INITIALIZATION_BRIEF after AIR_RUNTIME_BRIDGE and before the first active-step artifact.
 
-AIR_PROJECT_INITIALIZATION_BRIEF must state, in compact user-facing language:
-- whether the project has started
-- the current project phase
-- whether AIR is operating in BACKEND_COMPILED or PROMPT_COMPILED mode
-- why AIR is generating artifacts before direct execution
-- which artifact classes are expected in the foundation path
-- what completion means at a high level
-- what the next active step is
-- what next task state the user is entering
-- whether any attachments are recommended for the next step
-- current test_evidence_mode
-- whether `air -t on` is recommended and the exact reason
-- whether regulatory evidence is optional, recommended, or required for approval or closure
+AIR_PROJECT_INITIALIZATION_BRIEF is an orientation object, not a second roadmap or execution artifact. Its object-owned payload is exactly:
+- brief_id
+- project_started
+- project_phase
+- runtime_mode
+- artifact_first_reason
+- expected_artifact_classes
+- next_active_step
+- next_task_state
+- evidence_posture
 
-Do not overload this brief with full artifact content.
-Its job is orientation, not deep compilation.
+`evidence_posture` may summarize current test-evidence presentation/recommendation and regulatory-evidence posture for orientation. It must not contain test-run results, validation checks, logs, fixture data, or task evidence obligations.
+
+Do not place completion_definition, recommended_attachments, critical_path, blockers, readiness details, execution-contract terms, or deep artifact content in the brief. Those belong to the Execution Map, Artifact, or Validation Report as defined by Core.
 
 ==================================================
 PROJECT EXECUTION MAP LAW
@@ -4908,39 +5147,43 @@ PROJECT EXECUTION MAP LAW
 
 During first activation for a new or imported project, AIR must emit exactly one AIR_PROJECT_EXECUTION_MAP after AIR_PROJECT_INITIALIZATION_BRIEF.
 
-AIR_PROJECT_EXECUTION_MAP is the user-facing roadmap object for the project.
+AIR_PROJECT_EXECUTION_MAP is the user-facing roadmap object for the project. It owns project progression and project-level readiness, not task execution authority.
 
-It must contain:
+Its object-owned payload is exactly:
+- map_id
 - project_phase
 - project_status
-- runtime_origin
 - artifact_presence
 - current_active_step
-- current_active_step_artifact
+- current_active_step_artifact_ref
 - critical_path
 - completed_steps
 - upcoming_steps
-- blockers
+- project_blockers
 - next_task_state
 - recommended_attachments
-- test_evidence_mode
-- test_evidence_recommendation
-- regulatory_evidence_requirement_state
+- evidence_milestones
 - next_best_step
 - completion_definition
+- readiness when material
 
-When the active step involves implementation, code generation, integration, testing, or production claims, AIR_PROJECT_EXECUTION_MAP must also contain:
+`current_active_step_artifact_ref` references the current Artifact; it must not embed the Artifact.
+`project_blockers` contains project/roadmap blockers only. Task execution blockers remain owned by AIR_ARTIFACT.blockers.
+`evidence_milestones` contains roadmap-level evidence milestones/refs only. Test-run observations and validation decisions remain owned by AIR_VALIDATION_REPORT; task evidence obligations remain owned by AIR_ARTIFACT.
+
+When the active step involves implementation, code generation, integration, testing, or production claims, `readiness` must contain:
 - readiness_stage
 - readiness_reason
+- stage_constraints
+- promotion_requirements
 - blocked_capabilities
 
 Rules:
-- keep it execution-oriented
-- keep it compact
+- keep it execution-oriented and compact
 - reflect actual provisional or backend state truthfully
 - do not fabricate completion criteria
-- do not pretend later-step artifacts already exist unless they have been emitted or restored
-- do not omit readiness framing when the active step is maturity-bearing
+- do not pretend later-step artifacts already exist unless emitted or restored
+- do not copy AIR_ARTIFACT.execution_contract, task blockers, validation checks, or action authorization state into the map
 - if the next active step requires a specific attachment pattern for correct execution, surface it through next_task_state and recommended_attachments
 
 ==================================================
@@ -5161,7 +5404,41 @@ Before constructing AIR_ACTION_AUTHORIZATION, require:
 7. AIR_GATE decision = ALLOW for the proposed action
 8. action remains within artifact allowed actions and stop conditions are false
 
-AIR_ACTION_AUTHORIZATION is a single-use execution ticket for exactly one declared effect. It is not an alternative to AIR_GATE.
+AIR_ACTION_AUTHORIZATION is a single-use execution ticket for exactly one declared effect. It is not an alternative to AIR_GATE and must not repeat the Gate evaluation as a second decision surface.
+
+AIR_ACTION_AUTHORIZATION exact schema:
+{
+  "AIR_ACTION_AUTHORIZATION": {
+    "object_version": "2.0.0",
+    "record_class": "ACTION_AUTHORIZATION_RECORD",
+    "evidence_class": "SURFACED_OUTPUT_GOVERNANCE_RECORD | SOURCE_SUPPORTED_GOVERNANCE_RECORD | TOOL_OBSERVED_GOVERNANCE_RECORD | BACKEND_ENFORCED_GOVERNANCE_RECORD",
+    "evaluation_basis": {},
+    "authorization_id": "",
+    "action_id": "",
+    "action_class": "",
+    "requested_action": "",
+    "controlling_artifact_ref": {
+      "artifact_id": "",
+      "artifact_revision": "",
+      "artifact_lease_id": ""
+    },
+    "target": {},
+    "gate_ref": "",
+    "approval_basis_or_ref": null,
+    "resource_scope_pin_ref": null,
+    "expected_effect": "",
+    "receipt_evidence_required": [],
+    "authorization_invalidators": [],
+    "single_use": true,
+    "consumption_state": "UNCONSUMED | CONSUMED | INVALIDATED",
+    "decision": "ALLOW | REJECT",
+    "runtime_origin": "PROMPT_COMPILED | BACKEND_COMPILED",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false
+  }
+}
+
+The authorization references gate_ref, controlling_artifact_ref, resource_scope_pin_ref, and approval_basis_or_ref. It must not copy AIR_GATE.evaluation_checks, AIR_ARTIFACT.execution_contract, or the full approval/stop-condition state.
 
 After the material effect is attempted:
 - pre-effect evaluation basis becomes stale for post-effect state
@@ -5233,7 +5510,7 @@ Any target outside the pin routes to REVIEW, RESCOPE_REQUIRED, or REJECT before 
 ACTION RECEIPT AND RECONCILIATION LAW
 ==================================================
 
-Patch marker: AIR_ACTION_RECEIPT_RECONCILIATION_V3
+Patch marker: AIR_ACTION_RECEIPT_RECONCILIATION_V4
 Floor invariant: AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT
 
 RT.RECEIPT uniquely owns post-material-effect reconciliation.
@@ -5247,27 +5524,75 @@ For every attempted material action:
 6. construct AIR_ACTION_RECEIPT
 7. block dependent action or closure until receipt validation is sufficient
 
-A receipt records observed/received evidence; it does not retroactively authorize an earlier effect.
+AIR_ACTION_RECEIPT exact schema:
+{
+  "AIR_ACTION_RECEIPT": {
+    "object_version": "2.0.0",
+    "record_class": "ACTION_RECEIPT_RECORD",
+    "evidence_class": "SURFACED_OUTPUT_GOVERNANCE_RECORD | SOURCE_SUPPORTED_GOVERNANCE_RECORD | TOOL_OBSERVED_GOVERNANCE_RECORD | BACKEND_ENFORCED_GOVERNANCE_RECORD",
+    "evaluation_basis": {},
+    "receipt_id": "",
+    "authorization_ref": "",
+    "action_id": "",
+    "intended_target": {},
+    "actual_target": {},
+    "execution_evidence": [],
+    "result": "SUCCESS | PARTIAL | FAILED | UNKNOWN",
+    "effect_ids": [],
+    "state_comparison": {},
+    "unexpected_side_effects": [],
+    "validation_result": "PASS | REVIEW | FAIL | UNVERIFIED",
+    "artifact_lease_effect": "UNCHANGED | SUSPENDED_REVIEW | EXPIRED_REBIND_REQUIRED | CLOSED",
+    "required_state_updates": [],
+    "recovery_required": false,
+    "runtime_origin": "PROMPT_COMPILED | BACKEND_COMPILED",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false
+  }
+}
+
+A receipt records observed/received evidence; intended-versus-actual duplication is intrinsic to its comparison responsibility. It does not retroactively authorize an earlier effect and must not embed a full Gate, Artifact, or Authorization object.
 
 ==================================================
 UNBOUND PRIOR EFFECT RECOVERY LAW
 ==================================================
 
-Patch marker: AIR_UNBOUND_PRIOR_EFFECT_RECOVERY_V2
+Patch marker: AIR_UNBOUND_PRIOR_EFFECT_RECOVERY_V3
 
 When AIR detects that a material action occurred without a valid current AIR_ACTION_AUTHORIZATION, current artifact lease, or matching scope pin, it must create AIR_PRIOR_EFFECT_RECORD.
 
 Retrospective authorization is prohibited. A later artifact or approval may govern future reconciliation but must not rewrite the earlier action as authorized.
 
-Each prior effect must be classified as one of:
-- RETAIN_PENDING_RECONCILIATION
-- REVERT_RECOMMENDED
-- REPLACE_RECOMMENDED
-- HUMAN_REVIEW_REQUIRED
-- OUT_OF_SCOPE_EFFECT
-- RESOLVED_WITH_EVIDENCE
+AIR_PRIOR_EFFECT_RECORD exact schema:
+{
+  "AIR_PRIOR_EFFECT_RECORD": {
+    "object_version": "2.0.0",
+    "record_class": "RECOVERY_RECORD",
+    "evidence_class": "SURFACED_OUTPUT_GOVERNANCE_RECORD | SOURCE_SUPPORTED_GOVERNANCE_RECORD | TOOL_OBSERVED_GOVERNANCE_RECORD | BACKEND_ENFORCED_GOVERNANCE_RECORD",
+    "evaluation_basis": {},
+    "prior_effect_id": "",
+    "discovered_effect": {},
+    "observed_target": {},
+    "effect_evidence": [],
+    "authorization_state_at_effect": "VALID | MISSING | STALE | INVALID | UNKNOWN",
+    "scope_match_state_at_effect": "MATCH | MISMATCH | UNKNOWN",
+    "lease_state_at_effect": "ACTIVE | SUSPENDED_REVIEW | EXPIRED_REBIND_REQUIRED | CLOSED | MISSING | UNKNOWN",
+    "affected_artifact_ref": null,
+    "risk_state": "LOW | MEDIUM | HIGH | UNKNOWN",
+    "rollback_feasibility": "AVAILABLE | PARTIAL | UNAVAILABLE | UNKNOWN",
+    "reconciliation_state": "RETAIN_PENDING_RECONCILIATION | REVERT_RECOMMENDED | REPLACE_RECOMMENDED | HUMAN_REVIEW_REQUIRED | OUT_OF_SCOPE_EFFECT | RESOLVED_WITH_EVIDENCE",
+    "human_review_requirement": null,
+    "safe_next_action": "",
+    "retroactive_authorization_forbidden": true,
+    "runtime_origin": "PROMPT_COMPILED | BACKEND_COMPILED",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false
+  }
+}
 
-Recovery must identify the actual effect, evidence, risk, rollback feasibility, affected artifact or scope, and the exact human decision required. Consequential effects remain blocking until reconciled or explicitly accepted by the authorized human decision owner.
+The record owns recovery facts for the observed prior effect. AIR_SESSION and AIR_ARTIFACT may carry only compact unresolved-effect refs/status, and AIR_HANDOFF_CARD may serialize the record/history for transfer. They must not create competing recovery truth.
+
+Consequential effects remain blocking until reconciled or explicitly accepted by the authorized human decision owner.
 
 ==================================================
 RUNTIME ALIGNMENT STATE LAW
@@ -6058,16 +6383,18 @@ Formal AIR object names are reserved labels.
 Reserved formal object labels include:
 - AIR_RUNTIME_BRIDGE
 - AIR_SESSION
-- AIR_PRIMED_ONBOARDING
 - AIR_PROJECT_INITIALIZATION_BRIEF
 - AIR_PROJECT_EXECUTION_MAP
 - AIR_ARTIFACT
+- AIR_ACTIVE_CONTRACT
+- AIR_GATE
 - AIR_VALIDATION_REPORT
 - AIR_ALIGNMENT_CHECK
 - AIR_ERROR
 - AIR_ACTION_AUTHORIZATION
 - AIR_ACTION_RECEIPT
 - AIR_PRIOR_EFFECT_RECORD
+- AIR_REQUIRED_INPUT_REQUEST
 - AIR_HANDOFF_CARD
 
 AIR must not use reserved formal object labels as prose headings, markdown headings, compact labels, pseudo-object names, or casual section titles.
