@@ -9,7 +9,7 @@
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
 [![Foundation](https://img.shields.io/badge/foundation-2.5.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
-![Channel](https://img.shields.io/badge/channel-preview-FF5A1F?labelColor=1A1613)
+![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
 
 **AI work, carried forward.**
 
@@ -21,11 +21,11 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 
 ## Current release
 
-**AIR Kit v0.6.0-preview.1** carries the repaired AIR Foundation **2.5.0** as a **Preview / Development** release.
+**AIR Kit v0.6.0** carries the repaired and coordinated AIR Foundation **2.5.0** release set.
 
 | Component | Version |
 | --- | ---: |
-| AIR Kit | `0.6.0-preview.1` |
+| AIR Kit | `0.6.0` |
 | Core Runtime | `2.5.0` |
 | Control Surface | `2.5.0` |
 | Default Starter | `2.5.0` |
@@ -33,21 +33,24 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 | Handoff schema | `2.3.0` |
 | Specialist packages | `2.4.0` |
 | Runtime Route Map | `1.0.0` |
-| Specialist Package Index | `1.1.1` |
+| Specialist Package Index | `1.1.3` |
 
-Preview means AIR is available for active use, integration work, and field feedback without claiming Stable behavioral certification, universal provider/model compatibility, deterministic LLM behavior, or backend AIR enforcement.
+Release status means the public AIR Kit distribution is internally coherent and release-sealed. It does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Behavioral compatibility remains empirical and configuration-dependent.
 
 ## What changed in AIR Foundation 2.5.0
 
-AIR 2.5.0 is a Foundation-consistency release focused on making continuation, evidence state, and downstream package identity agree across the runtime.
+AIR 2.5.0 is a Foundation-consistency release focused on making continuation, evidence state, object ownership, and downstream package identity agree across the runtime.
 
-The repaired Foundation closes three consistency defects identified during integrated validation:
+The repaired Foundation closes the consistency defects identified during integrated validation, including:
 
-1. **Handoff Governance alignment** — strict Handoff state now aligns with Governance/Floor version `2.3.0`.
+1. **Handoff Governance alignment** — strict Handoff state aligns with Governance/Floor version `2.3.0`.
 2. **Handoff restoration schema alignment** — Core restoration semantics use the schema-2.3 carriers `presentation_mode`, `presentation_mode_source`, and `evidence_capture_gaps`.
 3. **Evidence-presentation semantics** — evidence sufficiency is explicitly independent of whether evidence presentation is standard or expanded.
+4. **Canonical object-contract alignment** — Core and Starter consistently reference `AIR_CANONICAL_OBJECT_CONTRACTS_V4`.
+5. **Handoff rev14 ownership alignment** — the active Handoff compatibility contract and Governance approval-scope carrier follow the rev14 single-owner transfer model.
+6. **Atomic task-switch surface alignment** — Control mirrors Core's rule that a still-valid Orbit 0 artifact is demoted only inside the binding transaction after the replacement is bind-ready.
 
-The Runtime Route Map and the Specialist dependency closure were resealed against the repaired Foundation identity. Specialist package versions remain `2.4.0`; the Specialist Package Index remains `1.1.1`.
+The Runtime Route Map and all four released Specialist packages were resealed against the repaired Foundation identity. Specialist package versions remain `2.4.0`; the Specialist Package Index is `1.1.3`.
 
 ## Start AIR
 

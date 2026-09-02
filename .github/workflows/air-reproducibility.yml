@@ -75,7 +75,7 @@ jobs:
               )
 
           version = (root / 'VERSION').read_text(encoding='utf-8').strip()
-          if version != '0.6.0-preview.1':
+          if version != '0.6.0':
               raise SystemExit(f'unexpected AIR Kit VERSION: {version!r}')
 
           print('AIR public distribution surface: PASS')

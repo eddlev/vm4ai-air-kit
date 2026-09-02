@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.1.0",
-  "INDEX_VERSION": "1.1.2",
+  "INDEX_VERSION": "1.1.3",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
-  "status": "AIR_2_5_0_MII_CANDIDATE_INDEX_COORDINATED_RESEALED_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "status": "AIR_2_5_0_MII_CANDIDATE_INDEX_V060_RELEASE_AUTHORIZED_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-02T13:22:09Z",
+  "generated_at": "2026-09-02T13:50:54Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 4,
@@ -115,7 +115,7 @@
     "operative_rule": "An index entry establishes candidate release-catalog identity and expected manifest identity only. Actual package bytes must be available and validated for exact identity, Foundation compatibility, task fit, and required approval before compilation into or reference by the sole bound Orbit 0 AIR_ARTIFACT."
   },
   "validation_state": {
-    "decision": "PASS_COORDINATED_RESEAL_STATIC_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+    "decision": "PASS_COORDINATED_RESEAL_STATIC_RELEASE_AUTHORIZED_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
     "entry_count": 4,
     "core_minimum_entry_contract": "PASS",
     "manifest_hash_closure": "PASS",
@@ -127,7 +127,7 @@
     "handoff_rev14_catalog_compatibility": "PASS",
     "full_air_2_5_0_static_validation": "PASS_COORDINATED_FOUNDATION_AND_SPECIALIST_REPAIR_STATIC_CHECKSET",
     "behavioral_revalidation": "NOT_RUN",
-    "release_publication_state": "NOT_AUTHORIZED_NOT_PUBLISHED",
+    "release_publication_state": "AUTHORIZED_FOR_PUBLIC_RELEASE_NOT_YET_PUBLISHED",
     "specialist_internal_dependency_closure": "PASS_44_OF_44_DIRECT_CANONICAL_PACKAGE_REFERENCES",
     "specialist_internal_dependency_closure_basis": "All direct filename+sha256 references among the 21 current specialist component/manifest files; exact hash, byte, and line metadata validated where carried.",
     "operative_lifecycle_coherence": "PASS"
