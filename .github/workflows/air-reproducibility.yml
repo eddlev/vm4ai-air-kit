@@ -1,4 +1,4 @@
-name: AIR reproducibility contract
+name: AIR public distribution integrity
 
 on:
   pull_request:
@@ -10,68 +10,76 @@ permissions:
 
 jobs:
   deterministic-foundation-check:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Resolve isolated Python image
+      - name: Validate public distribution surface
         shell: bash
         run: |
           set -euo pipefail
-          docker pull python:3.12.11-slim
-          IMAGE_REF="$(docker image inspect python:3.12.11-slim --format '{{index .RepoDigests 0}}')"
-          test -n "$IMAGE_REF"
-          echo "AIR_TEST_IMAGE=$IMAGE_REF" >> "$GITHUB_ENV"
-          mkdir -p .air-test-evidence
-          printf '%s\n' "$IMAGE_REF" > .air-test-evidence/container-image.txt
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Run three isolated executable checks
-        shell: bash
-        run: |
-          set -euo pipefail
-          for i in 1 2 3; do
-            docker run --rm --network none \
-              -e TZ=UTC \
-              -e LANG=C.UTF-8 \
-              -e LC_ALL=C.UTF-8 \
-              -e PYTHONHASHSEED=0 \
-              -e AIR_TEST_SEED=0 \
-              -e AIR_NETWORK_POLICY=DISABLED_ENFORCED_DOCKER \
-              -e AIR_CONTAINER_IMAGE="$AIR_TEST_IMAGE" \
-              -e AIR_SOURCE_COMMIT="$GITHUB_SHA" \
-              -v "$PWD:/repo:ro" \
-              -v "$PWD/.air-test-evidence:/evidence" \
-              -w /repo \
-              "$AIR_TEST_IMAGE" \
-              python tests/air_test_runner.py \
-                --manifest tests/air-test-manifest.json \
-                --output "/evidence/run-$i.json" \
-                --run-index "$i"
-          done
+          required_root_files = {
+              'README.md',
+              'LICENSE',
+              'NOTICE',
+              'VERSION',
+              '.gitattributes',
+              '.gitignore',
+          }
+          required_dirs = {'catalog', 'profiles', 'prompts', '.github'}
+          forbidden_dirs = {'evals', 'tests', 'tools', 'validation'}
 
-      - name: Compare independent run fingerprints
-        shell: bash
-        run: |
-          set -euo pipefail
-          docker run --rm --network none \
-            -e TZ=UTC \
-            -e LANG=C.UTF-8 \
-            -e LC_ALL=C.UTF-8 \
-            -e PYTHONHASHSEED=0 \
-            -v "$PWD:/repo:ro" \
-            -v "$PWD/.air-test-evidence:/evidence" \
-            -w /repo \
-            "$AIR_TEST_IMAGE" \
-            python tests/air_test_compare.py \
-              --runs /evidence/run-1.json /evidence/run-2.json /evidence/run-3.json \
-              --output /evidence/determinism-report.json \
-              --required-identical-runs 3
+          root = Path('.')
+          missing_root = sorted(name for name in required_root_files if not (root / name).is_file())
+          missing_dirs = sorted(name for name in required_dirs if not (root / name).is_dir())
+          forbidden_present = sorted(name for name in forbidden_dirs if (root / name).exists())
+          if missing_root or missing_dirs or forbidden_present:
+              raise SystemExit(
+                  f'public surface mismatch: missing_files={missing_root} missing_dirs={missing_dirs} '
+                  f'forbidden_present={forbidden_present}'
+              )
 
-      - name: Upload full test evidence
-        uses: actions/upload-artifact@v4
-        with:
-          name: air-reproducibility-evidence-${{ github.sha }}
-          path: .air-test-evidence/
-          include-hidden-files: true
-          if-no-files-found: error
-          retention-days: 30
+          foundation = [
+              'AIR_CORE_RUNTIME.md',
+              'AIR_CONTROL_SURFACE.md',
+              'AIR_GOV.md',
+              'AIR_DEFAULT_STARTER_PROFILE.json',
+              'AIR_HANDOFF_CARD_TEMPLATE.json',
+          ]
+          missing_foundation = sorted(name for name in foundation if not (root / 'prompts' / name).is_file())
+          if missing_foundation:
+              raise SystemExit(f'missing Foundation files: {missing_foundation}')
+
+          for path in [
+              root / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json',
+              root / 'prompts' / 'AIR_HANDOFF_CARD_TEMPLATE.json',
+              root / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json',
+              root / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json',
+          ]:
+              json.loads(path.read_text(encoding='utf-8'))
+
+          specialist_dirs = sorted(path.name for path in (root / 'profiles').iterdir() if path.is_dir())
+          expected_specialists = sorted([
+              'capability ecology architect',
+              'governance specialist',
+              'grounding specialist',
+              'specification first verification specialist',
+          ])
+          if specialist_dirs != expected_specialists:
+              raise SystemExit(
+                  f'Specialist directory mismatch: expected={expected_specialists} actual={specialist_dirs}'
+              )
+
+          version = (root / 'VERSION').read_text(encoding='utf-8').strip()
+          if version != '0.6.0-preview.1':
+              raise SystemExit(f'unexpected AIR Kit VERSION: {version!r}')
+
+          print('AIR public distribution surface: PASS')
+          print('Foundation files: 5/5 present')
+          print('Catalog JSON: parse PASS')
+          print('Specialist directories: 4/4 present')
+          PY
