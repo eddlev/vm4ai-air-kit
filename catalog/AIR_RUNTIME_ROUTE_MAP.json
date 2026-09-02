@@ -1,0 +1,686 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_RUNTIME_ROUTE_MAP_V1",
+  "MAP_VERSION": "1.0.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+  "artifact_class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
+  "authority": {
+    "execution": "NONE",
+    "binding": "NONE",
+    "selection": "NONE",
+    "approval": "NONE",
+    "semantic_definition": "NONE"
+  },
+  "source_of_truth": {
+    "filename": "AIR_CORE_RUNTIME.md",
+    "system_designation": "AIR_CORE_RUNTIME_V2",
+    "prompt_version": "2.5.0",
+    "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+    "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
+  },
+  "rules": [
+    "This map is generated from Core route metadata and must not add or reinterpret doctrine.",
+    "Core remains authoritative when the map is absent, stale, or incompatible.",
+    "Presence of this map never creates execution, binding, selection, approval, or Specialist authority.",
+    "alignment_interlock metadata denotes Core-owned RT.ALIGN dependency/revalidation interlocks and is not an allowed_next forward edge."
+  ],
+  "route_count": 21,
+  "routes": [
+    {
+      "route_id": "RT.BOOT",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "fresh AIR entry or validated continuation entry",
+      "requires": [
+        "DEP.LOAD_INTEGRITY"
+      ],
+      "produces": [
+        "ENTRY_PATH_STATE"
+      ],
+      "allowed_next_routes": [
+        "RT.ONBOARD",
+        "RT.HANDOFF_RESTORE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "DEP.LOAD_INTEGRITY"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 464
+      }
+    },
+    {
+      "route_id": "RT.ONBOARD",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "fresh/import entry after RT.BOOT",
+      "requires": [
+        "DEP.ENTRY_PATH_SELECTED",
+        "DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED"
+      ],
+      "produces": [
+        "ONBOARDING_STATE",
+        "CANONICAL_INTENT_INPUTS",
+        "WORKING_AGREEMENT_INPUTS"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTIVATE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "AIR-FLOOR-011",
+        "RT.UNCERTAINTY_RESOLVE"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 475
+      }
+    },
+    {
+      "route_id": "RT.HANDOFF_RESTORE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "validated handoff continuation entry",
+      "requires": [
+        "DEP.LOAD_INTEGRITY",
+        "DEP.HANDOFF_SCHEMA_VALID",
+        "DEP.HANDOFF_EXPLICIT_STATE_ONLY"
+      ],
+      "produces": [
+        "RESTORED_CANDIDATE_STATE"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTIVATE"
+      ],
+      "invalidates": [
+        "SERIALIZED_EXECUTION_AUTHORITY",
+        "SERIALIZED_ALIGNMENT_CURRENCY"
+      ],
+      "does_not_bypass": [
+        "DEP.REVALIDATION",
+        "DEP.ARTIFACT_REBIND"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 486
+      },
+      "alignment_interlock": "RT.ALIGN",
+      "alignment_profile": "HANDOFF_RESTORE",
+      "alignment_interlock_point": "POST_RESTORE_PRE_NEXT"
+    },
+    {
+      "route_id": "RT.ACTIVATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "onboarding resolved or handoff candidate state restored",
+      "requires": [
+        "DEP.CANONICAL_INTENT_SUFFICIENT",
+        "DEP.BENCHMARK_PRECHECK",
+        "DEP.EXACTLY_ONE_BINDABLE_ARTIFACT",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "produces": [
+        "ARTIFACT_BOUND_EXECUTION",
+        "AIR_RUNTIME_BRIDGE",
+        "AIR_SESSION",
+        "AIR_ARTIFACT"
+      ],
+      "allowed_next_routes": [
+        "RT.TURN"
+      ],
+      "invalidates": [
+        "BOOTSTRAP_NO_ARTIFACT"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-022",
+        "AIR-FLOOR-023"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 499
+      },
+      "alignment_interlock": "RT.ALIGN",
+      "alignment_profile": "ACTIVATION",
+      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS"
+    },
+    {
+      "route_id": "RT.TURN",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "every post-activation user turn",
+      "requires": [
+        "DEP.ARTIFACT_BOUND_OR_RECOVERY_STATE"
+      ],
+      "produces": [
+        "USER_TURN_COUNT_INCREMENT",
+        "TURN_CONTEXT"
+      ],
+      "allowed_next_routes": [
+        "RT.ALIGN"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "RT.ALIGN"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 512
+      }
+    },
+    {
+      "route_id": "RT.ALIGN",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "RT.TURN and required transition/effect/recovery profiles",
+      "requires": [
+        "DEP.CANONICAL_CURRENT_STATE"
+      ],
+      "produces": [
+        "ALIGNMENT_EVALUATION",
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "EVALUATION_BASIS"
+      ],
+      "allowed_next_routes": [
+        "RT.INPUT_TRANSLATE"
+      ],
+      "invalidates": [
+        "PRIOR_EVALUATION_BASIS_WHEN_STATE_CHANGED"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-021"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 523
+      }
+    },
+    {
+      "route_id": "RT.INPUT_TRANSLATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "current user input after RT.ALIGN",
+      "requires": [
+        "DEP.RAW_INPUT_REF",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "produces": [
+        "CANONICAL_INTENT_CANDIDATE",
+        "ACTIVE_CONTEXT_REF",
+        "SEMANTIC_LOSS_STATE"
+      ],
+      "allowed_next_routes": [
+        "RT.CLASSIFY"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "AIR-FLOOR-022",
+        "RT.UNCERTAINTY_RESOLVE"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 534
+      }
+    },
+    {
+      "route_id": "RT.CLASSIFY",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "translated current input",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.CANONICAL_INTENT_CANDIDATE"
+      ],
+      "produces": [
+        "INSTRUCTION_EFFECT_CLASS"
+      ],
+      "allowed_next_routes": [
+        "RT.COMPATIBLE",
+        "RT.AMEND",
+        "RT.TASK_SWITCH",
+        "RT.UNCERTAINTY_RESOLVE",
+        "RT.ACTION",
+        "RT.DELIVER",
+        "RT.RECOVERY"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "AIR-FLOOR-019"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 545
+      }
+    },
+    {
+      "route_id": "RT.COMPATIBLE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "ARTIFACT_COMPATIBLE_RUNTIME_INPUT",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.ARTIFACT_COMPATIBLE"
+      ],
+      "produces": [
+        "NO_TASK_STATE_REFRESH"
+      ],
+      "allowed_next_routes": [
+        "RT.COGNITIVE_RESOLVE",
+        "RT.DELIVER",
+        "END_RESPONSE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "DEP.COGNITIVE_RESOLUTION_WHEN_MATERIAL",
+        "DEP.DELIVERY_ROUTE_WHEN_DELIVERY"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 556
+      }
+    },
+    {
+      "route_id": "RT.AMEND",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "MATERIAL_ARTIFACT_AMENDMENT",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.SAME_TASK_IDENTITY"
+      ],
+      "produces": [
+        "NEW_ARTIFACT_REVISION",
+        "STATE_TRANSITION"
+      ],
+      "allowed_next_routes": [
+        "RT.CAPABILITY_RESOLVE",
+        "RT.COGNITIVE_RESOLVE",
+        "RT.MORPHOLOGY_BIND",
+        "RT.ACTION",
+        "RT.DELIVER"
+      ],
+      "invalidates": [
+        "PRIOR_ARTIFACT_REVISION",
+        "PRIOR_EVALUATION_BASIS",
+        "LEASE_WHEN_MATERIAL"
+      ],
+      "does_not_bypass": [
+        "DEP.ARTIFACT_PRECHECK",
+        "AIR-FLOOR-013"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 566
+      },
+      "alignment_interlock": "RT.ALIGN",
+      "alignment_profile": "STATE_TRANSITION",
+      "alignment_interlock_point": "POST_TRANSITION_PRE_NEXT"
+    },
+    {
+      "route_id": "RT.TASK_SWITCH",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "TASK_OR_STEP_REPLACEMENT classified as new independent task",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.NEW_TASK_IDENTITY_RESOLVED"
+      ],
+      "produces": [
+        "NEW_TASK_ARTIFACT_CANDIDATE",
+        "ORBIT_TRANSITION"
+      ],
+      "allowed_next_routes": [
+        "RT.CAPABILITY_RESOLVE",
+        "RT.COGNITIVE_RESOLVE",
+        "RT.MORPHOLOGY_BIND"
+      ],
+      "invalidates": [
+        "PRIOR_TASK_EXECUTION_BINDING_AFTER_ATOMIC_REPLACEMENT"
+      ],
+      "does_not_bypass": [
+        "DEP.NEW_TASK_ARTIFACT",
+        "DEP.ARTIFACT_PRECHECK",
+        "AIR-FLOOR-013"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 579
+      }
+    },
+    {
+      "route_id": "RT.CAPABILITY_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "material capability/specialization need",
+      "requires": [
+        "DEP.CAPABILITY_NEED_IDENTIFIED"
+      ],
+      "produces": [
+        "TASK_LOCAL_CAPABILITY",
+        "EXISTING_SPECIALIST_ROUTE",
+        "REUSABLE_SPECIALIST_CONSTRUCTION_ROUTE",
+        "CAPABILITY_BLOCKER"
+      ],
+      "allowed_next_routes": [
+        "RT.COGNITIVE_RESOLVE",
+        "RT.UNCERTAINTY_RESOLVE",
+        "END_RESPONSE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "AIR-FLOOR-009",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-024"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 590
+      }
+    },
+    {
+      "route_id": "RT.COGNITIVE_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "task/input requires cognitive processing for benchmark execution",
+      "requires": [
+        "DEP.CANONICAL_INTENT",
+        "DEP.ACTIVE_CONTEXT",
+        "DEP.SOURCE_EVIDENCE_STATE"
+      ],
+      "produces": [
+        "MII_COGNITIVE_ROUTE_SET",
+        "MII_CONTRIBUTIONS",
+        "MII_FUSION_STATE"
+      ],
+      "allowed_next_routes": [
+        "RT.MORPHOLOGY_BIND",
+        "RT.UNCERTAINTY_RESOLVE",
+        "RT.ACTION",
+        "RT.DELIVER"
+      ],
+      "invalidates": [
+        "PRIOR_COGNITIVE_COVERAGE_WHEN_INPUT_OR_TASK_CHANGED"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-022",
+        "AIR-FLOOR-023",
+        "AIR-FLOOR-024"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 601
+      }
+    },
+    {
+      "route_id": "RT.MORPHOLOGY_BIND",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "task/node morphology is material after cognitive requirements are known",
+      "requires": [
+        "DEP.COGNITIVE_REQUIREMENTS_KNOWN",
+        "DEP.BENCHMARK_REQUIREMENTS_KNOWN"
+      ],
+      "produces": [
+        "TASK_MORPHOLOGY_BINDING",
+        "NODE_MORPHOLOGY_BINDINGS"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTION",
+        "RT.DELIVER",
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "PRIOR_MORPHOLOGY_WHEN_FIT_CHANGED"
+      ],
+      "does_not_bypass": [
+        "DEP.COGNITIVE_REQUIREMENTS",
+        "DEP.GEOMETRY_CLAIM_BOUNDARY"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 612
+      }
+    },
+    {
+      "route_id": "RT.UNCERTAINTY_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "insufficient material basis",
+      "requires": [
+        "DEP.BASIS_GAP_IDENTIFIED",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "produces": [
+        "AIR_REQUIRED_INPUT_REQUEST",
+        "SAFE_DEGRADED_BOUNDARY",
+        "REVIEW_OR_EVIDENCE_REQUIRED"
+      ],
+      "allowed_next_routes": [
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "NONE_UNTIL_RESOLVING_INPUT_ARRIVES"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-023"
+      ],
+      "failure_route": "END_RESPONSE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 623
+      },
+      "alignment_interlock": "RT.ALIGN",
+      "alignment_profile": "UNCERTAINTY_RESOLUTION",
+      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS"
+    },
+    {
+      "route_id": "RT.ACTION",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "material external/tool/operator effect proposed",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.ARTIFACT_BOUND",
+        "DEP.LEASE_ACTIVE",
+        "DEP.SCOPE_MATCH",
+        "DEP.APPROVAL_CURRENT",
+        "DEP.GATE_ALLOW"
+      ],
+      "produces": [
+        "AIR_ACTION_AUTHORIZATION",
+        "ONE_MATERIAL_EFFECT_ATTEMPT"
+      ],
+      "allowed_next_routes": [
+        "RT.RECEIPT"
+      ],
+      "invalidates": [
+        "PRE_EFFECT_EVALUATION_BASIS",
+        "LEASE_OR_SOURCE_STATE_WHEN_EFFECT_CHANGES_IT"
+      ],
+      "does_not_bypass": [
+        "AIR_GATE",
+        "AIR-FLOOR-018"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 636
+      },
+      "alignment_interlock": "RT.ALIGN",
+      "alignment_profile": "POST_MATERIAL_EFFECT",
+      "alignment_interlock_point": "POST_EFFECT_PRE_NEXT"
+    },
+    {
+      "route_id": "RT.RECEIPT",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "material action attempted",
+      "requires": [
+        "DEP.MATCHING_AUTHORIZATION",
+        "DEP.OBSERVED_EFFECT_EVIDENCE",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "produces": [
+        "POST_EFFECT_RECONCILIATION",
+        "AIR_ACTION_RECEIPT"
+      ],
+      "allowed_next_routes": [
+        "RT.DELIVER",
+        "RT.CLOSE",
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "PRE_EFFECT_STATE_ASSUMPTIONS"
+      ],
+      "does_not_bypass": [
+        "DEP.POST_MATERIAL_EFFECT_ALIGNMENT",
+        "AIR-FLOOR-018"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 649
+      }
+    },
+    {
+      "route_id": "RT.DELIVER",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "receiver-facing material output candidate exists",
+      "requires": [
+        "DEP.OUTPUT_REVIEW",
+        "DEP.SEMANTIC_FIDELITY_RECONCILED",
+        "DEP.EPISTEMIC_SUFFICIENCY",
+        "DEP.CLOSURE_DELIVERY_GATE"
+      ],
+      "produces": [
+        "APPROVED_OUTPUT",
+        "REVIEW_GATE",
+        "REJECT_REPORT"
+      ],
+      "allowed_next_routes": [
+        "RT.CLOSE",
+        "END_RESPONSE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "AIR_GATE",
+        "BENCHMARK_JUDGE",
+        "AIR-FLOOR-022"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 659
+      }
+    },
+    {
+      "route_id": "RT.CLOSE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "task/step closure requested or terminality evaluated",
+      "requires": [
+        "DEP.DELIVERY_STATE",
+        "DEP.COMPLETION_EVIDENCE",
+        "DEP.NO_UNRESOLVED_BLOCKER"
+      ],
+      "produces": [
+        "COMPLETION_STATE"
+      ],
+      "allowed_next_routes": [
+        "RT.HANDOFF_CREATE",
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "ACTIVE_BINDING_ELIGIBILITY_WHEN_TERMINAL"
+      ],
+      "does_not_bypass": [
+        "DEP.RECEIPT_WHEN_ACTION_OCCURRED",
+        "DEP.SEMANTIC_FIDELITY"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 670
+      }
+    },
+    {
+      "route_id": "RT.HANDOFF_CREATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "handoff requested",
+      "requires": [
+        "DEP.CURRENT_STATE_RECONCILED",
+        "DEP.HANDOFF_SCHEMA_VALID",
+        "DEP.HANDOFF_GENERATION_EVALUATION"
+      ],
+      "produces": [
+        "AIR_HANDOFF_CARD"
+      ],
+      "allowed_next_routes": [
+        "END_RESPONSE"
+      ],
+      "invalidates": [],
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "DEP.HANDOFF_VALIDATION",
+        "AIR-FLOOR-013"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 681
+      }
+    },
+    {
+      "route_id": "RT.RECOVERY",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "drift/binding/source/prior-effect/dependency/state failure",
+      "requires": [
+        "DEP.FAILURE_EVIDENCE"
+      ],
+      "produces": [
+        "RECOVERY_STATE",
+        "AIR_ERROR_OR_RECOVERY_RECORDS",
+        "SAFE_NEXT_ACTION"
+      ],
+      "allowed_next_routes": [
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "AFFECTED_STALE_AUTHORITY"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-021"
+      ],
+      "failure_route": "END_RESPONSE",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 692
+      }
+    }
+  ]
+}

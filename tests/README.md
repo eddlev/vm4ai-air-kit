@@ -1,38 +1,33 @@
 # AIR test reproducibility harness
 
-This harness provides external executable evidence for claims that AIR classifies as `REPRODUCIBLE_EXECUTABLE`.
+This harness provides executable evidence for repository/static claims classified as `REPRODUCIBLE_EXECUTABLE`.
 
-It does **not** make model inference deterministic. Model- or judge-dependent evaluations remain `REPLAYABLE_EVALUATION` and must report their recorded inputs, procedure, model/tool identity when available, and stability across repeated runs.
+The current manifest is aligned to **AIR v2.5.0-preview.1**, Foundation 2.5.0 / Governance-Handoff 2.3.0 / Specialist 2.4.0. It checks exact source hashes, strict JSON parsing, and current version/schema/evidence carriers.
 
-## Release-grade executable check
+It does **not** make model inference deterministic. Model-, judge-, tool-use-, and long-horizon evaluations remain `REPLAYABLE_EVALUATION` and must preserve their run identity, conditions, model/tool provenance when available, results, and reproducibility limits.
 
-The GitHub Actions workflow runs the same manifest in three separate Docker containers with:
+## Release channels
 
-- the repository mounted read-only
-- network disabled with Docker `--network none`
-- `TZ=UTC`
-- stable locale settings
-- `PYTHONHASHSEED=0`
-- an explicit AIR test seed
-- one resolved container image identity reused for all three executions
+Preview releases use this executable/static evidence plus change-sensitive regression checks and targeted behavioral smoke. Stable releases require the broader repeated behavioral gate described in `RELEASE_CHANNEL_POLICY.md`.
 
-Each run produces a run record with suite and input hashes, source revision, runner/runtime/environment identity, per-test results, and a decision fingerprint. `air_test_compare.py` issues `DETERMINISTIC_CONFIRMED` only when all required runs pass and their identities and decision fingerprints agree.
+## Local preview verification
 
-If they diverge, the harness exits non-zero and reports `FLAKY_OR_NONDETERMINISTIC`.
-
-## Local use
-
-Run the suite in an isolated environment three times, then compare the run records:
+A normal workstation run can establish that the executable checks pass repeatedly on the same local source and environment. It must **not** be reported as isolated deterministic confirmation unless the environment actually enforces the isolation contract.
 
 ```bash
 python tests/air_test_runner.py --manifest tests/air-test-manifest.json --output run-1.json --run-index 1
 python tests/air_test_runner.py --manifest tests/air-test-manifest.json --output run-2.json --run-index 2
 python tests/air_test_runner.py --manifest tests/air-test-manifest.json --output run-3.json --run-index 3
+```
+
+For preview staging, require all three runs to pass and require the suite, fixture/input, and decision fingerprints to agree. Record the result as repeated local executable evidence, not as an isolated deterministic release-grade claim.
+
+## Stable / isolated deterministic comparison
+
+`air_test_compare.py` is intentionally stricter. Use it only when the run records truthfully show the required isolated environment, including enforced network isolation:
+
+```bash
 python tests/air_test_compare.py --runs run-1.json run-2.json run-3.json --output determinism-report.json --required-identical-runs 3
 ```
 
-A local run without enforced network isolation or a recorded immutable environment may still be useful, but it must preserve that reproducibility limitation and should not be presented as hermetic release evidence.
-
-## Claim boundary
-
-A green harness result proves only the checks that actually ran against the recorded inputs and environment. It does not prove untested intent, hidden reasoning, external side effects, regulatory conformity, or semantic correctness beyond the test definitions.
+A green executable harness proves only the checks actually run against the recorded inputs/environment. It does not prove deterministic LLM inference, hidden model state, external side effects, universal compatibility, or semantic correctness beyond the test definitions.

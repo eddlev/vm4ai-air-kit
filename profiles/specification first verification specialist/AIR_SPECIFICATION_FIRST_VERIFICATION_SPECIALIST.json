@@ -1,14 +1,14 @@
 {
   "title": "AIR Specification-First Verification Specialist v2",
   "SYSTEM_DESIGNATION": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
-  "PROMPT_VERSION": "2.0.0",
+  "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "package_version": "2.3.6",
+  "package_version": "2.4.0",
   "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_SPECIALIST",
-  "STATUS": "V2_3_6_FOCUSED_BEHAVIORAL_SMOKE_PASS_VALIDATED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -34,60 +34,81 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
-        "size_bytes": 317031,
-        "line_count": 6511
+        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "size_bytes": 333870,
+        "line_count": 6926
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
-        "size_bytes": 141998,
-        "line_count": 2983
+        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+        "size_bytes": 152528,
+        "line_count": 3126
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
-        "size_bytes": 20557,
-        "line_count": 453
+        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+        "size_bytes": 25346,
+        "line_count": 511
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
-        "size_bytes": 78895,
-        "line_count": 1565
+        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "size_bytes": 86064,
+        "line_count": 1571
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
-        "size_bytes": 40238,
-        "line_count": 870
+        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+        "size_bytes": 58378,
+        "line_count": 1096
       }
     ],
     "required_floor_invariants": [
-      "AIR-FLOOR-013",
-      "AIR-FLOOR-014",
-      "AIR-FLOOR-015",
-      "AIR-FLOOR-016",
-      "AIR-FLOOR-017",
-      "AIR-FLOOR-018",
-      "AIR-FLOOR-019",
-      "AIR-FLOOR-020"
+      "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
+    "target_foundation_versions": {
+      "core": "2.5.0",
+      "control": "2.5.0",
+      "governance": "2.3.0",
+      "starter": "2.5.0",
+      "handoff_schema": "2.3.0"
+    },
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+    "route_map_discovery_input": {
+      "filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "version": "1.0.0",
+      "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "size_bytes": 19274,
+      "line_count": 686
+    }
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
@@ -111,18 +132,18 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
-      "sha256": "79f039b42e9593a46884ec8e1535fc321b8cee737a6e535abcb0ed82e32d7c7d",
-      "size_bytes": 19019,
-      "line_count": 376,
+      "sha256": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
+      "size_bytes": 32340,
+      "line_count": 605,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
-      "sha256": "2e2be32b1c7272c3a239f22224bf6130ef602c5474716c9deaaa2432fd446f8e",
-      "size_bytes": 36825,
-      "line_count": 806,
+      "sha256": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c",
+      "size_bytes": 51588,
+      "line_count": 1038,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -170,7 +191,7 @@
   ],
   "conditional_activation_conditions": [
     "exploratory or divergent work where verification may be deferred until selection/commitment",
-    "low-risk tasks where only the light inline SFV path is necessary",
+    "bounded tasks where a proportionate inline SFV path is sufficient without omitting any verification, evidence, semantic-fidelity, epistemic, or gate obligation material to the promised outcome",
     "human-evaluated outcomes where operator or reviewer evidence is the correct abstraction"
   ],
   "non_activation_conditions": [
@@ -218,9 +239,10 @@
       "SFV-10",
       "SFV-11"
     ],
-    "selection_rule": "Use the lightest sufficient path. Do not mechanically execute every method step when the task is low-risk and the active contract permits a proportionate subset.",
+    "selection_rule": "Use the smallest sufficient verification path for the promised outcome. Proportionality may omit irrelevant method layers but may not reduce material evidence, semantic-fidelity, epistemic-sufficiency, acceptance, alignment, gate or closure obligations.",
     "adequacy_challenge": "Explicitly test whether all proposed verification could pass while the intended result is still materially wrong.",
-    "closure_rule": "Do not recommend closure until observed evidence, integrity review, and intent reconciliation support the current acceptance criteria."
+    "closure_rule": "Do not recommend closure until observed evidence, integrity review and intent reconciliation support current acceptance criteria; Core RT.DELIVER/RT.CLOSE and AIR_GATE retain closure/delivery authority.",
+    "new_task_boundary_rule": "On Core NEW_TASK_BOUNDARY, Orbit 0 task-identity change, or binding of a different task AIR_ARTIFACT, prior-task SFV specialist state becomes non-operative. Preserve it only as historical or candidate input and revalidate applicability before using it for the new task."
   },
   "output_contract": {
     "outputs": [
@@ -235,7 +257,8 @@
       "integrity_review",
       "intent_reconciliation_result",
       "gate_recommendation",
-      "one_bounded_next_action"
+      "one_bounded_next_action",
+      "mii_verification_contribution_candidates"
     ],
     "must_surface": [
       "material ambiguity",
@@ -266,22 +289,28 @@
   },
   "integration_refresh": {
     "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
-    "refresh_version": "2.3.6",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "refresh_version": "2.4.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
     "optional_cross_package_compatibility": [
       {
         "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
         "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
-        "selection_time_exact_identity_validation_required": true
+        "selection_time_exact_identity_validation_required": true,
+        "candidate_version_interface_reconciled": "2.4.0",
+        "t9_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+        "t9_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
       },
       {
         "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
         "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
-        "selection_time_exact_identity_validation_required": true
+        "selection_time_exact_identity_validation_required": true,
+        "candidate_version_interface_reconciled": "2.4.0",
+        "t9_observed_manifest_sha256": "a979b97fd9da92e4703a7a2ece5f2f93d2e36cd77ef48ac8f0adef9e899eef80",
+        "t9_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
       },
       {
         "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -292,19 +321,217 @@
       }
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
-    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
-      "integration_version": "2.3.6",
+      "release_identity": "AIR_SFV_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "integration_version": "2.4.0",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "foundation_versions": {
-        "core": "2.4.3",
-        "control": "2.4.3",
-        "governance": "2.2.0",
-        "starter": "2.4.3",
-        "handoff_schema": "2.2.0"
+        "core": "2.5.0",
+        "control": "2.5.0",
+        "governance": "2.3.0",
+        "starter": "2.5.0",
+        "handoff_schema": "2.3.0"
       },
+      "runtime_route_map_version": "1.0.0",
+      "capability_ecology_candidate_version_reconciled": "2.4.0",
+      "grounding_candidate_version_reconciled": "2.4.0",
+      "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "promotion_state": "NEW_SPECIALIST_COMPONENT_FOCUSED_SMOKE_PASS_OPERATIONALLY_ACCEPTED"
+      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+    }
+  },
+  "mii_sfv_contribution_contract": {
+    "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+    "core_route_owner": "RT.COGNITIVE_RESOLVE",
+    "sfv_role": "CANDIDATE_VERIFICATION_COGNITIVE_CONTRIBUTOR",
+    "primary_candidate_routes": [
+      "COG.EVIDENCE_TRIANGULATION",
+      "COG.ADVERSARIAL_DISCONFIRMATION"
+    ],
+    "conditional_candidate_routes": [
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.MULTI_LENS",
+      "COG.RISK_PROPAGATION",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.INFORMATION_GAIN",
+      "COG.KNOWLEDGE_TO_EXECUTION"
+    ],
+    "contribution_envelope": {
+      "record_kind": "ARTIFACT_CONTAINED_COGNITIVE_CONTRIBUTION_NOT_FORMAL_AIR_OBJECT",
+      "fields": [
+        "contribution_id",
+        "input_refs",
+        "intent_context_ref",
+        "cognitive_route_ids",
+        "route_objective",
+        "required_cognitive_depth",
+        "morphology_recommendations",
+        "supported_findings",
+        "interpretations",
+        "alternatives",
+        "risks",
+        "exceptions",
+        "uncertainties",
+        "evidence_refs",
+        "source_limitations",
+        "conflicts_with",
+        "proposed_benchmark_effect",
+        "validation_state"
+      ],
+      "verification_specific_fields": [
+        "specification_target_refs",
+        "verification_layer_classification",
+        "coverage_gaps",
+        "observed_evidence_refs",
+        "failure_localization",
+        "intent_reconciliation_candidate"
+      ],
+      "validation_states": [
+        "ACCEPT",
+        "HOLD",
+        "REJECT"
+      ]
+    },
+    "fusion_boundary": "SFV may identify evidence support/conflict edges, verification gaps and intent-reconciliation candidates, but Core MII owns cognitive contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
+    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy."
+  },
+  "semantic_fidelity_contract": {
+    "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+    "protected_states": [
+      "RAW_INPUT",
+      "CANONICAL_INTENT",
+      "ACTIVE_CONTEXT",
+      "OUTPUT_INTERPRETATION"
+    ],
+    "sfv_rule": "SFV derives verification targets from resolved canonical intent, active context, acceptance criteria and authoritative source state. Verification shaping may not silently replace, narrow, broaden or reinterpret material intent.",
+    "closure_rule": "Passing selected verification is insufficient for closure unless the verified result reconciles back to canonical intent, active context and current acceptance criteria through Core delivery/closure routes.",
+    "raw_input_boundary": "A verification specification, translated requirement or intent-reconciliation candidate never supersedes raw user input as evidence of what the user actually said."
+  },
+  "epistemic_sufficiency_contract": {
+    "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+    "core_route_owner": "RT.UNCERTAINTY_RESOLVE",
+    "required_input_object": "AIR_REQUIRED_INPUT_REQUEST",
+    "required_input_record_class": "REQUIRED_INPUT_REQUEST_RECORD",
+    "sfv_role": "Identify missing specification basis, authoritative evidence, environment state, evaluator evidence or user-controlled ambiguity and propose the smallest sufficient missing input.",
+    "non_inference_rule": "Material uncertainty is not converted into an operative assumption merely to complete a verification path.",
+    "continuation_rule": "Continue only where the unresolved uncertainty is non-material to the affected verification target or is explicitly gated without weakening acceptance criteria."
+  },
+  "morphology_contribution_contract": {
+    "core_route_owner": "RT.MORPHOLOGY_BIND",
+    "sfv_authority": "RECOMMENDATION_ONLY",
+    "typical_recommendations": {
+      "COG.EVIDENCE_TRIANGULATION": {
+        "geometry": "GRID_LATTICE",
+        "lambda": "MODERATE_TO_HIGH"
+      },
+      "COG.ADVERSARIAL_DISCONFIRMATION": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "HIGH"
+      },
+      "COG.CAUSAL_COUNTERFACTUAL": {
+        "geometry": "GRID_LATTICE_OR_FLUX_ADAPTIVE",
+        "lambda": "MODERATE_TO_HIGH"
+      },
+      "COG.MULTI_LENS": {
+        "geometry": "SPHERE_FIELD_OR_FLUX_ADAPTIVE",
+        "lambda": "MODERATE"
+      },
+      "SPECIFICATION_TRACEABILITY": {
+        "geometry": "GRID_LATTICE",
+        "lambda": "HIGH"
+      },
+      "BOUNDARY_AND_SAFETY_VERIFICATION": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "HIGH"
+      }
+    },
+    "observable_effect_requirement": "Every morphology recommendation must state the verification objective and observable effect on decomposition, coverage, pruning or review. Labels without observable effect are UNBOUND_DECORATIVE.",
+    "claim_boundary": "SFV may not claim direct latent-space control, measured internal model effect, or BACKEND_BOUND morphology without evidence."
+  },
+  "test_evidence_contract": {
+    "floor_reference": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+    "default_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "canonical_commands": {
+      "expanded_presentation": "air -t on",
+      "standard_presentation": "air -t off"
+    },
+    "presentation_only_rule": "The -t modifier controls evidence presentation and packaging only. It does not reduce evidence acquisition requirements, preservation, verification coverage, cognitive work, benchmark rigor, review obligations, acceptance criteria or closure requirements.",
+    "standard_presentation_rule": "Show the verification decision, scoped counts or states, evidence classes, material failures, limitations and sufficient evidence references without omitting evidence needed to justify the result.",
+    "expanded_presentation_rule": "Surface available reviewable test/evaluation artifacts and references when they exist and may be disclosed.",
+    "evidence_classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "retroactivity_rule": "Presentation mode may reveal already preserved evidence but must not fabricate missing historical evidence. A new authorized run is required when evidence itself is missing for an applicable acceptance, regulatory or reproducibility obligation.",
+    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text or unavailable backend logs.",
+    "contract_kind": "EVIDENCE_PRESENTATION_AND_PRESERVATION_SEPARATION"
+  },
+  "foundation_routing_compatibility": {
+    "core_route_ownership": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "routes": {
+        "alignment_evaluation": "RT.ALIGN",
+        "cognitive_resolution": "RT.COGNITIVE_RESOLVE",
+        "morphology_binding": "RT.MORPHOLOGY_BIND",
+        "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
+        "action": "RT.ACTION",
+        "delivery": "RT.DELIVER",
+        "closure": "RT.CLOSE"
+      },
+      "sfv_effect": "SFV supplies candidate verification strategy, cognitive/evidence contributions, adequacy findings, observed verification results and closure recommendations. It does not create parallel Core routes or positive execution authority."
+    },
+    "alignment_evaluation_dependency": {
+      "floor_reference": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "relationship": "Any formal AIR object that incorporates SFV output must satisfy the current Core evaluation-basis constructor dependency. SFV candidate records are not a bypass.",
+      "sfv_independent_formal_object_authority": "NONE"
+    },
+    "semantic_fidelity": {
+      "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "relationship": "SFV_VERIFIES_AGAINST_CANONICAL_INTENT_AND_RECONCILES_OUTPUT_BEFORE_CLOSURE"
+    },
+    "epistemic_sufficiency": {
+      "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "route_owner": "RT.UNCERTAINTY_RESOLVE",
+      "relationship": "SFV_IDENTIFIES_MISSING_BASIS_AND_PROPOSES_SMALLEST_SUFFICIENT_REQUIRED_INPUT",
+      "required_input_object": "AIR_REQUIRED_INPUT_REQUEST"
+    },
+    "mii_contribution_authority": {
+      "floor_reference": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "relationship": "CANDIDATE_CONTRIBUTION_ONLY",
+      "operative_rule": "SFV Domain, Method, Specialist and Executor outputs become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.execution_benchmark_profile."
+    },
+    "runtime_route_map": {
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "version": "1.0.0",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
+      "semantic_authority": "NONE",
+      "execution_authority": "NONE",
+      "binding_authority": "NONE",
+      "absence_effect": "NO_SFV_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
+      "size_bytes": 19274,
+      "line_count": 686
+    },
+    "capability_ecology_peer": {
+      "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+      "candidate_version_tested": "2.4.0",
+      "manifest_sha256_observed_for_t9_interface_reconciliation": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+      "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+      "manifest_hash_pinned_for_runtime_selection": false,
+      "selection_time_exact_identity_validation_required": true,
+      "note": "Observed T7 candidate identity is validation evidence for T9 only; runtime selection validates the then-supplied exact package."
+    },
+    "grounding_peer": {
+      "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+      "candidate_version_tested": "2.4.0",
+      "manifest_sha256_observed_for_t9_interface_reconciliation": "a979b97fd9da92e4703a7a2ece5f2f93d2e36cd77ef48ac8f0adef9e899eef80",
+      "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+      "manifest_hash_pinned_for_runtime_selection": false,
+      "selection_time_exact_identity_validation_required": true,
+      "note": "Observed T8 candidate identity is validation evidence for T9 only; runtime selection validates the then-supplied exact package."
     }
   }
 }

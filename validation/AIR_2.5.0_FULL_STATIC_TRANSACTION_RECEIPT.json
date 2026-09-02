@@ -1,0 +1,25 @@
+{
+  "AIR_ACTION_RECEIPT": {
+    "receipt_id": "RECEIPT-AIR250-OBJECT-CONTRACT-FULL-STATIC-001",
+    "object_version": "2.0.0",
+    "record_class": "ACTION_RECEIPT_RECORD",
+    "authorization_ref": "AUTH-AIR250-OBJECT-CONTRACT-CLOSURE-001",
+    "action_attempted": "AIR_2_5_0_FULL_CROSS_SYSTEM_STATIC_VALIDATION",
+    "result": "SUCCESS_VALIDATION_COMPLETED",
+    "validation_report_ref": "AIR-VAL-AIR250-OBJECT-CONTRACT-FULL-STATIC-001",
+    "validation_decision": "PASS_STATIC_OBJECT_CONTRACT_CLOSURE_VALIDATED_PENDING_FRESH_BEHAVIORAL",
+    "validation_counts": {
+      "total": 927,
+      "passed": 927,
+      "failed": 0,
+      "warnings": 0
+    },
+    "candidate_bytes_mutated": false,
+    "behavioral_regression_executed": false,
+    "public_repository_mutated": false,
+    "next_required_state": "FRESH_BEHAVIORAL_RELEASE_VALIDATION",
+    "runtime_origin": "TOOL_OBSERVED",
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false
+  }
+}

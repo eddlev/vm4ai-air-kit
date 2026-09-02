@@ -1,12 +1,21 @@
 {
   "AIR_HANDOFF_CARD": {
     "TEMPLATE_DESIGNATION": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-    "SCHEMA_VERSION": "2.2.0",
+    "SCHEMA_VERSION": "2.3.0",
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-    "schema_version": "2.2.0",
+    "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 9,
+    "card_revision": 14,
+    "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
+    "evaluation_basis": {
+      "evaluation_id": null,
+      "evaluation_profile": "HANDOFF_CREATE",
+      "state_epoch": null,
+      "alignment_check_ref": null,
+      "validation_report_ref": null,
+      "dependency_state": "UNVALIDATED_TEMPLATE"
+    },
     "card_created_at": null,
     "card_created_by": null,
     "runtime_origin": null,
@@ -147,12 +156,12 @@
     },
     "governance_state": {
       "governance_supplement_designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-      "governance_supplement_version": "2.2.0",
+      "governance_supplement_version": "2.3.0",
       "prompt_edition": "HUMAN_READABLE",
-      "governance_floor_version": "2.1.0",
+      "governance_floor_version": "2.3.0",
       "floor_invariant_reference": {
         "registry_designation": "AIR_FLOOR_INVARIANT_REGISTRY_V2",
-        "registry_version": "2.1.0",
+        "registry_version": "2.3.0",
         "active_invariant_ids": [],
         "tightened_invariant_ids": [],
         "attempted_relaxations": [],
@@ -168,7 +177,7 @@
       "restricted_content_excluded": true,
       "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
       "test_evidence_governance_state": {
-        "floor_invariant": "AIR-FLOOR-017",
+        "floor_invariant": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
         "governance_specialist_recommendation_state": "NOT_EVALUATED",
         "regulatory_evidence_requirement_state": "NONE_IDENTIFIED",
         "evidence_obligation_refs": [],
@@ -189,7 +198,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.4.3",
+        "PROMPT_VERSION": "2.5.0",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -198,7 +207,10 @@
       "source_pack_refs": [],
       "method_pack_refs": [],
       "executor_refs": [],
-      "recommended_startup_files": [],
+      "recommended_startup_files": [
+        "AIR_SPECIALIST_PACKAGE_INDEX.json",
+        "AIR_RUNTIME_ROUTE_MAP.json"
+      ],
       "missing_dependencies": []
     },
     "orbit_state": {
@@ -233,9 +245,7 @@
       "mechanism_claim_level": null
     },
     "test_evidence_state": {
-      "floor_invariant": "AIR-FLOOR-017",
-      "mode": "SUMMARY_ONLY",
-      "mode_source": "DEFAULT",
+      "floor_invariant": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
       "effective_from": null,
       "recommendation_state": "NOT_RECOMMENDED",
       "recommendation_reasons": [],
@@ -252,12 +262,14 @@
       "test_run_records": [],
       "reproducibility_limits": [],
       "sanitization_or_redaction_state": [],
-      "rerun_required_for_full_evidence": false,
-      "restoration_rule": "Restore the declared mode and evidence references, then validate current files, inputs, environment, permissions, obligation state, and exact run identities. A prior SUMMARY_ONLY result cannot be reconstructed into FULL_TEST_EVIDENCE without a new authorized run. A deterministic claim survives restoration only when its executable definitions, immutable identities, environment fingerprint, repetition evidence, and result fingerprints remain verifiable. The toggle or a model-authored pass summary does not prove testing, determinism, compliance, audit sufficiency, or regulatory conformity.",
+      "restoration_rule": "Restore evidence references, reproducibility state, regulatory obligations, and presentation preference as separate state. Presentation mode never proves evidence exists and never changes evidence obligations. Revalidate referenced suites, manifests, results, logs, fixtures, sanitization state, current inputs/environment/permissions, and exact run identities. Missing records remain missing; do not fabricate them from a smaller prior display.",
       "reproducibility_state": "UNVERIFIED",
       "release_grade_minimum_independent_executions": 3,
       "test_run_identity_records": [],
-      "unstable_test_ids": []
+      "unstable_test_ids": [],
+      "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+      "presentation_mode_source": "DEFAULT",
+      "evidence_capture_gaps": []
     },
     "execution_state": {
       "execution_benchmark_profile": null,
@@ -382,7 +394,12 @@
         "next_allowed_action": null,
         "evidence_refs": [],
         "method_specific_state": {}
-      }
+      },
+      "semantic_fidelity_contract": null,
+      "epistemic_sufficiency_state_ref": "AIR_HANDOFF_CARD.epistemic_sufficiency_state",
+      "mii_cognitive_lattice_ref": "AIR_HANDOFF_CARD.mii_state",
+      "mii_fusion_state": null,
+      "morphology_binding_ref": "AIR_HANDOFF_CARD.morphology_state"
     },
     "receiver_delivery_state": {
       "state": null,
@@ -393,7 +410,7 @@
       "uncertainty_or_degraded": []
     },
     "continuation_bootstrap": {
-      "bootstrap_route": "HANDOFF_CONTINUATION",
+      "bootstrap_route": "RT.HANDOFF_RESTORE",
       "entry_lifecycle_state": "BOOTSTRAP_NO_ARTIFACT",
       "card_is_execution_authority": false,
       "card_may_nominate_orbit_0": true,
@@ -402,13 +419,18 @@
       "artifact_precheck_required": true,
       "binding_transaction_required": true,
       "multiple_orbit_0_candidates_route": "ARTIFACT_BINDING_RECOVERY",
-      "material_execution_resume_condition": "Exactly one validated artifact is bound to Orbit 0 with ACTIVE_EXECUTION_BINDING.",
+      "material_execution_resume_condition": "A current HANDOFF_RESTORE alignment evaluation succeeds and exactly one validated artifact is rebound to Orbit 0 with ACTIVE_EXECUTION_BINDING.",
       "missing_active_candidate_behavior": "Compile a new candidate from restored project state and current user direction.",
       "user_task_change_behavior": "Treat selection as bootstrap input; promote selected task and queue the prior nomination if still valid.",
       "required_input_recheck": "Before repeating a request or resuming its controlled action, recheck session availability, validated package state, freshness, completeness, compatibility, source rights, permission, and satisfaction. Preserve exact identities and do not infer satisfaction from attachment alone.",
-      "test_evidence_recheck": "Restore test_evidence_state without treating the card as proof that tests ran or evidence is sufficient. Revalidate each referenced suite, manifest, result, log, fixture, sanitization state, and regulatory obligation. If FULL_TEST_EVIDENCE was enabled only after a prior summary-only run, preserve rerun_required_for_full_evidence.",
+      "test_evidence_recheck": "Restore test_evidence_state without treating the card or presentation mode as proof that tests ran or evidence is sufficient. Revalidate every referenced suite, manifest, result, log, fixture, sanitization state, reproducibility claim, and regulatory obligation. If requested evidence was never captured, preserve the gap and require a new authorized run when that evidence is material.",
       "method_handoff_recheck": "When method continuation is material, validate method identity/version/origin, active method state/step/gate, staleness, evidence references, blockers, next action, and method_specific_state against the current method requirements before artifact rebinding. Missing material state routes to REVIEW; do not invent it.",
-      "responsive_binding_recheck": "Restore responsive-binding requests and approval evidence only as continuation input. Revalidate the exact approval gate, disclosed scope/effects, component identity, freshness, compatibility, selection, and artifact compilation before binding. Attachment history alone is not approval."
+      "responsive_binding_recheck": "Restore responsive-binding requests and approval evidence only as continuation input. Revalidate the exact approval gate, disclosed scope/effects, component identity, freshness, compatibility, selection, and artifact compilation before binding. Attachment history alone is not approval.",
+      "specialist_catalog_recheck": "When specialist catalog provenance is recorded, compare the originating AIR_SPECIALIST_PACKAGE_INDEX identity with any currently supplied validated index before using the current index for new discovery. Exact same-release catalog identity permits normal discovery after explicit handoff Specialist/package state is restored and revalidated. A missing index degrades discovery without invalidating otherwise valid explicit handoff state. A different or foundation-incompatible index is a new-environment discovery input and requires targeted compatibility reconciliation before new catalog discovery. Never substitute, select, approve, bind, or rewrite restored Specialist state from index metadata alone.",
+      "runtime_alignment_recheck": "Historical alignment evaluation identities and results are provenance only. Execute a new Core RT.ALIGN evaluation using HANDOFF_RESTORE profile against current-session state before any restored state becomes execution-bearing.",
+      "semantic_fidelity_recheck": "Restore only explicit canonical-intent/context references and unresolved semantic ambiguities, then reconcile them against available raw input/source evidence and current user direction. Do not silently reinterpret missing intent.",
+      "mii_recheck": "Restore MII contribution references, conflict state, and morphology state as non-authorizing continuation input. Revalidate contribution availability/task fit and compile applicable validated contributions into or explicitly reference them from the rebound Orbit 0 AIR_ARTIFACT benchmark before operative use.",
+      "route_map_recheck": "AIR_RUNTIME_ROUTE_MAP.json is discovery/salience metadata only. If supplied, validate identity and Core compatibility; if missing or stale, Core route semantics remain authoritative and runtime continues without granting the map semantic authority."
     },
     "migration_state": {
       "source_schema_version": null,
@@ -429,7 +451,12 @@
         "v1_active_contract": "RESTORE_AS_ARTIFACT_INPUT_CONTRACT_PENDING_ARTIFACT_REBINDING",
         "v1_governance": "LEGACY_GOVERNANCE_STATE_REVIEW_REQUIRED",
         "v2_1_method_state": "MIGRATE_EXPLICIT_METHOD_AND_METHOD_EXECUTION_STATE_TO_2_2_METHOD_HANDOFF_STATE_WHEN_FULLY_RECOVERABLE; OTHERWISE_REVIEW",
-        "v2_1_schema": "RESTORE_ONLY_AS_MIGRATION_INPUT_PENDING_REVIEW_UNTIL_2_2_REQUIRED_STATE_IS_MAPPED"
+        "v2_1_schema": "RESTORE_ONLY_AS_MIGRATION_INPUT_PENDING_REVIEW_UNTIL_2_2_REQUIRED_STATE_IS_MAPPED",
+        "v2_2_pre_rev12_specialist_catalog_state": "NO_SCHEMA_MIGRATION_REQUIRED; rev11 or earlier schema-2.2.0 cards may omit specialist catalog provenance. Treat originating catalog identity as UNRECORDED_PRE_REV12, restore all other explicit state normally, and use any currently supplied compatible index only for new discovery after restoration/revalidation. Never claim it was the originating catalog.",
+        "v2_2_to_v2_3_alignment": "MIGRATE runtime_watchdog_state/cadence carriers as historical provenance only. Preserve post_activation_user_message_count only as diagnostic/anchor state. Do not restore alignment intervals, periodic-due state, or historical PASS as current authority. Execute a new HANDOFF_RESTORE alignment evaluation.",
+        "v2_2_to_v2_3_evidence_presentation": "Map legacy SUMMARY_ONLY display intent to STANDARD_EVIDENCE_PRESENTATION and legacy FULL_TEST_EVIDENCE display intent to EXPANDED_EVIDENCE_PRESENTATION only. Do not infer evidence capture or reproducibility from the old display mode.",
+        "v2_2_to_v2_3_mii": "Missing MII, semantic-fidelity, morphology, or epistemic-sufficiency carriers are valid legacy absence, not inferred completed state. Reconstruct only from explicit supported source/artifact state and current evaluation; otherwise preserve UNRESOLVED or request required input.",
+        "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING"
       }
     },
     "load_integrity": {
@@ -449,7 +476,7 @@
       "last_full_audit_ref": null
     },
     "file_identity_and_delivery_state": {
-      "floor_invariant": "AIR-FLOOR-014",
+      "floor_invariant": "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
       "canonical_filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
       "file_receipts": [],
       "normalized_collision_check_state": "UNVERIFIED",
@@ -469,6 +496,8 @@
         "card_id",
         "card_revision",
         "record_class",
+        "evaluation_basis",
+        "object_version",
         "runtime_origin",
         "backend_validation_claimed",
         "hidden_reasoning_claimed",
@@ -498,14 +527,20 @@
         "migration_state",
         "load_integrity",
         "file_identity_and_delivery_state",
-        "schema_manifest"
+        "schema_manifest",
+        "runtime_alignment_state",
+        "semantic_fidelity_state",
+        "mii_state",
+        "morphology_state",
+        "epistemic_sufficiency_state"
       ],
       "optional_fields": [
         "card_created_at",
         "card_created_by",
         "platform_state",
         "extensions",
-        "action_governance_state"
+        "action_governance_state",
+        "transfer_ownership_contract"
       ],
       "conditional_rules": [
         {
@@ -540,20 +575,20 @@
         },
         {
           "id": "HC-COND-TEST-EVIDENCE",
-          "condition": "test_evidence_state.mode = FULL_TEST_EVIDENCE, produced test-evidence references exist, rerun_required_for_full_evidence is true, or a regulatory evidence obligation is OPTIONAL, RECOMMENDED, REQUIRED_FOR_APPROVAL_OR_CLOSURE, SATISFIED, or UNRESOLVED",
+          "condition": "test_evidence_state.presentation_mode is set, produced evidence references exist, evidence_capture_gaps are non-empty, or a regulatory evidence obligation is material",
           "requirements": [
-            "mode is SUMMARY_ONLY or FULL_TEST_EVIDENCE",
-            "mode_source and effective_from preserve when the selection became effective",
-            "recommendation state and reasons are preserved without silently enabling the mode",
+            "presentation_mode is STANDARD_EVIDENCE_PRESENTATION or EXPANDED_EVIDENCE_PRESENTATION",
+            "presentation_mode_source and effective_from preserve when the selection became effective",
+            "presentation preference does not change evidence acquisition, preservation, reproducibility, approval, or closure obligations",
+            "recommendation state and reasons are preserved without silently changing presentation mode",
             "regulatory evidence requirement and obligation references are preserved",
-            "produced suite or definition, run manifest, per-test result, log, fixture, and README references are preserved when available",
+            "produced suite or definition, run manifest, per-test result, log, fixture, and review references are preserved when available",
             "each run record declares REPRODUCIBLE_EXECUTABLE, REPLAYABLE_EVALUATION, or MANUAL_REVIEW_REQUIRED",
             "material quantitative run records preserve exact test-run identity fields and reproducibility_state",
-            "deterministic release-grade claims preserve at least three independent isolated execution results when technically feasible and identical decision fingerprints",
+            "deterministic release-grade claims preserve the required independent isolated execution evidence when technically feasible",
             "model-dependent evaluations remain non-deterministic and preserve aggregate stability evidence when claimed",
             "mixed automated, replayable, and manual results preserve class-separated counts",
-            "reproducibility limits and sanitization or redaction effects remain visible",
-            "a prior SUMMARY_ONLY run sets rerun_required_for_full_evidence when exact evidence was not preserved",
+            "reproducibility limits, evidence capture gaps, and sanitization/redaction effects remain visible",
             "missing mandatory regulatory evidence routes to REVIEW or EVIDENCE_REQUIRED"
           ],
           "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
@@ -704,7 +739,7 @@
             "historical authorizations and receipts preserve identity and evidence without becoming continuation authority",
             "open authorizations are empty or explicitly invalidated",
             "unbound prior effects preserve reconciliation and human-review state",
-            "runtime watchdog is rerun before any material action"
+            "current Core alignment evaluation is rerun before any material action"
           ],
           "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW"
         },
@@ -722,6 +757,21 @@
           "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
         },
         {
+          "id": "HC-COND-SPECIALIST-CATALOG",
+          "condition": "extensions.specialist_catalog_state is present, specialist catalog provenance is recorded, or a Specialist Package Index is supplied during continuation",
+          "requirements": [
+            "catalog state remains DISCOVERY_ONLY and never grants selection, approval, compilation, binding, or Orbit 0 authority",
+            "originating catalog designation, filename, index version, sha256, and foundation compatibility identity are preserved when known",
+            "a carried or referenced originating index has a file receipt when exact bytes were available at handoff creation",
+            "explicit handoff Specialist/package restoration state takes precedence over catalog discovery metadata",
+            "exact same-release catalog match permits normal discovery only after restored explicit state is revalidated",
+            "missing current index degrades discovery without invalidating otherwise valid explicit Specialist/package state",
+            "different or foundation-incompatible current index requires targeted catalog compatibility reconciliation before new discovery",
+            "rev11 or earlier schema-2.2.0 cards may omit catalog provenance without schema failure and are tagged UNRECORDED_PRE_REV12 rather than inferred"
+          ],
+          "failure_behavior": "RESTORE_EXPLICIT_STATE; DEGRADE_OR_REVALIDATE_CATALOG_DISCOVERY; NEVER_SILENTLY_SUBSTITUTE_SPECIALIST"
+        },
+        {
           "id": "HC-COND-OPERATIVE-AUTHORITY",
           "condition": "handoff template identity or Starter compatibility is evaluated",
           "requirements": [
@@ -730,6 +780,67 @@
             "block only when canonical operative paths disagree"
           ],
           "failure_behavior": "BLOCK_ONLY_ON_OPERATIVE_PATH_CONFLICT"
+        },
+        {
+          "id": "HC-COND-RUNTIME-ALIGNMENT",
+          "condition": "schema 2.3.0 continuation or any state-sensitive restored operation",
+          "requirements": [
+            "historical evaluation is provenance only",
+            "new HANDOFF_RESTORE alignment evaluation is required",
+            "no cadence or interval state is restored"
+          ],
+          "failure_behavior": "HOLD_RESTORED_EXECUTION_PENDING_CURRENT_ALIGNMENT"
+        },
+        {
+          "id": "HC-COND-SEMANTIC-FIDELITY",
+          "condition": "canonical intent/context or receiver-delivery state is material",
+          "requirements": [
+            "preserve raw input/source references when available",
+            "restore explicit canonical intent/context only",
+            "reconcile current output/task interpretation before approval or delivery"
+          ],
+          "failure_behavior": "REVIEW_OR_REQUIRED_INPUT"
+        },
+        {
+          "id": "HC-COND-MII",
+          "condition": "MII contribution or cognitive-lattice state is present or required",
+          "requirements": [
+            "contributions remain non-authorizing",
+            "conflicts remain explicit",
+            "operative effect requires compilation into or explicit reference by rebound Orbit 0 artifact benchmark"
+          ],
+          "failure_behavior": "HOLD_UNCOMPILED_CONTRIBUTIONS_NONOPERATIVE"
+        },
+        {
+          "id": "HC-COND-EPISTEMIC-SUFFICIENCY",
+          "condition": "material basis gap exists",
+          "requirements": [
+            "route through RT.UNCERTAINTY_RESOLVE",
+            "request or obtain smallest sufficient missing input",
+            "do not silently infer resolution"
+          ],
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+        },
+        {
+          "id": "HC-COND-ROUTE-MAP",
+          "condition": "AIR_RUNTIME_ROUTE_MAP.json is supplied or referenced",
+          "requirements": [
+            "validate map identity and Core compatibility",
+            "map remains discovery/salience only",
+            "Core semantics remain authoritative if map is absent or stale"
+          ],
+          "failure_behavior": "DEGRADE_ROUTE_DISCOVERY_ONLY"
+        },
+        {
+          "id": "HC-COND-OBJECT-RESPONSIBILITY-REV14",
+          "condition": "card_revision >= 14",
+          "requirements": [
+            "transfer_ownership_contract is present",
+            "current transfer-level carriers are interpreted according to canonical_transfer_carriers",
+            "active_artifact and active_contract repeated values are source snapshots, not competing current authority",
+            "unlabelled redundant transfer state is rejected rather than resolved by recency or convenience"
+          ],
+          "failure_behavior": "REVIEW_OR_REJECT_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION"
         }
       ],
       "nullability": {
@@ -760,9 +871,6 @@
         "Invented filename, package, source, tool, connector, credential, or dependency stored as observed identity",
         "Received input represented as selected or bound before compatibility validation and approval when required",
         "Satisfied current request repeated without a stale, mismatch, incompleteness, access, or supersession reason",
-        "FULL_TEST_EVIDENCE restored without actual suite or disclosed definitions, run manifest, per-test results, log or declared limitation",
-        "SUMMARY_ONLY result represented as a complete reproducibility package",
-        "Prior commands, logs, environment, fixtures or test implementation reconstructed from a summary-only record",
         "Manual, qualitative, model-judged or prompt-side review represented as deterministic automated execution",
         "Hidden reasoning, private chain of thought, credentials, secrets, restricted source text or unavailable backend logs stored as test evidence",
         "Test-evidence toggle represented as proof of testing, compliance, audit sufficiency or regulatory conformity",
@@ -770,40 +878,62 @@
         "AIR_ACTION_AUTHORIZATION restored across handoff as current executable authority",
         "Prior material effect retroactively labeled authorized by a later artifact, approval, or handoff",
         "Material continuation action executed before artifact lease and resource scope pin revalidation",
-        "Pending material action receipt or unbound prior effect omitted from continuation state"
+        "Pending material action receipt or unbound prior effect omitted from continuation state",
+        "Historical alignment evaluation restored as current evaluation authority",
+        "Any alignment cadence or interval restored as an operative requirement",
+        "Evidence presentation mode represented as changing evidence acquisition, preservation, or approval requirements",
+        "MII contribution, Specialist output, translator output, or cognitive node represented as independent positive execution authority",
+        "Translated semantic representation treated as stronger evidence of user intent than available raw input/source evidence",
+        "Material epistemic insufficiency silently resolved by unsupported inference",
+        "Q4 or Q4D state independently restored as execution geometry authority",
+        "AIR_RUNTIME_ROUTE_MAP represented as semantic, execution, binding, selection, or approval authority",
+        "AIR_HANDOFF_CARD emitted without object_version = 2.0.0",
+        "AIR_HANDOFF_CARD emitted without current HANDOFF_CREATE evaluation_basis",
+        "Strict one-root serialization treated as permission to skip alignment, validation, gate, or constructor dependencies"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
         "one-root check",
         "template designation and schema version check",
+        "formal object common-field and HANDOFF_CREATE evaluation_basis check",
         "required-carrier check",
         "canonical claim consistency check",
         "legacy migration check",
         "file identity receipt check",
-        "required-input identity, availability, validation, satisfaction, and AIR-FLOOR-016 check",
-        "test-evidence mode, AIR-FLOOR-017, run-evidence identity, reproducibility, sanitization, rerun and regulatory-obligation check",
+        "required-input identity, availability, validation, satisfaction, and AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION check",
         "governance and approval-scope check",
         "artifact and Orbit candidate check",
-        "knowledge-to-execution path completeness and AIR-FLOOR-015 check",
+        "knowledge-to-execution path completeness and AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH check",
         "artifact lease and resource scope pin restoration check",
         "action authorization invalidation and receipt continuity check",
         "unbound prior effect reconciliation check",
-        "runtime watchdog pre-action readiness check",
         "continuation bootstrap precheck",
         "generic method_handoff_state completeness and method-specific handoff requirement check",
         "responsive binding approval scope/effect/identity revalidation check",
-        "schema 2.1.0 to 2.2.0 method-state migration check"
+        "evidence presentation preference and underlying evidence/reproducibility state separation check",
+        "runtime alignment migration and current HANDOFF_RESTORE evaluation requirement check",
+        "semantic fidelity and canonical intent/context reconciliation check",
+        "MII contribution nonauthority and benchmark compilation/reference check",
+        "morphology restoration and Q4 soft-prior boundary check",
+        "epistemic sufficiency and required-input routing check",
+        "schema 2.2.0 to 2.3.0 migration check",
+        "AIR_RUNTIME_ROUTE_MAP discovery-only authority check"
       ],
       "schema_compatibility_contract": {
-        "canonical_schema_version": "2.2.0",
+        "canonical_schema_version": "2.3.0",
         "core_required_version_owner": "AIR_CORE_RUNTIME_V2",
         "cross_file_equality_required": true,
         "template_fields_required_equal": [
           "SCHEMA_VERSION",
           "schema_version"
         ],
-        "starter_identity_version_required": "2.4.3",
-        "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY"
+        "starter_identity_version_required": "2.5.0",
+        "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
+        "card_revision_compatibility": "REV13_SCHEMA_2_3_0_WITH_EXPLICIT_MIGRATION_FROM_SCHEMA_2_2_0_REV12_AND_EARLIER",
+        "specialist_catalog_extension_introduced_revision": 12,
+        "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
+        "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
+        "schema_2_2_migration_rule": "Accept as migration input only; normalize cadence/evidence display semantics and require current alignment plus artifact rebinding before execution."
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -819,7 +949,66 @@
         "historical_release_metadata_effect": "NON_OPERATIVE_MUST_NOT_BLOCK_BOOT_OR_RESTORATION"
       }
     },
-    "extensions": {},
+    "extensions": {
+      "specialist_catalog_state": {
+        "state_schema": "AIR_HANDOFF_SPECIALIST_CATALOG_STATE_V1",
+        "originating_catalog": {
+          "catalog_designation": null,
+          "catalog_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
+          "index_version": null,
+          "index_sha256": null,
+          "foundation_compatibility_identity": null,
+          "availability_state_at_handoff": "UNRECORDED_OR_UNAVAILABLE"
+        },
+        "continuation_catalog": {
+          "catalog_designation": null,
+          "catalog_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
+          "index_version": null,
+          "index_sha256": null,
+          "foundation_compatibility_identity": null,
+          "comparison_state": "NOT_EVALUATED"
+        },
+        "backward_compatibility_state": "SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
+        "restoration_precedence": "EXPLICIT_HANDOFF_SPECIALIST_AND_PACKAGE_STATE_PRECEDES_CATALOG_DISCOVERY",
+        "authority_effect": "DISCOVERY_ONLY",
+        "rules": [
+          "The catalog does not restore, select, approve, compile, bind, or substitute a Specialist by itself.",
+          "Exact originating-catalog identity may be established only from recorded designation, version, hash, and foundation compatibility identity.",
+          "If the originating index was available and its exact bytes were carried or referenced, file_identity_and_delivery_state.file_receipts should preserve its canonical filename, designation, version, hash, bytes, and delivery state.",
+          "A missing current index degrades only catalog discovery; it does not invalidate otherwise valid explicit Specialist/package handoff state.",
+          "A different current index preserves restored Specialist/package state and requires targeted catalog compatibility reconciliation before new discovery.",
+          "A foundation-incompatible current index is treated as a new-environment discovery input and cannot be represented as exact continuation.",
+          "For pre-rev12 cards with no catalog provenance, originating catalog identity is UNRECORDED_PRE_REV12 rather than inferred from the currently supplied index.",
+          "Migration to schema 2.3.0 does not grant the Specialist Package Index route, selection, approval, compilation, binding, or execution authority."
+        ]
+      }
+    },
+    "transfer_ownership_contract": {
+      "contract_version": "1.0.0",
+      "purpose": "Define one canonical transfer carrier for current transfer-level state while preserving source-object snapshots as non-executable provenance.",
+      "rules": [
+        "AIR_HANDOFF_CARD is a transfer record and may serialize source-object snapshots; snapshots never become current execution authority on restore.",
+        "When the same conceptual datum appears in a source-object snapshot and a transfer-level carrier, the source snapshot preserves provenance while the transfer-level carrier named below governs transfer interpretation.",
+        "A repeated value without a distinct source-snapshot role or explicit reference is invalid redundant transfer state.",
+        "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object."
+      ],
+      "canonical_transfer_carriers": {
+        "current_task_binding": "AIR_HANDOFF_CARD.task_binding",
+        "current_orbit_state": "AIR_HANDOFF_CARD.orbit_state",
+        "current_receiver_delivery_state": "AIR_HANDOFF_CARD.receiver_delivery_state",
+        "current_action_history_and_unresolved_effects": "AIR_HANDOFF_CARD.action_governance_state",
+        "current_runtime_alignment_transfer_state": "AIR_HANDOFF_CARD.runtime_alignment_state",
+        "current_semantic_fidelity_transfer_state": "AIR_HANDOFF_CARD.semantic_fidelity_state",
+        "current_epistemic_sufficiency_transfer_state": "AIR_HANDOFF_CARD.epistemic_sufficiency_state"
+      },
+      "source_snapshot_roles": {
+        "AIR_HANDOFF_CARD.active_artifact": "IMMUTABLE_PROVENANCE_SNAPSHOT_OF_SOURCE_ARTIFACT; prior binding/action/delivery values cannot override transfer-level carriers or restore execution authority.",
+        "AIR_HANDOFF_CARD.active_contract": "IMMUTABLE_PROVENANCE_SNAPSHOT_OF_CONTRACT_INPUT; cannot override the Artifact or create execution authority.",
+        "AIR_HANDOFF_CARD.project_state": "TRANSFER_OWNED_PROJECT_SNAPSHOT",
+        "AIR_HANDOFF_CARD.profile_stack": "TRANSFER_OWNED_CAPABILITY_SELECTION_SNAPSHOT"
+      },
+      "restore_rule": "Resolve transfer-level carriers first, preserve source snapshots as provenance, then execute current-session validation/alignment and artifact rebinding. Never select a newer duplicate by convenience."
+    },
     "action_governance_state": {
       "artifact_lease_state": "EXPIRED_REBIND_REQUIRED_ON_RESTORE",
       "resource_scope_pins": [],
@@ -829,42 +1018,79 @@
       "action_receipts": [],
       "unbound_prior_effects": [],
       "pending_reconciliation_ids": [],
-      "runtime_watchdog_state": {
-        "last_check_state": "UNVALIDATED_BOOTSTRAP_INPUT",
-        "failed_checks": [],
-        "next_required_check": "RUN_AFTER_RESTORE_PRECHECK_AND_BEFORE_ANY_MATERIAL_ACTION",
-        "post_activation_user_message_count": 0,
-        "alignment_check_interval_user_messages": 5,
-        "last_periodic_alignment_check_at_count": 0,
-        "next_periodic_alignment_check_at_count": 5,
-        "last_periodic_alignment_result": "NOT_RUN",
-        "last_alignment_check_ref": null,
-        "counted_event": "SUBSTANTIVE_USER_MESSAGE",
-        "excluded_events": [
-          "ASSISTANT_MESSAGE",
-          "TOOL_CALL",
-          "CONNECTOR_CALLBACK",
-          "SYSTEM_EVENT",
-          "HIDDEN_HOST_EVENT",
-          "ARTIFACT_REVISION"
-        ]
-      },
       "material_action_resume_rule": "Revalidate artifact, lease, scope pin, sources, environment, permissions, approvals, pending receipts, and prior effects before issuing a new action authorization."
     },
     "runtime_drift_hardening_schema_extension": {
-      "schema_extension_version": "2.2.0",
-      "floor_invariant": "AIR-FLOOR-018",
+      "schema_extension_version": "2.3.0",
+      "floor_invariant": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "added_carriers": [
+        "current runtime alignment evaluation state",
         "artifact lease state",
         "resource scope pin",
         "action authorization history and invalidation",
         "action receipts",
         "unbound prior effects",
-        "runtime watchdog state",
-        "periodic alignment check cadence state"
+        "semantic fidelity state",
+        "MII contribution/fusion state",
+        "morphology state",
+        "epistemic sufficiency state"
       ],
-      "restore_boundary": "Historical authorizations never restore as executable authority. Restore the explicit object-visibility selection source and periodic alignment cadence state; validation and rebinding remain required before material execution.",
-      "alignment_floor_invariant": "AIR-FLOOR-020"
+      "restore_boundary": "Historical alignment evaluation and action authorizations never restore as current executable authority. Restore explicit provenance/state only; current validation, alignment evaluation, dependency closure, and artifact rebinding remain required.",
+      "alignment_floor_invariant": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "semantic_fidelity_floor_invariant": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "epistemic_floor_invariant": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "mii_authority_floor_invariant": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+    },
+    "runtime_alignment_state": {
+      "state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "state_epoch": null,
+      "current_evaluation_id": null,
+      "current_evaluation_profile": null,
+      "last_alignment_check_ref": null,
+      "last_validation_report_ref": null,
+      "last_evaluation_result": "NOT_CURRENT_IN_NEW_SESSION",
+      "post_activation_user_message_count": 0,
+      "recovery_state": "HANDOFF_REVALIDATION_REQUIRED",
+      "pending_revalidation": true,
+      "restoration_rule": "Historical alignment evaluation is provenance only and must not be restored as current authority. Execute HANDOFF_RESTORE evaluation in the new session before state-sensitive construction, material action, or governed continuation."
+    },
+    "semantic_fidelity_state": {
+      "state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "raw_input_refs": [],
+      "canonical_intent_refs": [],
+      "active_context_refs": [],
+      "semantic_translation_refs": [],
+      "unresolved_semantic_ambiguities": [],
+      "output_reconciliation_state": null,
+      "restoration_rule": "Restore explicit references only; raw input remains source evidence. Revalidate intent/context fidelity before the rebound artifact is treated as executable."
+    },
+    "mii_state": {
+      "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+      "lattice_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "cognitive_route_ids": [],
+      "contribution_refs": [],
+      "accepted_contribution_refs": [],
+      "held_contribution_refs": [],
+      "rejected_contribution_refs": [],
+      "unresolved_conflicts": [],
+      "fusion_state": null,
+      "restoration_rule": "MII state is continuation input only. Cognitive contributions have no positive execution authority and become operative only after validation and compilation into or explicit reference by the bound Orbit 0 AIR_ARTIFACT benchmark."
+    },
+    "morphology_state": {
+      "task_morphology_ref": null,
+      "node_morphology_refs": [],
+      "geometry_effect_state": null,
+      "lambda_pressure_state": null,
+      "unresolved_morphology": [],
+      "restoration_rule": "Re-evaluate task and node morphology against current task intent, MII route objectives, benchmark, risk/evidence pressure, and Core RT.MORPHOLOGY_BIND. Prior Q4/Q4D state is a continuity/delivery prior only."
+    },
+    "epistemic_sufficiency_state": {
+      "state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "unresolved_basis_gaps": [],
+      "required_input_request_refs": [],
+      "evidence_required_refs": [],
+      "capability_required_refs": [],
+      "restoration_rule": "Material uncertainty remains unresolved until Core RT.UNCERTAINTY_RESOLVE obtains or validates the smallest sufficient input. Do not silently infer missing basis from handoff proximity or prior momentum."
     }
   }
 }

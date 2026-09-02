@@ -5,6 +5,9 @@ on:
     paths:
       - README.md
       - START_HERE.md
+      - RELEASE_CHANNEL_POLICY.md
+      - VALIDATION_EVIDENCE_*.md
+      - BUG_REPORTING.md
       - COMPATIBILITY.md
       - VERSION
       - RELEASE_NOTES_*.md
@@ -63,6 +66,10 @@ jobs:
               'AIR_DEFAULT_STARTER_PROFILE.json',
               'AIR_HANDOFF_CARD_TEMPLATE.json',
               'START_HERE.md',
+              'RELEASE_CHANNEL_POLICY.md',
+              'VALIDATION_EVIDENCE_0.6.0-preview.1.md',
+              'BUG_REPORTING.md',
+              'COMPATIBILITY.md',
               'LICENSE',
               'NOTICE',
               'AIR_CORE_MANIFEST.json',

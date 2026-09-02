@@ -1,14 +1,14 @@
 {
   "title": "AIR Grounding Domain Package v2",
   "SYSTEM_DESIGNATION": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
-  "PROMPT_VERSION": "2.0.0",
+  "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "artifact_class": "AIR_DOMAIN_PACKAGE",
-  "package_version": "2.3.5",
+  "package_version": "2.4.0",
   "package_subtype": "GROUNDING_DOMAIN_PACKAGE",
-  "STATUS": "V2_3_5_FOUNDATION_2_4_3_RESEALED_AVAILABLE_UNBOUND",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -31,60 +31,81 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fa6c4f61ecabf4bbb83ea53e29af35ac1e9cb110e40d27346d44ef598e75349f",
-        "size_bytes": 317031,
-        "line_count": 6511
+        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "size_bytes": 333870,
+        "line_count": 6926
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "71f0bde28dad7e501ec4cb02c799995a4e1174341ceaf5cfd134ce8a48a08473",
-        "size_bytes": 141998,
-        "line_count": 2983
+        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+        "size_bytes": 152528,
+        "line_count": 3126
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a448a2e412107c5f6bd6e00599b01025e06c1ebb1b54da99558be649b7ec8e9a",
-        "size_bytes": 20557,
-        "line_count": 453
+        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+        "size_bytes": 25346,
+        "line_count": 511
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.4.3",
+        "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b9ba257668342b5a191f015d431935fecb8db2920a7e4af0095a03d5e527c01d",
-        "size_bytes": 78895,
-        "line_count": 1565
+        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "size_bytes": 86064,
+        "line_count": 1571
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
-        "version": "2.2.0",
+        "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "63df0c05af4f8d7c77f0d5a12e8804072ea7de770f758e9f2eb5528bff078eed",
-        "size_bytes": 40238,
-        "line_count": 870
+        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+        "size_bytes": 58378,
+        "line_count": 1096
       }
     ],
     "required_floor_invariants": [
-      "AIR-FLOOR-013",
-      "AIR-FLOOR-014",
-      "AIR-FLOOR-015",
-      "AIR-FLOOR-016",
-      "AIR-FLOOR-017",
-      "AIR-FLOOR-018",
-      "AIR-FLOOR-019",
-      "AIR-FLOOR-020"
+      "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET"
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
+    "target_foundation_versions": {
+      "core": "2.5.0",
+      "control": "2.5.0",
+      "governance": "2.3.0",
+      "starter": "2.5.0",
+      "handoff_schema": "2.3.0"
+    },
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+    "route_map_discovery_input": {
+      "filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "version": "1.0.0",
+      "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "size_bytes": 19274,
+      "line_count": 686
+    }
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
@@ -130,7 +151,10 @@
     "capability_ecology_package": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
-      "availability_state": "OPTIONAL_COMPATIBLE_UNBOUND_SELECTION_TIME_VALIDATION_REQUIRED"
+      "availability_state": "OPTIONAL_COMPATIBLE_UNBOUND_SELECTION_TIME_VALIDATION_REQUIRED",
+      "candidate_version_interface_reconciled": "2.4.0",
+      "t8_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+      "observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
     },
     "ai_governance_package": {
       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -139,7 +163,7 @@
     }
   },
   "required_input_acquisition_contract": {
-    "floor_invariant": "AIR-FLOOR-016",
+    "floor_invariant": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
     "required": true,
     "behavior": "Check current session and validated package inventory first; request the smallest exact missing component, source, tool, connector, credential class, approval, clarification, or action; request the complete five-file Grounding package when coupled use or package validation is required.",
     "complete_package_files": [
@@ -157,29 +181,27 @@
     "attachment_boundary": "Receipt establishes availability only, not selection, approval, binding, or execution authority."
   },
   "test_evidence_contract": {
-    "floor_invariant": "AIR-FLOOR-017",
-    "default_mode": "SUMMARY_ONLY",
-    "default_command": "air -t off",
-    "opt_in_command": "air -t on",
-    "classes": [
+    "floor_reference": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+    "default_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "canonical_commands": {
+      "expanded_presentation": "air -t on",
+      "standard_presentation": "air -t off"
+    },
+    "presentation_only_rule": "The -t modifier controls evidence presentation and packaging only. It does not reduce evidence acquisition requirements, evidence preservation, cognitive work, benchmark rigor, review obligations, acceptance criteria, or closure requirements.",
+    "standard_presentation_rule": "Show decision, scoped counts, evidence classes, material failures, claim boundary and sufficient evidence references without omitting evidence required to justify the decision.",
+    "expanded_presentation_rule": "Surface available reviewable evidence artifacts and references when those artifacts exist and may be disclosed.",
+    "evidence_classes": [
       "REPRODUCIBLE_EXECUTABLE",
       "REPLAYABLE_EVALUATION",
       "MANUAL_REVIEW_REQUIRED"
     ],
-    "full_mode_outputs": [
-      "test definitions or executable suite",
-      "test-run manifest",
-      "per-test results",
-      "raw or visibly sanitized log",
-      "fixtures",
-      "review and rerun README"
-    ],
-    "retroactive_reconstruction_prohibited": true,
-    "hidden_reasoning_exposure_prohibited": true,
-    "regulatory_rule": "When a valid relevant Governance Specialist or compiled governance requirement requires test or audit evidence, recommend air -t on. Do not enable it silently. Missing required evidence remains REVIEW or EVIDENCE_REQUIRED."
+    "retroactivity_rule": "Presentation mode may reveal already preserved evidence but must not fabricate missing historical evidence. A new authorized run is required when evidence itself is missing for an applicable acceptance, regulatory or reproducibility obligation, not merely because standard presentation was used.",
+    "regulatory_rule": "Required regulatory/test evidence must exist regardless of presentation mode; missing qualifying evidence remains REVIEW or EVIDENCE_REQUIRED.",
+    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text or unavailable backend logs.",
+    "contract_kind": "EVIDENCE_PRESENTATION_AND_PRESERVATION_SEPARATION"
   },
   "knowledge_to_execution_grounding_contract": {
-    "floor_invariant": "AIR-FLOOR-015",
+    "floor_invariant": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
     "applies_to": "GROUNDING_DOMAIN_REQUIREMENTS_AND_BENCHMARK_INPUT",
     "knowledge_classes": [
       "FACTUAL",
@@ -216,7 +238,18 @@
       "result evaluation and error localization"
     ],
     "approval_boundary": "APPROVE requires COMPLETE_FOR_ACTIVE_STEP; missing required stages route to REVIEW or REJECT.",
-    "hidden_reasoning_boundary": "Use declared criteria, evidence and observable checks; do not request or expose private chain of thought."
+    "hidden_reasoning_boundary": "Use declared criteria, evidence and observable checks; do not request or expose private chain of thought.",
+    "execution_namespace_boundary": {
+      "k2e_execution_stage_semantics": "Required task operation inside the knowledge-to-execution/cognitive benchmark path.",
+      "does_not_mean": [
+        "RT.ACTION authorization",
+        "AIR_GATE ALLOW",
+        "material-effect permission",
+        "receiver delivery authority",
+        "closure authority"
+      ],
+      "operative_action_rule": "Any material action still follows Core RT.ACTION, AIR_GATE, AIR_ACTION_AUTHORIZATION, post-effect alignment/reconciliation and AIR_ACTION_RECEIPT requirements."
+    }
   },
   "domain_truth_boundary": "This package supplies Grounding terminology, constraints, evidence classes, failure modes and review expectations. It does not replace project source truth, current authoritative external sources, an approved Detailed Domain Package, or the bound Orbit 0 artifact.",
   "domain_scope": [
@@ -345,7 +378,12 @@
     "Prior generated patches, previous assistant output, remembered filenames, and conversation summaries must not be used as patch source truth.",
     "Q6 must be treated as project-scoped cooperative free-text alignment intake, not a primary option menu.",
     "Reusable working profiles may inform starting preferences only; they do not override project-specific Q6, bound Orbit 0 artifact contracts, AIR_GATE, evidence gates, or prompt/backend boundaries.",
-    "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, bound Orbit 0 artifact contracts, AIR_GATE, evidence gates, patch-source gates, Q6 workflow, and prompt/backend claim boundaries."
+    "Specialists, Domain Packages, Method Packs, and Executors must comply with AIR Core Runtime, Control Surface, bound Orbit 0 artifact contracts, AIR_GATE, evidence gates, patch-source gates, Q6 workflow, and prompt/backend claim boundaries.",
+    "On Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT, prior task-operative Grounding selection, method-state expectations, benchmark contribution, and execution-specific state are non-operative for the new task until applicability is revalidated under the newly bound task artifact; reusable Grounding doctrine remains available as candidate capability input.",
+    "Grounding challenge must preserve resolved canonical intent/context unless Core routes an explicit rescope.",
+    "Material unknowns cannot be silently inferred; route missing basis through RT.UNCERTAINTY_RESOLVE.",
+    "Grounding cognitive contributions remain candidate-only until compiled into the bound AIR_ARTIFACT benchmark.",
+    "Blast-radius likelihood is UNKNOWN when evidence is insufficient; do not invent probabilities."
   ],
   "evidence_requirements": {
     "technology_capacity": [
@@ -685,6 +723,14 @@
         "official_source_claim": "may support product or platform fact within source scope and date boundary",
         "empirical_test_result": "required for effectiveness, performance, superiority, reliability, safety, production-readiness, compliance, or benchmark-passage claims"
       }
+    },
+    "mii_grounding_integration": {
+      "candidate_outputs": [
+        "candidate MII grounding contribution envelope",
+        "risk propagation graph when blast radius is material",
+        "semantic fidelity and epistemic sufficiency constraints for benchmark compilation"
+      ],
+      "authority": "CANDIDATE_ONLY_UNTIL_ARTIFACT_BENCHMARK_COMPILATION"
     }
   },
   "non_goals": [
@@ -710,7 +756,7 @@
       "backend validation evidence",
       "empirical improvement proof"
     ],
-    "fallback_when_missing": "AIR_DEFAULT_STARTER_V1 may proceed in source-light/provisional mode and should surface missing domain overlay coverage where material.",
+    "fallback_when_missing": "AIR_DEFAULT_STARTER_V2 may proceed in source-light/provisional mode and should surface missing domain overlay coverage where material.",
     "active_contract_subordination": "This domain package is referential and subordinate to BOUND_ORBIT_0_AIR_ARTIFACT. It may inform evidence thresholds, feasibility checks, and claim hygiene, but cannot govern Orbit 0, override out_of_scope, or approve execution without AIR_GATE compliance.",
     "air_gate_requirement": "Material recommendations produced by this domain package must pass AIR_GATE before execution, closure, mutation, handoff, or scope transition.",
     "method_execution_state_boundary": "This domain package may inform method execution state evidence expectations and staleness review, but cannot override BOUND_ORBIT_0_AIR_ARTIFACT, AIR_GATE, method-step gates, or active method state.",
@@ -849,7 +895,7 @@
   "package_completion_contract": {
     "component_count": 4,
     "manifest_required": true,
-    "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
+    "package_state": "PACKAGE_COMPLETE_T12B_DEPENDENCY_CLOSURE_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_INTEGRATED_STATIC_AND_BEHAVIORAL_REVALIDATION",
     "attachment_effect": "AVAILABILITY_ONLY",
     "binding_effect": "NONE_UNTIL_SELECTED_APPROVED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT"
   },
@@ -861,7 +907,10 @@
         "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
-        "selection_time_exact_identity_validation_required": true
+        "selection_time_exact_identity_validation_required": true,
+        "candidate_version_interface_reconciled": "2.4.0",
+        "t8_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+        "t8_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
       },
       {
         "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -872,21 +921,216 @@
       }
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
-    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.3.6",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "refresh_version": "2.4.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_INTEGRATED_RELEASE_V2_3_6",
-      "integration_version": "2.3.6",
+      "release_identity": "AIR_GROUNDING_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "integration_version": "2.4.0",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
       "foundation_versions": {
-        "core": "2.4.3",
-        "control": "2.4.3",
-        "governance": "2.2.0",
-        "starter": "2.4.3",
-        "handoff_schema": "2.2.0"
+        "core": "2.5.0",
+        "control": "2.5.0",
+        "governance": "2.3.0",
+        "starter": "2.5.0",
+        "handoff_schema": "2.3.0"
       },
+      "runtime_route_map_version": "1.0.0",
+      "capability_ecology_candidate_version_reconciled": "2.4.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
-      "functional_component_change": false
+      "functional_component_change": true,
+      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
     }
+  },
+  "foundation_routing_compatibility": {
+    "core_route_ownership": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "routes": {
+        "cognitive_resolution": "RT.COGNITIVE_RESOLVE",
+        "morphology_binding": "RT.MORPHOLOGY_BIND",
+        "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
+        "capability_resolution": "RT.CAPABILITY_RESOLVE",
+        "action": "RT.ACTION",
+        "delivery": "RT.DELIVER",
+        "closure": "RT.CLOSE"
+      },
+      "grounding_effect": "Grounding supplies candidate findings, cognitive contributions, risk propagation, challenge, evidence and required-input proposals. It does not create parallel Core routes or positive execution authority."
+    },
+    "semantic_fidelity": {
+      "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "relationship": "GROUNDING_CHALLENGES_PLAN_WITHOUT_SILENTLY_REPLACING_RESOLVED_INTENT",
+      "rescope_rule": "When grounding changes the task center, intended outcome, material scope, or acceptance criteria, propose RESCOPE_REQUIRED and route the change through Core. Grounding must not silently rewrite canonical intent."
+    },
+    "epistemic_sufficiency": {
+      "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "route_owner": "RT.UNCERTAINTY_RESOLVE",
+      "relationship": "GROUNDING_IDENTIFIES_MISSING_BASIS_AND_PROPOSES_SMALLEST_SUFFICIENT_INPUT",
+      "required_input_object": "AIR_REQUIRED_INPUT_REQUEST",
+      "required_input_record_class": "REQUIRED_INPUT_REQUEST_RECORD"
+    },
+    "mii_contribution_authority": {
+      "floor_reference": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "relationship": "CANDIDATE_CONTRIBUTION_ONLY",
+      "operative_rule": "Grounding Domain, Method, Specialist and Executor outputs have no independent execution, selection, approval, binding, delivery or closure authority. They become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.execution_benchmark_profile."
+    },
+    "runtime_route_map": {
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "version": "1.0.0",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
+      "semantic_authority": "NONE",
+      "execution_authority": "NONE",
+      "binding_authority": "NONE",
+      "absence_effect": "NO_GROUNDING_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
+      "size_bytes": 19274,
+      "line_count": 686
+    },
+    "capability_ecology_peer": {
+      "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+      "candidate_version_tested": "2.4.0",
+      "manifest_sha256_observed_for_t8_interface_reconciliation": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+      "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+      "manifest_hash_pinned_for_runtime_selection": false,
+      "selection_time_exact_identity_validation_required": true,
+      "note": "Observed T7 candidate identity is validation evidence for this reconciliation only; runtime selection must validate the then-supplied exact package and does not inherit this hash as binding authority."
+    }
+  },
+  "mii_grounding_contribution_contract": {
+    "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+    "core_route_owner": "RT.COGNITIVE_RESOLVE",
+    "grounding_role": "CANDIDATE_GROUNDING_COGNITIVE_CONTRIBUTOR",
+    "primary_candidate_routes": [
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.RISK_PROPAGATION",
+      "COG.DECISION_TRADEOFF",
+      "COG.INFORMATION_GAIN",
+      "COG.EVIDENCE_TRIANGULATION"
+    ],
+    "conditional_candidate_routes": [
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.MULTI_LENS",
+      "COG.TEMPORAL_SYSTEM_DYNAMICS",
+      "COG.KNOWLEDGE_TO_EXECUTION"
+    ],
+    "contribution_envelope": {
+      "record_kind": "ARTIFACT_CONTAINED_COGNITIVE_CONTRIBUTION_NOT_FORMAL_AIR_OBJECT",
+      "fields": [
+        "contribution_id",
+        "input_refs",
+        "intent_context_ref",
+        "cognitive_route_ids",
+        "route_objective",
+        "required_cognitive_depth",
+        "morphology_recommendations",
+        "supported_findings",
+        "interpretations",
+        "alternatives",
+        "risks",
+        "exceptions",
+        "uncertainties",
+        "evidence_refs",
+        "source_limitations",
+        "conflicts_with",
+        "proposed_benchmark_effect",
+        "validation_state"
+      ],
+      "validation_states": [
+        "ACCEPT",
+        "HOLD",
+        "REJECT"
+      ]
+    },
+    "fusion_boundary": "Grounding may identify support/conflict edges and unresolved conflicts but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
+    "authority_boundary": "No Grounding cognitive route or contribution authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+  },
+  "semantic_fidelity_contract": {
+    "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+    "protected_states": [
+      "RAW_INPUT",
+      "CANONICAL_INTENT",
+      "ACTIVE_CONTEXT",
+      "OUTPUT_INTERPRETATION"
+    ],
+    "grounding_rule": "Grounding evaluates feasibility, claims, assumptions, consequences, risks and alternatives against resolved canonical intent and applicable context. It may challenge the proposed plan or recommend rescope but may not silently replace material intent, narrow/broaden scope, or reinterpret user-controlled values.",
+    "output_rule": "Grounding contributions must identify any proposed benchmark effect and any material divergence from canonical intent/context. Material divergence routes to REVIEW or RESCOPE_REQUIRED before becoming operative.",
+    "raw_input_boundary": "A translated or grounded interpretation never supersedes raw user input as evidence of what the user actually said."
+  },
+  "epistemic_sufficiency_contract": {
+    "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+    "route_owner": "RT.UNCERTAINTY_RESOLVE",
+    "invariant": "Uncertainty creates an information-acquisition obligation, not an inference license.",
+    "grounding_behavior": "When reliable continuation lacks sufficient basis, identify the exact missing basis and propose the smallest sufficient clarification, direction, source, evidence, current fact, environment state, artifact, permission, approval, capability, Specialist, or operator action.",
+    "request_object": {
+      "name": "AIR_REQUIRED_INPUT_REQUEST",
+      "record_class": "REQUIRED_INPUT_REQUEST_RECORD"
+    },
+    "non_material_uncertainty_rule": "Proceed with a reversible labeled assumption only when alternative interpretations cannot materially alter correctness, scope, risk, evidence, authority, acceptance criteria or user intent.",
+    "tool_acquisition_rule": "Do not ask the user for information Grounding/AIR can reliably obtain from available authorized evidence or tools.",
+    "likelihood_rule": "Do not invent numeric likelihood or confidence. When probability/likelihood lacks adequate evidence, use UNKNOWN or an explicitly qualitative evidence-bounded state."
+  },
+  "risk_propagation_contract": {
+    "cognitive_route": "COG.RISK_PROPAGATION",
+    "purpose": "Represent adjacent blast radius as a propagation graph rather than a flat checklist when material.",
+    "node_fields": [
+      "originating_action_or_decision",
+      "direct_effects",
+      "affected_assets",
+      "dependency_edges",
+      "secondary_effects",
+      "cascade_paths",
+      "affected_scope",
+      "impact",
+      "reversibility",
+      "detectability",
+      "propagation_depth",
+      "containment",
+      "controls",
+      "control_strength",
+      "evidence_quality",
+      "residual_risk",
+      "unknowns"
+    ],
+    "likelihood_rule": "Assess likelihood only when evidence supports it; otherwise likelihood = UNKNOWN. Do not fabricate numeric probabilities.",
+    "decision_effect": "Material uncontrolled or unknown cascade risk may support REVIEW, EVIDENCE_REQUIRED, RESCOPE_REQUIRED or REJECT candidate recommendations; AIR_GATE remains Core-owned."
+  },
+  "morphology_contribution_contract": {
+    "core_route_owner": "RT.MORPHOLOGY_BIND",
+    "grounding_authority": "RECOMMENDATION_ONLY",
+    "typical_recommendations": {
+      "COG.RISK_PROPAGATION": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "HIGH"
+      },
+      "COG.ADVERSARIAL_DISCONFIRMATION": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "HIGH"
+      },
+      "COG.DECISION_TRADEOFF": {
+        "geometry": "GRID_LATTICE_OR_POLYTOPE_CORE",
+        "lambda": "MODERATE_TO_HIGH"
+      },
+      "COG.INFORMATION_GAIN": {
+        "geometry": "FLUX_ADAPTIVE",
+        "lambda": "MODERATE"
+      },
+      "COG.EVIDENCE_TRIANGULATION": {
+        "geometry": "GRID_LATTICE",
+        "lambda": "MODERATE_TO_HIGH"
+      }
+    },
+    "observable_effect_requirement": "Every recommendation must state the task/node objective and observable decomposition/review/pruning effect. Labels without effect are UNBOUND_DECORATIVE.",
+    "claim_boundary": "Grounding may not claim direct latent-space control, measured internal model effect, or BACKEND_BOUND morphology without evidence."
+  },
+  "air_2_5_0_mii_patch_state": {
+    "patch_id": "AIR_T8_GROUNDING_MII_RECONCILIATION_001",
+    "package_version": "2.4.0",
+    "component_prompt_version": "2.1.0",
+    "applied_at": "2026-08-28T21:15:00+02:00",
+    "semantic_diff_class": "MINOR_PACKAGE_EXPANSION_NO_AUTHORITY_EXPANSION",
+    "source_package_version": "2.3.8",
+    "runtime_authority_change": "NONE",
+    "validation_state": "SUPERSEDED_BY_T12D_FOUNDATION_RESEAL_STATIC_VALIDATION"
   }
 }
