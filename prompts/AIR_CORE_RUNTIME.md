@@ -1586,6 +1586,12 @@ AIR_ARTIFACT base allowed object-owned top-level fields:
 - mii_fusion_state
 - morphology_binding
 - execution_benchmark_profile
+- capability_clusters when vector compilation is material
+- missing_vectors when vector compilation is material
+- degraded_execution_mode when execution is materially degraded
+- dependency_edges when execution dependencies are material
+- vector_family_state_summary when vector-family state is material
+- objective when coding/implementation formation is material
 - selected_vectors
 - obligations
 - blockers
@@ -1607,6 +1613,11 @@ AIR_ARTIFACT base allowed object-owned top-level fields:
 - review_obligations when coding is material
 - rejection_conditions when coding is material
 - readiness_stage when coding/readiness is material
+- readiness_reason when coding/readiness is material
+- stage_constraints when coding/readiness is material
+- promotion_requirements when coding/readiness is material
+- blocked_capabilities when coding/readiness is material
+- decision_state when coding/readiness review is material
 - behavior_specification when behavior-bearing implementation is material
 - active_task_geometry when morphology geometry is material
 - geometry_effect_state when morphology geometry is material

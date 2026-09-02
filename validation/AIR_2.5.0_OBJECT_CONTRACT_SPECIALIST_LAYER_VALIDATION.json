@@ -77,77 +77,77 @@
       {
         "check_id": "EDGE.cea.AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "status": "PASS",
-        "detail": "actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.observed_sha256')]"
+        "detail": "actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f; refs=[('e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f', 'external_dependency_state.domain_capability_registry.observed_sha256')]"
       },
       {
         "check_id": "EDGE.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "status": "PASS",
-        "detail": "actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.sha256')]"
+        "detail": "actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f; refs=[('e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f', 'external_dependency_state.domain_capability_registry.sha256')]"
       },
       {
         "check_id": "EDGE.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
         "status": "PASS",
-        "detail": "actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; refs=[('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'external_dependency_state.human_to_machine_capability_translator.sha256')]"
+        "detail": "actual=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42; refs=[('e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42', 'external_dependency_state.human_to_machine_capability_translator.sha256')]"
       },
       {
         "check_id": "EDGE.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "status": "PASS",
-        "detail": "actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d; refs=[('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'external_dependency_state.domain_capability_registry.observed_sha256'), ('73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d', 'dependencies.1.sha256')]"
+        "detail": "actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f; refs=[('e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f', 'external_dependency_state.domain_capability_registry.observed_sha256'), ('e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
         "status": "PASS",
-        "detail": "actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca; refs=[('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'external_dependency_state.human_to_machine_capability_translator.observed_sha256'), ('85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca', 'dependencies.2.sha256')]"
+        "detail": "actual=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42; refs=[('e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42', 'external_dependency_state.human_to_machine_capability_translator.observed_sha256'), ('e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42', 'dependencies.2.sha256')]"
       },
       {
         "check_id": "EDGE.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json->AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
         "status": "PASS",
-        "detail": "actual=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb; refs=[('1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb', 'external_dependency_state.capability_ecology_architect.observed_sha256'), ('1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb', 'dependencies.0.sha256')]"
+        "detail": "actual=9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3; refs=[('9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3', 'external_dependency_state.capability_ecology_architect.observed_sha256'), ('9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "REF.cea.AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json.external_dependency_state.domain_capability_registry.observed_sha256",
         "status": "PASS",
-        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d, actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
+        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f, actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json.external_dependency_state.domain_capability_registry.sha256",
         "status": "PASS",
-        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d, actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
+        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f, actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json.external_dependency_state.human_to_machine_capability_translator.sha256",
         "status": "PASS",
-        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca, actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca"
+        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42, actual=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.external_dependency_state.domain_capability_registry.observed_sha256",
         "status": "PASS",
-        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d, actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
+        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f, actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.external_dependency_state.human_to_machine_capability_translator.observed_sha256",
         "status": "PASS",
-        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca, actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca"
+        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42, actual=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.external_dependency_state.capability_ecology_architect.observed_sha256",
         "status": "PASS",
-        "detail": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb, actual=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb"
+        "detail": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3, actual=9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb, actual=1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb"
+        "detail": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json: declared=9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3, actual=9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d, actual=73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
+        "detail": "AIR_DOMAIN_CAPABILITY_REGISTRY.json: declared=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f, actual=e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
       },
       {
         "check_id": "REF.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json.dependencies.2.sha256",
         "status": "PASS",
-        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca, actual=85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca"
+        "detail": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json: declared=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42, actual=e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
       },
       {
         "check_id": "MANIFEST.FOUNDATION.cea",
@@ -167,7 +167,7 @@
       {
         "check_id": "MANIFEST.HASH.cea.AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "status": "PASS",
-        "detail": "73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d / 73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d"
+        "detail": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f / e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
       },
       {
         "check_id": "MANIFEST.SIZE.cea.AIR_DOMAIN_CAPABILITY_REGISTRY.json",
@@ -182,7 +182,7 @@
       {
         "check_id": "MANIFEST.HASH.cea.AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
         "status": "PASS",
-        "detail": "85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca / 85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca"
+        "detail": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42 / e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
       },
       {
         "check_id": "MANIFEST.SIZE.cea.AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -197,7 +197,7 @@
       {
         "check_id": "MANIFEST.HASH.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
         "status": "PASS",
-        "detail": "1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb / 1ee066f755f0d4cece83b0213ab7febc0d77b1f7d969e2526aa5866d73e5c8fb"
+        "detail": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3 / 9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3"
       },
       {
         "check_id": "MANIFEST.SIZE.cea.AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
@@ -212,7 +212,7 @@
       {
         "check_id": "MANIFEST.HASH.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "b1471989eae608e6934ad0b7a60ef9f1fcf7e4bc1f1ef9985d8d4ba67a8fa304 / b1471989eae608e6934ad0b7a60ef9f1fcf7e4bc1f1ef9985d8d4ba67a8fa304"
+        "detail": "6e72955d4311dc4d61361e73470ea39b8392d46516167f62cec475ecf1e03177 / 6e72955d4311dc4d61361e73470ea39b8392d46516167f62cec475ecf1e03177"
       },
       {
         "check_id": "MANIFEST.SIZE.cea.AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
@@ -287,62 +287,62 @@
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_METHOD_PACK.json->AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')]"
+        "detail": "actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed; refs=[('de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')]"
+        "detail": "actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed; refs=[('de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_SPECIALIST.json->AIR_GROUNDING_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; refs=[('d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2', 'dependencies.1.sha256')]"
+        "detail": "actual=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910; refs=[('096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81; refs=[('bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81', 'dependencies.0.sha256')]"
+        "detail": "actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed; refs=[('de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2; refs=[('d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2', 'dependencies.1.sha256')]"
+        "detail": "actual=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910; refs=[('096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.grounding.AIR_GROUNDING_EXECUTOR.json->AIR_GROUNDING_SPECIALIST.json",
         "status": "PASS",
-        "detail": "actual=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09; refs=[('d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09', 'dependencies.2.sha256')]"
+        "detail": "actual=287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c; refs=[('287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c', 'dependencies.2.sha256')]"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_METHOD_PACK.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81, actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81"
+        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed, actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_SPECIALIST.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81, actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81"
+        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed, actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_SPECIALIST.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_METHOD_PACK.json: declared=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2, actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2"
+        "detail": "AIR_GROUNDING_METHOD_PACK.json: declared=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910, actual=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_EXECUTOR.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81, actual=bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81"
+        "detail": "AIR_GROUNDING_DOMAIN_PACKAGE.json: declared=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed, actual=de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_EXECUTOR.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_METHOD_PACK.json: declared=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2, actual=d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2"
+        "detail": "AIR_GROUNDING_METHOD_PACK.json: declared=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910, actual=096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910"
       },
       {
         "check_id": "REF.grounding.AIR_GROUNDING_EXECUTOR.json.dependencies.2.sha256",
         "status": "PASS",
-        "detail": "AIR_GROUNDING_SPECIALIST.json: declared=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09, actual=d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09"
+        "detail": "AIR_GROUNDING_SPECIALIST.json: declared=287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c, actual=287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c"
       },
       {
         "check_id": "MANIFEST.FOUNDATION.grounding",
@@ -362,7 +362,7 @@
       {
         "check_id": "MANIFEST.HASH.grounding.AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81 / bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81"
+        "detail": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed / de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed"
       },
       {
         "check_id": "MANIFEST.SIZE.grounding.AIR_GROUNDING_DOMAIN_PACKAGE.json",
@@ -377,7 +377,7 @@
       {
         "check_id": "MANIFEST.HASH.grounding.AIR_GROUNDING_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2 / d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2"
+        "detail": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910 / 096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910"
       },
       {
         "check_id": "MANIFEST.SIZE.grounding.AIR_GROUNDING_METHOD_PACK.json",
@@ -392,7 +392,7 @@
       {
         "check_id": "MANIFEST.HASH.grounding.AIR_GROUNDING_SPECIALIST.json",
         "status": "PASS",
-        "detail": "d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09 / d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09"
+        "detail": "287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c / 287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c"
       },
       {
         "check_id": "MANIFEST.SIZE.grounding.AIR_GROUNDING_SPECIALIST.json",
@@ -407,7 +407,7 @@
       {
         "check_id": "MANIFEST.HASH.grounding.AIR_GROUNDING_EXECUTOR.json",
         "status": "PASS",
-        "detail": "f7411715e572d61238166b4fb1320030b4edc575dda0476253cb14d918d2adcb / f7411715e572d61238166b4fb1320030b4edc575dda0476253cb14d918d2adcb"
+        "detail": "3906b5b23652276aa369b39093d563c64bdd77a90091b647fe93fdd727e63346 / 3906b5b23652276aa369b39093d563c64bdd77a90091b647fe93fdd727e63346"
       },
       {
         "check_id": "MANIFEST.SIZE.grounding.AIR_GROUNDING_EXECUTOR.json",
@@ -482,62 +482,62 @@
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'package_component_dependencies.0.sha256')]"
+        "detail": "actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3; refs=[('202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3', 'package_component_dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'dependencies.0.sha256')]"
+        "detail": "actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3; refs=[('202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; refs=[('9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893', 'dependencies.1.sha256')]"
+        "detail": "actual=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c; refs=[('9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2; refs=[('733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2', 'dependencies.0.sha256')]"
+        "detail": "actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3; refs=[('202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893; refs=[('9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893', 'dependencies.1.sha256')]"
+        "detail": "actual=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c; refs=[('9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json->AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
         "status": "PASS",
-        "detail": "actual=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439; refs=[('22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439', 'dependencies.2.sha256')]"
+        "detail": "actual=eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e; refs=[('eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e', 'dependencies.2.sha256')]"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json.package_component_dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2, actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3, actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2, actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3, actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893, actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c, actual=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2, actual=733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json: declared=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3, actual=202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893, actual=9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json: declared=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c, actual=9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c"
       },
       {
         "check_id": "REF.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json.dependencies.2.sha256",
         "status": "PASS",
-        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: declared=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439, actual=22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439"
+        "detail": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json: declared=eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e, actual=eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e"
       },
       {
         "check_id": "MANIFEST.FOUNDATION.sfv",
@@ -557,7 +557,7 @@
       {
         "check_id": "MANIFEST.HASH.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2 / 733363118496a2df313bb5ed95c05edc6028964ecea3bf6be2aadd4c26aceeb2"
+        "detail": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3 / 202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3"
       },
       {
         "check_id": "MANIFEST.SIZE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
@@ -572,7 +572,7 @@
       {
         "check_id": "MANIFEST.HASH.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893 / 9e39914efe0e089d05d9ed57fb1b19089ed2eca69c2d85f26e151be47d7eb893"
+        "detail": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c / 9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c"
       },
       {
         "check_id": "MANIFEST.SIZE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -587,7 +587,7 @@
       {
         "check_id": "MANIFEST.HASH.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
         "status": "PASS",
-        "detail": "22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439 / 22b039cf8b6b613f2dd55ddf70feef9fbd9bd7050d50f70b662abaf7a9911439"
+        "detail": "eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e / eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e"
       },
       {
         "check_id": "MANIFEST.SIZE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
@@ -602,7 +602,7 @@
       {
         "check_id": "MANIFEST.HASH.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
         "status": "PASS",
-        "detail": "f95cd03a220931bfc1e2aeb3426de1ac9275b8cdb3e1c61a5513d1680905103d / f95cd03a220931bfc1e2aeb3426de1ac9275b8cdb3e1c61a5513d1680905103d"
+        "detail": "a1606491779549f810602edcf5147463e53adc7b6fb63e3f93e080d4d2281581 / a1606491779549f810602edcf5147463e53adc7b6fb63e3f93e080d4d2281581"
       },
       {
         "check_id": "MANIFEST.SIZE.sfv.AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
@@ -692,102 +692,102 @@
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')]"
+        "detail": "actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed; refs=[('dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')]"
+        "detail": "actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed; refs=[('dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
         "status": "PASS",
-        "detail": "actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')]"
+        "detail": "actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558; refs=[('a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')]"
+        "detail": "actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed; refs=[('dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
         "status": "PASS",
-        "detail": "actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')]"
+        "detail": "actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558; refs=[('a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json->AIR_AI_GOVERNANCE_SPECIALIST.json",
         "status": "PASS",
-        "detail": "actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; refs=[('51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac', 'dependencies.2.sha256')]"
+        "detail": "actual=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108; refs=[('e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108', 'dependencies.2.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583; refs=[('74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583', 'dependencies.0.sha256')]"
+        "detail": "actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed; refs=[('dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed', 'dependencies.0.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
         "status": "PASS",
-        "detail": "actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110; refs=[('b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110', 'dependencies.1.sha256')]"
+        "detail": "actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558; refs=[('a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558', 'dependencies.1.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_SPECIALIST.json",
         "status": "PASS",
-        "detail": "actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac; refs=[('51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac', 'dependencies.2.sha256')]"
+        "detail": "actual=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108; refs=[('e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108', 'dependencies.2.sha256')]"
       },
       {
         "check_id": "EDGE.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json->AIR_AI_GOVERNANCE_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "actual=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97; refs=[('3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97', 'dependencies.3.sha256')]"
+        "detail": "actual=246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb; refs=[('246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb', 'dependencies.3.sha256')]"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583, actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583"
+        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed, actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583, actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583"
+        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed, actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110, actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110"
+        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558, actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583, actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583"
+        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed, actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110, actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110"
+        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558, actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json.dependencies.2.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_SPECIALIST.json: declared=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac, actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac"
+        "detail": "AIR_AI_GOVERNANCE_SPECIALIST.json: declared=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108, actual=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json.dependencies.0.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583, actual=74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583"
+        "detail": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json: declared=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed, actual=dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json.dependencies.1.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110, actual=b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110"
+        "detail": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json: declared=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558, actual=a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json.dependencies.2.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_SPECIALIST.json: declared=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac, actual=51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac"
+        "detail": "AIR_AI_GOVERNANCE_SPECIALIST.json: declared=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108, actual=e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108"
       },
       {
         "check_id": "REF.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json.dependencies.3.sha256",
         "status": "PASS",
-        "detail": "AIR_AI_GOVERNANCE_METHOD_PACK.json: declared=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97, actual=3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97"
+        "detail": "AIR_AI_GOVERNANCE_METHOD_PACK.json: declared=246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb, actual=246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb"
       },
       {
         "check_id": "MANIFEST.FOUNDATION.aigov",
@@ -807,7 +807,7 @@
       {
         "check_id": "MANIFEST.HASH.aigov.AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "status": "PASS",
-        "detail": "74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583 / 74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583"
+        "detail": "dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed / dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed"
       },
       {
         "check_id": "MANIFEST.SIZE.aigov.AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
@@ -822,7 +822,7 @@
       {
         "check_id": "MANIFEST.HASH.aigov.AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
         "status": "PASS",
-        "detail": "b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110 / b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110"
+        "detail": "a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558 / a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558"
       },
       {
         "check_id": "MANIFEST.SIZE.aigov.AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -837,7 +837,7 @@
       {
         "check_id": "MANIFEST.HASH.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json",
         "status": "PASS",
-        "detail": "51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac / 51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac"
+        "detail": "e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108 / e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108"
       },
       {
         "check_id": "MANIFEST.SIZE.aigov.AIR_AI_GOVERNANCE_SPECIALIST.json",
@@ -852,7 +852,7 @@
       {
         "check_id": "MANIFEST.HASH.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json",
         "status": "PASS",
-        "detail": "3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97 / 3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97"
+        "detail": "246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb / 246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb"
       },
       {
         "check_id": "MANIFEST.SIZE.aigov.AIR_AI_GOVERNANCE_METHOD_PACK.json",
@@ -867,7 +867,7 @@
       {
         "check_id": "MANIFEST.HASH.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json",
         "status": "PASS",
-        "detail": "7564365e74297e4215f92e1149f981d648939e9b1c5bb2eda773fdddda3bf6c8 / 7564365e74297e4215f92e1149f981d648939e9b1c5bb2eda773fdddda3bf6c8"
+        "detail": "207b77627fd672aedfa89c11e5f86157ac6fcbbc738023385c838715a074df2c / 207b77627fd672aedfa89c11e5f86157ac6fcbbc738023385c838715a074df2c"
       },
       {
         "check_id": "MANIFEST.SIZE.aigov.AIR_AI_GOVERNANCE_EXECUTOR.json",
@@ -892,7 +892,7 @@
       {
         "check_id": "INDEX.MANIFEST.cea",
         "status": "PASS",
-        "detail": "912404029ce60a65b876bff9f50be2910b56a7371d4542f0f11d9cea2a8ddb79 / 912404029ce60a65b876bff9f50be2910b56a7371d4542f0f11d9cea2a8ddb79"
+        "detail": "d6822fd6b947aa4fd3e16aad0571763199b348ba415443b3020ebe32da82b431 / d6822fd6b947aa4fd3e16aad0571763199b348ba415443b3020ebe32da82b431"
       },
       {
         "check_id": "INDEX.FOUNDATION.cea",
@@ -902,7 +902,7 @@
       {
         "check_id": "INDEX.MANIFEST.grounding",
         "status": "PASS",
-        "detail": "edd163a6d60f567f82524da641a16e7e9f2d42169d12d3f823e1e08904699d89 / edd163a6d60f567f82524da641a16e7e9f2d42169d12d3f823e1e08904699d89"
+        "detail": "6bc03d13958b7be12a1e3fa83736e717437703de40245812e01bc75672103fea / 6bc03d13958b7be12a1e3fa83736e717437703de40245812e01bc75672103fea"
       },
       {
         "check_id": "INDEX.FOUNDATION.grounding",
@@ -912,7 +912,7 @@
       {
         "check_id": "INDEX.MANIFEST.sfv",
         "status": "PASS",
-        "detail": "c2e0296592c96bf0f999f54f90255e451760f27c7760d9ae2ed990fb88baaa83 / c2e0296592c96bf0f999f54f90255e451760f27c7760d9ae2ed990fb88baaa83"
+        "detail": "0a5cacbf4eb31448f939872126cb6fcecfe471a08f8854326c4a70bd14114de5 / 0a5cacbf4eb31448f939872126cb6fcecfe471a08f8854326c4a70bd14114de5"
       },
       {
         "check_id": "INDEX.FOUNDATION.sfv",
@@ -922,7 +922,7 @@
       {
         "check_id": "INDEX.MANIFEST.aigov",
         "status": "PASS",
-        "detail": "834352672530f99268b801b677ee2c9c25d8349b93791f659b703b90cccf6d4c / 834352672530f99268b801b677ee2c9c25d8349b93791f659b703b90cccf6d4c"
+        "detail": "93c5590d0699b62cd3fade693f46ab2e12d4d2180ec4e0ef47680df56a29dcf6 / 93c5590d0699b62cd3fade693f46ab2e12d4d2180ec4e0ef47680df56a29dcf6"
       },
       {
         "check_id": "INDEX.FOUNDATION.aigov",

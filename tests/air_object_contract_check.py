@@ -75,6 +75,17 @@ af=starter['typed_registries']['artifact_fields']
 req(isinstance(af,dict) and af.get('semantic_fields_redeclared') is False,'Starter still redeclares Core Artifact base fields')
 req(af.get('source_marker')=='AIR_OBJECT_RESPONSIBILITY_CLOSURE_V1','Starter Artifact registry source marker drift')
 
+# Closed-world AIR_ARTIFACT must admit every field that Core itself conditionally requires.
+artifact_section=core[core.index('AIR_ARTIFACT base allowed object-owned top-level fields:'):core.index('AIR_ACTIVE_CONTRACT allowed object-owned top-level fields:')]
+required_artifact_fields=[
+    'capability_clusters','missing_vectors','degraded_execution_mode','dependency_edges',
+    'vector_family_state_summary','objective','readiness_reason','stage_constraints',
+    'promotion_requirements','blocked_capabilities','decision_state'
+]
+for field in required_artifact_fields:
+    req(re.search(rf'^-\s+{re.escape(field)}(?:\s|$)',artifact_section,re.M) is not None,
+        f'Core AIR_ARTIFACT closed-world list omits Core-required field: {field}')
+
 formal=set(CANONICAL)
 for r in starter['typed_registries']['conditional_requirements']:
     for f in r.get('fields',[]):

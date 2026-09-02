@@ -28,9 +28,9 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
-        "size_bytes": 333225,
-        "line_count": 6915
+        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "size_bytes": 333870,
+        "line_count": 6926
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
@@ -104,7 +104,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -137,13 +137,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "73ada98129d95a45fc050fd069ed65d8c63ed8af36e4476ad6a39cfba7aa645d",
+      "sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "85caaefda9a9f592d2cd989e311b0b822e2def880ec804a5d52a9df1136192ca",
+      "sha256": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
     },
     "source_and_control_registry": {
@@ -1715,7 +1715,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

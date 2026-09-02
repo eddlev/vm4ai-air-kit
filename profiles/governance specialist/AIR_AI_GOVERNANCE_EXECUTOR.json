@@ -35,9 +35,9 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
-        "size_bytes": 333225,
-        "line_count": 6915
+        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "size_bytes": 333870,
+        "line_count": 6926
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
@@ -104,7 +104,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -259,28 +259,28 @@
     {
       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "sha256": "74ddd8d680a91a97d2e9281d1d9eeb267b3c434ad52c482334dc72bbfc7aa583",
+      "sha256": "dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
       "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
-      "sha256": "b7b2eaff06e51cddbb23484fa5cab02d0e129971942b9655e525aed28c131110",
+      "sha256": "a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558",
       "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "sha256": "51425d0582bdf45432e5f8adb37f0c2506aacfdd195d36d95ca16af8ee0622ac",
+      "sha256": "e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
       "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
-      "sha256": "3f227121b615f7e1905b464c003d547daf344c679ec879717ecdc6be70f14c97",
+      "sha256": "246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -547,7 +547,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

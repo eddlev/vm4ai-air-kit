@@ -33,9 +33,9 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fe857e23ee58b641faca0e0e15fbc6d4bdca087c1fb571ed272d8b0e07453dbb",
-        "size_bytes": 333225,
-        "line_count": 6915
+        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "size_bytes": 333870,
+        "line_count": 6926
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
@@ -102,7 +102,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -134,7 +134,7 @@
     {
       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "sha256": "bf03770bb85060a9f4398c5e2fd23599de51555de11abcc5bd30f9643e82af81",
+      "sha256": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed",
       "size_bytes": 68029,
       "line_count": 1136,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
@@ -142,7 +142,7 @@
     {
       "designation": "AIR_GROUNDING_METHOD_PACK_V2",
       "filename": "AIR_GROUNDING_METHOD_PACK.json",
-      "sha256": "d7aebdf124fe2fdd1278f6f5535cdc5192f26a58c338d0668f0b56f1cff51da2",
+      "sha256": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910",
       "size_bytes": 75157,
       "line_count": 1527,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
@@ -150,7 +150,7 @@
     {
       "designation": "AIR_GROUNDING_SPECIALIST_V2",
       "filename": "AIR_GROUNDING_SPECIALIST.json",
-      "sha256": "d0e33ffc301e7b7fc9d66ea4a610fd617725276735b836dd804dd88e64824b09",
+      "sha256": "287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c",
       "size_bytes": 78833,
       "line_count": 1379,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
@@ -403,7 +403,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "5117e43a71ef5f02d3abd240f7c18fb27b4969f7354c0c8f0c819827e25bee6f",
+      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
