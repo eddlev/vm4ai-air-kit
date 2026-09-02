@@ -13,15 +13,15 @@
 
 **AI work, carried forward.**
 
-AIR (**AI Resource**) is a prompt-based project runtime for sustained AI work. It carries explicit project state across sessions and compatible AI platforms through a governed five-file Foundation and Handoff.
+AIR (**AI Resource**) is a prompt-compiled project runtime for sustained AI work. It gives an AI session an explicit working contract, keeps one material task bound at a time, preserves approval and evidence boundaries, and carries recorded project state forward across sessions and compatible AI platforms through Handoff.
 
-AIR is prompt-compiled and host-model governed. It is not a hidden-memory system or backend enforcement layer.
+AIR is not hidden model memory and it is not a backend enforcement layer. Its runtime behavior is governed by the loaded AIR Foundation together with the host model, platform instructions, available context, and tools.
 
 [Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
 ## Current release
 
-**AIR Kit v0.6.0-preview.1** carries the AIR Foundation **2.5.0** Preview / Development release.
+**AIR Kit v0.6.0-preview.1** carries the repaired AIR Foundation **2.5.0** as a **Preview / Development** release.
 
 | Component | Version |
 | --- | ---: |
@@ -35,7 +35,19 @@ AIR is prompt-compiled and host-model governed. It is not a hidden-memory system
 | Runtime Route Map | `1.0.0` |
 | Specialist Package Index | `1.1.1` |
 
-Preview means the release is available for real use and field feedback without claiming Stable behavioral certification, universal provider/model compatibility, deterministic LLM behavior, or backend enforcement.
+Preview means AIR is available for active use, integration work, and field feedback without claiming Stable behavioral certification, universal provider/model compatibility, deterministic LLM behavior, or backend AIR enforcement.
+
+## What changed in AIR Foundation 2.5.0
+
+AIR 2.5.0 is a Foundation-consistency release focused on making continuation, evidence state, and downstream package identity agree across the runtime.
+
+The repaired Foundation closes three consistency defects identified during integrated validation:
+
+1. **Handoff Governance alignment** — strict Handoff state now aligns with Governance/Floor version `2.3.0`.
+2. **Handoff restoration schema alignment** — Core restoration semantics use the schema-2.3 carriers `presentation_mode`, `presentation_mode_source`, and `evidence_capture_gaps`.
+3. **Evidence-presentation semantics** — evidence sufficiency is explicitly independent of whether evidence presentation is standard or expanded.
+
+The Runtime Route Map and the Specialist dependency closure were resealed against the repaired Foundation identity. Specialist package versions remain `2.4.0`; the Specialist Package Index remains `1.1.1`.
 
 ## Start AIR
 
@@ -53,9 +65,19 @@ Then send:
 Start a new AIR project.
 ```
 
-To continue an existing AIR project, load the same current Foundation together with the populated `AIR_HANDOFF_CARD` from the previous session and choose the continuation route. Handoff carries recorded project state; the destination session revalidates and rebinds execution authority.
+AIR validates the loaded Foundation and starts the fresh-project onboarding route. The activation phrase selects the route; it does not silently answer onboarding questions for you.
 
-## Repository structure
+### Continue an AIR project
+
+Load the same current five-file Foundation together with the populated `AIR_HANDOFF_CARD` from the previous AIR session and choose the continuation route.
+
+Handoff carries **recorded AIR project state**, not hidden model state or previously earned execution authority. The destination session validates the current Foundation and Handoff, evaluates the restored state in the new session, and rebinds the nominated artifact before material execution resumes.
+
+### Import an existing non-AIR project
+
+Load the current Foundation and choose the import route during onboarding. Supply the existing project material as source input. AIR reconstructs an explicit project contract from the material you provide rather than inventing prior AIR state.
+
+## Public repository structure
 
 ```text
 catalog/   discovery metadata for routes and Specialist packages
@@ -63,9 +85,17 @@ profiles/  optional reusable Specialist capability packages
 prompts/   canonical five-file AIR Foundation
 ```
 
+The public repository is intentionally small. Engineering validation reports, test harnesses, evaluation protocols, release-build tooling, and historical release-process material are not part of the public AIR runtime surface.
+
 ### `prompts/`
 
-The canonical AIR runtime distribution. These five files are the complete Foundation required for a normal AIR boot.
+The canonical AIR Foundation. These five files are the complete normal boot set for AIR:
+
+- `AIR_CORE_RUNTIME.md`
+- `AIR_CONTROL_SURFACE.md`
+- `AIR_GOV.md`
+- `AIR_DEFAULT_STARTER_PROFILE.json`
+- `AIR_HANDOFF_CARD_TEMPLATE.json`
 
 ### `catalog/`
 
@@ -74,30 +104,43 @@ Foundation-adjacent discovery metadata:
 - `AIR_RUNTIME_ROUTE_MAP.json`
 - `AIR_SPECIALIST_PACKAGE_INDEX.json`
 
-The catalog improves discovery and route salience. It does not independently create selection, approval, binding, or execution authority.
+The catalog improves route and Specialist discovery. It does not independently create semantic, selection, approval, binding, or execution authority. Core remains authoritative for runtime route semantics.
 
 ### `profiles/`
 
-Optional Specialist capability packages currently include:
+Optional reusable Specialist capability packages:
 
 - Capability Ecology Architect
 - AI Governance Specialist
 - Grounding Specialist
 - Specification-First Verification Specialist
 
-Availability does not automatically select or bind a Specialist. AIR validates package identity and task fit before use.
+A package being present does not mean it is automatically selected or bound. AIR still evaluates package identity, Foundation compatibility, task fit, and any required approval before use.
 
-## Compatibility and evidence boundary
+## AIR's operating boundary
 
-Compatibility is empirical and configuration-dependent. Provider/model versions, context budget, attachment handling, system instructions, available tools, and host behavior can affect AIR.
+AIR separates the state and decisions represented inside the prompt runtime from claims about the world outside it.
 
-The Foundation and package files are versioned and integrity-checked. Those checks establish repository/package integrity; they do not prove external tool effects, factual correctness, deterministic model inference, or provider certification.
+A surfaced AIR record can establish what AIR declared, evaluated, approved, or bound in the session. It does not by itself prove that an external tool call succeeded, a deployment happened, a factual source is correct, or a backend enforced an AIR gate.
+
+Likewise:
+
+- deterministic or static file checks do not make model inference deterministic;
+- a successful session does not prove universal model or platform compatibility;
+- Handoff does not transfer hidden model state;
+- human approval authorizes an AIR action boundary but does not prove an external effect that was not independently observed.
+
+## Compatibility
+
+Compatibility is empirical and configuration-dependent. Provider/model versions, context budget, attachment handling, system instructions, available tools, and host behavior can all affect AIR.
 
 For implementation guidance, compatibility notes, testing methodology, and release information, use the [VM4AI documentation](https://vm4ai.com/air-docs.html) and GitHub Releases.
 
 ## Community and bugs
 
-Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
+Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible AIR defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
+
+When reporting a behavioral issue, include the AIR Kit release, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
 
 Do not post exploitable security details publicly.
 
