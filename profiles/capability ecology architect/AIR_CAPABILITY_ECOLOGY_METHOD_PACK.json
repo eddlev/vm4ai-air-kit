@@ -36,7 +36,7 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
         "size_bytes": 333870,
         "line_count": 6926
       },
@@ -45,8 +45,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
-        "size_bytes": 152528,
+        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
+        "size_bytes": 152801,
         "line_count": 3126
       },
       {
@@ -54,8 +54,8 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
-        "size_bytes": 25346,
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
         "line_count": 511
       },
       {
@@ -63,7 +63,7 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
         "size_bytes": 86064,
         "line_count": 1571
       },
@@ -72,8 +72,8 @@
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
-        "size_bytes": 58378,
+        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
+        "size_bytes": 58483,
         "line_count": 1096
       }
     ],
@@ -113,7 +113,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -152,19 +152,19 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
       "observed_sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
       "observed_sha256": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
       "observed_sha256": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3"
     },
     "package_manifest": {
@@ -286,7 +286,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3",
+      "sha256": "2bb7b9de3cad486dda9bf00609f24854049cb34282c9b89839069f2ba47d9c02",
       "required_for": [
         "all branches"
       ]
@@ -294,7 +294,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
+      "sha256": "096a2d1ddb05a20438c85823cba83d54a60494b3a5d2d473fce92cf3b1407f2e",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -304,7 +304,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
+      "sha256": "d97425546512abd248f225aaa4467060938b6fed5a0311a72cf1a9d678ef5d51",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",
@@ -604,7 +604,7 @@
       ],
       "evidence_to_advance": [
         "exactly one Orbit 0 artifact is identified",
-        "required component hashes and designations match or exact missing-input requests are emitted",
+        "required component hashes and designations match or material missing-input needs are identified and routed through Core RT.UNCERTAINTY_RESOLVE",
         "no stale state is silently reused",
         "STANDARD_EVIDENCE_PRESENTATION remains default unless EXPANDED_EVIDENCE_PRESENTATION was enabled before the applicable run or validly restored",
         "mandatory regulatory evidence is not marked satisfied by the toggle alone"
@@ -675,7 +675,7 @@
     {
       "step_id": "M2",
       "name": "Acquire and classify required inputs",
-      "action": "Inventory available sources, Domain Packages, frameworks, tools, permissions, approvals and package components; classify authority, freshness, rights, completeness and task fit; emit exact required-input requests for material gaps.",
+      "action": "Inventory available sources, Domain Packages, frameworks, tools, permissions, approvals and package components; classify authority, freshness, rights, completeness and task fit; identify exact missing inputs for material gaps and route them through Core RT.UNCERTAINTY_RESOLVE.",
       "preconditions": [
         "M0 passed",
         "active branch is known"
@@ -688,7 +688,7 @@
       ],
       "expected_outputs": [
         "source and dependency ledger",
-        "AIR_REQUIRED_INPUT_REQUEST records when needed",
+        "AIR_REQUIRED_INPUT_REQUEST requirement/ref after Core RT.UNCERTAINTY_RESOLVE when needed",
         "blocked, provisional or degraded continuation state"
       ],
       "evidence_to_advance": [
@@ -1528,7 +1528,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -1565,7 +1565,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",

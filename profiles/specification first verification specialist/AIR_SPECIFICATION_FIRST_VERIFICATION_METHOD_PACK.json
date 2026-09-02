@@ -37,7 +37,7 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
         "size_bytes": 333870,
         "line_count": 6926
       },
@@ -46,8 +46,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
-        "size_bytes": 152528,
+        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
+        "size_bytes": 152801,
         "line_count": 3126
       },
       {
@@ -55,8 +55,8 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
-        "size_bytes": 25346,
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
         "line_count": 511
       },
       {
@@ -64,7 +64,7 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
         "size_bytes": 86064,
         "line_count": 1571
       },
@@ -73,8 +73,8 @@
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
-        "size_bytes": 58378,
+        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
+        "size_bytes": 58483,
         "line_count": 1096
       }
     ],
@@ -106,7 +106,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -133,9 +133,9 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
-      "sha256": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
-      "size_bytes": 32340,
-      "line_count": 605,
+      "sha256": "06d1716a2b29e189eaff271bb1a7d4a740a55a7db375c13b5b45ce47d2ccb926",
+      "size_bytes": 32424,
+      "line_count": 606,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     }
   ],
@@ -494,7 +494,7 @@
       "preconditions": [
         "specification adequacy ALLOW",
         "baseline condition satisfied or justifiably omitted",
-        "current AIR artifact and AIR_GATE permit execution"
+        "current Orbit 0 AIR artifact is bound with an ACTIVE lease, matching resource scope pin when material, current approval, and AIR_GATE ALLOW for the exact proposed effect"
       ],
       "required_inputs": [
         "verification specification",
@@ -509,10 +509,10 @@
       "evidence_to_advance": [
         "execution scope matches the canonical specification",
         "no new material outcome is silently introduced",
-        "required AIR action authorization exists before material mutation or external action"
+        "a matching single-use AIR_ACTION_AUTHORIZATION exists before material mutation or external action and authorizes exactly one declared effect attempt"
       ],
       "failure_behavior": "BLOCKED_BY_CONTRACT or RESCOPE_REQUIRED when execution would exceed the active contract.",
-      "next_step_rule": "Execution may proceed only through the applicable Core action route when both method_step_gate and AIR_GATE permit it; SFV handoff is candidate input, not authorization."
+      "next_step_rule": "Execution may proceed only through Core RT.ACTION when the bound artifact, ACTIVE lease, matching scope pin, current approval, method_step_gate, and AIR_GATE permit the exact effect; after any material effect attempt, post-effect alignment and Core RT.RECEIPT / AIR_ACTION_RECEIPT are required before dependent action, delivery, or closure. SFV handoff is candidate input, not authorization."
     },
     {
       "step_id": "SFV-09",
@@ -520,7 +520,7 @@
       "action": "Run, obtain, or observe the selected verification evidence and compare observations with the predeclared expectations.",
       "preconditions": [
         "execution/result exists as required",
-        "required evidence route and authorization exist"
+        "required evidence route exists and any material effect has a matching single-use authorization plus reconciled Core RT.RECEIPT / AIR_ACTION_RECEIPT before dependent action or closure"
       ],
       "required_inputs": [
         "result or executed change",
@@ -671,7 +671,7 @@
     "strict_json": true,
     "reject_duplicate_keys": true,
     "required_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
-    "required_version": "2.0.0",
+    "required_package_version": "2.4.0",
     "required_top_level_fields": [
       "SYSTEM_DESIGNATION",
       "PROMPT_VERSION",
@@ -791,7 +791,7 @@
   "integration_refresh": {
     "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "optional_cross_package_compatibility": [
       {
         "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -978,6 +978,7 @@
         "morphology_binding": "RT.MORPHOLOGY_BIND",
         "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
         "action": "RT.ACTION",
+        "receipt": "RT.RECEIPT",
         "delivery": "RT.DELIVER",
         "closure": "RT.CLOSE"
       },
@@ -1007,7 +1008,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

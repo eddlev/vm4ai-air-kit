@@ -36,7 +36,7 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
         "size_bytes": 333870,
         "line_count": 6926
       },
@@ -45,8 +45,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
-        "size_bytes": 152528,
+        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
+        "size_bytes": 152801,
         "line_count": 3126
       },
       {
@@ -54,8 +54,8 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
-        "size_bytes": 25346,
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
         "line_count": 511
       },
       {
@@ -63,7 +63,7 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
         "size_bytes": 86064,
         "line_count": 1571
       },
@@ -72,8 +72,8 @@
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
-        "size_bytes": 58378,
+        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
+        "size_bytes": 58483,
         "line_count": 1096
       }
     ],
@@ -105,7 +105,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -125,34 +125,34 @@
     "self_binding": false,
     "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
     "attachment_effect": "AVAILABILITY_ONLY",
-    "operative_use_rule": "Execute only bounded verification operations explicitly authorized by the bound Orbit 0 AIR_ARTIFACT, current method step, current evidence/tool permissions, and AIR_GATE."
+    "operative_use_rule": "Execute only bounded verification operations permitted by the bound Orbit 0 AIR_ARTIFACT, ACTIVE artifact lease, matching resource scope pin when material, current approval, current method step, current evidence/tool permissions, and AIR_GATE. Material effect attempts require a single-use AIR_ACTION_AUTHORIZATION and post-effect Core RT.RECEIPT / AIR_ACTION_RECEIPT before dependent continuation."
   },
   "package_state": "PACKAGE_COMPLETE_VALIDATED_AVAILABLE_UNBOUND",
   "dependencies": [
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
-      "sha256": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
-      "size_bytes": 32340,
-      "line_count": 605,
+      "sha256": "06d1716a2b29e189eaff271bb1a7d4a740a55a7db375c13b5b45ce47d2ccb926",
+      "size_bytes": 32424,
+      "line_count": 606,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
-      "sha256": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c",
-      "size_bytes": 51588,
-      "line_count": 1038,
+      "sha256": "ed012cab81cb6a928b52bd4a2646cd68b951dcad704e2ea2ae72bd97a5325e46",
+      "size_bytes": 52169,
+      "line_count": 1039,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
-      "sha256": "eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e",
-      "size_bytes": 27345,
-      "line_count": 537,
+      "sha256": "dc0ab2557c450504002f4ceeb3aed70184e7438f4513f8bf944305e2062caac9",
+      "size_bytes": 27506,
+      "line_count": 538,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -182,11 +182,13 @@
     "using external tools, systems, credentials, or mutation authority without explicit current authorization",
     "transferring prior-task SFV authorization, verification specification, or evidence into a newly bound task without applicability revalidation",
     "independently selecting or binding MII cognitive routes",
-    "treating SFV contribution candidates as AIR_GATE, RT.ACTION, RT.DELIVER or RT.CLOSE authority",
+    "treating SFV contribution candidates as AIR_GATE, RT.ACTION, RT.RECEIPT, RT.DELIVER or RT.CLOSE authority",
     "reducing required verification evidence because standard evidence presentation is selected"
   ],
   "execution_preconditions": [
     "exactly one bound Orbit 0 AIR_ARTIFACT authorizes the operation",
+    "the controlling artifact lease is ACTIVE for the current task, step, action class, source and environment state",
+    "a matching resource_scope_pin covers the exact tool, file, repository, system, environment, permission class and action target when material",
     "current SFV method step and method_step_gate are known or the operation is an explicitly allowed proportionate inline verification check that preserves all material verification and evidence obligations",
     "required source, tool, environment, evaluator, permission and approval states are satisfied or explicitly unresolved",
     "expected output and failure route are defined",
@@ -210,7 +212,7 @@
     "autonomous_agent": false,
     "network_required": "TASK_DEPENDENT",
     "tool_required": "TASK_DEPENDENT",
-    "external_effect_authority": "NONE_UNLESS_EXPLICITLY_GRANTED_BY_CURRENT_BOUND_ARTIFACT_AND_AIR_GATE",
+    "external_effect_authority": "NONE_UNLESS_CORE_RT_ACTION_PRECONDITIONS_AND_AIR_GATE_ALLOW_ARE_SATISFIED_WITH_SINGLE_USE_AUTHORIZATION_AND_POST_EFFECT_RT_RECEIPT",
     "backend_validation_claimed": false
   },
   "package_completion_contract": {
@@ -221,7 +223,7 @@
   "integration_refresh": {
     "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "optional_cross_package_compatibility": [
       {
         "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -408,6 +410,7 @@
         "morphology_binding": "RT.MORPHOLOGY_BIND",
         "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
         "action": "RT.ACTION",
+        "receipt": "RT.RECEIPT",
         "delivery": "RT.DELIVER",
         "closure": "RT.CLOSE"
       },
@@ -437,7 +440,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

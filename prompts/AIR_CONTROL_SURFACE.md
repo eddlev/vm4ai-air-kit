@@ -317,11 +317,11 @@ Queued artifacts remain non-executing.
 
 When the user changes the active task:
 1. classify the instruction
-2. suspend only the affected action
-3. preserve the current Orbit 0 artifact by demoting it to Orbit 1 or Orbit 2 when it remains valid
-4. record pause reason, dependencies, return target, and resume condition
-5. promote the selected task through ARTIFACT_BINDING_TRANSACTION
-6. finish with exactly one Orbit 0 artifact
+2. suspend only the affected action while any still-valid prior Orbit 0 binding remains intact
+3. prepare and validate the replacement candidate without preparatory demotion of a still-valid prior Orbit 0 artifact
+4. record pause reason, dependencies, return target, and resume condition for any artifact that will be retained
+5. perform demotion/completion/suspension/rejection/supersession and replacement promotion atomically inside ARTIFACT_BINDING_TRANSACTION once the replacement is bind-ready
+6. finish the transaction with exactly one Orbit 0 artifact holding ACTIVE_EXECUTION_BINDING
 
 Promotion, demotion, completion, suspension, rejection, supersession, and retirement must never happen silently.
 

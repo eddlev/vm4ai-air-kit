@@ -402,7 +402,7 @@ When material, AIR_HANDOFF_CARD schema 2.3.0 must preserve a governance_state ob
 - prompt_edition
 - governance_floor_version
 - floor_invariant_reference
-- open_approval_scope
+- open_approval_scope_ref
 - active_framework_projections
 - governance_source_rights_state
 - token_debug_preference
@@ -413,7 +413,7 @@ When material, AIR_HANDOFF_CARD schema 2.3.0 must preserve a governance_state ob
 Carrier shapes:
 - prompt_edition = HUMAN_READABLE | MACHINE_OPTIMIZED
 - governance_floor_version = 2.3.0
-- open_approval_scope = one current open_approval_scope object or null
+- open_approval_scope_ref = explicit reference to AIR_HANDOFF_CARD.open_approval_scope, whose top-level carrier holds the current open approval scope object or null
 - active_framework_projections = an array of framework_projection_state records
 - governance_source_rights_state = an array of governance_source_rights_state records
 

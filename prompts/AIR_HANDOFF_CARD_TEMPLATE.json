@@ -929,7 +929,7 @@
         ],
         "starter_identity_version_required": "2.5.0",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
-        "card_revision_compatibility": "REV13_SCHEMA_2_3_0_WITH_EXPLICIT_MIGRATION_FROM_SCHEMA_2_2_0_REV12_AND_EARLIER",
+        "card_revision_compatibility": "REV14_SCHEMA_2_3_0_WITH_EXPLICIT_MIGRATION_FROM_SCHEMA_2_3_0_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
         "specialist_catalog_extension_introduced_revision": 12,
         "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
@@ -968,7 +968,7 @@
           "foundation_compatibility_identity": null,
           "comparison_state": "NOT_EVALUATED"
         },
-        "backward_compatibility_state": "SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
+        "backward_compatibility_state": "SCHEMA_2_3_0_REV13_MAY_BE_MIGRATED_TO_REV14_WITH_TRANSFER_OWNERSHIP_REVALIDATION; SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
         "restoration_precedence": "EXPLICIT_HANDOFF_SPECIALIST_AND_PACKAGE_STATE_PRECEDES_CATALOG_DISCOVERY",
         "authority_effect": "DISCOVERY_ONLY",
         "rules": [

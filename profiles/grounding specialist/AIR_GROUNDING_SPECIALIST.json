@@ -33,7 +33,7 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
         "size_bytes": 333870,
         "line_count": 6926
       },
@@ -42,8 +42,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
-        "size_bytes": 152528,
+        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
+        "size_bytes": 152801,
         "line_count": 3126
       },
       {
@@ -51,8 +51,8 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
-        "size_bytes": 25346,
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
         "line_count": 511
       },
       {
@@ -60,7 +60,7 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
         "size_bytes": 86064,
         "line_count": 1571
       },
@@ -69,8 +69,8 @@
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
-        "size_bytes": 58378,
+        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
+        "size_bytes": 58483,
         "line_count": 1096
       }
     ],
@@ -102,7 +102,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -136,17 +136,17 @@
     {
       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "sha256": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed",
-      "size_bytes": 68029,
-      "line_count": 1136,
+      "sha256": "27cbbb551336cd04f1d072807d531d5d5419851a0083a15c908e143d7865a2e8",
+      "size_bytes": 68508,
+      "line_count": 1137,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_GROUNDING_METHOD_PACK_V2",
       "filename": "AIR_GROUNDING_METHOD_PACK.json",
-      "sha256": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910",
-      "size_bytes": 75157,
-      "line_count": 1527,
+      "sha256": "3ff44d2e687a7be56f8ae52189d9d84299328889d23c5d6cc9819e8ac26a5f79",
+      "size_bytes": 75437,
+      "line_count": 1528,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
   ],
@@ -236,7 +236,7 @@
         "receiver delivery authority",
         "closure authority"
       ],
-      "operative_action_rule": "Any material action still follows Core RT.ACTION, AIR_GATE, AIR_ACTION_AUTHORIZATION, post-effect alignment/reconciliation and AIR_ACTION_RECEIPT requirements."
+      "operative_action_rule": "Any material action under Core RT.ACTION requires a current bound artifact, ACTIVE lease, matching resource scope pin when material, current approval and AIR_GATE ALLOW, then one matching single-use AIR_ACTION_AUTHORIZATION for exactly one declared effect attempt; after the attempt, post-effect alignment and Core RT.RECEIPT must construct AIR_ACTION_RECEIPT before dependent action, delivery, or closure."
     }
   },
   "synthetic_benchmark_contract": {
@@ -630,7 +630,7 @@
     "Block public claims stronger than evidence supports.",
     "Block closing high-trust coding steps on agent-reported success only when tool-observed or operator-witnessed verification is required.",
     "Block implementation continuation when spec/code contradiction appears until resolved or recorded as approved change.",
-    "Block pretending this specialist is active unless uploaded, restored, embedded, or generated and validated.",
+    "Block treating this specialist as operative merely because it is supplied, restored, embedded, or generated; those states establish availability only. Operative use requires current validation, task selection, required approval, and compilation into or explicit reference by the bound Orbit 0 AIR_ARTIFACT.",
     "Block governed coding continuation into a next spec/workflow step unless the user explicitly approved the next step or broader batch scope.",
     "Block closure of implementation steps when a spec/source-of-truth contradiction was found but not resolved or recorded.",
     "Block professional-output approval when formal AIR objects are rendered as unreadable minified JSON or outside valid fenced JSON blocks and the object is part of the deliverable.",
@@ -819,7 +819,7 @@
         "small edits or formatting tasks with no material claim or execution risk",
         "brand/tone exploration without claim, viability, or implementation pressure"
       ],
-      "availability_rule": "Do not behave as if optional grounding files are active unless uploaded, restored from handoff, embedded in startup bundle, or generated and validated in-session.",
+      "availability_rule": "Do not behave as if optional Grounding files are operative merely because they are supplied, restored from handoff, embedded in a startup bundle, or generated in-session; those states establish availability only until current validation, task selection, required approval, and artifact compilation/reference complete.",
       "fallback_modes": [
         "NONE",
         "DEFAULT_STARTER_DEGRADED_GROUNDING",
@@ -1166,7 +1166,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "mainline_release_binding": {
       "release_identity": "AIR_GROUNDING_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
@@ -1194,6 +1194,7 @@
         "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
         "capability_resolution": "RT.CAPABILITY_RESOLVE",
         "action": "RT.ACTION",
+        "receipt": "RT.RECEIPT",
         "delivery": "RT.DELIVER",
         "closure": "RT.CLOSE"
       },
@@ -1220,7 +1221,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

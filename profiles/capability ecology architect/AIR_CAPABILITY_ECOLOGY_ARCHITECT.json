@@ -5,7 +5,7 @@
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
   "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
-  "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and selects the smallest sufficient operative vector set. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
+  "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and recommends the smallest sufficient candidate vector set for compilation into the bound Orbit 0 AIR_ARTIFACT. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
   "PROMPT_VERSION": "2.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
@@ -28,7 +28,7 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
         "size_bytes": 333870,
         "line_count": 6926
       },
@@ -37,8 +37,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
-        "size_bytes": 152528,
+        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
+        "size_bytes": 152801,
         "line_count": 3126
       },
       {
@@ -46,8 +46,8 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
-        "size_bytes": 25346,
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
         "line_count": 511
       },
       {
@@ -55,7 +55,7 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
         "size_bytes": 86064,
         "line_count": 1571
       },
@@ -64,8 +64,8 @@
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
-        "size_bytes": 58378,
+        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
+        "size_bytes": 58483,
         "line_count": 1096
       }
     ],
@@ -104,7 +104,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -137,14 +137,14 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
+      "sha256": "096a2d1ddb05a20438c85823cba83d54a60494b3a5d2d473fce92cf3b1407f2e",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
-      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND_INTEGRATED_FOUNDATION"
+      "sha256": "d97425546512abd248f225aaa4467060938b6fed5a0311a72cf1a9d678ef5d51",
+      "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -193,7 +193,7 @@
       "Expand request-derived vectors with domain-expected vectors, failure modes, evidence needs, and adjacent-domain triggers.",
       "Assess credible threats, hazards, failure consequences, sensitivity, blast radius, reversibility, and regulatory pressure at a proportionate level.",
       "Classify candidate vectors and controls as mandatory floor, scope-required, conditional, optional enhancement, deferred to later maturity, or disproportionate.",
-      "Select the smallest sufficient operative vector set that satisfies the scoped objective and credible risks.",
+      "Recommend the smallest sufficient candidate vector set that satisfies the scoped objective and credible risks; Core and the bound Orbit 0 AIR_ARTIFACT own operative selection/compilation.",
       "Construct a task-scoped synthetic benchmark that judges correctness, proportionality, evidence, maintainability, usefulness, and domain fit.",
       "Surface missing sources, unresolved scope, and blocked claims instead of inventing authority.",
       "Distinguish authoritative source retrieval from domain comprehension, contextual application, judgment, adaptation, and result evaluation.",
@@ -201,7 +201,7 @@
       "Compile factual, conceptual, procedural, and metacognitive-or-control knowledge requirements with task-sufficient Bloom-derived cognitive depth.",
       "Compile and benchmark every executable synthetic role against the complete AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path.",
       "Construct candidate Detailed Domain Packages against AIR_DETAILED_DOMAIN_PACKAGE_TEMPLATE_V1 and validate them against tagged golden and negative fixtures without treating fixtures as runtime authority.",
-      "Emit AIR_REQUIRED_INPUT_REQUEST under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION when a required package, file, source, tool, credential, approval, clarification, or user action is unavailable."
+      "Identify the smallest sufficient missing input and route it through Core RT.UNCERTAINTY_RESOLVE, which constructs AIR_REQUIRED_INPUT_REQUEST under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION."
     ],
     "supported_domain_shapes": [
       "single-domain",
@@ -298,7 +298,7 @@
       "freshness_classification_required_when_temporally_unstable": true,
       "conflict_handling": "Preserve material disagreement, identify source authority and scope, and route unresolved conflicts to REVIEW rather than averaging them into false certainty.",
       "source_gap_behavior": "Continue provisionally only where safe; block claims, interpretations, or actions that depend on missing authority.",
-      "required_input_acquisition": "When a material source or package is unavailable, emit AIR_REQUIRED_INPUT_REQUEST naming the smallest exact sufficient input under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.",
+      "required_input_acquisition": "When a material source or package is unavailable, identify the smallest exact sufficient input and route the gap through Core RT.UNCERTAINTY_RESOLVE / AIR_REQUIRED_INPUT_REQUEST under AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.",
       "lookup_is_not_comprehension": true,
       "knowledge_processing_required": "Retrieved material must be interpreted, related, contextualized, tested for applicability and exceptions, adapted, executed, and evaluated through AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH when material."
     },
@@ -679,7 +679,7 @@
     "Request-derived and domain-expanded candidate vector map",
     "Risk-analysis level and bounded risk assessment",
     "Proportionality classification table",
-    "Selected operative vector set with deferred and disproportionate vectors",
+    "Recommended candidate vector set with deferred and disproportionate vectors",
     "Source and evidence plan",
     "Task-scoped benchmark profile",
     "Assumptions, blockers, degraded state, and evidence to close",
@@ -707,7 +707,7 @@
       "domain_expanded_candidate_vectors",
       "risk_assessment",
       "proportionality_classification",
-      "operative_vectors",
+      "candidate_vector_recommendations",
       "deferred_or_disproportionate_vectors",
       "source_requirements",
       "benchmark_state",
@@ -750,7 +750,7 @@
       "Domain-expanded vectors were not treated as automatically operative.",
       "Risk analysis was proportional to credible consequence and exposure.",
       "Mandatory floors were not pruned due only to small scale or prototype status.",
-      "The selected operative vector set is smaller than or equal to the candidate set and every material exclusion has a reason.",
+      "The recommended candidate vector set is smaller than or equal to the expanded candidate set and every material exclusion has a reason; operative selection remains artifact-owned.",
       "Source authority and freshness are explicit where material.",
       "The benchmark is task-scoped and not presented as an ordinary permanent job title.",
       "No domain package governs Orbit 0 by itself.",
@@ -1715,7 +1715,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -1752,7 +1752,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",

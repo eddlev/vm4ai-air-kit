@@ -64,7 +64,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "size_bytes": 19274,
       "line_count": 686
     }
@@ -752,7 +752,7 @@
     "mandatory_translator_route": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2_WHEN_TRIGGERED",
     "result": "VERSIONED_DOMAIN_PACKAGE_SOURCE_OF_TRUTH_VALIDATED_AVAILABLE_UNBOUND",
     "required_input_rule": [
-      "If creation requires Translator, Architect, Method Pack, or manifest validation and the complete package is unavailable, emit AIR_REQUIRED_INPUT_REQUEST for the complete canonical five-file package before construction."
+      "If creation requires Translator, Architect, Method Pack, or manifest validation and the complete package is unavailable, identify the complete canonical five-file package as the smallest sufficient need and route it through Core RT.UNCERTAINTY_RESOLVE / AIR_REQUIRED_INPUT_REQUEST before construction."
     ],
     "test_evidence_recommendation_rule": "Recommend air -t on when representative-task evidence must be independently reviewed, when Q2=C Q3=A Q4=A is carried from project initialization, or when a valid Governance Specialist identifies a regulatory evidence obligation. Do not auto-enable."
   },
@@ -4799,7 +4799,7 @@
     "approved_package_matching": "Match only approved_domain_package_index packages as reusable detailed runtime domain sources.",
     "fixture_exclusion": "Do not match or compile golden or negative fixtures as runtime Domain Packages.",
     "composition_rule": "For composite tasks, assign each family and approved Domain Package a declared role such as factual correctness, method, risk, usability, regulation, communication, or evaluation.",
-    "disambiguation_rule": "Ask the smallest question that would materially change family selection, Domain Package selection, risk level, source plan, cognitive depth, or operative vectors.",
+    "disambiguation_rule": "Ask the smallest question that would materially change family selection, Domain Package selection, risk level, source plan, cognitive depth, or candidate vector recommendations.",
     "unknown_rule": "When no approved Domain Package fits, use UNKNOWN_DOMAIN or EMERGING_DOMAIN and compile a provisional Session Domain Overlay from authoritative sources. Do not silently force a fixture or promote the overlay.",
     "domain_creation_recommendation_rule": "Recommend a detailed Domain Package when the trigger contract is met; route construction through the Translator when triggered and the Capability Ecology Architect.",
     "vector_expansion_rule": "Add domain vectors, knowledge dimensions, cognitive depth, path requirements, source requirements, quality criteria, failure modes, and adjacent-domain triggers to the candidate set; do not bind them as operative until scope and proportionality review.",
@@ -4895,7 +4895,7 @@
       "user approval boundaries",
       "runtime origin",
       "backend validation state",
-      "operative vectors before artifact compilation"
+      "artifact-bound operative vectors; registry output before artifact compilation remains candidate-only"
     ]
   },
   "non_goals": [
@@ -5135,7 +5135,7 @@
     "no_repeat_rule": "Do not request a current compatible file or package already present in the session or validated package set. Re-request only for absence, staleness, mismatch, incompleteness, inaccessibility, or supersession.",
     "attachment_boundary": "Upload establishes presence only. Components remain received-pending-validation or validated-available-unbound until compatibility validation, explicit approval when required, and compilation into the bound Orbit 0 AIR_ARTIFACT.",
     "handoff_rule": "Preserve exact requested filenames, request scope, satisfaction state, blockers, acceptable alternatives, safe fallback, and post-receipt validation requirements.",
-    "test_evidence_input_rule": "When full evidence or a regulatory evidence obligation requires unavailable fixtures, test definitions, tools, logs, environment details, reviewer evidence or source rights, emit AIR_REQUIRED_INPUT_REQUEST naming the smallest exact requirement."
+    "test_evidence_input_rule": "When full evidence or a regulatory evidence obligation requires unavailable fixtures, test definitions, tools, logs, environment details, reviewer evidence or source rights, identify the smallest exact requirement and route it through Core RT.UNCERTAINTY_RESOLVE / AIR_REQUIRED_INPUT_REQUEST."
   },
   "package_state": {
     "component_state": "VALIDATED_AVAILABLE_UNBOUND_PACKAGE_COMPLETE",
@@ -5210,7 +5210,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "20780da686d3d69f865ba4995f37fa9dd0419b43c8378120a78ce85cdc3c7df6",
+      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
@@ -5247,7 +5247,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_002",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",

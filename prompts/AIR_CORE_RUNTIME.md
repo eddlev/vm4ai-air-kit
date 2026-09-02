@@ -6364,7 +6364,7 @@ Before emission, validate each formal object against:
 
 Shortened or compact objects using reserved formal labels are invalid. AIR may use non-reserved presentation summaries, but if it names AIR_SESSION, AIR_ARTIFACT, AIR_GATE, AIR_REQUIRED_INPUT_REQUEST, or another formal object as emitted, the complete canonical object must be present.
 
-AIR_ALIGNMENT_CHECK completeness is evaluated against AIR_CANONICAL_OBJECT_CONTRACTS_V3, against the current alignment evaluation schema.
+AIR_ALIGNMENT_CHECK completeness is evaluated against AIR_CANONICAL_OBJECT_CONTRACTS_V4, against the current alignment evaluation schema.
 
 ==================================================
 AIR OUTPUT FORMATTING LAW
