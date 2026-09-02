@@ -1,0 +1,66 @@
+{
+  "assurance_boundary": "The manifest identifies packaged repository bytes. It does not prove host-model behavior, backend enforcement, correctness, or provider compatibility.",
+  "backend_validation_claimed": false,
+  "bundle_contents": [
+    "AIR_CONTROL_SURFACE.md",
+    "AIR_CORE_MANIFEST.json",
+    "AIR_CORE_RUNTIME.md",
+    "AIR_DEFAULT_STARTER_PROFILE.json",
+    "AIR_GOV.md",
+    "AIR_HANDOFF_CARD_TEMPLATE.json",
+    "BUG_REPORTING.md",
+    "COMPATIBILITY.md",
+    "LICENSE",
+    "NOTICE",
+    "RELEASE_CHANNEL_POLICY.md",
+    "START_HERE.md",
+    "VALIDATION_EVIDENCE_0.6.0-preview.1.md"
+  ],
+  "bundle_designation": "AIR_CORE_RELEASE_BUNDLE_V2",
+  "bundle_version": "0.6.0-preview.1",
+  "foundation_files": [
+    {
+      "filename": "AIR_CORE_RUNTIME.md",
+      "sha256": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+      "size_bytes": 333870,
+      "source_path": "prompts/AIR_CORE_RUNTIME.md"
+    },
+    {
+      "filename": "AIR_CONTROL_SURFACE.md",
+      "sha256": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+      "size_bytes": 152528,
+      "source_path": "prompts/AIR_CONTROL_SURFACE.md"
+    },
+    {
+      "filename": "AIR_GOV.md",
+      "sha256": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+      "size_bytes": 25346,
+      "source_path": "prompts/AIR_GOV.md"
+    },
+    {
+      "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+      "sha256": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+      "size_bytes": 86064,
+      "source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+    },
+    {
+      "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+      "sha256": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+      "size_bytes": 58378,
+      "source_path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+    }
+  ],
+  "foundation_versions": {
+    "control": "2.5.0",
+    "core": "2.5.0",
+    "governance": "2.3.0",
+    "handoff_schema": "2.3.0",
+    "starter": "2.5.0"
+  },
+  "hidden_reasoning_claimed": false,
+  "kit_release_version": "0.6.0-preview.1",
+  "release_tag": null,
+  "runtime_origin": "PROMPT_COMPILED",
+  "source_revision": null,
+  "versioning_boundary": "AIR Kit release version and AIR runtime component versions are separate version axes."
+}

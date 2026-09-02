@@ -1,0 +1,933 @@
+{
+  "record_schema_version": "1.0.0",
+  "run_id": "AIR-TEST-15029593a64245d9288f",
+  "run_index": 2,
+  "suite_id": "AIR_FOUNDATION_REPRODUCIBILITY_CONTRACT_V2_5_0_PREVIEW_1",
+  "suite_sha256": "ed5dfa765ade1652028b3c3c1b7fb8467324db9e1a91401bfa750b1ff59b618e",
+  "definition_or_manifest_sha256": "ed5dfa765ade1652028b3c3c1b7fb8467324db9e1a91401bfa750b1ff59b618e",
+  "fixture_set_sha256": "bcf07e4eae65750dbbda6bbd81359ef296f18ccbf2d65f74f0ce8f29659e02ac",
+  "material_input_hashes": {
+    "README.md": "647516c03620dd9fa0da8a31159c165ec65b302a2b8fd576fe1b4fc02b25bf3c",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json": "d6822fd6b947aa4fd3e16aad0571763199b348ba415443b3020ebe32da82b431",
+    "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json": "6e72955d4311dc4d61361e73470ea39b8392d46516167f62cec475ecf1e03177",
+    "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
+    "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json": "a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json": "dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json": "207b77627fd672aedfa89c11e5f86157ac6fcbbc738023385c838715a074df2c",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json": "246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json": "e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108",
+    "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json": "93c5590d0699b62cd3fade693f46ab2e12d4d2180ec4e0ef47680df56a29dcf6",
+    "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed",
+    "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json": "3906b5b23652276aa369b39093d563c64bdd77a90091b647fe93fdd727e63346",
+    "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910",
+    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json": "287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c",
+    "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json": "6bc03d13958b7be12a1e3fa83736e717437703de40245812e01bc75672103fea",
+    "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
+    "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json": "a1606491779549f810602edcf5147463e53adc7b6fb63e3f93e080d4d2281581",
+    "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c",
+    "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json": "eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e",
+    "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json": "0a5cacbf4eb31448f939872126cb6fcecfe471a08f8854326c4a70bd14114de5",
+    "prompts/AIR_CONTROL_SURFACE.md": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+    "prompts/AIR_CORE_RUNTIME.md": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+    "prompts/AIR_GOV.md": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+    "prompts/AIR_HANDOFF_CARD_TEMPLATE.json": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+    "tests/air_object_contract_check.py": "2fdeffa9a7f84938fac7ba7c1399c4613d4582e0ec38c5a99d6ab3145d1646bb"
+  },
+  "source_revision": "FINAL_TREE_UNCOMMITTED_SHA_PENDING",
+  "runner_identity": "tests/air_test_runner.py",
+  "runner_version": "1.0.0",
+  "runtime_identity": {
+    "python_implementation": "CPython",
+    "python_version": "3.12.11"
+  },
+  "environment_identity": {
+    "python_implementation": "CPython",
+    "python_version": "3.12.11",
+    "platform_system": "Linux",
+    "platform_machine": "x86_64",
+    "tz": "UTC",
+    "lang": "C.UTF-8",
+    "lc_all": "C.UTF-8",
+    "pythonhashseed": "0",
+    "air_test_seed": "0",
+    "network_policy": "DISABLED_ENFORCED_DOCKER",
+    "container_image": "python@sha256:47ae396f09c1303b8653019811a8498470603d7ffefc29cb07c88f1f8cb3d19f",
+    "source_commit": "FINAL_TREE_UNCOMMITTED_SHA_PENDING"
+  },
+  "environment_fingerprint": "a1e3155b8dea545b1edfbbc8b3a8e829f809a2167c8d7730494ef56aa58c03ac",
+  "working_directory": "/repo",
+  "execution_command_or_argv": [
+    "tests/air_test_runner.py",
+    "--manifest",
+    "tests/air-test-manifest.json",
+    "--output",
+    "/evidence/run-2.json",
+    "--run-index",
+    "2"
+  ],
+  "random_seed_or_not_applicable": "0",
+  "network_policy": "DISABLED_ENFORCED_DOCKER",
+  "started_at_epoch": 1788339039,
+  "completed_at_epoch": 1788339039,
+  "test_evidence_class": "REPRODUCIBLE_EXECUTABLE",
+  "reproducibility_state": "UNVERIFIED_PENDING_REPEAT_COMPARISON",
+  "tests_total": 84,
+  "tests_passed": 84,
+  "tests_failed": 0,
+  "decision": "PASS",
+  "decision_fingerprint": "6b84ef68fe3483f98f2e3bb1fb193fb9662d7c2e3f1339e1e4139648e42ab52b",
+  "per_test_results": [
+    {
+      "id": "SHA-01",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3",
+      "observed": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-02",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "d6822fd6b947aa4fd3e16aad0571763199b348ba415443b3020ebe32da82b431",
+      "observed": "d6822fd6b947aa4fd3e16aad0571763199b348ba415443b3020ebe32da82b431",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-03",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "6e72955d4311dc4d61361e73470ea39b8392d46516167f62cec475ecf1e03177",
+      "observed": "6e72955d4311dc4d61361e73470ea39b8392d46516167f62cec475ecf1e03177",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-04",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
+      "observed": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-05",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
+      "observed": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-06",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558",
+      "observed": "a5f1e7ad34c456a588343233e1e205d1fa3eb1b3fa51cccafaa57f1571bad558",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-07",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed",
+      "observed": "dc89ac7e05245a05893d4ec04f5bb124c95153da4b681e92cc75575c4c75a0ed",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-08",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "207b77627fd672aedfa89c11e5f86157ac6fcbbc738023385c838715a074df2c",
+      "observed": "207b77627fd672aedfa89c11e5f86157ac6fcbbc738023385c838715a074df2c",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-09",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb",
+      "observed": "246a004cfedfe939ad49ac0ef3b29670df0497b745413ddfc05e4afcc14270bb",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-10",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108",
+      "observed": "e37c02a578fdd9d00810042a9aca3d5490c125a7d1c96f530acced5e5a9a5108",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-11",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "93c5590d0699b62cd3fade693f46ab2e12d4d2180ec4e0ef47680df56a29dcf6",
+      "observed": "93c5590d0699b62cd3fade693f46ab2e12d4d2180ec4e0ef47680df56a29dcf6",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-12",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed",
+      "observed": "de0a8e6599f3317a18ec886c454b756b3956cd85a771f68f11e620788ee6e3ed",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-13",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "3906b5b23652276aa369b39093d563c64bdd77a90091b647fe93fdd727e63346",
+      "observed": "3906b5b23652276aa369b39093d563c64bdd77a90091b647fe93fdd727e63346",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-14",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910",
+      "observed": "096cf7338501727a70876971fa64382c9ac8cf6765ca3c7ca45e1e56a3cfe910",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-15",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c",
+      "observed": "287c7fc651d03db767d5e63c1e533043d3156b4132234b2729e7151952c7613c",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-16",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "6bc03d13958b7be12a1e3fa83736e717437703de40245812e01bc75672103fea",
+      "observed": "6bc03d13958b7be12a1e3fa83736e717437703de40245812e01bc75672103fea",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-17",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
+      "observed": "202cdd0e2d9b5837c6eb1cd403329a71c02f7809f6fb27bec8032ee15edaddf3",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-18",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "a1606491779549f810602edcf5147463e53adc7b6fb63e3f93e080d4d2281581",
+      "observed": "a1606491779549f810602edcf5147463e53adc7b6fb63e3f93e080d4d2281581",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-19",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c",
+      "observed": "9cfe9a8c209503d6b643638366156485e03469c33711943163ee7cf5cda4013c",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-20",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e",
+      "observed": "eda84e7f9994380ce27e6411669c04a6c11c043a80e5befb322e411e4d9ca47e",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-21",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "0a5cacbf4eb31448f939872126cb6fcecfe471a08f8854326c4a70bd14114de5",
+      "observed": "0a5cacbf4eb31448f939872126cb6fcecfe471a08f8854326c4a70bd14114de5",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-22",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+      "observed": "701471f8c9150f7f981eed4fb81b494b3edf8c5edabf893b32bee98d33738252",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-23",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+      "observed": "32e4d90334870f30b21b77ab4f4298346fe048fc0767ebf4ccceaa6e82abce3f",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-24",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+      "observed": "dff872d14bf5e6dedc8271de7e5c3c4eada6bb3a641a472d751ffbbb6eda9db4",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-25",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+      "observed": "32f01f62989a2fe3976dd220e0d372d81d26124f073ce95bd8c928447834efc9",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SHA-26",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "sha256_equals",
+      "expected": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+      "observed": "8a6adea17705fd0f8c9937d6d2b404fdaa63117e9b2bf328e1fe81709cfec5b6",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-01",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-02",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-03",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-04",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-05",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-06",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-07",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-08",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-09",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-10",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-11",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-12",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-13",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-14",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-15",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-16",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-17",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-18",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-19",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-20",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-21",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-22",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "JSON-23",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_strict_parse",
+      "expected": null,
+      "observed": "PARSED_NO_DUPLICATE_KEYS",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-01",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-02",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-03",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-04",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-05",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-06",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-07",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-08",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-09",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-10",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-11",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-12",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-13",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-14",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-15",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-16",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SENT-17",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "ST-1",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "2.5.0",
+      "observed": "2.5.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "ST-2",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "2.5.0",
+      "observed": "2.5.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "ST-3",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": 3,
+      "observed": 3,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "HO-1",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "2.3.0",
+      "observed": "2.3.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "HO-2",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": 14,
+      "observed": 14,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "HO-3",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "2.5.0",
+      "observed": "2.5.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "HO-4",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "2.5.0",
+      "observed": "2.5.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "HO-5",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "UNVERIFIED",
+      "observed": "UNVERIFIED",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "SFV-TOPO",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "command",
+      "expected": null,
+      "observed": {
+        "exit_code": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-01",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-02",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-03",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-04",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-05",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-06",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "text_contains",
+      "expected": null,
+      "observed": true,
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-07",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "CLOSED_WORLD_CORE_OWNED_FIELDS_ONLY",
+      "observed": "CLOSED_WORLD_CORE_OWNED_FIELDS_ONLY",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-08",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "json_value_equals",
+      "expected": "1.0.0",
+      "observed": "1.0.0",
+      "decision": "PASS",
+      "failure_reason": null
+    },
+    {
+      "id": "OBJ-09",
+      "requirement": "",
+      "test_class": "REPRODUCIBLE_EXECUTABLE",
+      "type": "command",
+      "expected": null,
+      "observed": {
+        "exit_code": 0,
+        "stdout_sha256": "fff78738a7b9ad6138700d5642870a5a985b1891a7232464d28ba708ff3976f9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "decision": "PASS",
+      "failure_reason": null
+    }
+  ],
+  "claim_boundary": "This record proves only the executable checks observed in this run. It does not prove untested intent, hidden model state, or external effects outside the recorded environment."
+}

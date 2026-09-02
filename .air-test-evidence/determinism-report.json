@@ -1,0 +1,25 @@
+{
+  "record_schema_version": "1.0.0",
+  "reproducibility_class": "REPRODUCIBLE_EXECUTABLE",
+  "reproducibility_state": "DETERMINISTIC_CONFIRMED",
+  "required_independent_runs": 3,
+  "observed_run_count": 3,
+  "all_runs_passed": true,
+  "run_identities_match": true,
+  "decision_fingerprints_identical": true,
+  "network_isolation_enforced": true,
+  "unstable_test_ids": [],
+  "run_ids": [
+    "AIR-TEST-3865942777243b950e30",
+    "AIR-TEST-15029593a64245d9288f",
+    "AIR-TEST-4b35e2144354a1c83d56"
+  ],
+  "decision_fingerprints": [
+    "6b84ef68fe3483f98f2e3bb1fb193fb9662d7c2e3f1339e1e4139648e42ab52b",
+    "6b84ef68fe3483f98f2e3bb1fb193fb9662d7c2e3f1339e1e4139648e42ab52b",
+    "6b84ef68fe3483f98f2e3bb1fb193fb9662d7c2e3f1339e1e4139648e42ab52b"
+  ],
+  "result_fingerprint": "301b668ba1ac270033be4c56f95158c56cf3ece9ff6e03ea4212816ecdb5a0a1",
+  "claim": "84/84 PASS — REPRODUCIBLE_EXECUTABLE — 3/3 isolated executions identical",
+  "claim_boundary": "Deterministic confirmation applies only to the executable definitions, inputs, environment identity, and observations represented by these runs."
+}
