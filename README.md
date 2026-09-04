@@ -19,31 +19,29 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 
 [Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
-## Current tagged release
+## AIR Kit v0.7.0
 
-**AIR Kit v0.6.0** is the current tagged public release and carries AIR Foundation **2.5.0**.
+**AIR Kit v0.7.0** carries AIR Foundation **2.5.0** with the coordinated object-contract identity `AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004`. Component prompt/package versions remain unchanged where their public contract did not require a version increment.
 
-The `set004-target-readiness-step-optimality` branch is an **unreleased release candidate**. It keeps the component versions at AIR Foundation `2.5.0` / Specialist packages `2.4.0`, while resealing the coordinated object-contract identity as `AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004`.
-
-| Component | Tagged v0.6.0 | Set-004 candidate |
+| Component | v0.6.0 | v0.7.0 |
 | --- | ---: | ---: |
-| AIR Kit | `0.6.0` | unreleased candidate |
+| AIR Kit | `0.6.0` | `0.7.0` |
 | Core Runtime | `2.5.0` | `2.5.0` |
 | Control Surface | `2.5.0` | `2.5.0` |
 | Default Starter | `2.5.0` | `2.5.0` |
 | Governance Supplement | `2.3.0` | `2.3.0` |
-| Handoff schema | `2.3.0` | `2.3.0` rev15 |
+| Handoff schema | `2.3.0` rev14 | `2.3.0` rev15 |
 | Specialist packages | `2.4.0` | `2.4.0` |
 | Runtime Route Map | `1.0.0` | `1.0.1` |
 | Specialist Package Index | `1.1.4` | `1.2.0` |
 
 Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Behavioral compatibility remains empirical and configuration-dependent.
 
-## Set-004 candidate changes
+## What's in v0.7.0
 
-The set-004 candidate adds target-readiness and step-optimality semantics to AIR's completion architecture. In maturity-bearing work, current AMRS tells AIR where the work is while target AMRS helps define what eventual sufficiency must include. Stage completion requires both task-sufficiency and a bounded step-optimality pass under the active benchmark; this is not a claim of global optimization.
+AIR Kit v0.7.0 adds target-readiness and step-optimality semantics to AIR's completion architecture. In maturity-bearing work, current AMRS tells AIR where the work is while target AMRS helps define what eventual sufficiency must include. Stage completion requires both task-sufficiency and a bounded step-optimality pass under the active benchmark; this is not a claim of global optimization.
 
-The candidate also:
+The release also:
 
 1. carries Handoff schema `2.3.0` revision 15;
 2. updates the Runtime Route Map to `1.0.1`;
@@ -110,7 +108,7 @@ The catalog improves route and Specialist discovery. It does not independently c
 
 ### `profiles/`
 
-Optional reusable Specialist capability packages in the set-004 candidate:
+Optional reusable Specialist capability packages in AIR Kit v0.7.0:
 
 - AI Governance Specialist
 - Capability Ecology Architect
