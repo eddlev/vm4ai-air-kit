@@ -99,8 +99,9 @@
     "knowledge_to_execution_benchmark_contract": {
       "required": true,
       "floor_invariant": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
-      "purpose": "Compile a task-sufficient synthetic benchmark that evaluates transformation of domain knowledge into context-sensitive execution rather than lookup-and-execute compliance alone.",
+      "purpose": "Compile a task-sufficient synthetic benchmark against the active completion envelope and target readiness when material, then support stage-relative step-optimal selection rather than lookup-and-execute or minimum-viable compliance.",
       "required_profile_fields": [
+        "completion_envelope",
         "domain_knowledge_requirements",
         "cognitive_depth_profile",
         "knowledge_to_execution_path",
@@ -133,8 +134,19 @@
         "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
         "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
       ],
-      "approval_boundary": "APPROVE requires knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP. Missing or unvalidated required stages route to REVIEW or REJECT.",
-      "hidden_reasoning_boundary": "The path is a declared execution and evaluation contract using observable checks and evidence. It does not request or expose private chain of thought."
+      "approval_boundary": "APPROVE requires knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP. AMRS stage completion or promotion additionally requires step_optimality_state = PASS plus applicable evidence and blocker conditions. Missing or unvalidated required stages route to REVIEW or REJECT.",
+      "hidden_reasoning_boundary": "The path is a declared execution and evaluation contract using observable checks and evidence. It does not request or expose private chain of thought.",
+      "task_sufficiency_definition": "All material knowledge, cognitive, evidence, capability, execution, and result-evaluation requirements for the active step completion envelope and target AMRS stage when material are covered at the required standard. This is not a minimum-viable threshold.",
+      "target_readiness_rule": "Resolve target readiness from canonical intent, active contract, completion definition, and acceptance criteria when maturity/readiness is material. If materially ambiguous, route to uncertainty resolution; do not default to AMRS-6 or silently select a stage.",
+      "step_optimality_rule": "For AMRS stage completion or promotion, require a stage-relative bounded comparison of feasible alternatives. PASS means no identified feasible alternative materially dominates the selected path on benchmark dimensions material to the target stage.",
+      "step_optimality_states": [
+        "NOT_EVALUATED",
+        "PASS",
+        "REVIEW_REQUIRED",
+        "REJECTED_MATERIALLY_DOMINATED",
+        "NOT_APPLICABLE"
+      ],
+      "optimization_stopping_rule": "Stop optimization when further search has no reasonable prospect of materially changing the selected path relative to the active benchmark and target AMRS stage; this does not waive unresolved material discovery obligations."
     },
     "required_input_acquisition_contract": {
       "required": true,
@@ -757,7 +769,11 @@
           "test_requirements",
           "review_obligations",
           "rejection_conditions",
-          "readiness_stage"
+          "readiness_stage",
+          "target_readiness_stage",
+          "target_readiness_basis",
+          "readiness_gap",
+          "completion_readiness_state"
         ],
         "source_law": "CODING EXECUTION LAW",
         "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
@@ -1141,6 +1157,37 @@
         ],
         "source_law": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
         "failure_behavior": "HOLD_UNCOMPILED_CONTRIBUTION_NONOPERATIVE"
+      },
+      {
+        "id": "REQ-AMRS-TARGET-READINESS",
+        "plane": "AIR_ARTIFACT",
+        "condition": "ACTIVE_STEP_IS_MATURITY_BEARING",
+        "fields": [
+          "execution_benchmark_profile.completion_envelope",
+          "readiness_stage",
+          "target_readiness_stage",
+          "target_readiness_basis",
+          "readiness_gap",
+          "completion_readiness_state",
+          "promotion_requirements",
+          "blocked_capabilities"
+        ],
+        "source_law": "AIR MATURITY READINESS LAW + AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
+        "failure_behavior": "REVIEW_OR_UNCERTAINTY_RESOLUTION"
+      },
+      {
+        "id": "REQ-AMRS-STAGE-OPTIMALITY",
+        "plane": "AIR_ARTIFACT_EXECUTION_BENCHMARK_PROFILE",
+        "condition": "AMRS_STAGE_COMPLETION_OR_PROMOTION_IS_BEING_EVALUATED",
+        "fields": [
+          "completion_envelope",
+          "knowledge_to_execution_path.path_validation_state",
+          "step_optimality_state",
+          "step_optimality_basis",
+          "optimization_stopping_basis"
+        ],
+        "source_law": "AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
+        "failure_behavior": "REVIEW_OR_REJECT_STAGE_COMPLETION"
       }
     ]
   },
@@ -1285,7 +1332,8 @@
       "runtime alignment state including last evaluation identity/profile/epoch/result and pending revalidation without restoring historical evaluation as current authority",
       "semantic fidelity state and canonical intent/context references needed for continuation",
       "MII lattice contribution references, unresolved cognitive conflicts, and morphology state when material",
-      "epistemic sufficiency state and unresolved required-input acquisition state"
+      "epistemic sufficiency state and unresolved required-input acquisition state",
+      "current and target readiness, target-readiness basis, readiness gap, completion-readiness state, and stage-relative step-optimality state/basis/stopping basis"
     ],
     "binding_boundary": "The handoff restores serialized state as continuation-bootstrap input only. Current alignment evaluation and exactly one Orbit 0 AIR_ARTIFACT rebinding remain required before positive execution.",
     "schema_target": "2.3.0"
@@ -1358,7 +1406,13 @@
       "material epistemic insufficiency routes through RT.UNCERTAINTY_RESOLVE for the smallest sufficient input instead of silent inference",
       "Q4/Q4D are continuity/delivery priors and do not independently bind execution geometry or lambda",
       "Core canonical handoff schema version equals Handoff Template SCHEMA_VERSION and schema_version at 2.3.0",
-      "Handoff Template restored starter profile version equals 2.5.0 and startup files may include AIR_RUNTIME_ROUTE_MAP.json without granting it semantic authority"
+      "Handoff Template restored starter profile version equals 2.5.0 and startup files may include AIR_RUNTIME_ROUTE_MAP.json without granting it semantic authority",
+      "every executable benchmark resolves a completion_envelope and task-sufficient knowledge_to_execution_path against target readiness when maturity-bearing",
+      "task-sufficient is a completeness floor and is not represented as minimum viable",
+      "AMRS stage completion or promotion requires COMPLETE_FOR_ACTIVE_STEP plus step_optimality_state PASS and applicable evidence/blocker conditions",
+      "step-optimality is stage-relative and bounded and never represented as proof of a global optimum",
+      "target readiness ambiguity routes to uncertainty resolution rather than silent AMRS-stage selection",
+      "optimization stopping requires a basis that further search has no reasonable prospect of materially changing the selected path"
     ],
     "required_retests": [
       "new project with Starter only",
@@ -1433,7 +1487,13 @@
       "material intent uncertainty requests the smallest sufficient clarification rather than silently selecting a frame",
       "MII multi-lens conflicting contributions remain explicit until benchmark fusion resolves or holds them",
       "node-local geometry/lambda may differ by cognitive objective while task benchmark remains sole execution authority",
-      "strict handoff executes dependencies but serializes exactly one AIR_HANDOFF_CARD root"
+      "strict handoff executes dependencies but serializes exactly one AIR_HANDOFF_CARD root",
+      "AMRS-2 target does not inherit AMRS-6 production-approval obligations merely because higher stages exist",
+      "AMRS-6 target expands the completion envelope to production-critical blocker, evidence-complete review, decision-trace, and approval-visibility requirements",
+      "K2E COMPLETE_FOR_ACTIVE_STEP without step_optimality PASS does not complete or promote a maturity-bearing AMRS stage",
+      "identified materially superior feasible alternative prevents step-optimality PASS until the path is revised or the alternative is shown infeasible under binding constraints",
+      "optimization stopping PASS records why further search is unlikely to materially change the selected path",
+      "non-maturity-bearing task keeps target readiness NOT_APPLICABLE rather than manufacturing an AMRS target"
     ],
     "required_version_source": "TOP_LEVEL_PROMPT_VERSION",
     "version_consistency_rule": "validation_contract.required_version MUST equal top-level PROMPT_VERSION. A mismatch is an internal component defect and blocks release validation.",
@@ -1524,6 +1584,14 @@
       "owner": "AIR_CORE_RUNTIME_V2:RT.MORPHOLOGY_BIND",
       "q4_is_soft_prior_only": true,
       "node_local_morphology_supported": true
+    },
+    "completion_readiness_routing": {
+      "completion_envelope_required_before_capability_or_cognitive_sufficiency": true,
+      "target_readiness_required_when_maturity_bearing": true,
+      "unresolved_target_route": "RT.UNCERTAINTY_RESOLVE",
+      "capability_route_dependency": "DEP.COMPLETION_ENVELOPE_RESOLVED + DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL",
+      "cognitive_route_dependency": "DEP.COMPLETION_ENVELOPE_RESOLVED + DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL",
+      "amrs_close_dependency": "DEP.TASK_SUFFICIENCY_COMPLETE + DEP.STEP_OPTIMALITY_PASS_WHEN_AMRS_MATURITY_BEARING"
     }
   },
   "action_governance_contract": {

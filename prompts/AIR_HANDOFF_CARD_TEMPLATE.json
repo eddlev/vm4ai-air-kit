@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 14,
+    "card_revision": 15,
     "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
     "evaluation_basis": {
@@ -306,6 +306,10 @@
       },
       "readiness_state": {
         "readiness_stage": null,
+        "target_readiness_stage": null,
+        "target_readiness_basis": null,
+        "readiness_gap": [],
+        "completion_readiness_state": null,
         "readiness_reason": null,
         "stage_constraints": [],
         "promotion_requirements": [],
@@ -325,7 +329,10 @@
         "efficiency_ledger": null,
         "governance_overhead": null,
         "benchmark_ledger": null,
-        "fail_forward_patch_loop": null
+        "fail_forward_patch_loop": null,
+        "step_optimality_state": null,
+        "step_optimality_basis": null,
+        "optimization_stopping_basis": null
       },
       "grounding_state": {
         "specialist_need_check": null,
@@ -430,7 +437,7 @@
       "runtime_alignment_recheck": "Historical alignment evaluation identities and results are provenance only. Execute a new Core RT.ALIGN evaluation using HANDOFF_RESTORE profile against current-session state before any restored state becomes execution-bearing.",
       "semantic_fidelity_recheck": "Restore only explicit canonical-intent/context references and unresolved semantic ambiguities, then reconcile them against available raw input/source evidence and current user direction. Do not silently reinterpret missing intent.",
       "mii_recheck": "Restore MII contribution references, conflict state, and morphology state as non-authorizing continuation input. Revalidate contribution availability/task fit and compile applicable validated contributions into or explicitly reference them from the rebound Orbit 0 AIR_ARTIFACT benchmark before operative use.",
-      "route_map_recheck": "AIR_RUNTIME_ROUTE_MAP.json is discovery/salience metadata only. If supplied, validate identity and Core compatibility; if missing or stale, Core route semantics remain authoritative and runtime continues without granting the map semantic authority."
+      "route_map_recheck": "AIR_RUNTIME_ROUTE_MAP.json is discovery/salience metadata only. If supplied, validate identity and Core compatibility; if missing or stale, Core route semantics remain authoritative and runtime continues without granting the map semantic authority. When target readiness is material, revalidate the completion envelope and any serialized step-optimality basis before treating stage completion or promotion as current."
     },
     "migration_state": {
       "source_schema_version": null,
@@ -456,7 +463,8 @@
         "v2_2_to_v2_3_alignment": "MIGRATE runtime_watchdog_state/cadence carriers as historical provenance only. Preserve post_activation_user_message_count only as diagnostic/anchor state. Do not restore alignment intervals, periodic-due state, or historical PASS as current authority. Execute a new HANDOFF_RESTORE alignment evaluation.",
         "v2_2_to_v2_3_evidence_presentation": "Map legacy SUMMARY_ONLY display intent to STANDARD_EVIDENCE_PRESENTATION and legacy FULL_TEST_EVIDENCE display intent to EXPANDED_EVIDENCE_PRESENTATION only. Do not infer evidence capture or reproducibility from the old display mode.",
         "v2_2_to_v2_3_mii": "Missing MII, semantic-fidelity, morphology, or epistemic-sufficiency carriers are valid legacy absence, not inferred completed state. Reconstruct only from explicit supported source/artifact state and current evaluation; otherwise preserve UNRESOLVED or request required input.",
-        "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING"
+        "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING",
+        "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS."
       }
     },
     "load_integrity": {
@@ -563,13 +571,15 @@
           "id": "HC-COND-KNOWLEDGE-PATH",
           "condition": "execution_state.execution_benchmark_profile is present for an executable or resumable active artifact",
           "requirements": [
+            "execution_benchmark_profile contains completion_envelope",
             "execution_benchmark_profile contains domain_knowledge_requirements",
             "execution_benchmark_profile contains cognitive_depth_profile",
             "execution_benchmark_profile contains knowledge_to_execution_path",
             "execution_benchmark_profile contains path_validation_state",
             "execution_state.knowledge_to_execution_path_state matches the canonical benchmark profile",
             "required path stages preserve completion state and evidence references",
-            "APPROVE is carried only when path_validation_state = COMPLETE_FOR_ACTIVE_STEP"
+            "APPROVE is carried only when path_validation_state = COMPLETE_FOR_ACTIVE_STEP",
+            "completion_envelope target readiness matches readiness_state when maturity-bearing"
           ],
           "failure_behavior": "REVIEW_OR_REJECTED_INSUFFICIENT_PATH"
         },
@@ -841,6 +851,30 @@
             "unlabelled redundant transfer state is rejected rather than resolved by recency or convenience"
           ],
           "failure_behavior": "REVIEW_OR_REJECT_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION"
+        },
+        {
+          "id": "HC-COND-TARGET-READINESS-REV15",
+          "condition": "card_revision >= 15 and execution_state.readiness_state is maturity-bearing",
+          "requirements": [
+            "readiness_stage preserves the current evidenced AMRS stage",
+            "target_readiness_stage and target_readiness_basis are explicit",
+            "readiness_gap and completion_readiness_state are preserved",
+            "unresolved target readiness remains unresolved and is not silently promoted on restore",
+            "execution_benchmark_profile.completion_envelope agrees with the preserved target readiness state"
+          ],
+          "failure_behavior": "REVIEW_OR_TARGET_READINESS_RECONSTRUCTION"
+        },
+        {
+          "id": "HC-COND-AMRS-STEP-OPTIMALITY-REV15",
+          "condition": "card_revision >= 15 and an AMRS stage is serialized as complete or promotion-ready",
+          "requirements": [
+            "knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP",
+            "step_optimality_state = PASS",
+            "step_optimality_basis is preserved",
+            "optimization_stopping_basis is preserved when proportional stopping supports PASS",
+            "required closure evidence and blocker state are preserved"
+          ],
+          "failure_behavior": "REVIEW_OR_REJECT_STAGE_COMPLETION_RESTORATION"
         }
       ],
       "nullability": {
@@ -889,7 +923,10 @@
         "AIR_RUNTIME_ROUTE_MAP represented as semantic, execution, binding, selection, or approval authority",
         "AIR_HANDOFF_CARD emitted without object_version = 2.0.0",
         "AIR_HANDOFF_CARD emitted without current HANDOFF_CREATE evaluation_basis",
-        "Strict one-root serialization treated as permission to skip alignment, validation, gate, or constructor dependencies"
+        "Strict one-root serialization treated as permission to skip alignment, validation, gate, or constructor dependencies",
+        "Target readiness silently inferred or upscaled during restore when the serialized basis is unresolved",
+        "AMRS stage completion or promotion restored while step_optimality_state is absent or not PASS",
+        "Step-optimality represented as proof of a global optimum rather than a stage-relative bounded benchmark judgment"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
@@ -917,7 +954,8 @@
         "morphology restoration and Q4 soft-prior boundary check",
         "epistemic sufficiency and required-input routing check",
         "schema 2.2.0 to 2.3.0 migration check",
-        "AIR_RUNTIME_ROUTE_MAP discovery-only authority check"
+        "AIR_RUNTIME_ROUTE_MAP discovery-only authority check",
+        "rev14 to rev15 target-readiness/step-optimality migration check"
       ],
       "schema_compatibility_contract": {
         "canonical_schema_version": "2.3.0",
@@ -929,7 +967,7 @@
         ],
         "starter_identity_version_required": "2.5.0",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
-        "card_revision_compatibility": "REV14_SCHEMA_2_3_0_WITH_EXPLICIT_MIGRATION_FROM_SCHEMA_2_3_0_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
+        "card_revision_compatibility": "REV15_SCHEMA_2_3_0_WITH_EXPLICIT_MIGRATION_FROM_SCHEMA_2_3_0_REV14_AND_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
         "specialist_catalog_extension_introduced_revision": 12,
         "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
@@ -968,7 +1006,7 @@
           "foundation_compatibility_identity": null,
           "comparison_state": "NOT_EVALUATED"
         },
-        "backward_compatibility_state": "SCHEMA_2_3_0_REV13_MAY_BE_MIGRATED_TO_REV14_WITH_TRANSFER_OWNERSHIP_REVALIDATION; SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
+        "backward_compatibility_state": "SCHEMA_2_3_0_REV14_AND_REV13_MAY_BE_MIGRATED_TO_REV15_WITH_TARGET_READINESS_STEP_OPTIMALITY_AND_TRANSFER_OWNERSHIP_REVALIDATION; SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
         "restoration_precedence": "EXPLICIT_HANDOFF_SPECIALIST_AND_PACKAGE_STATE_PRECEDES_CATALOG_DISCOVERY",
         "authority_effect": "DISCOVERY_ONLY",
         "rules": [

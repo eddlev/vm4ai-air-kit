@@ -8,7 +8,7 @@
   "artifact_class": "AIR_EXECUTOR_CONTRACT",
   "package_version": "2.4.0",
   "package_subtype": "AI_GOVERNANCE_BOUNDED_EXECUTOR",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -35,18 +35,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "8cfc7912982205fe41d569f49538a0f4bbc927616f0d9ea126ca4817dc584b0b",
-        "size_bytes": 333870,
-        "line_count": 6926
+        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
+        "size_bytes": 341210,
+        "line_count": 7004
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.5.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "436f5a69cdb1f008d28f376b443311d5021cffa2ec30b4b2769dedeb6647b8ec",
-        "size_bytes": 152801,
-        "line_count": 3126
+        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
+        "size_bytes": 155401,
+        "line_count": 3172
       },
       {
         "filename": "AIR_GOV.md",
@@ -62,18 +62,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.5.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "2fee611cb73cd790d98a1cb8bf17df98977275b5c9db8b8988cc3e5e1f327241",
-        "size_bytes": 86064,
-        "line_count": 1571
+        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
+        "size_bytes": 91296,
+        "line_count": 1639
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "e98a45261b271fffb767404892c239c2a753d3d9b1471d40af6b05538d5aaad6",
-        "size_bytes": 58483,
-        "line_count": 1096
+        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
+        "size_bytes": 61365,
+        "line_count": 1134
       }
     ],
     "required_floor_invariants": [
@@ -90,7 +90,7 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
     "target_foundation_versions": {
       "core": "2.5.0",
       "control": "2.5.0",
@@ -98,15 +98,15 @@
       "starter": "2.5.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
-      "size_bytes": 19274,
-      "line_count": 686
+      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "size_bytes": 19772,
+      "line_count": 693
     }
   },
   "file_identity_contract": {
@@ -259,28 +259,28 @@
     {
       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "sha256": "1b1fc37e87f9e06660d067601072fd251c258bf1219ca5079726d3f7ef4df1e2",
+      "sha256": "f0d5708b067fa6692774867c5612b0f7bbce134f9f532a0d3af5080fa72a01e0",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
       "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
-      "sha256": "63a1afdf0335b19243dd00de4683de2733cd0180e72fde42ee010b0039aa5999",
+      "sha256": "480ef44c918eae825929e014bd1e5823cba8313224674dd1c2f14ffe92ef36c8",
       "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "sha256": "651928d58f9698f390c5682fd6d0a14525e6559fe060ac3642ccba90a416a916",
+      "sha256": "d528b067901aec75c85c6778ce07caa249518469d2e4591437e04a09b7af5235",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
       "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
-      "sha256": "6b1cbf3ba2d2a675944789351492c69cb82ae61fd4d59dce35645ea05c31a97d",
+      "sha256": "40495b65d652ecb6d3f0c464f1d4b425206150a414c0fefd5f7bcc901ae1f9fa",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -478,11 +478,11 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
     "mainline_release_binding": {
       "release_identity": "AIR_AI_GOVERNANCE_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -496,7 +496,7 @@
       "sfv_candidate_version_cross_checked": "2.4.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
     }
   },
   "foundation_routing_compatibility": {
@@ -547,14 +547,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
+      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_AI_GOVERNANCE_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19274,
-      "line_count": 686
+      "size_bytes": 19772,
+      "line_count": 693
     },
     "peer_validation_context": {
       "capability_ecology": {

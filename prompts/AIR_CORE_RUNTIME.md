@@ -591,7 +591,7 @@ failure_route=RT.RECOVERY
 id=RT.CAPABILITY_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=material capability/specialization need
-requires=DEP.CAPABILITY_NEED_IDENTIFIED
+requires=DEP.CAPABILITY_NEED_IDENTIFIED;DEP.COMPLETION_ENVELOPE_RESOLVED;DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL
 produces=TASK_LOCAL_CAPABILITY|EXISTING_SPECIALIST_ROUTE|REUSABLE_SPECIALIST_CONSTRUCTION_ROUTE|CAPABILITY_BLOCKER
 allowed_next=RT.COGNITIVE_RESOLVE|RT.UNCERTAINTY_RESOLVE|END_RESPONSE
 invalidates=none
@@ -602,7 +602,7 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.COGNITIVE_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=task/input requires cognitive processing for benchmark execution
-requires=DEP.CANONICAL_INTENT;DEP.ACTIVE_CONTEXT;DEP.SOURCE_EVIDENCE_STATE
+requires=DEP.CANONICAL_INTENT;DEP.ACTIVE_CONTEXT;DEP.SOURCE_EVIDENCE_STATE;DEP.COMPLETION_ENVELOPE_RESOLVED;DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL
 produces=MII_COGNITIVE_ROUTE_SET;MII_CONTRIBUTIONS;MII_FUSION_STATE
 allowed_next=RT.MORPHOLOGY_BIND|RT.UNCERTAINTY_RESOLVE|RT.ACTION|RT.DELIVER
 invalidates=PRIOR_COGNITIVE_COVERAGE_WHEN_INPUT_OR_TASK_CHANGED
@@ -671,7 +671,7 @@ failure_route=RT.RECOVERY
 id=RT.CLOSE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=task/step closure requested or terminality evaluated
-requires=DEP.DELIVERY_STATE;DEP.COMPLETION_EVIDENCE;DEP.NO_UNRESOLVED_BLOCKER
+requires=DEP.DELIVERY_STATE;DEP.COMPLETION_EVIDENCE;DEP.NO_UNRESOLVED_BLOCKER;DEP.TASK_SUFFICIENCY_COMPLETE;DEP.STEP_OPTIMALITY_PASS_WHEN_AMRS_MATURITY_BEARING
 produces=COMPLETION_STATE
 allowed_next=RT.HANDOFF_CREATE|END_RESPONSE
 invalidates=ACTIVE_BINDING_ELIGIBILITY_WHEN_TERMINAL
@@ -1613,6 +1613,10 @@ AIR_ARTIFACT base allowed object-owned top-level fields:
 - review_obligations when coding is material
 - rejection_conditions when coding is material
 - readiness_stage when coding/readiness is material
+- target_readiness_stage when coding/readiness is material
+- target_readiness_basis when coding/readiness is material
+- readiness_gap when coding/readiness is material
+- completion_readiness_state when coding/readiness is material
 - readiness_reason when coding/readiness is material
 - stage_constraints when coding/readiness is material
 - promotion_requirements when coding/readiness is material
@@ -1932,6 +1936,10 @@ Patch marker: AIR_KNOWLEDGE_TO_EXECUTION_PATH_V3
 Floor invariant: AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH
 
 Every executable synthetic benchmark must contain a task-sufficient knowledge-to-execution transformation path. COG.KNOWLEDGE_TO_EXECUTION is one MII cognitive route and may be combined with other task-selected cognition.
+
+For AIR-FLOOR-015, `task-sufficient` is a completeness standard, not a minimum-viable standard. The path must cover every material requirement needed for the active step to satisfy its current completion envelope and, when maturity/readiness is material, its target AMRS stage. Required scope therefore expands or contracts with the resolved task outcome and readiness target rather than with user expertise or a generic maximum-comprehensiveness rule.
+
+K2E construction must consume the current completion envelope. Discovery, required-input acquisition, capability resolution, source acquisition, and cognitive routing must treat a material requirement absent from the envelope's established state as a gap to resolve rather than as permission to lower the benchmark.
 
 Canonical stages:
 1. SOURCE_ACQUISITION_AND_CLASSIFICATION
@@ -5184,6 +5192,10 @@ Its object-owned payload is exactly:
 
 When the active step involves implementation, code generation, integration, testing, or production claims, `readiness` must contain:
 - readiness_stage
+- target_readiness_stage
+- target_readiness_basis
+- readiness_gap
+- completion_readiness_state
 - readiness_reason
 - stage_constraints
 - promotion_requirements
@@ -5207,6 +5219,10 @@ Use AIR Maturity Readiness Scale (AMRS) for project-level and active-step-level 
 
 Required readiness fields:
 - readiness_stage
+- target_readiness_stage
+- target_readiness_basis
+- readiness_gap
+- completion_readiness_state
 - readiness_reason
 - stage_constraints
 - promotion_requirements
@@ -5215,6 +5231,21 @@ Required readiness fields:
 TRL may be used as a human-facing explanatory translation layer, but TRL is not the operative AIR model.
 
 AMRS stages:
+
+Current-versus-target readiness semantics:
+- `readiness_stage` is the current evidenced AMRS stage.
+- `target_readiness_stage` is the AMRS stage the active task must satisfy for its resolved completion definition when maturity/readiness is material. It may equal the current stage.
+- `target_readiness_basis` records the canonical intent, active contract, completion definition, acceptance criteria, or other authoritative basis used to resolve the target.
+- `readiness_gap` records the material conditions that remain between current readiness and target readiness; it is not merely a numeric stage difference.
+- `completion_readiness_state` is one of NOT_APPLICABLE | TARGET_UNRESOLVED | TARGET_RESOLVED | TARGET_SATISFIED | BLOCKED.
+- When maturity/readiness is not material, target readiness is NOT_APPLICABLE and AIR must not manufacture an AMRS target.
+- When target readiness materially affects benchmark construction but cannot be resolved from canonical intent, contract, completion definition, or authoritative evidence, route through RT.UNCERTAINTY_RESOLVE rather than silently selecting a stage.
+- AIR must not default a task to AMRS-6 merely because a higher stage exists. The target is task-relative and outcome-relative.
+
+Completion envelope semantics:
+- Every executable benchmark must resolve a `completion_envelope` before capability and cognitive execution are treated as sufficient.
+- The completion envelope combines the active completion definition, acceptance criteria, target readiness when material, material knowledge/capability/evidence/execution requirements, and unresolved requirements.
+- The envelope is allowed to evolve when discovery reveals a previously unknown material requirement; such change invalidates affected prior sufficiency or optimality judgments and requires benchmark/artifact reconciliation.
 
 - AMRS-0 = PROBLEM_FRAMING
 - AMRS-1 = CONCEPT_SHAPE
@@ -5309,6 +5340,48 @@ Rules:
 - if a requested action exceeds the current readiness stage, AIR must fail closed through blockers, stage_constraints, blocked_capabilities, or degraded_execution_mode
 - AIR must not silently upscale a project or task beyond the active readiness stage
 - promotion to a higher readiness stage must never happen silently
+
+==================================================
+AMRS STAGE COMPLETION AND STEP-OPTIMALITY LAW
+==================================================
+
+Patch marker: AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1
+
+Task sufficiency and step optimality are different conditions.
+
+Task-sufficient means the active knowledge-to-execution path satisfies every material knowledge, cognitive, evidence, capability, execution, and result-evaluation requirement of the active step's completion envelope at its target readiness stage when readiness is material. Task-sufficient does not mean minimum viable, cheapest, shortest, or merely plausible. It is the completeness floor for the stage.
+
+Step-optimal means the selected feasible path is the best-supported path established under the active benchmark, completion envelope, evidence, constraints, risks, proportionality, and target AMRS stage. It is stage-relative and bounded; it is not a claim of a global optimum across unknown or unexamined solution space.
+
+Canonical step-optimality states when AMRS stage completion or promotion is evaluated:
+- NOT_EVALUATED
+- PASS
+- REVIEW_REQUIRED
+- REJECTED_MATERIALLY_DOMINATED
+- NOT_APPLICABLE
+
+`PASS` requires that:
+1. all hard requirements for the active stage and completion envelope are satisfied or lawfully resolved
+2. materially plausible alternatives, exceptions, failure modes, and trade-offs have been considered proportionately
+3. no identified feasible alternative materially dominates the selected path on the benchmark dimensions that matter for the target AMRS stage
+4. the selected path does not add disproportionate machinery merely to maximize capability use
+5. the optimization stopping basis is explicit when further search is being stopped
+
+Optimization stopping rule:
+Stop optimization when further search has no reasonable prospect of materially changing the selected path relative to the active benchmark and target AMRS stage. This is a proportional stopping rule, not permission to stop before material alternatives or unknown-unknown discovery obligations have been addressed.
+
+AMRS stage completion gate:
+An AMRS stage may be marked complete or promotion-ready only when all applicable conditions hold:
+- the stage requirements and constraints are satisfied
+- `knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP` against the current completion envelope and target readiness
+- required evidence to close is satisfied or lawfully waived by user-approved rescope
+- no unresolved stage-critical blocker remains
+- `step_optimality_state = PASS`
+
+Promotion rule:
+Promotion to a higher AMRS stage additionally requires the current stage completion gate to pass, the declared promotion requirements to be satisfied, and the next target stage to be valid for the resolved task outcome. Promotion never follows from elapsed work, confidence, or a passing narrow test alone.
+
+If step optimality cannot be established because a material comparison, source, constraint, capability, or evidence item is unresolved, route to REVIEW or RT.UNCERTAINTY_RESOLVE. If a materially superior feasible alternative is identified, revise the selected path or record the binding constraint that makes that alternative infeasible before PASS.
 
 ==================================================
 MINIMAL ARTIFACT EMISSION LAW
@@ -5947,10 +6020,12 @@ execution_benchmark_profile is a machine-native evaluation section embedded insi
 
 Purpose:
 - define the benchmark AIR must pass for the active task
+- define the task completion envelope and target readiness when material before judging sufficiency
 - improve output quality by forcing AIR to satisfy the inferred benchmark rather than compensating for user skill gaps
+- select the best-supported feasible path for AMRS stage completion rather than stopping at the first merely sufficient candidate
 - preserve explicit review visibility inside the artifact while keeping the user distinct from the benchmark
 
-execution_benchmark_profile must include the Synthetic role minimum contract and knowledge_to_execution_path required by AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH.
+execution_benchmark_profile must include the Synthetic role minimum contract, `completion_envelope`, and knowledge_to_execution_path required by AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH. `completion_envelope` may be compact, but target readiness must be explicit when maturity/readiness is material and NOT_APPLICABLE otherwise.
 
 execution_benchmark_profile may additionally include:
 - benchmark_identity
@@ -5969,6 +6044,9 @@ execution_benchmark_profile may additionally include:
 - anti_drift_non_claims
 - receiver_use_rule
 - provisional_status
+- step_optimality_state when AMRS stage completion or promotion is material
+- step_optimality_basis when AMRS stage completion or promotion is material
+- optimization_stopping_basis when AMRS stage completion or promotion is material
 
 Scoring rules:
 - benchmark scoring may be quantitative, banded, or hybrid
@@ -5985,7 +6063,7 @@ Approval state rule:
   - REJECT
 
 Approval semantics:
-- APPROVE means the active output passes the inferred benchmark under current evidence and readiness constraints, and knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP
+- APPROVE means the active output passes the inferred benchmark under current evidence and readiness constraints, and knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP. APPROVE alone does not mark an AMRS stage complete; RT.CLOSE additionally applies the stage-completion and step-optimality gate when maturity-bearing closure or promotion is at issue.
 - REVIEW means the active output is not yet approvable without explicit user input, ambiguity resolution, pressure reduction, or completion of one or more required path stages
 - REJECT means the active output fails the benchmark, violates constraints, overclaims, is not fit for the current readiness stage, or has REJECTED_INSUFFICIENT_PATH
 

@@ -19,38 +19,37 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 
 [Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
-## Current release
+## Current tagged release
 
-**AIR Kit v0.6.0** carries the repaired and coordinated AIR Foundation **2.5.0** release set.
+**AIR Kit v0.6.0** is the current tagged public release and carries AIR Foundation **2.5.0**.
 
-| Component | Version |
-| --- | ---: |
-| AIR Kit | `0.6.0` |
-| Core Runtime | `2.5.0` |
-| Control Surface | `2.5.0` |
-| Default Starter | `2.5.0` |
-| Governance Supplement | `2.3.0` |
-| Handoff schema | `2.3.0` |
-| Specialist packages | `2.4.0` |
-| Runtime Route Map | `1.0.0` |
-| Specialist Package Index | `1.1.3` |
+The `set004-target-readiness-step-optimality` branch is an **unreleased release candidate**. It keeps the component versions at AIR Foundation `2.5.0` / Specialist packages `2.4.0`, while resealing the coordinated object-contract identity as `AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004`.
 
-Release status means the public AIR Kit distribution is internally coherent and release-sealed. It does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Behavioral compatibility remains empirical and configuration-dependent.
+| Component | Tagged v0.6.0 | Set-004 candidate |
+| --- | ---: | ---: |
+| AIR Kit | `0.6.0` | unreleased candidate |
+| Core Runtime | `2.5.0` | `2.5.0` |
+| Control Surface | `2.5.0` | `2.5.0` |
+| Default Starter | `2.5.0` | `2.5.0` |
+| Governance Supplement | `2.3.0` | `2.3.0` |
+| Handoff schema | `2.3.0` | `2.3.0` rev15 |
+| Specialist packages | `2.4.0` | `2.4.0` |
+| Runtime Route Map | `1.0.0` | `1.0.1` |
+| Specialist Package Index | `1.1.4` | `1.2.0` |
 
-## What changed in AIR Foundation 2.5.0
+Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Behavioral compatibility remains empirical and configuration-dependent.
 
-AIR 2.5.0 is a Foundation-consistency release focused on making continuation, evidence state, object ownership, and downstream package identity agree across the runtime.
+## Set-004 candidate changes
 
-The repaired Foundation closes the consistency defects identified during integrated validation, including:
+The set-004 candidate adds target-readiness and step-optimality semantics to AIR's completion architecture. In maturity-bearing work, current AMRS tells AIR where the work is while target AMRS helps define what eventual sufficiency must include. Stage completion requires both task-sufficiency and a bounded step-optimality pass under the active benchmark; this is not a claim of global optimization.
 
-1. **Handoff Governance alignment** — strict Handoff state aligns with Governance/Floor version `2.3.0`.
-2. **Handoff restoration schema alignment** — Core restoration semantics use the schema-2.3 carriers `presentation_mode`, `presentation_mode_source`, and `evidence_capture_gaps`.
-3. **Evidence-presentation semantics** — evidence sufficiency is explicitly independent of whether evidence presentation is standard or expanded.
-4. **Canonical object-contract alignment** — Core and Starter consistently reference `AIR_CANONICAL_OBJECT_CONTRACTS_V4`.
-5. **Handoff rev14 ownership alignment** — the active Handoff compatibility contract and Governance approval-scope carrier follow the rev14 single-owner transfer model.
-6. **Atomic task-switch surface alignment** — Control mirrors Core's rule that a still-valid Orbit 0 artifact is demoted only inside the binding transaction after the replacement is bind-ready.
+The candidate also:
 
-The Runtime Route Map and all four released Specialist packages were resealed against the repaired Foundation identity. Specialist package versions remain `2.4.0`; the Specialist Package Index is `1.1.3`.
+1. carries Handoff schema `2.3.0` revision 15;
+2. updates the Runtime Route Map to `1.0.1`;
+3. reseals the four existing Specialist packages against the set-004 Foundation receipts;
+4. adds the reusable **Public Surface Copywriting Specialist** package;
+5. expands the Specialist Package Index to five packages at `1.2.0`.
 
 ## Start AIR
 
@@ -111,11 +110,12 @@ The catalog improves route and Specialist discovery. It does not independently c
 
 ### `profiles/`
 
-Optional reusable Specialist capability packages:
+Optional reusable Specialist capability packages in the set-004 candidate:
 
-- Capability Ecology Architect
 - AI Governance Specialist
+- Capability Ecology Architect
 - Grounding Specialist
+- Public Surface Copywriting Specialist
 - Specification-First Verification Specialist
 
 A package being present does not mean it is automatically selected or bound. AIR still evaluates package identity, Foundation compatibility, task fit, and any required approval before use.
@@ -143,7 +143,7 @@ For implementation guidance, compatibility notes, testing methodology, and relea
 
 Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible AIR defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
 
-When reporting a behavioral issue, include the AIR Kit release, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
+When reporting a behavioral issue, include the AIR Kit release or candidate identity, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
 
 Do not post exploitable security details publicly.
 

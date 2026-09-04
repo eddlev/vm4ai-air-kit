@@ -8,7 +8,7 @@
   "package_version": "2.4.0",
   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_PENDING_FRESH_BEHAVIORAL_REVALIDATION",
+  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
   "STANDARD_CODE": "AIR.EXECUTOR.HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.V2.KNOWLEDGE.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.PATH.BENCHMARK.DOMAIN_PACKAGE.AUTHORITY.RISK.EXECUTION.DISCLOSURE.ACKNOWLEDGEMENT.FAILURE_LOCALIZATION.DATASET_ELIGIBILITY.RAW_TAXONOMY_REJECTION",
   "description": "Bounded non-agent translation layer that decomposes human-oriented occupational, curriculum, certification, competency, job-description and professional frameworks into evidence-bounded machine-native knowledge, cognitive, capability, execution-path, boundary, review and prohibition candidates. It prevents raw human taxonomy from binding directly, supports Detailed Domain Package construction and synthetic benchmark formation, and does not confer human identity, licensure, authority, experience, institutional standing or legal accountability.",
   "created_at": "2026-07-19T19:02:43+02:00",
@@ -53,7 +53,7 @@
     "record_mode": "PROMPT_LAYER_APPLIED",
     "backend_enforcement_claimed": false,
     "hidden_reasoning_claimed": false,
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_003",
+    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
     "target_foundation_versions": {
       "core": "2.5.0",
       "control": "2.5.0",
@@ -61,15 +61,15 @@
       "starter": "2.5.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.0.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
-      "size_bytes": 19274,
-      "line_count": 686
+      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "size_bytes": 19772,
+      "line_count": 693
     }
   },
   "file_identity_contract": {
@@ -1177,14 +1177,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.0.0",
-      "sha256": "b4cbbce22d2c8d6a973f2a1661c6afed1bcd0fde336e493f03ce40ab4043267b",
+      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19274,
-      "line_count": 686
+      "size_bytes": 19772,
+      "line_count": 693
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1214,11 +1214,11 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_003",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_003",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1229,7 +1229,7 @@
       "runtime_route_map_version": "1.0.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_003_RESEAL_STATIC_VALIDATED_PENDING_FRESH_BEHAVIORAL_REVALIDATION"
+      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
     }
   },
   "mii_integration_contract": {

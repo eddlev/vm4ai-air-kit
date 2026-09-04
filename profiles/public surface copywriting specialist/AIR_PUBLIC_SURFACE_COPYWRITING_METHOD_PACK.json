@@ -1,0 +1,277 @@
+{
+  "title": "AIR Public-Surface Copywriting Method Pack v2",
+  "SYSTEM_DESIGNATION": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
+  "PROFILE_KIND": "METHOD_PACK",
+  "profile_function_class": "METHOD_PACK",
+  "artifact_class": "AIR_METHOD_PACK",
+  "STATUS": "V2_4_0_REUSABLE_SPECIALIST_REDESIGN_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS_AVAILABLE_UNBOUND",
+  "STANDARD_CODE": "AIR.METHOD.PUBLIC_SURFACE_COPYWRITING.V2",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "PROMPT_VERSION": "2.2.0",
+  "package_version": "2.4.0",
+  "content_revision": "2.0.0",
+  "description": "Optional reusable procedure for public-surface copy creation and review. It is selected only when the active task benefits from repeatable sequencing; ordinary copywriting judgment remains available through the Specialist without requiring this Method Pack.",
+  "method_id": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_V2",
+  "purpose": "Provide a low-variance, evidence-aware sequence for source-bounded public copy drafting, rewriting, cross-surface review, and copy-readiness assessment without hardcoding a particular product, brand, page set, or publication workflow.",
+  "use_when": [
+    "multiple public surfaces must be drafted/reviewed consistently",
+    "a repeatable review sequence materially reduces drift or rework",
+    "claim mapping and source reconciliation are material",
+    "a release or publication workflow explicitly requires a copy review contribution",
+    "the user or artifact requests a structured copy-review method"
+  ],
+  "do_not_use_when": [
+    "a single trivial wording edit does not benefit from method ceremony",
+    "the actual blocker is unresolved domain truth rather than copy procedure",
+    "the active artifact selects a different method",
+    "using the method would add process without material quality or evidence benefit"
+  ],
+  "required_inputs": [
+    "bound Orbit 0 task and completion envelope",
+    "current public surface or requested deliverable",
+    "current product/subject source truth",
+    "claim/evidence state when material",
+    "audience/page-job basis",
+    "brand/voice source when material",
+    "target readiness or release posture when material"
+  ],
+  "conditional_inputs": [
+    "validated task-relevant Domain Package or authoritative external source",
+    "analytics/user research",
+    "current platform/search guidance",
+    "legal/accessibility/regulatory review basis",
+    "cross-surface content inventory"
+  ],
+  "method_steps": [
+    {
+      "step_id": "CW01_RESOLVE_TASK_AND_SURFACE_JOB",
+      "purpose": "Establish what the active task is trying to accomplish and what the public surface must do.",
+      "operations": [
+        "read bound task center, active step, completion envelope and acceptance criteria",
+        "identify audience/reader basis and surface job from current sources",
+        "surface material ambiguity rather than inventing positioning"
+      ],
+      "evidence_to_advance": [
+        "task and surface job are sufficiently resolved"
+      ],
+      "failure_route": "RT.UNCERTAINTY_RESOLVE"
+    },
+    {
+      "step_id": "CW02_LOAD_SOURCE_AND_CLAIM_BASIS",
+      "purpose": "Separate authoritative subject truth from wording choices.",
+      "operations": [
+        "load current product/subject source truth",
+        "classify material claims and evidence state",
+        "identify brand/voice source when material",
+        "identify stale/missing/conflicting source basis"
+      ],
+      "evidence_to_advance": [
+        "material facts and claim boundaries are known or explicitly unresolved"
+      ],
+      "failure_route": "EVIDENCE_REQUIRED_OR_REQUIRED_INPUT"
+    },
+    {
+      "step_id": "CW03_ROUTE_ADJACENT_DOMAIN_NEEDS",
+      "purpose": "Prevent copywriting from substituting for specialist domain judgment.",
+      "operations": [
+        "detect legal, accessibility, technical, scientific, security, regulated, search-platform or other adjacent domain needs",
+        "request or recommend the smallest validated domain/source route when material",
+        "record limitations when an adjacent review is not required for the current step"
+      ],
+      "evidence_to_advance": [
+        "adjacent domain requirements are satisfied, deferred with justification, or blocking"
+      ],
+      "failure_route": "RT.CAPABILITY_RESOLVE_OR_RT.UNCERTAINTY_RESOLVE"
+    },
+    {
+      "step_id": "CW04_FORM_CANDIDATE_STRUCTURE",
+      "purpose": "Build an information hierarchy that serves the reader and current surface job.",
+      "operations": [
+        "prioritize reader value or task before internal mechanism names unless task context reverses that order",
+        "place necessary technical detail at the depth required by the audience",
+        "preserve required qualifications and scope boundaries",
+        "generate materially different structure/positioning candidates when the decision is consequential"
+      ],
+      "evidence_to_advance": [
+        "at least one candidate satisfies hard task constraints"
+      ],
+      "failure_route": "REVIEW_REQUIRED"
+    },
+    {
+      "step_id": "CW05_DRAFT_OR_REWRITE",
+      "purpose": "Produce source-bounded copy without semantic or claim drift.",
+      "operations": [
+        "draft or rewrite within current scope",
+        "preserve authoritative meaning, approved terminology, and brand source",
+        "avoid invented evidence or persuasion upgrades",
+        "keep claims proportional to evidence"
+      ],
+      "evidence_to_advance": [
+        "candidate copy is complete for the scoped operation"
+      ],
+      "failure_route": "REVISE"
+    },
+    {
+      "step_id": "CW06_COMPARE_AND_SELECT",
+      "purpose": "Contribute to bounded step-optimal selection when material.",
+      "operations": [
+        "compare feasible candidates against active benchmark dimensions",
+        "reject candidates that fail hard requirements",
+        "prefer a candidate only when no identified feasible alternative materially dominates it after proportionate comparison",
+        "stop search when further alternatives are unlikely to materially change selection"
+      ],
+      "evidence_to_advance": [
+        "step-optimality contribution is PASS_CANDIDATE or further search is justified"
+      ],
+      "failure_route": "REVIEW_REQUIRED"
+    },
+    {
+      "step_id": "CW07_REVIEW_COPY_IN_SCOPE",
+      "purpose": "Review clarity, claim integrity, semantic fidelity, source use, audience fit, and relevant cross-surface consistency.",
+      "operations": [
+        "check claim language against source/evidence state",
+        "check semantic fidelity to task/source truth",
+        "check page/surface job and audience fit",
+        "check brand/voice only against current brand sources",
+        "check jargon/technical-depth fit",
+        "check cross-surface contradictions only when scope includes them",
+        "identify adjacent-domain review needs without claiming certification"
+      ],
+      "evidence_to_advance": [
+        "material findings are localized and actionable"
+      ],
+      "failure_route": "REVISE_OR_EVIDENCE_REQUIRED"
+    },
+    {
+      "step_id": "CW08_EMIT_NONAUTHORIZING_RESULT",
+      "purpose": "Return the copy or review contribution without assuming completion/publication authority.",
+      "operations": [
+        "emit candidate copy or localized findings",
+        "state source basis and unresolved items",
+        "state limitations and revalidation triggers",
+        "when active artifact requests readiness review, emit PASS_CONTRIBUTION/REVISE/REVIEW_REQUIRED/EVIDENCE_REQUIRED/REJECT_CONTRIBUTION/RESCOPE_REQUIRED"
+      ],
+      "evidence_to_advance": [
+        "Core/bound artifact has sufficient contribution state for its next decision"
+      ],
+      "failure_route": "AIR_ARTIFACT_REVIEW"
+    }
+  ],
+  "completion_rule": "Method completion means the selected procedure produced its required candidate copy/review contribution with source, limitation, and unresolved-state visibility. It is not task completion, AMRS completion, publication approval, or material-action authorization.",
+  "knowledge_to_execution_path_contract": {
+    "floor": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+    "rule": "The Method must not reduce copy work to stylistic lookup-and-execute. It must preserve source acquisition/classification, comprehension, applicability, alternative/failure analysis when material, judgment/proportionality, adaptation/planning, execution, and result evaluation required by the active benchmark.",
+    "step_optimality": "CW06 contributes comparative evidence only; Core owns final step-optimality and AMRS completion gates."
+  },
+  "output_contract": {
+    "required_fields": [
+      "method_state",
+      "scope",
+      "source_basis",
+      "candidate_or_findings",
+      "decision_or_recommendation",
+      "unresolved_items",
+      "limitations",
+      "revalidation_triggers"
+    ],
+    "optional_fields": [
+      "candidate_comparison",
+      "step_optimality_contribution",
+      "adjacent_domain_escalation",
+      "cross_surface_findings",
+      "copy_readiness_contribution"
+    ],
+    "authority": "NONAUTHORIZING_METHOD_OUTPUT"
+  },
+  "authority_boundary": {
+    "layer_kind": "NON_AGENT_METHOD_PACK",
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "self_approval": false,
+    "self_binding": false,
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "selection_rule": "Select independently when the task needs repeatable procedure; package presence does not make it active.",
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT"
+  },
+  "recommended_specialist": {
+    "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
+    "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
+    "relationship": "OPTIONAL_COMPATIBLE_CAPABILITY_POSTURE",
+    "required": false,
+    "selection_time_validation_required": true
+  },
+  "handoff_contract": {
+    "preserve_when_active": [
+      "method selection state",
+      "current method step",
+      "source basis refs",
+      "unresolved items",
+      "candidate comparison state when material",
+      "review contribution and revalidation triggers"
+    ],
+    "new_task_boundary": "Do not restore prior task-operative method state without applicability revalidation against the new task artifact."
+  },
+  "foundation_compatibility": {
+    "target_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "COORDINATED_SET_004_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.5.0",
+        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
+        "size_bytes": 341210,
+        "line_count": 7004
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.5.0",
+        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
+        "size_bytes": 155401,
+        "line_count": 3172
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.3.0",
+        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
+        "size_bytes": 25444,
+        "line_count": 511
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.5.0",
+        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
+        "size_bytes": 91296,
+        "line_count": 1639
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.3.0",
+        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
+        "size_bytes": 61365,
+        "line_count": 1134,
+        "card_revision": 15
+      }
+    ],
+    "route_map_discovery_input": {
+      "filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "version": "1.0.0",
+      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "size_bytes": 19772,
+      "line_count": 693,
+      "authority": "DISCOVERY_METADATA_ONLY"
+    }
+  },
+  "claim_boundary": {
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false,
+    "runtime_enforcement_claimed": false,
+    "professional_equivalence_claimed": false
+  },
+  "record_mode": "PROMPT_LAYER_APPLIED"
+}
