@@ -103,7 +103,7 @@
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
       "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "size_bytes": 19772,
@@ -132,7 +132,7 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
-      "sha256": "928fde75dd5a9e57439a43eff257de2571a3a4ed4ecbce848f4d0e863d42129c",
+      "sha256": "86cbb1166127eb3f8c118fc9ac6339834079b1c46c0155fbe00131ed16b72c81",
       "size_bytes": 32496,
       "line_count": 606,
       "required": true,
@@ -141,7 +141,7 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
-      "sha256": "47df5c6c40a0b73b14c193fc59bdd8c0d01862c67920dafdfcdebf726613c2c6",
+      "sha256": "5986010b362996e53d135d1d37171d7fac352f050ff56b7554ddb1ab0e76cf10",
       "size_bytes": 52205,
       "line_count": 1039,
       "required": true,
@@ -506,7 +506,7 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",

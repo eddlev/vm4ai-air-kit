@@ -46,7 +46,7 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "0e508ad6488487679ae56881a2913c059a10bc717e198e048523c48612adeb68",
+      "sha256": "0410481bbcbbf3619721dad0c7a7c151da0dacdfe4fd6bc600a40f02ca4162ea",
       "size_bytes": 21570,
       "line_count": 450,
       "canonical_role": "SPECIALIST_PROFILE",
@@ -61,7 +61,7 @@
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "bd75dd3210d4992704a78fcd97d200651fa43f8551ba7c48bf7d2f5702b09389",
+      "sha256": "90835eb7d01624bb4029cdf94dc7f3a0e116de505aa1b861b91a998780393e44",
       "size_bytes": 12699,
       "line_count": 277,
       "canonical_role": "METHOD_PACK",
@@ -148,7 +148,7 @@
     "foundation_adjacent_route_map": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
       "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "size_bytes": 19772,
@@ -215,7 +215,7 @@
     "prior_draft_treated_as": "SOURCE_MATERIAL_NOT_AUTHORITY"
   },
   "record_mode": "PROMPT_LAYER_APPLIED",
-  "generated_at": "2026-09-04T08:11:22Z",
+  "generated_at": "2026-09-04T09:36:43Z",
   "source_candidate_manifest": {
     "sha256": "7aa8f034e1255b9b2a9a332e49544242f68a5522138df64c55e21257f32d425e",
     "state": "REDESIGNED_REUSABLE_PRE_RESEAL_CANDIDATE",

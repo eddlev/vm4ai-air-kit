@@ -111,7 +111,7 @@
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
       "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "size_bytes": 19772,
@@ -286,7 +286,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "939497ab1ab3fe2d428fbd49565eead44d93f6fc54011915637abfc0d5afdcc9",
+      "sha256": "8bde91ab64770477cb61c8d87664d27686d61f5bfa4afb6029453cba89be6f3d",
       "required_for": [
         "all branches"
       ]
@@ -294,7 +294,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "8a49b4306f7a33b05de416da7d29e64080dd308c8614d0a918f65812fd2bf1eb",
+      "sha256": "122e2821a42370531246e00a036c930f46fc3b1e3f026f23de908ebdd2d4318d",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -304,7 +304,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "823a9db681b9c2c272170976e9530c05c4e3ed2f4a5e0ba244154d7ff5e20c4f",
+      "sha256": "77aac666ea6d7380e312ecc4db4369156ad9531b7b8cdb4214f675ad56a471b5",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",
@@ -1527,7 +1527,7 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
