@@ -67,6 +67,7 @@ jobs:
               'capability ecology architect',
               'governance specialist',
               'grounding specialist',
+              'public surface copywriting specialist',
               'specification first verification specialist',
           ])
           if specialist_dirs != expected_specialists:
@@ -81,5 +82,5 @@ jobs:
           print('AIR public distribution surface: PASS')
           print('Foundation files: 5/5 present')
           print('Catalog JSON: parse PASS')
-          print('Specialist directories: 4/4 present')
+          print('Specialist directories: 5/5 present')
           PY

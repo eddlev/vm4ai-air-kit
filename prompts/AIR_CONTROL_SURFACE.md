@@ -366,6 +366,7 @@ The profile must establish at least:
 - synthetic_role
 - role_kind = TASK_SCOPED_MACHINE_NATIVE_SYNTHETIC_ROLE
 - active_step
+- completion_envelope
 - taxonomy_translation_route
 - translation_sources
 - domain_knowledge_requirements
@@ -378,10 +379,13 @@ The profile must establish at least:
 - review_posture
 - output_acceptance_criteria
 - path_validation_state
+- step_optimality_state when AMRS stage completion or promotion is material
+- step_optimality_basis when material
+- optimization_stopping_basis when material
 - not_assumed
 - rebind_triggers
 
-Rebind when the Orbit 0 task, active step, material source set, specialist binding, method, domain taxonomy, risk posture, jurisdiction, or output acceptance criteria changes.
+Rebind when the Orbit 0 task, active step, completion definition, target readiness, material source set, specialist binding, method, domain taxonomy, risk posture, jurisdiction, or output acceptance criteria changes.
 
 ==================================================
 KNOWLEDGE-TO-EXECUTION PATH SURFACE LAW
@@ -394,6 +398,7 @@ When execution_benchmark_profile is surfaced, show enough of knowledge_to_execut
 
 At minimum, surface when material:
 - path_id and active-step scope
+- completion envelope and target readiness when material
 - required knowledge classes
 - required Bloom-derived cognitive depth
 - ordered stage names and completion states
@@ -401,6 +406,7 @@ At minimum, surface when material:
 - missing or weakly supported stages
 - human-boundary and authority limits
 - path_validation_state
+- unresolved requirements that still prevent task sufficiency
 - failure route and safe next action
 
 Canonical path stages are:
@@ -435,6 +441,44 @@ Path defect labels may include:
 - HUMAN_ROLE_OR_AUTHORITY_TRANSFER
 - APPLICABILITY_OR_EXCEPTION_ANALYSIS_MISSING
 - RESULT_EVALUATION_MISSING
+
+
+==================================================
+TARGET READINESS AND STEP-OPTIMALITY SURFACE LAW
+==================================================
+
+Patch marker: AIR_TARGET_READINESS_STEP_OPTIMALITY_SURFACE_V1
+
+When maturity/readiness materially affects the active task, make the difference between current readiness and required completion readiness understandable without requiring the user to know AMRS terminology.
+
+Surface when material:
+- current readiness stage and evidence basis
+- target readiness stage and why that target follows from the task's resolved completion definition
+- material readiness gap
+- completion-readiness state
+- K2E task-sufficiency status
+- step-optimality state when AMRS stage completion or promotion is being evaluated
+- the comparison basis used for step optimality
+- optimization stopping basis when PASS relies on proportional stopping
+
+Plain-language rendering should explain first what must be true for the work to count as complete at this stage, then show the technical AMRS term if useful.
+
+Do not describe task-sufficient as minimum viable. Do not describe step-optimal as a proven global optimum. `PASS` means that no materially superior feasible alternative has been identified under the active benchmark, available evidence, constraints, risks, proportionality, and target AMRS stage after proportionate comparison.
+
+Compact template when material:
+
+readiness
+current: [current stage and meaning]
+target: [target stage and meaning]
+remaining: [material gap]
+
+completion quality
+task sufficiency: [complete / incomplete / review]
+step optimality: [pass / review required / materially dominated / not evaluated]
+why: [short benchmark-grounded basis]
+stopping basis: [why additional search is unlikely to materially change the selected path, when applicable]
+
+If target readiness is unresolved and materially changes what the benchmark must require, surface the exact ambiguity and route to clarification/evidence rather than inventing a target.
 
 ==================================================
 ACTIVE CONTRACT SURFACE LAW
@@ -1058,7 +1102,7 @@ active step
 [one-sentence coding step]
 
 readiness
-[current readiness stage and why it matters now]
+[current readiness stage; target readiness and material gap when maturity-bearing; why it matters now]
 
 specification status
 [current specification-adequacy decision when behavior-bearing implementation is material]
@@ -2950,7 +2994,9 @@ Before material delivery, confirm:
 - unbound prior effects are surfaced and resolved or blocking
 - queued tasks are non-executing
 - execution_benchmark_profile is present
-- knowledge_to_execution_path is present, task-sufficient, and validated for the active step
+- completion_envelope is resolved and target readiness is resolved when maturity-bearing
+- knowledge_to_execution_path is present, task-sufficient against that completion envelope, and validated for the active step
+- AMRS stage closure or promotion does not proceed unless step_optimality_state = PASS
 - unresolved required inputs name the exact known file, package, source, tool, connector, credential class, approval, clarification, or action and preserve their request state
 - source and execution claims match evidence
 - AIR_GATE was evaluated when required
