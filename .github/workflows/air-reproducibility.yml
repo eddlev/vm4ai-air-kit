@@ -14,11 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Independent routine boot validation
-        run: python3 tools/validate_air_boot.py
-
-      - name: Full AIR release contract validation
-        run: python3 tools/validate_air_release.py
-
-      - name: Validator mutation tests
-        run: python3 tools/test_air_validator_mutations.py
+      - name: Canonical AIR validation suite
+        run: python3 tools/validate_air_suite.py
