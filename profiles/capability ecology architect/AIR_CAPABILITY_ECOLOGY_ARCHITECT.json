@@ -3,13 +3,13 @@
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
   "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and recommends the smallest sufficient candidate vector set for compilation into the bound Orbit 0 AIR_ARTIFACT. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
   "PROMPT_VERSION": "2.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "CAPABILITY_ECOLOGY_ARCHITECT",
   "remediated_at": "2026-08-28T21:05:00+02:00",
   "source_baseline": {
@@ -26,20 +26,20 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
+        "size_bytes": 345417,
+        "line_count": 7056
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "c1db618cbc419b63a9df53610a2b8385bb078d570362af7a4e3165f9a839ca58",
+        "size_bytes": 156717,
+        "line_count": 3190
       },
       {
         "filename": "AIR_GOV.md",
@@ -53,20 +53,20 @@
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "dd651a0c293c97854e3d02d618c5b702990d611df19fc6caa5f98d524ccd5e3c",
+        "size_bytes": 92100,
+        "line_count": 1647
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
+        "size_bytes": 62010,
+        "line_count": 1145
       }
     ],
     "required_floor_invariants": [
@@ -83,7 +83,7 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "required_foundation_files": [
       "AIR_CORE_RUNTIME.md",
       "AIR_CONTROL_SURFACE.md",
@@ -92,21 +92,21 @@
       "AIR_HANDOFF_CARD_TEMPLATE.json"
     ],
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "0edfcffa51eb492bfa621babdeea8554dd1b2bc9293081fa8269e1e98c50b0f0",
+      "size_bytes": 21793,
+      "line_count": 747
     }
   },
   "file_identity_contract": {
@@ -137,13 +137,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "122e2821a42370531246e00a036c930f46fc3b1e3f026f23de908ebdd2d4318d",
+      "sha256": "4634755acfc0f73b1390bf2606f58d603befb2f73490495f3bc6271aacc7535b",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "77aac666ea6d7380e312ecc4db4369156ad9531b7b8cdb4214f675ad56a471b5",
+      "sha256": "b741cec94b13e20f80f206138afd4817f6ea27b9ccab1d0f1ada06f1594793f9",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "source_and_control_registry": {
@@ -1646,7 +1646,7 @@
     {
       "amendment_id": "AIR_MII_MAJOR_ARCHITECTURE_INTEGRATION_001",
       "amendment_version": "2.2.0",
-      "package_version": "2.4.0",
+      "package_version": "2.5.0",
       "approved_scope": "AIR 2.5.0 MII contribution integration; universal semantic-translation relationship; task-fit multi-lens, causal, risk, uncertainty and morphology recommendations; epistemic sufficiency; evidence/presentation separation; exact Foundation F1 compatibility; no execution/binding authority expansion.",
       "floor_invariants": [
         "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
@@ -1714,15 +1714,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "0edfcffa51eb492bfa621babdeea8554dd1b2bc9293081fa8269e1e98c50b0f0",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 21793,
+      "line_count": 747
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1751,12 +1751,12 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1764,10 +1764,10 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
+      "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
     }
   },
   "mii_integration_contract": {

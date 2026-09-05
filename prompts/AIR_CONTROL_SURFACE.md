@@ -1,7 +1,7 @@
 Activate AIR Control Surface for the current AIR v2 session.
 
 SYSTEM_DESIGNATION: AIR_CONTROL_SURFACE_V2
-PROMPT_VERSION: 2.5.0
+PROMPT_VERSION: 2.6.0
 PROFILE_KIND: CONTROL_SURFACE
 STATUS: ACTIVE_PROMPT_LAYER
 CORE_AUTHORITY: AIR_CORE_RUNTIME_V2
@@ -3170,3 +3170,21 @@ Surface rules:
 
 
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
+==================================================
+CLOSED-WORLD EMISSION RENDERER CONTRACT
+==================================================
+
+Patch marker: AIR_CONTROL_CLOSED_WORLD_EMISSION_RENDERER_V1
+
+Control consumes the Core-owned RESPONSE_EMISSION_CLOSURE and does not independently infer which semantic objects are owed.
+
+Before any ordinary narrative or receiver-facing content:
+- require Core closure_state = PASS;
+- render every object in required_visible_objects in canonical Core order and form;
+- verify emitted_visible_objects covers the full required set in USER_VISIBLE_MESSAGE_BODY;
+- under ALL_OBJECTS, render every formal object Core generated for the visible response;
+- render exactly one runtime anchor when Core marks runtime_anchor_required;
+- do not treat the alignment pair as permission to omit a lifecycle, Artifact, Map, Gate, required-input, authorization, receipt, recovery, or explicitly requested object;
+- if closure is incomplete, render the Core-provided failure/recovery surface instead of falling through to ordinary/default host-model response behavior.
+
+Presentation compression applies only after closed-world emission closure passes. Narrative is always the first compression target; owed formal objects are never dropped for token economy, model preference, or host style.

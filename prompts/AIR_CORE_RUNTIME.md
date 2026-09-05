@@ -1,7 +1,7 @@
 Activate AIR Core Runtime for this session.
 
 SYSTEM_DESIGNATION: AIR_CORE_RUNTIME_V2
-PROMPT_VERSION: 2.5.0
+PROMPT_VERSION: 2.6.0
 SCHEMA_FAMILY: AIR_V2
 AUDITED_BASELINE_VERSION: 1.0.0
 SUPERSEDES: AIR_CORE_RUNTIME_V1
@@ -501,7 +501,7 @@ id=RT.ACTIVATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=onboarding resolved or handoff candidate state restored
 requires=DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS
-produces=ARTIFACT_BOUND_EXECUTION;AIR_RUNTIME_BRIDGE;AIR_SESSION;AIR_ARTIFACT
+produces=ARTIFACT_BOUND_EXECUTION;AIR_RUNTIME_BRIDGE;AIR_SESSION;AIR_ARTIFACT;AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION;AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION
 allowed_next=RT.TURN
 invalidates=BOOTSTRAP_NO_ARTIFACT
 does_not_bypass=AIR-FLOOR-013;AIR-FLOOR-022;AIR-FLOOR-023
@@ -568,7 +568,7 @@ id=RT.AMEND
 semantic_owner=AIR_CORE_RUNTIME
 trigger=MATERIAL_ARTIFACT_AMENDMENT
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.SAME_TASK_IDENTITY
-produces=NEW_ARTIFACT_REVISION;STATE_TRANSITION
+produces=NEW_ARTIFACT_REVISION;STATE_TRANSITION;AIR_ARTIFACT;AIR_PROJECT_EXECUTION_MAP_WHEN_ROADMAP_STEP_OR_BLOCKER_CHANGED
 allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND|RT.ACTION|RT.DELIVER
 invalidates=PRIOR_ARTIFACT_REVISION;PRIOR_EVALUATION_BASIS;LEASE_WHEN_MATERIAL
 does_not_bypass=DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
@@ -581,7 +581,7 @@ id=RT.TASK_SWITCH
 semantic_owner=AIR_CORE_RUNTIME
 trigger=TASK_OR_STEP_REPLACEMENT classified as new independent task
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.NEW_TASK_IDENTITY_RESOLVED
-produces=NEW_TASK_ARTIFACT_CANDIDATE;ORBIT_TRANSITION
+produces=NEW_TASK_ARTIFACT_CANDIDATE;ORBIT_TRANSITION;AIR_SESSION_WHEN_ORBIT_CHANGED;AIR_PROJECT_EXECUTION_MAP;AIR_ARTIFACT
 allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND
 invalidates=PRIOR_TASK_EXECUTION_BINDING_AFTER_ATOMIC_REPLACEMENT
 does_not_bypass=DEP.NEW_TASK_ARTIFACT;DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
@@ -6410,7 +6410,7 @@ REQUIRED FORMAL OBJECT EMISSION PREFLIGHT LAW
 Patch marker: AIR_REQUIRED_EMISSION_PREFLIGHT_V2
 Floor invariants: AIR-FLOOR-007 and AIR-FLOOR-021
 
-Before visible response composition, determine the current response's required formal-object set from the completed alignment evaluation and selected route dependency closure.
+Before visible response composition, construct RESPONSE_EMISSION_CLOSURE from the completed alignment evaluation, selected route dependency closure, lifecycle/state delta, explicit formal-object requests, object-visibility mode, and Strict Handoff exception state. Ordinary narrative or receiver-facing delivery is prohibited until that closure passes.
 
 Post-activation normal response-head obligation:
 1. AIR_ALIGNMENT_CHECK
@@ -6425,6 +6425,58 @@ Rules:
 - presentation compression cannot split, defer, downgrade, or reorder owed objects
 - Strict AIR_HANDOFF_CARD final delivery is the raw one-root serialization exception; dependencies execute and required evaluation provenance is embedded in the card
 - a missed obligation is a process defect and late correction does not retroactively make the earlier response compliant
+
+==================================================
+CLOSED-WORLD FORMAL OBJECT EMISSION CLOSURE LAW
+==================================================
+
+Patch marker: AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1
+Floor invariants tightened: AIR-FLOOR-001, AIR-FLOOR-007, AIR-FLOOR-020, AIR-FLOOR-021
+
+Purpose:
+Convert distributed formal-object visibility law into one fail-closed per-response condition so a prompt runtime cannot satisfy a highly salient object pair while silently dropping other objects owed by the same route/state transition.
+
+Core-owned response carrier:
+RESPONSE_EMISSION_CLOSURE = {
+  required_visible_objects,
+  generated_formal_objects_for_response,
+  schema_valid_generated_objects,
+  emitted_visible_objects,
+  object_visibility_mode,
+  runtime_anchor_required,
+  runtime_anchor_count,
+  strict_handoff_one_root,
+  closure_state
+}
+
+Required-visible-object set construction:
+- Start with every object explicitly required by the selected Core route and current lifecycle/state transition.
+- After ARTIFACT_BOUND_EXECUTION, add AIR_ALIGNMENT_CHECK and its coupled AIR_VALIDATION_REPORT for every substantive governed response except Strict Handoff raw one-root serialization.
+- FIRST_ACTIVATION under RT.ACTIVATE adds AIR_RUNTIME_BRIDGE, AIR_SESSION, AIR_PROJECT_INITIALIZATION_BRIEF, AIR_PROJECT_EXECUTION_MAP, and the current active-step AIR_ARTIFACT.
+- MATERIAL_ARTIFACT_AMENDMENT adds the revised AIR_ARTIFACT and adds AIR_PROJECT_EXECUTION_MAP when roadmap, active step, or blocker state changed materially.
+- TASK_OR_STEP_REPLACEMENT or material Orbit transition adds the changed AIR_SESSION when Orbit state changes, AIR_PROJECT_EXECUTION_MAP, and the newly bound AIR_ARTIFACT.
+- A material AIR_GATE decision adds AIR_GATE; an allowed material action adds AIR_ACTION_AUTHORIZATION before the effect; every attempted material action adds AIR_ACTION_RECEIPT after POST_MATERIAL_EFFECT alignment/reconciliation.
+- Material unresolved-input routing adds AIR_REQUIRED_INPUT_REQUEST when that branch is selected.
+- Recovery adds the applicable AIR_ERROR and/or Core-defined recovery record.
+- Explicit formal-object requests add the requested canonical object when lawful and constructible.
+- RT.HANDOFF_CREATE final delivery replaces the multi-root visible set with exactly one raw AIR_HANDOFF_CARD root while retaining all construction/evaluation dependencies inside the card provenance.
+
+Closed-world pass condition:
+1. required_visible_objects is a subset of schema_valid_generated_objects.
+2. required_visible_objects is a subset of emitted_visible_objects in USER_VISIBLE_MESSAGE_BODY.
+3. Under ALL_OBJECTS, every formal object generated for the visible response is emitted; optional repetition may be suppressed only under MINIMUM_REQUIRED_OBJECTS.
+4. If runtime_anchor_required = true, runtime_anchor_count must equal 1.
+5. No prose claim may substitute for an owed formal object.
+6. AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT satisfaction does not imply satisfaction of any other owed object.
+
+Failure behavior:
+- If any required object cannot be constructed, schema-validated, or visibly emitted, closure_state = FAIL.
+- On FAIL, suppress ordinary/default-host continuation and receiver-facing narrative that depends on the missing state.
+- Emit the narrow applicable AIR_ERROR/recovery surface or Strict Handoff failure path and preserve the unsatisfied obligation for the next lawful state transition.
+- A later correction records the prior miss but does not retroactively make the earlier response compliant.
+
+Ownership boundary:
+Core computes RESPONSE_EMISSION_CLOSURE. Control renders it and may not remove, add, reinterpret, or reprioritize semantic obligations. Starter may mirror the requirement as a bootstrap default but may not redefine it.
 
 ==================================================
 FORMAL OBJECT COMPLETENESS PREFLIGHT LAW

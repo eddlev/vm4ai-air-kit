@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.5.0",
+  "PROMPT_VERSION": "2.6.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -375,6 +375,14 @@
       "epistemic_sufficiency_required": true,
       "cognitive_contributions_are_execution_authority": false,
       "operative_effect_boundary": "VALIDATED_CONTRIBUTION_MUST_BE_COMPILED_INTO_OR_EXPLICITLY_REFERENCED_BY_BOUND_ORBIT_0_AIR_ARTIFACT_BENCHMARK"
+    },
+    "closed_world_emission_closure": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+      "rule": "Before visible response composition, Core computes the complete required_visible_objects set and closure state. The Starter may not treat AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT as sufficient when additional route/lifecycle objects are owed.",
+      "all_objects_rule": "Under ALL_OBJECTS, every formal object generated for the visible response is emitted; MINIMUM_REQUIRED_OBJECTS suppresses optional repetition only.",
+      "failure_behavior": "If closed-world emission closure fails, do not fall through to ordinary/default host-model continuation; route the Core-defined error/recovery path."
     }
   },
   "bootstrap_contract": {

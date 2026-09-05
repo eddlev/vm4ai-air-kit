@@ -1,0 +1,134 @@
+{
+  "fixture_set": "AIR_SET005_REGRESSION_FIXTURES_V1",
+  "fixture_version": "1.0.0",
+  "foundation_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+  "purpose": "Permanent deterministic and replayable regression definitions for the defect classes repaired in AIR Kit v0.7.1. Fixtures are test definitions, not proof that a model evaluation ran.",
+  "emission_closure_cases": [
+    {
+      "id": "EC-01-FIRST-ACTIVATION",
+      "state": "FIRST_ACTIVATION after onboarding resolves",
+      "required_visible_objects": [
+        "AIR_RUNTIME_BRIDGE",
+        "AIR_SESSION",
+        "AIR_PROJECT_INITIALIZATION_BRIEF",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "failure_example": "alignment/validation pair or Artifact emitted while Initialization Brief or Execution Map is omitted"
+    },
+    {
+      "id": "EC-02-POST-ACTIVATION-COMPATIBLE",
+      "state": "ARTIFACT_COMPATIBLE_RUNTIME_INPUT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "runtime_anchor_required": true
+    },
+    {
+      "id": "EC-03-MATERIAL-AMENDMENT",
+      "state": "MATERIAL_ARTIFACT_AMENDMENT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_ARTIFACT"
+      ],
+      "conditional_visible_objects": [
+        "AIR_PROJECT_EXECUTION_MAP when roadmap/active-step/blocker changed materially"
+      ]
+    },
+    {
+      "id": "EC-04-TASK-SWITCH",
+      "state": "TASK_OR_STEP_REPLACEMENT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "conditional_visible_objects": [
+        "AIR_SESSION when Orbit state changes"
+      ]
+    },
+    {
+      "id": "EC-05-MATERIAL-ACTION",
+      "state": "material action allowed and attempted",
+      "required_sequence": [
+        "turn-entry alignment pair",
+        "AIR_GATE",
+        "AIR_ACTION_AUTHORIZATION",
+        "effect",
+        "POST_MATERIAL_EFFECT alignment pair",
+        "AIR_ACTION_RECEIPT"
+      ]
+    },
+    {
+      "id": "EC-06-STRICT-HANDOFF",
+      "state": "final strict AIR_HANDOFF_CARD delivery",
+      "required_visible_objects": [
+        "AIR_HANDOFF_CARD raw one-root JSON only"
+      ],
+      "exception": "alignment/evaluation dependencies execute but are serialized in card provenance rather than extra roots"
+    }
+  ],
+  "copywriting_behavior_cases": [
+    {
+      "id": "CW-BEH-01-MATERIAL-LANDING-PAGE",
+      "input_shape": "Public landing page for a technical product with supplied claims, evidence, audience and page goal.",
+      "expected_specialist_deltas": [
+        "audience/surface-job basis",
+        "source-claim map",
+        "multiple positioning/structure candidates",
+        "counter-reading",
+        "benchmark-based selection rationale",
+        "claim/semantic review"
+      ],
+      "fail_if": [
+        "only polished prose is returned",
+        "unsupported persuasion upgrade",
+        "no candidate contrast despite consequential positioning choice"
+      ]
+    },
+    {
+      "id": "CW-BEH-02-MISSING-DOMAIN-TRUTH",
+      "input_shape": "Public copy request where a material product or regulated claim is not supported by supplied source truth.",
+      "expected_result": "EVIDENCE_REQUIRED or exact required-input route; no invented truth and no domain-authority substitution"
+    },
+    {
+      "id": "CW-BEH-03-TRIVIAL-EDIT",
+      "input_shape": "Single low-risk wording cleanup with no material claim, positioning, evidence, or cross-surface burden.",
+      "expected_result": "Specialist ceremony may remain unselected; Default Starter/direct handling remains valid"
+    }
+  ],
+  "method_contract_negative_cases": [
+    {
+      "id": "MC-01",
+      "invalid_if": "METHOD_PACK uses only method_steps and lacks canonical ordered_steps"
+    },
+    {
+      "id": "MC-02",
+      "invalid_if": "ordered step lacks action/preconditions/required_inputs/expected_outputs/evidence_to_advance/failure_behavior/next_step_rule"
+    }
+  ],
+  "handoff_negative_cases": [
+    {
+      "id": "HC-ROOT-01",
+      "invalid_if": "AIR_HANDOFF_CARD contains a root field not declared in required_fields or optional_fields"
+    }
+  ],
+  "evidence_boundary": {
+    "deterministic_validator_can_prove": [
+      "JSON/schema/manifest/hash/size/line/route contract closure"
+    ],
+    "replayable_model_evaluation_required_for": [
+      "Copywriting behavioral distinctiveness",
+      "cross-model drift rate",
+      "provider/model behavioral compatibility"
+    ],
+    "must_not_claim": [
+      "universal deterministic model behavior",
+      "backend enforcement",
+      "behavioral certification from static checks"
+    ]
+  }
+}

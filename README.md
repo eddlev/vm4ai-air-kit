@@ -19,35 +19,37 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 
 [Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
-## AIR Kit v0.7.0
+## AIR Kit v0.7.1
 
-**AIR Kit v0.7.0** carries AIR Foundation **2.5.0** with the coordinated object-contract identity `AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004`. Component prompt/package versions remain unchanged where their public contract did not require a version increment.
+**AIR Kit v0.7.1** is a patch hardening release over v0.7.0. It closes a prompt-runtime formal-object emission loophole, strengthens permanent release validation, normalizes reusable Method/Specialist contracts, and repairs stale package identity metadata without representing AIR as backend-enforced or deterministic.
 
-| Component | v0.6.0 | v0.7.0 |
+| Component | v0.7.0 | v0.7.1 |
 | --- | ---: | ---: |
-| AIR Kit | `0.6.0` | `0.7.0` |
-| Core Runtime | `2.5.0` | `2.5.0` |
-| Control Surface | `2.5.0` | `2.5.0` |
-| Default Starter | `2.5.0` | `2.5.0` |
+| AIR Kit | `0.7.0` | `0.7.1` |
+| Core Runtime | `2.5.0` | `2.6.0` |
+| Control Surface | `2.5.0` | `2.6.0` |
+| Default Starter | `2.5.0` | `2.6.0` |
 | Governance Supplement | `2.3.0` | `2.3.0` |
-| Handoff schema | `2.3.0` rev14 | `2.3.0` rev15 |
-| Specialist packages | `2.4.0` | `2.4.0` |
-| Runtime Route Map | `1.0.0` | `1.0.1` |
-| Specialist Package Index | `1.1.4` | `1.2.0` |
+| Handoff schema | `2.3.0` rev15 | `2.3.0` rev16 |
+| Specialist packages | `2.4.0` | `2.5.0` |
+| Runtime Route Map | `1.0.1` | `1.1.0` |
+| Specialist Package Index | `1.2.0` | `1.3.0` |
 
-Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Behavioral compatibility remains empirical and configuration-dependent.
+Foundation identity for this candidate is `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`. Governance remains 2.3.0 because Core owns route, object-constructor, alignment, binding, action, and handoff-restoration semantics.
 
-## What's in v0.7.0
+Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Static validation and replayable behavioral evaluation remain separate evidence classes.
 
-AIR Kit v0.7.0 adds target-readiness and step-optimality semantics to AIR's completion architecture. In maturity-bearing work, current AMRS tells AIR where the work is while target AMRS helps define what eventual sufficiency must include. Stage completion requires both task-sufficiency and a bounded step-optimality pass under the active benchmark; this is not a claim of global optimization.
+## What's in v0.7.1
 
-The release also:
-
-1. carries Handoff schema `2.3.0` revision 15;
-2. updates the Runtime Route Map to `1.0.1`;
-3. reseals the four existing Specialist packages against the set-004 Foundation receipts;
-4. adds the reusable **Public Surface Copywriting Specialist** package;
-5. expands the Specialist Package Index to five packages at `1.2.0`.
+1. adds a Core-owned closed-world `RESPONSE_EMISSION_CLOSURE` so the alignment pair cannot satisfy a response while other route/lifecycle objects are silently dropped;
+2. mirrors the closure in Control, Default Starter, and Runtime Route Map without creating a second semantic owner;
+3. advances Handoff schema 2.3.0 to revision 16 and closes root-field/schema-manifest declaration coverage;
+4. normalizes reusable Method Packs to Core's canonical `ordered_steps`, staleness, handoff, and binding carriers;
+5. completes the Specification-First Verification Specialist's canonical Specialist profile surfaces;
+6. strengthens Public Surface Copywriting with explicit required-input, knowledge-to-execution, MII, synthetic-benchmark, and observable anti-generic delta contracts;
+7. repairs stale sibling/peer compatibility identities and removes construction-time peer manifest hash snapshots from operative runtime packages;
+8. makes release publication state externally verified rather than a stale runtime-catalog assertion; and
+9. adds a permanent deterministic release-contract validator plus replayable regression fixture definitions.
 
 ## Start AIR
 
@@ -83,9 +85,11 @@ Load the current Foundation and choose the import route during onboarding. Suppl
 catalog/   discovery metadata for routes and Specialist packages
 profiles/  optional reusable Specialist capability packages
 prompts/   canonical five-file AIR Foundation
+tools/     deterministic public release-contract validator
+tests/     replayable regression fixture definitions
 ```
 
-The public repository is intentionally small. Engineering validation reports, test harnesses, evaluation protocols, release-build tooling, and historical release-process material are not part of the public AIR runtime surface.
+The public repository is intentionally small. It includes one deterministic release-contract validator and replayable regression fixture definitions so shipped runtime/package claims can be checked against the actual tree. Private evaluation logs, hidden model traces, and historical release-process material are not part of the public AIR runtime surface.
 
 ### `prompts/`
 

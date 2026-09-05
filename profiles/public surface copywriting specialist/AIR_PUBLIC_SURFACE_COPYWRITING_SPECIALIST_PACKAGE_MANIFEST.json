@@ -2,7 +2,7 @@
   "title": "AIR Public-Surface Copywriting Specialist Package Manifest v2",
   "PACKAGE_DESIGNATION": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST_V2",
   "SYSTEM_DESIGNATION": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST_V2",
-  "PACKAGE_VERSION": "2.4.0",
+  "PACKAGE_VERSION": "2.5.0",
   "PROMPT_VERSION": "2.2.0",
   "CONTENT_REVISION": "2.0.0",
   "SCHEMA_FAMILY": "AIR_V2",
@@ -10,7 +10,7 @@
   "package_class": "REUSABLE_SPECIALIST_PACKAGE_WITH_OPTIONAL_METHOD",
   "package_identity": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "V2_4_0_REUSABLE_SPECIALIST_REDESIGN_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS_AVAILABLE_UNBOUND",
+  "status": "V2_5_0_REUSABLE_SPECIALIST_REDESIGN_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
   "package_purpose": "Distribute a reusable Public-Surface Copywriting SPECIALIST_CAPABILITY_PROFILE plus an optional repeatable Method Pack. The Specialist is usable as a capability posture without requiring the Method Pack. Product/domain truth and project-specific positioning remain task-local authoritative inputs, not package-owned truth.",
   "architecture_decision": {
     "required_runtime_layer": "SPECIALIST_PROFILE",
@@ -46,13 +46,13 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "0410481bbcbbf3619721dad0c7a7c151da0dacdfe4fd6bc600a40f02ca4162ea",
-      "size_bytes": 21570,
-      "line_count": 450,
+      "sha256": "facb5e0ccfd9c7f53bf5d4cf73799912898a33bbfcb1ee4ecffa5cf18430108e",
+      "size_bytes": 26864,
+      "line_count": 559,
       "canonical_role": "SPECIALIST_PROFILE",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
-      "version": "2.4.0",
-      "prompt_version": "2.2.0",
+      "version": "2.5.0",
+      "prompt_version": "2.3.0",
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "required_for_package": true,
@@ -61,13 +61,13 @@
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "90835eb7d01624bb4029cdf94dc7f3a0e116de505aa1b861b91a998780393e44",
-      "size_bytes": 12699,
-      "line_count": 277,
+      "sha256": "754eec3777ce4244e9f18624d0b6dac7e88bdc6c7229fe6cdb844152c5ebeccc",
+      "size_bytes": 23403,
+      "line_count": 480,
       "canonical_role": "METHOD_PACK",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
-      "version": "2.4.0",
-      "prompt_version": "2.2.0",
+      "version": "2.5.0",
+      "prompt_version": "2.3.0",
       "artifact_class": "AIR_METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "required_for_package": true,
@@ -95,26 +95,26 @@
     "operative_rule": "Validate exact identity and Foundation compatibility, determine task fit through Core RT.CAPABILITY_RESOLVE, obtain required approval, and compile applicable Specialist/Method contributions into the sole bound Orbit 0 AIR_ARTIFACT."
   },
   "foundation_compatibility": {
-    "target_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
-    "state": "COORDINATED_SET_004_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "target_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+    "state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
+        "size_bytes": 345417,
+        "line_count": 7056
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "c1db618cbc419b63a9df53610a2b8385bb078d570362af7a4e3165f9a839ca58",
+        "size_bytes": 156717,
+        "line_count": 3190
       },
       {
         "filename": "AIR_GOV.md",
@@ -128,31 +128,31 @@
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "dd651a0c293c97854e3d02d618c5b702990d611df19fc6caa5f98d524ccd5e3c",
+        "size_bytes": 92100,
+        "line_count": 1647
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134,
+        "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
+        "size_bytes": 62010,
+        "line_count": 1145,
         "card_revision": 15
       }
     ],
     "foundation_adjacent_route_map": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693,
+      "sha256": "0edfcffa51eb492bfa621babdeea8554dd1b2bc9293081fa8269e1e98c50b0f0",
+      "size_bytes": 21793,
+      "line_count": 747,
       "authority": {
         "execution": "NONE",
         "binding": "NONE",
@@ -202,11 +202,11 @@
     "global_optimality_claimed": false
   },
   "package_validation_state": {
-    "static_design_validation": "PASS_REUSABLE_SPECIALIST_ARCHITECTURE",
-    "behavioral_revalidation": "PASS_CURRENT_SESSION_PROMPT_RUNTIME_REPRESENTATIVE_SCENARIO_REVALIDATION",
-    "foundation_reseal": "PASS_COORDINATED_SET_004_RESEAL",
-    "release_catalog_registration": "INCLUDED_IN_SET_004_V070_RELEASE_INDEX",
-    "component_internal_foundation_compatibility": "PASS_SET_004_EXACT_RECEIPTS"
+    "static_design_validation": "PENDING_POST_PATCH_DETERMINISTIC_VALIDATION",
+    "behavioral_revalidation": "PENDING_POST_PATCH_REPLAYABLE_EVALUATION",
+    "foundation_reseal": "PASS_COORDINATED_SET_005_RESEAL",
+    "release_catalog_registration": "INCLUDED_IN_SET_005_V070_RELEASE_INDEX",
+    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
   },
   "construction_basis": {
     "canonical_adapter": "AIR_CONSTRUCTION_ADAPTER_SPECIALIST_V2",
@@ -215,7 +215,7 @@
     "prior_draft_treated_as": "SOURCE_MATERIAL_NOT_AUTHORITY"
   },
   "record_mode": "PROMPT_LAYER_APPLIED",
-  "generated_at": "2026-09-04T09:56:22Z",
+  "generated_at": "2026-09-05T09:11:37Z",
   "source_candidate_manifest": {
     "sha256": "7aa8f034e1255b9b2a9a332e49544242f68a5522138df64c55e21257f32d425e",
     "state": "REDESIGNED_REUSABLE_PRE_RESEAL_CANDIDATE",

@@ -4,11 +4,11 @@
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "STATUS": "V2_4_0_REUSABLE_SPECIALIST_REDESIGN_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS_AVAILABLE_UNBOUND",
+  "STATUS": "V2_5_0_REUSABLE_SPECIALIST_REDESIGN_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
   "STANDARD_CODE": "AIR.SPECIALIST.PUBLIC_SURFACE_COPYWRITING.V2",
   "SCHEMA_FAMILY": "AIR_V2",
-  "PROMPT_VERSION": "2.2.0",
-  "package_version": "2.4.0",
+  "PROMPT_VERSION": "2.3.0",
+  "package_version": "2.5.0",
   "content_revision": "2.0.0",
   "description": "Reusable non-agent capability posture for public-facing copywriting, positioning, explanation, and copy review across projects. It supplies benchmark pressure, review stance, failure-mode detection, and optimization guidance while deriving product facts, brand truth, claims, audience, and page purpose from the current task and authoritative source state rather than hardcoding a specific project.",
   "capability_scope": {
@@ -379,24 +379,24 @@
     "runtime_enforcement_claimed": false
   },
   "foundation_compatibility": {
-    "target_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
-    "compatibility_state": "COORDINATED_SET_004_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "target_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+    "compatibility_state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "version": "2.6.0",
+        "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
+        "size_bytes": 345417,
+        "line_count": 7056
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "version": "2.6.0",
+        "sha256": "c1db618cbc419b63a9df53610a2b8385bb078d570362af7a4e3165f9a839ca58",
+        "size_bytes": 156717,
+        "line_count": 3190
       },
       {
         "filename": "AIR_GOV.md",
@@ -409,28 +409,28 @@
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "version": "2.6.0",
+        "sha256": "dd651a0c293c97854e3d02d618c5b702990d611df19fc6caa5f98d524ccd5e3c",
+        "size_bytes": 92100,
+        "line_count": 1647
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134,
+        "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
+        "size_bytes": 62010,
+        "line_count": 1145,
         "card_revision": 15
       }
     ],
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693,
+      "version": "1.1.0",
+      "sha256": "0edfcffa51eb492bfa621babdeea8554dd1b2bc9293081fa8269e1e98c50b0f0",
+      "size_bytes": 21793,
+      "line_count": 747,
       "authority": "DISCOVERY_METADATA_ONLY"
     }
   },
@@ -446,5 +446,114 @@
     "professional_equivalence_claimed": false,
     "global_optimality_claimed": false
   },
-  "record_mode": "PROMPT_LAYER_APPLIED"
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "required_input_acquisition_contract": {
+    "floor_invariant": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+    "required": true,
+    "behavior": "Before material copy judgment, resolve the smallest sufficient source set for subject truth, audience/page job, claim evidence, terminology, and brand/voice when material. Missing domain truth routes to RT.UNCERTAINTY_RESOLVE rather than being filled by persuasive invention.",
+    "blocking_states": [
+      "material subject truth missing",
+      "material claim evidence missing",
+      "audience or surface job ambiguity would change positioning",
+      "adjacent legal/accessibility/regulated/technical authority is required but unresolved"
+    ],
+    "attachment_boundary": "Availability only; attachment does not imply validation, selection, approval, or authority."
+  },
+  "knowledge_to_execution_path_contract": {
+    "floor_invariant": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+    "applies_to": "PUBLIC_SURFACE_COPYWRITING_SPECIALIST_SYNTHETIC_BENCHMARK_AND_ACTIVE_STEP",
+    "knowledge_classes": [
+      "FACTUAL",
+      "CONCEPTUAL",
+      "PROCEDURAL",
+      "METACOGNITIVE_OR_CONTROL"
+    ],
+    "bloom_derived_operations": [
+      "REMEMBER",
+      "UNDERSTAND",
+      "APPLY",
+      "ANALYZE",
+      "EVALUATE",
+      "CREATE"
+    ],
+    "canonical_path_stages": [
+      "SOURCE_ACQUISITION_AND_CLASSIFICATION",
+      "COMPREHENSION_AND_CONCEPTUAL_RELATION",
+      "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
+      "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
+      "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
+      "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
+      "ADAPTATION_AND_EXECUTION_PLANNING",
+      "EXECUTION",
+      "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
+      "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
+    ],
+    "copywriting_emphasis": [
+      "source and claim classification",
+      "audience and page-job comprehension",
+      "positioning alternative analysis",
+      "counter-reading and objection testing",
+      "claim proportionality",
+      "information hierarchy adaptation",
+      "draft execution",
+      "copy-specific result evaluation and error localization"
+    ],
+    "approval_boundary": "APPROVE requires COMPLETE_FOR_ACTIVE_STEP; missing required stages route to REVIEW or EVIDENCE_REQUIRED.",
+    "hidden_reasoning_boundary": "Use declared criteria, source evidence and observable copy artifacts; do not request or expose private chain of thought."
+  },
+  "synthetic_benchmark_contract": {
+    "role_kind": "TASK_SCOPED_MACHINE_NATIVE_SYNTHETIC_ROLE_CONTRIBUTION",
+    "required_fields": [
+      "surface_job",
+      "audience_basis",
+      "source_claim_map",
+      "positioning_or_structure_candidates",
+      "counter_reading_or_objection_state",
+      "selected_candidate_basis",
+      "semantic_fidelity_state",
+      "claim_proportionality_state",
+      "step_optimality_contribution"
+    ],
+    "path_validation_required": true,
+    "generic_copy_is_not_sufficient": true,
+    "mii_compilation_boundary": "Copywriting benchmark/cognitive contribution becomes operative only when validated and compiled into or explicitly referenced by the bound AIR_ARTIFACT.execution_benchmark_profile."
+  },
+  "mii_contribution_contract": {
+    "candidate_routes": [
+      "COG.MULTI_LENS",
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.INFORMATION_GAIN",
+      "COG.EVIDENCE_TRIANGULATION",
+      "COG.DECISION_TRADEOFF"
+    ],
+    "required_contribution_state_when_material": [
+      "candidate alternatives",
+      "support/conflict edges",
+      "source/evidence limits",
+      "selected candidate basis",
+      "unresolved copy risks"
+    ],
+    "authority": "CANDIDATE_ONLY_UNTIL_CORE_MII_FUSION_AND_ARTIFACT_BENCHMARK_COMPILATION",
+    "route_selection_owner": "AIR_CORE_RUNTIME RT.COGNITIVE_RESOLVE"
+  },
+  "specialist_delta_contract": {
+    "purpose": "Make Specialist selection observably change material copywriting work rather than merely relabel generic language generation.",
+    "required_observable_deltas_when_material": [
+      "explicit audience and surface-job basis",
+      "source-to-claim boundary map for material claims",
+      "at least two materially different positioning/structure candidates when the choice is consequential",
+      "counter-reading, objection, or failure-mode test before selection",
+      "selection rationale against the active benchmark rather than stylistic preference alone",
+      "adjacent-domain escalation when copy cannot establish the underlying truth",
+      "final review localizing claim, semantic, audience, and cross-surface defects"
+    ],
+    "generic_default_failure_conditions": [
+      "polished prose is emitted with no source/claim/audience/page-job basis on a material task",
+      "the first plausible wording is accepted without candidate contrast when positioning is consequential",
+      "persuasive strength increases beyond available evidence",
+      "the Specialist substitutes for legal, accessibility, regulatory, scientific, technical, security, finance, or medical authority"
+    ],
+    "non_activation_guard": "Trivial wording edits remain eligible for Default Starter or direct low-risk handling without Specialist ceremony.",
+    "behavioral_revalidation_required": true
+  }
 }

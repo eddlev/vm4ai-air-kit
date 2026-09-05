@@ -1,6 +1,6 @@
 {
   "SYSTEM_DESIGNATION": "AIR_RUNTIME_ROUTE_MAP_V1",
-  "MAP_VERSION": "1.0.1",
+  "MAP_VERSION": "1.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
   "artifact_class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
@@ -14,8 +14,8 @@
   "source_of_truth": {
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
-    "prompt_version": "2.5.0",
-    "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
+    "prompt_version": "2.6.0",
+    "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -23,7 +23,8 @@
     "Core remains authoritative when the map is absent, stale, or incompatible.",
     "Presence of this map never creates execution, binding, selection, approval, or Specialist authority.",
     "alignment_interlock metadata denotes Core-owned RT.ALIGN dependency/revalidation interlocks and is not an allowed_next forward edge.",
-    "Capability and cognitive resolution depend on a resolved completion envelope and target readiness when maturity-bearing; AMRS closure depends on task sufficiency plus step-optimality PASS."
+    "Capability and cognitive resolution depend on a resolved completion envelope and target readiness when maturity-bearing; AMRS closure depends on task sufficiency plus step-optimality PASS.",
+    "emission_closure mirrors Core AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1 for discovery and validation only; it adds no semantic authority."
   ],
   "route_count": 21,
   "routes": [
@@ -127,7 +128,9 @@
         "ARTIFACT_BOUND_EXECUTION",
         "AIR_RUNTIME_BRIDGE",
         "AIR_SESSION",
-        "AIR_ARTIFACT"
+        "AIR_ARTIFACT",
+        "AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION",
+        "AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION"
       ],
       "allowed_next_routes": [
         "RT.TURN"
@@ -303,7 +306,9 @@
       ],
       "produces": [
         "NEW_ARTIFACT_REVISION",
-        "STATE_TRANSITION"
+        "STATE_TRANSITION",
+        "AIR_ARTIFACT",
+        "AIR_PROJECT_EXECUTION_MAP_WHEN_ROADMAP_STEP_OR_BLOCKER_CHANGED"
       ],
       "allowed_next_routes": [
         "RT.CAPABILITY_RESOLVE",
@@ -341,7 +346,10 @@
       ],
       "produces": [
         "NEW_TASK_ARTIFACT_CANDIDATE",
-        "ORBIT_TRANSITION"
+        "ORBIT_TRANSITION",
+        "AIR_SESSION_WHEN_ORBIT_CHANGED",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
       ],
       "allowed_next_routes": [
         "RT.CAPABILITY_RESOLVE",
@@ -689,5 +697,51 @@
         "line": 692
       }
     }
-  ]
+  ],
+  "emission_closure": {
+    "semantic_owner": "AIR_CORE_RUNTIME_V2",
+    "core_patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+    "authority": "DISCOVERY_METADATA_ONLY",
+    "closed_world_condition": "required_visible_objects subset schema_valid_generated_objects AND required_visible_objects subset emitted_visible_objects; ALL_OBJECTS additionally emits every formal object generated for the visible response.",
+    "post_activation_head": [
+      "AIR_ALIGNMENT_CHECK",
+      "AIR_VALIDATION_REPORT"
+    ],
+    "route_seeds": {
+      "RT.ACTIVATE:FIRST_ACTIVATION": [
+        "AIR_RUNTIME_BRIDGE",
+        "AIR_SESSION",
+        "AIR_PROJECT_INITIALIZATION_BRIEF",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "RT.AMEND:MATERIAL_ARTIFACT_AMENDMENT": [
+        "AIR_ARTIFACT",
+        "AIR_PROJECT_EXECUTION_MAP_WHEN_ROADMAP_STEP_OR_BLOCKER_CHANGED"
+      ],
+      "RT.TASK_SWITCH": [
+        "AIR_SESSION_WHEN_ORBIT_CHANGED",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "RT.ACTION": [
+        "AIR_GATE_WHEN_EVALUATED",
+        "AIR_ACTION_AUTHORIZATION_WHEN_ALLOWED"
+      ],
+      "RT.RECEIPT": [
+        "AIR_ACTION_RECEIPT"
+      ],
+      "RT.UNCERTAINTY_RESOLVE": [
+        "AIR_REQUIRED_INPUT_REQUEST_WHEN_SELECTED"
+      ],
+      "RT.HANDOFF_CREATE": [
+        "AIR_HANDOFF_CARD_STRICT_ONE_ROOT"
+      ],
+      "RT.RECOVERY": [
+        "AIR_ERROR_OR_CORE_RECOVERY_RECORDS"
+      ]
+    },
+    "failure_route": "RT.RECOVERY",
+    "ordinary_host_fallback_on_failure": false
+  }
 }
