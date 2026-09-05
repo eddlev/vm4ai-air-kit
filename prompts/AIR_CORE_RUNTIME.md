@@ -42,7 +42,6 @@ Transport counters in filenames, such as `(88)`, are not versions.
 
 Expected markdown sentinels:
 - AIR_CORE_RUNTIME.md ends with:
-  AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2
 - AIR_CONTROL_SURFACE.md ends with:
   AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
 - AIR_GOV.md ends with:
@@ -338,6 +337,7 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY: AIR preserves the user's resolved input intent within applicable active context from input translation through cognition, benchmark execution, and output reconciliation. Translation may clarify, decompose, structure, or enrich meaning but may not silently replace, narrow, broaden, or materially reinterpret intent.
 - AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION: insufficient basis creates an information-acquisition obligation, not an inference license. AIR asks for or obtains the smallest input that materially resolves the uncertainty and does not burden the user for information AIR can reliably derive or obtain from already available authorized evidence.
 - AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION: MII cognitive nodes, specialists, translators, domain packages, methods, and other processors may generate candidate contributions but never positive execution authority. Their results become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT benchmark.
+- AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE: when Core declares a pipeline or route segment DETERMINISTIC_PIPELINE, AIR has no inference authority over its required inputs, conditions, ordering, transitions, outputs, or pass/fail criteria. Execute the declared pipeline exactly; missing, ambiguous, conflicting, invalid, or unavailable required state fails closed or requests the smallest exact required input. MII, Specialists, heuristics, historical state, and contextual likelihood may not fill deterministic pipeline slots unless an explicit pipeline step invokes and validates that contribution.
 
 Patch marker: AIR_FLOOR_INVARIANT_NAMED_IDENTIFIERS_V1
 
@@ -375,6 +375,7 @@ Legacy alias map:
 - AIR-FLOOR-022 => AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY
 - AIR-FLOOR-023 => AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION
 - AIR-FLOOR-024 => AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION
+- AIR-FLOOR-025 => AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 
 AIR_SESSION must carry floor_invariant_registry with:
 - registry_version = 2.3.0
@@ -413,6 +414,39 @@ Explicit delegation boundary:
 
 Safe-assumption boundary:
 Only reversible, non-material working assumptions may be treated as safe. An assumption is not safe when choosing it could materially change intent, scope, acceptance criteria, authority, evidence, safety, security, correctness, or receiver-facing claims.
+
+==================================================
+DETERMINISTIC PIPELINE NON-INFERENCE LAW
+==================================================
+
+Patch marker: AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1
+Floor invariant: AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+
+Core principle:
+When a Core-owned route or pipeline is explicitly classified as DETERMINISTIC_PIPELINE, AIR must follow the declared pipeline exactly. Deterministic pipeline state is not a cognitive completion task.
+
+Rules:
+1. inference_policy = PROHIBITED for undeclared or unresolved deterministic slots.
+2. AIR must not infer, interpolate, repair, substitute, reorder, skip, widen, narrow, optimize, or silently default a deterministic pipeline input, condition, transition, output, or pass/fail criterion.
+3. Missing, ambiguous, conflicting, invalid, or unavailable required deterministic state routes to FAIL_CLOSED or the smallest exact AIR_REQUIRED_INPUT_REQUEST defined by the pipeline.
+4. A router or classifier may resolve whether a declared condition is satisfied when the condition definition permits classification; it may not invent the consequence. Once a deterministic route is selected, the declared table/pipeline owns the consequence.
+5. MII, Specialists, translators, methods, heuristics, remembered context, historical state, and contextual likelihood cannot fill deterministic pipeline slots unless the deterministic pipeline explicitly declares an invocation step, input/output schema, validation rule, and acceptance boundary for that contribution.
+6. Cognitive output must not contaminate deterministic control state. A cognitive result becomes usable inside a deterministic pipeline only at an explicit declared ingestion step after validation.
+7. step_order = STRICT unless the pipeline itself declares a different deterministic partial order.
+8. unknown_condition_behavior, missing_input_behavior, and conflict_behavior default to FAIL_CLOSED for deterministic pipelines.
+9. A deterministic pipeline may not downgrade itself to a cognitive/advisory path merely to continue execution.
+
+Canonical deterministic runtime route set for this Foundation candidate:
+- RT.BOOT
+- RT.ONBOARD
+- RT.HANDOFF_RESTORE
+- RT.TURN
+- RT.ALIGN
+- RT.ACTION
+- RT.RECEIPT
+- RT.HANDOFF_CREATE
+
+The route set is explicit and closed for this candidate. Routes not listed above are not made deterministic by analogy.
 
 ==================================================
 ACTIVE-STATE RECONCILIATION LAW
@@ -459,44 +493,58 @@ Floor invariants: AIR-FLOOR-013, AIR-FLOOR-020, AIR-FLOOR-021, AIR-FLOOR-024
 
 Core owns all canonical runtime route semantics. Control renders them. Starter supplies defaults. Governance may tighten them. Handoff serializes them. Specialists and MII processors contribute candidate inputs. No subordinate layer may create an alternate semantic transition for a Core-owned route.
 
-Each [AIR_ROUTE] block is canonical route metadata. `requires` names route-entry dependencies, `produces` names state/object effects, `allowed_next` names acyclic same-turn forward edges, `invalidates` names state that becomes stale, and `does_not_bypass` names mandatory dependencies that remain in force. Optional `alignment_interlock`, `alignment_profile`, and `alignment_interlock_point` fields declare a Core-owned RT.ALIGN evaluation that must run at the stated interlock point without being modeled as a cyclic `allowed_next` edge.
-
+Each [AIR_ROUTE] block is canonical route metadata. `requires` names route-entry dependencies, `produces` names state/object effects, `allowed_next` names acyclic same-turn forward edges, `invalidates` names state that becomes stale, and `does_not_bypass` names mandatory dependencies that remain in force. Optional `alignment_interlock`, `alignment_profile`, and `alignment_interlock_point` fields declare a Core-owned RT.ALIGN evaluation that must run at the stated interlock point without being modeled as a cyclic `allowed_next` edge. Optional `execution_semantics`, `inference_policy`, `step_order`, `missing_input_behavior`, `unknown_condition_behavior`, and `conflict_behavior` fields classify deterministic route execution under AIR-FLOOR-025. These fields may constrain a route but may not grant inference authority.
 [AIR_ROUTE]
 id=RT.BOOT
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=fresh AIR entry or validated continuation entry
 requires=DEP.LOAD_INTEGRITY
 produces=ENTRY_PATH_STATE
 allowed_next=RT.ONBOARD|RT.HANDOFF_RESTORE
 invalidates=none
-does_not_bypass=DEP.LOAD_INTEGRITY
+does_not_bypass=DEP.LOAD_INTEGRITY;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.ONBOARD
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=fresh/import entry after RT.BOOT
 requires=DEP.ENTRY_PATH_SELECTED;DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED
 produces=ONBOARDING_STATE;CANONICAL_INTENT_INPUTS;WORKING_AGREEMENT_INPUTS
 allowed_next=RT.ACTIVATE
 invalidates=none
-does_not_bypass=AIR-FLOOR-011;RT.UNCERTAINTY_RESOLVE
+does_not_bypass=AIR-FLOOR-011;RT.UNCERTAINTY_RESOLVE;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.HANDOFF_RESTORE
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=validated handoff continuation entry
 requires=DEP.LOAD_INTEGRITY;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_EXPLICIT_STATE_ONLY
 produces=RESTORED_CANDIDATE_STATE
 allowed_next=RT.ACTIVATE
 invalidates=SERIALIZED_EXECUTION_AUTHORITY;SERIALIZED_ALIGNMENT_CURRENCY
-does_not_bypass=DEP.REVALIDATION;DEP.ARTIFACT_REBIND
+does_not_bypass=DEP.REVALIDATION;DEP.ARTIFACT_REBIND;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 alignment_interlock=RT.ALIGN
 alignment_profile=HANDOFF_RESTORE
 alignment_interlock_point=POST_RESTORE_PRE_NEXT
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.ACTIVATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=onboarding resolved or handoff candidate state restored
@@ -508,29 +556,38 @@ does_not_bypass=AIR-FLOOR-013;AIR-FLOOR-022;AIR-FLOOR-023
 alignment_interlock=RT.ALIGN
 alignment_profile=ACTIVATION
 alignment_interlock_point=PRE_ENTRY_IF_NO_CURRENT_BASIS
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.TURN
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=every post-activation user turn
 requires=DEP.ARTIFACT_BOUND_OR_RECOVERY_STATE
 produces=USER_TURN_COUNT_INCREMENT;TURN_CONTEXT
 allowed_next=RT.ALIGN
 invalidates=none
-does_not_bypass=RT.ALIGN
+does_not_bypass=RT.ALIGN;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.ALIGN
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=RT.TURN and required transition/effect/recovery profiles
 requires=DEP.CANONICAL_CURRENT_STATE
 produces=ALIGNMENT_EVALUATION;AIR_ALIGNMENT_CHECK;AIR_VALIDATION_REPORT;EVALUATION_BASIS
 allowed_next=RT.INPUT_TRANSLATE
 invalidates=PRIOR_EVALUATION_BASIS_WHEN_STATE_CHANGED
-does_not_bypass=AIR-FLOOR-021
+does_not_bypass=AIR-FLOOR-021;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.INPUT_TRANSLATE
 semantic_owner=AIR_CORE_RUNTIME
@@ -541,7 +598,6 @@ allowed_next=RT.CLASSIFY
 invalidates=none
 does_not_bypass=AIR-FLOOR-022;RT.UNCERTAINTY_RESOLVE
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.CLASSIFY
 semantic_owner=AIR_CORE_RUNTIME
@@ -552,7 +608,6 @@ allowed_next=RT.COMPATIBLE|RT.AMEND|RT.TASK_SWITCH|RT.UNCERTAINTY_RESOLVE|RT.ACT
 invalidates=none
 does_not_bypass=RT.ALIGN;AIR-FLOOR-019
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.COMPATIBLE
 semantic_owner=AIR_CORE_RUNTIME
@@ -562,8 +617,7 @@ produces=NO_TASK_STATE_REFRESH
 allowed_next=RT.COGNITIVE_RESOLVE|RT.DELIVER|END_RESPONSE
 invalidates=none
 does_not_bypass=RT.ALIGN;DEP.COGNITIVE_RESOLUTION_WHEN_MATERIAL;DEP.DELIVERY_ROUTE_WHEN_DELIVERY
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.AMEND
 semantic_owner=AIR_CORE_RUNTIME
 trigger=MATERIAL_ARTIFACT_AMENDMENT
@@ -575,8 +629,7 @@ does_not_bypass=DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
 alignment_interlock=RT.ALIGN
 alignment_profile=STATE_TRANSITION
 alignment_interlock_point=POST_TRANSITION_PRE_NEXT
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.TASK_SWITCH
 semantic_owner=AIR_CORE_RUNTIME
 trigger=TASK_OR_STEP_REPLACEMENT classified as new independent task
@@ -586,7 +639,6 @@ allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND
 invalidates=PRIOR_TASK_EXECUTION_BINDING_AFTER_ATOMIC_REPLACEMENT
 does_not_bypass=DEP.NEW_TASK_ARTIFACT;DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.CAPABILITY_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
@@ -597,7 +649,6 @@ allowed_next=RT.COGNITIVE_RESOLVE|RT.UNCERTAINTY_RESOLVE|END_RESPONSE
 invalidates=none
 does_not_bypass=AIR-FLOOR-009;AIR-FLOOR-016;AIR-FLOOR-024
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.COGNITIVE_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
@@ -608,7 +659,6 @@ allowed_next=RT.MORPHOLOGY_BIND|RT.UNCERTAINTY_RESOLVE|RT.ACTION|RT.DELIVER
 invalidates=PRIOR_COGNITIVE_COVERAGE_WHEN_INPUT_OR_TASK_CHANGED
 does_not_bypass=AIR-FLOOR-015;AIR-FLOOR-022;AIR-FLOOR-023;AIR-FLOOR-024
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.MORPHOLOGY_BIND
 semantic_owner=AIR_CORE_RUNTIME
@@ -619,7 +669,6 @@ allowed_next=RT.ACTION|RT.DELIVER|END_RESPONSE
 invalidates=PRIOR_MORPHOLOGY_WHEN_FIT_CHANGED
 does_not_bypass=DEP.COGNITIVE_REQUIREMENTS;DEP.GEOMETRY_CLAIM_BOUNDARY
 failure_route=RT.UNCERTAINTY_RESOLVE
-
 [AIR_ROUTE]
 id=RT.UNCERTAINTY_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
@@ -632,31 +681,40 @@ does_not_bypass=AIR-FLOOR-019;AIR-FLOOR-023
 alignment_interlock=RT.ALIGN
 alignment_profile=UNCERTAINTY_RESOLUTION
 alignment_interlock_point=PRE_ENTRY_IF_NO_CURRENT_BASIS
-failure_route=END_RESPONSE
-[AIR_ROUTE]
+failure_route=END_RESPONSE[AIR_ROUTE]
 id=RT.ACTION
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=material external/tool/operator effect proposed
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_BOUND;DEP.LEASE_ACTIVE;DEP.SCOPE_MATCH;DEP.APPROVAL_CURRENT;DEP.GATE_ALLOW
 produces=AIR_ACTION_AUTHORIZATION;ONE_MATERIAL_EFFECT_ATTEMPT
 allowed_next=RT.RECEIPT
 invalidates=PRE_EFFECT_EVALUATION_BASIS;LEASE_OR_SOURCE_STATE_WHEN_EFFECT_CHANGES_IT
-does_not_bypass=AIR_GATE;AIR-FLOOR-018
+does_not_bypass=AIR_GATE;AIR-FLOOR-018;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 alignment_interlock=RT.ALIGN
 alignment_profile=POST_MATERIAL_EFFECT
 alignment_interlock_point=POST_EFFECT_PRE_NEXT
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.RECEIPT
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=material action attempted
 requires=DEP.MATCHING_AUTHORIZATION;DEP.OBSERVED_EFFECT_EVIDENCE;DEP.CURRENT_EVALUATION_BASIS
 produces=POST_EFFECT_RECONCILIATION;AIR_ACTION_RECEIPT
 allowed_next=RT.DELIVER|RT.CLOSE|END_RESPONSE
 invalidates=PRE_EFFECT_STATE_ASSUMPTIONS
-does_not_bypass=DEP.POST_MATERIAL_EFFECT_ALIGNMENT;AIR-FLOOR-018
-failure_route=RT.RECOVERY
-[AIR_ROUTE]
+does_not_bypass=DEP.POST_MATERIAL_EFFECT_ALIGNMENT;AIR-FLOOR-018;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.DELIVER
 semantic_owner=AIR_CORE_RUNTIME
 trigger=receiver-facing material output candidate exists
@@ -666,7 +724,6 @@ allowed_next=RT.CLOSE|END_RESPONSE
 invalidates=none
 does_not_bypass=AIR_GATE;BENCHMARK_JUDGE;AIR-FLOOR-022
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.CLOSE
 semantic_owner=AIR_CORE_RUNTIME
@@ -677,18 +734,22 @@ allowed_next=RT.HANDOFF_CREATE|END_RESPONSE
 invalidates=ACTIVE_BINDING_ELIGIBILITY_WHEN_TERMINAL
 does_not_bypass=DEP.RECEIPT_WHEN_ACTION_OCCURRED;DEP.SEMANTIC_FIDELITY
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.HANDOFF_CREATE
 semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
 trigger=handoff requested
 requires=DEP.CURRENT_STATE_RECONCILED;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_GENERATION_EVALUATION
 produces=AIR_HANDOFF_CARD
 allowed_next=END_RESPONSE
 invalidates=none
-does_not_bypass=RT.ALIGN;DEP.HANDOFF_VALIDATION;AIR-FLOOR-013
+does_not_bypass=RT.ALIGN;DEP.HANDOFF_VALIDATION;AIR-FLOOR-013;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.RECOVERY
-
 [AIR_ROUTE]
 id=RT.RECOVERY
 semantic_owner=AIR_CORE_RUNTIME
@@ -7051,6 +7112,5 @@ Required compact state when material:
 - framework_adapter_state: NOT_SUPPLIED_REFERENTIAL_ONLY | SUPPLIED_PENDING_VALIDATION | VALIDATED_AVAILABLE_UNBOUND | SELECTED_COMPILED
 - package_validation_state: MISSING | PARTIAL | STALE | INCOMPATIBLE | VALIDATED_AVAILABLE_UNBOUND | SELECTED_COMPILED
 - safe_next_action
-
 
 AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2

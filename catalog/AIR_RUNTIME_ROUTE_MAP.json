@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.0",
-    "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
+    "sha256": "3aae32ffe219f009c2f505eda516c536603c9fefebd16aeb6b5946bd86e0b2f4",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -24,7 +24,8 @@
     "Presence of this map never creates execution, binding, selection, approval, or Specialist authority.",
     "alignment_interlock metadata denotes Core-owned RT.ALIGN dependency/revalidation interlocks and is not an allowed_next forward edge.",
     "Capability and cognitive resolution depend on a resolved completion envelope and target readiness when maturity-bearing; AMRS closure depends on task sufficiency plus step-optimality PASS.",
-    "emission_closure mirrors Core AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1 for discovery and validation only; it adds no semantic authority."
+    "emission_closure mirrors Core AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1 for discovery and validation only; it adds no semantic authority.",
+    "deterministic_pipeline_contract mirrors Core AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1; declared deterministic routes prohibit inference and fail closed on unresolved pipeline state."
   ],
   "route_count": 21,
   "routes": [
@@ -44,14 +45,21 @@
       ],
       "invalidates": [],
       "does_not_bypass": [
-        "DEP.LOAD_INTEGRITY"
+        "DEP.LOAD_INTEGRITY",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 464
-      }
+        "line": 497
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.ONBOARD",
@@ -72,14 +80,21 @@
       "invalidates": [],
       "does_not_bypass": [
         "AIR-FLOOR-011",
-        "RT.UNCERTAINTY_RESOLVE"
+        "RT.UNCERTAINTY_RESOLVE",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.UNCERTAINTY_RESOLVE",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 475
-      }
+        "line": 513
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.HANDOFF_RESTORE",
@@ -102,17 +117,24 @@
       ],
       "does_not_bypass": [
         "DEP.REVALIDATION",
-        "DEP.ARTIFACT_REBIND"
+        "DEP.ARTIFACT_REBIND",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 486
+        "line": 529
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "HANDOFF_RESTORE",
-      "alignment_interlock_point": "POST_RESTORE_PRE_NEXT"
+      "alignment_interlock_point": "POST_RESTORE_PRE_NEXT",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.ACTIVATE",
@@ -169,14 +191,21 @@
       ],
       "invalidates": [],
       "does_not_bypass": [
-        "RT.ALIGN"
+        "RT.ALIGN",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 512
-      }
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.ALIGN",
@@ -198,14 +227,21 @@
         "PRIOR_EVALUATION_BASIS_WHEN_STATE_CHANGED"
       ],
       "does_not_bypass": [
-        "AIR-FLOOR-021"
+        "AIR-FLOOR-021",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 523
-      }
+        "line": 575
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.INPUT_TRANSLATE",
@@ -232,7 +268,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 534
+        "line": 591
       }
     },
     {
@@ -264,7 +300,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 545
+        "line": 601
       }
     },
     {
@@ -293,7 +329,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 556
+        "line": 611
       }
     },
     {
@@ -401,7 +437,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 590
+        "line": 642
       }
     },
     {
@@ -439,7 +475,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 601
+        "line": 652
       }
     },
     {
@@ -470,7 +506,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 612
+        "line": 662
       }
     },
     {
@@ -500,7 +536,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 623
+        "line": 672
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
@@ -531,7 +567,8 @@
       ],
       "does_not_bypass": [
         "AIR_GATE",
-        "AIR-FLOOR-018"
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -541,7 +578,13 @@
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "POST_MATERIAL_EFFECT",
-      "alignment_interlock_point": "POST_EFFECT_PRE_NEXT"
+      "alignment_interlock_point": "POST_EFFECT_PRE_NEXT",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.RECEIPT",
@@ -566,14 +609,21 @@
       ],
       "does_not_bypass": [
         "DEP.POST_MATERIAL_EFFECT_ALIGNMENT",
-        "AIR-FLOOR-018"
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 649
-      }
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.DELIVER",
@@ -636,7 +686,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 670
+        "line": 727
       }
     },
     {
@@ -658,14 +708,21 @@
       "does_not_bypass": [
         "RT.ALIGN",
         "DEP.HANDOFF_VALIDATION",
-        "AIR-FLOOR-013"
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 681
-      }
+        "line": 737
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED"
     },
     {
       "route_id": "RT.RECOVERY",
@@ -694,7 +751,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 692
+        "line": 753
       }
     }
   ],
@@ -743,5 +800,26 @@
     },
     "failure_route": "RT.RECOVERY",
     "ordinary_host_fallback_on_failure": false
+  },
+  "deterministic_pipeline_contract": {
+    "core_patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
+    "floor_invariant": "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+    "execution_semantics": "DETERMINISTIC_PIPELINE",
+    "inference_policy": "PROHIBITED",
+    "step_order": "STRICT",
+    "missing_input_behavior": "FAIL_CLOSED",
+    "unknown_condition_behavior": "FAIL_CLOSED",
+    "conflict_behavior": "FAIL_CLOSED",
+    "declared_route_ids": [
+      "RT.ACTION",
+      "RT.ALIGN",
+      "RT.BOOT",
+      "RT.HANDOFF_CREATE",
+      "RT.HANDOFF_RESTORE",
+      "RT.ONBOARD",
+      "RT.RECEIPT",
+      "RT.TURN"
+    ],
+    "rule": "Do not infer. Follow the declared deterministic pipeline. This metadata mirrors Core and has no independent semantic authority."
   }
 }

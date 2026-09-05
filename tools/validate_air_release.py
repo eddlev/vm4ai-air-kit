@@ -147,6 +147,8 @@ def main() -> None:
     require((ROOT / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json').is_file(), 'missing Route Map')
     require((ROOT / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json').is_file(), 'missing Specialist Index')
     require((ROOT / 'tools' / 'validate_air_release.py').is_file(), 'missing permanent validator')
+    require((ROOT / 'tools' / 'validate_air_boot.py').is_file(), 'missing independent routine-boot validator')
+    require((ROOT / 'tools' / 'test_air_validator_mutations.py').is_file(), 'missing validator mutation suite')
     require((ROOT / 'tests' / 'air_contract_fixtures.json').is_file(), 'missing regression fixtures')
 
     parsed: dict[Path, Any] = {p: load_json(p) for p in all_json()}
@@ -161,10 +163,27 @@ def main() -> None:
     require('Patch marker: AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1' in core, 'missing Core closed-world emission closure')
     require('Patch marker: AIR_CONTROL_CLOSED_WORLD_EMISSION_RENDERER_V1' in control, 'missing Control emission renderer closure')
 
+    gov = (ROOT / 'prompts' / 'AIR_GOV.md').read_text(encoding='utf-8')
+    expected_sentinels = {
+        'AIR_CORE_RUNTIME.md': 'AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2',
+        'AIR_CONTROL_SURFACE.md': 'AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2',
+        'AIR_GOV.md': 'AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2',
+    }
+    for name, body in [('AIR_CORE_RUNTIME.md', core), ('AIR_CONTROL_SURFACE.md', control), ('AIR_GOV.md', gov)]:
+        lines = body.rstrip().splitlines()
+        require(bool(lines) and lines[-1] == expected_sentinels[name], f'{name}: terminal sentinel is not final content line')
+    require('Patch marker: AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1' in core, 'missing Core deterministic-pipeline non-inference law')
+    require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in core, 'missing Core floor 025')
+
     starter_path = ROOT / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json'
     starter = parsed[starter_path]
     require(starter['PROMPT_VERSION'] == '2.6.0', 'Starter version mismatch')
     require(starter.get('compiler_contract', {}).get('closed_world_emission_closure', {}).get('required') is True, 'Starter missing closed-world emission closure mirror')
+    require(starter.get('validation_contract', {}).get('required_version') == starter.get('PROMPT_VERSION'), 'Starter self-version mismatch')
+    dp_starter = starter.get('compiler_contract', {}).get('deterministic_pipeline_non_inference', {})
+    require(dp_starter.get('required') is True, 'Starter missing deterministic-pipeline non-inference mirror')
+    require(dp_starter.get('inference_policy') == 'PROHIBITED', 'Starter deterministic pipeline inference policy mismatch')
+    require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in starter.get('authority_contract', {}).get('floor_invariants_required', []), 'Starter missing floor 025 requirement')
 
     handoff = parsed[ROOT / 'prompts' / 'AIR_HANDOFF_CARD_TEMPLATE.json']['AIR_HANDOFF_CARD']
     require(handoff['schema_version'] == '2.3.0', 'Handoff schema mismatch')
@@ -174,6 +193,9 @@ def main() -> None:
     undeclared = sorted(set(handoff) - declared)
     require(not undeclared, f'Handoff root fields missing from schema manifest: {undeclared}')
     require('runtime_drift_hardening_schema_extension' in declared, 'Handoff drift extension not declared')
+    restored_starter = handoff.get('profile_stack', {}).get('starter_profile', {})
+    require(restored_starter.get('SYSTEM_DESIGNATION') == starter.get('SYSTEM_DESIGNATION'), 'Handoff Starter designation mismatch')
+    require(restored_starter.get('PROMPT_VERSION') == starter.get('PROMPT_VERSION'), 'Handoff Starter version mismatch')
 
     routes = parse_core_routes(core)
     for rid in ['RT.ACTIVATE', 'RT.ALIGN', 'RT.AMEND', 'RT.TASK_SWITCH', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE']:
@@ -183,6 +205,15 @@ def main() -> None:
     require('AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION' in routes['RT.ACTIVATE']['produces'], 'RT.ACTIVATE missing execution map emission token')
     require('AIR_ARTIFACT' in routes['RT.AMEND']['produces'], 'RT.AMEND missing revised artifact emission')
     require('AIR_PROJECT_EXECUTION_MAP' in routes['RT.TASK_SWITCH']['produces'] and 'AIR_ARTIFACT' in routes['RT.TASK_SWITCH']['produces'], 'RT.TASK_SWITCH emission closure incomplete')
+    deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}
+    for rid in sorted(deterministic_routes):
+        require(rid in routes, f'missing deterministic Core route {rid}')
+        require(routes[rid].get('execution_semantics') == 'DETERMINISTIC_PIPELINE', f'{rid}: execution_semantics mismatch')
+        require(routes[rid].get('inference_policy') == 'PROHIBITED', f'{rid}: inference_policy mismatch')
+        require(routes[rid].get('step_order') == 'STRICT', f'{rid}: step_order mismatch')
+        for key in ['missing_input_behavior', 'unknown_condition_behavior', 'conflict_behavior']:
+            require(routes[rid].get(key) == 'FAIL_CLOSED', f'{rid}: {key} mismatch')
+        require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in routes[rid].get('does_not_bypass', ''), f'{rid}: floor 025 bypass protection missing')
 
     route_map = parsed[ROOT / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json']
     require(route_map['MAP_VERSION'] == EXPECTED_ROUTE_MAP_VERSION, 'Route Map version mismatch')
@@ -191,6 +222,17 @@ def main() -> None:
     route_map_by_id = {r['route_id']: r for r in route_map['routes']}
     require('AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION' in route_map_by_id['RT.ACTIVATE']['produces'], 'Route Map RT.ACTIVATE stale')
     require('AIR_ARTIFACT' in route_map_by_id['RT.AMEND']['produces'], 'Route Map RT.AMEND stale')
+    dp_map = route_map.get('deterministic_pipeline_contract', {})
+    require(dp_map.get('core_patch_marker') == 'AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1', 'Route Map deterministic pipeline contract missing')
+    require(dp_map.get('inference_policy') == 'PROHIBITED', 'Route Map deterministic inference policy mismatch')
+    require(set(dp_map.get('declared_route_ids', [])) == deterministic_routes, 'Route Map deterministic route set mismatch')
+    for rid in sorted(deterministic_routes):
+        rr = route_map_by_id[rid]
+        require(rr.get('execution_semantics') == 'DETERMINISTIC_PIPELINE', f'Route Map {rid}: execution_semantics mismatch')
+        require(rr.get('inference_policy') == 'PROHIBITED', f'Route Map {rid}: inference_policy mismatch')
+        require(rr.get('step_order') == 'STRICT', f'Route Map {rid}: step_order mismatch')
+        for key in ['missing_input_behavior', 'unknown_condition_behavior', 'conflict_behavior']:
+            require(rr.get(key) == 'FAIL_CLOSED', f'Route Map {rid}: {key} mismatch')
 
     specialist_dirs = {p.name for p in (ROOT / 'profiles').iterdir() if p.is_dir()}
     require(specialist_dirs == EXPECTED_SPECIALIST_DIRS, f'Specialist directories mismatch: {sorted(specialist_dirs)}')
@@ -321,6 +363,8 @@ def main() -> None:
     require(len(fixtures.get('emission_closure_cases', [])) >= 5, 'insufficient emission fixtures')
     require(len(fixtures.get('copywriting_behavior_cases', [])) >= 3, 'insufficient Copywriting behavior fixtures')
     require(len(fixtures.get('semantic_reseal_negative_cases', [])) >= 3, 'insufficient semantic reseal negative fixtures')
+    require(len(fixtures.get('routine_boot_negative_cases', [])) >= 3, 'insufficient routine boot negative fixtures')
+    require(len(fixtures.get('deterministic_pipeline_negative_cases', [])) >= 4, 'insufficient deterministic pipeline negative fixtures')
 
     print('AIR v0.7.1 set-005 deterministic validation: PASS')
     print(f'Strict JSON files: {len(parsed)}')
@@ -333,6 +377,8 @@ def main() -> None:
     print('Copywriting operational delta contract: PRESENT')
     print('Semantic evidence-state closure: PASS')
     print('Handoff semantic card_revision receipts: PASS')
+    print('Routine boot coherence: PASS')
+    print('Deterministic pipeline non-inference contract: PASS')
     print('Behavioral replay fixtures: PRESENT (not evidence that model evaluation has run)')
 
 if __name__ == '__main__':

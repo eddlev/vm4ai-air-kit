@@ -50,7 +50,8 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
     ]
   },
   "profile_scope": {
@@ -383,6 +384,29 @@
       "rule": "Before visible response composition, Core computes the complete required_visible_objects set and closure state. The Starter may not treat AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT as sufficient when additional route/lifecycle objects are owed.",
       "all_objects_rule": "Under ALL_OBJECTS, every formal object generated for the visible response is emitted; MINIMUM_REQUIRED_OBJECTS suppresses optional repetition only.",
       "failure_behavior": "If closed-world emission closure fails, do not fall through to ordinary/default host-model continuation; route the Core-defined error/recovery path."
+    },
+    "deterministic_pipeline_non_inference": {
+      "required": true,
+      "core_patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
+      "floor_invariant": "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED",
+      "cognitive_contamination_rule": "MII_OR_OTHER_COGNITIVE_OUTPUT_MAY_ENTER_ONLY_AT_EXPLICIT_DECLARED_AND_VALIDATED_PIPELINE_INGESTION_STEP",
+      "declared_runtime_routes": [
+        "RT.ACTION",
+        "RT.ALIGN",
+        "RT.BOOT",
+        "RT.HANDOFF_CREATE",
+        "RT.HANDOFF_RESTORE",
+        "RT.ONBOARD",
+        "RT.RECEIPT",
+        "RT.TURN"
+      ],
+      "non_inference_rule": "Do not infer. Follow the declared deterministic pipeline."
     }
   },
   "bootstrap_contract": {
@@ -1358,7 +1382,7 @@
       "canonical_filename"
     ],
     "required_designation": "AIR_DEFAULT_STARTER_V2",
-    "required_version": "2.5.0",
+    "required_version": "2.6.0",
     "forbidden_canonical_terms": [
       "PROMPT_SIMULATED",
       "RELATIONAL_IDENTITY_SENSITIVE",

@@ -39,7 +39,6 @@ Patch marker: AIR_LOAD_INTEGRITY_SURFACE_V2
 This file participates in Runtime Load Integrity.
 Its terminal sentinel is:
 
-AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
 
 At boot or continuation restoration, AIR must:
 1. verify the Core Runtime, Control Surface, and Governance Supplement markdown sentinels
@@ -3169,7 +3168,6 @@ Surface rules:
 - Keep the check compact unless the user requests the detailed source, control, evidence, or framework map.
 
 
-AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
 ==================================================
 CLOSED-WORLD EMISSION RENDERER CONTRACT
 ==================================================
@@ -3188,3 +3186,5 @@ Before any ordinary narrative or receiver-facing content:
 - if closure is incomplete, render the Core-provided failure/recovery surface instead of falling through to ordinary/default host-model response behavior.
 
 Presentation compression applies only after closed-world emission closure passes. Narrative is always the first compression target; owed formal objects are never dropped for token economy, model preference, or host style.
+
+AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2

@@ -30,17 +30,17 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "766057a8d7314b93716303ee0e1ef9eae73465f3177d194df55aaab94e62b640",
-        "size_bytes": 345417,
-        "line_count": 7056
+        "sha256": "3aae32ffe219f009c2f505eda516c536603c9fefebd16aeb6b5946bd86e0b2f4",
+        "size_bytes": 350627,
+        "line_count": 7116
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c1db618cbc419b63a9df53610a2b8385bb078d570362af7a4e3165f9a839ca58",
-        "size_bytes": 156717,
+        "sha256": "39c3e1e6a1c0777d43abbcdbf59cea6f1301f91186497dff172abb2c15092f1a",
+        "size_bytes": 156641,
         "line_count": 3190
       },
       {
@@ -48,28 +48,28 @@
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "a5f009f2de693556feb022638308e0dc4e5cdb7f817a66d97707d355efdc388e",
+        "size_bytes": 25645,
+        "line_count": 512
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "dd651a0c293c97854e3d02d618c5b702990d611df19fc6caa5f98d524ccd5e3c",
-        "size_bytes": 92100,
-        "line_count": 1647
+        "sha256": "b7345c27106eb22f7e8cfc61aad48b31fec7cfac46dbbffd85d9f4f3d0ced86f",
+        "size_bytes": 93113,
+        "line_count": 1671
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
+        "sha256": "868da173f4805be6d2a7ada4bf6efb55c464f729fa11ddcc498991c6bbffb4e1",
         "size_bytes": 62010,
         "line_count": 1145,
-        "card_revision": 15
+        "card_revision": 16
       }
     ]
   },
@@ -80,9 +80,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "0edfcffa51eb492bfa621babdeea8554dd1b2bc9293081fa8269e1e98c50b0f0",
-      "size_bytes": 21793,
-      "line_count": 747,
+      "sha256": "47f268fe1f3158046a2ae0a28717b90e58413f075fd5203b430c66565c4e2ee6",
+      "size_bytes": 25389,
+      "line_count": 825,
       "authority": {
         "execution": "NONE",
         "binding": "NONE",
@@ -141,7 +141,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "d75f57f8b528defe7c58742ba183e3a9ef78df309a4d1989cd76a42028c2084b",
+      "manifest_sha256": "5bffccb6129c21116ba34a66ff5fa3eac8f5089498dc73d16d2a7d6ade7b4e61",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -180,7 +180,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "c8901ce0df329b8478e39fff79e688a032d54ad9c3fd69ab256fc587a6b54f9b",
+      "manifest_sha256": "4fc5fc6a8c80d855442088c37fb001457f96d00266a13af97f7958807c11a643",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -216,7 +216,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "b53d44c5dd7fcedf0951ad0718a2d223f4d54e5f937af39449db473239475123",
+      "manifest_sha256": "741bdc6cd423482756c80a43ddd6ba6f466d271bdd20d53f1684cff7337f548d",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -253,7 +253,7 @@
       "specialist_designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "manifest_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "da9ab2f6e6ee90015bf3835b1c5fabce7be79beba6bc376dd2db8b89d1bffce6",
+      "manifest_sha256": "f2b45a8a706362e35daa4a02244848fde953955bc11b8a8a68097b4be2cdbb06",
       "canonical_component_filenames": [
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
         "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
@@ -288,7 +288,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "fabfdafbeea4c2683743548ca803e8963724c167862e02ff759bd0f58a17a275",
+      "manifest_sha256": "47b23e0ddd794573815d2d3ba077a208a38074da8f27c00a812d00770674a380",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",

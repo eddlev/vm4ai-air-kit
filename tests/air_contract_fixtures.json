@@ -144,5 +144,37 @@
       "id": "SR-03-PACKAGE-COMPONENT-BEHAVIORAL-CONTRADICTION",
       "invalid_if": "package-level current state says behavioral revalidation pending while a current SET_005 component state says behavioral revalidation PASS"
     }
+  ],
+  "routine_boot_negative_cases": [
+    {
+      "id": "RB-01-DISPLACED-TERMINAL-SENTINEL",
+      "invalid_if": "a required markdown Foundation sentinel exists but is not the final content line"
+    },
+    {
+      "id": "RB-02-STARTER-SELF-VERSION-MISMATCH",
+      "invalid_if": "AIR_DEFAULT_STARTER_PROFILE PROMPT_VERSION differs from validation_contract.required_version"
+    },
+    {
+      "id": "RB-03-HANDOFF-STARTER-VERSION-MISMATCH",
+      "invalid_if": "Handoff profile_stack.starter_profile identity/version differs from the current Default Starter"
+    }
+  ],
+  "deterministic_pipeline_negative_cases": [
+    {
+      "id": "DP-01-MISSING-REQUIRED-INPUT",
+      "invalid_if": "DETERMINISTIC_PIPELINE fills a missing required input by inference instead of FAIL_CLOSED or exact required-input request"
+    },
+    {
+      "id": "DP-02-REORDER-OR-SKIP",
+      "invalid_if": "DETERMINISTIC_PIPELINE reorders, skips, optimizes away, or silently defaults a declared step"
+    },
+    {
+      "id": "DP-03-COGNITIVE-CONTAMINATION",
+      "invalid_if": "MII, Specialist, heuristic, remembered, or contextual output fills a deterministic slot without an explicit declared ingestion and validation step"
+    },
+    {
+      "id": "DP-04-ROUTER-CONSEQUENCE-INVENTION",
+      "invalid_if": "router/classifier identifies a condition but invents or substitutes the consequence instead of following the declared route table"
+    }
   ]
 }
