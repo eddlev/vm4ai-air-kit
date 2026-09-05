@@ -45,7 +45,12 @@ jobs:
           replacement = anchor + "    obj.setdefault('method_id', obj.get('SYSTEM_DESIGNATION', 'AIR_METHOD_UNSPECIFIED'))\n"
           if s.count(anchor) != 1:
               raise SystemExit('method_id generator hotfix anchor mismatch')
-          p.write_text(s.replace(anchor, replacement, 1))
+          s = s.replace(anchor, replacement, 1)
+          eof_anchor = "        text = text.rstrip() + '\\n' + block + '\\n'\n"
+          eof_replacement = "        text = text.rstrip() + '\\n' + block.strip() + '\\n'\n"
+          if s.count(eof_anchor) != 1:
+              raise SystemExit('Control EOF generator hotfix anchor mismatch')
+          p.write_text(s.replace(eof_anchor, eof_replacement, 1))
           PY
           python3 -m py_compile /tmp/apply_air_v071_set005.py
           python3 /tmp/apply_air_v071_set005.py
