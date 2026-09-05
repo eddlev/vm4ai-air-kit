@@ -9,78 +9,10 @@ permissions:
   contents: read
 
 jobs:
-  deterministic-foundation-check:
+  deterministic-release-contract:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate public distribution surface
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY'
-          import json
-          from pathlib import Path
-
-          required_root_files = {
-              'README.md',
-              'LICENSE',
-              'NOTICE',
-              'VERSION',
-              '.gitattributes',
-              '.gitignore',
-          }
-          required_dirs = {'catalog', 'profiles', 'prompts', '.github'}
-          forbidden_dirs = {'evals', 'tests', 'tools', 'validation'}
-
-          root = Path('.')
-          missing_root = sorted(name for name in required_root_files if not (root / name).is_file())
-          missing_dirs = sorted(name for name in required_dirs if not (root / name).is_dir())
-          forbidden_present = sorted(name for name in forbidden_dirs if (root / name).exists())
-          if missing_root or missing_dirs or forbidden_present:
-              raise SystemExit(
-                  f'public surface mismatch: missing_files={missing_root} missing_dirs={missing_dirs} '
-                  f'forbidden_present={forbidden_present}'
-              )
-
-          foundation = [
-              'AIR_CORE_RUNTIME.md',
-              'AIR_CONTROL_SURFACE.md',
-              'AIR_GOV.md',
-              'AIR_DEFAULT_STARTER_PROFILE.json',
-              'AIR_HANDOFF_CARD_TEMPLATE.json',
-          ]
-          missing_foundation = sorted(name for name in foundation if not (root / 'prompts' / name).is_file())
-          if missing_foundation:
-              raise SystemExit(f'missing Foundation files: {missing_foundation}')
-
-          for path in [
-              root / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json',
-              root / 'prompts' / 'AIR_HANDOFF_CARD_TEMPLATE.json',
-              root / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json',
-              root / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json',
-          ]:
-              json.loads(path.read_text(encoding='utf-8'))
-
-          specialist_dirs = sorted(path.name for path in (root / 'profiles').iterdir() if path.is_dir())
-          expected_specialists = sorted([
-              'capability ecology architect',
-              'governance specialist',
-              'grounding specialist',
-              'public surface copywriting specialist',
-              'specification first verification specialist',
-          ])
-          if specialist_dirs != expected_specialists:
-              raise SystemExit(
-                  f'Specialist directory mismatch: expected={expected_specialists} actual={specialist_dirs}'
-              )
-
-          version = (root / 'VERSION').read_text(encoding='utf-8').strip()
-          if version != '0.7.0':
-              raise SystemExit(f'unexpected AIR Kit VERSION: {version!r}')
-
-          print('AIR public distribution surface: PASS')
-          print('Foundation files: 5/5 present')
-          print('Catalog JSON: parse PASS')
-          print('Specialist directories: 5/5 present')
-          PY
+      - name: Validate AIR release contracts
+        run: python3 tools/validate_air_release.py
