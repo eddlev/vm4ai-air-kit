@@ -33,6 +33,19 @@ jobs:
       - name: Write permanent validation spine
         run: python3 tools/_tmp_apply_validation_spine_fix.py
 
+      - name: Normalize resealer observed hash alias
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('tools/reseal_air_candidate.py')
+          text = p.read_text(encoding='utf-8')
+          old = "                if field == 'manifest_sha256':\n                    new = m['sha256']\n                else:\n                    new = m[field]"
+          new = "                if field in {'manifest_sha256', 'observed_sha256'}:\n                    new = m['sha256']\n                else:\n                    new = m[field]"
+          if old not in text:
+              raise SystemExit('resealer hash alias anchor not found')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Dependency graph reseal
         run: python3 tools/reseal_air_candidate.py --apply
 
