@@ -46,6 +46,19 @@ jobs:
           p.write_text(text.replace(old, new, 1), encoding='utf-8')
           PY
 
+      - name: Tighten stale sibling mutation isolation
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('tools/test_air_validator_mutations.py')
+          text = p.read_text(encoding='utf-8')
+          old = '''def stale_sibling_sha(t: Path) -> None:\n    p = t / 'profiles' / 'capability ecology architect' / 'AIR_CAPABILITY_ECOLOGY_ARCHITECT.json'\n    o = json.loads(p.read_text(encoding='utf-8'))\n    o['external_dependency_state']['domain_capability_registry']['sha256'] = '0' * 64\n    p.write_text(json.dumps(o, indent=2) + '\\n', encoding='utf-8')\n'''
+          new = '''def stale_sibling_sha(t: Path) -> None:\n    import hashlib\n    profile = t / 'profiles' / 'capability ecology architect' / 'AIR_CAPABILITY_ECOLOGY_ARCHITECT.json'\n    o = json.loads(profile.read_text(encoding='utf-8'))\n    o['external_dependency_state']['domain_capability_registry']['sha256'] = '0' * 64\n    profile.write_text(json.dumps(o, indent=2) + '\\n', encoding='utf-8')\n    praw = profile.read_bytes()\n\n    manifest = t / 'profiles' / 'capability ecology architect' / 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json'\n    mo = json.loads(manifest.read_text(encoding='utf-8'))\n    component = next(c for c in mo['components'] if c['filename'] == profile.name)\n    component['sha256'] = hashlib.sha256(praw).hexdigest()\n    component['size_bytes'] = len(praw)\n    component['line_count'] = len(praw.decode('utf-8').splitlines())\n    manifest.write_text(json.dumps(mo, indent=2) + '\\n', encoding='utf-8')\n    mraw = manifest.read_bytes()\n\n    index = t / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json'\n    io = json.loads(index.read_text(encoding='utf-8'))\n    entry = next(e for e in io['entries'] if e['manifest_filename'] == manifest.name)\n    entry['manifest_sha256'] = hashlib.sha256(mraw).hexdigest()\n    index.write_text(json.dumps(io, indent=2) + '\\n', encoding='utf-8')\n'''
+          if old not in text:
+              raise SystemExit('stale sibling mutation anchor not found')
+          p.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Dependency graph reseal
         run: python3 tools/reseal_air_candidate.py --apply
 
