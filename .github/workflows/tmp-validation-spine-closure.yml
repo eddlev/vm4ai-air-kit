@@ -1,0 +1,73 @@
+name: Temporary validation spine closure
+
+on:
+  push:
+    branches:
+      - repair/v0.7.1-set005-hardening
+    paths:
+      - .github/workflows/tmp-validation-spine-closure.yml
+
+permissions:
+  contents: write
+
+jobs:
+  close-validation-spine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/v0.7.1-set005-hardening
+          fetch-depth: 0
+
+      - name: Write permanent validation spine
+        run: python3 tools/_tmp_apply_validation_spine_fix.py
+
+      - name: Dependency graph reseal
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Validate source tree through canonical suite
+        run: |
+          python3 tools/validate_air_suite.py > /tmp/source-suite.txt 2>&1 || { cat /tmp/source-suite.txt; exit 1; }
+          cat /tmp/source-suite.txt
+
+      - name: Commit bounded closure
+        run: |
+          rm tools/_tmp_apply_validation_spine_fix.py
+          git config user.name "AIR repair automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "fix(set005): close validation spine and dependency reseal"
+          git push origin HEAD:repair/v0.7.1-set005-hardening
+
+      - name: Validate exact committed tree
+        run: |
+          python3 tools/validate_air_suite.py > /tmp/commit-suite.txt 2>&1 || { cat /tmp/commit-suite.txt; exit 1; }
+          cat /tmp/commit-suite.txt
+
+      - name: Build and validate extracted consumer tree
+        run: |
+          mkdir -p /tmp/archive /tmp/consumer
+          git archive --format=zip --output=/tmp/archive/candidate-precleanup.zip HEAD -- . ':(exclude).github/workflows/tmp-validation-spine-closure.yml'
+          unzip -q /tmp/archive/candidate-precleanup.zip -d /tmp/consumer
+          cd /tmp/consumer
+          python3 tools/validate_air_suite.py > /tmp/package-suite.txt 2>&1 || { cat /tmp/package-suite.txt; exit 1; }
+          cat /tmp/package-suite.txt
+          unzip -t /tmp/archive/candidate-precleanup.zip > /tmp/zip-integrity.txt
+          sha256sum /tmp/archive/candidate-precleanup.zip > /tmp/archive-sha256.txt
+
+      - name: Assemble closure evidence
+        run: |
+          mkdir -p /tmp/evidence
+          cp /tmp/source-suite.txt /tmp/evidence/
+          cp /tmp/commit-suite.txt /tmp/evidence/
+          cp /tmp/package-suite.txt /tmp/evidence/
+          cp /tmp/zip-integrity.txt /tmp/evidence/
+          cp /tmp/archive-sha256.txt /tmp/evidence/
+          git rev-parse HEAD > /tmp/evidence/correction-commit.txt
+          git status --porcelain > /tmp/evidence/git-status.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validation-spine-closure-evidence
+          path: /tmp/evidence
