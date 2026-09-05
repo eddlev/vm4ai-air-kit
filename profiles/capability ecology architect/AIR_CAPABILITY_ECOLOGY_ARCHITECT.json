@@ -137,13 +137,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "4634755acfc0f73b1390bf2606f58d603befb2f73490495f3bc6271aacc7535b",
+      "sha256": "6198af0248d00466c8488d9031de7f4b15d26addb4baa0e450f4e44ebd9a73bc",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "b741cec94b13e20f80f206138afd4817f6ea27b9ccab1d0f1ada06f1594793f9",
+      "sha256": "418cc7e446253eac925a822928f2147d2a7be89847b3cb5861d0edb10fc1d2bc",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "source_and_control_registry": {
@@ -1767,7 +1767,7 @@
       "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_integration_contract": {

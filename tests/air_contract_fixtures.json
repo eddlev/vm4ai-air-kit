@@ -130,5 +130,19 @@
       "backend enforcement",
       "behavioral certification from static checks"
     ]
-  }
+  },
+  "semantic_reseal_negative_cases": [
+    {
+      "id": "SR-01-UNSUPPORTED-BEHAVIORAL-PASS",
+      "invalid_if": "current SET_005 profile/package state claims BEHAVIORAL_REVALIDATION_PASS without a replay manifest for the same Foundation identity with result PASS"
+    },
+    {
+      "id": "SR-02-STALE-HANDOFF-REVISION-RECEIPT",
+      "invalid_if": "a live compatibility receipt for AIR_HANDOFF_CARD_TEMPLATE.json carries card_revision different from the actual template card_revision"
+    },
+    {
+      "id": "SR-03-PACKAGE-COMPONENT-BEHAVIORAL-CONTRADICTION",
+      "invalid_if": "package-level current state says behavioral revalidation pending while a current SET_005 component state says behavioral revalidation PASS"
+    }
+  ]
 }

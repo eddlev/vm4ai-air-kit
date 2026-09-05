@@ -213,7 +213,7 @@
   },
   "foundation_compatibility": {
     "target_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-    "compatibility_state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "compatibility_state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
@@ -254,7 +254,7 @@
         "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
         "size_bytes": 62010,
         "line_count": 1145,
-        "card_revision": 15
+        "card_revision": 16
       }
     ],
     "route_map_discovery_input": {

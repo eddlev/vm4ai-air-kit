@@ -46,8 +46,8 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "facb5e0ccfd9c7f53bf5d4cf73799912898a33bbfcb1ee4ecffa5cf18430108e",
-      "size_bytes": 26864,
+      "sha256": "8e3871ab2730b0aba9b9e6598cd9c64db85256ef926387beef89c99e9d451ab4",
+      "size_bytes": 26867,
       "line_count": 559,
       "canonical_role": "SPECIALIST_PROFILE",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
@@ -61,8 +61,8 @@
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "754eec3777ce4244e9f18624d0b6dac7e88bdc6c7229fe6cdb844152c5ebeccc",
-      "size_bytes": 23403,
+      "sha256": "412fbfb688b0861a46c997c9421c9ebfe25f24c3c196d76a826b3c98dff16e77",
+      "size_bytes": 23406,
       "line_count": 480,
       "canonical_role": "METHOD_PACK",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
@@ -96,7 +96,7 @@
   },
   "foundation_compatibility": {
     "target_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-    "state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
@@ -142,7 +142,7 @@
         "sha256": "8000340e6506c45573ebbcd2999dfb316c2aa8c84bd8254ca71ef4182c9551ab",
         "size_bytes": 62010,
         "line_count": 1145,
-        "card_revision": 15
+        "card_revision": 16
       }
     ],
     "foundation_adjacent_route_map": {

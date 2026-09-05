@@ -12,6 +12,7 @@ EXPECTED_FOUNDATION_ID = 'AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005'
 EXPECTED_ROUTE_MAP_VERSION = '1.1.0'
 EXPECTED_INDEX_VERSION = '1.3.0'
 EXPECTED_PACKAGE_VERSION = '2.5.0'
+EXPECTED_HANDOFF_CARD_REVISION = 16
 EXPECTED_SPECIALIST_DIRS = {
     'capability ecology architect',
     'governance specialist',
@@ -167,7 +168,7 @@ def main() -> None:
 
     handoff = parsed[ROOT / 'prompts' / 'AIR_HANDOFF_CARD_TEMPLATE.json']['AIR_HANDOFF_CARD']
     require(handoff['schema_version'] == '2.3.0', 'Handoff schema mismatch')
-    require(handoff['card_revision'] == 16, 'Handoff card revision mismatch')
+    require(handoff['card_revision'] == EXPECTED_HANDOFF_CARD_REVISION, 'Handoff card revision mismatch')
     manifest = handoff['schema_manifest']
     declared = set(manifest['required_fields']) | set(manifest.get('optional_fields', []))
     undeclared = sorted(set(handoff) - declared)
@@ -258,6 +259,8 @@ def main() -> None:
             require(node['line_count'] == m['line_count'], f'{owner}: stale line_count for {ref} at {".".join(path_tuple)}')
         if ref in FOUNDATION_VERSION and 'version' in node:
             require(node['version'] == FOUNDATION_VERSION[ref], f'{owner}: stale version for {ref}')
+        if ref == 'AIR_HANDOFF_CARD_TEMPLATE.json' and 'card_revision' in node:
+            require(node['card_revision'] == EXPECTED_HANDOFF_CARD_REVISION, f'{owner}: stale card_revision for {ref} at {".".join(path_tuple)}')
 
     for p in sorted(ROOT.glob('profiles/**/*.json')):
         walk(parsed[p], lambda node, loc, owner=p: check_ref(node, loc, owner))
@@ -268,6 +271,39 @@ def main() -> None:
             require(not bad, f'stale construction-time peer manifest hash keys remain at {".".join(loc)}: {bad}')
     for p in sorted(ROOT.glob('profiles/**/*.json')):
         walk(parsed[p], reject_stale_peer_hash)
+
+    behavioral_manifest_path = ROOT / 'tests' / 'behavioral_revalidation_manifest.json'
+    behavioral_evidence_pass = False
+    if behavioral_manifest_path.is_file():
+        behavioral_manifest = load_json(behavioral_manifest_path)
+        behavioral_evidence_pass = (
+            behavioral_manifest.get('foundation_identity') == EXPECTED_FOUNDATION_ID
+            and behavioral_manifest.get('result') == 'PASS'
+        )
+
+    behavioral_pass_claims: list[str] = []
+    def collect_behavioral_pass(node: Any, loc: tuple[str, ...], owner: Path) -> None:
+        if isinstance(node, str) and 'SET_005' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
+            behavioral_pass_claims.append(f'{owner}:{".".join(loc)}')
+    for p in sorted(ROOT.glob('profiles/**/*.json')):
+        walk(parsed[p], lambda node, loc, owner=p: collect_behavioral_pass(node, loc, owner))
+    if behavioral_pass_claims:
+        require(
+            behavioral_evidence_pass,
+            'unsupported SET_005 behavioral PASS claims without passing replay manifest: '
+            + ', '.join(behavioral_pass_claims[:12]),
+        )
+
+    for p in sorted(ROOT.glob('profiles/**/*PACKAGE_MANIFEST.json')):
+        obj = parsed[p]
+        top_status = str(obj.get('status') or obj.get('STATUS') or '')
+        if 'BEHAVIORAL_REVALIDATION_PENDING' in top_status:
+            contradictory: list[str] = []
+            def collect_contradiction(node: Any, loc: tuple[str, ...]) -> None:
+                if isinstance(node, str) and 'SET_005' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
+                    contradictory.append('.'.join(loc))
+            walk(obj.get('components', []), collect_contradiction)
+            require(not contradictory, f'{p}: package behavioral state pending but component PASS remains at {contradictory}')
 
     index = parsed[ROOT / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json']
     require(index['INDEX_VERSION'] == EXPECTED_INDEX_VERSION, 'Specialist Index version mismatch')
@@ -284,6 +320,7 @@ def main() -> None:
     require(fixtures.get('fixture_set') == 'AIR_SET005_REGRESSION_FIXTURES_V1', 'fixture identity mismatch')
     require(len(fixtures.get('emission_closure_cases', [])) >= 5, 'insufficient emission fixtures')
     require(len(fixtures.get('copywriting_behavior_cases', [])) >= 3, 'insufficient Copywriting behavior fixtures')
+    require(len(fixtures.get('semantic_reseal_negative_cases', [])) >= 3, 'insufficient semantic reseal negative fixtures')
 
     print('AIR v0.7.1 set-005 deterministic validation: PASS')
     print(f'Strict JSON files: {len(parsed)}')
@@ -294,6 +331,8 @@ def main() -> None:
     print('Closed-world emission route closure: PASS')
     print('Manifest/dependency hash-size-line closure: PASS')
     print('Copywriting operational delta contract: PRESENT')
+    print('Semantic evidence-state closure: PASS')
+    print('Handoff semantic card_revision receipts: PASS')
     print('Behavioral replay fixtures: PRESENT (not evidence that model evaluation has run)')
 
 if __name__ == '__main__':

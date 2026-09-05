@@ -132,8 +132,8 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
-      "sha256": "4523e25bbdd99186a700f1b2b73cc2979750ca16cbe1dfc38230ee8da4ee9cd3",
-      "size_bytes": 32135,
+      "sha256": "08dd617fd4d36b4cfa6cb7b28fdbb65c4d81bcfcd4918483a8846ec8f53726b1",
+      "size_bytes": 32138,
       "line_count": 602,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
@@ -141,8 +141,8 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
-      "sha256": "c83d6291c3ad68eb6ad7f6d014d5afba6475395ee19d80e356d0e2edb1e86363",
-      "size_bytes": 51844,
+      "sha256": "ec20346a56d0b1b4525f587d0df341fbe0ffe5fc5c9d38125a7c09c4c6244a3e",
+      "size_bytes": 51847,
       "line_count": 1035,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
@@ -150,8 +150,8 @@
     {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
-      "sha256": "18d62e784ce3b4d4fd01cd3ccd95bfac6648e2531e548a4653230244ee8e1e46",
-      "size_bytes": 31955,
+      "sha256": "214999423d677afad30b149400361d1af1110491d2be41ee80d22310d99b8afb",
+      "size_bytes": 31958,
       "line_count": 658,
       "required": true,
       "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
@@ -267,7 +267,7 @@
       "grounding_candidate_version_reconciled": "2.5.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_sfv_contribution_contract": {

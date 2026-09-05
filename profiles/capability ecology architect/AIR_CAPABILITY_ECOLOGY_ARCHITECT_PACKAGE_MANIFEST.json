@@ -43,9 +43,9 @@
       "artifact_class": "DOMAIN_CAPABILITY_REGISTRY",
       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
-      "sha256": "4634755acfc0f73b1390bf2606f58d603befb2f73490495f3bc6271aacc7535b",
-      "size_bytes": 244241,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
+      "sha256": "6198af0248d00466c8488d9031de7f4b15d26addb4baa0e450f4e44ebd9a73bc",
+      "size_bytes": 244244,
       "line_count": 5332,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -59,9 +59,9 @@
       "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
-      "sha256": "b741cec94b13e20f80f206138afd4817f6ea27b9ccab1d0f1ada06f1594793f9",
-      "size_bytes": 69747,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
+      "sha256": "418cc7e446253eac925a822928f2147d2a7be89847b3cb5861d0edb10fc1d2bc",
+      "size_bytes": 69750,
       "line_count": 1283,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -75,9 +75,9 @@
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
-      "sha256": "f0dcd622e71b38d42bbfd770d6e0019f07aed296d775e09f531322ecd3da0e52",
-      "size_bytes": 100835,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
+      "sha256": "65fa23db79b0bb137164a672b833a750bb38745fe3772113dc422346d4e19452",
+      "size_bytes": 100838,
       "line_count": 1887,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -91,9 +91,9 @@
       "artifact_class": "AIR_METHOD_PACK",
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
-      "sha256": "b9d8ac0b929b6654658cb01b0ca0f8b6f508437c6334bc095a64506a60e21637",
-      "size_bytes": 74526,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
+      "sha256": "48703f6b7a1b2d335ab67b6e82c7d76c19aa2e3560c7c9b6d9df446c5d67cbeb",
+      "size_bytes": 74529,
       "line_count": 1411,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -283,7 +283,7 @@
     "required_component_count": 4,
     "all_required_components_present": true,
     "all_required_components_hash_sealed": true,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_005_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_005_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
     "receiver_delivery_state": "REVIEW_GATE",
     "backend_validation_claimed": false,
     "hidden_reasoning_claimed": false,
@@ -408,7 +408,7 @@
       "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "task_boundary_compatibility": {

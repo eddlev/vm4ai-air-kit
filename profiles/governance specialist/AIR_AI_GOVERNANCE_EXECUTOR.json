@@ -259,28 +259,28 @@
     {
       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "sha256": "ca2204166724ea4ca35fd2cb610f586963c4d5fcc9c06fd270b6bc0e4e76eac5",
+      "sha256": "b7caacc452757eac281fb9e63f3b66e663bbe3ce167903874662614b108fee4c",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
       "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
-      "sha256": "56d1e9c5bcbc472367ebda9c0f8da8b3cd3a8177e2243bdfaacd6b2804d2ede6",
+      "sha256": "e507a3785e6279ded3433d24605e51d3aafe1dc69546761a45bbbe6ad5c05f30",
       "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "sha256": "fdae90bf8168052a025a66bf83bf2d7ee6406abbe5a189d3d9578e9f0de0645e",
+      "sha256": "72a5455d1e64c9a478499bdcfccd5969fb7f08474e28b52d1c5a5436649eaa92",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
       "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
-      "sha256": "9366485135790ac07e0d0f7e8f801e93ab0e5e4566cd5c2dc09306e24eba9cca",
+      "sha256": "fcd5c54e5f742f9662b08f7f6d895e693cae35c1be2afd0e845e51e187e6009c",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -492,7 +492,7 @@
       "sfv_candidate_version_cross_checked": "2.4.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "foundation_routing_compatibility": {
