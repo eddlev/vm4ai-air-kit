@@ -61,12 +61,13 @@ jobs:
           set -euo pipefail
           python3 tools/validate_air_release.py
 
-      - name: Commit repaired candidate to approved branch only
+      - name: Commit validated candidate without workflow-file mutation
         shell: bash
         run: |
           set -euo pipefail
           rm -rf .air_tmp
           rm -f .github/workflows/apply-v071-set005.yml
+          git checkout HEAD -- .github/workflows/air-reproducibility.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
