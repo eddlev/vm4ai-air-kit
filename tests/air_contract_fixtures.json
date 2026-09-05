@@ -176,5 +176,23 @@
       "id": "DP-04-ROUTER-CONSEQUENCE-INVENTION",
       "invalid_if": "router/classifier identifies a condition but invents or substitutes the consequence instead of following the declared route table"
     }
+  ],
+  "validation_spine_negative_cases": [
+    {
+      "id": "VS-01-CHILD-VALIDATOR-FAILURE-PROPAGATION",
+      "invalid_if": "a child validator exits non-zero but the canonical suite or CI reports PASS"
+    },
+    {
+      "id": "VS-02-STALE-LIVE-SIBLING-HASH",
+      "invalid_if": "a live operational component carries a hash/size/line receipt that differs from the referenced current component bytes"
+    },
+    {
+      "id": "VS-03-RESEAL-NON-IDEMPOTENCE",
+      "invalid_if": "a second dependency-graph reseal pass would change any candidate byte or live receipt"
+    },
+    {
+      "id": "VS-04-CONTENT-HASH-DEPENDENCY-CYCLE",
+      "invalid_if": "two or more operational files form a cycle of exact content-hash dependencies that cannot be topologically resealed"
+    }
   ]
 }

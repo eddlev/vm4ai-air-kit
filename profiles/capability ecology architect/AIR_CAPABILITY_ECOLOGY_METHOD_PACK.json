@@ -154,19 +154,19 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "6198af0248d00466c8488d9031de7f4b15d26addb4baa0e450f4e44ebd9a73bc"
+      "observed_sha256": "a20781e0a772beaa5cd872c03308b79f381bf3a475f91f46a820ae46aa209da2"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "418cc7e446253eac925a822928f2147d2a7be89847b3cb5861d0edb10fc1d2bc"
+      "observed_sha256": "02081df53623f510e0dd32be907da759208048a3a6aa57c76946329cebd90745"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "65fa23db79b0bb137164a672b833a750bb38745fe3772113dc422346d4e19452"
+      "observed_sha256": "e4e8c8f356bff4b0d77cf70bb8afa07fdf0fc7d87c8efdb33928f3a3e303713a"
     },
     "package_manifest": {
       "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
@@ -287,7 +287,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "65fa23db79b0bb137164a672b833a750bb38745fe3772113dc422346d4e19452",
+      "sha256": "e4e8c8f356bff4b0d77cf70bb8afa07fdf0fc7d87c8efdb33928f3a3e303713a",
       "required_for": [
         "all branches"
       ]
@@ -295,7 +295,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "6198af0248d00466c8488d9031de7f4b15d26addb4baa0e450f4e44ebd9a73bc",
+      "sha256": "a20781e0a772beaa5cd872c03308b79f381bf3a475f91f46a820ae46aa209da2",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -305,7 +305,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "418cc7e446253eac925a822928f2147d2a7be89847b3cb5861d0edb10fc1d2bc",
+      "sha256": "02081df53623f510e0dd32be907da759208048a3a6aa57c76946329cebd90745",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",

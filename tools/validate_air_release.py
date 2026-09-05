@@ -147,7 +147,9 @@ def main() -> None:
     require((ROOT / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json').is_file(), 'missing Route Map')
     require((ROOT / 'catalog' / 'AIR_SPECIALIST_PACKAGE_INDEX.json').is_file(), 'missing Specialist Index')
     require((ROOT / 'tools' / 'validate_air_release.py').is_file(), 'missing permanent validator')
-    require((ROOT / 'tools' / 'validate_air_boot.py').is_file(), 'missing independent routine-boot validator')
+    require((ROOT / 'tools' / 'validate_air_boot.py').is_file(), 'missing independent boot validator')
+    require((ROOT / 'tools' / 'validate_air_suite.py').is_file(), 'missing canonical validation suite runner')
+    require((ROOT / 'tools' / 'reseal_air_candidate.py').is_file(), 'missing dependency-graph resealer')
     require((ROOT / 'tools' / 'test_air_validator_mutations.py').is_file(), 'missing validator mutation suite')
     require((ROOT / 'tests' / 'air_contract_fixtures.json').is_file(), 'missing regression fixtures')
 
@@ -363,6 +365,7 @@ def main() -> None:
     require(len(fixtures.get('emission_closure_cases', [])) >= 5, 'insufficient emission fixtures')
     require(len(fixtures.get('copywriting_behavior_cases', [])) >= 3, 'insufficient Copywriting behavior fixtures')
     require(len(fixtures.get('semantic_reseal_negative_cases', [])) >= 3, 'insufficient semantic reseal negative fixtures')
+    require(len(fixtures.get('validation_spine_negative_cases', [])) >= 4, 'insufficient validation spine negative fixtures')
     require(len(fixtures.get('routine_boot_negative_cases', [])) >= 3, 'insufficient routine boot negative fixtures')
     require(len(fixtures.get('deterministic_pipeline_negative_cases', [])) >= 4, 'insufficient deterministic pipeline negative fixtures')
 
@@ -380,6 +383,7 @@ def main() -> None:
     print('Routine boot coherence: PASS')
     print('Deterministic pipeline non-inference contract: PASS')
     print('Behavioral replay fixtures: PRESENT (not evidence that model evaluation has run)')
+    print('Validation spine regression fixtures: PRESENT')
 
 if __name__ == '__main__':
     try:
