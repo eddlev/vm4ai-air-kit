@@ -32,11 +32,21 @@ jobs:
           test "$(git hash-object .air_tmp/repair.b64.part05b)" = "cc55a704b5af4e5d93a78894bec267b404a42fa8"
           test "$(git hash-object .air_tmp/repair.b64.part06)" = "9b8c451e945d42018b2037824e2d2c618f3a3b43"
 
-      - name: Reassemble and apply coordinated repair
+      - name: Reassemble, repair generator, and apply coordinated repair
         shell: bash
         run: |
           set -euo pipefail
           cat .air_tmp/repair.b64.part* | base64 -d | gzip -dc > /tmp/apply_air_v071_set005.py
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('/tmp/apply_air_v071_set005.py')
+          s = p.read_text()
+          anchor = "    obj.setdefault('purpose', obj.get('description', 'Reusable governed method.'))\n"
+          replacement = anchor + "    obj.setdefault('method_id', obj.get('SYSTEM_DESIGNATION', 'AIR_METHOD_UNSPECIFIED'))\n"
+          if s.count(anchor) != 1:
+              raise SystemExit('method_id generator hotfix anchor mismatch')
+          p.write_text(s.replace(anchor, replacement, 1))
+          PY
           python3 -m py_compile /tmp/apply_air_v071_set005.py
           python3 /tmp/apply_air_v071_set005.py
 
