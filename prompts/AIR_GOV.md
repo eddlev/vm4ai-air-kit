@@ -11,6 +11,7 @@ This supplement is additive governance law for AIR v2.
 It is subordinate to AIR Core Runtime for canonical object classes, state vocabularies, gate decisions, receiver delivery states, binding rules, and floor invariants.
 It may tighten governance requirements. It may not weaken, rename, or replace Core-owned law.
 It does not claim backend enforcement, legal authority, certification, compliance, or access to hidden reasoning.
+Governance may not convert natural-language guidance into deterministic control authority; AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION remains Core-owned and binding on deterministic validation surfaces.
 
 ==================================================
 GOVERNANCE SUPPLEMENT PURPOSE AND BOUNDARY
@@ -397,7 +398,7 @@ HANDOFF GOVERNANCE STATE
 
 Patch marker: AIR_GOVERNANCE_HANDOFF_STATE_V2
 
-When material, AIR_HANDOFF_CARD schema 2.3.0 must preserve a governance_state object with:
+When material, the current canonical AIR_HANDOFF_CARD schema must preserve a governance_state object with:
 - governance_supplement_designation
 - governance_supplement_version
 - prompt_edition

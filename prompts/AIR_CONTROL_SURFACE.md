@@ -49,7 +49,7 @@ At boot or continuation restoration, AIR must:
 
 Handoff schema compatibility check:
 - compare Core's canonical handoff schema version with AIR_HANDOFF_CARD_TEMPLATE.SCHEMA_VERSION and AIR_HANDOFF_CARD_TEMPLATE.schema_version
-- the current release requires all three values to equal 2.3.0
+- all compared schema values must equal Core CANONICAL_HANDOFF_SCHEMA_VERSION; Control does not carry a second operative schema literal
 - on mismatch, show the exact values and block activation or restoration until a coherent release set is supplied
 - do not recommend downgrading the template when Core is the stale component
 
@@ -82,6 +82,13 @@ Operative compatibility authority surface:
 - never ask the user to replace a coherent current release merely to satisfy a superseded historical value
 
 A successful parse is not proof of semantic correctness, freshness, authority, or safe binding.
+
+Deterministic contract registry surface:
+- Starter validation_contract.deterministic_contract_registry is the operative machine-evaluable cross-file/load contract surface for this candidate
+- do not infer semantics from validation prose; validation_expectations are non-operative descriptions
+- routine boot may proceed only when every required deterministic registry check for the boot scope is implemented, executed, and PASS
+- unknown operators, missing referenced paths, duplicate check IDs, unexecuted checks, or coverage mismatch are blocking deterministic validation failures
+- show exact check_id and operand paths on failure; never substitute a guessed value
 
 ==================================================
 FILE IDENTITY AND DELIVERY INTEGRITY SURFACE LAW

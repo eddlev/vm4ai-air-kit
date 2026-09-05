@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.0",
-    "sha256": "3aae32ffe219f009c2f505eda516c536603c9fefebd16aeb6b5946bd86e0b2f4",
+    "sha256": "402227e840cae9129bb00f5e27d08b6b599020add4749be2cfc1553325f1c739",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -46,7 +46,8 @@
       "invalidates": [],
       "does_not_bypass": [
         "DEP.LOAD_INTEGRITY",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -81,7 +82,8 @@
       "does_not_bypass": [
         "AIR-FLOOR-011",
         "RT.UNCERTAINTY_RESOLVE",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.UNCERTAINTY_RESOLVE",
       "source_anchor": {
@@ -118,7 +120,8 @@
       "does_not_bypass": [
         "DEP.REVALIDATION",
         "DEP.ARTIFACT_REBIND",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -192,7 +195,8 @@
       "invalidates": [],
       "does_not_bypass": [
         "RT.ALIGN",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -228,7 +232,8 @@
       ],
       "does_not_bypass": [
         "AIR-FLOOR-021",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -568,7 +573,8 @@
       "does_not_bypass": [
         "AIR_GATE",
         "AIR-FLOOR-018",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -610,7 +616,8 @@
       "does_not_bypass": [
         "DEP.POST_MATERIAL_EFFECT_ALIGNMENT",
         "AIR-FLOOR-018",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
@@ -709,7 +716,8 @@
         "RT.ALIGN",
         "DEP.HANDOFF_VALIDATION",
         "AIR-FLOOR-013",
-        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {

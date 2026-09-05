@@ -53,7 +53,7 @@ def displaced_sentinel(t: Path) -> None:
 def starter_self_version(t: Path) -> None:
     p = t / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json'
     o = json.loads(p.read_text(encoding='utf-8'))
-    o['validation_contract']['required_version'] = '9.9.9'
+    o['PROMPT_VERSION'] = '9.9.9'
     p.write_text(json.dumps(o, indent=2) + '\n', encoding='utf-8')
 
 def handoff_starter_version(t: Path) -> None:
@@ -103,11 +103,11 @@ def hash_cycle(t: Path) -> None:
     b.write_text(json.dumps(bo, indent=2) + '\n', encoding='utf-8')
 
 boot_mutation('RB-01-DISPLACED-TERMINAL-SENTINEL', displaced_sentinel, 'terminal sentinel is not the final content line')
-boot_mutation('RB-02-STARTER-SELF-VERSION-MISMATCH', starter_self_version, 'Starter PROMPT_VERSION != validation_contract.required_version')
+boot_mutation('RB-02-STARTER-CANONICAL-VERSION-MISMATCH', starter_self_version, 'Handoff Starter version mismatch')
 boot_mutation('RB-03-HANDOFF-STARTER-VERSION-MISMATCH', handoff_starter_version, 'Handoff Starter version mismatch')
 full_mutation('DP-ROUTE-INFERENCE-POLICY', route_inference_policy, 'Route Map RT.BOOT: inference_policy mismatch')
 full_mutation('RS-01-STALE-SIBLING-SHA', stale_sibling_sha, 'stale sha256 for AIR_DOMAIN_CAPABILITY_REGISTRY.json')
 full_mutation('RS-02-IDEMPOTENCE-DETECTS-DRIFT', stale_sibling_sha, 'another reseal pass would change', 'tools/reseal_air_candidate.py', ['--check'])
 full_mutation('RS-03-CONTENT-HASH-CYCLE', hash_cycle, 'content-hash dependency cycle', 'tools/reseal_air_candidate.py', ['--check'])
-full_mutation('VH-01-SUITE-PROPAGATES-CHILD-FAILURE', displaced_sentinel, 'AIR validation suite FAILED at stage: routine_boot', 'tools/validate_air_suite.py', ['--without-mutations'])
+full_mutation('VH-01-SUITE-PROPAGATES-CHILD-FAILURE', displaced_sentinel, 'AIR validation suite FAILED at stage: deterministic_contract_registry', 'tools/validate_air_suite.py', ['--without-mutations'])
 print('AIR validator mutation suite: PASS (8/8 mutants killed)')

@@ -151,7 +151,10 @@ def main() -> None:
     require((ROOT / 'tools' / 'validate_air_suite.py').is_file(), 'missing canonical validation suite runner')
     require((ROOT / 'tools' / 'reseal_air_candidate.py').is_file(), 'missing dependency-graph resealer')
     require((ROOT / 'tools' / 'test_air_validator_mutations.py').is_file(), 'missing validator mutation suite')
+    require((ROOT / 'tools' / 'validate_air_contract_registry.py').is_file(), 'missing deterministic contract registry validator')
+    require((ROOT / 'tools' / 'test_air_contract_registry_mutations.py').is_file(), 'missing deterministic contract mutation suite')
     require((ROOT / 'tests' / 'air_contract_fixtures.json').is_file(), 'missing regression fixtures')
+    require((ROOT / 'tests' / 'deterministic_contract_inventory.json').is_file(), 'missing deterministic contract inventory')
 
     parsed: dict[Path, Any] = {p: load_json(p) for p in all_json()}
     operational_paths = [p for p in parsed if not str(p).startswith('tests/')]
@@ -176,19 +179,33 @@ def main() -> None:
         require(bool(lines) and lines[-1] == expected_sentinels[name], f'{name}: terminal sentinel is not final content line')
     require('Patch marker: AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1' in core, 'missing Core deterministic-pipeline non-inference law')
     require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in core, 'missing Core floor 025')
+    require('AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION' in core, 'missing Core floor 026')
+    require('Patch marker: AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1' in core, 'missing deterministic contract representation law')
 
     starter_path = ROOT / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json'
     starter = parsed[starter_path]
     require(starter['PROMPT_VERSION'] == '2.6.0', 'Starter version mismatch')
     require(starter.get('compiler_contract', {}).get('closed_world_emission_closure', {}).get('required') is True, 'Starter missing closed-world emission closure mirror')
-    require(starter.get('validation_contract', {}).get('required_version') == starter.get('PROMPT_VERSION'), 'Starter self-version mismatch')
+    vc = starter.get('validation_contract', {})
+    require('required_version' not in vc, 'Starter duplicated required_version literal remains')
+    require('required_designation' not in vc, 'Starter duplicated required_designation literal remains')
+    require('required_cross_file_checks' not in vc, 'Starter operative free-form cross-file checks remain')
+    registry = vc.get('deterministic_contract_registry', {})
+    require(registry.get('execution_semantics') == 'DETERMINISTIC_PIPELINE', 'Starter deterministic contract registry missing')
+    require(registry.get('inference_policy') == 'PROHIBITED', 'Starter deterministic contract registry inference policy mismatch')
+    require(registry.get('prose_authority') == 'NON_OPERATIVE_DESCRIPTION', 'Starter deterministic contract prose boundary mismatch')
     dp_starter = starter.get('compiler_contract', {}).get('deterministic_pipeline_non_inference', {})
     require(dp_starter.get('required') is True, 'Starter missing deterministic-pipeline non-inference mirror')
     require(dp_starter.get('inference_policy') == 'PROHIBITED', 'Starter deterministic pipeline inference policy mismatch')
     require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in starter.get('authority_contract', {}).get('floor_invariants_required', []), 'Starter missing floor 025 requirement')
+    require('AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION' in starter.get('authority_contract', {}).get('floor_invariants_required', []), 'Starter missing floor 026 requirement')
+    require(starter.get('compiler_contract', {}).get('deterministic_contract_machine_representation', {}).get('required') is True, 'Starter missing deterministic contract representation mirror')
 
     handoff = parsed[ROOT / 'prompts' / 'AIR_HANDOFF_CARD_TEMPLATE.json']['AIR_HANDOFF_CARD']
-    require(handoff['schema_version'] == '2.3.0', 'Handoff schema mismatch')
+    m = re.search(r'(?m)^CANONICAL_HANDOFF_SCHEMA_VERSION:\s*(\S+)\s*$', core)
+    require(bool(m), 'Core canonical handoff schema header missing')
+    canonical_schema = m.group(1)
+    require(handoff['SCHEMA_VERSION'] == handoff['schema_version'] == canonical_schema, 'Handoff schema mismatch')
     require(handoff['card_revision'] == EXPECTED_HANDOFF_CARD_REVISION, 'Handoff card revision mismatch')
     manifest = handoff['schema_manifest']
     declared = set(manifest['required_fields']) | set(manifest.get('optional_fields', []))
@@ -198,6 +215,11 @@ def main() -> None:
     restored_starter = handoff.get('profile_stack', {}).get('starter_profile', {})
     require(restored_starter.get('SYSTEM_DESIGNATION') == starter.get('SYSTEM_DESIGNATION'), 'Handoff Starter designation mismatch')
     require(restored_starter.get('PROMPT_VERSION') == starter.get('PROMPT_VERSION'), 'Handoff Starter version mismatch')
+    sc = manifest.get('schema_compatibility_contract', {})
+    require('canonical_schema_version' not in sc, 'Handoff duplicated canonical_schema_version literal remains')
+    require('starter_identity_version_required' not in sc, 'Handoff duplicated starter_identity_version_required literal remains')
+    require(sc.get('canonical_schema_version_source') == 'AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION', 'Handoff canonical schema source mismatch')
+    require(sc.get('starter_identity_version_source') == 'AIR_DEFAULT_STARTER_V2.PROMPT_VERSION', 'Handoff Starter version source mismatch')
 
     routes = parse_core_routes(core)
     for rid in ['RT.ACTIVATE', 'RT.ALIGN', 'RT.AMEND', 'RT.TASK_SWITCH', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE']:
@@ -360,6 +382,12 @@ def main() -> None:
         require(manifest_name in metas, f'Index missing manifest target {manifest_name}')
         require(entry['manifest_sha256'] == metas[manifest_name]['sha256'], f'Index manifest hash mismatch {manifest_name}')
 
+    inventory = parsed[ROOT / 'tests' / 'deterministic_contract_inventory.json']
+    require(inventory.get('inventory_id') == 'AIR_SET005_DETERMINISTIC_CONTRACT_INVENTORY_V1', 'deterministic contract inventory identity mismatch')
+    require(inventory.get('typed_deterministic_check_count') == len(registry.get('checks', [])), 'deterministic contract inventory count mismatch')
+    require(inventory.get('migrated_validation_expectation_count') == len(vc.get('validation_expectations', [])), 'validation expectation inventory count mismatch')
+    require(inventory.get('legacy_required_cross_file_checks_operational_state') == 'REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY', 'legacy operative prose inventory state mismatch')
+
     fixtures = parsed[ROOT / 'tests' / 'air_contract_fixtures.json']
     require(fixtures.get('fixture_set') == 'AIR_SET005_REGRESSION_FIXTURES_V1', 'fixture identity mismatch')
     require(len(fixtures.get('emission_closure_cases', [])) >= 5, 'insufficient emission fixtures')
@@ -368,6 +396,7 @@ def main() -> None:
     require(len(fixtures.get('validation_spine_negative_cases', [])) >= 4, 'insufficient validation spine negative fixtures')
     require(len(fixtures.get('routine_boot_negative_cases', [])) >= 3, 'insufficient routine boot negative fixtures')
     require(len(fixtures.get('deterministic_pipeline_negative_cases', [])) >= 4, 'insufficient deterministic pipeline negative fixtures')
+    require(len(fixtures.get('deterministic_contract_representation_negative_cases', [])) >= 6, 'insufficient deterministic contract representation fixtures')
 
     print('AIR v0.7.1 set-005 deterministic validation: PASS')
     print(f'Strict JSON files: {len(parsed)}')
@@ -382,6 +411,9 @@ def main() -> None:
     print('Handoff semantic card_revision receipts: PASS')
     print('Routine boot coherence: PASS')
     print('Deterministic pipeline non-inference contract: PASS')
+    print(f'Deterministic contract registry: PRESENT ({len(registry.get("checks", []))} typed checks)')
+    print('Deterministic contract prose authority: NON_OPERATIVE')
+    print('Deterministic contract inventory: PRESENT')
     print('Behavioral replay fixtures: PRESENT (not evidence that model evaluation has run)')
     print('Validation spine regression fixtures: PRESENT')
 

@@ -194,5 +194,31 @@
       "id": "VS-04-CONTENT-HASH-DEPENDENCY-CYCLE",
       "invalid_if": "two or more operational files form a cycle of exact content-hash dependencies that cannot be topologically resealed"
     }
+  ],
+  "deterministic_contract_representation_negative_cases": [
+    {
+      "id": "DCR-01-OPERATIVE-PROSE-PREDICATE",
+      "invalid_if": "an operative deterministic compatibility/load requirement is represented only as a free-form string rather than a typed executable check"
+    },
+    {
+      "id": "DCR-02-DUPLICATED-CANONICAL-LITERAL",
+      "invalid_if": "a deterministic operative value is copied into a secondary current compatibility field when a canonical path reference is available"
+    },
+    {
+      "id": "DCR-03-UNKNOWN-OPERATOR",
+      "invalid_if": "a declared deterministic check uses an operator the registry executor does not implement"
+    },
+    {
+      "id": "DCR-04-UNEXECUTED-CHECK",
+      "invalid_if": "declared deterministic check count differs from executed check count"
+    },
+    {
+      "id": "DCR-05-COVERAGE-MISMATCH",
+      "invalid_if": "declared, implemented, and executed deterministic contract counts are not equal or any allowed-missing count is nonzero"
+    },
+    {
+      "id": "DCR-06-UNRESOLVED-REFERENCE",
+      "invalid_if": "a deterministic check references a missing file, header, JSON path, or manifest path and execution continues by inference"
+    }
   ]
 }

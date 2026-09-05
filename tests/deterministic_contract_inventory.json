@@ -1,0 +1,26 @@
+{
+  "inventory_id": "AIR_SET005_DETERMINISTIC_CONTRACT_INVENTORY_V1",
+  "foundation_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+  "scope": "FIVE_FILE_FOUNDATION_LOAD_AND_CROSS_FILE_COMPATIBILITY",
+  "source_files": [
+    "AIR_CORE_RUNTIME.md",
+    "AIR_CONTROL_SURFACE.md",
+    "AIR_GOV.md",
+    "AIR_DEFAULT_STARTER_PROFILE.json",
+    "AIR_HANDOFF_CARD_TEMPLATE.json"
+  ],
+  "legacy_required_cross_file_check_count": 55,
+  "legacy_required_cross_file_checks_operational_state": "REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY",
+  "migrated_validation_expectation_count": 55,
+  "migrated_validation_expectation_authority": "NON_OPERATIVE_DESCRIPTION",
+  "typed_deterministic_check_count": 43,
+  "typed_registry_path": "AIR_DEFAULT_STARTER_PROFILE.json.validation_contract.deterministic_contract_registry",
+  "coverage_requirement": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
+  "inference_policy": "PROHIBITED",
+  "known_conflict_closed": {
+    "legacy_description": "Handoff Template restored starter profile version equals 2.5.0",
+    "replacement": "typed canonical-path equality between Handoff profile_stack.starter_profile.PROMPT_VERSION and Default Starter PROMPT_VERSION",
+    "literal_duplication_removed": true
+  },
+  "claim_boundary": "This inventory covers deterministic five-file Foundation load/cross-file compatibility predicates for SET_005. Runtime behavioral laws and replayable model behavior remain separately validated and are not reclassified as deterministic executable evidence."
+}

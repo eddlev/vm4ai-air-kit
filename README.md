@@ -49,7 +49,8 @@ Release status does **not** claim universal behavioral certification across ever
 6. strengthens Public Surface Copywriting with explicit required-input, knowledge-to-execution, MII, synthetic-benchmark, and observable anti-generic delta contracts;
 7. repairs stale sibling/peer compatibility identities and removes construction-time peer manifest hash snapshots from operative runtime packages;
 8. makes release publication state externally verified rather than a stale runtime-catalog assertion; and
-9. adds a permanent deterministic release-contract validator plus replayable regression fixture definitions.
+9. adds a permanent deterministic release-contract validator plus replayable regression fixture definitions; and
+10. moves operative five-file Foundation compatibility predicates into a typed deterministic contract registry with closed-world coverage accounting and per-check mutation tests, leaving prose validation expectations explicitly non-operative.
 
 ## Start AIR
 

@@ -44,9 +44,9 @@
       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "a20781e0a772beaa5cd872c03308b79f381bf3a475f91f46a820ae46aa209da2",
-      "size_bytes": 244304,
-      "line_count": 5333,
+      "sha256": "a5cfe51e1340df34f4abd0bf18a8baba58410aae747a4c4c5df0c068c29f6e85",
+      "size_bytes": 244373,
+      "line_count": 5334,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -60,9 +60,9 @@
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "02081df53623f510e0dd32be907da759208048a3a6aa57c76946329cebd90745",
-      "size_bytes": 69810,
-      "line_count": 1284,
+      "sha256": "460e0b2fc0a053317db46f17b25d145f31881132eece26049137dbfb9a320035",
+      "size_bytes": 69879,
+      "line_count": 1285,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -76,9 +76,9 @@
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "e4e8c8f356bff4b0d77cf70bb8afa07fdf0fc7d87c8efdb33928f3a3e303713a",
-      "size_bytes": 100898,
-      "line_count": 1888,
+      "sha256": "c08293f0270c7e240d682e60d43f0596b8189aef3f3066e5aacd7a5e2910c5bd",
+      "size_bytes": 100968,
+      "line_count": 1889,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -92,9 +92,9 @@
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "167a8b486951c84c16f8e6f5c15d99125622f8d3ed1516140482d8c307d8c324",
-      "size_bytes": 74589,
-      "line_count": 1412,
+      "sha256": "8808efefea5762b099f00c0fc1a1e05586a06c97f3626f7c00cf7a939c279cde",
+      "size_bytes": 74659,
+      "line_count": 1413,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -138,45 +138,45 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "3aae32ffe219f009c2f505eda516c536603c9fefebd16aeb6b5946bd86e0b2f4",
-        "size_bytes": 350627,
-        "line_count": 7116
+        "sha256": "402227e840cae9129bb00f5e27d08b6b599020add4749be2cfc1553325f1c739",
+        "size_bytes": 353577,
+        "line_count": 7142
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "39c3e1e6a1c0777d43abbcdbf59cea6f1301f91186497dff172abb2c15092f1a",
-        "size_bytes": 156641,
-        "line_count": 3190
+        "sha256": "aaaf9ebc5f8d287585dbc8cd224f53b46afb73d28aad69d4adb2ac3af6006cdf",
+        "size_bytes": 157383,
+        "line_count": 3197
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a5f009f2de693556feb022638308e0dc4e5cdb7f817a66d97707d355efdc388e",
-        "size_bytes": 25645,
-        "line_count": 512
+        "sha256": "ad69fe2bd5d17cc2a5d2c3d11d226b0ac9750c4365f3fc63fb3bd87269271349",
+        "size_bytes": 25881,
+        "line_count": 513
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b7345c27106eb22f7e8cfc61aad48b31fec7cfac46dbbffd85d9f4f3d0ced86f",
-        "size_bytes": 93113,
-        "line_count": 1671
+        "sha256": "b06103178b75ff69aae31cf9b1e753e196d5165c88f01af1af0b6c1c39884ac6",
+        "size_bytes": 119101,
+        "line_count": 2354
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "868da173f4805be6d2a7ada4bf6efb55c464f729fa11ddcc498991c6bbffb4e1",
-        "size_bytes": 62010,
-        "line_count": 1145
+        "sha256": "bdb9ec315905f859fa6611666a08074d07076b74fdb7cd62cf41678852d10c10",
+        "size_bytes": 62234,
+        "line_count": 1146
       }
     ],
     "required_floor_invariants": [
@@ -192,7 +192,8 @@
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
-      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
     "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005"
@@ -357,14 +358,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "47f268fe1f3158046a2ae0a28717b90e58413f075fd5203b430c66565c4e2ee6",
+      "sha256": "14d4b96a10666059190f02af5c1969e6322206fb435fd20469cfa513f8c8b4bf",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 25389,
-      "line_count": 825
+      "size_bytes": 25957,
+      "line_count": 833
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",

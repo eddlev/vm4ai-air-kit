@@ -51,7 +51,8 @@
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
-      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ]
   },
   "profile_scope": {
@@ -336,7 +337,7 @@
         "strict JSON parse and duplicate-key rejection",
         "file-class identity and canonical role",
         "handoff schema equality across Core, Control, Starter, and Template",
-        "Starter self-version equality",
+        "Starter canonical version source is top-level PROMPT_VERSION with no secondary operative version literal",
         "Handoff-recorded Starter identity equality",
         "current floor registry presence"
       ],
@@ -407,6 +408,18 @@
         "RT.TURN"
       ],
       "non_inference_rule": "Do not infer. Follow the declared deterministic pipeline."
+    },
+    "deterministic_contract_machine_representation": {
+      "required": true,
+      "core_patch_marker": "AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1",
+      "floor_invariant": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "operative_registry_path": "validation_contract.deterministic_contract_registry",
+      "prose_authority": "NON_OPERATIVE_DESCRIPTION",
+      "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_VALUE_ALREADY_EXISTS",
+      "coverage_rule": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
+      "unknown_operator_behavior": "FAIL_CLOSED",
+      "unresolved_reference_behavior": "FAIL_CLOSED",
+      "unexecuted_check_behavior": "FAIL_CLOSED"
     }
   },
   "bootstrap_contract": {
@@ -1368,7 +1381,7 @@
       "current and target readiness, target-readiness basis, readiness gap, completion-readiness state, and stage-relative step-optimality state/basis/stopping basis"
     ],
     "binding_boundary": "The handoff restores serialized state as continuation-bootstrap input only. Current alignment evaluation and exactly one Orbit 0 AIR_ARTIFACT rebinding remain required before positive execution.",
-    "schema_target": "2.3.0"
+    "schema_target_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION"
   },
   "validation_contract": {
     "strict_json": true,
@@ -1381,70 +1394,11 @@
       "canonical_role",
       "canonical_filename"
     ],
-    "required_designation": "AIR_DEFAULT_STARTER_V2",
-    "required_version": "2.6.0",
     "forbidden_canonical_terms": [
       "PROMPT_SIMULATED",
       "RELATIONAL_IDENTITY_SENSITIVE",
       "EMOTIONAL_SAFETY_FAMILIAR_CONTINUITY",
       "ORBIT_3"
-    ],
-    "required_cross_file_checks": [
-      "foundation filenames and designations match authority_contract",
-      "Core mandatory AIR_ARTIFACT fields are represented",
-      "four canonical system modifiers are present with independent -o and -t families",
-      "no profile field grants positive material execution authority",
-      "conditional requirements are typed objects rather than condition-bearing strings",
-      "delivery receipt hash matches the exact delivered file",
-      "every executable benchmark contains a task-sufficient knowledge_to_execution_path and AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
-      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION and AIR_REQUIRED_INPUT_REQUEST are present and unresolved exact required inputs are preserved through handoff",
-      "Q2=C Q3=A Q4=A produces an advisory post-Q5 air -t on recommendation without auto-enabling",
-      "handoff preserves test-evidence mode and reproducibility limits",
-      "every material action requires a single-use AIR_ACTION_AUTHORIZATION before execution",
-      "every attempted material action produces AIR_ACTION_RECEIPT before closure or dependent action",
-      "artifact lease invalidates on active-step, target, scope, source, approval, tool, environment, or acceptance-criteria change",
-      "unbound prior effects cannot be retroactively authorized and are preserved through handoff",
-      "validation_contract.required_version equals top-level PROMPT_VERSION",
-      "Core canonical handoff schema version equals Handoff Template SCHEMA_VERSION and schema_version",
-      "Handoff Template starter_profile PROMPT_VERSION equals the current Default Starter PROMPT_VERSION",
-      "Core and Control define ROUTINE_BOOT_MINIMUM_SUFFICIENT, TARGETED_REVALIDATION, and FULL_RELEASE_INTEGRITY_AUDIT",
-      "routine boot does not require or surface per-file hash, byte, and line ledgers without a material trigger",
-      "full integrity audit remains mandatory for package, release, delivery, and receipt generation",
-      "routine PASS permits welcome and Q1 when full_release_integrity_audit_state is NOT_RUN_NOT_REQUIRED",
-      "Control suppresses redundant post-Q1 foundation declarations",
-      "boot compatibility evaluation uses only canonical operative authority paths",
-      "historical release, amendment, audit, migration, and hotfix metadata never creates a current compatibility requirement",
-      "active foundation files contain no embedded release-history or hotfix ledger objects",
-      "Core universal SFV law requires verification_specification and specification_adequacy_state when material, while behavior-bearing coding adds behavior_specification",
-      "Control Surface can expose specification status and verification basis before behavior-bearing implementation without forcing full object output",
-      "Starter REQ-VERIFICATION-SPEC is universal, REQ-CODING-BEHAVIOR-SPEC is coding-specific, and neither auto-binds AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
-      "planned verification remains distinct from observed test evidence and green verification does not bypass final intent reconciliation",
-      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY and AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION are present in the canonical Core registry and Starter required floors",
-      "Core contains the machine-native capability translation kernel and does not treat a human job title as sufficient synthetic benchmark specification",
-      "Core contains Specialist capability resolution and AIR_SPECIALIST_PACKAGE_INDEX discovery contracts; Control contains their visible routing counterparts",
-      "specialization-caused REVIEW or REJECT is routed by diagnosed capability cause and does not make every REVIEW or REJECT a Specialist request",
-      "pre-Q5 project material is preserved pending Q5 and is not silently compiled before Q5",
-      "responsive binding approval is available only through a pre-disclosed exact user response and never converts unsolicited attachment into binding",
-      "Control Surface contains the fixed Boot Mark, Signal Rail, Honesty Strip, endpoint-interpolated Orbit Strip, Designed Waiting State, and negative-space rules as presentation-only behavior",
-      "Core, Control, Starter, Governance, and Handoff contain no operative periodic-alignment cadence or alignment interval semantics",
-      "every post-activation user turn routes through Core RT.ALIGN and downstream formal constructors require current evaluation_basis except Core root exceptions",
-      "AIR_ALIGNMENT_CHECK record_class is ALIGNMENT_EVALUATION_RECORD and AIR_REQUIRED_INPUT_REQUEST record_class is REQUIRED_INPUT_REQUEST_RECORD",
-      "Starter formal-object registry is a reference to Core AIR_CANONICAL_OBJECT_CONTRACTS_V4 rather than an independent semantic class registry",
-      "AIR-FLOOR-021 through AIR-FLOOR-024 are active named invariants and lower layers do not weaken them",
-      "evidence presentation modes are STANDARD_EVIDENCE_PRESENTATION and EXPANDED_EVIDENCE_PRESENTATION and neither changes evidence acquisition/preservation or approval requirements",
-      "entry-path selection does not answer Q1; FIRST_ACTIVATION_FLOW leaves Q1 unresolved until an allowed answer source resolves it",
-      "MII cognitive contributions are candidate-only until compiled into or explicitly referenced by the bound Orbit 0 AIR_ARTIFACT benchmark",
-      "semantic fidelity protects raw input, canonical intent, active context, and output reconciliation",
-      "material epistemic insufficiency routes through RT.UNCERTAINTY_RESOLVE for the smallest sufficient input instead of silent inference",
-      "Q4/Q4D are continuity/delivery priors and do not independently bind execution geometry or lambda",
-      "Core canonical handoff schema version equals Handoff Template SCHEMA_VERSION and schema_version at 2.3.0",
-      "Handoff Template restored starter profile version equals 2.5.0 and startup files may include AIR_RUNTIME_ROUTE_MAP.json without granting it semantic authority",
-      "every executable benchmark resolves a completion_envelope and task-sufficient knowledge_to_execution_path against target readiness when maturity-bearing",
-      "task-sufficient is a completeness floor and is not represented as minimum viable",
-      "AMRS stage completion or promotion requires COMPLETE_FOR_ACTIVE_STEP plus step_optimality_state PASS and applicable evidence/blocker conditions",
-      "step-optimality is stage-relative and bounded and never represented as proof of a global optimum",
-      "target readiness ambiguity routes to uncertainty resolution rather than silent AMRS-stage selection",
-      "optimization stopping requires a basis that further search has no reasonable prospect of materially changing the selected path"
     ],
     "required_retests": [
       "new project with Starter only",
@@ -1528,17 +1482,746 @@
       "non-maturity-bearing task keeps target readiness NOT_APPLICABLE rather than manufacturing an AMRS target"
     ],
     "required_version_source": "TOP_LEVEL_PROMPT_VERSION",
-    "version_consistency_rule": "validation_contract.required_version MUST equal top-level PROMPT_VERSION. A mismatch is an internal component defect and blocks release validation.",
+    "version_consistency_rule": "Top-level PROMPT_VERSION is the canonical Starter version. Cross-file consumers reference that path; no secondary operative version literal exists in validation_contract.",
     "operative_compatibility_authority": {
       "authority_class": "RUNTIME_OPERATIVE",
       "authoritative_paths": [
         "PROMPT_VERSION",
-        "validation_contract.required_version",
+        "SYSTEM_DESIGNATION",
+        "canonical_role",
         "authority_contract.required_files",
-        "validation_contract.required_cross_file_checks"
+        "validation_contract.deterministic_contract_registry.checks"
+      ],
+      "nonoperative_paths": [
+        "validation_contract.validation_expectations",
+        "validation_contract.required_retests"
       ],
       "historical_release_metadata_effect": "NON_OPERATIVE_MUST_NOT_BLOCK_BOOT",
-      "comparison_rule": "Only canonical operative paths may determine current compatibility. Historical, audit, migration, amendment, and hotfix records are evidence or documentation, not runtime authority."
+      "comparison_rule": "Only canonical structured values and executed deterministic registry checks may determine current compatibility. Natural-language descriptions, historical, audit, migration, amendment, and hotfix records are non-operative."
+    },
+    "required_designation_source": "TOP_LEVEL_SYSTEM_DESIGNATION",
+    "validation_expectations": [
+      {
+        "expectation_id": "VE-001",
+        "description": "foundation filenames and designations match authority_contract",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-002",
+        "description": "Core mandatory AIR_ARTIFACT fields are represented",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-003",
+        "description": "four canonical system modifiers are present with independent -o and -t families",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-004",
+        "description": "no profile field grants positive material execution authority",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-005",
+        "description": "conditional requirements are typed objects rather than condition-bearing strings",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-006",
+        "description": "delivery receipt hash matches the exact delivered file",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-007",
+        "description": "every executable benchmark contains a task-sufficient knowledge_to_execution_path and AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-008",
+        "description": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION and AIR_REQUIRED_INPUT_REQUEST are present and unresolved exact required inputs are preserved through handoff",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-009",
+        "description": "Q2=C Q3=A Q4=A produces an advisory post-Q5 air -t on recommendation without auto-enabling",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-010",
+        "description": "handoff preserves test-evidence mode and reproducibility limits",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-011",
+        "description": "every material action requires a single-use AIR_ACTION_AUTHORIZATION before execution",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-012",
+        "description": "every attempted material action produces AIR_ACTION_RECEIPT before closure or dependent action",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-013",
+        "description": "artifact lease invalidates on active-step, target, scope, source, approval, tool, environment, or acceptance-criteria change",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-014",
+        "description": "unbound prior effects cannot be retroactively authorized and are preserved through handoff",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-015",
+        "description": "Top-level PROMPT_VERSION is the sole canonical Starter version source",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-016",
+        "description": "Core canonical handoff schema version equals Handoff Template SCHEMA_VERSION and schema_version",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-017",
+        "description": "Handoff Template starter_profile PROMPT_VERSION equals the current Default Starter PROMPT_VERSION",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-018",
+        "description": "Core and Control define ROUTINE_BOOT_MINIMUM_SUFFICIENT, TARGETED_REVALIDATION, and FULL_RELEASE_INTEGRITY_AUDIT",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-019",
+        "description": "routine boot does not require or surface per-file hash, byte, and line ledgers without a material trigger",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-020",
+        "description": "full integrity audit remains mandatory for package, release, delivery, and receipt generation",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-021",
+        "description": "routine PASS permits welcome and Q1 when full_release_integrity_audit_state is NOT_RUN_NOT_REQUIRED",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-022",
+        "description": "Control suppresses redundant post-Q1 foundation declarations",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-023",
+        "description": "boot compatibility evaluation uses only canonical operative authority paths",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-024",
+        "description": "historical release, amendment, audit, migration, and hotfix metadata never creates a current compatibility requirement",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-025",
+        "description": "active foundation files contain no embedded release-history or hotfix ledger objects",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-026",
+        "description": "Core universal SFV law requires verification_specification and specification_adequacy_state when material, while behavior-bearing coding adds behavior_specification",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-027",
+        "description": "Control Surface can expose specification status and verification basis before behavior-bearing implementation without forcing full object output",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-028",
+        "description": "Starter REQ-VERIFICATION-SPEC is universal, REQ-CODING-BEHAVIOR-SPEC is coding-specific, and neither auto-binds AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-029",
+        "description": "planned verification remains distinct from observed test evidence and green verification does not bypass final intent reconciliation",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-030",
+        "description": "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY and AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION are present in the canonical Core registry and Starter required floors",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-031",
+        "description": "Core contains the machine-native capability translation kernel and does not treat a human job title as sufficient synthetic benchmark specification",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-032",
+        "description": "Core contains Specialist capability resolution and AIR_SPECIALIST_PACKAGE_INDEX discovery contracts; Control contains their visible routing counterparts",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-033",
+        "description": "specialization-caused REVIEW or REJECT is routed by diagnosed capability cause and does not make every REVIEW or REJECT a Specialist request",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-034",
+        "description": "pre-Q5 project material is preserved pending Q5 and is not silently compiled before Q5",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-035",
+        "description": "responsive binding approval is available only through a pre-disclosed exact user response and never converts unsolicited attachment into binding",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-036",
+        "description": "Control Surface contains the fixed Boot Mark, Signal Rail, Honesty Strip, endpoint-interpolated Orbit Strip, Designed Waiting State, and negative-space rules as presentation-only behavior",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-037",
+        "description": "Core, Control, Starter, Governance, and Handoff contain no operative periodic-alignment cadence or alignment interval semantics",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-038",
+        "description": "every post-activation user turn routes through Core RT.ALIGN and downstream formal constructors require current evaluation_basis except Core root exceptions",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-039",
+        "description": "AIR_ALIGNMENT_CHECK record_class is ALIGNMENT_EVALUATION_RECORD and AIR_REQUIRED_INPUT_REQUEST record_class is REQUIRED_INPUT_REQUEST_RECORD",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-040",
+        "description": "Starter formal-object registry is a reference to Core AIR_CANONICAL_OBJECT_CONTRACTS_V4 rather than an independent semantic class registry",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-041",
+        "description": "AIR-FLOOR-021 through AIR-FLOOR-024 are active named invariants and lower layers do not weaken them",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "STATIC_CONTRACT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-042",
+        "description": "evidence presentation modes are STANDARD_EVIDENCE_PRESENTATION and EXPANDED_EVIDENCE_PRESENTATION and neither changes evidence acquisition/preservation or approval requirements",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-043",
+        "description": "entry-path selection does not answer Q1; FIRST_ACTIVATION_FLOW leaves Q1 unresolved until an allowed answer source resolves it",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-044",
+        "description": "MII cognitive contributions are candidate-only until compiled into or explicitly referenced by the bound Orbit 0 AIR_ARTIFACT benchmark",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-045",
+        "description": "semantic fidelity protects raw input, canonical intent, active context, and output reconciliation",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-046",
+        "description": "material epistemic insufficiency routes through RT.UNCERTAINTY_RESOLVE for the smallest sufficient input instead of silent inference",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-047",
+        "description": "Q4/Q4D are continuity/delivery priors and do not independently bind execution geometry or lambda",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-048",
+        "description": "Core canonical handoff schema source equals Handoff Template SCHEMA_VERSION and schema_version",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-049",
+        "description": "Handoff Template restored starter profile version equals the current Default Starter PROMPT_VERSION; AIR_RUNTIME_ROUTE_MAP.json may be available without semantic authority",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "MANUAL_OR_DELIVERY_CONTEXT_REVIEW"
+      },
+      {
+        "expectation_id": "VE-050",
+        "description": "every executable benchmark resolves a completion_envelope and task-sufficient knowledge_to_execution_path against target readiness when maturity-bearing",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-051",
+        "description": "task-sufficient is a completeness floor and is not represented as minimum viable",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-052",
+        "description": "AMRS stage completion or promotion requires COMPLETE_FOR_ACTIVE_STEP plus step_optimality_state PASS and applicable evidence/blocker conditions",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-053",
+        "description": "step-optimality is stage-relative and bounded and never represented as proof of a global optimum",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-054",
+        "description": "target readiness ambiguity routes to uncertainty resolution rather than silent AMRS-stage selection",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      },
+      {
+        "expectation_id": "VE-055",
+        "description": "optimization stopping requires a basis that further search has no reasonable prospect of materially changing the selected path",
+        "authority": "NON_OPERATIVE_DESCRIPTION",
+        "evaluation_mode": "REPLAYABLE_BEHAVIORAL_OR_RUNTIME_REVIEW"
+      }
+    ],
+    "deterministic_contract_registry": {
+      "registry_version": "1.0.0",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+      "scope": "FIVE_FILE_FOUNDATION_LOAD_AND_CROSS_FILE_COMPATIBILITY",
+      "prose_authority": "NON_OPERATIVE_DESCRIPTION",
+      "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
+      "coverage_contract": {
+        "declared_check_count": 43,
+        "implemented_check_count_required": 43,
+        "executed_check_count_required": 43,
+        "unimplemented_allowed": 0,
+        "unexecuted_allowed": 0,
+        "duplicate_check_ids_allowed": 0,
+        "unknown_operators_allowed": 0
+      },
+      "checks": [
+        {
+          "check_id": "DC-FILE-CORE",
+          "operator": "FILE_EXISTS",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md"
+        },
+        {
+          "check_id": "DC-FILE-CONTROL",
+          "operator": "FILE_EXISTS",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md"
+        },
+        {
+          "check_id": "DC-FILE-GOV",
+          "operator": "FILE_EXISTS",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md"
+        },
+        {
+          "check_id": "DC-FILE-STARTER",
+          "operator": "FILE_EXISTS",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+        },
+        {
+          "check_id": "DC-FILE-HANDOFF",
+          "operator": "FILE_EXISTS",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+        },
+        {
+          "check_id": "DC-ID-CORE",
+          "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "header": "SYSTEM_DESIGNATION",
+          "expected": "AIR_CORE_RUNTIME_V2"
+        },
+        {
+          "check_id": "DC-ID-CONTROL",
+          "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "header": "SYSTEM_DESIGNATION",
+          "expected": "AIR_CONTROL_SURFACE_V2"
+        },
+        {
+          "check_id": "DC-ID-GOV",
+          "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md",
+          "header": "SYSTEM_DESIGNATION",
+          "expected": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2"
+        },
+        {
+          "check_id": "DC-ID-STARTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.SYSTEM_DESIGNATION"
+          },
+          "expected": "AIR_DEFAULT_STARTER_V2"
+        },
+        {
+          "check_id": "DC-ROLE-STARTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.canonical_role"
+          },
+          "expected": "DEFAULT_STARTER_PROFILE"
+        },
+        {
+          "check_id": "DC-ID-HANDOFF",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.TEMPLATE_DESIGNATION"
+          },
+          "expected": "AIR_HANDOFF_CARD_TEMPLATE_V2"
+        },
+        {
+          "check_id": "DC-ID-HANDOFF-ALIAS",
+          "operator": "JSON_EQUALS_REFERENCE",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.template_designation"
+          },
+          "right": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.TEMPLATE_DESIGNATION"
+          }
+        },
+        {
+          "check_id": "DC-SCHEMA-HANDOFF-CORE",
+          "operator": "JSON_EQUALS_MARKDOWN_HEADER",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.SCHEMA_VERSION"
+          },
+          "right": {
+            "file": "prompts/AIR_CORE_RUNTIME.md",
+            "header": "CANONICAL_HANDOFF_SCHEMA_VERSION"
+          }
+        },
+        {
+          "check_id": "DC-SCHEMA-HANDOFF-ALIAS",
+          "operator": "JSON_EQUALS_REFERENCE",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_version"
+          },
+          "right": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.SCHEMA_VERSION"
+          }
+        },
+        {
+          "check_id": "DC-HANDOFF-STARTER-ID",
+          "operator": "JSON_EQUALS_REFERENCE",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.profile_stack.starter_profile.SYSTEM_DESIGNATION"
+          },
+          "right": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.SYSTEM_DESIGNATION"
+          }
+        },
+        {
+          "check_id": "DC-HANDOFF-STARTER-VERSION",
+          "operator": "JSON_EQUALS_REFERENCE",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION"
+          },
+          "right": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.PROMPT_VERSION"
+          }
+        },
+        {
+          "check_id": "DC-SENTINEL-CORE",
+          "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+        },
+        {
+          "check_id": "DC-SENTINEL-CONTROL",
+          "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+        },
+        {
+          "check_id": "DC-SENTINEL-GOV",
+          "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md",
+          "expected": "AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2"
+        },
+        {
+          "check_id": "DC-HANDOFF-ROOT-MANIFEST-CLOSURE",
+          "operator": "JSON_ROOT_KEYS_DECLARED_BY_MANIFEST",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "root_path": "$.AIR_HANDOFF_CARD",
+          "required_path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields",
+          "optional_path": "$.AIR_HANDOFF_CARD.schema_manifest.optional_fields"
+        },
+        {
+          "check_id": "DC-STARTER-FLOOR-025",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.authority_contract.floor_invariants_required"
+          },
+          "expected": "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+        },
+        {
+          "check_id": "DC-STARTER-FLOOR-026",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.authority_contract.floor_invariants_required"
+          },
+          "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-026",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+        },
+        {
+          "check_id": "DC-GOV-FLOOR-026",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md",
+          "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+        },
+        {
+          "check_id": "DC-CONTROL-REGISTRY-SURFACE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "validation_contract.deterministic_contract_registry"
+        },
+        {
+          "check_id": "DC-STARTER-PIPELINE-SEMANTICS",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.deterministic_pipeline_non_inference.execution_semantics"
+          },
+          "expected": "DETERMINISTIC_PIPELINE"
+        },
+        {
+          "check_id": "DC-STARTER-PIPELINE-INFERENCE",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.deterministic_pipeline_non_inference.inference_policy"
+          },
+          "expected": "PROHIBITED"
+        },
+        {
+          "check_id": "DC-NO-STARTER-REQUIRED-VERSION-LITERAL",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.required_version"
+          }
+        },
+        {
+          "check_id": "DC-NO-STARTER-REQUIRED-DESIGNATION-LITERAL",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.required_designation"
+          }
+        },
+        {
+          "check_id": "DC-NO-OPERATIVE-PROSE-CROSSFILE-ARRAY",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.required_cross_file_checks"
+          }
+        },
+        {
+          "check_id": "DC-NO-HANDOFF-STARTER-VERSION-DUPLICATE",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_required"
+          }
+        },
+        {
+          "check_id": "DC-NO-HANDOFF-SCHEMA-VERSION-DUPLICATE",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.canonical_schema_version"
+          }
+        },
+        {
+          "check_id": "DC-NO-CONTROL-SCHEMA-LITERAL-DUPLICATE",
+          "operator": "TEXT_NOT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "all three values to equal 2.3.0"
+        },
+        {
+          "check_id": "DC-NO-STARTER-STALE-2-5-COMPATIBILITY-PROSE",
+          "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "expected": "restored starter profile version equals 2.5.0",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.validation_expectations"
+          }
+        },
+        {
+          "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "validation_contract.deterministic_contract_registry typed checks"
+        },
+        {
+          "check_id": "DC-STARTER-REGISTRY-SEMANTICS",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.deterministic_contract_registry.execution_semantics"
+          },
+          "expected": "DETERMINISTIC_PIPELINE"
+        },
+        {
+          "check_id": "DC-STARTER-REGISTRY-INFERENCE",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.validation_contract.deterministic_contract_registry.inference_policy"
+          },
+          "expected": "PROHIBITED"
+        },
+        {
+          "check_id": "DC-CORE-BOOT-ROUTINE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "ROUTINE_BOOT_MINIMUM_SUFFICIENT"
+        },
+        {
+          "check_id": "DC-CORE-BOOT-TARGETED",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "TARGETED_REVALIDATION"
+        },
+        {
+          "check_id": "DC-CORE-BOOT-FULL",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "FULL_RELEASE_INTEGRITY_AUDIT"
+        },
+        {
+          "check_id": "DC-CONTROL-BOOT-ROUTINE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "ROUTINE_BOOT_MINIMUM_SUFFICIENT"
+        },
+        {
+          "check_id": "DC-CONTROL-BOOT-TARGETED",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "TARGETED_REVALIDATION"
+        },
+        {
+          "check_id": "DC-CONTROL-BOOT-FULL",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "FULL_RELEASE_INTEGRITY_AUDIT"
+        }
+      ]
     }
   },
   "routing_contracts": {

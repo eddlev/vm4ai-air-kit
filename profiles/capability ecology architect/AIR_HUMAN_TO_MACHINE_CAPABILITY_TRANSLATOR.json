@@ -49,7 +49,8 @@
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
-      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
     "record_mode": "PROMPT_LAYER_APPLIED",
     "backend_enforcement_claimed": false,
@@ -68,9 +69,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "47f268fe1f3158046a2ae0a28717b90e58413f075fd5203b430c66565c4e2ee6",
-      "size_bytes": 25389,
-      "line_count": 825
+      "sha256": "14d4b96a10666059190f02af5c1969e6322206fb435fd20469cfa513f8c8b4bf",
+      "size_bytes": 25957,
+      "line_count": 833
     }
   },
   "file_identity_contract": {
@@ -108,7 +109,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "a20781e0a772beaa5cd872c03308b79f381bf3a475f91f46a820ae46aa209da2"
+      "observed_sha256": "a5cfe51e1340df34f4abd0bf18a8baba58410aae747a4c4c5df0c068c29f6e85"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -1178,14 +1179,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "47f268fe1f3158046a2ae0a28717b90e58413f075fd5203b430c66565c4e2ee6",
+      "sha256": "14d4b96a10666059190f02af5c1969e6322206fb435fd20469cfa513f8c8b4bf",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 25389,
-      "line_count": 825
+      "size_bytes": 25957,
+      "line_count": 833
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",

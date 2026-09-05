@@ -969,20 +969,20 @@
         "rev14 to rev15 target-readiness/step-optimality migration check"
       ],
       "schema_compatibility_contract": {
-        "canonical_schema_version": "2.3.0",
         "core_required_version_owner": "AIR_CORE_RUNTIME_V2",
         "cross_file_equality_required": true,
         "template_fields_required_equal": [
           "SCHEMA_VERSION",
           "schema_version"
         ],
-        "starter_identity_version_required": "2.6.0",
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
         "card_revision_compatibility": "REV16_SCHEMA_2_3_0_WITH_EXPLICIT_ROOT_MANIFEST_CLOSURE_AND_MIGRATION_FROM_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
         "specialist_catalog_extension_introduced_revision": 12,
         "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
-        "schema_2_2_migration_rule": "Accept as migration input only; normalize cadence/evidence display semantics and require current alignment plus artifact rebinding before execution."
+        "schema_2_2_migration_rule": "Accept as migration input only; normalize cadence/evidence display semantics and require current alignment plus artifact rebinding before execution.",
+        "canonical_schema_version_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
+        "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION"
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -993,7 +993,8 @@
           "AIR_HANDOFF_CARD.schema_version",
           "AIR_HANDOFF_CARD.profile_stack.starter_profile.SYSTEM_DESIGNATION",
           "AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION",
-          "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract"
+          "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.canonical_schema_version_source",
+          "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_source"
         ],
         "historical_release_metadata_effect": "NON_OPERATIVE_MUST_NOT_BLOCK_BOOT_OR_RESTORATION"
       }
