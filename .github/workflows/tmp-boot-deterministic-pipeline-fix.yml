@@ -1,0 +1,81 @@
+name: Temporary boot and deterministic pipeline correction
+
+on:
+  push:
+    branches:
+      - repair/v0.7.1-set005-hardening
+    paths:
+      - .github/workflows/tmp-boot-deterministic-pipeline-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: repair/v0.7.1-set005-hardening
+          fetch-depth: 0
+
+      - name: Apply bounded correction
+        run: python3 tools/_tmp_apply_boot_deterministic_pipeline_fix.py
+
+      - name: Independent routine boot validation
+        run: python3 tools/validate_air_boot.py | tee /tmp/boot-validation.txt
+
+      - name: Full deterministic release validation
+        run: python3 tools/validate_air_release.py | tee /tmp/release-validation.txt
+
+      - name: Validator mutation tests
+        run: python3 tools/test_air_validator_mutations.py | tee /tmp/mutation-validation.txt
+
+      - name: Commit bounded correction
+        run: |
+          rm tools/_tmp_apply_boot_deterministic_pipeline_fix.py
+          git config user.name "AIR repair automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "fix(set005): enforce deterministic pipeline boot contract"
+          git push origin HEAD:repair/v0.7.1-set005-hardening
+
+      - name: Validate exact committed tree
+        run: |
+          python3 tools/validate_air_boot.py | tee /tmp/committed-boot-validation.txt
+          python3 tools/validate_air_release.py | tee /tmp/committed-release-validation.txt
+          python3 tools/test_air_validator_mutations.py | tee /tmp/committed-mutation-validation.txt
+
+      - name: Build consumer snapshot without temporary workflow
+        run: |
+          mkdir -p /tmp/archive
+          git archive --format=zip --output=/tmp/archive/vm4ai-air-kit-v0.7.1-set005-candidate.zip HEAD -- . ':(exclude).github/workflows/tmp-boot-deterministic-pipeline-fix.yml'
+          rm -rf /tmp/consumer
+          mkdir -p /tmp/consumer
+          unzip -q /tmp/archive/vm4ai-air-kit-v0.7.1-set005-candidate.zip -d /tmp/consumer
+          cd /tmp/consumer
+          python3 tools/validate_air_boot.py | tee /tmp/package-boot-validation.txt
+          python3 tools/validate_air_release.py | tee /tmp/package-release-validation.txt
+          python3 tools/test_air_validator_mutations.py | tee /tmp/package-mutation-validation.txt
+          unzip -t /tmp/archive/vm4ai-air-kit-v0.7.1-set005-candidate.zip > /tmp/zip-integrity.txt
+          sha256sum /tmp/archive/vm4ai-air-kit-v0.7.1-set005-candidate.zip > /tmp/archive-sha256.txt
+
+      - name: Assemble evidence
+        run: |
+          mkdir -p /tmp/evidence
+          cp /tmp/*validation.txt /tmp/evidence/ || true
+          cp /tmp/zip-integrity.txt /tmp/evidence/
+          cp /tmp/archive-sha256.txt /tmp/evidence/
+          git rev-parse HEAD > /tmp/evidence/correction-commit.txt
+          git status --porcelain > /tmp/evidence/git-status.txt
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boot-deterministic-pipeline-evidence
+          path: /tmp/evidence
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vm4ai-air-kit-v0.7.1-set005-candidate
+          path: /tmp/archive/vm4ai-air-kit-v0.7.1-set005-candidate.zip
