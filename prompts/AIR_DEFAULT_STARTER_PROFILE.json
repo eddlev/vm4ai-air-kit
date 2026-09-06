@@ -95,7 +95,7 @@
     "runtime_drift_recovery_rule": "Detected loss of AIR application, disappearance of the bound task contract, skipped required reconciliation, or silent ordinary/default host-model fallback routes to ALIGNMENT_RECOVERY_SURFACE before affected governed work continues; prompt probabilism and absent backend enforcement are limitation records, not recovery bypasses.",
     "runtime_drift_suspicion_rule": "A user/operator report of apparent fallback triggers a targeted Core alignment evaluation; it is not proof of drift. Keep REPORTED_DRIFT_SUSPICION separate from ESTABLISHED_DRIFT. Do not set drift_detected=true or enter recovery solely from the report. Concrete operator-witnessed facts that establish an AIR violation may establish drift and trigger RT.RECOVERY.",
     "canonical_object_identity_rule": "Formal object record_class values are exact provider-invariant semantic identities owned by Core. Governance/evidence strength is separate evidence_class state and must never replace record_class. Provider changes may not rename, localize, summarize, or substitute AIR_SESSION, AIR_ARTIFACT, AIR_GATE, or other Core-owned object identities.",
-    "required_formal_object_rendering_rule": "When Core requires a formal object, render the canonical JSON object. ALL_OBJECTS versus MINIMUM_REQUIRED_OBJECTS changes optional repetition only; it never permits prose, key/value lists, pseudo-JSON, tables, or provider-native cards to substitute for required AIR_SESSION, AIR_ARTIFACT, alignment projections, binding, recovery, gate, authorization, receipt, or handoff records.",
+    "required_formal_object_rendering_rule": "When Core requires a chat formal object, render the canonical JSON object. ALL_OBJECTS versus MINIMUM_REQUIRED_OBJECTS changes optional repetition only; it never permits prose, key/value lists, pseudo-JSON, tables, or provider-native cards to substitute for required Session, Artifact, alignment, binding, recovery, Gate, Authorization, Receipt, surfaced-object ledger, or failure-mode records. AIR_HANDOFF_CARD payload is the separate file-only delivery artifact governed by AIR_HANDOFF_FILE_DELIVERY_V1 and is never inlined in chat.",
     "required_emission_preflight_rule": "Before visible response composition, determine every formal AIR object required on the current response. After ARTIFACT_BOUND_EXECUTION, the current turn alignment evaluation and its required AIR_ALIGNMENT_CHECK plus coupled AIR_VALIDATION_REPORT are resolved before semantic route dispatch. Lifecycle-transition objects then render using the appropriate current evaluation basis. MINIMUM_REQUIRED_OBJECTS cannot defer, downgrade, reorder, or substitute for a required object. A late correction records a prior visibility/process miss but does not retroactively make the missed response compliant.",
     "record_mode_default": "PROMPT_LAYER_APPLIED",
     "backend_boundary": "Do not claim backend compilation, backend validation, latent-space modification, or runtime enforcement without tool or backend evidence. Backend absence limits only the claims or actions that actually require backend evidence; it does not deactivate PROMPT_COMPILED AIR.",
@@ -1039,7 +1039,8 @@
       "post_write_schema_validation_required": true,
       "self_hash_inside_payload": "PROHIBITED",
       "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK"
-    }
+    },
+    "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception."
   },
   "bootstrap_contract": {
     "eligible_routes": [

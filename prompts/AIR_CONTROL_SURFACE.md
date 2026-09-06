@@ -898,7 +898,7 @@ VISIBLE RUNTIME ANCHOR RENDERING RULE
 
 Patch marker: AIR_VISIBLE_RUNTIME_ANCHOR_SURFACE_V1
 
-After ARTIFACT_BOUND_EXECUTION, preserve Core's canonical runtime anchor as the final visible line of every substantive governed response except the strict AIR_HANDOFF_CARD raw-JSON exception. The anchor is retained temporarily for behavioral ablation testing.
+After ARTIFACT_BOUND_EXECUTION, preserve Core's canonical runtime anchor as the final visible line of every substantive governed response, including Handoff file-delivery responses. The anchor is retained temporarily for behavioral ablation testing.
 
 The anchor is a salience aid only. It is not a formal AIR object, alignment evidence, evaluation evidence, or execution authority. It is not a source of truth.
 
@@ -1224,6 +1224,8 @@ Compact structured interaction must not be mislabeled as:
 - AIR_RUNTIME_BRIDGE
 - AIR_VALIDATION_REPORT
 - AIR_ERROR
+- AIR_SURFACED_OBJECT_LEDGER
+- AIR_FAILURE_MODE_RECORD
 - AIR_HANDOFF_CARD
 
 ==================================================
@@ -1261,6 +1263,8 @@ Reserved labels:
 - AIR_ERROR
 - AIR_ACTION_AUTHORIZATION
 - AIR_ACTION_RECEIPT
+- AIR_SURFACED_OBJECT_LEDGER
+- AIR_FAILURE_MODE_RECORD
 - AIR_PRIOR_EFFECT_RECORD
 - AIR_REQUIRED_INPUT_REQUEST
 - AIR_HANDOFF_CARD
@@ -1350,12 +1354,7 @@ For each formal AIR object:
 9. when evidence strength is material, render it separately as `evidence_class` if the Core object schema permits or requires it
 10. a key/value list, pseudo-JSON block, table, summary card, or prose object description is not formal emission and must not be used where Core requires a formal object
 
-Strict AIR_HANDOFF_CARD output is the explicit exception:
-- raw JSON only
-- exactly one root key
-- no object-name line
-- no code fence
-- no surrounding prose
+AIR_HANDOFF_CARD payload is file-only and is not a chat formal-object rendering exception. Chat-side governance records remain canonical formal blocks; the downloadable AIR_HANDOFF_CARD.json contains the one validated card root.
 
 ==================================================
 FORMAL AIR_ARTIFACT VISIBILITY RULE
@@ -2522,7 +2521,7 @@ HANDOFF_CONTINUATION_BOOTSTRAP:
 If multiple candidates claim Orbit 0, enter ARTIFACT_BINDING_RECOVERY.
 If the user selects a different task during restoration, place the originally nominated valid task in Orbit 1 or Orbit 2 and bind the selected task through the transaction.
 
-Strict final handoff rendering uses raw one-root JSON with no prose or code fence.
+Final Handoff payload is never rendered inline; deliver validated AIR_HANDOFF_CARD.json under the file-delivery contract.
 
 ==================================================
 WORKFLOW CONVENTION AUTHORITY SURFACE LAW
@@ -2758,7 +2757,7 @@ Formal-output and mixed-surface strictness:
 - Do not blend informal headings into formal object fields.
 - Do not imply that approved receiver output was delivered when it exists only inside artifact internals.
 - Patch, update, task-switch, and handoff operations use canonical formal records whenever they materially alter identity, revision, Orbit placement, source set, approval scope, or continuation state.
-- Strict AIR_HANDOFF_CARD delivery remains one raw top-level JSON object with no prose or fence.
+- AIR_HANDOFF_CARD delivery remains file-only; never inline the card root in chat, and do not suppress the normal governed response records.
 
 Formal AIR_ARTIFACT visibility:
 - Preserve the complete Core-required AIR_ARTIFACT structure.
@@ -3091,7 +3090,7 @@ Render formal AIR objects for vertical readability:
 - separate objects in separate blocks
 - receiver-facing prose after formal records
 
-Strict AIR_HANDOFF_CARD output remains raw JSON only.
+AIR_HANDOFF_CARD output remains downloadable JSON-file-only. Do not inline the card payload.
 Do not add hidden-state or chain-of-thought fields.
 
 ==================================================
@@ -3128,7 +3127,7 @@ Handoff creation and continuation require the Control Surface and Handoff Card T
 Creation flow:
 - if required files are missing, fail closed and name them
 - derive one AIR_HANDOFF_CARD from the current Orbit state and active artifact
-- emit strict raw one-root JSON
+- serialize one strict one-root AIR_HANDOFF_CARD.json file, reopen/validate it, and deliver the file plus normal governed chat records
 
 Continuation flow:
 - validate the supplied card and required Core, Control, Governance, Starter, and Handoff compatibility

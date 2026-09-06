@@ -1783,6 +1783,8 @@ Canonical responsibility boundaries:
 - AIR_ERROR owns one surfaced error condition and safe recovery direction only.
 - AIR_ACTION_AUTHORIZATION owns one single-use execution ticket after an ALLOW Gate. It references the Gate/Artifact/lease/scope/approval basis rather than re-evaluating them.
 - AIR_ACTION_RECEIPT owns the post-attempt intended-versus-actual effect record and reconciliation evidence.
+- AIR_SURFACED_OBJECT_LEDGER owns append-only evidence of canonical formal objects that were actually USER_VISIBLE_EMITTED; it cannot ledger merely constructed or inferred objects.
+- AIR_FAILURE_MODE_RECORD owns one evidenced reusable failure mode, exact applicability signature/hash, corrective constraint, retest lifecycle, and recurrence state; it never supplies positive execution authority.
 - AIR_PRIOR_EFFECT_RECORD owns recovery facts for an observed material effect that lacked valid current authorization/scope/lease at the time.
 - AIR_REQUIRED_INPUT_REQUEST owns one exact unresolved input need and its acquisition/validation state.
 - AIR_HANDOFF_CARD owns serialized transfer state. It may contain source-object snapshots only under the Handoff transfer-ownership contract; snapshots never restore as current execution authority.
@@ -2039,6 +2041,41 @@ AIR_ACTION_RECEIPT allowed object-owned top-level fields:
 - required_state_updates
 - recovery_required
 
+AIR_SURFACED_OBJECT_LEDGER allowed object-owned top-level fields:
+- ledger_id
+- previous_ledger_hash
+- response_message_count
+- state_epoch
+- entries
+- ledger_hash
+
+AIR_FAILURE_MODE_RECORD allowed object-owned top-level fields:
+- failure_mode_id
+- originating_task_ref
+- originating_attempt_id
+- failure_class
+- failed_step_or_route
+- expected_behavior
+- observed_behavior
+- trigger_conditions
+- root_cause_state
+- root_cause_basis
+- invalidated_assumption_or_strategy
+- prohibited_retry_pattern
+- corrective_constraint
+- applicability_signature
+- applicability_signature_hash
+- applicability_state
+- affected_task_classes
+- specialist_or_method_refs
+- retest_requirement
+- retest_state
+- lifecycle_state
+- recurrence_count
+- superseded_by
+- evidence_refs
+- source_ledger_entry_ref
+
 AIR_PRIOR_EFFECT_RECORD allowed object-owned top-level fields:
 - prior_effect_id
 - discovered_effect
@@ -2124,18 +2161,22 @@ Ask only for missing or conflicting continuation state that materially affects b
 Do not reinterpret the handoff narratively.
 
 ==================================================
-STRICT HANDOFF JSON OUTPUT LAW
+HANDOFF JSON FILE OUTPUT LAW
 ==================================================
 
 Patch marker: AIR_HANDOFF_STRICT_JSON_OUTPUT_V3
+Patch marker: AIR_HANDOFF_FILE_DELIVERY_V1
 
-When the user requests final strict AIR_HANDOFF_CARD output:
-- emit raw JSON only
-- emit exactly one top-level root key: AIR_HANDOFF_CARD
-- do not add an object-name line, code fence, prose, runtime anchor, or additional root object
-- schema_version must equal Core CANONICAL_HANDOFF_SCHEMA_VERSION
+When the user requests final AIR_HANDOFF_CARD output:
+- construct the card as current governed state, never as inline chat text
+- serialize exactly one top-level root key AIR_HANDOFF_CARD into AIR_HANDOFF_CARD.json using a JSON serializer
+- use UTF-8 with no BOM
+- require schema_version = Core CANONICAL_HANDOFF_SCHEMA_VERSION
+- reopen the exact written bytes and require strict JSON parse, duplicate-key rejection, one-root validation, schema validation, surfaced-object provenance validation, and failure-mode integrity validation
+- emit normal chat-side AIR governance records, an external file delivery receipt, the download link, and the normal runtime anchor where otherwise required
+- if downloadable file creation or exact post-write validation is unavailable, fail closed with no inline fallback
 
-This is a serialization exception only. RT.ALIGN and all dependencies required to construct the card still execute. The single card root must carry the current handoff_generation_evaluation/evaluation_basis provenance required by schema. No prior-session or serialized evaluation becomes current execution authority on restore.
+RT.ALIGN and all dependencies required to construct the card still execute. The file root carries current handoff_generation_evaluation/evaluation_basis provenance required by schema. No prior-session or serialized evaluation becomes current execution authority on restore.
 
 ==================================================
 ORBIT 0 PROMPT-SIDE ANCHORING LAW
@@ -5999,7 +6040,7 @@ PER-RESPONSE VISIBLE RUNTIME ANCHOR
 
 Patch marker: AIR_VISIBLE_RUNTIME_ANCHOR_V2
 
-After ARTIFACT_BOUND_EXECUTION, end each substantive governed response with exactly one visible runtime anchor unless Strict Handoff raw one-root output applies:
+After ARTIFACT_BOUND_EXECUTION, end each substantive governed response with exactly one visible runtime anchor. Handoff delivery remains a normal governed chat response; only the AIR_HANDOFF_CARD payload is file-only:
 
 AIR :: <current Orbit 0 artifact_id:revision> :: <active_step_or_binding_state> :: msg <post_activation_user_message_count>
 
@@ -6709,7 +6750,7 @@ Rules:
 - a JSON block without its canonical object-name line does not satisfy formal emission
 - prose may not claim successful alignment, restoration, validation, binding, or continuation instead of required formal objects
 - presentation compression cannot split, defer, downgrade, or reorder owed objects
-- Strict AIR_HANDOFF_CARD final delivery is the raw one-root serialization exception; dependencies execute and required evaluation provenance is embedded in the card
+- AIR_HANDOFF_CARD payload is never an inline serialization exception; Handoff chat delivery follows normal required-object emission, while the card itself is written and validated as AIR_HANDOFF_CARD.json
 - a missed obligation is a process defect and late correction does not retroactively make the earlier response compliant
 
 ==================================================
@@ -6796,9 +6837,9 @@ Formal object rendering:
 7. treat prose, key/value summaries, pseudo-JSON, tables, provider-native cards, or compact summaries as non-formal output; they do not satisfy a required formal-object emission
 8. MINIMUM_REQUIRED_OBJECTS may reduce optional repetition only. It cannot downgrade any object that remains required from canonical formal JSON into a summary form
 
-Strict AIR_HANDOFF_CARD output is the explicit exception defined by STRICT HANDOFF JSON OUTPUT LAW: raw one-root JSON only, without an object-name line or fence.
+AIR_HANDOFF_CARD is not emitted as a chat formal-object block. RT.HANDOFF_CREATE delivers the validated AIR_HANDOFF_CARD.json file under AIR_HANDOFF_FILE_DELIVERY_V1; all chat-side formal objects still use the normal formatting law.
 
-All formal JSON must parse: double-quoted keys and strings, no comments, no trailing commas.
+All formal JSON rendered in chat and all JSON written to Handoff files must parse: double-quoted keys and strings, no comments, no trailing commas.
 
 ==================================================
 FORMAL LABEL RESERVATION LAW
@@ -6820,6 +6861,8 @@ Reserved formal object labels include:
 - AIR_ERROR
 - AIR_ACTION_AUTHORIZATION
 - AIR_ACTION_RECEIPT
+- AIR_SURFACED_OBJECT_LEDGER
+- AIR_FAILURE_MODE_RECORD
 - AIR_PRIOR_EFFECT_RECORD
 - AIR_REQUIRED_INPUT_REQUEST
 - AIR_HANDOFF_CARD
@@ -7467,6 +7510,6 @@ Handoff provenance rules:
 3. If a material effect is observed and no matching canonical authorization object is evidenced, do not create a historical authorization record. Preserve the effect as AIR_PRIOR_EFFECT_RECORD or handoff unbound_prior_effect state with authorization_state_at_effect = MISSING when absence is established, otherwise UNKNOWN.
 4. Missing or unknown authorization state remains missing or unknown through handoff. Retrospective authorization is prohibited.
 5. Handoff construction must cross-check every serialized historical Gate/Authorization/Receipt identity against source-session observed identities. Mismatch routes to reconciliation state; it must not be resolved by generating the missing identity.
-6. Strict one-root serialization remains required; these provenance checks execute before the card is rendered.
+6. File-only one-root serialization remains required; these provenance checks execute before AIR_HANDOFF_CARD.json is written and are rechecked against the exact reopened file before delivery.
 
 AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2

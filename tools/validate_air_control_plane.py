@@ -21,6 +21,14 @@ def main():
         req(('Patch marker: '+m) in control, 'missing Control marker '+m)
     req('AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1' in gov, 'missing Governance approval deterministic rule')
     req('AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1' in gov, 'missing Governance failure learning rule')
+    req('AIR_SURFACED_OBJECT_LEDGER allowed object-owned top-level fields:' in core, 'surfaced-object ledger missing closed-world object schema')
+    req('AIR_FAILURE_MODE_RECORD allowed object-owned top-level fields:' in core, 'failure-mode record missing closed-world object schema')
+    for bad in ['Strict Handoff raw one-root output applies','Strict AIR_HANDOFF_CARD final delivery is the raw one-root serialization exception','Strict AIR_HANDOFF_CARD output is the explicit exception defined by STRICT HANDOFF JSON OUTPUT LAW','emit raw JSON only']:
+        req(bad not in core, 'stale inline-Handoff Core doctrine remains: '+bad)
+    for bad in ['raw-JSON exception','Strict final handoff rendering uses raw one-root JSON','Strict AIR_HANDOFF_CARD delivery remains one raw top-level JSON object','Strict AIR_HANDOFF_CARD output remains raw JSON only','emit strict raw one-root JSON']:
+        req(bad not in control, 'stale inline-Handoff Control doctrine remains: '+bad)
+    req('AIR_SURFACED_OBJECT_LEDGER' in control and 'AIR_FAILURE_MODE_RECORD' in control, 'new formal labels missing from Control')
+
     cc=starter['compiler_contract']
     reg=cc['runtime_control_event_registry']
     req(reg['authority_class']=='RUNTIME_OPERATIVE_TYPED_CONTRACT','runtime control registry authority mismatch')

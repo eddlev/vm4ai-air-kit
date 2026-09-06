@@ -53,6 +53,13 @@ def main():
     def m12(d):
         p=next(d.glob('profiles/**/*PACKAGE_MANIFEST.json')); o=load(p); o['failure_mode_integration_contract']['exact_match_rule']='PARTIAL_SEMANTIC_MATCH'; save(p,o)
     cases.append(('Specialist exact failure signature matching removed',m12))
+
+    def m13(d):
+        p=d/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8'); x=x.replace('AIR_SURFACED_OBJECT_LEDGER allowed object-owned top-level fields:','AIR_SURFACED_OBJECT_LEDGER schema removed:'); p.write_text(x,encoding='utf-8')
+    cases.append(('surfaced ledger closed-world schema removed',m13))
+    def m14(d):
+        p=d/'prompts/AIR_CONTROL_SURFACE.md'; x=p.read_text(encoding='utf-8'); x=x.replace('AIR_HANDOFF_CARD output remains downloadable JSON-file-only. Do not inline the card payload.','Strict AIR_HANDOFF_CARD output remains raw JSON only.'); p.write_text(x,encoding='utf-8')
+    cases.append(('stale inline Handoff exception reintroduced',m14))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

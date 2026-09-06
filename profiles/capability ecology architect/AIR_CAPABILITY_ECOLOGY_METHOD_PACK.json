@@ -36,18 +36,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "2434a1e4afcd0965a12d68724411483a83805d8982a0e71bfc659333d4395810",
-        "size_bytes": 375941,
-        "line_count": 7472
+        "sha256": "fdef549adf098c03e31b75567467cf2895287ae6e9e2cc0e3c8d8dc7da13cf99",
+        "size_bytes": 377972,
+        "line_count": 7515
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "25f7456a350f308426269595312e6ff21fa19183d6d62a4c684c8b2a33ff91ce",
-        "size_bytes": 163180,
-        "line_count": 3268
+        "sha256": "00de637ab30fddce420bac161ae2a935838ec0adcd8cc85cbb5f4b108372c77d",
+        "size_bytes": 163575,
+        "line_count": 3267
       },
       {
         "filename": "AIR_GOV.md",
@@ -63,9 +63,9 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "9872b3ed16ea28d7f988ebe10f543e05bb5a5880f773318036262b510050888b",
-        "size_bytes": 143505,
-        "line_count": 3007
+        "sha256": "d18ea36b8ef7b6778a56b8539f4c707cfb25f68392f91a39e302d3f89b7bd87a",
+        "size_bytes": 143848,
+        "line_count": 3008
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
@@ -115,7 +115,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "4f4a020b481b4985a7c348893cf5114ecc862ea09ef538cb9a33752ba8dc7ee5",
+      "sha256": "7aa0f2532fb76303e87c2b6ef581e03b03b77021f3402beed806ef51ed3537c3",
       "size_bytes": 34590,
       "line_count": 1009
     }
@@ -155,19 +155,19 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "663a62436c318f6ebdc415ff64a363d29a31068835dd0ecf32668c5d0e95296c"
+      "observed_sha256": "7d24214e1d07f366984f5211c9daef23fb84f476cca677fc38e3221476dd96d2"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "259170aad1c6d2444d643175be933180ab7e32b102bd2594942f636d7c2ae686"
+      "observed_sha256": "a37ba8942443ccb95830551e5c3e5845e43560c3ecc33045d85c0efa4324d1c8"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "bce65cbbeb1aa848a6074c6510bf17a5ae7586868987a065a843f4cb60dc75cf"
+      "observed_sha256": "cf8f8246c0c6f7c94e23bf14d814a6ec6417f772ff2b472e58edc88fb14ac4f9"
     },
     "package_manifest": {
       "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
@@ -288,7 +288,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "bce65cbbeb1aa848a6074c6510bf17a5ae7586868987a065a843f4cb60dc75cf",
+      "sha256": "cf8f8246c0c6f7c94e23bf14d814a6ec6417f772ff2b472e58edc88fb14ac4f9",
       "required_for": [
         "all branches"
       ]
@@ -296,7 +296,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "663a62436c318f6ebdc415ff64a363d29a31068835dd0ecf32668c5d0e95296c",
+      "sha256": "7d24214e1d07f366984f5211c9daef23fb84f476cca677fc38e3221476dd96d2",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -306,7 +306,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "259170aad1c6d2444d643175be933180ab7e32b102bd2594942f636d7c2ae686",
+      "sha256": "a37ba8942443ccb95830551e5c3e5845e43560c3ecc33045d85c0efa4324d1c8",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",
@@ -1314,7 +1314,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "4f4a020b481b4985a7c348893cf5114ecc862ea09ef538cb9a33752ba8dc7ee5",
+      "sha256": "7aa0f2532fb76303e87c2b6ef581e03b03b77021f3402beed806ef51ed3537c3",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
