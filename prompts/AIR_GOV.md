@@ -49,7 +49,7 @@ Governance is subordinate to AIR Core Runtime for canonical route semantics, ali
 
 Rules:
 - Governance may tighten a Core dependency or add domain/governance constraints to a bound benchmark.
-- Governance must not create an alternate route for RT.ALIGN, RT.INPUT_TRANSLATE, RT.COGNITIVE_RESOLVE, RT.UNCERTAINTY_RESOLVE, RT.CAPABILITY_RESOLVE, RT.ACTION, RT.RECEIPT, RT.DELIVER, RT.CLOSE, or RT.HANDOFF_CREATE.
+- Governance must not create an alternate route for RT.ALIGN, RT.INPUT_TRANSLATE, RT.COGNITIVE_RESOLVE, RT.UNCERTAINTY_RESOLVE, RT.CAPABILITY_RESOLVE, RT.APPROVAL_RESOLVE, RT.ACTION, RT.RECEIPT, RT.DELIVER, RT.CLOSE, or RT.HANDOFF_CREATE.
 - Governance findings are candidate benchmark/governance contributions until compiled into or explicitly referenced by the bound Orbit 0 AIR_ARTIFACT.
 - Governance may not infer, substitute, optimize, reorder, skip, or default a Core-declared DETERMINISTIC_PIPELINE step or slot; AIR-FLOOR-025 remains Core-owned.
 - A governance projection, framework mapping, risk finding, approval record, or evidence record never grants positive execution authority by itself.
@@ -115,6 +115,8 @@ Every material approval gate must carry an open_approval_scope record with:
 - approval_state
 - approval_source
 - approval_recorded_at when a reliable timestamp is available
+- operational_response_tokens for material action approval scopes
+- approval_response_mode
 
 Allowed approval_state values:
 - NOT_OPEN
@@ -201,7 +203,7 @@ Rules:
 6. A component may tighten a floor invariant only when the tighter rule is explicit, compatible, and identified in tightened_invariant_ids.
 7. An attempted relaxation must identify the component, invariant ID, conflicting text or state, and the resulting AIR_GATE decision.
 8. Operative floor references must use the Core registry canonical named identifiers. Numeric-only AIR-FLOOR-### values are migration or historical aliases only and must be normalized through the Core alias map before governance resolution; alias normalization does not create a second invariant.
-9. The active registry includes AIR-FLOOR-021 through AIR-FLOOR-025. Governance may tighten them but may not redefine alignment-evaluation dependency, semantic fidelity, epistemic sufficiency, MII contribution authority, or deterministic-pipeline non-inference.
+9. The active registry includes AIR-FLOOR-021 through AIR-FLOOR-027. Governance may tighten them but may not redefine alignment-evaluation dependency, semantic fidelity, epistemic sufficiency, MII contribution authority, deterministic-pipeline non-inference, deterministic control representation, or failure-mode learning/retry semantics.
 
 ==================================================
 GOVERNANCE SOURCE RIGHTS

@@ -683,7 +683,9 @@
             "stop_conditions",
             "expiry_or_completion_condition",
             "approval_state",
-            "approval_source"
+            "approval_source",
+            "operational_response_tokens when the open scope governs a material action",
+            "approval_response_mode"
           ],
           "failure_behavior": "REVIEW_OR_REJECT",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
@@ -951,7 +953,10 @@
             "failure_mode_state.registry_version",
             "failure_mode_state.records",
             "failure_mode_state.positive_execution_authority",
-            "failure_mode_state.restoration_rule"
+            "failure_mode_state.restoration_rule",
+            "every failure_mode_state.records entry preserves applicability_signature_hash",
+            "every failure_mode_state.records entry preserves source_ledger_entry_ref",
+            "failure records are copied without semantic mutation from ledger-backed canonical source objects"
           ],
           "failure_behavior": "REJECT_HANDOFF_OR_REVIEW_WITHOUT_INVENTING_FAILURE_HISTORY"
         }
@@ -1453,7 +1458,9 @@
       "specialist_application_refs": [],
       "registry_owner": "AIR_CORE_RUNTIME_V2",
       "positive_execution_authority": "NONE",
-      "restoration_rule": "Restore exact failure-mode records as UNVALIDATED_BOOTSTRAP_INPUT. Revalidate evidence, lifecycle, applicability signatures, supersession, recurrence, and current task match; compile applicable constraints into the rebound Orbit 0 Artifact before they become operative. Specialist packages consume only Core-validated applicable records."
+      "restoration_rule": "Restore exact failure-mode records as UNVALIDATED_BOOTSTRAP_INPUT. Revalidate evidence, lifecycle, applicability signatures, supersession, recurrence, and current task match; compile applicable constraints into the rebound Orbit 0 Artifact before they become operative. Specialist packages consume only Core-validated applicable records.",
+      "record_integrity_rule": "EACH_RECORD_PRESERVES_CANONICAL_ID_APPLICABILITY_SIGNATURE_HASH_SOURCE_LEDGER_ENTRY_AND_VALUES_WITHOUT_SEMANTIC_MUTATION",
+      "automatic_match_rule": "EXACT_CANONICAL_SIGNATURE_HASH_EQUALITY_ONLY_AFTER_RESTORE_VALIDATION"
     }
   }
 }

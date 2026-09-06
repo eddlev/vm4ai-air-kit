@@ -512,6 +512,7 @@ Canonical AIR_FAILURE_MODE_RECORD fields:
 - prohibited_retry_pattern
 - corrective_constraint
 - applicability_signature
+- applicability_signature_hash
 - applicability_state
 - affected_task_classes
 - specialist_or_method_refs
@@ -521,6 +522,7 @@ Canonical AIR_FAILURE_MODE_RECORD fields:
 - recurrence_count
 - superseded_by
 - evidence_refs
+- source_ledger_entry_ref
 - runtime_origin
 - backend_validation_claimed
 - hidden_reasoning_claimed
@@ -539,7 +541,9 @@ Allowed root_cause_state values:
 - PARTIAL
 - UNRESOLVED
 
-Automatic applicability is exact-match only. The typed applicability signature may include route_class, action_class, task_family, artifact_class, control_event_id, specialist_or_method_ids, failure_class, environment_class, and source/evidence condition identifiers. EXACT_MATCH may activate the recorded corrective constraint. COMPATIBLE_MATCH is review/cognitive input only until current Artifact compilation explicitly accepts it. NO_MATCH has no effect. Semantic similarity alone cannot activate a failure constraint.
+Automatic applicability is exact-match only. Every applicability_signature must contain exactly these keys: signature_version, task_family_id, route_id, control_event_id, action_class, artifact_class, failure_class, component_ids, environment_class, source_evidence_condition_ids. Use the literal NOT_APPLICABLE for a dimension that is genuinely inapplicable; unresolved material dimensions block automatic matching. Arrays are canonicalized as sorted unique strings. applicability_signature_hash is SHA-256 over canonical UTF-8 JSON of that exact signature object with lexicographically sorted keys and no insignificant whitespace.
+
+EXACT_MATCH exists only when the current execution signature is complete and its canonical hash equals applicability_signature_hash. COMPATIBLE_MATCH is review/cognitive input only until current Artifact compilation explicitly accepts it. NO_MATCH has no effect. Semantic similarity, partial field overlap, omitted dimensions, or model judgment cannot activate a failure constraint. Every surfaced AIR_FAILURE_MODE_RECORD must carry source_ledger_entry_ref after it is visibly emitted; Handoff may preserve the record only through that ledger-backed identity.
 
 Before any retry, iteration of a previously failed active step, or exact applicability match, AIR must query the active failure-mode registry. Applicable corrective constraints must be compiled into or explicitly referenced by the current Orbit 0 AIR_ARTIFACT benchmark before execution. Repeating a prohibited retry pattern while its applicable failure mode is active is a control failure.
 

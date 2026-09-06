@@ -1000,7 +1000,29 @@
       "specialist_scope": "ALL_SELECTED_OR_BOUND_SPECIALIST_METHOD_DOMAIN_EXECUTOR_TRANSLATOR_CAPABILITY_COMPONENTS",
       "specialist_registry_mutation_authority": "NONE",
       "specialist_failure_candidate_route": "TO_CORE_FOR_VALIDATION_AND_RECORDING",
-      "handoff_path": "AIR_HANDOFF_CARD.failure_mode_state"
+      "handoff_path": "AIR_HANDOFF_CARD.failure_mode_state",
+      "applicability_signature_schema": {
+        "required_keys": [
+          "signature_version",
+          "task_family_id",
+          "route_id",
+          "control_event_id",
+          "action_class",
+          "artifact_class",
+          "failure_class",
+          "component_ids",
+          "environment_class",
+          "source_evidence_condition_ids"
+        ],
+        "inapplicable_literal": "NOT_APPLICABLE",
+        "array_canonicalization": "SORTED_UNIQUE_STRINGS",
+        "unresolved_material_dimension_behavior": "NO_AUTOMATIC_MATCH",
+        "hash_algorithm": "SHA-256",
+        "hash_input": "CANONICAL_UTF8_JSON_SORTED_KEYS_NO_INSIGNIFICANT_WHITESPACE",
+        "exact_match_rule": "CURRENT_SIGNATURE_HASH_EQUALS_RECORDED_APPLICABILITY_SIGNATURE_HASH"
+      },
+      "failure_record_source_ledger_entry_required": true,
+      "handoff_record_mutation": "PROHIBITED_COPY_LEDGER_BACKED_CANONICAL_RECORD"
     },
     "handoff_file_delivery": {
       "required": true,
@@ -2447,9 +2469,9 @@
       "prose_authority": "NON_OPERATIVE_DESCRIPTION",
       "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
       "coverage_contract": {
-        "declared_check_count": 43,
-        "implemented_check_count_required": 43,
-        "executed_check_count_required": 43,
+        "declared_check_count": 46,
+        "implemented_check_count_required": 46,
+        "executed_check_count_required": 46,
         "unimplemented_allowed": 0,
         "unexecuted_allowed": 0,
         "duplicate_check_ids_allowed": 0,
@@ -2826,6 +2848,31 @@
           "on_failure": "FAIL_CLOSED",
           "file": "prompts/AIR_CONTROL_SURFACE.md",
           "expected": "FULL_RELEASE_INTEGRITY_AUDIT"
+        },
+        {
+          "check_id": "DC-STARTER-FLOOR-027",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.authority_contract.floor_invariants_required"
+          },
+          "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-027",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+        },
+        {
+          "check_id": "DC-GOV-FLOOR-027",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md",
+          "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
         }
       ]
     }

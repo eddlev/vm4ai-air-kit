@@ -46,6 +46,13 @@ def main():
     def m10(d):
         p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['action_governance_state']['provenance_policy']['surfaced_object_ledger_required']=False; save(p,o)
     cases.append(('handoff history without ledger',m10))
+
+    def m11(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['failure_mode_registry']['applicability_signature_schema']['exact_match_rule']='SEMANTIC_SIMILARITY'; save(p,o)
+    cases.append(('failure signature hash matching removed',m11))
+    def m12(d):
+        p=next(d.glob('profiles/**/*PACKAGE_MANIFEST.json')); o=load(p); o['failure_mode_integration_contract']['exact_match_rule']='PARTIAL_SEMANTIC_MATCH'; save(p,o)
+    cases.append(('Specialist exact failure signature matching removed',m12))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()
