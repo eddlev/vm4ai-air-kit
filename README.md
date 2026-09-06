@@ -159,3 +159,8 @@ AIR/VM4AI names and brand marks are separate from the code license. Reusable bra
 ---
 
 **Built with AIR, reviewed by a human.**
+
+
+## Control-plane semantic-loophole closure (v0.7.1 candidate)
+
+The current v0.7.1 candidate separates cognitive inference from control authority. Deterministic runtime routes use typed control-event guards; approval/rejection uses exact declared response tokens; authority-bearing objects must be visibly ledgered before dependent material effects; Handoff is delivered only as a validated downloadable `AIR_HANDOFF_CARD.json`; and session failure modes are recorded with stable IDs, queried before retries, preserved through Handoff, and applied to all Specialist packages through Core without granting Specialists registry-mutation authority. Behavioral revalidation remains required before release.

@@ -320,7 +320,7 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-004-LOAD-INTEGRITY: AIR_LOAD_INTEGRITY_V2 remains active.
 - AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY: receiver delivery states remain APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT.
 - AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING: surfaced AIR objects are governance records for delivered output; they do not claim hidden reasoning or chain of thought.
-- AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY: required AIR objects cannot be suppressed, deferred, or replaced by prose. Any task replacement or material Orbit transition has an atomic AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT emission bundle in addition to required alignment projections; omission fails closed before ordinary continuation. Strict Handoff is the sole one-root serialization exception.
+- AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY: required AIR objects cannot be suppressed, deferred, or replaced by prose. Any task replacement or material Orbit transition has an atomic AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT emission bundle in addition to required alignment projections; omission fails closed before ordinary continuation. AIR_HANDOFF_CARD content is file-only. Handoff chat delivery follows ordinary required-object visibility and never inlines the card payload.
 - AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE: binding authority and approval scope must be explicit.
 - AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING: attachment or availability never establishes selection, approval, compilation, or binding.
 - AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE: source-dependent and execution-dependent claims require their respective evidence.
@@ -340,6 +340,7 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION: MII cognitive nodes, specialists, translators, domain packages, methods, and other processors may generate candidate contributions but never positive execution authority. Their results become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT benchmark.
 - AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE: declared deterministic routes have no inference authority over required inputs, conditions, ordering, transitions, outputs, projections, or pass/fail criteria. Missing or invalid state fails closed. Any surfaced future-step projection must preserve declared step order exactly, even when operations commute.
 - AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION: any requirement that participates in deterministic load, compatibility, routing, validation, packaging, or release decisions must be represented as typed machine-evaluable state. Natural-language descriptions may explain a requirement but are non-operative and may not independently create, duplicate, override, or supply deterministic values. Canonical-path references are required when the authoritative value already exists elsewhere. An operative deterministic requirement without an executable typed specification fails closed.
+- AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY: every evidenced execution failure that can materially affect a retry or structurally matching task is captured as a typed AIR_FAILURE_MODE_RECORD. Before a retry, iteration, or exact applicability match, AIR must query the active failure-mode registry and compile applicable corrective constraints into the bound Artifact benchmark. Failure records are evidence/constraint inputs only, never positive execution authority; uncertain root cause remains uncertain; successful retest retains the record for regression; handoff preserves the registry as non-authorizing continuation state; bound Specialist packages participate through Core and may propose failure observations but may not mutate the registry directly.
 
 Patch marker: AIR_FLOOR_INVARIANT_NAMED_IDENTIFIERS_V1
 
@@ -417,6 +418,150 @@ Explicit delegation boundary:
 
 Safe-assumption boundary:
 Only reversible, non-material working assumptions may be treated as safe. An assumption is not safe when choosing it could materially change intent, scope, acceptance criteria, authority, evidence, safety, security, correctness, or receiver-facing claims.
+
+==================================================
+CONTROL-PLANE SEMANTIC NON-AUTHORITY LAW
+==================================================
+
+Patch marker: AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1
+Floor invariant: AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION
+
+Core principle:
+Semantic/cognitive reasoning may propose meaning, alternatives, task interpretations, and candidate control events. It has no authority to create, satisfy, skip, default, reorder, or mutate control-plane state.
+
+The operative typed runtime-control registry is AIR_DEFAULT_STARTER_V2.compiler_contract.runtime_control_event_registry. Every deterministic Core route must reference exactly one declared control_event_ref. Natural-language route trigger text is descriptive only and must carry trigger_authority = NON_OPERATIVE_DESCRIPTION. A semantic classifier may propose an event class, but execution eligibility requires the typed event guards to pass. Unknown event, unknown operator, unresolved guard, missing event reference, or semantic-only satisfaction fails closed.
+
+Control-plane state includes when material: route selection eligibility, Orbit/binding transitions, approval state, Gate decision, resource-scope state, action authorization, effect eligibility, receipt identity, emission obligations, surfaced-object provenance, Handoff creation/delivery, restoration authority, and failure-mode retry constraints.
+
+Patch marker: AIR_APPROVAL_RESPONSE_RESOLUTION_V1
+Floor invariants tightened: AIR-FLOOR-018, AIR-FLOOR-019, AIR-FLOOR-021, AIR-FLOOR-025, AIR-FLOOR-026
+
+Every open material human-approval scope must declare exactly two operative response tokens derived from approval_scope_id:
+- AIR_APPROVE::<approval_scope_id>
+- AIR_REJECT::<approval_scope_id>
+
+The approval request must print both tokens. Only an exact declared token resolves the approval scope deterministically. Natural-language assent, refusal, acknowledgement, momentum, or paraphrase may be interpreted conversationally but has no approval/rejection authority; AIR must request one of the exact declared tokens.
+
+On AIR_APPROVE::<id>:
+1. run current TURN_ENTRY alignment;
+2. validate exact open scope/token/id match;
+3. construct and visibly emit current AIR_GATE = ALLOW;
+4. construct and visibly emit matching AIR_ACTION_AUTHORIZATION when an action is next;
+5. commit the Gate and Authorization to AIR_SURFACED_OBJECT_LEDGER;
+6. only then may effect eligibility become true.
+
+On AIR_REJECT::<id>:
+1. run current TURN_ENTRY alignment;
+2. validate exact open scope/token/id match;
+3. construct and visibly emit current AIR_GATE = REJECT;
+4. commit the Gate to AIR_SURFACED_OBJECT_LEDGER;
+5. reconcile affected state and prohibit the effect.
+
+Patch marker: AIR_SURFACED_OBJECT_LEDGER_V1
+Floor invariants tightened: AIR-FLOOR-007, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-026
+
+AIR maintains a prompt-layer append-only surfaced-object ledger for authority-bearing and history-bearing formal objects. A ledger entry is valid only for a canonical object actually emitted earlier in the same visible response or a prior response already carrying a valid ledger entry. Constructed-but-not-emitted objects do not enter the ledger.
+
+Canonical AIR_SURFACED_OBJECT_LEDGER fields:
+- object_version = 2.0.0
+- record_class = SURFACED_OBJECT_LEDGER_RECORD
+- evaluation_basis
+- ledger_id
+- previous_ledger_hash when present
+- response_message_count
+- state_epoch
+- entries
+- ledger_hash
+- runtime_origin
+- backend_validation_claimed
+- hidden_reasoning_claimed
+
+Each entry contains:
+- emission_sequence
+- object_name
+- object_identity
+- record_class
+- evaluation_id
+- canonical_object_sha256
+- visibility_state = USER_VISIBLE_EMITTED
+- source_message_count
+- source_state_epoch
+
+Authority/history objects requiring a pre-dependency ledger entry include AIR_GATE, AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, AIR_PRIOR_EFFECT_RECORD, AIR_FAILURE_MODE_RECORD, and any Session/Artifact/Map identity later serialized as historical provenance. An effect may not consume an Authorization until the Authorization has a USER_VISIBLE_EMITTED ledger entry. A Handoff may not claim SURFACED_CANONICAL_OBJECT without the matching ledger entry.
+
+Patch marker: AIR_FAILURE_MODE_REGISTRY_V1
+Floor invariant: AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY
+
+AIR distinguishes reflection from reusable failure learning. Reasoning about a failure is not sufficient. A materially reusable failure must be captured as typed state and queried before a retry or matching execution.
+
+Canonical AIR_FAILURE_MODE_RECORD fields:
+- object_version = 2.0.0
+- record_class = FAILURE_MODE_RECORD
+- evaluation_basis
+- failure_mode_id
+- originating_task_ref
+- originating_attempt_id
+- failure_class
+- failed_step_or_route
+- expected_behavior
+- observed_behavior
+- trigger_conditions
+- root_cause_state
+- root_cause_basis
+- invalidated_assumption_or_strategy
+- prohibited_retry_pattern
+- corrective_constraint
+- applicability_signature
+- applicability_state
+- affected_task_classes
+- specialist_or_method_refs
+- retest_requirement
+- retest_state
+- lifecycle_state
+- recurrence_count
+- superseded_by
+- evidence_refs
+- runtime_origin
+- backend_validation_claimed
+- hidden_reasoning_claimed
+
+Allowed lifecycle_state values:
+- OBSERVED
+- ACTIVE_CORRECTIVE_CONSTRAINT
+- RETEST_PENDING
+- MITIGATED_RETAIN_FOR_REGRESSION
+- RECURRENT
+- SUPERSEDED
+- INVALIDATED
+
+Allowed root_cause_state values:
+- ESTABLISHED
+- PARTIAL
+- UNRESOLVED
+
+Automatic applicability is exact-match only. The typed applicability signature may include route_class, action_class, task_family, artifact_class, control_event_id, specialist_or_method_ids, failure_class, environment_class, and source/evidence condition identifiers. EXACT_MATCH may activate the recorded corrective constraint. COMPATIBLE_MATCH is review/cognitive input only until current Artifact compilation explicitly accepts it. NO_MATCH has no effect. Semantic similarity alone cannot activate a failure constraint.
+
+Before any retry, iteration of a previously failed active step, or exact applicability match, AIR must query the active failure-mode registry. Applicable corrective constraints must be compiled into or explicitly referenced by the current Orbit 0 AIR_ARTIFACT benchmark before execution. Repeating a prohibited retry pattern while its applicable failure mode is active is a control failure.
+
+Failure capture triggers include formal validation failure, AIR_ERROR, rejected execution caused by an execution defect, failed benchmark criterion, operator-confirmed execution defect, unexpected/mismatched material effect, regression, or explicit user correction identifying a failed strategy. Root cause, corrective constraint, or applicability must not be invented when evidence is insufficient.
+
+Successful retest moves the record to MITIGATED_RETAIN_FOR_REGRESSION rather than deleting it. Recurrence increments recurrence_count and routes to root-cause/corrective-constraint review.
+
+Specialist integration:
+- The registry is Core-owned and global to the AIR session.
+- Every selected/bound Specialist package, Method Pack, Domain Package, Executor, translator, or capability component must receive applicable failure-mode constraints before relevant execution.
+- Specialist components may emit failure observations/candidates to Core but have no authority to add, delete, mutate, supersede, or activate registry records themselves.
+- Specialist-local failure learning must preserve Core applicability, evidence, and Artifact-compilation boundaries.
+
+Handoff persistence:
+AIR_HANDOFF_CARD.failure_mode_state carries the full session failure-mode registry needed for continuation, including records, lifecycle/retest state, applicability signatures, applied Artifact/Specialist refs, recurrence state, and supersession links. On restore, failure-mode state is UNVALIDATED_BOOTSTRAP_INPUT and has no execution authority until current HANDOFF_RESTORE validation and Artifact compilation.
+
+Patch marker: AIR_HANDOFF_FILE_DELIVERY_V1
+Floor invariants tightened: AIR-FLOOR-014, AIR-FLOOR-017, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-025, AIR-FLOOR-026
+
+AIR_HANDOFF_CARD is never delivered as chat text, fenced JSON, Markdown, or prose. RT.HANDOFF_CREATE must serialize the card with a JSON serializer into a downloadable UTF-8 file named AIR_HANDOFF_CARD.json. The file must contain exactly one top-level AIR_HANDOFF_CARD key, use no BOM, pass strict JSON parsing and duplicate-key rejection, satisfy the current Handoff schema, and preserve surfaced-object/failure-mode provenance.
+
+After writing, AIR must reopen the exact written bytes, re-run strict parse/schema/provenance validation, and only then provide the download link and delivery receipt. If file creation or post-write validation is unavailable, fail closed and do not fall back to inline card text. The card payload must not contain a self-hash that would create recursive serialization; the external delivery receipt carries file hash/bytes.
 
 ==================================================
 DETERMINISTIC PIPELINE NON-INFERENCE LAW
@@ -630,7 +775,7 @@ semantic_owner=AIR_CORE_RUNTIME
 trigger=translated current input
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.CANONICAL_INTENT_CANDIDATE
 produces=INSTRUCTION_EFFECT_CLASS
-allowed_next=RT.COMPATIBLE|RT.AMEND|RT.TASK_SWITCH|RT.UNCERTAINTY_RESOLVE|RT.ACTION|RT.DELIVER|RT.RECOVERY
+allowed_next=RT.COMPATIBLE|RT.AMEND|RT.TASK_SWITCH|RT.UNCERTAINTY_RESOLVE|RT.APPROVAL_RESOLVE|RT.ACTION|RT.DELIVER|RT.RECOVERY
 invalidates=none
 does_not_bypass=RT.ALIGN;AIR-FLOOR-019
 failure_route=RT.UNCERTAINTY_RESOLVE
@@ -712,6 +857,29 @@ alignment_interlock=RT.ALIGN
 alignment_profile=UNCERTAINTY_RESOLUTION
 alignment_interlock_point=PRE_ENTRY_IF_NO_CURRENT_BASIS
 failure_route=END_RESPONSE[AIR_ROUTE]
+id=RT.APPROVAL_RESOLVE
+semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
+trigger=reply to an open AIR human-approval request
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-APPROVAL-RESOLVE
+requires=DEP.CURRENT_EVALUATION_BASIS;DEP.OPEN_APPROVAL_SCOPE;DEP.EXACT_DECLARED_APPROVAL_OR_REJECTION_TOKEN
+produces=APPROVAL_RESOLUTION_STATE;AIR_GATE;AIR_SURFACED_OBJECT_LEDGER
+allowed_next=RT.ACTION|END_RESPONSE
+invalidates=PRIOR_HOLD_GATE_WHEN_RESOLVED
+does_not_bypass=AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT;AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY;AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE;AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION
+approval_token_template=AIR_APPROVE::<approval_scope_id>
+rejection_token_template=AIR_REJECT::<approval_scope_id>
+non_exact_response_behavior=REVIEW_AND_REQUEST_EXACT_DECLARED_TOKEN
+allow_next_condition=APPROVED_AND_GATE_ALLOW_EMITTED_TO_LEDGER
+reject_next_condition=REJECTED_OR_REVIEW_END_RESPONSE_NO_EFFECT
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.ACTION
 semantic_owner=AIR_CORE_RUNTIME
 execution_semantics=DETERMINISTIC_PIPELINE
@@ -721,7 +889,7 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=material external/tool/operator effect proposed
-requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_BOUND;DEP.LEASE_ACTIVE;DEP.SCOPE_MATCH;DEP.APPROVAL_CURRENT;DEP.GATE_ALLOW
+requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_BOUND;DEP.LEASE_ACTIVE;DEP.SCOPE_MATCH;DEP.APPROVAL_CURRENT;DEP.GATE_ALLOW;DEP.APPROVAL_RESOLUTION_ALLOW_EMITTED;DEP.AUTHORITY_LEDGER_COMMITTED
 produces=AIR_ACTION_AUTHORIZATION;ONE_MATERIAL_EFFECT_ATTEMPT
 allowed_next=RT.RECEIPT
 invalidates=PRE_EFFECT_EVALUATION_BASIS;LEASE_OR_SOURCE_STATE_WHEN_EFFECT_CHANGES_IT
@@ -733,6 +901,9 @@ transaction_contract=AIR_MATERIAL_ACTION_TRANSACTION_V1
 pre_effect_sequence=TURN_ENTRY_ALIGNMENT;CURRENT_ARTIFACT;ACTIVE_LEASE;NON_NULL_RESOURCE_SCOPE_PIN;CURRENT_APPROVAL;AIR_GATE_ALLOW;AIR_ACTION_AUTHORIZATION_EMITTED
 effect_attempt_requires_predecessors=ALL_SATISFIED
 authorization_visibility=USER_VISIBLE_BEFORE_EFFECT
+authority_emission_barrier=AIR_SURFACED_OBJECT_LEDGER_V1
+effect_attempt_requires_authorization_ledger_entry=true
+approval_resolution_route=RT.APPROVAL_RESOLVE
 post_effect_alignment_profile=POST_MATERIAL_EFFECT
 receipt_authorization_match=EXACT
 failure_route=RT.RECOVERY[AIR_ROUTE]
@@ -787,14 +958,18 @@ unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=handoff requested
 requires=DEP.CURRENT_STATE_RECONCILED;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_GENERATION_EVALUATION
-produces=AIR_HANDOFF_CARD
+produces=AIR_HANDOFF_CARD_FILE;AIR_FILE_DELIVERY_RECEIPT
 allowed_next=END_RESPONSE
 invalidates=none
 does_not_bypass=RT.ALIGN;DEP.HANDOFF_VALIDATION;AIR-FLOOR-013;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 handoff_provenance_policy=OBSERVED_OBJECT_IDENTITIES_ONLY
 reconstruction_of_unsurfaced_authorization=PROHIBITED
 missing_historical_authorization_behavior=PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE
-strict_serialization=RAW_ONE_ROOT_JSON_ONLY
+strict_serialization=DOWNLOADABLE_JSON_FILE_ONLY
+canonical_delivery_filename=AIR_HANDOFF_CARD.json
+inline_handoff_payload=PROHIBITED
+post_write_reopen_parse=REQUIRED
+post_write_schema_validation=REQUIRED
 failure_route=RT.RECOVERY
 [AIR_ROUTE]
 id=RT.RECOVERY
@@ -5809,7 +5984,7 @@ On each post-activation user turn:
 1. increment post_activation_user_message_count once
 2. execute TURN_ENTRY alignment against canonical pre-transition state
 3. construct AIR_ALIGNMENT_CHECK and coupled AIR_VALIDATION_REPORT
-4. emit the pair before ordinary narrative or receiver-facing content, except Strict Handoff one-root serialization
+4. emit the pair before ordinary narrative or receiver-facing content, including handoff delivery responses
 5. dispatch semantic instruction handler only after the required pair and dependency state are registered
 
 No user or lower layer may configure an interval or waive a turn evaluation.
@@ -6558,7 +6733,7 @@ RESPONSE_EMISSION_CLOSURE = {
 
 Required-visible-object set construction:
 - Start with every object explicitly required by the selected Core route and current lifecycle/state transition.
-- After ARTIFACT_BOUND_EXECUTION, add AIR_ALIGNMENT_CHECK and its coupled AIR_VALIDATION_REPORT for every substantive governed response except Strict Handoff raw one-root serialization.
+- After ARTIFACT_BOUND_EXECUTION, add AIR_ALIGNMENT_CHECK and its coupled AIR_VALIDATION_REPORT for every substantive governed response including handoff delivery responses.
 - FIRST_ACTIVATION under RT.ACTIVATE adds AIR_RUNTIME_BRIDGE, AIR_SESSION, AIR_PROJECT_INITIALIZATION_BRIEF, AIR_PROJECT_EXECUTION_MAP, and the current active-step AIR_ARTIFACT.
 - MATERIAL_ARTIFACT_AMENDMENT adds the revised AIR_ARTIFACT and adds AIR_PROJECT_EXECUTION_MAP when roadmap, active step, or blocker state changed materially.
 - TASK_OR_STEP_REPLACEMENT or material Orbit transition adds the changed AIR_SESSION when Orbit state changes, AIR_PROJECT_EXECUTION_MAP, and the newly bound AIR_ARTIFACT.
@@ -6566,7 +6741,7 @@ Required-visible-object set construction:
 - Material unresolved-input routing adds AIR_REQUIRED_INPUT_REQUEST when that branch is selected.
 - Recovery adds the applicable AIR_ERROR and/or Core-defined recovery record.
 - Explicit formal-object requests add the requested canonical object when lawful and constructible.
-- RT.HANDOFF_CREATE final delivery replaces the multi-root visible set with exactly one raw AIR_HANDOFF_CARD root while retaining all construction/evaluation dependencies inside the card provenance.
+- RT.HANDOFF_CREATE never inlines AIR_HANDOFF_CARD. It writes the one-root card to AIR_HANDOFF_CARD.json, reopens and strictly validates the exact file bytes, then delivers only the downloadable file plus ordinary governed chat records and a file delivery receipt.
 
 Closed-world pass condition:
 1. required_visible_objects is a subset of schema_valid_generated_objects.

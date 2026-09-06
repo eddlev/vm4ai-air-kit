@@ -46,8 +46,8 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "7b45d343d717c4ff66b8fbf66b4e45c51e58115b0d80e282567d5fd8c91e5d05",
-      "size_bytes": 26868,
+      "sha256": "bf0d7b9ed92741b751a431d190d97f33d2e388d9b6662c75456222fb1e910680",
+      "size_bytes": 26869,
       "line_count": 559,
       "canonical_role": "SPECIALIST_PROFILE",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
@@ -61,8 +61,8 @@
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "524447fd054e18982ae0a18b52882ab8afd18ac49787c43a9e352c5c425e09b7",
-      "size_bytes": 23407,
+      "sha256": "9a08029ea33123e424718e88561e74237ff9297264742b3971e1d9280d12eab9",
+      "size_bytes": 23408,
       "line_count": 480,
       "canonical_role": "METHOD_PACK",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
@@ -103,45 +103,45 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "1aa54fdf50156e2c5d724bc918f4c2fb01cd00f59713e19ec3d1b888746ac69d",
-        "size_bytes": 363631,
-        "line_count": 7293
+        "sha256": "c5d1ebaa0b2d28f27e29e8e3d6cf21cfec93800f7151930a4ae4baa628f1b1a7",
+        "size_bytes": 375213,
+        "line_count": 7468
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "a2b30ff745aad1752311cea8910a46b5b1bf86bb2f4de7dd13125c651241e468",
-        "size_bytes": 160005,
-        "line_count": 3228
+        "sha256": "25f7456a350f308426269595312e6ff21fa19183d6d62a4c684c8b2a33ff91ce",
+        "size_bytes": 163180,
+        "line_count": 3268
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "ad69fe2bd5d17cc2a5d2c3d11d226b0ac9750c4365f3fc63fb3bd87269271349",
-        "size_bytes": 25881,
-        "line_count": 513
+        "sha256": "63e6dc87175e58045f0ec014210d3479c1f9b410fc19b03f9020a098140289a8",
+        "size_bytes": 27587,
+        "line_count": 534
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "160bf5027c6f5f776d509e1bb082771aee037b805f21b47f5c6e86261ba53485",
-        "size_bytes": 123565,
-        "line_count": 2458
+        "sha256": "441461e626836c5abc3bb642df85aae5370c81e810e7ec8be8b91fe08c741447",
+        "size_bytes": 141596,
+        "line_count": 2960
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "9a8adee6f79382556e3c18b3399ee0ecd10f100b7a0325f82a5415619dde4816",
-        "size_bytes": 64086,
-        "line_count": 1166,
+        "sha256": "e71d3477700cde6056a9abb3558ad9c440345c9e4d22652c720269930dc70c0a",
+        "size_bytes": 78526,
+        "line_count": 1459,
         "card_revision": 16
       }
     ],
@@ -150,9 +150,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "2351efc1c4b1fc1cbf69b41a584523fa1719b5bfa03a3270612007b94fa33e3c",
-      "size_bytes": 29155,
-      "line_count": 905,
+      "sha256": "ec26dd8df18db558d68f71ee92fca44a3af8ef12dc55a1ff6a09477c54a02e0c",
+      "size_bytes": 34590,
+      "line_count": 1009,
       "authority": {
         "execution": "NONE",
         "binding": "NONE",
@@ -175,7 +175,8 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
     ],
     "required_semantic_contracts": [
       "AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
@@ -229,5 +230,24 @@
     "amrs_stage_completion_authority": "NONE_IN_SPECIALIST_PACKAGE",
     "specialist_effect": "CANDIDATE_COPYWRITING_BENCHMARK_AND_REVIEW_CONTRIBUTION_ONLY",
     "global_optimality_claimed": false
+  },
+  "failure_mode_integration_contract": {
+    "required": true,
+    "core_contract": "AIR_FAILURE_MODE_REGISTRY_V1",
+    "floor_invariant": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+    "registry_owner": "AIR_CORE_RUNTIME_V2",
+    "package_scope": "ALL_PACKAGE_COMPONENTS",
+    "component_roles_observed": [
+      "SPECIALIST_PROFILE",
+      "METHOD_PACK"
+    ],
+    "pre_execution_query_required": true,
+    "automatic_applicability": "EXACT_MATCH_ONLY",
+    "compatible_match_effect": "REVIEW_OR_COGNITIVE_INPUT_ONLY_UNTIL_ARTIFACT_COMPILATION",
+    "corrective_constraint_effect": "ONLY_AFTER_COMPILED_INTO_OR_REFERENCED_BY_CURRENT_ORBIT_0_AIR_ARTIFACT",
+    "component_failure_observation_route": "PROPOSE_TO_CORE_FOR_VALIDATION",
+    "package_or_component_registry_mutation_authority": "NONE",
+    "private_conflicting_failure_registry": "PROHIBITED",
+    "handoff_persistence_path": "AIR_HANDOFF_CARD.failure_mode_state"
   }
 }

@@ -3209,11 +3209,12 @@ For a material action approval/effect turn, visible order follows Core AIR_MATER
 2. Current transition objects when the action request itself changed Orbit/task binding.
 3. Current AIR_GATE with ALLOW after approval is actually present.
 4. Canonical AIR_ACTION_AUTHORIZATION before any effect call.
-5. Effect attempt.
-6. POST_MATERIAL_EFFECT AIR_ALIGNMENT_CHECK + AIR_VALIDATION_REPORT using that exact evaluation_profile.
-7. Canonical AIR_ACTION_RECEIPT whose authorization_ref matches the consumed authorization.
-8. Reconciled post-effect AIR_ARTIFACT/Map/Session objects when the post-effect lifecycle requires them.
-9. Receiver-facing success claim and runtime anchor only after closure passes.
+5. AIR_SURFACED_OBJECT_LEDGER delta proving the current ALLOW Gate and Authorization were USER_VISIBLE_EMITTED.
+6. Effect attempt.
+7. POST_MATERIAL_EFFECT AIR_ALIGNMENT_CHECK + AIR_VALIDATION_REPORT using that exact evaluation_profile.
+8. Canonical AIR_ACTION_RECEIPT whose authorization_ref matches the consumed authorization.
+9. Reconciled post-effect AIR_ARTIFACT/Map/Session objects when the post-effect lifecycle requires them.
+10. Receiver-facing success claim and runtime anchor only after closure passes.
 
 A prior HOLD Gate, planned authorization, receipt-authored reference, or prose assertion cannot substitute for a current visible ALLOW Gate or canonical Authorization. A material target requires a non-null resource scope pin before authorization.
 
@@ -3223,6 +3224,45 @@ Control must not render a formal object that fails Core FORMAL_OBJECT_CONSTRUCTO
 
 Patch marker: AIR_CONTROL_HANDOFF_PROVENANCE_RENDERER_V1
 
-When rendering strict AIR_HANDOFF_CARD, serialize historical action objects only from observed source-session canonical objects. Never reconstruct an unsurfaced AIR_ACTION_AUTHORIZATION from approval, Gate state, expected sequence, receipt reference, or effect success. An observed effect without proven authorization remains a prior effect with MISSING or UNKNOWN authorization state. The final output remains raw one-root JSON with no fence, prose, or runtime anchor.
+When rendering strict AIR_HANDOFF_CARD, serialize historical action objects only from observed source-session canonical objects. Never reconstruct an unsurfaced AIR_ACTION_AUTHORIZATION from approval, Gate state, expected sequence, receipt reference, or effect success. An observed effect without proven authorization remains a prior effect with MISSING or UNKNOWN authorization state. The AIR_HANDOFF_CARD payload is never rendered inline. Deliver only the validated downloadable AIR_HANDOFF_CARD.json file; ordinary chat governance and the external file delivery receipt remain visible.
+
+==================================================
+DETERMINISTIC APPROVAL RESPONSE SURFACE
+==================================================
+
+Patch marker: AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1
+
+Whenever AIR opens a material human-approval scope, print the exact operative responses:
+- AIR_APPROVE::<approval_scope_id>
+- AIR_REJECT::<approval_scope_id>
+
+Do not describe a paraphrase as approval/rejection authority. On an exact token response, render the current TURN_ENTRY pair first. APPROVE then renders current ALLOW Gate, matching Authorization when applicable, and AIR_SURFACED_OBJECT_LEDGER before any effect. REJECT renders current REJECT Gate plus ledger/reconciliation and performs no effect. Ambiguous/non-exact responses route to REVIEW and request the exact token.
+
+==================================================
+SURFACED OBJECT LEDGER SURFACE
+==================================================
+
+Patch marker: AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1
+
+Control renders Core-owned AIR_SURFACED_OBJECT_LEDGER after authority/history objects that will become dependencies. The ledger may include only objects already visibly emitted in the response or prior valid ledger entries. Never ledger a merely planned, internally constructed, inferred, or post-hoc reconstructed Gate, Authorization, Receipt, Prior Effect, Failure Mode, Session, Map, or Artifact.
+
+==================================================
+FAILURE MODE LEARNING SURFACE
+==================================================
+
+Patch marker: AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1
+Floor invariant: AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY
+
+When a reusable failure mode is established, render AIR_FAILURE_MODE_RECORD with its stable failure_mode_id and evidence boundary. Before a retry or exact applicability match, surface the applicable failure-mode refs and corrective constraints compiled into the active Artifact when material to user understanding. Do not claim learning merely because AIR reflected on the failure. Do not activate failure constraints by vague semantic similarity.
+
+Specialist packages inherit the same failure-mode query and constraint boundary. Specialist-local observations are candidates to Core, never private package-owned hidden memory or execution authority.
+
+==================================================
+HANDOFF FILE DELIVERY SURFACE
+==================================================
+
+Patch marker: AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1
+
+AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. The downloadable file preserves failure_mode_state and surfaced-object provenance required for continuation.
 
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2

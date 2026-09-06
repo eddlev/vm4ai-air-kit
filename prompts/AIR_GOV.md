@@ -510,4 +510,25 @@ Do not invent a governance-only decision or receiver delivery state.
 Use ALLOW, REVIEW, REJECT, RESCOPE_REQUIRED, or EVIDENCE_REQUIRED as defined by Core.
 Use APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT as defined by Core.
 
+==================================================
+DETERMINISTIC APPROVAL RESPONSE GOVERNANCE
+==================================================
+
+Patch marker: AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1
+
+A material approval scope must declare exact AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id> response tokens. Natural-language assent/refusal has no operative approval-state authority unless it exactly equals a declared literal. Approval/rejection resolution is Core-owned deterministic control state; Governance may tighten but not reinterpret it.
+
+The approval response may not itself authorize any action not listed in authorized_action_ids, and an APPROVE token does not bypass the required visible ALLOW Gate, emitted Authorization, surfaced-object ledger barrier, scope pin, active lease, or post-effect Receipt.
+
+==================================================
+FAILURE MODE LEARNING GOVERNANCE
+==================================================
+
+Patch marker: AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1
+Floor invariant: AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY
+
+Failure-mode records are evidence/constraint records, not blame records, policy waivers, approval, or execution authority. Governance findings may contribute failure observations and corrective constraints only with traceable evidence. Unknown root cause remains UNRESOLVED. A failure record cannot expand permission, source rights, approval scope, legal authority, or compliance claims.
+
+Specialist packages and governance projections consume applicable Core failure-mode records under the same exact-match/Artifact-compilation boundary and may not maintain a conflicting private failure registry.
+
 AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2

@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.0",
-    "sha256": "1aa54fdf50156e2c5d724bc918f4c2fb01cd00f59713e19ec3d1b888746ac69d",
+    "sha256": "c5d1ebaa0b2d28f27e29e8e3d6cf21cfec93800f7151930a4ae4baa628f1b1a7",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -28,9 +28,14 @@
     "deterministic_pipeline_contract mirrors Core AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1; declared deterministic routes prohibit inference and fail closed on unresolved pipeline state.",
     "transition_emission_transaction mirrors Core AIR_TRANSITION_EMISSION_TRANSACTION_V1; task/binding Orbit changes require the atomic AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT bundle.",
     "material_action_transaction mirrors Core AIR_MATERIAL_ACTION_TRANSACTION_V1; all predecessors, exact ordering, POST_MATERIAL_EFFECT alignment, and Authorization/Receipt reference identity fail closed.",
-    "handoff_provenance_policy mirrors Core AIR_HANDOFF_PROVENANCE_FIDELITY_V1; unsurfaced historical authorization identities may not be reconstructed."
+    "handoff_provenance_policy mirrors Core AIR_HANDOFF_PROVENANCE_FIDELITY_V1; unsurfaced historical authorization identities may not be reconstructed.",
+    "runtime_control_event_registry mirrors Core AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1; natural-language triggers are descriptive only and semantic classification cannot create control authority.",
+    "approval_response_resolution mirrors AIR_APPROVAL_RESPONSE_RESOLUTION_V1; exact declared approval/rejection tokens govern approval state.",
+    "surfaced_object_ledger mirrors AIR_SURFACED_OBJECT_LEDGER_V1; constructed-but-unemitted authority objects cannot unlock effects or historical provenance.",
+    "failure_mode_registry mirrors AIR_FAILURE_MODE_REGISTRY_V1; applicable failure constraints are queried before retries and Specialist execution and remain non-authorizing until Artifact compilation.",
+    "handoff_file_delivery mirrors AIR_HANDOFF_FILE_DELIVERY_V1; AIR_HANDOFF_CARD is delivered only as validated AIR_HANDOFF_CARD.json, never inline text."
   ],
-  "route_count": 21,
+  "route_count": 22,
   "routes": [
     {
       "route_id": "RT.BOOT",
@@ -63,7 +68,9 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-BOOT",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.ONBOARD",
@@ -99,7 +106,9 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-ONBOARD",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.HANDOFF_RESTORE",
@@ -140,7 +149,9 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-HANDOFF_RESTORE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.ACTIVATE",
@@ -179,7 +190,9 @@
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "ACTIVATION",
-      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS"
+      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS",
+      "control_event_ref": "CE-RT-ACTIVATE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.TURN",
@@ -212,7 +225,9 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-TURN",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.ALIGN",
@@ -249,7 +264,9 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-ALIGN",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.INPUT_TRANSLATE",
@@ -277,7 +294,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 617
-      }
+      },
+      "control_event_ref": "CE-RT-INPUT_TRANSLATE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.CLASSIFY",
@@ -295,6 +314,7 @@
         "RT.AMEND",
         "RT.TASK_SWITCH",
         "RT.UNCERTAINTY_RESOLVE",
+        "RT.APPROVAL_RESOLVE",
         "RT.ACTION",
         "RT.DELIVER",
         "RT.RECOVERY"
@@ -309,7 +329,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 627
-      }
+      },
+      "control_event_ref": "CE-RT-CLASSIFY",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.COMPATIBLE",
@@ -338,7 +360,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 637
-      }
+      },
+      "control_event_ref": "CE-RT-COMPATIBLE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.AMEND",
@@ -378,7 +402,9 @@
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "STATE_TRANSITION",
-      "alignment_interlock_point": "POST_TRANSITION_PRE_NEXT"
+      "alignment_interlock_point": "POST_TRANSITION_PRE_NEXT",
+      "control_event_ref": "CE-RT-AMEND",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.TASK_SWITCH",
@@ -423,7 +449,9 @@
         ],
         "condition": "ORBIT_STATE_CHANGED_OR_TASK_BINDING_CHANGED",
         "atomic": true
-      }
+      },
+      "control_event_ref": "CE-RT-TASK_SWITCH",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.CAPABILITY_RESOLVE",
@@ -456,7 +484,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 672
-      }
+      },
+      "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.COGNITIVE_RESOLVE",
@@ -494,7 +524,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 682
-      }
+      },
+      "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.MORPHOLOGY_BIND",
@@ -525,7 +557,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 692
-      }
+      },
+      "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.UNCERTAINTY_RESOLVE",
@@ -558,7 +592,50 @@
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
-      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS"
+      "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS",
+      "control_event_ref": "CE-RT-UNCERTAINTY_RESOLVE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
+    },
+    {
+      "route_id": "RT.APPROVAL_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "reply to an open AIR human-approval request",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "control_event_ref": "CE-RT-APPROVAL_RESOLVE",
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.OPEN_APPROVAL_SCOPE",
+        "DEP.EXACT_DECLARED_APPROVAL_OR_REJECTION_TOKEN"
+      ],
+      "produces": [
+        "APPROVAL_RESOLUTION_STATE",
+        "AIR_GATE",
+        "AIR_SURFACED_OBJECT_LEDGER"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTION",
+        "END_RESPONSE"
+      ],
+      "invalidates": [
+        "PRIOR_HOLD_GATE_WHEN_RESOLVED"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+        "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+        "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED",
+      "approval_token_template": "AIR_APPROVE::<approval_scope_id>",
+      "rejection_token_template": "AIR_REJECT::<approval_scope_id>",
+      "non_exact_response_behavior": "REVIEW_AND_REQUEST_EXACT_DECLARED_TOKEN"
     },
     {
       "route_id": "RT.ACTION",
@@ -609,8 +686,14 @@
         "effect_attempt_requires_all_predecessors": true,
         "authorization_visible_before_effect": true,
         "resource_scope_pin_required": true,
-        "post_effect_alignment_profile": "POST_MATERIAL_EFFECT"
-      }
+        "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
+        "approval_resolution_route": "RT.APPROVAL_RESOLVE",
+        "authority_ledger_required_before_effect": true,
+        "authorization_ledger_state_required": "USER_VISIBLE_EMITTED",
+        "exact_approval_token_required": true
+      },
+      "control_event_ref": "CE-RT-ACTION",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.RECEIPT",
@@ -656,7 +739,9 @@
         "receipt_record_class": "ACTION_RECEIPT_RECORD",
         "authorization_ref_match": "EXACT_CONSUMED_AUTHORIZATION",
         "constructor_validation_required": true
-      }
+      },
+      "control_event_ref": "CE-RT-RECEIPT",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.DELIVER",
@@ -688,7 +773,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 659
-      }
+      },
+      "control_event_ref": "CE-RT-DELIVER",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.CLOSE",
@@ -720,7 +807,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 769
-      }
+      },
+      "control_event_ref": "CE-RT-CLOSE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     },
     {
       "route_id": "RT.HANDOFF_CREATE",
@@ -732,7 +821,8 @@
         "DEP.HANDOFF_GENERATION_EVALUATION"
       ],
       "produces": [
-        "AIR_HANDOFF_CARD"
+        "AIR_HANDOFF_CARD_FILE",
+        "AIR_FILE_DELIVERY_RECEIPT"
       ],
       "allowed_next_routes": [
         "END_RESPONSE"
@@ -761,6 +851,16 @@
         "observed_object_identities_only": true,
         "unsurfaced_authorization_reconstruction": "PROHIBITED",
         "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE"
+      },
+      "control_event_ref": "CE-RT-HANDOFF_CREATE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "strict_serialization": "DOWNLOADABLE_JSON_FILE_ONLY",
+      "handoff_file_delivery": {
+        "canonical_filename": "AIR_HANDOFF_CARD.json",
+        "inline_payload": "PROHIBITED",
+        "post_write_reopen_parse": true,
+        "post_write_schema_validation": true,
+        "failure_without_file_capability": "FAIL_CLOSED_NO_INLINE_FALLBACK"
       }
     },
     {
@@ -791,7 +891,9 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 799
-      }
+      },
+      "control_event_ref": "CE-RT-RECOVERY",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
     }
   ],
   "emission_closure": {
@@ -863,6 +965,7 @@
     "unknown_condition_behavior": "FAIL_CLOSED",
     "conflict_behavior": "FAIL_CLOSED",
     "declared_route_ids": [
+      "RT.APPROVAL_RESOLVE",
       "RT.ACTION",
       "RT.ALIGN",
       "RT.BOOT",
@@ -901,5 +1004,6 @@
     "authority": "DISCOVERY_METADATA_ONLY",
     "historical_authorization_policy": "OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY",
     "unsurfaced_authorization_reconstruction": "PROHIBITED"
-  }
+  },
+  "runtime_control_event_registry_ref": "AIR_DEFAULT_STARTER_V2.compiler_contract.runtime_control_event_registry"
 }

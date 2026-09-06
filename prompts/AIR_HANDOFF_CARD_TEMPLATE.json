@@ -495,7 +495,7 @@
     "schema_manifest": {
       "schema_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
       "strict_emitted_root": "AIR_HANDOFF_CARD",
-      "strict_output_mode": "RAW_ONE_ROOT_JSON_NO_FENCE_NO_PROSE",
+      "strict_output_mode": "DOWNLOADABLE_JSON_FILE_ONLY",
       "required_fields": [
         "TEMPLATE_DESIGNATION",
         "SCHEMA_VERSION",
@@ -540,7 +540,8 @@
         "semantic_fidelity_state",
         "mii_state",
         "morphology_state",
-        "epistemic_sufficiency_state"
+        "epistemic_sufficiency_state",
+        "failure_mode_state"
       ],
       "optional_fields": [
         "card_created_at",
@@ -566,7 +567,9 @@
             "artifact_payload or artifact_ref",
             "sha256 when bytes are available"
           ],
-          "failure_behavior": "REVIEW_OR_ARTIFACT_BINDING_RECOVERY"
+          "failure_behavior": "REVIEW_OR_ARTIFACT_BINDING_RECOVERY",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ACTIVE-ARTIFACT"
         },
         {
           "id": "HC-COND-KNOWLEDGE-PATH",
@@ -582,7 +585,9 @@
             "APPROVE is carried only when path_validation_state = COMPLETE_FOR_ACTIVE_STEP",
             "completion_envelope target readiness matches readiness_state when maturity-bearing"
           ],
-          "failure_behavior": "REVIEW_OR_REJECTED_INSUFFICIENT_PATH"
+          "failure_behavior": "REVIEW_OR_REJECTED_INSUFFICIENT_PATH",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-KNOWLEDGE-PATH"
         },
         {
           "id": "HC-COND-TEST-EVIDENCE",
@@ -602,7 +607,9 @@
             "reproducibility limits, evidence capture gaps, and sanitization/redaction effects remain visible",
             "missing mandatory regulatory evidence routes to REVIEW or EVIDENCE_REQUIRED"
           ],
-          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-TEST-EVIDENCE"
         },
         {
           "id": "HC-COND-REQUIRED-INPUT",
@@ -617,7 +624,9 @@
             "when a request is for responsive binding approval, preserve requested_for_binding, binding_scope, binding_effects_disclosed, binding_excluded_effects, approval_gate_ref, responsive_action_semantics, and approval-captured/validation-pending state",
             "unsolicited attachment history never restores as binding approval"
           ],
-          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-REQUIRED-INPUT"
         },
         {
           "id": "HC-COND-ORBIT-1",
@@ -625,7 +634,9 @@
           "requirements": [
             "every entry has artifact identity, task identity, queue_state, pause_or_queue_reason, return_target, resume_condition"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ORBIT-1"
         },
         {
           "id": "HC-COND-ORBIT-2",
@@ -633,7 +644,9 @@
           "requirements": [
             "every entry has artifact identity, task identity, queue_state, dependency_edges, resume_condition"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ORBIT-2"
         },
         {
           "id": "HC-COND-Q4D",
@@ -642,7 +655,9 @@
             "onboarding_state.q4d",
             "working_agreement.q6d_state"
           ],
-          "failure_behavior": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED_OR_REVIEW"
+          "failure_behavior": "LEGACY_Q4_D_BASE_MODE_UNRESOLVED_OR_REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-Q4D"
         },
         {
           "id": "HC-COND-CREATIVE",
@@ -650,7 +665,9 @@
           "requirements": [
             "onboarding_state.creative_continuity_state when material"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-CREATIVE"
         },
         {
           "id": "HC-COND-APPROVAL",
@@ -668,7 +685,9 @@
             "approval_state",
             "approval_source"
           ],
-          "failure_behavior": "REVIEW_OR_REJECT"
+          "failure_behavior": "REVIEW_OR_REJECT",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-APPROVAL"
         },
         {
           "id": "HC-COND-GOV",
@@ -681,7 +700,9 @@
             "governance_source_rights_state",
             "governance_blockers"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-GOV"
         },
         {
           "id": "HC-COND-SPECIALIST",
@@ -695,7 +716,9 @@
             "binding_state",
             "scope"
           ],
-          "failure_behavior": "REVIEW"
+          "failure_behavior": "REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SPECIALIST"
         },
         {
           "id": "HC-COND-METHOD",
@@ -713,7 +736,9 @@
             "evidence_refs",
             "method_specific_state satisfies active Method Pack handoff_requirements when applicable"
           ],
-          "failure_behavior": "REVIEW_WITHOUT_INVENTING_MISSING_METHOD_STATE"
+          "failure_behavior": "REVIEW_WITHOUT_INVENTING_MISSING_METHOD_STATE",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-METHOD"
         },
         {
           "id": "HC-COND-PATCH",
@@ -725,7 +750,9 @@
             "mutation scope",
             "validation state"
           ],
-          "failure_behavior": "EVIDENCE_REQUIRED_OR_REJECT"
+          "failure_behavior": "EVIDENCE_REQUIRED_OR_REJECT",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-PATCH"
         },
         {
           "id": "HC-COND-FILE-RECEIPT",
@@ -739,7 +766,9 @@
             "version",
             "delivery_state"
           ],
-          "failure_behavior": "FILE_IDENTITY_COLLISION_OR_REVIEW"
+          "failure_behavior": "FILE_IDENTITY_COLLISION_OR_REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-FILE-RECEIPT"
         },
         {
           "id": "HC-COND-ACTION-GOVERNANCE",
@@ -752,7 +781,9 @@
             "unbound prior effects preserve reconciliation and human-review state",
             "current Core alignment evaluation is rerun before any material action"
           ],
-          "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW"
+          "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ACTION-GOVERNANCE"
         },
         {
           "id": "HC-COND-BOOT-VALIDATION-PROPORTIONALITY",
@@ -765,7 +796,9 @@
             "deferred_checks do not conceal checks required for the next material action",
             "a prior full audit reference is revalidated before being treated as current evidence"
           ],
-          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-BOOT-VALIDATION-PROPORTIONALITY"
         },
         {
           "id": "HC-COND-SPECIALIST-CATALOG",
@@ -780,7 +813,9 @@
             "different or foundation-incompatible current index requires targeted catalog compatibility reconciliation before new discovery",
             "rev11 or earlier schema-2.2.0 cards may omit catalog provenance without schema failure and are tagged UNRECORDED_PRE_REV12 rather than inferred"
           ],
-          "failure_behavior": "RESTORE_EXPLICIT_STATE; DEGRADE_OR_REVALIDATE_CATALOG_DISCOVERY; NEVER_SILENTLY_SUBSTITUTE_SPECIALIST"
+          "failure_behavior": "RESTORE_EXPLICIT_STATE; DEGRADE_OR_REVALIDATE_CATALOG_DISCOVERY; NEVER_SILENTLY_SUBSTITUTE_SPECIALIST",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SPECIALIST-CATALOG"
         },
         {
           "id": "HC-COND-OPERATIVE-AUTHORITY",
@@ -790,7 +825,9 @@
             "do not infer current requirements from release history, amendment, audit, migration, or hotfix records",
             "block only when canonical operative paths disagree"
           ],
-          "failure_behavior": "BLOCK_ONLY_ON_OPERATIVE_PATH_CONFLICT"
+          "failure_behavior": "BLOCK_ONLY_ON_OPERATIVE_PATH_CONFLICT",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-OPERATIVE-AUTHORITY"
         },
         {
           "id": "HC-COND-RUNTIME-ALIGNMENT",
@@ -800,7 +837,9 @@
             "new HANDOFF_RESTORE alignment evaluation is required",
             "no cadence or interval state is restored"
           ],
-          "failure_behavior": "HOLD_RESTORED_EXECUTION_PENDING_CURRENT_ALIGNMENT"
+          "failure_behavior": "HOLD_RESTORED_EXECUTION_PENDING_CURRENT_ALIGNMENT",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-RUNTIME-ALIGNMENT"
         },
         {
           "id": "HC-COND-SEMANTIC-FIDELITY",
@@ -810,7 +849,9 @@
             "restore explicit canonical intent/context only",
             "reconcile current output/task interpretation before approval or delivery"
           ],
-          "failure_behavior": "REVIEW_OR_REQUIRED_INPUT"
+          "failure_behavior": "REVIEW_OR_REQUIRED_INPUT",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SEMANTIC-FIDELITY"
         },
         {
           "id": "HC-COND-MII",
@@ -820,7 +861,9 @@
             "conflicts remain explicit",
             "operative effect requires compilation into or explicit reference by rebound Orbit 0 artifact benchmark"
           ],
-          "failure_behavior": "HOLD_UNCOMPILED_CONTRIBUTIONS_NONOPERATIVE"
+          "failure_behavior": "HOLD_UNCOMPILED_CONTRIBUTIONS_NONOPERATIVE",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-MII"
         },
         {
           "id": "HC-COND-EPISTEMIC-SUFFICIENCY",
@@ -830,7 +873,9 @@
             "request or obtain smallest sufficient missing input",
             "do not silently infer resolution"
           ],
-          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED"
+          "failure_behavior": "REVIEW_OR_EVIDENCE_REQUIRED",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-EPISTEMIC-SUFFICIENCY"
         },
         {
           "id": "HC-COND-ROUTE-MAP",
@@ -840,7 +885,9 @@
             "map remains discovery/salience only",
             "Core semantics remain authoritative if map is absent or stale"
           ],
-          "failure_behavior": "DEGRADE_ROUTE_DISCOVERY_ONLY"
+          "failure_behavior": "DEGRADE_ROUTE_DISCOVERY_ONLY",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ROUTE-MAP"
         },
         {
           "id": "HC-COND-OBJECT-RESPONSIBILITY-REV14",
@@ -851,7 +898,9 @@
             "active_artifact and active_contract repeated values are source snapshots, not competing current authority",
             "unlabelled redundant transfer state is rejected rather than resolved by recency or convenience"
           ],
-          "failure_behavior": "REVIEW_OR_REJECT_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION"
+          "failure_behavior": "REVIEW_OR_REJECT_OBJECT_SCHEMA_FIELD_OWNERSHIP_VIOLATION",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-OBJECT-RESPONSIBILITY-REV14"
         },
         {
           "id": "HC-COND-TARGET-READINESS-REV15",
@@ -863,7 +912,9 @@
             "unresolved target readiness remains unresolved and is not silently promoted on restore",
             "execution_benchmark_profile.completion_envelope agrees with the preserved target readiness state"
           ],
-          "failure_behavior": "REVIEW_OR_TARGET_READINESS_RECONSTRUCTION"
+          "failure_behavior": "REVIEW_OR_TARGET_READINESS_RECONSTRUCTION",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-TARGET-READINESS-REV15"
         },
         {
           "id": "HC-COND-AMRS-STEP-OPTIMALITY-REV15",
@@ -875,7 +926,9 @@
             "optimization_stopping_basis is preserved when proportional stopping supports PASS",
             "required closure evidence and blocker state are preserved"
           ],
-          "failure_behavior": "REVIEW_OR_REJECT_STAGE_COMPLETION_RESTORATION"
+          "failure_behavior": "REVIEW_OR_REJECT_STAGE_COMPLETION_RESTORATION",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-AMRS-STEP-OPTIMALITY-REV15"
         },
         {
           "id": "HC-COND-SCHEMA-ROOT-CLOSURE-REV16",
@@ -885,7 +938,22 @@
             "undeclared top-level extension carriers are rejected rather than silently accepted",
             "runtime_drift_hardening_schema_extension is explicitly declared as an optional schema field"
           ],
-          "failure_behavior": "REVIEW_OR_REJECT_SCHEMA_MANIFEST_MISMATCH"
+          "failure_behavior": "REVIEW_OR_REJECT_SCHEMA_MANIFEST_MISMATCH",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SCHEMA-ROOT-CLOSURE-REV16"
+        },
+        {
+          "id": "HC-COND-FAILURE-MODE-STATE",
+          "condition": "failure_mode_state carrier is required in generated cards",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-FAILURE-MODE-STATE",
+          "requirements": [
+            "failure_mode_state.registry_version",
+            "failure_mode_state.records",
+            "failure_mode_state.positive_execution_authority",
+            "failure_mode_state.restoration_rule"
+          ],
+          "failure_behavior": "REJECT_HANDOFF_OR_REVIEW_WITHOUT_INVENTING_FAILURE_HISTORY"
         }
       ],
       "nullability": {
@@ -940,7 +1008,10 @@
         "Step-optimality represented as proof of a global optimum rather than a stage-relative bounded benchmark judgment",
         "Historical AIR_ACTION_AUTHORIZATION synthesized from approval, Gate plan/state, expected sequence, receipt reference, or effect success without an observed canonical authorization object",
         "Material effect represented as authorized when source-session evidence lacks the required non-null resource scope pin or matching observed authorization",
-        "Material Orbit transition treated as emission-complete when any required AIR_SESSION, AIR_PROJECT_EXECUTION_MAP, or AIR_ARTIFACT bundle member was omitted"
+        "Material Orbit transition treated as emission-complete when any required AIR_SESSION, AIR_PROJECT_EXECUTION_MAP, or AIR_ARTIFACT bundle member was omitted",
+        "AIR_HANDOFF_CARD payload emitted inline in chat instead of downloadable JSON file",
+        "Historical surfaced-object identity serialized without matching AIR_SURFACED_OBJECT_LEDGER entry",
+        "Failure-mode record invented, semantically broadened, or mutated during handoff serialization"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
@@ -969,7 +1040,11 @@
         "epistemic sufficiency and required-input routing check",
         "schema 2.2.0 to 2.3.0 migration check",
         "AIR_RUNTIME_ROUTE_MAP discovery-only authority check",
-        "rev14 to rev15 target-readiness/step-optimality migration check"
+        "rev14 to rev15 target-readiness/step-optimality migration check",
+        "surfaced-object ledger provenance check",
+        "failure-mode registry integrity and applicability-state check",
+        "serialize to AIR_HANDOFF_CARD.json",
+        "reopen exact file bytes and strict-parse/schema-validate before delivery"
       ],
       "schema_compatibility_contract": {
         "core_required_version_owner": "AIR_CORE_RUNTIME_V2",
@@ -1000,6 +1075,198 @@
           "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_source"
         ],
         "historical_release_metadata_effect": "NON_OPERATIVE_MUST_NOT_BLOCK_BOOT_OR_RESTORATION"
+      },
+      "handoff_delivery_contract": {
+        "delivery_mode": "DOWNLOADABLE_JSON_FILE_ONLY",
+        "canonical_filename": "AIR_HANDOFF_CARD.json",
+        "encoding": "UTF-8",
+        "bom": false,
+        "inline_chat_payload": "PROHIBITED",
+        "one_root_key": "AIR_HANDOFF_CARD",
+        "strict_parse_required": true,
+        "duplicate_key_rejection_required": true,
+        "post_write_reopen_parse_required": true,
+        "post_write_schema_validation_required": true,
+        "external_delivery_receipt_required": true,
+        "self_hash_inside_payload": "PROHIBITED",
+        "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK"
+      },
+      "condition_registry": {
+        "registry_version": "1.0.0",
+        "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+        "allowed_operators": [
+          "PATH_EQUALS",
+          "PATH_NOT_NULL",
+          "PATH_NONEMPTY",
+          "ANY_PATH_NONEMPTY",
+          "ANY_PATH_NOT_NULL",
+          "CONST_TRUE",
+          "SOURCE_SET_CONTAINS_FILENAME",
+          "PATH_GTE",
+          "ALL",
+          "PATH_NOT_IN"
+        ],
+        "unknown_operator_behavior": "FAIL_CLOSED",
+        "predicates": {
+          "HC-COND-ACTIVE-ARTIFACT": {
+            "operator": "PATH_EQUALS",
+            "path": "$.active_artifact.presence_state",
+            "expected": "PRESENT"
+          },
+          "HC-COND-KNOWLEDGE-PATH": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.execution_state.execution_benchmark_profile"
+          },
+          "HC-COND-TEST-EVIDENCE": {
+            "operator": "ANY_PATH_NONEMPTY",
+            "paths": [
+              "$.test_evidence_state.produced_test_evidence_refs.test_suite_or_definition_refs",
+              "$.test_evidence_state.evidence_capture_gaps",
+              "$.test_evidence_state.regulatory_evidence_obligation_refs"
+            ]
+          },
+          "HC-COND-REQUIRED-INPUT": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.required_input_state.requests"
+          },
+          "HC-COND-ORBIT-1": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.orbit_state.orbit_1"
+          },
+          "HC-COND-ORBIT-2": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.orbit_state.orbit_2"
+          },
+          "HC-COND-Q4D": {
+            "operator": "PATH_EQUALS",
+            "path": "$.onboarding_state.q4",
+            "expected": "D"
+          },
+          "HC-COND-CREATIVE": {
+            "operator": "PATH_EQUALS",
+            "path": "$.onboarding_state.resolved_base_mode",
+            "expected": "CREATIVE_NARRATIVE_CONTINUITY"
+          },
+          "HC-COND-APPROVAL": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.open_approval_scope"
+          },
+          "HC-COND-GOV": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.governance_state"
+          },
+          "HC-COND-SPECIALIST": {
+            "operator": "ANY_PATH_NONEMPTY",
+            "paths": [
+              "$.specialist_binding_state.supporting_specialists",
+              "$.specialist_binding_state.available_specialists",
+              "$.specialist_binding_state.recommended_specialists"
+            ]
+          },
+          "HC-COND-METHOD": {
+            "operator": "ANY_PATH_NOT_NULL",
+            "paths": [
+              "$.execution_state.method",
+              "$.execution_state.method_handoff_state"
+            ]
+          },
+          "HC-COND-PATCH": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.execution_state.patch_state.source_inventory"
+          },
+          "HC-COND-FILE-RECEIPT": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.file_identity_and_delivery_state.file_receipts"
+          },
+          "HC-COND-ACTION-GOVERNANCE": {
+            "operator": "ANY_PATH_NONEMPTY",
+            "paths": [
+              "$.action_governance_state.resource_scope_pins",
+              "$.action_governance_state.historical_action_authorizations",
+              "$.action_governance_state.action_receipts",
+              "$.action_governance_state.unbound_prior_effects"
+            ]
+          },
+          "HC-COND-BOOT-VALIDATION-PROPORTIONALITY": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.load_integrity.validation_profile"
+          },
+          "HC-COND-SPECIALIST-CATALOG": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.extensions.specialist_catalog_state"
+          },
+          "HC-COND-OPERATIVE-AUTHORITY": {
+            "operator": "CONST_TRUE"
+          },
+          "HC-COND-RUNTIME-ALIGNMENT": {
+            "operator": "PATH_EQUALS",
+            "path": "$.schema_version",
+            "expected": "2.3.0"
+          },
+          "HC-COND-SEMANTIC-FIDELITY": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.semantic_fidelity_state"
+          },
+          "HC-COND-MII": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.mii_state"
+          },
+          "HC-COND-EPISTEMIC-SUFFICIENCY": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.epistemic_sufficiency_state.unresolved_basis_gaps"
+          },
+          "HC-COND-ROUTE-MAP": {
+            "operator": "SOURCE_SET_CONTAINS_FILENAME",
+            "path": "$.source_state.source_set",
+            "expected": "AIR_RUNTIME_ROUTE_MAP.json"
+          },
+          "HC-COND-OBJECT-RESPONSIBILITY-REV14": {
+            "operator": "PATH_GTE",
+            "path": "$.card_revision",
+            "expected": 14
+          },
+          "HC-COND-TARGET-READINESS-REV15": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_GTE",
+                "path": "$.card_revision",
+                "expected": 15
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.execution_state.readiness_state.target_readiness_stage"
+              }
+            ]
+          },
+          "HC-COND-AMRS-STEP-OPTIMALITY-REV15": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_GTE",
+                "path": "$.card_revision",
+                "expected": 15
+              },
+              {
+                "operator": "PATH_NOT_IN",
+                "path": "$.execution_state.review_state.step_optimality_state",
+                "values": [
+                  null,
+                  "NOT_APPLICABLE"
+                ]
+              }
+            ]
+          },
+          "HC-COND-SCHEMA-ROOT-CLOSURE-REV16": {
+            "operator": "PATH_GTE",
+            "path": "$.card_revision",
+            "expected": 16
+          },
+          "HC-COND-FAILURE-MODE-STATE": {
+            "operator": "PATH_NOT_NULL",
+            "path": "$.failure_mode_state"
+          }
+        }
       }
     },
     "extensions": {
@@ -1044,7 +1311,8 @@
         "When the same conceptual datum appears in a source-object snapshot and a transfer-level carrier, the source snapshot preserves provenance while the transfer-level carrier named below governs transfer interpretation.",
         "A repeated value without a distinct source-snapshot role or explicit reference is invalid redundant transfer state.",
         "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object.",
-        "Action-history snapshots must preserve only observed source-session canonical object identities; missing authorizations remain missing or unknown and are never reconstructed during handoff creation."
+        "Action-history snapshots must preserve only observed source-session canonical object identities; missing authorizations remain missing or unknown and are never reconstructed during handoff creation.",
+        "Failure-mode records restore only from the serialized failure_mode_state carrier and preserve source IDs, evidence, applicability, corrective constraints, retest state, recurrence, and supersession without semantic broadening."
       ],
       "canonical_transfer_carriers": {
         "current_task_binding": "AIR_HANDOFF_CARD.task_binding",
@@ -1053,7 +1321,8 @@
         "current_action_history_and_unresolved_effects": "AIR_HANDOFF_CARD.action_governance_state",
         "current_runtime_alignment_transfer_state": "AIR_HANDOFF_CARD.runtime_alignment_state",
         "current_semantic_fidelity_transfer_state": "AIR_HANDOFF_CARD.semantic_fidelity_state",
-        "current_epistemic_sufficiency_transfer_state": "AIR_HANDOFF_CARD.epistemic_sufficiency_state"
+        "current_epistemic_sufficiency_transfer_state": "AIR_HANDOFF_CARD.epistemic_sufficiency_state",
+        "current_failure_mode_registry": "AIR_HANDOFF_CARD.failure_mode_state"
       },
       "source_snapshot_roles": {
         "AIR_HANDOFF_CARD.active_artifact": "IMMUTABLE_PROVENANCE_SNAPSHOT_OF_SOURCE_ARTIFACT; prior binding/action/delivery values cannot override transfer-level carriers or restore execution authority.",
@@ -1080,7 +1349,10 @@
         "planned_authorization_is_authorization_evidence": false,
         "effect_success_is_authorization_evidence": false,
         "missing_authorization_effect_route": "UNBOUND_PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN",
-        "retroactive_authorization_prohibited": true
+        "retroactive_authorization_prohibited": true,
+        "surfaced_object_ledger_required": true,
+        "surfaced_claim_source": "AIR_SURFACED_OBJECT_LEDGER_V1_ONLY",
+        "failure_mode_history_source": "AIR_HANDOFF_CARD.failure_mode_state"
       }
     },
     "runtime_drift_hardening_schema_extension": {
@@ -1096,7 +1368,9 @@
         "semantic fidelity state",
         "MII contribution/fusion state",
         "morphology state",
-        "epistemic sufficiency state"
+        "epistemic sufficiency state",
+        "surfaced-object emission ledger provenance",
+        "failure-mode learning registry and retry constraints"
       ],
       "restore_boundary": "Historical alignment evaluation and action authorizations never restore as current executable authority. Restore explicit provenance/state only; current validation, alignment evaluation, dependency closure, and artifact rebinding remain required.",
       "alignment_floor_invariant": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
@@ -1108,7 +1382,12 @@
         "material_action_contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
         "constructor_validation_contract": "AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1",
         "handoff_provenance_contract": "AIR_HANDOFF_PROVENANCE_FIDELITY_V1",
-        "deterministic_projection_order_contract": "AIR_DETERMINISTIC_PROJECTION_ORDER_INTEGRITY_V1"
+        "deterministic_projection_order_contract": "AIR_DETERMINISTIC_PROJECTION_ORDER_INTEGRITY_V1",
+        "runtime_control_event_contract": "AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1",
+        "approval_response_contract": "AIR_APPROVAL_RESPONSE_RESOLUTION_V1",
+        "surfaced_object_ledger_contract": "AIR_SURFACED_OBJECT_LEDGER_V1",
+        "failure_mode_learning_contract": "AIR_FAILURE_MODE_REGISTRY_V1",
+        "handoff_file_delivery_contract": "AIR_HANDOFF_FILE_DELIVERY_V1"
       }
     },
     "runtime_alignment_state": {
@@ -1161,6 +1440,20 @@
       "evidence_required_refs": [],
       "capability_required_refs": [],
       "restoration_rule": "Material uncertainty remains unresolved until Core RT.UNCERTAINTY_RESOLVE obtains or validates the smallest sufficient input. Do not silently infer missing basis from handoff proximity or prior momentum."
+    },
+    "failure_mode_state": {
+      "registry_version": "1.0.0",
+      "state": "UNVALIDATED_TEMPLATE",
+      "records": [],
+      "active_corrective_constraint_refs": [],
+      "mitigated_retain_for_regression_refs": [],
+      "recurrent_refs": [],
+      "superseded_refs": [],
+      "artifact_application_refs": [],
+      "specialist_application_refs": [],
+      "registry_owner": "AIR_CORE_RUNTIME_V2",
+      "positive_execution_authority": "NONE",
+      "restoration_rule": "Restore exact failure-mode records as UNVALIDATED_BOOTSTRAP_INPUT. Revalidate evidence, lifecycle, applicability signatures, supersession, recurrence, and current task match; compile applicable constraints into the rebound Orbit 0 Artifact before they become operative. Specialist packages consume only Core-validated applicable records."
     }
   }
 }

@@ -155,6 +155,8 @@ def main() -> None:
     require((ROOT / 'tools' / 'test_air_contract_registry_mutations.py').is_file(), 'missing deterministic contract mutation suite')
     require((ROOT / 'tools' / 'validate_air_behavioral_contracts.py').is_file(), 'missing behavioral transaction validator')
     require((ROOT / 'tools' / 'test_air_behavioral_contract_mutations.py').is_file(), 'missing behavioral transaction mutation suite')
+    require((ROOT / 'tools' / 'validate_air_control_plane.py').is_file(), 'missing control-plane semantic-loophole validator')
+    require((ROOT / 'tools' / 'test_air_control_plane_mutations.py').is_file(), 'missing control-plane semantic-loophole mutation suite')
     require((ROOT / 'tests' / 'air_contract_fixtures.json').is_file(), 'missing regression fixtures')
     require((ROOT / 'tests' / 'deterministic_contract_inventory.json').is_file(), 'missing deterministic contract inventory')
 
@@ -182,6 +184,7 @@ def main() -> None:
     require('Patch marker: AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1' in core, 'missing Core deterministic-pipeline non-inference law')
     require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in core, 'missing Core floor 025')
     require('AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION' in core, 'missing Core floor 026')
+    require('AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY' in core, 'missing Core floor 027')
     require('Patch marker: AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1' in core, 'missing deterministic contract representation law')
 
     starter_path = ROOT / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json'
@@ -224,14 +227,14 @@ def main() -> None:
     require(sc.get('starter_identity_version_source') == 'AIR_DEFAULT_STARTER_V2.PROMPT_VERSION', 'Handoff Starter version source mismatch')
 
     routes = parse_core_routes(core)
-    for rid in ['RT.ACTIVATE', 'RT.ALIGN', 'RT.AMEND', 'RT.TASK_SWITCH', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE']:
+    for rid in ['RT.ACTIVATE', 'RT.ALIGN', 'RT.AMEND', 'RT.TASK_SWITCH', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE']:
         require(rid in routes, f'missing Core route {rid}')
     require('AIR_ALIGNMENT_CHECK' in routes['RT.ALIGN']['produces'] and 'AIR_VALIDATION_REPORT' in routes['RT.ALIGN']['produces'], 'RT.ALIGN pair missing')
     require('AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION' in routes['RT.ACTIVATE']['produces'], 'RT.ACTIVATE missing init brief emission token')
     require('AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION' in routes['RT.ACTIVATE']['produces'], 'RT.ACTIVATE missing execution map emission token')
     require('AIR_ARTIFACT' in routes['RT.AMEND']['produces'], 'RT.AMEND missing revised artifact emission')
     require('AIR_PROJECT_EXECUTION_MAP' in routes['RT.TASK_SWITCH']['produces'] and 'AIR_ARTIFACT' in routes['RT.TASK_SWITCH']['produces'], 'RT.TASK_SWITCH emission closure incomplete')
-    deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}
+    deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}
     for rid in sorted(deterministic_routes):
         require(rid in routes, f'missing deterministic Core route {rid}')
         require(routes[rid].get('execution_semantics') == 'DETERMINISTIC_PIPELINE', f'{rid}: execution_semantics mismatch')

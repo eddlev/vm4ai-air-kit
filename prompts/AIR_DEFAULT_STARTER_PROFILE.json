@@ -52,7 +52,8 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
     ]
   },
   "profile_scope": {
@@ -463,6 +464,7 @@
         "CURRENT_APPROVAL_WHEN_REQUIRED",
         "CURRENT_AIR_GATE_ALLOW",
         "AIR_ACTION_AUTHORIZATION_EMITTED",
+        "AUTHORITY_OBJECTS_LEDGER_COMMITTED",
         "EFFECT_ATTEMPT",
         "OBSERVED_EFFECT_EVIDENCE",
         "POST_MATERIAL_EFFECT_ALIGNMENT",
@@ -474,7 +476,10 @@
       "authorization_receipt_exact_match_required": true,
       "prior_hold_gate_may_be_reused_as_allow": false,
       "effect_before_authorization_emission": "PROHIBITED",
-      "failure_behavior": "FAIL_CLOSED_OR_PRIOR_EFFECT_RECOVERY_IF_EFFECT_ALREADY_OBSERVED"
+      "failure_behavior": "FAIL_CLOSED_OR_PRIOR_EFFECT_RECOVERY_IF_EFFECT_ALREADY_OBSERVED",
+      "approval_resolution_contract": "AIR_APPROVAL_RESPONSE_RESOLUTION_V1",
+      "authority_ledger_required_before_effect": true,
+      "exact_approval_or_rejection_token_required": true
     },
     "formal_object_constructor_validation": {
       "required": true,
@@ -499,7 +504,10 @@
       "receipt_reference_is_authorization_evidence": false,
       "planned_authorization_is_authorization_evidence": false,
       "effect_success_is_authorization_evidence": false,
-      "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN"
+      "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN",
+      "source_of_surfaced_history": "AIR_SURFACED_OBJECT_LEDGER_V1_ONLY",
+      "ledger_entry_required_for_surfaced_claim": true,
+      "failure_mode_state_preserved": true
     },
     "deterministic_projection_order_integrity": {
       "required": true,
@@ -515,6 +523,500 @@
       "order_policy": "EXACT_DECLARED_ORDER",
       "commuting_operations_may_reorder": false,
       "failure_behavior": "FAIL_CLOSED_OR_CORRECT_BEFORE_RENDER"
+    },
+    "runtime_control_event_registry": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1",
+      "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED_FOR_CONTROL_AUTHORITY",
+      "allowed_guard_operators": [
+        "STATE_PRESENT",
+        "STATE_NOT_NULL",
+        "STATE_EQUALS",
+        "EXACT_TOKEN_IN_DECLARED_SET",
+        "LEDGER_CONTAINS",
+        "REFERENCE_RESOLVES",
+        "CAPABILITY_AVAILABLE"
+      ],
+      "route_count": 22,
+      "events": [
+        {
+          "event_id": "CE-RT-BOOT",
+          "route_id": "RT.BOOT",
+          "event_source": "RUNTIME_STATE_EVENT",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-ONBOARD",
+          "route_id": "RT.ONBOARD",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-HANDOFF_RESTORE",
+          "route_id": "RT.HANDOFF_RESTORE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-ACTIVATE",
+          "route_id": "RT.ACTIVATE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-TURN",
+          "route_id": "RT.TURN",
+          "event_source": "RUNTIME_STATE_EVENT",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-ALIGN",
+          "route_id": "RT.ALIGN",
+          "event_source": "RUNTIME_STATE_EVENT",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-INPUT_TRANSLATE",
+          "route_id": "RT.INPUT_TRANSLATE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-CLASSIFY",
+          "route_id": "RT.CLASSIFY",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-COMPATIBLE",
+          "route_id": "RT.COMPATIBLE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-AMEND",
+          "route_id": "RT.AMEND",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-TASK_SWITCH",
+          "route_id": "RT.TASK_SWITCH",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-CAPABILITY_RESOLVE",
+          "route_id": "RT.CAPABILITY_RESOLVE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-COGNITIVE_RESOLVE",
+          "route_id": "RT.COGNITIVE_RESOLVE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-MORPHOLOGY_BIND",
+          "route_id": "RT.MORPHOLOGY_BIND",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-UNCERTAINTY_RESOLVE",
+          "route_id": "RT.UNCERTAINTY_RESOLVE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-APPROVAL_RESOLVE",
+          "route_id": "RT.APPROVAL_RESOLVE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_NOT_NULL",
+              "path": "OPEN_APPROVAL_SCOPE"
+            },
+            {
+              "operator": "EXACT_TOKEN_IN_DECLARED_SET",
+              "path": "CURRENT_USER_INPUT",
+              "set_path": "OPEN_APPROVAL_SCOPE.operational_response_tokens"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-ACTION",
+          "route_id": "RT.ACTION",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_EQUALS",
+              "path": "APPROVAL_RESOLUTION_STATE",
+              "expected": "APPROVED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_AIR_GATE.decision",
+              "expected": "ALLOW"
+            },
+            {
+              "operator": "LEDGER_CONTAINS",
+              "path": "AIR_SURFACED_OBJECT_LEDGER",
+              "object_name": "AIR_GATE"
+            },
+            {
+              "operator": "STATE_NOT_NULL",
+              "path": "CURRENT_RESOURCE_SCOPE_PIN"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_ARTIFACT_LEASE.state",
+              "expected": "ACTIVE"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-RECEIPT",
+          "route_id": "RT.RECEIPT",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_EQUALS",
+              "path": "EFFECT_ATTEMPT_STATE",
+              "expected": "ATTEMPTED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "POST_EFFECT_ALIGNMENT_PROFILE",
+              "expected": "POST_MATERIAL_EFFECT"
+            },
+            {
+              "operator": "REFERENCE_RESOLVES",
+              "path": "CONSUMED_AUTHORIZATION_REF"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-DELIVER",
+          "route_id": "RT.DELIVER",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-CLOSE",
+          "route_id": "RT.CLOSE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-HANDOFF_CREATE",
+          "route_id": "RT.HANDOFF_CREATE",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_EQUALS",
+              "path": "INSTRUCTION_EFFECT_CLASS",
+              "expected": "HANDOFF_CREATE_REQUEST"
+            },
+            {
+              "operator": "CAPABILITY_AVAILABLE",
+              "path": "DOWNLOADABLE_FILE_CREATION"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "HANDOFF_DELIVERY_MODE",
+              "expected": "DOWNLOADABLE_JSON_FILE_ONLY"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
+          "event_id": "CE-RT-RECOVERY",
+          "route_id": "RT.RECOVERY",
+          "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        }
+      ],
+      "natural_language_trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "semantic_classifier_effect": "PROPOSE_EVENT_CLASS_ONLY_NO_STATE_AUTHORITY",
+      "unknown_event_behavior": "FAIL_CLOSED"
+    },
+    "approval_response_resolution": {
+      "required": true,
+      "core_patch_marker": "AIR_APPROVAL_RESPONSE_RESOLUTION_V1",
+      "approval_token_template": "AIR_APPROVE::<approval_scope_id>",
+      "rejection_token_template": "AIR_REJECT::<approval_scope_id>",
+      "exact_match_required": true,
+      "natural_language_paraphrase_authority": "NONE",
+      "approval_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_GATE",
+        "AIR_ACTION_AUTHORIZATION",
+        "AIR_SURFACED_OBJECT_LEDGER"
+      ],
+      "rejection_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_GATE",
+        "AIR_SURFACED_OBJECT_LEDGER"
+      ],
+      "effect_before_authority_ledger": "PROHIBITED"
+    },
+    "surfaced_object_ledger": {
+      "required": true,
+      "core_patch_marker": "AIR_SURFACED_OBJECT_LEDGER_V1",
+      "append_only": true,
+      "authority_entry_state": "USER_VISIBLE_EMITTED",
+      "authority_objects_requiring_entry_before_dependency": [
+        "AIR_GATE",
+        "AIR_ACTION_AUTHORIZATION",
+        "AIR_ACTION_RECEIPT",
+        "AIR_PRIOR_EFFECT_RECORD",
+        "AIR_FAILURE_MODE_RECORD"
+      ],
+      "authorization_consumption_requires_ledger_entry": true,
+      "handoff_history_requires_ledger_entry": true,
+      "constructed_not_emitted_effect": "NOT_LEDGER_ELIGIBLE"
+    },
+    "failure_mode_registry": {
+      "required": true,
+      "core_patch_marker": "AIR_FAILURE_MODE_REGISTRY_V1",
+      "floor_invariant": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "registry_version": "1.0.0",
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "capture_triggers": [
+        "FORMAL_VALIDATION_FAILURE",
+        "AIR_ERROR",
+        "EXECUTION_DEFECT_REJECT",
+        "FAILED_BENCHMARK_CRITERION",
+        "OPERATOR_CONFIRMED_EXECUTION_DEFECT",
+        "UNEXPECTED_OR_MISMATCHED_EFFECT",
+        "REGRESSION",
+        "EXPLICIT_USER_CORRECTION_OF_FAILED_STRATEGY"
+      ],
+      "lifecycle_states": [
+        "OBSERVED",
+        "ACTIVE_CORRECTIVE_CONSTRAINT",
+        "RETEST_PENDING",
+        "MITIGATED_RETAIN_FOR_REGRESSION",
+        "RECURRENT",
+        "SUPERSEDED",
+        "INVALIDATED"
+      ],
+      "root_cause_states": [
+        "ESTABLISHED",
+        "PARTIAL",
+        "UNRESOLVED"
+      ],
+      "automatic_applicability": "EXACT_MATCH_ONLY",
+      "compatible_match_effect": "REVIEW_OR_COGNITIVE_INPUT_ONLY_UNTIL_ARTIFACT_COMPILATION",
+      "semantic_similarity_authority": "NONE",
+      "pre_retry_query_required": true,
+      "corrective_constraint_activation": "COMPILE_INTO_OR_EXPLICITLY_REFERENCE_CURRENT_ORBIT_0_ARTIFACT",
+      "successful_retest_state": "MITIGATED_RETAIN_FOR_REGRESSION",
+      "recurrence_behavior": "INCREMENT_AND_REVIEW_ROOT_CAUSE_OR_CONSTRAINT",
+      "specialist_scope": "ALL_SELECTED_OR_BOUND_SPECIALIST_METHOD_DOMAIN_EXECUTOR_TRANSLATOR_CAPABILITY_COMPONENTS",
+      "specialist_registry_mutation_authority": "NONE",
+      "specialist_failure_candidate_route": "TO_CORE_FOR_VALIDATION_AND_RECORDING",
+      "handoff_path": "AIR_HANDOFF_CARD.failure_mode_state"
+    },
+    "handoff_file_delivery": {
+      "required": true,
+      "core_patch_marker": "AIR_HANDOFF_FILE_DELIVERY_V1",
+      "delivery_mode": "DOWNLOADABLE_JSON_FILE_ONLY",
+      "canonical_filename": "AIR_HANDOFF_CARD.json",
+      "encoding": "UTF-8",
+      "bom": false,
+      "inline_payload": "PROHIBITED",
+      "strict_json_parse_required": true,
+      "duplicate_key_rejection_required": true,
+      "one_root_required": "AIR_HANDOFF_CARD",
+      "post_write_reopen_parse_required": true,
+      "post_write_schema_validation_required": true,
+      "self_hash_inside_payload": "PROHIBITED",
+      "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK"
     }
   },
   "bootstrap_contract": {

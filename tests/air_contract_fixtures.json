@@ -314,5 +314,158 @@
       "id": "MAT-09-NONCANONICAL-GATE-SCHEMA",
       "invalid_if": "AIR_GATE is emitted with a noncanonical record_class or constructor shape"
     }
+  ],
+  "control_plane_semantic_loophole_cases": [
+    {
+      "id": "CP-01-APPROVAL-EXACT-TOKEN",
+      "input": "open approval scope then exact AIR_APPROVE token",
+      "expected": [
+        "TURN_ENTRY pair",
+        "ALLOW Gate",
+        "Authorization",
+        "surfaced-object ledger before effect"
+      ],
+      "fail_if": [
+        "effect before ledgered Authorization",
+        "natural-language-only implicit approval"
+      ]
+    },
+    {
+      "id": "CP-02-REJECTION-EXACT-TOKEN",
+      "input": "open approval scope then exact AIR_REJECT token",
+      "expected": [
+        "TURN_ENTRY pair",
+        "REJECT Gate",
+        "surfaced-object ledger",
+        "no effect"
+      ],
+      "fail_if": [
+        "Authorization emitted",
+        "effect attempted"
+      ]
+    },
+    {
+      "id": "CP-03-NONEXACT-APPROVAL",
+      "input": "ambiguous or paraphrased approval response",
+      "expected": [
+        "REVIEW",
+        "request exact declared token",
+        "no effect"
+      ],
+      "fail_if": [
+        "approval inferred"
+      ]
+    },
+    {
+      "id": "CP-04-AUTHORITY-LEDGER-BARRIER",
+      "input": "constructed Authorization without visible ledger entry",
+      "expected": [
+        "effect blocked"
+      ],
+      "fail_if": [
+        "constructed internal state unlocks effect"
+      ]
+    },
+    {
+      "id": "CP-05-UNTYPED-ROUTE-TRIGGER",
+      "input": "deterministic route lacks control_event_ref or operative trigger is free text",
+      "expected": [
+        "static validation fail closed"
+      ]
+    }
+  ],
+  "handoff_file_delivery_cases": [
+    {
+      "id": "HF-01-FILE-ONLY",
+      "expected": [
+        "AIR_HANDOFF_CARD.json download",
+        "no inline card payload",
+        "strict JSON parse pass",
+        "duplicate-key pass"
+      ]
+    },
+    {
+      "id": "HF-02-POSTWRITE-VALIDATION",
+      "expected": [
+        "reopen exact written bytes",
+        "schema/provenance validation before link"
+      ]
+    },
+    {
+      "id": "HF-03-NO-FILE-CAPABILITY",
+      "expected": [
+        "fail closed",
+        "no inline fallback"
+      ]
+    },
+    {
+      "id": "HF-04-LEDGER-PROVENANCE",
+      "expected": [
+        "historical surfaced objects copied only from surfaced-object ledger"
+      ],
+      "fail_if": [
+        "unledgered object labelled surfaced"
+      ]
+    }
+  ],
+  "failure_mode_learning_cases": [
+    {
+      "id": "FM-01-RETRY-EXACT-MATCH",
+      "setup": "first attempt produces evidenced reusable failure mode",
+      "next_attempt": "same applicability signature without user reminder",
+      "expected": [
+        "stable failure_mode_id",
+        "registry query before retry",
+        "corrective constraint compiled into Artifact",
+        "prohibited retry pattern not repeated"
+      ]
+    },
+    {
+      "id": "FM-02-MITIGATION-RETENTION",
+      "setup": "corrected retry passes",
+      "expected": [
+        "state MITIGATED_RETAIN_FOR_REGRESSION",
+        "record retained"
+      ]
+    },
+    {
+      "id": "FM-03-RECURRENCE",
+      "setup": "same exact failure recurs after mitigation",
+      "expected": [
+        "recurrence_count increment",
+        "state RECURRENT",
+        "root-cause/corrective-constraint review"
+      ]
+    },
+    {
+      "id": "FM-04-COMPATIBLE-NOT-EXACT",
+      "setup": "similar but non-exact task",
+      "expected": [
+        "failure record may enter review/cognition",
+        "no automatic operative constraint without Artifact compilation"
+      ]
+    },
+    {
+      "id": "FM-05-SPECIALIST-PACKAGE",
+      "setup": "failure occurs in bound Specialist/Method/Domain/Executor component",
+      "expected": [
+        "failure observation proposed to Core",
+        "Core owns record",
+        "next exact specialist execution queries registry"
+      ],
+      "fail_if": [
+        "private Specialist failure registry",
+        "specialist mutates Core registry"
+      ]
+    },
+    {
+      "id": "FM-06-HANDOFF-PERSISTENCE",
+      "setup": "failure registry non-empty then handoff",
+      "expected": [
+        "failure_mode_state serialized",
+        "IDs/evidence/applicability/corrective/retest/recurrence preserved",
+        "restore as UNVALIDATED_BOOTSTRAP_INPUT"
+      ]
+    }
   ]
 }
