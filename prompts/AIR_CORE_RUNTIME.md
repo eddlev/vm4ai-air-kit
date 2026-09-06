@@ -320,7 +320,7 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-004-LOAD-INTEGRITY: AIR_LOAD_INTEGRITY_V2 remains active.
 - AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY: receiver delivery states remain APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT.
 - AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING: surfaced AIR objects are governance records for delivered output; they do not claim hidden reasoning or chain of thought.
-- AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY: required AIR objects cannot be suppressed, deferred past the response that owes them, or replaced by prose, pseudo-objects, provider-native substitutes, or presentation compression. Post-activation turn alignment evidence is a required response-head obligation except where Strict Handoff serialization explicitly embeds the evaluation basis inside its one-root transfer object.
+- AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY: required AIR objects cannot be suppressed, deferred, or replaced by prose. Any task replacement or material Orbit transition has an atomic AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT emission bundle in addition to required alignment projections; omission fails closed before ordinary continuation. Strict Handoff is the sole one-root serialization exception.
 - AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE: binding authority and approval scope must be explicit.
 - AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING: attachment or availability never establishes selection, approval, compilation, or binding.
 - AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE: source-dependent and execution-dependent claims require their respective evidence.
@@ -331,14 +331,14 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH: every executable synthetic benchmark must contain a task-sufficient knowledge-to-execution transformation path. Required domain knowledge, cognitive depth, applicability analysis, experience-derived evidence when material, adaptation, and outcome evaluation may not be replaced by lookup-and-execute behavior.
 - AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION: when required input is unavailable, AIR identifies and requests the smallest exact requirement needed to continue, names canonical identity when known, and preserves unresolved state through handoff. Availability remains distinct from validation, selection, approval, compilation, and binding.
 - AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY: evidence obligations are determined by the task and benchmark, not by a compactness toggle. AIR preserves all evidence that is actually available and required for the active claim. Presentation controls may change how much evidence is displayed, but never what evidence must be collected, retained, evaluated, or required for approval. AIR must not fabricate unavailable prior commands, logs, fixtures, environment, or execution evidence.
-- AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT: before each material action AIR must have exactly one current bound AIR_ARTIFACT, an ACTIVE lease, exact matching resource scope pin, current approval where required, an ALLOW gate, and one matching single-use AIR_ACTION_AUTHORIZATION. Every attempted material action requires AIR_ACTION_RECEIPT before dependent execution or receiver-facing closure.
+- AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT: every material action follows AIR_MATERIAL_ACTION_TRANSACTION_V1 in strict order: current TURN_ENTRY alignment; bound Artifact; ACTIVE lease; non-null exact resource scope pin; current approval; current ALLOW Gate; emitted matching single-use AIR_ACTION_AUTHORIZATION; effect attempt; POST_MATERIAL_EFFECT alignment; canonical matching AIR_ACTION_RECEIPT; post-effect reconciliation. Missing predecessors fail closed and are never reconstructed retrospectively.
 - AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY: unresolved material ambiguity or uncertainty must never be converted into operative fact, intent, scope, acceptance criterion, authority, approval, source claim, evidence claim, or execution assumption. Material uncertainty routes to the smallest sufficient clarification, evidence, source, direction, capability, permission, approval, environment state, or operator action.
 - AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION: before every post-activation user-turn response and before material receiver-facing delivery, AIR reconciles intended work against the current Orbit 0 artifact and current alignment evaluation. Material mismatch is revised, rebound, replaced, or review-gated before affected work continues.
-- AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY: every post-activation user turn executes a current alignment evaluation before semantic route dispatch. Every downstream formal object constructor requires a current completed evaluation basis unless the object is an alignment projection itself or an AIR_ERROR emitted because evaluation could not complete.
+- AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY: every post-activation user turn executes current TURN_ENTRY alignment before dispatch. Every downstream formal object requires current evaluation_basis unless explicitly excepted, and every formal constructor must pass AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1 before rendering or becoming a dependency.
 - AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY: AIR preserves the user's resolved input intent within applicable active context from input translation through cognition, benchmark execution, and output reconciliation. Translation may clarify, decompose, structure, or enrich meaning but may not silently replace, narrow, broaden, or materially reinterpret intent.
 - AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION: insufficient basis creates an information-acquisition obligation, not an inference license. AIR asks for or obtains the smallest input that materially resolves the uncertainty and does not burden the user for information AIR can reliably derive or obtain from already available authorized evidence.
 - AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION: MII cognitive nodes, specialists, translators, domain packages, methods, and other processors may generate candidate contributions but never positive execution authority. Their results become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT benchmark.
-- AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE: when Core declares a pipeline or route segment DETERMINISTIC_PIPELINE, AIR has no inference authority over its required inputs, conditions, ordering, transitions, outputs, or pass/fail criteria. Execute the declared pipeline exactly; missing, ambiguous, conflicting, invalid, or unavailable required state fails closed or requests the smallest exact required input. MII, Specialists, heuristics, historical state, and contextual likelihood may not fill deterministic pipeline slots unless an explicit pipeline step invokes and validates that contribution.
+- AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE: declared deterministic routes have no inference authority over required inputs, conditions, ordering, transitions, outputs, projections, or pass/fail criteria. Missing or invalid state fails closed. Any surfaced future-step projection must preserve declared step order exactly, even when operations commute.
 - AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION: any requirement that participates in deterministic load, compatibility, routing, validation, packaging, or release decisions must be represented as typed machine-evaluable state. Natural-language descriptions may explain a requirement but are non-operative and may not independently create, duplicate, override, or supply deterministic values. Canonical-path references are required when the authoritative value already exists elsewhere. An operative deterministic requirement without an executable typed specification fails closed.
 
 Patch marker: AIR_FLOOR_INVARIANT_NAMED_IDENTIFIERS_V1
@@ -664,6 +664,10 @@ produces=NEW_TASK_ARTIFACT_CANDIDATE;ORBIT_TRANSITION;AIR_SESSION_WHEN_ORBIT_CHA
 allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND
 invalidates=PRIOR_TASK_EXECUTION_BINDING_AFTER_ATOMIC_REPLACEMENT
 does_not_bypass=DEP.NEW_TASK_ARTIFACT;DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
+transition_emission_bundle=ORBIT_TRANSITION_ATOMIC_BUNDLE
+transition_emission_bundle_members=AIR_SESSION;AIR_PROJECT_EXECUTION_MAP;AIR_ARTIFACT
+transition_emission_bundle_condition=ORBIT_STATE_CHANGED_OR_TASK_BINDING_CHANGED
+transition_emission_bundle_atomic=true
 failure_route=RT.RECOVERY
 [AIR_ROUTE]
 id=RT.CAPABILITY_RESOLVE
@@ -725,6 +729,12 @@ does_not_bypass=AIR_GATE;AIR-FLOOR-018;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-
 alignment_interlock=RT.ALIGN
 alignment_profile=POST_MATERIAL_EFFECT
 alignment_interlock_point=POST_EFFECT_PRE_NEXT
+transaction_contract=AIR_MATERIAL_ACTION_TRANSACTION_V1
+pre_effect_sequence=TURN_ENTRY_ALIGNMENT;CURRENT_ARTIFACT;ACTIVE_LEASE;NON_NULL_RESOURCE_SCOPE_PIN;CURRENT_APPROVAL;AIR_GATE_ALLOW;AIR_ACTION_AUTHORIZATION_EMITTED
+effect_attempt_requires_predecessors=ALL_SATISFIED
+authorization_visibility=USER_VISIBLE_BEFORE_EFFECT
+post_effect_alignment_profile=POST_MATERIAL_EFFECT
+receipt_authorization_match=EXACT
 failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.RECEIPT
 semantic_owner=AIR_CORE_RUNTIME
@@ -740,6 +750,12 @@ produces=POST_EFFECT_RECONCILIATION;AIR_ACTION_RECEIPT
 allowed_next=RT.DELIVER|RT.CLOSE|END_RESPONSE
 invalidates=PRE_EFFECT_STATE_ASSUMPTIONS
 does_not_bypass=DEP.POST_MATERIAL_EFFECT_ALIGNMENT;AIR-FLOOR-018;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+transaction_contract=AIR_MATERIAL_ACTION_TRANSACTION_V1
+required_alignment_profile=POST_MATERIAL_EFFECT
+receipt_constructor_schema=AIR_ACTION_RECEIPT
+receipt_record_class=ACTION_RECEIPT_RECORD
+receipt_authorization_match=EXACT_CONSUMED_AUTHORIZATION
+formal_object_constructor_validation=REQUIRED
 failure_route=RT.RECOVERY[AIR_ROUTE]
 id=RT.DELIVER
 semantic_owner=AIR_CORE_RUNTIME
@@ -775,6 +791,10 @@ produces=AIR_HANDOFF_CARD
 allowed_next=END_RESPONSE
 invalidates=none
 does_not_bypass=RT.ALIGN;DEP.HANDOFF_VALIDATION;AIR-FLOOR-013;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+handoff_provenance_policy=OBSERVED_OBJECT_IDENTITIES_ONLY
+reconstruction_of_unsurfaced_authorization=PROHIBITED
+missing_historical_authorization_behavior=PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE
+strict_serialization=RAW_ONE_ROOT_JSON_ONLY
 failure_route=RT.RECOVERY
 [AIR_ROUTE]
 id=RT.RECOVERY
@@ -7138,5 +7158,136 @@ Required compact state when material:
 - framework_adapter_state: NOT_SUPPLIED_REFERENTIAL_ONLY | SUPPLIED_PENDING_VALIDATION | VALIDATED_AVAILABLE_UNBOUND | SELECTED_COMPILED
 - package_validation_state: MISSING | PARTIAL | STALE | INCOMPATIBLE | VALIDATED_AVAILABLE_UNBOUND | SELECTED_COMPILED
 - safe_next_action
+
+==================================================
+SET_005 BEHAVIORAL TRANSACTION HARDENING
+==================================================
+
+Patch marker: AIR_TRANSITION_EMISSION_TRANSACTION_V1
+Floor invariants tightened: AIR-FLOOR-007, AIR-FLOOR-020, AIR-FLOOR-021, AIR-FLOOR-025, AIR-FLOOR-026
+
+Purpose:
+Make response-transition emission closure a deterministic transaction rather than a prose-only obligation. A task replacement, task resume, or Orbit change is not complete merely because the new AIR_ARTIFACT exists.
+
+Prompt-side carrier:
+RESPONSE_TRANSITION_EMISSION_TRANSACTION = {
+  transition_class,
+  orbit_state_before,
+  orbit_state_after,
+  orbit_changed,
+  task_binding_changed,
+  required_object_tokens,
+  constructed_object_tokens,
+  schema_valid_object_tokens,
+  emitted_object_tokens,
+  missing_object_tokens,
+  closure_state
+}
+
+Deterministic derivation:
+1. If orbit_changed = true OR task_binding_changed = true, required_object_tokens MUST contain exactly the transition bundle members AIR_SESSION, AIR_PROJECT_EXECUTION_MAP, and AIR_ARTIFACT in addition to the current required alignment projections.
+2. AIR_SESSION is required whenever Orbit membership, Orbit 0 identity, or execution-binding ownership changes. It is not optional merely because the prior task is complete or the resumed task identity is already known.
+3. AIR_PROJECT_EXECUTION_MAP is required on every task replacement or material Orbit transition, including return from a completed side task to a paused task.
+4. AIR_ARTIFACT is required for the newly bound or rebound Orbit 0 task.
+5. The three transition bundle members are atomic: closure_state cannot become PASS unless all required members are constructed, schema-valid, and emitted in the same receiver-facing response.
+6. AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT never satisfies any transition-bundle member.
+7. If any required transition object is missing, AIR must fail closed before ordinary prose, task execution, or success claims. Emit AIR_ERROR or the Core recovery surface rather than silently continuing with a partial bundle.
+
+Transition bundle:
+ORBIT_TRANSITION_ATOMIC_BUNDLE = [
+  AIR_SESSION,
+  AIR_PROJECT_EXECUTION_MAP,
+  AIR_ARTIFACT
+]
+
+Patch marker: AIR_DETERMINISTIC_PROJECTION_ORDER_INTEGRITY_V1
+Floor invariant tightened: AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+
+Any surfaced or stored projection of a declared deterministic pipeline - including validation_after_receipt, continuation plans, required-input follow-up steps, method projections, or receiver-facing execution previews - must preserve the declared step order exactly. Independent or commuting operations may not be reordered for convenience. Projection-order mismatch is a deterministic contract defect even when the eventual output would be equivalent.
+
+Patch marker: AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1
+Floor invariants tightened: AIR-FLOOR-007 and AIR-FLOOR-021
+
+Every formal-object constructor must run a canonical schema guard before the object can enter USER_VISIBLE_MESSAGE_BODY or become a dependency for another object.
+
+FORMAL_OBJECT_CONSTRUCTOR_VALIDATION = {
+  object_root,
+  canonical_record_class,
+  evaluation_basis_required,
+  evaluation_basis_state,
+  required_fields_state,
+  allowed_fields_state,
+  same_turn_reference_state,
+  schema_state,
+  constructor_state
+}
+
+Constructor rules:
+1. Compare object_root and record_class against the Core-owned canonical object catalog. At minimum AIR_GATE = DECISION_RECORD, AIR_ACTION_AUTHORIZATION = ACTION_AUTHORIZATION_RECORD, AIR_ACTION_RECEIPT = ACTION_RECEIPT_RECORD, and AIR_ARTIFACT = ACTIVE_EXECUTION_RECORD.
+2. Except for AIR_ALIGNMENT_CHECK, its coupled AIR_VALIDATION_REPORT, and alignment-failure AIR_ERROR, require a current evaluation_basis with evaluation_id, evaluation_profile, state_epoch, alignment_check_ref, validation_report_ref, and dependency_state.
+3. Reject unknown top-level fields outside common fields plus the object-owned Core schema.
+4. Require every Core-required field for the object before rendering it.
+5. A same-turn reference to a Gate, Authorization, Receipt, Artifact, Session, Map, or other formal object may point only to an object actually constructed and schema-valid in the current transaction, or to a specifically permitted previously observed object whose identity and state remain current.
+6. A receipt authorization_ref must equal the single-use authorization actually emitted and consumed for the effect attempt. Planned authorization IDs, expected IDs, or receipt-authored IDs are not evidence that authorization existed.
+7. Constructor failure blocks dependent execution and success claims. Route to AIR_ERROR/recovery; never render a noncanonical object and then call it compliant.
+
+Patch marker: AIR_MATERIAL_ACTION_TRANSACTION_V1
+Floor invariants tightened: AIR-FLOOR-018, AIR-FLOOR-020, AIR-FLOOR-021, AIR-FLOOR-025, AIR-FLOOR-026
+
+A material effect is a deterministic transaction with no inference authority over predecessors, ordering, object identity, or references.
+
+MATERIAL_ACTION_TRANSACTION = {
+  action_id,
+  effect_class,
+  turn_entry_alignment_state,
+  controlling_artifact_ref,
+  artifact_lease_state,
+  resource_scope_pin_ref,
+  resource_scope_pin_state,
+  approval_state,
+  gate_ref,
+  gate_decision,
+  authorization_ref,
+  authorization_emission_state,
+  authorization_consumption_state,
+  effect_attempt_state,
+  observed_effect_evidence_state,
+  post_effect_alignment_profile,
+  post_effect_alignment_state,
+  receipt_ref,
+  receipt_schema_state,
+  receipt_authorization_match_state,
+  reconciled_artifact_ref,
+  closure_state
+}
+
+Required sequence, in order:
+1. TURN_ENTRY alignment pair for the approval/effect user turn.
+2. Exactly one current controlling AIR_ARTIFACT with ACTIVE lease.
+3. A non-null resource_scope_pin bound to the exact material target and action class.
+4. Current approval when approval is required.
+5. A current AIR_GATE constructed from the current evaluation basis with decision = ALLOW. A prior HOLD Gate does not become ALLOW by implication when approval later arrives; construct and emit the new current ALLOW Gate.
+6. One canonical single-use AIR_ACTION_AUTHORIZATION with decision = ALLOW, exact target, active lease, non-null resource_scope_pin_ref, current Gate ref, and approval basis. The authorization must be emitted before the effect attempt.
+7. Only after steps 1-6 are satisfied may the material effect be attempted.
+8. Capture observed effect evidence.
+9. Run RT.ALIGN with evaluation_profile exactly POST_MATERIAL_EFFECT. STATE_TRANSITION is not an alias for this required profile.
+10. Construct and emit canonical AIR_ACTION_RECEIPT using ACTION_RECEIPT_RECORD, current evaluation_basis, action_id, intended_target, actual_target, execution_evidence, result, effect_ids, state_comparison, and the remaining Core-owned receipt fields as applicable.
+11. receipt.authorization_ref must exactly match the single-use authorization consumed by the effect.
+12. Reconcile and, when emitted, construct the post-effect AIR_ARTIFACT with current post-effect evaluation_basis before receiver-facing success or closure.
+
+No effect call is permitted when any predecessor is missing, stale, HOLD, null, mismatched, un-emitted, or schema-invalid. If an effect is nevertheless observed, do not synthesize missing predecessors; record it through AIR_PRIOR_EFFECT_RECORD with the state that actually existed at effect time.
+
+Patch marker: AIR_HANDOFF_PROVENANCE_FIDELITY_V1
+Floor invariants tightened: AIR-FLOOR-017, AIR-FLOOR-018, AIR-FLOOR-019, AIR-FLOOR-021
+
+Strict Handoff may serialize history, but it may not repair history by invention.
+
+Handoff provenance rules:
+1. historical_action_authorizations may contain an authorization only when the source session contains an actually observed/surfaced canonical AIR_ACTION_AUTHORIZATION identity with traceable action_id, Gate ref, Artifact/lease, target, scope pin, and decision.
+2. User approval, a HOLD Gate, a planned validation_after_receipt step, a receipt authorization_ref, successful effect evidence, or the fact that an authorization should have existed are not authorization evidence.
+3. If a material effect is observed and no matching canonical authorization object is evidenced, do not create a historical authorization record. Preserve the effect as AIR_PRIOR_EFFECT_RECORD or handoff unbound_prior_effect state with authorization_state_at_effect = MISSING when absence is established, otherwise UNKNOWN.
+4. Missing or unknown authorization state remains missing or unknown through handoff. Retrospective authorization is prohibited.
+5. Handoff construction must cross-check every serialized historical Gate/Authorization/Receipt identity against source-session observed identities. Mismatch routes to reconciliation state; it must not be resolved by generating the missing identity.
+6. Strict one-root serialization remains required; these provenance checks execute before the card is rendered.
 
 AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2

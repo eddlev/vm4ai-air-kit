@@ -937,7 +937,10 @@
         "Strict one-root serialization treated as permission to skip alignment, validation, gate, or constructor dependencies",
         "Target readiness silently inferred or upscaled during restore when the serialized basis is unresolved",
         "AMRS stage completion or promotion restored while step_optimality_state is absent or not PASS",
-        "Step-optimality represented as proof of a global optimum rather than a stage-relative bounded benchmark judgment"
+        "Step-optimality represented as proof of a global optimum rather than a stage-relative bounded benchmark judgment",
+        "Historical AIR_ACTION_AUTHORIZATION synthesized from approval, Gate plan/state, expected sequence, receipt reference, or effect success without an observed canonical authorization object",
+        "Material effect represented as authorized when source-session evidence lacks the required non-null resource scope pin or matching observed authorization",
+        "Material Orbit transition treated as emission-complete when any required AIR_SESSION, AIR_PROJECT_EXECUTION_MAP, or AIR_ARTIFACT bundle member was omitted"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
@@ -1040,7 +1043,8 @@
         "AIR_HANDOFF_CARD is a transfer record and may serialize source-object snapshots; snapshots never become current execution authority on restore.",
         "When the same conceptual datum appears in a source-object snapshot and a transfer-level carrier, the source snapshot preserves provenance while the transfer-level carrier named below governs transfer interpretation.",
         "A repeated value without a distinct source-snapshot role or explicit reference is invalid redundant transfer state.",
-        "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object."
+        "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object.",
+        "Action-history snapshots must preserve only observed source-session canonical object identities; missing authorizations remain missing or unknown and are never reconstructed during handoff creation."
       ],
       "canonical_transfer_carriers": {
         "current_task_binding": "AIR_HANDOFF_CARD.task_binding",
@@ -1068,7 +1072,16 @@
       "action_receipts": [],
       "unbound_prior_effects": [],
       "pending_reconciliation_ids": [],
-      "material_action_resume_rule": "Revalidate artifact, lease, scope pin, sources, environment, permissions, approvals, pending receipts, and prior effects before issuing a new action authorization."
+      "material_action_resume_rule": "Revalidate artifact, ACTIVE lease, non-null exact resource scope pin, sources, environment, permissions, current approval, current ALLOW Gate, emitted single-use authorization, pending receipts, and prior effects before any new material effect.",
+      "provenance_policy": {
+        "historical_authorization_recording": "OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY",
+        "unsurfaced_authorization_reconstruction": "PROHIBITED",
+        "receipt_reference_is_authorization_evidence": false,
+        "planned_authorization_is_authorization_evidence": false,
+        "effect_success_is_authorization_evidence": false,
+        "missing_authorization_effect_route": "UNBOUND_PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN",
+        "retroactive_authorization_prohibited": true
+      }
     },
     "runtime_drift_hardening_schema_extension": {
       "schema_extension_version": "2.3.0",
@@ -1089,7 +1102,14 @@
       "alignment_floor_invariant": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "semantic_fidelity_floor_invariant": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "epistemic_floor_invariant": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "mii_authority_floor_invariant": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "mii_authority_floor_invariant": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "behavioral_transaction_hardening": {
+        "transition_emission_contract": "AIR_TRANSITION_EMISSION_TRANSACTION_V1",
+        "material_action_contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
+        "constructor_validation_contract": "AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1",
+        "handoff_provenance_contract": "AIR_HANDOFF_PROVENANCE_FIDELITY_V1",
+        "deterministic_projection_order_contract": "AIR_DETERMINISTIC_PROJECTION_ORDER_INTEGRITY_V1"
+      }
     },
     "runtime_alignment_state": {
       "state": "UNVALIDATED_BOOTSTRAP_INPUT",

@@ -384,7 +384,17 @@
       "core_patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
       "rule": "Before visible response composition, Core computes the complete required_visible_objects set and closure state. The Starter may not treat AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT as sufficient when additional route/lifecycle objects are owed.",
       "all_objects_rule": "Under ALL_OBJECTS, every formal object generated for the visible response is emitted; MINIMUM_REQUIRED_OBJECTS suppresses optional repetition only.",
-      "failure_behavior": "If closed-world emission closure fails, do not fall through to ordinary/default host-model continuation; route the Core-defined error/recovery path."
+      "failure_behavior": "If closed-world emission closure fails, do not fall through to ordinary/default host-model continuation; route the Core-defined error/recovery path.",
+      "transition_atomic_bundle_required": true,
+      "transition_atomic_bundle": [
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "transition_bundle_trigger": [
+        "ORBIT_STATE_CHANGED",
+        "TASK_BINDING_CHANGED"
+      ]
     },
     "deterministic_pipeline_non_inference": {
       "required": true,
@@ -420,6 +430,91 @@
       "unknown_operator_behavior": "FAIL_CLOSED",
       "unresolved_reference_behavior": "FAIL_CLOSED",
       "unexecuted_check_behavior": "FAIL_CLOSED"
+    },
+    "transition_emission_transaction": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_TRANSITION_EMISSION_TRANSACTION_V1",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "orbit_transition_atomic_bundle": [
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "bundle_trigger": [
+        "ORBIT_STATE_CHANGED",
+        "TASK_BINDING_CHANGED"
+      ],
+      "pass_condition": "ALL_REQUIRED_BUNDLE_MEMBERS_CONSTRUCTED_SCHEMA_VALID_AND_EMITTED_SAME_RESPONSE",
+      "failure_behavior": "FAIL_CLOSED_BEFORE_ORDINARY_CONTINUATION"
+    },
+    "material_action_transaction": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "ordered_pre_and_post_effect_states": [
+        "TURN_ENTRY_ALIGNMENT",
+        "CURRENT_ARTIFACT_BOUND",
+        "ACTIVE_LEASE",
+        "NON_NULL_RESOURCE_SCOPE_PIN",
+        "CURRENT_APPROVAL_WHEN_REQUIRED",
+        "CURRENT_AIR_GATE_ALLOW",
+        "AIR_ACTION_AUTHORIZATION_EMITTED",
+        "EFFECT_ATTEMPT",
+        "OBSERVED_EFFECT_EVIDENCE",
+        "POST_MATERIAL_EFFECT_ALIGNMENT",
+        "CANONICAL_AIR_ACTION_RECEIPT",
+        "POST_EFFECT_ARTIFACT_RECONCILIATION"
+      ],
+      "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
+      "receipt_record_class": "ACTION_RECEIPT_RECORD",
+      "authorization_receipt_exact_match_required": true,
+      "prior_hold_gate_may_be_reused_as_allow": false,
+      "effect_before_authorization_emission": "PROHIBITED",
+      "failure_behavior": "FAIL_CLOSED_OR_PRIOR_EFFECT_RECOVERY_IF_EFFECT_ALREADY_OBSERVED"
+    },
+    "formal_object_constructor_validation": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1",
+      "checks": [
+        "CANONICAL_ROOT_AND_RECORD_CLASS",
+        "CURRENT_EVALUATION_BASIS_WHEN_REQUIRED",
+        "REQUIRED_FIELDS_PRESENT",
+        "TOP_LEVEL_FIELDS_CLOSED_WORLD",
+        "SAME_TURN_REFERENCES_RESOLVE_TO_OBSERVED_OR_CONSTRUCTED_OBJECTS",
+        "ACTION_RECEIPT_AUTHORIZATION_REF_MATCHES_CONSUMED_AUTHORIZATION"
+      ],
+      "failure_behavior": "AIR_ERROR_OR_RECOVERY_BEFORE_RENDER_OR_DEPENDENT_EXECUTION"
+    },
+    "handoff_provenance_fidelity": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_HANDOFF_PROVENANCE_FIDELITY_V1",
+      "historical_authorization_policy": "OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY",
+      "unsurfaced_authorization_reconstruction": "PROHIBITED",
+      "receipt_reference_is_authorization_evidence": false,
+      "planned_authorization_is_authorization_evidence": false,
+      "effect_success_is_authorization_evidence": false,
+      "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN"
+    },
+    "deterministic_projection_order_integrity": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_DETERMINISTIC_PROJECTION_ORDER_INTEGRITY_V1",
+      "applies_to": [
+        "validation_after_receipt",
+        "continuation_plan",
+        "required_input_follow_up",
+        "method_projection",
+        "execution_preview"
+      ],
+      "order_policy": "EXACT_DECLARED_ORDER",
+      "commuting_operations_may_reorder": false,
+      "failure_behavior": "FAIL_CLOSED_OR_CORRECT_BEFORE_RENDER"
     }
   },
   "bootstrap_contract": {
@@ -1308,7 +1403,16 @@
       "resource_scope_pin_fail_closed": true,
       "prior_effect_retroactive_authorization_prohibited": true,
       "prompt_only_enforcement_claimed": true,
-      "backend_enforcement_claimed": false
+      "backend_enforcement_claimed": false,
+      "material_action_transaction_required": true,
+      "turn_entry_alignment_required_on_effect_turn": true,
+      "non_null_resource_scope_pin_required_before_authorization": true,
+      "current_allow_gate_required_after_approval": true,
+      "authorization_must_be_emitted_before_effect": true,
+      "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
+      "canonical_receipt_constructor_required": true,
+      "authorization_receipt_exact_match_required": true,
+      "handoff_observed_only_action_provenance": true
     }
   },
   "output_contract": {

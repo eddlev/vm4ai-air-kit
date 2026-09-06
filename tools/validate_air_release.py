@@ -153,6 +153,8 @@ def main() -> None:
     require((ROOT / 'tools' / 'test_air_validator_mutations.py').is_file(), 'missing validator mutation suite')
     require((ROOT / 'tools' / 'validate_air_contract_registry.py').is_file(), 'missing deterministic contract registry validator')
     require((ROOT / 'tools' / 'test_air_contract_registry_mutations.py').is_file(), 'missing deterministic contract mutation suite')
+    require((ROOT / 'tools' / 'validate_air_behavioral_contracts.py').is_file(), 'missing behavioral transaction validator')
+    require((ROOT / 'tools' / 'test_air_behavioral_contract_mutations.py').is_file(), 'missing behavioral transaction mutation suite')
     require((ROOT / 'tests' / 'air_contract_fixtures.json').is_file(), 'missing regression fixtures')
     require((ROOT / 'tests' / 'deterministic_contract_inventory.json').is_file(), 'missing deterministic contract inventory')
 
@@ -395,8 +397,11 @@ def main() -> None:
     require(len(fixtures.get('semantic_reseal_negative_cases', [])) >= 3, 'insufficient semantic reseal negative fixtures')
     require(len(fixtures.get('validation_spine_negative_cases', [])) >= 4, 'insufficient validation spine negative fixtures')
     require(len(fixtures.get('routine_boot_negative_cases', [])) >= 3, 'insufficient routine boot negative fixtures')
-    require(len(fixtures.get('deterministic_pipeline_negative_cases', [])) >= 4, 'insufficient deterministic pipeline negative fixtures')
+    require(len(fixtures.get('deterministic_pipeline_negative_cases', [])) >= 5, 'insufficient deterministic pipeline negative fixtures')
     require(len(fixtures.get('deterministic_contract_representation_negative_cases', [])) >= 6, 'insufficient deterministic contract representation fixtures')
+    require(len(fixtures.get('emission_closure_cases', [])) >= 8, 'insufficient emission closure fixtures')
+    require(len(fixtures.get('handoff_negative_cases', [])) >= 3, 'insufficient handoff provenance fixtures')
+    require(len(fixtures.get('material_action_transaction_negative_cases', [])) >= 9, 'insufficient material action transaction fixtures')
 
     print('AIR v0.7.1 set-005 deterministic validation: PASS')
     print(f'Strict JSON files: {len(parsed)}')
@@ -416,6 +421,7 @@ def main() -> None:
     print('Deterministic contract inventory: PRESENT')
     print('Behavioral replay fixtures: PRESENT (not evidence that model evaluation has run)')
     print('Validation spine regression fixtures: PRESENT')
+    print('Behavioral transaction contract fixtures: PRESENT')
 
 if __name__ == '__main__':
     try:

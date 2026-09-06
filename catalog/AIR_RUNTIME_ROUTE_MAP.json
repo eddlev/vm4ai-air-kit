@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.0",
-    "sha256": "402227e840cae9129bb00f5e27d08b6b599020add4749be2cfc1553325f1c739",
+    "sha256": "1aa54fdf50156e2c5d724bc918f4c2fb01cd00f59713e19ec3d1b888746ac69d",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -25,7 +25,10 @@
     "alignment_interlock metadata denotes Core-owned RT.ALIGN dependency/revalidation interlocks and is not an allowed_next forward edge.",
     "Capability and cognitive resolution depend on a resolved completion envelope and target readiness when maturity-bearing; AMRS closure depends on task sufficiency plus step-optimality PASS.",
     "emission_closure mirrors Core AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1 for discovery and validation only; it adds no semantic authority.",
-    "deterministic_pipeline_contract mirrors Core AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1; declared deterministic routes prohibit inference and fail closed on unresolved pipeline state."
+    "deterministic_pipeline_contract mirrors Core AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1; declared deterministic routes prohibit inference and fail closed on unresolved pipeline state.",
+    "transition_emission_transaction mirrors Core AIR_TRANSITION_EMISSION_TRANSACTION_V1; task/binding Orbit changes require the atomic AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT bundle.",
+    "material_action_transaction mirrors Core AIR_MATERIAL_ACTION_TRANSACTION_V1; all predecessors, exact ordering, POST_MATERIAL_EFFECT alignment, and Authorization/Receipt reference identity fail closed.",
+    "handoff_provenance_policy mirrors Core AIR_HANDOFF_PROVENANCE_FIDELITY_V1; unsurfaced historical authorization identities may not be reconstructed."
   ],
   "route_count": 21,
   "routes": [
@@ -53,7 +56,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 497
+        "line": 523
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -89,7 +92,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 513
+        "line": 539
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -127,7 +130,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 529
+        "line": 555
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "HANDOFF_RESTORE",
@@ -239,7 +242,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 575
+        "line": 601
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -273,7 +276,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 591
+        "line": 617
       }
     },
     {
@@ -305,7 +308,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 601
+        "line": 627
       }
     },
     {
@@ -334,7 +337,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 611
+        "line": 637
       }
     },
     {
@@ -410,6 +413,16 @@
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
         "line": 579
+      },
+      "transition_emission_bundle": {
+        "bundle_id": "ORBIT_TRANSITION_ATOMIC_BUNDLE",
+        "members": [
+          "AIR_SESSION",
+          "AIR_PROJECT_EXECUTION_MAP",
+          "AIR_ARTIFACT"
+        ],
+        "condition": "ORBIT_STATE_CHANGED_OR_TASK_BINDING_CHANGED",
+        "atomic": true
       }
     },
     {
@@ -442,7 +455,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 642
+        "line": 672
       }
     },
     {
@@ -480,7 +493,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 652
+        "line": 682
       }
     },
     {
@@ -511,7 +524,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 662
+        "line": 692
       }
     },
     {
@@ -541,7 +554,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 672
+        "line": 702
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
@@ -590,7 +603,14 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "material_action_transaction": {
+        "contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
+        "effect_attempt_requires_all_predecessors": true,
+        "authorization_visible_before_effect": true,
+        "resource_scope_pin_required": true,
+        "post_effect_alignment_profile": "POST_MATERIAL_EFFECT"
+      }
     },
     {
       "route_id": "RT.RECEIPT",
@@ -630,7 +650,13 @@
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "material_action_transaction": {
+        "contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
+        "receipt_record_class": "ACTION_RECEIPT_RECORD",
+        "authorization_ref_match": "EXACT_CONSUMED_AUTHORIZATION",
+        "constructor_validation_required": true
+      }
     },
     {
       "route_id": "RT.DELIVER",
@@ -693,7 +719,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 727
+        "line": 769
       }
     },
     {
@@ -723,14 +749,19 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 737
+        "line": 779
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
       "step_order": "STRICT",
       "missing_input_behavior": "FAIL_CLOSED",
       "unknown_condition_behavior": "FAIL_CLOSED",
-      "conflict_behavior": "FAIL_CLOSED"
+      "conflict_behavior": "FAIL_CLOSED",
+      "handoff_provenance_policy": {
+        "observed_object_identities_only": true,
+        "unsurfaced_authorization_reconstruction": "PROHIBITED",
+        "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE"
+      }
     },
     {
       "route_id": "RT.RECOVERY",
@@ -759,7 +790,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 753
+        "line": 799
       }
     }
   ],
@@ -807,7 +838,20 @@
       ]
     },
     "failure_route": "RT.RECOVERY",
-    "ordinary_host_fallback_on_failure": false
+    "ordinary_host_fallback_on_failure": false,
+    "transition_emission_transaction": {
+      "core_patch_marker": "AIR_TRANSITION_EMISSION_TRANSACTION_V1",
+      "atomic_bundle": [
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "triggers": [
+        "ORBIT_STATE_CHANGED",
+        "TASK_BINDING_CHANGED"
+      ],
+      "failure_behavior": "FAIL_CLOSED"
+    }
   },
   "deterministic_pipeline_contract": {
     "core_patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
@@ -829,5 +873,33 @@
       "RT.TURN"
     ],
     "rule": "Do not infer. Follow the declared deterministic pipeline. This metadata mirrors Core and has no independent semantic authority."
+  },
+  "material_action_transaction": {
+    "semantic_owner": "AIR_CORE_RUNTIME_V2",
+    "core_patch_marker": "AIR_MATERIAL_ACTION_TRANSACTION_V1",
+    "authority": "DISCOVERY_METADATA_ONLY",
+    "ordered_states": [
+      "TURN_ENTRY_ALIGNMENT",
+      "CURRENT_ARTIFACT_BOUND",
+      "ACTIVE_LEASE",
+      "NON_NULL_RESOURCE_SCOPE_PIN",
+      "CURRENT_APPROVAL_WHEN_REQUIRED",
+      "CURRENT_AIR_GATE_ALLOW",
+      "AIR_ACTION_AUTHORIZATION_EMITTED",
+      "EFFECT_ATTEMPT",
+      "OBSERVED_EFFECT_EVIDENCE",
+      "POST_MATERIAL_EFFECT_ALIGNMENT",
+      "CANONICAL_AIR_ACTION_RECEIPT",
+      "POST_EFFECT_ARTIFACT_RECONCILIATION"
+    ],
+    "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
+    "authorization_receipt_exact_match_required": true
+  },
+  "handoff_provenance_policy": {
+    "semantic_owner": "AIR_CORE_RUNTIME_V2",
+    "core_patch_marker": "AIR_HANDOFF_PROVENANCE_FIDELITY_V1",
+    "authority": "DISCOVERY_METADATA_ONLY",
+    "historical_authorization_policy": "OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY",
+    "unsurfaced_authorization_reconstruction": "PROHIBITED"
   }
 }

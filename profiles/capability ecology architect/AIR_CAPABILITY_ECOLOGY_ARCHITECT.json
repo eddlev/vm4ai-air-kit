@@ -28,18 +28,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "402227e840cae9129bb00f5e27d08b6b599020add4749be2cfc1553325f1c739",
-        "size_bytes": 353577,
-        "line_count": 7142
+        "sha256": "1aa54fdf50156e2c5d724bc918f4c2fb01cd00f59713e19ec3d1b888746ac69d",
+        "size_bytes": 363631,
+        "line_count": 7293
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "aaaf9ebc5f8d287585dbc8cd224f53b46afb73d28aad69d4adb2ac3af6006cdf",
-        "size_bytes": 157383,
-        "line_count": 3197
+        "sha256": "a2b30ff745aad1752311cea8910a46b5b1bf86bb2f4de7dd13125c651241e468",
+        "size_bytes": 160005,
+        "line_count": 3228
       },
       {
         "filename": "AIR_GOV.md",
@@ -55,18 +55,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b06103178b75ff69aae31cf9b1e753e196d5165c88f01af1af0b6c1c39884ac6",
-        "size_bytes": 119101,
-        "line_count": 2354
+        "sha256": "160bf5027c6f5f776d509e1bb082771aee037b805f21b47f5c6e86261ba53485",
+        "size_bytes": 123565,
+        "line_count": 2458
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "bdb9ec315905f859fa6611666a08074d07076b74fdb7cd62cf41678852d10c10",
-        "size_bytes": 62234,
-        "line_count": 1146
+        "sha256": "9a8adee6f79382556e3c18b3399ee0ecd10f100b7a0325f82a5415619dde4816",
+        "size_bytes": 64086,
+        "line_count": 1166
       }
     ],
     "required_floor_invariants": [
@@ -106,9 +106,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "14d4b96a10666059190f02af5c1969e6322206fb435fd20469cfa513f8c8b4bf",
-      "size_bytes": 25957,
-      "line_count": 833
+      "sha256": "2351efc1c4b1fc1cbf69b41a584523fa1719b5bfa03a3270612007b94fa33e3c",
+      "size_bytes": 29155,
+      "line_count": 905
     }
   },
   "file_identity_contract": {
@@ -139,13 +139,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "a5cfe51e1340df34f4abd0bf18a8baba58410aae747a4c4c5df0c068c29f6e85",
+      "sha256": "1f65a3a12107456338cc49109bb035806028283c7e88064467cf6b91e0e92144",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "460e0b2fc0a053317db46f17b25d145f31881132eece26049137dbfb9a320035",
+      "sha256": "c971f7b30da297dd3497ecbb65ba6792665cad95ccaf4ea4798c2ce43a0c9d16",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "source_and_control_registry": {
@@ -1717,14 +1717,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "14d4b96a10666059190f02af5c1969e6322206fb435fd20469cfa513f8c8b4bf",
+      "sha256": "2351efc1c4b1fc1cbf69b41a584523fa1719b5bfa03a3270612007b94fa33e3c",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 25957,
-      "line_count": 833
+      "size_bytes": 29155,
+      "line_count": 905
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",

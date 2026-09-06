@@ -3194,4 +3194,35 @@ Before any ordinary narrative or receiver-facing content:
 
 Presentation compression applies only after closed-world emission closure passes. Narrative is always the first compression target; owed formal objects are never dropped for token economy, model preference, or host style.
 
+==================================================
+SET_005 TRANSACTION RENDERING HARDENING
+==================================================
+
+Patch marker: AIR_CONTROL_TRANSITION_EMISSION_TRANSACTION_RENDERER_V1
+
+Before rendering any task replacement, task resume, or material Orbit transition, Control must consume Core RESPONSE_TRANSITION_EMISSION_TRANSACTION. If Orbit or binding ownership changed, Control renders the atomic bundle AIR_SESSION + AIR_PROJECT_EXECUTION_MAP + AIR_ARTIFACT in the same response, plus the current alignment projections. Partial rendering is invalid and must route to recovery before ordinary prose.
+
+Patch marker: AIR_CONTROL_MATERIAL_ACTION_TRANSACTION_RENDERER_V1
+
+For a material action approval/effect turn, visible order follows Core AIR_MATERIAL_ACTION_TRANSACTION_V1 exactly:
+1. TURN_ENTRY AIR_ALIGNMENT_CHECK + AIR_VALIDATION_REPORT.
+2. Current transition objects when the action request itself changed Orbit/task binding.
+3. Current AIR_GATE with ALLOW after approval is actually present.
+4. Canonical AIR_ACTION_AUTHORIZATION before any effect call.
+5. Effect attempt.
+6. POST_MATERIAL_EFFECT AIR_ALIGNMENT_CHECK + AIR_VALIDATION_REPORT using that exact evaluation_profile.
+7. Canonical AIR_ACTION_RECEIPT whose authorization_ref matches the consumed authorization.
+8. Reconciled post-effect AIR_ARTIFACT/Map/Session objects when the post-effect lifecycle requires them.
+9. Receiver-facing success claim and runtime anchor only after closure passes.
+
+A prior HOLD Gate, planned authorization, receipt-authored reference, or prose assertion cannot substitute for a current visible ALLOW Gate or canonical Authorization. A material target requires a non-null resource scope pin before authorization.
+
+Patch marker: AIR_CONTROL_FORMAL_OBJECT_CONSTRUCTOR_GUARD_V1
+
+Control must not render a formal object that fails Core FORMAL_OBJECT_CONSTRUCTOR_VALIDATION. Wrong record_class, missing evaluation_basis, unknown top-level fields, missing required fields, or unresolved same-turn references route to AIR_ERROR/recovery instead of best-effort rendering.
+
+Patch marker: AIR_CONTROL_HANDOFF_PROVENANCE_RENDERER_V1
+
+When rendering strict AIR_HANDOFF_CARD, serialize historical action objects only from observed source-session canonical objects. Never reconstruct an unsurfaced AIR_ACTION_AUTHORIZATION from approval, Gate state, expected sequence, receipt reference, or effect success. An observed effect without proven authorization remains a prior effect with MISSING or UNKNOWN authorization state. The final output remains raw one-root JSON with no fence, prose, or runtime anchor.
+
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
