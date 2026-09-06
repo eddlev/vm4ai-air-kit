@@ -60,6 +60,13 @@ def main():
     def m14(d):
         p=d/'prompts/AIR_CONTROL_SURFACE.md'; x=p.read_text(encoding='utf-8'); x=x.replace('AIR_HANDOFF_CARD output remains downloadable JSON-file-only. Do not inline the card payload.','Strict AIR_HANDOFF_CARD output remains raw JSON only.'); p.write_text(x,encoding='utf-8')
     cases.append(('stale inline Handoff exception reintroduced',m14))
+
+    def m15(d):
+        p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['schema_manifest']['required_fields'].remove('surfaced_object_ledger_state'); save(p,o)
+    cases.append(('handoff full surfaced history carrier removed',m15))
+    def m16(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['surfaced_object_ledger']['coverage']='AUTHORITY_OBJECTS_ONLY'; save(p,o)
+    cases.append(('surfaced ledger reduced to authority-only',m16))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

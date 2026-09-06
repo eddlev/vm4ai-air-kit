@@ -958,7 +958,13 @@
       ],
       "authorization_consumption_requires_ledger_entry": true,
       "handoff_history_requires_ledger_entry": true,
-      "constructed_not_emitted_effect": "NOT_LEDGER_ELIGIBLE"
+      "constructed_not_emitted_effect": "NOT_LEDGER_ELIGIBLE",
+      "coverage": "ALL_CANONICAL_FORMAL_OBJECTS_EMITTED_IN_GOVERNED_SESSION",
+      "ledger_delta_required_after_any_formal_emission": true,
+      "same_response_self_entry": "PROHIBITED_NEXT_LEDGER_CAPTURES_PRIOR_LEDGER",
+      "handoff_full_history_required": true,
+      "handoff_snapshot_hash_revalidation": "REQUIRED_FOR_EVERY_CAPTURED_ENTRY",
+      "handoff_missing_or_hash_mismatch_behavior": "FAIL_CLOSED"
     },
     "failure_mode_registry": {
       "required": true,
@@ -1038,7 +1044,11 @@
       "post_write_reopen_parse_required": true,
       "post_write_schema_validation_required": true,
       "self_hash_inside_payload": "PROHIBITED",
-      "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK"
+      "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK",
+      "surfaced_object_history_path": "AIR_HANDOFF_CARD.surfaced_object_ledger_state",
+      "capture_cutoff": "LATEST_COMPLETE_PRE_FILE_SURFACED_OBJECT_LEDGER",
+      "post_freeze_objects": "EXCLUDED_BY_DESIGN_DECLARED_IN_CARD",
+      "full_ledger_snapshot_revalidation_required": true
     },
     "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception."
   },

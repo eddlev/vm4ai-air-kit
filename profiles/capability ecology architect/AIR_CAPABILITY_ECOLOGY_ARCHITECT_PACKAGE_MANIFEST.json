@@ -44,7 +44,7 @@
       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "7d24214e1d07f366984f5211c9daef23fb84f476cca677fc38e3221476dd96d2",
+      "sha256": "bc559720947fbbb664f3329744cfdb7fdf962b8af5043e2e894e43d347a5ad41",
       "size_bytes": 244375,
       "line_count": 5334,
       "required": true,
@@ -60,7 +60,7 @@
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "a37ba8942443ccb95830551e5c3e5845e43560c3ecc33045d85c0efa4324d1c8",
+      "sha256": "aae26f59b46fa50cead702abd6670e7a0b6dd2bce090ee6b654ec36a9ce42586",
       "size_bytes": 69881,
       "line_count": 1285,
       "required": true,
@@ -76,7 +76,7 @@
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "cf8f8246c0c6f7c94e23bf14d814a6ec6417f772ff2b472e58edc88fb14ac4f9",
+      "sha256": "2733517f443ab1d4bfffc62290d7ebd42fbef31626566d2796eb022ed29c62ba",
       "size_bytes": 100970,
       "line_count": 1889,
       "required": true,
@@ -92,7 +92,7 @@
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "1782d19f75b283cbf1574c99bd22d000815756330168bcf061c81b3a75be816b",
+      "sha256": "fb7f0373cbc398519cc2d5eef88b624c8dc1afb93ee6b461accf73944cd96791",
       "size_bytes": 74661,
       "line_count": 1413,
       "required": true,
@@ -138,8 +138,8 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fdef549adf098c03e31b75567467cf2895287ae6e9e2cc0e3c8d8dc7da13cf99",
-        "size_bytes": 377972,
+        "sha256": "57a6864da8b097cbcad7090c2dac8cf9b8721716aba193dac87ea524511ba70d",
+        "size_bytes": 379346,
         "line_count": 7515
       },
       {
@@ -147,8 +147,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "00de637ab30fddce420bac161ae2a935838ec0adcd8cc85cbb5f4b108372c77d",
-        "size_bytes": 163575,
+        "sha256": "f52929b78e6022d14f4a24bf3c24db2cb5c395b53e2653c642a78eba9ec6d00b",
+        "size_bytes": 164079,
         "line_count": 3267
       },
       {
@@ -165,18 +165,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "d18ea36b8ef7b6778a56b8539f4c707cfb25f68392f91a39e302d3f89b7bd87a",
-        "size_bytes": 143848,
-        "line_count": 3008
+        "sha256": "834d8cfde4f669a18f6b79879e60e5602693c4be1d4f8c3b89144430787db679",
+        "size_bytes": 144551,
+        "line_count": 3018
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "f46504a66c9906adce9f6e9bcdc02c395e2095f5b52736ece99d8281174e1eb1",
-        "size_bytes": 79204,
-        "line_count": 1466
+        "sha256": "5953980155db689ad169fb14ef42dfa040a7bd59c327641bde5aab4bd37c87ee",
+        "size_bytes": 82580,
+        "line_count": 1529
       }
     ],
     "required_floor_invariants": [
@@ -359,7 +359,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "7aa0f2532fb76303e87c2b6ef581e03b03b77021f3402beed806ef51ed3537c3",
+      "sha256": "46bbc65c31a3a75086213f09244eecfd1b48b7e0d3489f678df398f5c2de986c",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",

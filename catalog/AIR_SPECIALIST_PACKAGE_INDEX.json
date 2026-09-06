@@ -30,8 +30,8 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "fdef549adf098c03e31b75567467cf2895287ae6e9e2cc0e3c8d8dc7da13cf99",
-        "size_bytes": 377972,
+        "sha256": "57a6864da8b097cbcad7090c2dac8cf9b8721716aba193dac87ea524511ba70d",
+        "size_bytes": 379346,
         "line_count": 7515
       },
       {
@@ -39,8 +39,8 @@
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "00de637ab30fddce420bac161ae2a935838ec0adcd8cc85cbb5f4b108372c77d",
-        "size_bytes": 163575,
+        "sha256": "f52929b78e6022d14f4a24bf3c24db2cb5c395b53e2653c642a78eba9ec6d00b",
+        "size_bytes": 164079,
         "line_count": 3267
       },
       {
@@ -57,18 +57,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "d18ea36b8ef7b6778a56b8539f4c707cfb25f68392f91a39e302d3f89b7bd87a",
-        "size_bytes": 143848,
-        "line_count": 3008
+        "sha256": "834d8cfde4f669a18f6b79879e60e5602693c4be1d4f8c3b89144430787db679",
+        "size_bytes": 144551,
+        "line_count": 3018
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "f46504a66c9906adce9f6e9bcdc02c395e2095f5b52736ece99d8281174e1eb1",
-        "size_bytes": 79204,
-        "line_count": 1466,
+        "sha256": "5953980155db689ad169fb14ef42dfa040a7bd59c327641bde5aab4bd37c87ee",
+        "size_bytes": 82580,
+        "line_count": 1529,
         "card_revision": 16
       }
     ]
@@ -80,7 +80,7 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "7aa0f2532fb76303e87c2b6ef581e03b03b77021f3402beed806ef51ed3537c3",
+      "sha256": "46bbc65c31a3a75086213f09244eecfd1b48b7e0d3489f678df398f5c2de986c",
       "size_bytes": 34590,
       "line_count": 1009,
       "authority": {
@@ -142,7 +142,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "7d48f414181da88bf98d885e48cf00e5abf91d7c5b347fe7672c384aba719330",
+      "manifest_sha256": "0074562071f1397aa74acec606a254d29c06c30413d56a148f65719d5aaf39c8",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -183,7 +183,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "6b262bfae9119b4acb7992adb525c5755d0285501ce50ae067c9aa66ab9712f7",
+      "manifest_sha256": "13d4ef13d3af7c0bf6ea08d30406f02a52ccdcc6e454f60542f4cc8c3cddc481",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -221,7 +221,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "926a7fa86aea105fb6e111542950f91940d2a0bb9b8df6d0756dd13af7a4e868",
+      "manifest_sha256": "1cc7f217b2cff00353a158cf25e1a86acb324c5a87de5c00f259cd3ed0109350",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -260,7 +260,7 @@
       "specialist_designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "manifest_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "a5aa51c342ab8dc0ad4fa08ca0f2e65a630971d602de5e80baaf2dd4da4d41f2",
+      "manifest_sha256": "fa12c1617b821fbf4b5cfecc8ac00ce008b7ef647eecda1f5b864ed655d2a8d3",
       "canonical_component_filenames": [
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
         "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
@@ -297,7 +297,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "87aeaa45053adbd239097ced146294cdfb44f49f130083b7c1dcb4b40a5a0f5b",
+      "manifest_sha256": "1a78d00399f62d0ded7f9b2d52abb1894e0a0907d7e56233955d04a27172483d",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",

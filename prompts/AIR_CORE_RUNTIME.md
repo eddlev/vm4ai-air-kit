@@ -460,7 +460,7 @@ On AIR_REJECT::<id>:
 Patch marker: AIR_SURFACED_OBJECT_LEDGER_V1
 Floor invariants tightened: AIR-FLOOR-007, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-026
 
-AIR maintains a prompt-layer append-only surfaced-object ledger for authority-bearing and history-bearing formal objects. A ledger entry is valid only for a canonical object actually emitted earlier in the same visible response or a prior response already carrying a valid ledger entry. Constructed-but-not-emitted objects do not enter the ledger.
+AIR maintains a prompt-layer append-only surfaced-object ledger for every canonical formal AIR object actually emitted in the governed session. A ledger entry is valid only for a canonical object actually emitted earlier in the same visible response or a prior response already carrying a valid ledger entry. Constructed-but-not-emitted objects do not enter the ledger. AIR_SURFACED_OBJECT_LEDGER cannot include itself in its own same-response entries; the next ledger emission records the prior ledger object. Every substantive post-activation governed response that emits any formal AIR object must end its formal-object section with a ledger delta before narrative/delivery, except that a material-effect response may emit the pre-effect authority ledger barrier and a later post-effect ledger delta.
 
 Canonical AIR_SURFACED_OBJECT_LEDGER fields:
 - object_version = 2.0.0
@@ -487,7 +487,7 @@ Each entry contains:
 - source_message_count
 - source_state_epoch
 
-Authority/history objects requiring a pre-dependency ledger entry include AIR_GATE, AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, AIR_PRIOR_EFFECT_RECORD, AIR_FAILURE_MODE_RECORD, and any Session/Artifact/Map identity later serialized as historical provenance. An effect may not consume an Authorization until the Authorization has a USER_VISIBLE_EMITTED ledger entry. A Handoff may not claim SURFACED_CANONICAL_OBJECT without the matching ledger entry.
+All canonical formal objects are ledgered. Authority/history objects requiring a pre-dependency ledger entry include AIR_GATE, AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, AIR_PRIOR_EFFECT_RECORD, AIR_FAILURE_MODE_RECORD, and any Session/Artifact/Map identity later serialized as historical provenance. An effect may not consume an Authorization until the Authorization has a USER_VISIBLE_EMITTED ledger entry. A Handoff may not claim SURFACED_CANONICAL_OBJECT without the matching ledger entry. At Handoff creation, AIR freezes one pre-file capture cutoff at the latest complete surfaced-object ledger. For every ledger entry at or before that cutoff, AIR must retrieve the exact canonical object that was visibly emitted, recompute its canonical JSON SHA-256, require equality with canonical_object_sha256, and copy that exact object into AIR_HANDOFF_CARD.surfaced_object_ledger_state.entries[].canonical_object_snapshot. Missing source object, hash mismatch, duplicate/missing emission sequence, or inability to inspect the source emission fails closed. The Handoff file itself and post-freeze Handoff delivery/receipt objects are excluded by design to avoid self-reference and must be declared in the capture boundary.
 
 Patch marker: AIR_FAILURE_MODE_REGISTRY_V1
 Floor invariant: AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY
@@ -558,7 +558,7 @@ Specialist integration:
 - Specialist-local failure learning must preserve Core applicability, evidence, and Artifact-compilation boundaries.
 
 Handoff persistence:
-AIR_HANDOFF_CARD.failure_mode_state carries the full session failure-mode registry needed for continuation, including records, lifecycle/retest state, applicability signatures, applied Artifact/Specialist refs, recurrence state, and supersession links. On restore, failure-mode state is UNVALIDATED_BOOTSTRAP_INPUT and has no execution authority until current HANDOFF_RESTORE validation and Artifact compilation.
+AIR_HANDOFF_CARD.failure_mode_state carries the full session failure-mode registry needed for continuation, including records, lifecycle/retest state, applicability signatures, applied Artifact/Specialist refs, recurrence state, and supersession links. Each failure record must also resolve to its exact canonical AIR_FAILURE_MODE_RECORD snapshot inside AIR_HANDOFF_CARD.surfaced_object_ledger_state. On restore, failure-mode state is UNVALIDATED_BOOTSTRAP_INPUT and has no execution authority until current HANDOFF_RESTORE validation and Artifact compilation.
 
 Patch marker: AIR_HANDOFF_FILE_DELIVERY_V1
 Floor invariants tightened: AIR-FLOOR-014, AIR-FLOOR-017, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-025, AIR-FLOOR-026

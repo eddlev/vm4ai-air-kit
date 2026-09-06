@@ -406,6 +406,23 @@
       "fail_if": [
         "unledgered object labelled surfaced"
       ]
+    },
+    {
+      "id": "HF-05-FULL-SURFACED-HISTORY",
+      "setup": "session emits alignment, validation, Session, Map, Artifact, Gate, Authorization, Receipt, Prior Effect, Failure Mode and ledger objects before Handoff",
+      "expected": [
+        "surfaced_object_ledger_state required",
+        "all ledgered pre-file formal objects represented by exact canonical snapshots",
+        "each snapshot re-hashes to its emission hash",
+        "capture cutoff declared",
+        "post-freeze Handoff delivery objects excluded explicitly"
+      ],
+      "fail_if": [
+        "ledger entry omitted without declared boundary",
+        "snapshot invented or mutated",
+        "hash mismatch",
+        "historical object gains execution authority"
+      ]
     }
   ],
   "failure_mode_learning_cases": [

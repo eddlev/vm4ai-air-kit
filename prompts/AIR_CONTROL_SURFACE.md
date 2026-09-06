@@ -3243,7 +3243,7 @@ SURFACED OBJECT LEDGER SURFACE
 
 Patch marker: AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1
 
-Control renders Core-owned AIR_SURFACED_OBJECT_LEDGER after authority/history objects that will become dependencies. The ledger may include only objects already visibly emitted in the response or prior valid ledger entries. Never ledger a merely planned, internally constructed, inferred, or post-hoc reconstructed Gate, Authorization, Receipt, Prior Effect, Failure Mode, Session, Map, or Artifact.
+Control renders Core-owned AIR_SURFACED_OBJECT_LEDGER as the final formal-object delta for every substantive post-activation governed response that emitted any formal AIR object; material-effect turns may use a pre-effect authority ledger barrier and a later post-effect ledger delta. The ledger may include only objects already visibly emitted in the response or prior valid ledger entries. Never ledger a merely planned, internally constructed, inferred, or post-hoc reconstructed formal object. The same-response ledger does not self-record; the next ledger records the prior ledger object.
 
 ==================================================
 FAILURE MODE LEARNING SURFACE
@@ -3262,6 +3262,6 @@ HANDOFF FILE DELIVERY SURFACE
 
 Patch marker: AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1
 
-AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. The downloadable file preserves failure_mode_state and surfaced-object provenance required for continuation.
+AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. The downloadable file preserves failure_mode_state and surfaced_object_ledger_state. The latter contains exact canonical snapshots for every ledgered formal AIR object up to the declared pre-file capture cutoff. Every snapshot must re-hash to the recorded emission hash; missing/mutated history blocks Handoff delivery. The Handoff file and post-freeze delivery objects are explicitly excluded to avoid self-reference.
 
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
