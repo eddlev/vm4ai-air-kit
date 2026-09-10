@@ -13,10 +13,18 @@
   "legacy_required_cross_file_checks_operational_state": "REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY",
   "migrated_validation_expectation_count": 55,
   "migrated_validation_expectation_authority": "NON_OPERATIVE_DESCRIPTION",
-  "typed_deterministic_check_count": 46,
+  "typed_deterministic_check_count": 80,
   "typed_registry_path": "AIR_DEFAULT_STARTER_PROFILE.json.validation_contract.deterministic_contract_registry",
   "coverage_requirement": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
   "inference_policy": "PROHIBITED",
+  "r1_added_coverage": [
+    "Markdown PROMPT_VERSION equality against one typed Foundation version contract",
+    "Starter PROFILE_KIND/profile_function_class/canonical_filename identity",
+    "strict JSON parse plus duplicate-key rejection for Starter and Handoff",
+    "exact five-role Foundation manifest",
+    "normalized active-Foundation filename collision rejection",
+    "complete Core AIR-FLOOR-001 through AIR-FLOOR-027 membership coverage"
+  ],
   "known_conflict_closed": {
     "legacy_description": "Handoff Template restored starter profile version equals 2.5.0",
     "replacement": "typed canonical-path equality between Handoff profile_stack.starter_profile.PROMPT_VERSION and Default Starter PROMPT_VERSION",
