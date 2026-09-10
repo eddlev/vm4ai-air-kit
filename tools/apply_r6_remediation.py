@@ -126,6 +126,7 @@ def patch_gov():
     p=g['source_layer']['source_access_boot_protocol']
     p['visible_request_required']=GOV_MODE
     p.pop('request_once_at_boot', None)
+    # Insert before source_access_modes for readability while preserving existing remainder.
     new={}
     for k,v in p.items():
         if k=='source_access_modes':
@@ -147,6 +148,7 @@ def patch_gov():
                 },
             }
         new[k]=v
+    # Handle idempotent rerun where source_access_modes insertion point already passed.
     if 'pre_request_context_check_required' not in new:
         new['pre_request_context_check_required']=True
         new['pre_request_context_sources']=PRECHECK
@@ -156,6 +158,7 @@ def patch_gov():
             'all_material_inputs_available': {'emit_user_information_request': False,'action':'ACKNOWLEDGE_CURRENT_SOURCE_ACCESS_STATE','preserve_existing_authorized_context':True},
             'material_required_input_gap_remaining': {'emit_user_information_request': True,'action':'REQUEST_SMALLEST_EXACT_MISSING_INPUT','request_scope':'STILL_MISSING_MATERIALLY_REQUIRED_CATEGORIES_ONLY','preserve_unresolved_state_until_satisfied':True},
         }
+    # Remove duplicates created by rerun ordering.
     keys=['pre_request_context_check_required','pre_request_context_sources','requestable_input_categories','request_selection_rule','request_decision_contract']
     ordered={}
     inserted=False
