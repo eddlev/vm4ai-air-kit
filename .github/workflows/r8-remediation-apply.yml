@@ -24,7 +24,7 @@ jobs:
           test "$(git hash-object tools/apply_r8_remediation.py)" = "3831e4d96d820fcf64a798f09a5654d2fafa6ce0"
           test "$(git hash-object tools/validate_air_r8_remediation.py)" = "8e3d3b6eeb0470643364b8f2ca4efee34e07b8c3"
           test "$(git hash-object tools/test_air_r8_mutations.py)" = "0daaf170333b12e3004ec99257453cb401113545"
-          test "$(git hash-object tools/patch_r8_validator_extensions.py)" = "2048bd94e16e6e9917dbe7d402840dc691422355"
+          test "$(git hash-object tools/patch_r8_validator_extensions.py)" = "8b870dd0b8f142c882542ae63b169164ac1ce366"
           test "$(git hash-object tools/reseal_air_candidate.py)" = "336d967e0daf36ef0a659225b2ff2f22aa4bb15e"
           test "$(git hash-object tools/validate_air_suite.py)" = "8f5c11f81d567742fed7427ecc537f8058215754"
           test "$(git hash-object tools/validate_air_boot.py)" = "b9fd4fbd080404bfb99ec4b416c7929db090d0d8"
