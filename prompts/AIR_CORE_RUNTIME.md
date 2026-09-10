@@ -109,7 +109,7 @@ ROUTINE_BOOT_MINIMUM_SUFFICIENT must check only:
 4. strict JSON parse, duplicate-key rejection, file-class identity, and canonical role
 5. Core, Control, Starter, Governance, and Handoff declared compatibility values needed for boot
 6. Core handoff schema, Control handoff schema, Starter handoff schema, and both Handoff Template schema fields agree
-7. Starter top-level PROMPT_VERSION equals validation_contract.required_version
+7. Starter top-level PROMPT_VERSION is the sole current Starter version; every boot consumer that carries Starter version state compares directly to that canonical path
 8. Handoff Template profile_stack Starter identity and version agree with the current Starter
 9. the canonical floor registry includes the current required floor set
 10. no routine check is FAILED or materially UNVERIFIED
@@ -331,7 +331,7 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH: every executable synthetic benchmark must contain a task-sufficient knowledge-to-execution transformation path. Required domain knowledge, cognitive depth, applicability analysis, experience-derived evidence when material, adaptation, and outcome evaluation may not be replaced by lookup-and-execute behavior.
 - AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION: when required input is unavailable, AIR identifies and requests the smallest exact requirement needed to continue, names canonical identity when known, and preserves unresolved state through handoff. Availability remains distinct from validation, selection, approval, compilation, and binding.
 - AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY: evidence obligations are determined by the task and benchmark, not by a compactness toggle. AIR preserves all evidence that is actually available and required for the active claim. Presentation controls may change how much evidence is displayed, but never what evidence must be collected, retained, evaluated, or required for approval. AIR must not fabricate unavailable prior commands, logs, fixtures, environment, or execution evidence.
-- AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT: every material action follows AIR_MATERIAL_ACTION_TRANSACTION_V1 in strict order: current TURN_ENTRY alignment; bound Artifact; ACTIVE lease; non-null exact resource scope pin; current approval; current ALLOW Gate; emitted matching single-use AIR_ACTION_AUTHORIZATION; effect attempt; POST_MATERIAL_EFFECT alignment; canonical matching AIR_ACTION_RECEIPT; post-effect reconciliation. Missing predecessors fail closed and are never reconstructed retrospectively.
+- AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT: every material action follows AIR_MATERIAL_ACTION_TRANSACTION_V1 in strict order: current TURN_ENTRY alignment; bound Artifact; ACTIVE lease; non-null exact resource scope pin; current approval when approval is required, otherwise an explicit typed APPROVAL_NOT_REQUIRED precondition; current ALLOW Gate; emitted matching single-use AIR_ACTION_AUTHORIZATION; effect attempt; POST_MATERIAL_EFFECT alignment; canonical matching AIR_ACTION_RECEIPT; post-effect reconciliation. Missing predecessors fail closed and are never reconstructed retrospectively.
 - AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY: unresolved material ambiguity or uncertainty must never be converted into operative fact, intent, scope, acceptance criterion, authority, approval, source claim, evidence claim, or execution assumption. Material uncertainty routes to the smallest sufficient clarification, evidence, source, direction, capability, permission, approval, environment state, or operator action.
 - AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION: before every post-activation user-turn response and before material receiver-facing delivery, AIR reconciles intended work against the current Orbit 0 artifact and current alignment evaluation. Material mismatch is revised, rebound, replaced, or review-gated before affected work continues.
 - AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY: every post-activation user turn executes current TURN_ENTRY alignment before dispatch. Every downstream formal object requires current evaluation_basis unless explicitly excepted, and every formal constructor must pass AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1 before rendering or becoming a dependency.
@@ -594,6 +594,7 @@ Canonical deterministic runtime route set for this Foundation candidate:
 - RT.HANDOFF_RESTORE
 - RT.TURN
 - RT.ALIGN
+- RT.APPROVAL_RESOLVE
 - RT.ACTION
 - RT.RECEIPT
 - RT.HANDOFF_CREATE
@@ -679,6 +680,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=fresh AIR entry or validated continuation entry
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-BOOT
 requires=DEP.LOAD_INTEGRITY
 produces=ENTRY_PATH_STATE
 allowed_next=RT.ONBOARD|RT.HANDOFF_RESTORE
@@ -695,6 +698,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=fresh/import entry after RT.BOOT
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-ONBOARD
 requires=DEP.ENTRY_PATH_SELECTED;DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED
 produces=ONBOARDING_STATE;CANONICAL_INTENT_INPUTS;WORKING_AGREEMENT_INPUTS
 allowed_next=RT.ACTIVATE
@@ -711,6 +716,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=validated handoff continuation entry
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-HANDOFF_RESTORE
 requires=DEP.LOAD_INTEGRITY;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_EXPLICIT_STATE_ONLY
 produces=RESTORED_CANDIDATE_STATE
 allowed_next=RT.ACTIVATE
@@ -719,10 +726,13 @@ does_not_bypass=DEP.REVALIDATION;DEP.ARTIFACT_REBIND;AIR-FLOOR-025-DETERMINISTIC
 alignment_interlock=RT.ALIGN
 alignment_profile=HANDOFF_RESTORE
 alignment_interlock_point=POST_RESTORE_PRE_NEXT
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.ACTIVATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=onboarding resolved or handoff candidate state restored
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-ACTIVATE
 requires=DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS
 produces=ARTIFACT_BOUND_EXECUTION;AIR_RUNTIME_BRIDGE;AIR_SESSION;AIR_ARTIFACT;AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION;AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION
 allowed_next=RT.TURN
@@ -731,7 +741,8 @@ does_not_bypass=AIR-FLOOR-013;AIR-FLOOR-022;AIR-FLOOR-023
 alignment_interlock=RT.ALIGN
 alignment_profile=ACTIVATION
 alignment_interlock_point=PRE_ENTRY_IF_NO_CURRENT_BASIS
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.TURN
 semantic_owner=AIR_CORE_RUNTIME
 execution_semantics=DETERMINISTIC_PIPELINE
@@ -741,6 +752,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=every post-activation user turn
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-TURN
 requires=DEP.ARTIFACT_BOUND_OR_RECOVERY_STATE
 produces=USER_TURN_COUNT_INCREMENT;TURN_CONTEXT
 allowed_next=RT.ALIGN
@@ -757,6 +770,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=RT.TURN and required transition/effect/recovery profiles
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-ALIGN
 requires=DEP.CANONICAL_CURRENT_STATE
 produces=ALIGNMENT_EVALUATION;AIR_ALIGNMENT_CHECK;AIR_VALIDATION_REPORT;EVALUATION_BASIS
 allowed_next=RT.INPUT_TRANSLATE
@@ -767,6 +782,8 @@ failure_route=RT.RECOVERY
 id=RT.INPUT_TRANSLATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=current user input after RT.ALIGN
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-INPUT_TRANSLATE
 requires=DEP.RAW_INPUT_REF;DEP.CURRENT_EVALUATION_BASIS
 produces=CANONICAL_INTENT_CANDIDATE;ACTIVE_CONTEXT_REF;SEMANTIC_LOSS_STATE
 allowed_next=RT.CLASSIFY
@@ -777,6 +794,8 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.CLASSIFY
 semantic_owner=AIR_CORE_RUNTIME
 trigger=translated current input
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-CLASSIFY
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.CANONICAL_INTENT_CANDIDATE
 produces=INSTRUCTION_EFFECT_CLASS
 allowed_next=RT.COMPATIBLE|RT.AMEND|RT.TASK_SWITCH|RT.UNCERTAINTY_RESOLVE|RT.APPROVAL_RESOLVE|RT.ACTION|RT.DELIVER|RT.RECOVERY
@@ -787,15 +806,20 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.COMPATIBLE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=ARTIFACT_COMPATIBLE_RUNTIME_INPUT
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-COMPATIBLE
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_COMPATIBLE
 produces=NO_TASK_STATE_REFRESH
 allowed_next=RT.COGNITIVE_RESOLVE|RT.DELIVER|END_RESPONSE
 invalidates=none
 does_not_bypass=RT.ALIGN;DEP.COGNITIVE_RESOLUTION_WHEN_MATERIAL;DEP.DELIVERY_ROUTE_WHEN_DELIVERY
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.AMEND
 semantic_owner=AIR_CORE_RUNTIME
 trigger=MATERIAL_ARTIFACT_AMENDMENT
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-AMEND
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.SAME_TASK_IDENTITY
 produces=NEW_ARTIFACT_REVISION;STATE_TRANSITION;AIR_ARTIFACT;AIR_PROJECT_EXECUTION_MAP_WHEN_ROADMAP_STEP_OR_BLOCKER_CHANGED
 allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND|RT.ACTION|RT.DELIVER
@@ -804,10 +828,13 @@ does_not_bypass=DEP.ARTIFACT_PRECHECK;AIR-FLOOR-013
 alignment_interlock=RT.ALIGN
 alignment_profile=STATE_TRANSITION
 alignment_interlock_point=POST_TRANSITION_PRE_NEXT
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.TASK_SWITCH
 semantic_owner=AIR_CORE_RUNTIME
 trigger=TASK_OR_STEP_REPLACEMENT classified as new independent task
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-TASK_SWITCH
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.NEW_TASK_IDENTITY_RESOLVED
 produces=NEW_TASK_ARTIFACT_CANDIDATE;ORBIT_TRANSITION;AIR_SESSION_WHEN_ORBIT_CHANGED;AIR_PROJECT_EXECUTION_MAP;AIR_ARTIFACT
 allowed_next=RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND
@@ -822,6 +849,8 @@ failure_route=RT.RECOVERY
 id=RT.CAPABILITY_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=material capability/specialization need
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-CAPABILITY_RESOLVE
 requires=DEP.CAPABILITY_NEED_IDENTIFIED;DEP.COMPLETION_ENVELOPE_RESOLVED;DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL
 produces=TASK_LOCAL_CAPABILITY|EXISTING_SPECIALIST_ROUTE|REUSABLE_SPECIALIST_CONSTRUCTION_ROUTE|CAPABILITY_BLOCKER
 allowed_next=RT.COGNITIVE_RESOLVE|RT.UNCERTAINTY_RESOLVE|END_RESPONSE
@@ -832,6 +861,8 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.COGNITIVE_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=task/input requires cognitive processing for benchmark execution
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-COGNITIVE_RESOLVE
 requires=DEP.CANONICAL_INTENT;DEP.ACTIVE_CONTEXT;DEP.SOURCE_EVIDENCE_STATE;DEP.COMPLETION_ENVELOPE_RESOLVED;DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL
 produces=MII_COGNITIVE_ROUTE_SET;MII_CONTRIBUTIONS;MII_FUSION_STATE
 allowed_next=RT.MORPHOLOGY_BIND|RT.UNCERTAINTY_RESOLVE|RT.ACTION|RT.DELIVER
@@ -842,6 +873,8 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.MORPHOLOGY_BIND
 semantic_owner=AIR_CORE_RUNTIME
 trigger=task/node morphology is material after cognitive requirements are known
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-MORPHOLOGY_BIND
 requires=DEP.COGNITIVE_REQUIREMENTS_KNOWN;DEP.BENCHMARK_REQUIREMENTS_KNOWN
 produces=TASK_MORPHOLOGY_BINDING;NODE_MORPHOLOGY_BINDINGS
 allowed_next=RT.ACTION|RT.DELIVER|END_RESPONSE
@@ -852,6 +885,8 @@ failure_route=RT.UNCERTAINTY_RESOLVE
 id=RT.UNCERTAINTY_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=insufficient material basis
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-UNCERTAINTY_RESOLVE
 requires=DEP.BASIS_GAP_IDENTIFIED;DEP.CURRENT_EVALUATION_BASIS
 produces=AIR_REQUIRED_INPUT_REQUEST|SAFE_DEGRADED_BOUNDARY|REVIEW_OR_EVIDENCE_REQUIRED
 allowed_next=END_RESPONSE
@@ -860,7 +895,8 @@ does_not_bypass=AIR-FLOOR-019;AIR-FLOOR-023
 alignment_interlock=RT.ALIGN
 alignment_profile=UNCERTAINTY_RESOLUTION
 alignment_interlock_point=PRE_ENTRY_IF_NO_CURRENT_BASIS
-failure_route=END_RESPONSE[AIR_ROUTE]
+failure_route=END_RESPONSE
+[AIR_ROUTE]
 id=RT.APPROVAL_RESOLVE
 semantic_owner=AIR_CORE_RUNTIME
 execution_semantics=DETERMINISTIC_PIPELINE
@@ -871,7 +907,7 @@ unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=reply to an open AIR human-approval request
 trigger_authority=NON_OPERATIVE_DESCRIPTION
-control_event_ref=CE-RT-APPROVAL-RESOLVE
+control_event_ref=CE-RT-APPROVAL_RESOLVE
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.OPEN_APPROVAL_SCOPE;DEP.EXACT_DECLARED_APPROVAL_OR_REJECTION_TOKEN
 produces=APPROVAL_RESOLUTION_STATE;AIR_GATE;AIR_SURFACED_OBJECT_LEDGER
 allowed_next=RT.ACTION|END_RESPONSE
@@ -893,7 +929,9 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=material external/tool/operator effect proposed
-requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_BOUND;DEP.LEASE_ACTIVE;DEP.SCOPE_MATCH;DEP.APPROVAL_CURRENT;DEP.GATE_ALLOW;DEP.APPROVAL_RESOLUTION_ALLOW_EMITTED;DEP.AUTHORITY_LEDGER_COMMITTED
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-ACTION
+requires=DEP.CURRENT_EVALUATION_BASIS;DEP.ARTIFACT_BOUND;DEP.LEASE_ACTIVE;DEP.SCOPE_MATCH;DEP.APPROVAL_PRECONDITION_SATISFIED;DEP.GATE_ALLOW;DEP.AUTHORITY_LEDGER_COMMITTED
 produces=AIR_ACTION_AUTHORIZATION;ONE_MATERIAL_EFFECT_ATTEMPT
 allowed_next=RT.RECEIPT
 invalidates=PRE_EFFECT_EVALUATION_BASIS;LEASE_OR_SOURCE_STATE_WHEN_EFFECT_CHANGES_IT
@@ -902,15 +940,19 @@ alignment_interlock=RT.ALIGN
 alignment_profile=POST_MATERIAL_EFFECT
 alignment_interlock_point=POST_EFFECT_PRE_NEXT
 transaction_contract=AIR_MATERIAL_ACTION_TRANSACTION_V1
-pre_effect_sequence=TURN_ENTRY_ALIGNMENT;CURRENT_ARTIFACT;ACTIVE_LEASE;NON_NULL_RESOURCE_SCOPE_PIN;CURRENT_APPROVAL;AIR_GATE_ALLOW;AIR_ACTION_AUTHORIZATION_EMITTED
+pre_effect_sequence=TURN_ENTRY_ALIGNMENT;CURRENT_ARTIFACT;ACTIVE_LEASE;NON_NULL_RESOURCE_SCOPE_PIN;CURRENT_APPROVAL_WHEN_REQUIRED;AIR_GATE_ALLOW;AIR_ACTION_AUTHORIZATION_EMITTED
 effect_attempt_requires_predecessors=ALL_SATISFIED
 authorization_visibility=USER_VISIBLE_BEFORE_EFFECT
 authority_emission_barrier=AIR_SURFACED_OBJECT_LEDGER_V1
 effect_attempt_requires_authorization_ledger_entry=true
 approval_resolution_route=RT.APPROVAL_RESOLVE
+approval_precondition_dependency=DEP.APPROVAL_PRECONDITION_SATISFIED
+approval_precondition_satisfiers=APPROVAL_NOT_REQUIRED|APPROVAL_REQUIRED_AND_CURRENT_APPROVAL_WITH_ALLOW_RESOLUTION_EMITTED
+approval_precondition_unknown_behavior=FAIL_CLOSED
 post_effect_alignment_profile=POST_MATERIAL_EFFECT
 receipt_authorization_match=EXACT
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.RECEIPT
 semantic_owner=AIR_CORE_RUNTIME
 execution_semantics=DETERMINISTIC_PIPELINE
@@ -920,6 +962,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=material action attempted
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-RECEIPT
 requires=DEP.MATCHING_AUTHORIZATION;DEP.OBSERVED_EFFECT_EVIDENCE;DEP.CURRENT_EVALUATION_BASIS
 produces=POST_EFFECT_RECONCILIATION;AIR_ACTION_RECEIPT
 allowed_next=RT.DELIVER|RT.CLOSE|END_RESPONSE
@@ -931,10 +975,13 @@ receipt_constructor_schema=AIR_ACTION_RECEIPT
 receipt_record_class=ACTION_RECEIPT_RECORD
 receipt_authorization_match=EXACT_CONSUMED_AUTHORIZATION
 formal_object_constructor_validation=REQUIRED
-failure_route=RT.RECOVERY[AIR_ROUTE]
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.DELIVER
 semantic_owner=AIR_CORE_RUNTIME
 trigger=receiver-facing material output candidate exists
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-DELIVER
 requires=DEP.OUTPUT_REVIEW;DEP.SEMANTIC_FIDELITY_RECONCILED;DEP.EPISTEMIC_SUFFICIENCY;DEP.CLOSURE_DELIVERY_GATE
 produces=APPROVED_OUTPUT|REVIEW_GATE|REJECT_REPORT
 allowed_next=RT.CLOSE|END_RESPONSE
@@ -945,6 +992,8 @@ failure_route=RT.RECOVERY
 id=RT.CLOSE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=task/step closure requested or terminality evaluated
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-CLOSE
 requires=DEP.DELIVERY_STATE;DEP.COMPLETION_EVIDENCE;DEP.NO_UNRESOLVED_BLOCKER;DEP.TASK_SUFFICIENCY_COMPLETE;DEP.STEP_OPTIMALITY_PASS_WHEN_AMRS_MATURITY_BEARING
 produces=COMPLETION_STATE
 allowed_next=RT.HANDOFF_CREATE|END_RESPONSE
@@ -961,6 +1010,8 @@ missing_input_behavior=FAIL_CLOSED
 unknown_condition_behavior=FAIL_CLOSED
 conflict_behavior=FAIL_CLOSED
 trigger=handoff requested
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-HANDOFF_CREATE
 requires=DEP.CURRENT_STATE_RECONCILED;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_GENERATION_EVALUATION
 produces=AIR_HANDOFF_CARD_FILE;AIR_FILE_DELIVERY_RECEIPT
 allowed_next=END_RESPONSE
@@ -979,6 +1030,8 @@ failure_route=RT.RECOVERY
 id=RT.RECOVERY
 semantic_owner=AIR_CORE_RUNTIME
 trigger=drift/binding/source/prior-effect/dependency/state failure
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-RECOVERY
 requires=DEP.FAILURE_EVIDENCE
 produces=RECOVERY_STATE;AIR_ERROR_OR_RECOVERY_RECORDS;SAFE_NEXT_ACTION
 allowed_next=END_RESPONSE
@@ -1011,12 +1064,19 @@ ALIGNMENT_EVALUATION is an operation. AIR_ALIGNMENT_CHECK and its coupled AIR_VA
 
 Evaluation profiles:
 - BOOTSTRAP
+- ACTIVATION
 - TURN_ENTRY
 - STATE_TRANSITION
 - HANDOFF_RESTORE
 - PRE_MATERIAL_EFFECT
 - POST_MATERIAL_EFFECT
+- UNCERTAINTY_RESOLUTION
 - RECOVERY
+
+Profile-specific semantics:
+- ACTIVATION evaluates the canonical pre-bind activation state used by RT.ACTIVATE after onboarding or restored candidate-state preparation; it is not an alias for BOOTSTRAP or STATE_TRANSITION.
+- UNCERTAINTY_RESOLUTION evaluates the canonical state and identified material basis gap immediately before RT.UNCERTAINTY_RESOLVE constructs a required-input, safe-degraded-boundary, review, or evidence-required result; it is not an alias for another profile.
+- All profiles share the same current-state/evaluation-basis constructor and differ only in the declared evaluation purpose and material state slice.
 
 Every post-activation user turn executes TURN_ENTRY alignment before semantic instruction handling. There is no configurable interval and no substantive-message classifier.
 

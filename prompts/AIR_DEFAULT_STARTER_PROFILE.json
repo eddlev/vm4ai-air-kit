@@ -34,6 +34,16 @@
         "canonical_role": "GOVERNANCE_SUPPLEMENT",
         "canonical_filename": "AIR_GOV.md",
         "SYSTEM_DESIGNATION": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2"
+      },
+      {
+        "canonical_role": "DEFAULT_STARTER_PROFILE",
+        "canonical_filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2"
+      },
+      {
+        "canonical_role": "HANDOFF_CARD_TEMPLATE",
+        "canonical_filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "TEMPLATE_DESIGNATION": "AIR_HANDOFF_CARD_TEMPLATE_V2"
       }
     ],
     "binding_boundary": "This profile may compile an AIR_ARTIFACT candidate during bootstrap. Positive material execution begins only after exactly one candidate passes precheck and enters Orbit 0 with ACTIVE_EXECUTION_BINDING.",
@@ -411,6 +421,7 @@
       "declared_runtime_routes": [
         "RT.ACTION",
         "RT.ALIGN",
+        "RT.APPROVAL_RESOLVE",
         "RT.BOOT",
         "RT.HANDOFF_CREATE",
         "RT.HANDOFF_RESTORE",
@@ -479,7 +490,27 @@
       "failure_behavior": "FAIL_CLOSED_OR_PRIOR_EFFECT_RECOVERY_IF_EFFECT_ALREADY_OBSERVED",
       "approval_resolution_contract": "AIR_APPROVAL_RESPONSE_RESOLUTION_V1",
       "authority_ledger_required_before_effect": true,
-      "exact_approval_or_rejection_token_required": true
+      "exact_approval_or_rejection_token_required": true,
+      "approval_precondition_contract": {
+        "state_path": "ACTION_APPROVAL_PRECONDITION",
+        "approval_required_path": "CURRENT_ACTION_GOVERNANCE.approval_required",
+        "allowed_states": [
+          "APPROVAL_NOT_REQUIRED",
+          "APPROVAL_REQUIRED_AND_CURRENT_APPROVAL_WITH_ALLOW_RESOLUTION_EMITTED",
+          "UNRESOLVED"
+        ],
+        "satisfying_states": [
+          "APPROVAL_NOT_REQUIRED",
+          "APPROVAL_REQUIRED_AND_CURRENT_APPROVAL_WITH_ALLOW_RESOLUTION_EMITTED"
+        ],
+        "required_when_approval_required_true": [
+          "CURRENT_APPROVAL",
+          "APPROVAL_RESOLUTION_STATE=APPROVED",
+          "ALLOW_RESOLUTION_EMITTED"
+        ],
+        "false_branch_rule": "approval_required=false produces APPROVAL_NOT_REQUIRED without synthesizing approval history",
+        "unknown_rule": "UNRESOLVED_FAIL_CLOSED"
+      }
     },
     "formal_object_constructor_validation": {
       "required": true,
@@ -538,7 +569,8 @@
         "EXACT_TOKEN_IN_DECLARED_SET",
         "LEDGER_CONTAINS",
         "REFERENCE_RESOLVES",
-        "CAPABILITY_AVAILABLE"
+        "CAPABILITY_AVAILABLE",
+        "APPROVAL_PRECONDITION_SATISFIED"
       ],
       "route_count": 22,
       "events": [
@@ -550,7 +582,7 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "LOAD_INTEGRITY_STATE"
             }
           ],
           "guard_join": "ALL",
@@ -565,7 +597,7 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "ENTRY_PATH_STATE"
             }
           ],
           "guard_join": "ALL",
@@ -579,8 +611,13 @@
           "semantic_proposal_authority": "NONE",
           "guards": [
             {
+              "operator": "STATE_EQUALS",
+              "path": "HANDOFF_SCHEMA_VALIDATION_STATE",
+              "expected": "VALID"
+            },
+            {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "HANDOFF_EXPLICIT_STATE_INPUT"
             }
           ],
           "guard_join": "ALL",
@@ -595,7 +632,12 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "CANONICAL_CURRENT_STATE"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "BINDABLE_ARTIFACT_CANDIDATE_COUNT",
+              "expected": 1
             }
           ],
           "guard_join": "ALL",
@@ -625,7 +667,12 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "CANONICAL_CURRENT_STATE"
+            },
+            {
+              "operator": "REFERENCE_RESOLVES",
+              "path": "REQUESTED_ALIGNMENT_PROFILE",
+              "registry_path": "typed_registries.runtime_states.alignment_evaluation_profile"
             }
           ],
           "guard_join": "ALL",
@@ -760,7 +807,11 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "BASIS_GAP_IDENTIFIED"
+            },
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CANONICAL_CURRENT_STATE"
             }
           ],
           "guard_join": "ALL",
@@ -794,9 +845,20 @@
           "semantic_proposal_authority": "NONE",
           "guards": [
             {
-              "operator": "STATE_EQUALS",
-              "path": "APPROVAL_RESOLUTION_STATE",
-              "expected": "APPROVED"
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_EVALUATION_BASIS"
+            },
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CURRENT_BOUND_ARTIFACT"
+            },
+            {
+              "operator": "APPROVAL_PRECONDITION_SATISFIED",
+              "path": "ACTION_APPROVAL_PRECONDITION",
+              "satisfying_states": [
+                "APPROVAL_NOT_REQUIRED",
+                "APPROVAL_REQUIRED_AND_CURRENT_APPROVAL_WITH_ALLOW_RESOLUTION_EMITTED"
+              ]
             },
             {
               "operator": "STATE_EQUALS",
@@ -816,6 +878,11 @@
               "operator": "STATE_EQUALS",
               "path": "CURRENT_ARTIFACT_LEASE.state",
               "expected": "ACTIVE"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "AUTHORITY_LEDGER_COMMIT_STATE",
+              "expected": "COMMITTED"
             }
           ],
           "guard_join": "ALL",
@@ -910,7 +977,11 @@
           "guards": [
             {
               "operator": "STATE_PRESENT",
-              "path": "CURRENT_EVALUATION_BASIS"
+              "path": "RECOVERY_TRIGGER_STATE"
+            },
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CANONICAL_CURRENT_STATE"
             }
           ],
           "guard_join": "ALL",
@@ -1370,11 +1441,13 @@
       ],
       "alignment_evaluation_profile": [
         "BOOTSTRAP",
+        "ACTIVATION",
         "TURN_ENTRY",
         "STATE_TRANSITION",
         "HANDOFF_RESTORE",
         "PRE_MATERIAL_EFFECT",
         "POST_MATERIAL_EFFECT",
+        "UNCERTAINTY_RESOLUTION",
         "RECOVERY"
       ],
       "semantic_fidelity_state": [
@@ -1884,7 +1957,7 @@
         "canonical_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
         "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
         "routing_owner": "AIR_CORE_RUNTIME_V2",
-        "routing_rule": "Core chooses NOT_NEEDED, INLINE_METHOD_SUFFICIENT, FULL_SFV_RECOMMENDED, FULL_SFV_REQUIRED_FOR_APPROVAL, or FULL_SFV_REQUIRED_FOR_SAFE_EXECUTION using specification dependence, consequence, evidence pressure, recurrence, downstream dependency, verification difficulty, and portability/handoff need.",
+        "routing_rule": "Core chooses canonical capability need_state NOT_NEEDED, INLINE_METHOD_SUFFICIENT, RECOMMENDED, REQUIRED_FOR_APPROVAL, or REQUIRED_FOR_SAFE_EXECUTION with layer_type=METHOD_PACK and specialization=SPECIFICATION_FIRST_VERIFICATION using specification dependence, consequence, evidence pressure, recurrence, downstream dependency, verification difficulty, and portability/handoff need.",
         "automatic_binding": false,
         "responsive_binding_approval_supported": true,
         "inline_fallback_required_fields": [
@@ -2070,7 +2143,7 @@
       "PR or file state change invalidates prior validation and requires a new receipt or revalidation",
       "side question does not silently replace Orbit 0 or expand scope",
       "long conversation forces re-anchoring before material action when lease freshness is uncertain",
-      "new-project boot accepts the current Starter when top-level PROMPT_VERSION equals validation_contract.required_version",
+      "new-project boot accepts the current Starter only when top-level PROMPT_VERSION is present and all typed cross-file consumers that carry Starter version state agree with that canonical path",
       "Starter self-version mismatch fails validation before onboarding",
       "transport-counter filename suffixes do not affect semantic version validation",
       "material action attempt during onboarding emits BOOTSTRAP_WRITE_ATTEMPT and performs no mutation",
@@ -2472,7 +2545,7 @@
       }
     ],
     "deterministic_contract_registry": {
-      "registry_version": "1.0.0",
+      "registry_version": "1.1.0",
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
       "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
@@ -2480,9 +2553,9 @@
       "prose_authority": "NON_OPERATIVE_DESCRIPTION",
       "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
       "coverage_contract": {
-        "declared_check_count": 46,
-        "implemented_check_count_required": 46,
-        "executed_check_count_required": 46,
+        "declared_check_count": 80,
+        "implemented_check_count_required": 80,
+        "executed_check_count_required": 80,
         "unimplemented_allowed": 0,
         "unexecuted_allowed": 0,
         "duplicate_check_ids_allowed": 0,
@@ -2884,8 +2957,269 @@
           "on_failure": "FAIL_CLOSED",
           "file": "prompts/AIR_GOV.md",
           "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+        },
+        {
+          "check_id": "DC-VERSION-CORE",
+          "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "header": "PROMPT_VERSION",
+          "registry_value_path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CORE"
+        },
+        {
+          "check_id": "DC-VERSION-CONTROL",
+          "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "header": "PROMPT_VERSION",
+          "registry_value_path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CONTROL"
+        },
+        {
+          "check_id": "DC-VERSION-GOV",
+          "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_GOV.md",
+          "header": "PROMPT_VERSION",
+          "registry_value_path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.GOVERNANCE"
+        },
+        {
+          "check_id": "DC-KIND-STARTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.PROFILE_KIND"
+          },
+          "expected": "TASK_COMPOSITE"
+        },
+        {
+          "check_id": "DC-FUNCTION-CLASS-STARTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.profile_function_class"
+          },
+          "expected": "DEFAULT_STARTER_PROFILE"
+        },
+        {
+          "check_id": "DC-FILENAME-STARTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.canonical_filename"
+          },
+          "expected": "AIR_DEFAULT_STARTER_PROFILE.json"
+        },
+        {
+          "check_id": "DC-STRICT-JSON-STARTER",
+          "operator": "STRICT_JSON_PARSE_NO_DUPLICATES",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+        },
+        {
+          "check_id": "DC-STRICT-JSON-HANDOFF",
+          "operator": "STRICT_JSON_PARSE_NO_DUPLICATES",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+        },
+        {
+          "check_id": "DC-FOUNDATION-NORMALIZED-COLLISION",
+          "operator": "FOUNDATION_FILENAME_COLLISION_FREE",
+          "on_failure": "FAIL_CLOSED",
+          "manifest_file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "manifest_path": "$.authority_contract.required_files",
+          "normalization_steps": [
+            "PERCENT_DECODE",
+            "UNICODE_NFKC",
+            "CASEFOLD",
+            "TRIM_TRAILING_SPACE_OR_PERIOD"
+          ]
+        },
+        {
+          "check_id": "DC-FOUNDATION-MANIFEST-EXACT",
+          "operator": "FOUNDATION_MANIFEST_EXACT",
+          "on_failure": "FAIL_CLOSED",
+          "manifest_file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "manifest_path": "$.authority_contract.required_files",
+          "foundation_directory": "prompts"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-001",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-002",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-003",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-004",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-004-LOAD-INTEGRITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-005",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-006",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-007",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-008",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-009",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-010",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-011",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-012",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-012-LEGACY-V1-NON-BINDING"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-013",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-014",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-015",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-016",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-017",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-018",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-019",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-020",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-021",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-022",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-023",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION"
+        },
+        {
+          "check_id": "DC-CORE-FLOOR-024",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
         }
-      ]
+      ],
+      "foundation_prompt_version_contract": {
+        "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+        "CORE": "2.6.0",
+        "CONTROL": "2.6.0",
+        "GOVERNANCE": "2.3.0"
+      }
     }
   },
   "routing_contracts": {
@@ -2919,9 +3253,9 @@
       "need_states": [
         "NOT_NEEDED",
         "INLINE_METHOD_SUFFICIENT",
-        "FULL_SFV_RECOMMENDED",
-        "FULL_SFV_REQUIRED_FOR_APPROVAL",
-        "FULL_SFV_REQUIRED_FOR_SAFE_EXECUTION"
+        "RECOMMENDED",
+        "REQUIRED_FOR_APPROVAL",
+        "REQUIRED_FOR_SAFE_EXECUTION"
       ],
       "triggers": [
         "material specification dependence",
@@ -2941,7 +3275,15 @@
       "inline_fallback": "Use the Core universal inline SFV discipline when sufficient or when Full SFV is declined/deferred and work remains safe.",
       "responsive_binding_approval_supported": true,
       "automatic_binding": false,
-      "claim_boundary": "Passing verification demonstrates conformance only to the evidence actually observed; closure still requires reconciliation to canonical intent and acceptance criteria."
+      "claim_boundary": "Passing verification demonstrates conformance only to the evidence actually observed; closure still requires reconciliation to canonical intent and acceptance criteria.",
+      "layer_type": "METHOD_PACK",
+      "specialization": "SPECIFICATION_FIRST_VERIFICATION",
+      "legacy_state_projection": {
+        "FULL_SFV_RECOMMENDED": "RECOMMENDED",
+        "FULL_SFV_REQUIRED_FOR_APPROVAL": "REQUIRED_FOR_APPROVAL",
+        "FULL_SFV_REQUIRED_FOR_SAFE_EXECUTION": "REQUIRED_FOR_SAFE_EXECUTION"
+      },
+      "legacy_state_projection_authority": "MIGRATION_OR_DISPLAY_COMPATIBILITY_ONLY_NOT_CORE_CONTROL_OUTPUT"
     },
     "mii_cognitive_routing": {
       "owner": "AIR_CORE_RUNTIME_V2:RT.COGNITIVE_RESOLVE",

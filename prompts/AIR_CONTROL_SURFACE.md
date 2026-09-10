@@ -2093,7 +2093,7 @@ When task promotion occurs, validate method compatibility and staleness before b
 If a queued artifact resumes, recheck tool, model, platform, dependency, and source freshness.
 
 Full SFV surface:
-- When Core returns FULL_SFV_RECOMMENDED or a required Full-SFV state, show why the reusable method adds value, what it changes in procedure/evidence/handoff, whether work is blocked, and the inline fallback when safe.
+- When Core returns RECOMMENDED, REQUIRED_FOR_APPROVAL, or REQUIRED_FOR_SAFE_EXECUTION for layer_type=METHOD_PACK with specialization=SPECIFICATION_FIRST_VERIFICATION, show why the reusable SFV method adds value, what it changes in procedure/evidence/handoff, whether work is blocked, and the inline fallback when safe.
 - Request the exact canonical `AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json` only when needed and do not repeatedly ask after the user declines or defers unless the task materially changes.
 - When responsive binding approval is offered, disclose the binding scope/effects before the upload request.
 - A method adequacy result is not AIR_GATE; show the stricter practical consequence when they differ.
