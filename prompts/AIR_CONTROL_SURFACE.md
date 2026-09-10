@@ -3215,7 +3215,7 @@ For a material action approval/effect turn, visible order follows Core AIR_MATER
 9. Reconciled post-effect AIR_ARTIFACT/Map/Session objects when the post-effect lifecycle requires them.
 10. Receiver-facing success claim and runtime anchor only after closure passes.
 
-A prior HOLD Gate, planned authorization, receipt-authored reference, or prose assertion cannot substitute for a current visible ALLOW Gate or canonical Authorization. A material target requires a non-null resource scope pin before authorization.
+A prior REVIEW Gate, planned authorization, receipt-authored reference, or prose assertion cannot substitute for a current visible ALLOW Gate or canonical Authorization. A material target requires a non-null resource scope pin before authorization.
 
 Patch marker: AIR_CONTROL_FORMAL_OBJECT_CONSTRUCTOR_GUARD_V1
 

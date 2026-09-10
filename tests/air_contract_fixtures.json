@@ -283,8 +283,8 @@
       "invalid_if": "material effect approval/effect turn proceeds without its current TURN_ENTRY alignment pair"
     },
     {
-      "id": "MAT-02-HOLD-GATE-IMPLICITLY-UPGRADED",
-      "invalid_if": "prior HOLD Gate is treated as current ALLOW after approval without constructing and emitting a current ALLOW Gate"
+      "id": "MAT-02-REVIEW-GATE-IMPLICITLY-UPGRADED",
+      "invalid_if": "prior REVIEW Gate is treated as current ALLOW after approval without constructing and emitting a current ALLOW Gate"
     },
     {
       "id": "MAT-03-MISSING-RESOURCE-SCOPE-PIN",
@@ -483,6 +483,57 @@
         "IDs/evidence/applicability/corrective/retest/recurrence preserved",
         "restore as UNVALIDATED_BOOTSTRAP_INPUT"
       ]
+    },
+    {
+      "id": "FM-07-FIRST-EMISSION-LEDGER-RESERVATION",
+      "setup": "new evidenced reusable failure mode has no prior surfaced ledger entry",
+      "expected": [
+        "reserve next ledger_entry_ref without committing visibility",
+        "construct failure record with reserved source_ledger_entry_ref",
+        "hash and visibly emit exact failure record",
+        "commit matching USER_VISIBLE_EMITTED ledger entry with same ref and exact hash",
+        "only then allow persistence/retry/Handoff resolution"
+      ],
+      "fail_if": [
+        "record emitted with null or invented source_ledger_entry_ref",
+        "reservation treated as emitted history or authority",
+        "ledger entry hash differs from exact emitted failure record",
+        "dependency or Handoff resolves the ref before entry commit"
+      ]
+    },
+    {
+      "id": "FM-08-FAILURE-LEDGER-REF-MISMATCH",
+      "setup": "failure record carries a source_ledger_entry_ref that resolves to a different object/ref/hash",
+      "expected": [
+        "fail closed for persistence and automatic applicability",
+        "do not repair reference by semantic inference"
+      ],
+      "fail_if": [
+        "mismatched entry accepted",
+        "record auto-applied despite unresolved or mismatched self-ledger identity"
+      ]
+    }
+  ],
+  "r2_formal_object_contract_cases": [
+    {
+      "id": "R2-FO-01-FORMAL-CLASS-CLOSURE",
+      "invalid_if": "reserved Core formal object with closed-world field schema is absent from canonical formal-object class registry"
+    },
+    {
+      "id": "R2-FO-02-ARTIFACT-TRACE-REGISTRATION",
+      "invalid_if": "prompt_layer_qualitative_trace is required/used but absent from AIR_ARTIFACT allowed field registry"
+    },
+    {
+      "id": "R2-GATE-01-NONCANONICAL-HOLD",
+      "invalid_if": "HOLD is referenced as an AIR_GATE decision/state without being in canonical Gate enum"
+    },
+    {
+      "id": "R2-AUTH-01-REJECT-AUTHORIZATION",
+      "invalid_if": "AIR_ACTION_AUTHORIZATION accepts REJECT without an explicit canonical reject-authorization lifecycle"
+    },
+    {
+      "id": "R2-GOV-01-RETIRED-GATE-PATHS",
+      "invalid_if": "Governance source-rights mapping targets evidence_check/allowed_action_check/stop_condition_check instead of AIR_GATE.evaluation_checks nested paths"
     }
   ]
 }

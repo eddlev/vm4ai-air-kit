@@ -276,7 +276,7 @@ Rules:
 9. Source-rights state is project-scoped unless an authorized reusable policy explicitly permits broader reuse.
 10. A refusal or inability to provide source-rights information must not be silently converted into permission.
 
-Governance source-rights state must feed AIR_GATE evidence_check, allowed_action_check, stop_condition_check, and reason when source use is material.
+Governance source-rights state must feed AIR_GATE.evaluation_checks.evidence, AIR_GATE.evaluation_checks.allowed_action, AIR_GATE.evaluation_checks.stop_condition, and AIR_GATE.reason when source use is material.
 
 ==================================================
 FRAMEWORK SELECTION AND ADAPTATION

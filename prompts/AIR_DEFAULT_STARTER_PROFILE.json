@@ -485,7 +485,6 @@
       "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
       "receipt_record_class": "ACTION_RECEIPT_RECORD",
       "authorization_receipt_exact_match_required": true,
-      "prior_hold_gate_may_be_reused_as_allow": false,
       "effect_before_authorization_emission": "PROHIBITED",
       "failure_behavior": "FAIL_CLOSED_OR_PRIOR_EFFECT_RECOVERY_IF_EFFECT_ALREADY_OBSERVED",
       "approval_resolution_contract": "AIR_APPROVAL_RESPONSE_RESOLUTION_V1",
@@ -510,7 +509,8 @@
         ],
         "false_branch_rule": "approval_required=false produces APPROVAL_NOT_REQUIRED without synthesizing approval history",
         "unknown_rule": "UNRESOLVED_FAIL_CLOSED"
-      }
+      },
+      "prior_review_gate_may_be_reused_as_allow": false
     },
     "formal_object_constructor_validation": {
       "required": true,
@@ -522,7 +522,8 @@
         "REQUIRED_FIELDS_PRESENT",
         "TOP_LEVEL_FIELDS_CLOSED_WORLD",
         "SAME_TURN_REFERENCES_RESOLVE_TO_OBSERVED_OR_CONSTRUCTED_OBJECTS",
-        "ACTION_RECEIPT_AUTHORIZATION_REF_MATCHES_CONSUMED_AUTHORIZATION"
+        "ACTION_RECEIPT_AUTHORIZATION_REF_MATCHES_CONSUMED_AUTHORIZATION",
+        "FAILURE_MODE_RESERVED_LEDGER_ENTRY_REF_VALID"
       ],
       "failure_behavior": "AIR_ERROR_OR_RECOVERY_BEFORE_RENDER_OR_DEPENDENT_EXECUTION"
     },
@@ -1035,7 +1036,21 @@
       "same_response_self_entry": "PROHIBITED_NEXT_LEDGER_CAPTURES_PRIOR_LEDGER",
       "handoff_full_history_required": true,
       "handoff_snapshot_hash_revalidation": "REQUIRED_FOR_EVERY_CAPTURED_ENTRY",
-      "handoff_missing_or_hash_mismatch_behavior": "FAIL_CLOSED"
+      "handoff_missing_or_hash_mismatch_behavior": "FAIL_CLOSED",
+      "ledger_id_scope": "STABLE_FOR_GOVERNED_SESSION",
+      "entry_reference_field": "ledger_entry_ref",
+      "entry_reference_format": "AIR_SURFACED_OBJECT_LEDGER_ENTRY::<ledger_id>::<emission_sequence>",
+      "failure_record_entry_reservation": {
+        "permitted_for": [
+          "AIR_FAILURE_MODE_RECORD.source_ledger_entry_ref"
+        ],
+        "reservation_state": "RESERVED_NOT_EMITTED_NOT_AUTHORITY",
+        "sequence_allocation_rule": "RESERVE_NEXT_UNCOMMITTED_EMISSION_SEQUENCE_WITHOUT_ADVANCING_COMMITTED_SEQUENCE",
+        "commit_rule": "COMMIT_ONLY_AFTER_EXACT_CANONICAL_OBJECT_VISIBLE_EMISSION_WITH_MATCHING_REF_AND_HASH",
+        "abort_rule": "DISCARD_RESERVATION_AND_DO_NOT_ADVANCE_COMMITTED_SEQUENCE",
+        "resolution_rule": "REFERENCE_RESOLVES_ONLY_AFTER_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_COMMIT",
+        "inference_policy": "PROHIBITED"
+      }
     },
     "failure_mode_registry": {
       "required": true,
@@ -1099,7 +1114,18 @@
         "exact_match_rule": "CURRENT_SIGNATURE_HASH_EQUALS_RECORDED_APPLICABILITY_SIGNATURE_HASH"
       },
       "failure_record_source_ledger_entry_required": true,
-      "handoff_record_mutation": "PROHIBITED_COPY_LEDGER_BACKED_CANONICAL_RECORD"
+      "handoff_record_mutation": "PROHIBITED_COPY_LEDGER_BACKED_CANONICAL_RECORD",
+      "source_ledger_entry_ref_semantics": "SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY",
+      "source_ledger_entry_ref_evidence_source_role": "NONE_USE_EVIDENCE_REFS_FOR_EVIDENCE_SOURCES",
+      "first_emission_transaction": [
+        "RESERVE_NEXT_LEDGER_ENTRY_REF",
+        "CONSTRUCT_FAILURE_RECORD_WITH_RESERVED_SOURCE_LEDGER_ENTRY_REF",
+        "CANONICALIZE_AND_HASH_FAILURE_RECORD",
+        "VISIBLY_EMIT_FAILURE_RECORD",
+        "COMMIT_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_WITH_EXACT_HASH",
+        "ONLY_THEN_SOURCE_LEDGER_ENTRY_REF_RESOLVES"
+      ],
+      "reservation_authority": "NONE_UNTIL_MATCHING_LEDGER_ENTRY_COMMIT"
     },
     "handoff_file_delivery": {
       "required": true,
@@ -1343,6 +1369,8 @@
         "AIR_ERROR",
         "AIR_ACTION_AUTHORIZATION",
         "AIR_ACTION_RECEIPT",
+        "AIR_SURFACED_OBJECT_LEDGER",
+        "AIR_FAILURE_MODE_RECORD",
         "AIR_PRIOR_EFFECT_RECORD",
         "AIR_REQUIRED_INPUT_REQUEST",
         "AIR_HANDOFF_CARD"

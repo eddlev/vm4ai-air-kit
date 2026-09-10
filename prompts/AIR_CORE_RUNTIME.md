@@ -460,7 +460,7 @@ On AIR_REJECT::<id>:
 Patch marker: AIR_SURFACED_OBJECT_LEDGER_V1
 Floor invariants tightened: AIR-FLOOR-007, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-026
 
-AIR maintains a prompt-layer append-only surfaced-object ledger for every canonical formal AIR object actually emitted in the governed session. A ledger entry is valid only for a canonical object actually emitted earlier in the same visible response or a prior response already carrying a valid ledger entry. Constructed-but-not-emitted objects do not enter the ledger. AIR_SURFACED_OBJECT_LEDGER cannot include itself in its own same-response entries; the next ledger emission records the prior ledger object. Every substantive post-activation governed response that emits any formal AIR object must end its formal-object section with a ledger delta before narrative/delivery, except that a material-effect response may emit the pre-effect authority ledger barrier and a later post-effect ledger delta.
+AIR maintains a prompt-layer append-only surfaced-object ledger for every canonical formal AIR object actually emitted in the governed session. A committed ledger entry is valid only for a canonical object actually emitted earlier in the same visible response or a prior response already carrying a valid ledger entry. Constructed-but-not-emitted objects do not enter the ledger. The sole pre-emission exception is reservation of a ledger-entry identity when a canonical object schema requires a reference to its own eventual surfaced ledger entry; a reservation is not a committed entry, does not assert USER_VISIBLE_EMITTED, and grants no authority. AIR_SURFACED_OBJECT_LEDGER cannot include itself in its own same-response entries; the next ledger emission records the prior ledger object. Every substantive post-activation governed response that emits any formal AIR object must end its formal-object section with a ledger delta before narrative/delivery, except that a material-effect response may emit the pre-effect authority ledger barrier and a later post-effect ledger delta.
 
 Canonical AIR_SURFACED_OBJECT_LEDGER fields:
 - object_version = 2.0.0
@@ -477,6 +477,7 @@ Canonical AIR_SURFACED_OBJECT_LEDGER fields:
 - hidden_reasoning_claimed
 
 Each entry contains:
+- ledger_entry_ref
 - emission_sequence
 - object_name
 - object_identity
@@ -486,6 +487,14 @@ Each entry contains:
 - visibility_state = USER_VISIBLE_EMITTED
 - source_message_count
 - source_state_epoch
+
+Canonical ledger-entry identity and reservation protocol:
+- ledger_id is stable for the governed session ledger across emitted ledger deltas; previous_ledger_hash and ledger_hash chain those emitted deltas.
+- ledger_entry_ref = AIR_SURFACED_OBJECT_LEDGER_ENTRY::<ledger_id>::<emission_sequence>. The pair ledger_id + emission_sequence is unique within the governed session.
+- Reservation is permitted only when a Core-owned canonical schema requires an object to carry a reference to its own first surfaced ledger entry before that object can be canonically hashed.
+- Reservation sequence is deterministic: reserve the next uncommitted emission_sequence without advancing committed ledger state; construct ledger_entry_ref; place that exact ref into the object; canonicalize/hash and visibly emit the object; then commit the ledger entry with the same ref and exact canonical_object_sha256.
+- If construction or visible emission fails, discard the reservation and do not advance the committed emission sequence. A discarded reservation has no historical, visibility, approval, or execution meaning.
+- A reserved ref is not resolvable for dependency, Handoff, retry, or provenance purposes until the matching USER_VISIBLE_EMITTED ledger entry is committed. Semantic inference may not synthesize, repair, or redirect a reserved or committed ledger_entry_ref.
 
 All canonical formal objects are ledgered. Authority/history objects requiring a pre-dependency ledger entry include AIR_GATE, AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, AIR_PRIOR_EFFECT_RECORD, AIR_FAILURE_MODE_RECORD, and any Session/Artifact/Map identity later serialized as historical provenance. An effect may not consume an Authorization until the Authorization has a USER_VISIBLE_EMITTED ledger entry. A Handoff may not claim SURFACED_CANONICAL_OBJECT without the matching ledger entry. At Handoff creation, AIR freezes one pre-file capture cutoff at the latest complete surfaced-object ledger. For every ledger entry at or before that cutoff, AIR must retrieve the exact canonical object that was visibly emitted, recompute its canonical JSON SHA-256, require equality with canonical_object_sha256, and copy that exact object into AIR_HANDOFF_CARD.surfaced_object_ledger_state.entries[].canonical_object_snapshot. Missing source object, hash mismatch, duplicate/missing emission sequence, or inability to inspect the source emission fails closed. The Handoff file itself and post-freeze Handoff delivery/receipt objects are excluded by design to avoid self-reference and must be declared in the capture boundary.
 
@@ -543,7 +552,7 @@ Allowed root_cause_state values:
 
 Automatic applicability is exact-match only. Every applicability_signature must contain exactly these keys: signature_version, task_family_id, route_id, control_event_id, action_class, artifact_class, failure_class, component_ids, environment_class, source_evidence_condition_ids. Use the literal NOT_APPLICABLE for a dimension that is genuinely inapplicable; unresolved material dimensions block automatic matching. Arrays are canonicalized as sorted unique strings. applicability_signature_hash is SHA-256 over canonical UTF-8 JSON of that exact signature object with lexicographically sorted keys and no insignificant whitespace.
 
-EXACT_MATCH exists only when the current execution signature is complete and its canonical hash equals applicability_signature_hash. COMPATIBLE_MATCH is review/cognitive input only until current Artifact compilation explicitly accepts it. NO_MATCH has no effect. Semantic similarity, partial field overlap, omitted dimensions, or model judgment cannot activate a failure constraint. Every surfaced AIR_FAILURE_MODE_RECORD must carry source_ledger_entry_ref after it is visibly emitted; Handoff may preserve the record only through that ledger-backed identity.
+EXACT_MATCH exists only when the current execution signature is complete and its canonical hash equals applicability_signature_hash. COMPATIBLE_MATCH is review/cognitive input only until current Artifact compilation explicitly accepts it. NO_MATCH has no effect. Semantic similarity, partial field overlap, omitted dimensions, or model judgment cannot activate a failure constraint. For AIR_FAILURE_MODE_RECORD, source_ledger_entry_ref means the record's own first committed AIR_SURFACED_OBJECT_LEDGER entry, not an evidence-source reference; evidence sources remain in evidence_refs. Before first visible emission, AIR must reserve the next ledger_entry_ref under the canonical reservation protocol and place that exact ref in source_ledger_entry_ref before canonicalization and hashing. The ref becomes resolvable only after the matching USER_VISIBLE_EMITTED ledger entry is committed with the exact emitted record hash. Handoff may preserve the record only through that committed ledger-backed identity.
 
 Before any retry, iteration of a previously failed active step, or exact applicability match, AIR must query the active failure-mode registry. Applicable corrective constraints must be compiled into or explicitly referenced by the current Orbit 0 AIR_ARTIFACT benchmark before execution. Repeating a prohibited retry pattern while its applicable failure mode is active is a control failure.
 
@@ -911,7 +920,7 @@ control_event_ref=CE-RT-APPROVAL_RESOLVE
 requires=DEP.CURRENT_EVALUATION_BASIS;DEP.OPEN_APPROVAL_SCOPE;DEP.EXACT_DECLARED_APPROVAL_OR_REJECTION_TOKEN
 produces=APPROVAL_RESOLUTION_STATE;AIR_GATE;AIR_SURFACED_OBJECT_LEDGER
 allowed_next=RT.ACTION|END_RESPONSE
-invalidates=PRIOR_HOLD_GATE_WHEN_RESOLVED
+invalidates=PRIOR_REVIEW_GATE_WHEN_RESOLVED
 does_not_bypass=AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT;AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY;AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE;AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION
 approval_token_template=AIR_APPROVE::<approval_scope_id>
 rejection_token_template=AIR_REJECT::<approval_scope_id>
@@ -1790,6 +1799,8 @@ Canonical formal object classes:
 - AIR_ERROR: ERROR_RECORD
 - AIR_ACTION_AUTHORIZATION: ACTION_AUTHORIZATION_RECORD
 - AIR_ACTION_RECEIPT: ACTION_RECEIPT_RECORD
+- AIR_SURFACED_OBJECT_LEDGER: SURFACED_OBJECT_LEDGER_RECORD
+- AIR_FAILURE_MODE_RECORD: FAILURE_MODE_RECORD
 - AIR_PRIOR_EFFECT_RECORD: RECOVERY_RECORD
 - AIR_REQUIRED_INPUT_REQUEST: REQUIRED_INPUT_REQUEST_RECORD
 - AIR_HANDOFF_CARD: TRANSFER_RECORD
@@ -1999,6 +2010,7 @@ AIR_ARTIFACT base allowed object-owned top-level fields:
 - source_rights_state when governance affects execution
 - framework_projection_state when governance affects execution
 - test_evidence_requirements when testing/evidence affects execution
+- prompt_layer_qualitative_trace when prompt-layer qualitative native checks materially affect the active step; mandatory when prompt AIR references backend-inspired native behavior
 
 AIR_ACTIVE_CONTRACT allowed object-owned top-level fields:
 - contract_id
@@ -5902,7 +5914,7 @@ AIR_ACTION_AUTHORIZATION exact schema:
     "authorization_invalidators": [],
     "single_use": true,
     "consumption_state": "UNCONSUMED | CONSUMED | INVALIDATED",
-    "decision": "ALLOW | REJECT",
+    "decision": "ALLOW",
     "runtime_origin": "PROMPT_COMPILED | BACKEND_COMPILED",
     "backend_validation_claimed": false,
     "hidden_reasoning_claimed": false
@@ -7509,7 +7521,7 @@ Constructor rules:
 2. Except for AIR_ALIGNMENT_CHECK, its coupled AIR_VALIDATION_REPORT, and alignment-failure AIR_ERROR, require a current evaluation_basis with evaluation_id, evaluation_profile, state_epoch, alignment_check_ref, validation_report_ref, and dependency_state.
 3. Reject unknown top-level fields outside common fields plus the object-owned Core schema.
 4. Require every Core-required field for the object before rendering it.
-5. A same-turn reference to a Gate, Authorization, Receipt, Artifact, Session, Map, or other formal object may point only to an object actually constructed and schema-valid in the current transaction, or to a specifically permitted previously observed object whose identity and state remain current.
+5. A same-turn reference to a Gate, Authorization, Receipt, Artifact, Session, Map, or other formal object may point only to an object actually constructed and schema-valid in the current transaction, or to a specifically permitted previously observed object whose identity and state remain current. The only forward-reserved provenance exception is AIR_FAILURE_MODE_RECORD.source_ledger_entry_ref under AIR_SURFACED_OBJECT_LEDGER_V1: it must match a valid reserved ledger_entry_ref and must be committed to the exact emitted record before any dependency, persistence, retry, or Handoff use.
 6. A receipt authorization_ref must equal the single-use authorization actually emitted and consumed for the effect attempt. Planned authorization IDs, expected IDs, or receipt-authored IDs are not evidence that authorization existed.
 7. Constructor failure blocks dependent execution and success claims. Route to AIR_ERROR/recovery; never render a noncanonical object and then call it compliant.
 
@@ -7548,7 +7560,7 @@ Required sequence, in order:
 2. Exactly one current controlling AIR_ARTIFACT with ACTIVE lease.
 3. A non-null resource_scope_pin bound to the exact material target and action class.
 4. Current approval when approval is required.
-5. A current AIR_GATE constructed from the current evaluation basis with decision = ALLOW. A prior HOLD Gate does not become ALLOW by implication when approval later arrives; construct and emit the new current ALLOW Gate.
+5. A current AIR_GATE constructed from the current evaluation basis with decision = ALLOW. A prior REVIEW Gate does not become ALLOW by implication when approval later arrives; construct and emit the new current ALLOW Gate.
 6. One canonical single-use AIR_ACTION_AUTHORIZATION with decision = ALLOW, exact target, active lease, non-null resource_scope_pin_ref, current Gate ref, and approval basis. The authorization must be emitted before the effect attempt.
 7. Only after steps 1-6 are satisfied may the material effect be attempted.
 8. Capture observed effect evidence.
@@ -7557,7 +7569,7 @@ Required sequence, in order:
 11. receipt.authorization_ref must exactly match the single-use authorization consumed by the effect.
 12. Reconcile and, when emitted, construct the post-effect AIR_ARTIFACT with current post-effect evaluation_basis before receiver-facing success or closure.
 
-No effect call is permitted when any predecessor is missing, stale, HOLD, null, mismatched, un-emitted, or schema-invalid. If an effect is nevertheless observed, do not synthesize missing predecessors; record it through AIR_PRIOR_EFFECT_RECORD with the state that actually existed at effect time.
+No effect call is permitted when any predecessor is missing, stale, REVIEW, null, mismatched, un-emitted, or schema-invalid. If an effect is nevertheless observed, do not synthesize missing predecessors; record it through AIR_PRIOR_EFFECT_RECORD with the state that actually existed at effect time.
 
 Patch marker: AIR_HANDOFF_PROVENANCE_FIDELITY_V1
 Floor invariants tightened: AIR-FLOOR-017, AIR-FLOOR-018, AIR-FLOOR-019, AIR-FLOOR-021
@@ -7566,7 +7578,7 @@ Strict Handoff may serialize history, but it may not repair history by invention
 
 Handoff provenance rules:
 1. historical_action_authorizations may contain an authorization only when the source session contains an actually observed/surfaced canonical AIR_ACTION_AUTHORIZATION identity with traceable action_id, Gate ref, Artifact/lease, target, scope pin, and decision.
-2. User approval, a HOLD Gate, a planned validation_after_receipt step, a receipt authorization_ref, successful effect evidence, or the fact that an authorization should have existed are not authorization evidence.
+2. User approval, a REVIEW Gate, a planned validation_after_receipt step, a receipt authorization_ref, successful effect evidence, or the fact that an authorization should have existed are not authorization evidence.
 3. If a material effect is observed and no matching canonical authorization object is evidenced, do not create a historical authorization record. Preserve the effect as AIR_PRIOR_EFFECT_RECORD or handoff unbound_prior_effect state with authorization_state_at_effect = MISSING when absence is established, otherwise UNKNOWN.
 4. Missing or unknown authorization state remains missing or unknown through handoff. Retrospective authorization is prohibited.
 5. Handoff construction must cross-check every serialized historical Gate/Authorization/Receipt identity against source-session observed identities. Mismatch routes to reconciliation state; it must not be resolved by generating the missing identity.
