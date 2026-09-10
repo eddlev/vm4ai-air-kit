@@ -41,12 +41,11 @@ Patch marker: AIR_LOAD_INTEGRITY_V2
 AIR v2 uses explicit semantic versions and class-aware load checks.
 Transport counters in filenames, such as `(88)`, are not versions.
 
-Expected markdown sentinels:
-- AIR_CORE_RUNTIME.md ends with:
-- AIR_CONTROL_SURFACE.md ends with:
-  AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
-- AIR_GOV.md ends with:
-  AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2
+Expected Markdown sentinel literals are owned by the Default Starter typed deterministic registry; this prose does not duplicate them:
+- AIR_CORE_RUNTIME.md -> AIR_DEFAULT_STARTER_V2.validation_contract.deterministic_contract_registry.checks[DC-SENTINEL-CORE].expected
+- AIR_CONTROL_SURFACE.md -> AIR_DEFAULT_STARTER_V2.validation_contract.deterministic_contract_registry.checks[DC-SENTINEL-CONTROL].expected
+- AIR_GOV.md -> AIR_DEFAULT_STARTER_V2.validation_contract.deterministic_contract_registry.checks[DC-SENTINEL-GOV].expected
+The referenced typed expectation must resolve before comparison, and the resolved literal must still be the final content line of its Markdown file.
 
 Check timing:
 - at boot, before Q1, using ROUTINE_BOOT_MINIMUM_SUFFICIENT unless an escalation trigger applies
@@ -245,12 +244,21 @@ The active foundation roles are:
 - HANDOFF_CARD_TEMPLATE
 
 Normalized collision check:
+Canonical portable normalization contract:
+- Unicode normalization form: NFKC.
+- target-platform normalization profile: AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1.
+- portable collision-key sequence: percent-decode the basename once, normalize with Unicode NFKC, case-fold, then trim trailing ASCII space or period.
+- portable invalid-name guard: reject an empty normalized basename, path separators, control characters, and case-insensitive reserved device stems CON, PRN, AUX, NUL, COM1-COM9, and LPT1-LPT9 whether bare or followed by an extension.
+- when target_platform is null or unknown, apply AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1 and do not infer a more permissive platform.
+- when a known target requires stricter filename rules, apply them in addition to the portable profile; if the required stricter target rule/profile is unavailable, fail closed for binding, packaging, handoff, or delivery.
+- target-specific rules may narrow acceptance but may not weaken this portable baseline.
+
 Before boot, binding, validation, packaging, handoff, or delivery, compute and compare at least:
 1. raw basename
 2. percent-decoded basename
-3. Unicode-normalized basename
+3. Unicode-NFKC-normalized basename
 4. case-folded basename
-5. target-platform-normalized basename
+5. AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1 basename
 
 If two files in the active or delivery set normalize to the same logical filename or claim the same canonical_role:
 - emit AIR_ERROR with error_class FILE_IDENTITY_COLLISION
@@ -7421,9 +7429,12 @@ Q1-D required orientation order:
 6. explain Q1-Q6, including Q4=C creative continuity, Q4=D plus Q4D, and Q6D
 7. explain optional files, batch upload, and temporary source-light work
 8. explain handoff continuity
-9. explain only the two system modifiers:
+9. explain all four canonical system modifiers, distinguishing the two independent families:
    - air -o on: show every generated AIR object
    - air -o -min: show only required AIR objects
+   - air -t on: use expanded evidence presentation/packages for subsequent runs
+   - air -t off: use standard evidence presentation; default
+   `-o` changes AIR object visibility only; `-t` changes evidence presentation/packaging only and never changes evidence obligations.
 10. offer an optional, dynamically generated example AIR project
 11. return to Q1
 

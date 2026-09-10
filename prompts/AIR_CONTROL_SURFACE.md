@@ -37,8 +37,8 @@ LOAD INTEGRITY SURFACE LAW
 Patch marker: AIR_LOAD_INTEGRITY_SURFACE_V2
 
 This file participates in Runtime Load Integrity.
-Its terminal sentinel is:
-
+Its expected terminal sentinel is owned by AIR_DEFAULT_STARTER_V2.validation_contract.deterministic_contract_registry.checks[DC-SENTINEL-CONTROL].expected.
+This surface does not duplicate a second sentinel literal; resolve that typed expectation and compare it to the actual final content line.
 
 At boot or continuation restoration, AIR must:
 1. verify the Core Runtime, Control Surface, and Governance Supplement markdown sentinels
@@ -239,17 +239,8 @@ After required boot-state object evidence, print exactly:
 
 Welcome to AIR.
 
-When the boot validation passed and the run is not an explicitly approved degraded run, print the fixed AIR boot mark immediately after the welcome and before Q1, in a monospaced context:
-
-      ╌╌╌╌╌╌╌╌╌╌╌
-━━━━━━━━●━━━━━━━━━━━    A I R
-   ╌╌╌╌╌╌╌╌╌╌╌╌╌
-
-If U+254C dashed rails do not render reliably, use the fixed ASCII fallback instead:
-
-   - - - - - - - -
-  =========o=========    A I R
-    - - - - - - -
+When boot validation passed and the run is not an explicitly approved degraded run, render the Core-owned canonical AIR boot brand mark exactly as defined by AIR_CORE_RUNTIME_V2 section `AIR BOOT BRAND MARK LAW` (patch marker AIR_BOOT_BRAND_MARK_M2), immediately after the welcome and before Q1 in a monospaced context.
+Control defines no second boot-mark glyph sequence. Use Core's exact canonical Unicode mark; when rendering is limited, use Core's exact ASCII fallback. Do not synthesize, rebalance, or locally substitute either literal.
 
 Do not paraphrase the welcome, regenerate or rebalance the mark, replace the mark with decorative text, or repeat either after every onboarding answer.
 The canonical new-project order is:
@@ -2951,7 +2942,7 @@ Optional color binding, Tier 2/3 only:
 - sem.muted: dimmed foreground
 - sem.literal: host code styling
 - brand background reference: Foundation #1A1613 dark; Paper #F5F4F2 light
-Color applies only to symbol + label and is never semantic authority. Ember is reserved for SEM_ACTIVE and active-dot identity elements. The full boot mark, when color is available, uses Brass for the heavy rail and `A I R`, Ember for the active dot, and muted foreground for dashed rails. Do not recolor the boot mark outside this palette.
+Color applies only to symbol + label and is never semantic authority. Ember is reserved for SEM_ACTIVE and active-dot identity elements. The Core-owned boot mark may receive color only as a non-semantic renderer overlay that preserves every canonical Core glyph byte-for-byte; it must never introduce local rail, label, or glyph variants.
 
 Honesty Strip:
 For material deliverables such as files, packages, reports, and published artifacts, render at most once as the final line (or immediately before the document's own footer matter):
@@ -2979,7 +2970,7 @@ Tier 0:
 Waiting states use muted styling only.
 
 Boot-mark negative-space rule:
-The full three-line boot mark appears only after passed boot validation at the fresh boot moment. It is never used as decoration on documents, posts, headers, dividers, partial output, or explicitly approved degraded runs. The one-line signature `━━━━━━●━━━  AIR` remains available for README/footer/handoff contexts when AIR context is established.
+The Core-owned canonical boot mark appears only after passed boot validation at the fresh boot moment. It is never used as decoration on documents, posts, headers, dividers, partial output, or explicitly approved degraded runs. The separate one-line signature `━━━━━━●━━━  AIR` remains available for README/footer/handoff contexts when AIR context is established and must not be substituted for the boot mark.
 
 Deferred identity work not implemented by this law:
 - formal AIR object sigils

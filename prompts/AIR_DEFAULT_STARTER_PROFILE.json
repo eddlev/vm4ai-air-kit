@@ -2039,7 +2039,11 @@
       "normalized_collision_check_required": true,
       "exact_delivery_path_validation_required": true,
       "validation_freshness_required": true,
-      "delivery_receipt_required": true
+      "delivery_receipt_required": true,
+      "unicode_normalization_form": "NFKC",
+      "target_platform_normalization_profile": "AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1",
+      "unknown_target_platform_behavior": "APPLY_PORTABLE_PROFILE_FAIL_CLOSED_ON_UNAVAILABLE_STRICTER_TARGET_RULE",
+      "platform_reserved_basename_policy": "REJECT_PORTABLE_DEVICE_STEMS_CASE_INSENSITIVE_WITH_OR_WITHOUT_EXTENSION"
     },
     "action_governance": {
       "bootstrap_write_lock": true,
@@ -3073,6 +3077,33 @@
             "UNICODE_NFKC",
             "CASEFOLD",
             "TRIM_TRAILING_SPACE_OR_PERIOD"
+          ],
+          "unicode_normalization_form": "NFKC",
+          "target_platform_normalization_profile": "AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1",
+          "unknown_target_platform_behavior": "APPLY_PORTABLE_PROFILE_FAIL_CLOSED_ON_UNAVAILABLE_STRICTER_TARGET_RULE",
+          "portable_reserved_basename_stems": [
+            "CON",
+            "PRN",
+            "AUX",
+            "NUL",
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5",
+            "COM6",
+            "COM7",
+            "COM8",
+            "COM9",
+            "LPT1",
+            "LPT2",
+            "LPT3",
+            "LPT4",
+            "LPT5",
+            "LPT6",
+            "LPT7",
+            "LPT8",
+            "LPT9"
           ]
         },
         {

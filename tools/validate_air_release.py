@@ -5,6 +5,7 @@ import json
 import re
 from pathlib import Path
 from typing import Any
+from validate_air_r8_remediation import E as R8ValidationError, main as validate_r8
 
 ROOT = Path('.')
 EXPECTED_KIT_VERSION = '0.7.1'
@@ -166,6 +167,10 @@ def require(cond: bool, msg: str) -> None:
 
 def main() -> None:
     require((ROOT / 'VERSION').read_text(encoding='utf-8').strip() == EXPECTED_KIT_VERSION, 'VERSION mismatch')
+    try:
+        validate_r8(ROOT.resolve())
+    except (R8ValidationError, KeyError, ValueError) as exc:
+        raise ValidationError(f'R8 presentation/portability release check failed: {exc}') from exc
     required_foundation = [
         'AIR_CORE_RUNTIME.md', 'AIR_CONTROL_SURFACE.md', 'AIR_GOV.md',
         'AIR_DEFAULT_STARTER_PROFILE.json', 'AIR_HANDOFF_CARD_TEMPLATE.json',

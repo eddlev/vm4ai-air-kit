@@ -38,7 +38,10 @@
       "target_platform": null,
       "portability_notes": [],
       "provider_specific_assumptions": [],
-      "provider_guarantees_claimed": false
+      "provider_guarantees_claimed": false,
+      "unicode_normalization_form": "NFKC",
+      "target_platform_normalization_profile": "AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1",
+      "unknown_target_platform_behavior": "APPLY_PORTABLE_PROFILE_FAIL_CLOSED_ON_UNAVAILABLE_STRICTER_TARGET_RULE"
     },
     "active_artifact": {
       "presence_state": "NO_USABLE_ACTIVE_ARTIFACT",
@@ -528,7 +531,10 @@
       "normalized_collision_check_state": "UNVERIFIED",
       "active_folder_isolation_state": "UNVERIFIED",
       "validation_freshness_state": "UNVERIFIED",
-      "exact_delivery_path_state": "UNVERIFIED"
+      "exact_delivery_path_state": "UNVERIFIED",
+      "unicode_normalization_form": "NFKC",
+      "target_platform_normalization_profile": "AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1",
+      "target_platform_profile_resolution_state": "PORTABLE_BASELINE_REQUIRED_WHEN_TARGET_UNKNOWN"
     },
     "schema_manifest": {
       "schema_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",

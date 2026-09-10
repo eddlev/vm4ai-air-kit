@@ -110,4 +110,27 @@ full_mutation('RS-01-STALE-SIBLING-SHA', stale_sibling_sha, 'stale sha256 for AI
 full_mutation('RS-02-IDEMPOTENCE-DETECTS-DRIFT', stale_sibling_sha, 'another reseal pass would change', 'tools/reseal_air_candidate.py', ['--check'])
 full_mutation('RS-03-CONTENT-HASH-CYCLE', hash_cycle, 'content-hash dependency cycle', 'tools/reseal_air_candidate.py', ['--check'])
 full_mutation('VH-01-SUITE-PROPAGATES-CHILD-FAILURE', displaced_sentinel, 'AIR validation suite FAILED at stage: deterministic_contract_registry', 'tools/validate_air_suite.py', ['--without-mutations'])
-print('AIR validator mutation suite: PASS (8/8 mutants killed)')
+
+def r8_control_boot_owner(t: Path) -> None:
+    p=t/'prompts'/'AIR_CONTROL_SURFACE.md'; x=p.read_text(encoding='utf-8')
+    x=x.replace('patch marker AIR_BOOT_BRAND_MARK_M2','patch marker BROKEN_BOOT_OWNER',1); p.write_text(x,encoding='utf-8')
+
+def r8_q1d_four_modifier_help(t: Path) -> None:
+    p=t/'prompts'/'AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8')
+    x=x.replace('explain all four canonical system modifiers','explain only the two system modifiers',1); p.write_text(x,encoding='utf-8')
+
+def r8_starter_normalization_form(t: Path) -> None:
+    p=t/'prompts'/'AIR_DEFAULT_STARTER_PROFILE.json'; o=json.loads(p.read_text(encoding='utf-8'))
+    o['local_profile_policies']['file_identity_and_delivery']['unicode_normalization_form']='NFC'
+    p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+
+def r8_handoff_unknown_target_policy(t: Path) -> None:
+    p=t/'prompts'/'AIR_HANDOFF_CARD_TEMPLATE.json'; o=json.loads(p.read_text(encoding='utf-8'))
+    o['AIR_HANDOFF_CARD']['platform_state']['unknown_target_platform_behavior']='INFER_PLATFORM'
+    p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+
+boot_mutation('R8-GEN-01-CONTROL-BOOT-MARK-OWNER', r8_control_boot_owner, 'R8 presentation/portability boot check failed')
+boot_mutation('R8-GEN-02-Q1D-FOUR-MODIFIER-HELP', r8_q1d_four_modifier_help, 'R8 presentation/portability boot check failed')
+boot_mutation('R8-GEN-03-STARTER-UNICODE-NORMALIZATION-FORM', r8_starter_normalization_form, 'R8 presentation/portability boot check failed')
+boot_mutation('R8-GEN-04-HANDOFF-UNKNOWN-TARGET-POLICY', r8_handoff_unknown_target_policy, 'R8 presentation/portability boot check failed')
+print('AIR validator mutation suite: PASS (12/12 mutants killed)')
