@@ -19,6 +19,7 @@ def main() -> None:
     args = parser.parse_args()
     py = sys.executable
     run_stage('deterministic_contract_registry', [py, 'tools/validate_air_contract_registry.py'])
+    run_stage('r1_foundation_deterministic_spine', [py, 'tools/validate_air_r1_remediation.py'])
     run_stage('routine_boot', [py, 'tools/validate_air_boot.py'])
     run_stage('release_contract', [py, 'tools/validate_air_release.py'])
     run_stage('control_plane_semantic_loopholes', [py, 'tools/validate_air_control_plane.py'])
@@ -27,6 +28,7 @@ def main() -> None:
     if not args.without_mutations:
         run_stage('validator_mutations', [py, 'tools/test_air_validator_mutations.py'])
         run_stage('deterministic_contract_mutations', [py, 'tools/test_air_contract_registry_mutations.py'])
+        run_stage('r1_foundation_deterministic_spine_mutations', [py, 'tools/test_air_r1_mutations.py'])
         run_stage('behavioral_transaction_mutations', [py, 'tools/test_air_behavioral_contract_mutations.py'])
         run_stage('control_plane_semantic_loophole_mutations', [py, 'tools/test_air_control_plane_mutations.py'])
     print('AIR canonical validation suite: PASS')
