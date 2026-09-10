@@ -1,0 +1,44 @@
+{
+  "batch": "R4",
+  "finding_scope": [
+    "AIR-AUD-043",
+    "AIR-AUD-044",
+    "AIR-AUD-045",
+    "AIR-AUD-046",
+    "AIR-AUD-049",
+    "AIR-AUD-054",
+    "AIR-AUD-059",
+    "AIR-AUD-060",
+    "AIR-AUD-062",
+    "AIR-AUD-063",
+    "AIR-AUD-064",
+    "AIR-AUD-065",
+    "AIR-AUD-070"
+  ],
+  "negative_cases": [
+    "R4-N01",
+    "R4-N02",
+    "R4-N03",
+    "R4-N04",
+    "R4-N05",
+    "R4-N06",
+    "R4-N07",
+    "R4-N08",
+    "R4-N09",
+    "R4-N10",
+    "R4-N11",
+    "R4-N12",
+    "R4-N13"
+  ],
+  "positive_contracts": [
+    "CORE_MII_MORPHOLOGY_BINDING",
+    "GROUNDING_METHOD_CANONICAL_INTERFACE",
+    "CORE_EXECUTOR_SCHEMA",
+    "SFV_DOMAIN_CORE_COMPLETENESS",
+    "SFV_SPECIALIST_BENCHMARK_RUBRIC",
+    "CANONICAL_GEOMETRY_VOCABULARY",
+    "SESSION_DOMAIN_OVERLAY_BASE_PLUS_EXTENSION"
+  ],
+  "reseal_deferred_to": "R7",
+  "authority_change": "NONE"
+}
