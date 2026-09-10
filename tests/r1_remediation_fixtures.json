@@ -1,0 +1,46 @@
+{
+  "fixture_set": "AIR_R1_FOUNDATION_DETERMINISTIC_SPINE_REGRESSION_V1",
+  "baseline_commit": "939801a9d965d469235d2f74b4ac0a9553799d26",
+  "finding_scope": [
+    "AIR-AUD-001",
+    "AIR-AUD-003",
+    "AIR-AUD-004",
+    "AIR-AUD-007",
+    "AIR-AUD-008",
+    "AIR-AUD-013",
+    "AIR-AUD-014",
+    "AIR-AUD-017",
+    "AIR-AUD-018",
+    "AIR-AUD-019",
+    "AIR-AUD-029",
+    "AIR-AUD-030",
+    "AIR-AUD-066",
+    "AIR-AUD-067"
+  ],
+  "negative_cases": [
+    {"id":"R1-N01-FUSED-ROUTE-DELIMITER","mutation":"append [AIR_ROUTE] to a failure_route line","must_fail":"exact route marker count"},
+    {"id":"R1-N02-DETERMINISTIC-SET-DIVERGENCE","mutation":"remove RT.APPROVAL_RESOLVE from Starter declared_runtime_routes","must_fail":"deterministic sets diverge"},
+    {"id":"R1-N03-MISSING-CONTROL-EVENT-REF","mutation":"remove RT.ALIGN control_event_ref","must_fail":"event ref mismatch"},
+    {"id":"R1-N04-UNDECLARED-ALIGNMENT-PROFILE","mutation":"remove ACTIVATION from alignment_evaluation_profile","must_fail":"untyped alignment profiles"},
+    {"id":"R1-N05-ALIGN-OUTPUT-AS-INPUT","mutation":"restore CURRENT_EVALUATION_BASIS guard to CE-RT-ALIGN","must_fail":"current basis remains self/prior prerequisite"},
+    {"id":"R1-N06-UNCONDITIONAL-ACTION-APPROVAL","mutation":"replace DEP.APPROVAL_PRECONDITION_SATISFIED with DEP.APPROVAL_CURRENT","must_fail":"ACTION missing conditional approval precondition"},
+    {"id":"R1-N07-MARKDOWN-VERSION-DRIFT","mutation":"change Core PROMPT_VERSION to 9.9.9","must_fail":"DC-VERSION-CORE"},
+    {"id":"R1-N08-STARTER-IDENTITY-MISSING","mutation":"remove profile_function_class","must_fail":"DC-FUNCTION-CLASS-STARTER"},
+    {"id":"R1-N09-FOUNDATION-MANIFEST-INCOMPLETE","mutation":"remove Handoff entry from authority_contract.required_files","must_fail":"authority required_files not five"},
+    {"id":"R1-N10-DUPLICATE-JSON-KEY","mutation":"duplicate Starter PROFILE_KIND key in raw JSON","must_fail":"duplicate JSON key"},
+    {"id":"R1-N11-FLOOR-MISSING","mutation":"rename AIR-FLOOR-012 canonical identifier in Core","must_fail":"DC-CORE-FLOOR-012"},
+    {"id":"R1-N12-STALE-ROUTE-ANCHOR","mutation":"decrement RT.ACTION source_anchor.line","must_fail":"stale source anchor"},
+    {"id":"R1-N13-ACTION-MIRROR-MISSING-PRECONDITION","mutation":"remove DEP.APPROVAL_PRECONDITION_SATISFIED from Route Map RT.ACTION.requires","must_fail":"Route Map ACTION requirements diverge"},
+    {"id":"R1-N14-SFV-UNPROJECTED-STATE","mutation":"set Starter SFV need_states to include FULL_SFV_RECOMMENDED","must_fail":"SFV need states outside Core"}
+  ],
+  "positive_cases": [
+    {"id":"R1-P01-DETERMINISTIC-SETS","expect":"Core closed set == Core deterministic metadata == Starter set == Route Map set == 9 routes"},
+    {"id":"R1-P02-CONTROL-EVENT-BINDINGS","expect":"every deterministic route resolves exactly one Starter event with matching route_id"},
+    {"id":"R1-P03-ALIGNMENT-REACHABILITY","expect":"RT.ALIGN is eligible from canonical current state + declared requested profile even when no current evaluation basis exists"},
+    {"id":"R1-P04-OPTIONAL-APPROVAL","expect":"APPROVAL_NOT_REQUIRED satisfies action approval precondition without approval history"},
+    {"id":"R1-P05-REQUIRED-APPROVAL","expect":"required approval branch needs current approval + exact ALLOW resolution; unresolved branch fails closed"},
+    {"id":"R1-P06-FOUNDATION-REGISTRY","expect":"80 declared/implemented/executed typed checks, zero gaps"},
+    {"id":"R1-P07-ROUTE-ANCHORS","expect":"22/22 anchors land on matching Core route IDs under current Core hash"},
+    {"id":"R1-P08-SFV-PROJECTION","expect":"SFV recommendation/required semantics use canonical Core need_state plus METHOD_PACK/SPECIFICATION_FIRST_VERIFICATION discriminator"}
+  ]
+}
