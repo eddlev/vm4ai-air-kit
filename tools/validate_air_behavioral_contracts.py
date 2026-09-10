@@ -61,12 +61,31 @@ def main() -> None:
     require(mat.get('post_effect_alignment_profile') == 'POST_MATERIAL_EFFECT', 'Starter post-effect alignment profile mismatch')
     require(mat.get('receipt_record_class') == 'ACTION_RECEIPT_RECORD', 'Starter receipt record class mismatch')
     require(mat.get('authorization_receipt_exact_match_required') is True, 'Starter authorization/receipt identity match not required')
-    require(mat.get('prior_hold_gate_may_be_reused_as_allow') is False, 'Starter improperly allows HOLD Gate reuse')
+    require(mat.get('prior_review_gate_may_be_reused_as_allow') is False, 'Starter improperly allows REVIEW Gate reuse as ALLOW')
+    require('prior_hold_gate_may_be_reused_as_allow' not in mat, 'Starter retains undefined HOLD Gate mirror')
 
     ctor = cc.get('formal_object_constructor_validation', {})
     require(ctor.get('required') is True, 'Starter formal constructor validation missing')
     require('CURRENT_EVALUATION_BASIS_WHEN_REQUIRED' in ctor.get('checks', []), 'constructor evaluation-basis check missing')
     require('ACTION_RECEIPT_AUTHORIZATION_REF_MATCHES_CONSUMED_AUTHORIZATION' in ctor.get('checks', []), 'constructor auth-ref check missing')
+    require('FAILURE_MODE_RESERVED_LEDGER_ENTRY_REF_VALID' in ctor.get('checks', []), 'failure-mode reserved ledger-entry constructor check missing')
+
+    led = cc.get('surfaced_object_ledger', {})
+    reserve = led.get('failure_record_entry_reservation', {})
+    require(led.get('entry_reference_field') == 'ledger_entry_ref', 'surfaced ledger entry reference field missing')
+    require(reserve.get('reservation_state') == 'RESERVED_NOT_EMITTED_NOT_AUTHORITY', 'failure record ledger reservation gained visibility/authority')
+    require(reserve.get('commit_rule') == 'COMMIT_ONLY_AFTER_EXACT_CANONICAL_OBJECT_VISIBLE_EMISSION_WITH_MATCHING_REF_AND_HASH', 'failure record ledger reservation commit rule mismatch')
+    fm = cc.get('failure_mode_registry', {})
+    expected_failure_sequence = [
+        'RESERVE_NEXT_LEDGER_ENTRY_REF',
+        'CONSTRUCT_FAILURE_RECORD_WITH_RESERVED_SOURCE_LEDGER_ENTRY_REF',
+        'CANONICALIZE_AND_HASH_FAILURE_RECORD',
+        'VISIBLY_EMIT_FAILURE_RECORD',
+        'COMMIT_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_WITH_EXACT_HASH',
+        'ONLY_THEN_SOURCE_LEDGER_ENTRY_REF_RESOLVES',
+    ]
+    require(fm.get('first_emission_transaction') == expected_failure_sequence, 'failure-mode first-emission ledger transaction mismatch')
+    require(fm.get('source_ledger_entry_ref_semantics') == 'SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY', 'failure-mode self-ledger reference semantics mismatch')
 
     proj = cc.get('deterministic_projection_order_integrity', {})
     require(proj.get('required') is True, 'Starter deterministic projection order contract missing')
@@ -84,6 +103,8 @@ def main() -> None:
     require(policy.get('retroactive_authorization_prohibited') is True, 'Handoff retrospective authorization boundary missing')
     forbidden = handoff.get('schema_manifest', {}).get('forbidden_states', [])
     require(any('Historical AIR_ACTION_AUTHORIZATION synthesized' in x for x in forbidden), 'Handoff false-history forbidden state missing')
+    require('ledger_entry_ref' in handoff.get('surfaced_object_ledger_state', {}).get('entry_requirements', {}).get('required_fields', []), 'Handoff ledger history omits ledger_entry_ref')
+    require(handoff.get('failure_mode_state', {}).get('source_ledger_entry_ref_semantics') == 'SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY', 'Handoff failure-mode ledger semantics mismatch')
 
     routes = {r['route_id']: r for r in route_map.get('routes', [])}
     bundle = routes['RT.TASK_SWITCH'].get('transition_emission_bundle', {})
@@ -106,8 +127,11 @@ def main() -> None:
     require('DP-05-FUTURE-PROJECTION-ORDER' in dp_ids, 'deterministic projection-order fixture missing')
     mat_ids = {x.get('id') for x in fixtures.get('material_action_transaction_negative_cases', [])}
     require({f'MAT-{i:02d}-' for i in range(1, 10)} == {next((prefix for prefix in {f'MAT-{i:02d}-' for i in range(1, 10)} if str(cid).startswith(prefix)), '') for cid in mat_ids if str(cid).startswith('MAT-')} - {''}, 'material action transaction fixture coverage incomplete')
+    require('MAT-02-REVIEW-GATE-IMPLICITLY-UPGRADED' in mat_ids, 'REVIEW Gate regression fixture missing')
     handoff_ids = {x.get('id') for x in fixtures.get('handoff_negative_cases', [])}
     require({'HC-02-FALSE-HISTORICAL-AUTHORIZATION', 'HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE'} <= handoff_ids, 'handoff provenance fixtures missing')
+    failure_ids = {x.get('id') for x in fixtures.get('failure_mode_learning_cases', [])}
+    require({'FM-07-FIRST-EMISSION-LEDGER-RESERVATION', 'FM-08-FAILURE-LEDGER-REF-MISMATCH'} <= failure_ids, 'failure-mode ledger regression fixtures missing')
     cw2 = next(x for x in fixtures.get('copywriting_behavior_cases', []) if x.get('id') == 'CW-BEH-02-MISSING-DOMAIN-TRUTH')
     joined = ' '.join(cw2.get('acceptable_runtime_outcomes', [])).lower()
     require('independently satisfiable source-supported remainder' in joined, 'CW-BEH-02 safe remainder outcome missing')
@@ -117,6 +141,7 @@ def main() -> None:
     print('Orbit transition atomic bundle: PASS')
     print('Material action deterministic transaction: PASS')
     print('Formal object constructor guard: PASS')
+    print('Failure record ledger first-emission transaction: PASS')
     print('Handoff observed-only provenance: PASS')
     print('Deterministic projection order integrity: PASS')
     print('CW-BEH-02 safe partial fulfillment fixture: PRESENT')
