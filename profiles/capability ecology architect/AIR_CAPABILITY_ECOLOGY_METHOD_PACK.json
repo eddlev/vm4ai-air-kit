@@ -355,7 +355,7 @@
       "BLOCKED_BY_CONTRACT",
       "BLOCKED_BY_STALENESS"
     ],
-    "completion_rule": "A method step cannot become COMPLETE without its declared evidence_to_advance unless an explicit permitted waiver is recorded. The whole method cannot become COMPLETE while a required branch step is BLOCKED, REVIEW, FAILED, INVALIDATED or stale.",
+    "completion_rule": "A method step cannot become COMPLETE without its declared evidence_to_advance unless an exact matching AIR_METHOD_EVIDENCE_WAIVER is recorded, permitted, current for this method/step/requirement, and referenced by step_evidence_waiver_refs. Free text, generic approval, or reconstructed state never satisfies the exception. The whole method cannot become COMPLETE while a required branch step is BLOCKED, REVIEW, FAILED, INVALIDATED or stale.",
     "gate_precedence": "AIR_GATE is stricter when AIR_GATE and method_step_gate disagree.",
     "execution_proof_boundary": "Method execution state is a governance record, not backend proof, tool proof, external outcome proof or professional competence proof."
   },
@@ -504,7 +504,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -529,7 +529,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -552,7 +552,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -966,7 +966,7 @@
         "exact evidence references or visible standard-presentation limitation"
       ],
       "evidence_to_advance": [
-        "no step is closed without evidence or permitted waiver",
+        "no step is closed without evidence or exact matching AIR_METHOD_EVIDENCE_WAIVER",
         "method completion is not represented as task execution proof",
         "receiver delivery state is explicit",
         "unresolved inputs and stale dependencies survive handoff",
@@ -1046,6 +1046,7 @@
         "active_branch",
         "step_state_by_id",
         "step_evidence_refs",
+        "step_evidence_waiver_refs",
         "component_receipts",
         "selected_capability_refs",
         "deferred_capability_refs",
@@ -1432,5 +1433,27 @@
     "morphology_owner": "RT.MORPHOLOGY_BIND",
     "uncertainty_owner": "RT.UNCERTAINTY_RESOLVE",
     "operative_boundary": "Method outputs are candidate content only until validated and compiled into the bound AIR_ARTIFACT benchmark."
+  },
+  "evidence_waiver_contract": {
+    "formal_object": "AIR_METHOD_EVIDENCE_WAIVER",
+    "waiver_scope": "METHOD_STEP_EVIDENCE_TO_ADVANCE_ONLY",
+    "allowed_permission_basis_types": [
+      "EXPLICIT_USER_APPROVAL"
+    ],
+    "method_policy_waiver_enabled": false,
+    "required_match_fields": [
+      "method_identity",
+      "method_version",
+      "step_id",
+      "waived_requirement",
+      "artifact_scope_ref"
+    ],
+    "accepted_validity_states": [
+      "ACTIVE_CURRENT",
+      "APPLIED_RECORDED"
+    ],
+    "completion_rule": "A COMPLETE step with missing evidence_to_advance must have exactly one matching current or applied AIR_METHOD_EVIDENCE_WAIVER reference for the missing requirement. Revoked, expired, mismatched, free-text, or unresolved refs fail the completion predicate.",
+    "handoff_persistence_path": "$.execution_state.method_handoff_state.method_specific_state.step_evidence_waiver_refs",
+    "positive_execution_authority": "NONE"
   }
 }

@@ -397,7 +397,15 @@
       "human_boundaries_and_non_transferable_authority",
       "representative_task_tests",
       "specialist_consumption_contract",
-      "validation_and_promotion_state"
+      "validation_and_promotion_state",
+      "test_evidence_and_reproducibility_requirements",
+      "mii_cognitive_route_requirements",
+      "mii_contribution_contract",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "risk_propagation_requirements",
+      "test_evidence_presentation_requirements"
     ],
     "legacy_required_domain_entry_fields": [
       "domain_id",
@@ -431,8 +439,7 @@
       "fixture_id",
       "fixture_role",
       "runtime_authority",
-      "runtime_match_allowed",
-      "expected_validation_or_expected_decision"
+      "runtime_match_allowed"
     ],
     "fixture_rule": "Fixtures may be added only with explicit fixture tags, no runtime authority, paired expected results, and at least one negative case for each golden example.",
     "legacy_fixture_source_fields": [
@@ -462,7 +469,34 @@
       "source_conflict_policy",
       "staleness_triggers",
       "retrieval_stop_conditions"
-    ]
+    ],
+    "fixture_wrapper_result_field_contract": {
+      "discriminator_field": "fixture_role",
+      "cases": {
+        "GOLDEN_DOMAIN_CONSTRUCTION_FIXTURE": {
+          "required_result_field": "expected_validation",
+          "forbidden_result_fields": [
+            "expected_decision"
+          ]
+        },
+        "NEGATIVE_DOMAIN_CONSTRUCTION_FIXTURE": {
+          "required_result_field": "expected_decision",
+          "forbidden_result_fields": [
+            "expected_validation"
+          ]
+        }
+      },
+      "unknown_fixture_role_behavior": "REJECT",
+      "literal_pseudo_field_tokens_forbidden": true
+    },
+    "fixture_mutation_path_contract": {
+      "path_root": "candidate_domain_package",
+      "json_member_case": "EXACT_CASE_SENSITIVE",
+      "remove_or_replace_precondition": "TARGET_PATH_MUST_RESOLVE_EXACTLY",
+      "add_precondition": "PARENT_PATH_MUST_RESOLVE_EXACTLY_AND_TARGET_KEY_MUST_BE_ABSENT",
+      "bracket_list_removal_semantics": "key[A,B] means the exact list-valued key must exist and contain each named list item",
+      "unresolved_path_behavior": "FIXTURE_INVALID_BEFORE_DEFECT_EVALUATION"
+    }
   },
   "domain_family_taxonomy": {
     "taxonomy_id": "AIR_DOMAIN_FAMILY_TAXONOMY_V1",
@@ -736,6 +770,49 @@
         "validation_state"
       ],
       "authority": "CANDIDATE_ONLY"
+    },
+    "golden_fixture_required_field_defaults": {
+      "test_evidence_and_reproducibility_requirements": {
+        "required_evidence_classes": [
+          "REPLAYABLE_EVALUATION"
+        ],
+        "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+        "expanded_presentation_command": "air -t on",
+        "regulatory_evidence_required": false
+      },
+      "mii_cognitive_route_requirements": {
+        "required_routes": [
+          "COG.KNOWLEDGE_TO_EXECUTION"
+        ],
+        "recommended_routes": [],
+        "selection_owner": "RT.COGNITIVE_RESOLVE"
+      },
+      "mii_contribution_contract": {
+        "target": "AIR_ARTIFACT.execution_benchmark_profile",
+        "authority": "CANDIDATE_ONLY",
+        "validation_required": true
+      },
+      "semantic_fidelity_requirements": {
+        "preserve_source_semantics": true,
+        "unsupported_semantic_inference": "REVIEW"
+      },
+      "epistemic_sufficiency_requirements": {
+        "source_and_claim_sufficiency_required": true,
+        "insufficient_state": "EVIDENCE_REQUIRED"
+      },
+      "morphology_recommendations": {
+        "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+        "authority": "RECOMMENDATION_ONLY"
+      },
+      "risk_propagation_requirements": {
+        "state": "TASK_DEPENDENT",
+        "required_when": "MATERIAL_DOWNSTREAM_RISK"
+      },
+      "test_evidence_presentation_requirements": {
+        "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+        "expanded_mode_command": "air -t on",
+        "presentation_only": true
+      }
     }
   },
   "detailed_domain_creation_trigger_contract": {
@@ -1175,6 +1252,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -1582,6 +1700,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -1994,6 +2153,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -2406,6 +2606,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -2818,6 +3059,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -3212,6 +3494,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -3649,6 +3972,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -4081,6 +4445,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -4502,6 +4907,47 @@
               "explicit approval",
               "registration in approved_domain_package_index"
             ]
+          },
+          "test_evidence_and_reproducibility_requirements": {
+            "required_evidence_classes": [
+              "REPLAYABLE_EVALUATION"
+            ],
+            "presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_presentation_command": "air -t on",
+            "regulatory_evidence_required": false
+          },
+          "mii_cognitive_route_requirements": {
+            "required_routes": [
+              "COG.KNOWLEDGE_TO_EXECUTION"
+            ],
+            "recommended_routes": [],
+            "selection_owner": "RT.COGNITIVE_RESOLVE"
+          },
+          "mii_contribution_contract": {
+            "target": "AIR_ARTIFACT.execution_benchmark_profile",
+            "authority": "CANDIDATE_ONLY",
+            "validation_required": true
+          },
+          "semantic_fidelity_requirements": {
+            "preserve_source_semantics": true,
+            "unsupported_semantic_inference": "REVIEW"
+          },
+          "epistemic_sufficiency_requirements": {
+            "source_and_claim_sufficiency_required": true,
+            "insufficient_state": "EVIDENCE_REQUIRED"
+          },
+          "morphology_recommendations": {
+            "state": "NOT_MATERIAL_UNLESS_TASK_REQUIRES",
+            "authority": "RECOMMENDATION_ONLY"
+          },
+          "risk_propagation_requirements": {
+            "state": "TASK_DEPENDENT",
+            "required_when": "MATERIAL_DOWNSTREAM_RISK"
+          },
+          "test_evidence_presentation_requirements": {
+            "default_mode": "STANDARD_EVIDENCE_PRESENTATION",
+            "expanded_mode_command": "air -t on",
+            "presentation_only": true
           }
         },
         "expected_validation": {
@@ -4729,7 +5175,7 @@
         "negative_mutations": [
           {
             "operation": "REPLACE",
-            "path": "knowledge_dimensions.procedural",
+            "path": "knowledge_dimensions.PROCEDURAL",
             "value": [
               "copy the official implementation guide"
             ]
@@ -4760,7 +5206,7 @@
         "negative_mutations": [
           {
             "operation": "REPLACE",
-            "path": "knowledge_dimensions.procedural",
+            "path": "knowledge_dimensions.PROCEDURAL",
             "value": [
               "apply a generic security checklist"
             ]

@@ -1814,6 +1814,7 @@ Canonical formal object classes:
 - AIR_ACTION_RECEIPT: ACTION_RECEIPT_RECORD
 - AIR_SURFACED_OBJECT_LEDGER: SURFACED_OBJECT_LEDGER_RECORD
 - AIR_FAILURE_MODE_RECORD: FAILURE_MODE_RECORD
+- AIR_METHOD_EVIDENCE_WAIVER: METHOD_EVIDENCE_WAIVER_RECORD
 - AIR_PRIOR_EFFECT_RECORD: RECOVERY_RECORD
 - AIR_REQUIRED_INPUT_REQUEST: REQUIRED_INPUT_REQUEST_RECORD
 - AIR_HANDOFF_CARD: TRANSFER_RECORD
@@ -1871,6 +1872,7 @@ Canonical responsibility boundaries:
 - AIR_ACTION_RECEIPT owns the post-attempt intended-versus-actual effect record and reconciliation evidence.
 - AIR_SURFACED_OBJECT_LEDGER owns append-only evidence of canonical formal objects that were actually USER_VISIBLE_EMITTED; it cannot ledger merely constructed or inferred objects.
 - AIR_FAILURE_MODE_RECORD owns one evidenced reusable failure mode, exact applicability signature/hash, corrective constraint, retest lifecycle, and recurrence state; it never supplies positive execution authority.
+- AIR_METHOD_EVIDENCE_WAIVER owns one narrow exception to one Method step evidence_to_advance requirement. It never supplies action execution, Gate, approval, binding, or Orbit 0 authority. A waiver is permitted only when its typed scope/method/version/step/requirement/artifact match is exact, its permission basis resolves under the active Method Pack waiver contract, and validity_state is ACTIVE_CURRENT or APPLIED_RECORDED.
 - AIR_PRIOR_EFFECT_RECORD owns recovery facts for an observed material effect that lacked valid current authorization/scope/lease at the time.
 - AIR_REQUIRED_INPUT_REQUEST owns one exact unresolved input need and its acquisition/validation state.
 - AIR_HANDOFF_CARD owns serialized transfer state. It may contain source-object snapshots only under the Handoff transfer-ownership contract; snapshots never restore as current execution authority.
@@ -2164,6 +2166,31 @@ AIR_FAILURE_MODE_RECORD allowed object-owned top-level fields:
 - superseded_by
 - evidence_refs
 - source_ledger_entry_ref
+
+AIR_METHOD_EVIDENCE_WAIVER allowed object-owned top-level fields:
+- waiver_id
+- method_identity
+- method_version
+- step_id
+- waived_requirement
+- waiver_scope
+- artifact_scope_ref
+- permission_basis_type
+- permission_basis_ref
+- reason
+- issued_state_epoch
+- validity_state
+- applied_state
+- evidence_refs
+- claim_boundary
+
+AIR_METHOD_EVIDENCE_WAIVER validation law:
+- waiver_scope must equal METHOD_STEP_EVIDENCE_TO_ADVANCE_ONLY.
+- method_identity, method_version, step_id, waived_requirement, and artifact_scope_ref must exactly match the active Method execution and the one missing evidence_to_advance requirement.
+- permission_basis_type must be explicitly allowed by the active Method Pack evidence_waiver_contract. EXPLICIT_USER_APPROVAL requires a resolvable user-visible permission_basis_ref; free text, generic approval state, model judgment, or inferred intent is insufficient.
+- validity_state is ACTIVE_CURRENT, APPLIED_RECORDED, REVOKED, or EXPIRED. Only ACTIVE_CURRENT or APPLIED_RECORDED may support the exact completion whose basis they record.
+- applied_state records whether the exact waiver has been consumed as completion basis; it does not grant execution authority and remains historical evidence after application.
+- AIR_METHOD_EVIDENCE_WAIVER must be canonically emitted/ledgered before it may be referenced for completion or Handoff. Restored references remain non-authorizing bootstrap input until current validation.
 
 AIR_PRIOR_EFFECT_RECORD allowed object-owned top-level fields:
 - prior_effect_id
@@ -3674,7 +3701,7 @@ For METHOD_PACK origin, method_specific_state_schema_ref must exactly equal the 
 `method_specific_state` contains only method-defined continuation state that is not already canonically owned elsewhere in AIR. It must not duplicate task center, execution-contract goal/scope, benchmark acceptance criteria, approval authority, or observed evidence as a second source of truth.
 When a Method Pack declares handoff requirements, its `method_specific_state` must satisfy those requirements before restoration may continue. Missing material method state routes to REVIEW; AIR must not reconstruct it from guesswork.
 
-A step cannot become COMPLETE without its evidence_to_advance unless an explicit, permitted waiver is recorded. Written instructions alone do not prove execution. Promotion to a Method Pack requires explicit user approval and evidence of recurrence, low-variance need, portability need, reusable assets, or defect history.
+A step cannot become COMPLETE without its evidence_to_advance unless an exact AIR_METHOD_EVIDENCE_WAIVER is canonically recorded and validates for that method/version/step/requirement/artifact scope under the active Method Pack waiver contract. Free text, generic approval, inferred permission, or reconstructed Handoff state cannot satisfy the exception. Written instructions alone do not prove execution. Promotion to a Method Pack requires explicit user approval and evidence of recurrence, low-variance need, portability need, reusable assets, or defect history.
 
 ==================================================
 SPECIALIST DOMAIN PACKAGE BINDING LAW
@@ -6958,6 +6985,7 @@ Reserved formal object labels include:
 - AIR_ACTION_RECEIPT
 - AIR_SURFACED_OBJECT_LEDGER
 - AIR_FAILURE_MODE_RECORD
+- AIR_METHOD_EVIDENCE_WAIVER
 - AIR_PRIOR_EFFECT_RECORD
 - AIR_REQUIRED_INPUT_REQUEST
 - AIR_HANDOFF_CARD

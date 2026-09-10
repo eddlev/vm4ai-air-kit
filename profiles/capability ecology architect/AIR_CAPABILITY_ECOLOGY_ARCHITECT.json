@@ -1542,7 +1542,14 @@
       "representative_task_tests",
       "specialist_consumption_contract",
       "validation_and_promotion_state",
-      "test_evidence_and_reproducibility_requirements"
+      "test_evidence_and_reproducibility_requirements",
+      "mii_cognitive_route_requirements",
+      "mii_contribution_contract",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "risk_propagation_requirements",
+      "test_evidence_presentation_requirements"
     ],
     "fixture_validation_required": true,
     "representative_task_evaluation_required": true,
@@ -1557,7 +1564,113 @@
       "self-registration",
       "independent execution authority"
     ],
-    "test_evidence_rule": "Fixture and representative-task runs default to STANDARD_EVIDENCE_PRESENTATION. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities."
+    "test_evidence_rule": "Fixture and representative-task runs default to STANDARD_EVIDENCE_PRESENTATION. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities.",
+    "required_template_fields_source": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2.detailed_domain_package_template.required_fields",
+    "translator_to_canonical_package_mapping": {
+      "mapping_version": "1.0.0",
+      "source_contract": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2.detailed_domain_package_contribution_contract.required_outputs",
+      "target_contract": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2.detailed_domain_package_template.required_fields",
+      "unknown_source_field_behavior": "REVIEW",
+      "unmapped_required_output_behavior": "REJECT_CONSTRUCTION_AS_INCOMPLETE",
+      "mappings": {
+        "knowledge_required": {
+          "target_path": "$.knowledge_dimensions.FACTUAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "conceptual_relations_required": {
+          "target_path": "$.knowledge_dimensions.CONCEPTUAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "procedures_required": {
+          "target_path": "$.knowledge_dimensions.PROCEDURAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "recognition_and_pattern_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.recognition_and_pattern",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "analysis_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.analysis",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "evaluation_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.evaluation",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "adaptation_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.adaptation",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "creation_or_synthesis_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.creation_or_synthesis",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "experience_derived_candidates": {
+          "target_path": "$.experience_derived_knowledge_requirements.translator_candidates",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "human_bound_elements": {
+          "target_path": "$.human_boundaries_and_non_transferable_authority.human_bound_elements",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "authority_non_transferable": {
+          "target_path": "$.human_boundaries_and_non_transferable_authority.authority_non_transferable",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "evidence_required": {
+          "target_path": "$.epistemic_requirements.translator_evidence_required",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "representative_tests": {
+          "target_path": "$.representative_task_tests",
+          "operation": "MERGE_UNIQUE"
+        },
+        "test_evidence_and_reproducibility_requirements": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "required_test_evidence_classes": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements.required_test_evidence_classes",
+          "operation": "MERGE_UNIQUE"
+        },
+        "regulatory_evidence_obligation_candidates": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements.regulatory_evidence_obligation_candidates",
+          "operation": "MERGE_UNIQUE"
+        },
+        "mii_cognitive_route_requirements": {
+          "target_path": "$.mii_cognitive_route_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "mii_contribution_contract": {
+          "target_path": "$.mii_contribution_contract",
+          "operation": "MERGE_OBJECT"
+        },
+        "semantic_fidelity_requirements": {
+          "target_path": "$.semantic_fidelity_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "epistemic_sufficiency_requirements": {
+          "target_path": "$.epistemic_sufficiency_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "morphology_recommendations": {
+          "target_path": "$.morphology_recommendations",
+          "operation": "MERGE_OBJECT"
+        },
+        "risk_propagation_requirements": {
+          "target_path": "$.risk_propagation_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "test_evidence_presentation_requirements": {
+          "target_path": "$.test_evidence_presentation_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "uncertainty_resolution_requirements": {
+          "target_path": "$.epistemic_sufficiency_requirements.uncertainty_resolution_requirements",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        }
+      }
+    }
   },
   "required_input_acquisition_contract": {
     "floor_reference": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",

@@ -937,13 +937,176 @@
       "test_evidence_references",
       "reproducibility_limits",
       "additional_evidence_run_required",
-      "regulatory_evidence_requirement_state"
+      "regulatory_evidence_requirement_state",
+      "recommended_mii_routes",
+      "required_mii_routes",
+      "multi_lens_candidate_dimensions",
+      "causal_counterfactual_requirements",
+      "risk_propagation_requirements",
+      "adversarial_disconfirmation_requirements",
+      "decision_tradeoff_requirements",
+      "uncertainty_fusion_requirements",
+      "temporal_system_dynamics_requirements",
+      "information_gain_requirements",
+      "evidence_triangulation_requirements",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "mii_contribution_acceptance_criteria",
+      "uncertainty_resolution_requirements"
     ],
     "raw_source_preservation_required": true,
     "raw_direct_binding_allowed": false,
     "operative_authority": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_AND_COMPILED_OR_REFERENCED_BY_BOUND_ORBIT_0_ARTIFACT",
     "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative.",
-    "new_task_boundary_effect": "Source-bounded translation content may remain reusable candidate material; task-specific selected vectors, execution-mode decisions, knowledge-to-execution path contributions, synthetic benchmark contributions, and other operative downstream effects require revalidation under the newly bound task artifact."
+    "new_task_boundary_effect": "Source-bounded translation content may remain reusable candidate material; task-specific selected vectors, execution-mode decisions, knowledge-to-execution path contributions, synthetic benchmark contributions, and other operative downstream effects require revalidation under the newly bound task artifact.",
+    "required_translation_output_projection": {
+      "knowledge_required": {
+        "path": "$.knowledge_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "conceptual_relations_required": {
+        "path": "$.conceptual_relations_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "procedures_required": {
+        "path": "$.procedures_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "recognition_and_pattern_capabilities": {
+        "path": "$.recognition_and_pattern_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "analysis_capabilities": {
+        "path": "$.analysis_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evaluation_capabilities": {
+        "path": "$.evaluation_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "adaptation_capabilities": {
+        "path": "$.adaptation_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "creation_or_synthesis_capabilities": {
+        "path": "$.creation_or_synthesis_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "experience_derived_candidates": {
+        "path": "$.experience_derived_candidates",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "human_bound_elements": {
+        "path": "$.human_bound_elements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "authority_non_transferable": {
+        "path": "$.authority_non_transferable",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evidence_required": {
+        "path": "$.evidence_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "representative_tests": {
+        "path": "$.representative_tests",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "recommended_mii_routes": {
+        "path": "$.recommended_mii_routes",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "required_mii_routes": {
+        "path": "$.required_mii_routes",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "multi_lens_candidate_dimensions": {
+        "path": "$.multi_lens_candidate_dimensions",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "causal_counterfactual_requirements": {
+        "path": "$.causal_counterfactual_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "risk_propagation_requirements": {
+        "path": "$.risk_propagation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "adversarial_disconfirmation_requirements": {
+        "path": "$.adversarial_disconfirmation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "decision_tradeoff_requirements": {
+        "path": "$.decision_tradeoff_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "uncertainty_fusion_requirements": {
+        "path": "$.uncertainty_fusion_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "temporal_system_dynamics_requirements": {
+        "path": "$.temporal_system_dynamics_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "information_gain_requirements": {
+        "path": "$.information_gain_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evidence_triangulation_requirements": {
+        "path": "$.evidence_triangulation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "semantic_fidelity_requirements": {
+        "path": "$.semantic_fidelity_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "epistemic_sufficiency_requirements": {
+        "path": "$.epistemic_sufficiency_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "morphology_recommendations": {
+        "path": "$.morphology_recommendations",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "mii_contribution_acceptance_criteria": {
+        "path": "$.mii_contribution_acceptance_criteria",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "uncertainty_resolution_requirements": {
+        "path": "$.uncertainty_resolution_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      }
+    }
   },
   "review_checkpoints": [
     "Missing or stale source/version/terms/provenance",

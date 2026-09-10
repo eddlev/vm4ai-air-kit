@@ -465,7 +465,7 @@
       "user_task_change_behavior": "Treat selection as bootstrap input; promote selected task and queue the prior nomination if still valid.",
       "required_input_recheck": "Before repeating a request or resuming its controlled action, recheck session availability, validated package state, freshness, completeness, compatibility, source rights, permission, and satisfaction. Preserve exact identities and do not infer satisfaction from attachment alone.",
       "test_evidence_recheck": "Restore test_evidence_state without treating the card or presentation mode as proof that tests ran or evidence is sufficient. Revalidate every referenced suite, manifest, result, log, fixture, sanitization state, reproducibility claim, and regulatory obligation. If requested evidence was never captured, preserve the gap and require a new authorized run when that evidence is material.",
-      "method_handoff_recheck": "When method continuation is material, validate method identity/version/origin, active method state/step/gate, staleness, evidence references, blockers, next action, and method_specific_state against the current method requirements before artifact rebinding. Missing material state routes to REVIEW; do not invent it.",
+      "method_handoff_recheck": "When method continuation is material, validate method identity/version/origin, active method state/step/gate, staleness, evidence references, blockers, next action, method_specific_state against the current method requirements, and every preserved AIR_METHOD_EVIDENCE_WAIVER ref against its exact current method/version/step/requirement/artifact scope. Missing material state or invalid waiver refs route to REVIEW; do not invent them.",
       "responsive_binding_recheck": "Restore responsive-binding requests and approval evidence only as continuation input. Revalidate the exact approval gate, disclosed scope/effects, component identity, freshness, compatibility, selection, and artifact compilation before binding. Attachment history alone is not approval.",
       "specialist_catalog_recheck": "When specialist catalog provenance is recorded, compare the originating AIR_SPECIALIST_PACKAGE_INDEX identity with any currently supplied validated index before using the current index for new discovery. Exact same-release catalog identity permits normal discovery after explicit handoff Specialist/package state is restored and revalidated. A missing index degrades discovery without invalidating otherwise valid explicit handoff state. A different or foundation-incompatible index is a new-environment discovery input and requires targeted compatibility reconciliation before new catalog discovery. Never substitute, select, approve, bind, or rewrite restored Specialist state from index metadata alone.",
       "runtime_alignment_recheck": "Historical alignment evaluation identities and results are provenance only. Execute a new Core RT.ALIGN evaluation using HANDOFF_RESTORE profile against current-session state before any restored state becomes execution-bearing.",
@@ -1526,7 +1526,8 @@
           "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID",
           "SOURCE_RIGHTS_PROJECTION_CONSISTENT",
           "PATCH_ACTIVITY_REQUIREMENTS_VALID",
-          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID"
+          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID",
+          "METHOD_EVIDENCE_WAIVER_REFS_VALID"
         ],
         "operator_semantics": {
           "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR": "For non-null material open scope, require approval_response_mode=EXACT_CANONICAL_SCOPE_TOKEN_PAIR and operational_response_tokens set equality with exactly AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>. Produce OPEN_APPROVAL_SCOPE_TOKEN_VALIDATION_STATE=VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR only on success.",
@@ -1535,7 +1536,8 @@
           "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID": "If method_origin=METHOD_PACK, schema ref/version must exactly match the active Method Pack handoff_requirements.method_specific_state_schema and method_specific_state must satisfy required fields. Missing schema or field routes REVIEW without reconstruction.",
           "SOURCE_RIGHTS_PROJECTION_CONSISTENT": "Governance-owned source_rights_id is canonical. Generic projections must reference that owner, set authoritative=false, and match projected_rights_state; conflicts route REVIEW.",
           "PATCH_ACTIVITY_REQUIREMENTS_VALID": "ACTIVE_FILE_MUTATION_OR_PATCH requires nonempty source_inventory, replacement_policy, mutation_scope, validation_plan and last_validation_state carrier.",
-          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID": "When the completion trigger is true, path_validation_state must be COMPLETE_FOR_ACTIVE_STEP and step_optimality_state must be PASS with preserved basis/stopping evidence as applicable."
+          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID": "When the completion trigger is true, path_validation_state must be COMPLETE_FOR_ACTIVE_STEP and step_optimality_state must be PASS with preserved basis/stopping evidence as applicable.",
+          "METHOD_EVIDENCE_WAIVER_REFS_VALID": "If active Method Pack method_specific_state declares step_evidence_waiver_refs, each non-null ref must resolve to a surfaced canonical AIR_METHOD_EVIDENCE_WAIVER snapshot whose method/version/step/waived_requirement/artifact scope match the serialized method state and whose validity_state is ACTIVE_CURRENT or APPLIED_RECORDED. Empty refs are allowed when no waiver was used. Unresolved, free-text, mismatched, revoked, expired, or synthesized refs route REVIEW."
         },
         "rules": {
           "HC-VALIDATE-APPROVAL": {
@@ -1676,8 +1678,17 @@
             ]
           },
           "HC-VALIDATE-METHOD": {
-            "operator": "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID",
-            "path": "$.execution_state.method_handoff_state"
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID",
+                "path": "$.execution_state.method_handoff_state"
+              },
+              {
+                "operator": "METHOD_EVIDENCE_WAIVER_REFS_VALID",
+                "path": "$.execution_state.method_handoff_state"
+              }
+            ]
           },
           "HC-VALIDATE-PATCH": {
             "operator": "PATCH_ACTIVITY_REQUIREMENTS_VALID",
