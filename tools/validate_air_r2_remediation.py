@@ -21,9 +21,10 @@ def main(root:Path):
     m=re.search(r'Canonical formal object classes:\n(?P<b>(?:- AIR_[A-Z_]+: [A-Z_]+\n)+)\nObject identity',core)
     req(bool(m),'canonical formal-object class registry not parseable')
     classes={ln[2:].split(':',1)[0]:ln.split(':',1)[1].strip() for ln in m.group('b').strip().splitlines()}
-    req(len(classes)==17,f'formal object class count {len(classes)} != 17')
+    req(len(classes)==18,f'formal object class count {len(classes)} != 18')
     req(classes.get('AIR_SURFACED_OBJECT_LEDGER')=='SURFACED_OBJECT_LEDGER_RECORD','ledger formal class missing/wrong')
     req(classes.get('AIR_FAILURE_MODE_RECORD')=='FAILURE_MODE_RECORD','failure formal class missing/wrong')
+    req(classes.get('AIR_METHOD_EVIDENCE_WAIVER')=='METHOD_EVIDENCE_WAIVER_RECORD','method evidence waiver formal class missing/wrong')
     m=re.search(r'Reserved formal object labels include:\n(?P<b>(?:- AIR_[A-Z_]+\n)+)\nAIR must not use',core)
     req(bool(m),'reserved formal label set not parseable')
     reserved={ln[2:] for ln in m.group('b').strip().splitlines()}
