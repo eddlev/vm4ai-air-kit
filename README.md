@@ -8,7 +8,7 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.5.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
+[![Foundation](https://img.shields.io/badge/foundation-2.6.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
 ![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
 
 **AI work, carried forward.**
@@ -21,7 +21,9 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 
 ## AIR Kit v0.7.1
 
-**AIR Kit v0.7.1** is a patch hardening release over v0.7.0. It closes a prompt-runtime formal-object emission loophole, strengthens permanent release validation, normalizes reusable Method/Specialist contracts, and repairs stale package identity metadata without representing AIR as backend-enforced or deterministic.
+**AIR Kit v0.7.1** is a patch-hardening release over v0.7.0. It carries AIR Foundation **2.6.0**, Handoff schema **2.3.0 revision 16**, Specialist packages **2.5.0**, and the coordinated Foundation identity `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`.
+
+The v0.7.1 hardening pass closes **74 audited source findings** across the Foundation, Handoff, runtime catalogs, Specialist packages, package construction paths, lifecycle metadata, validation contracts, and release tooling. The release preserves AIR's prompt-runtime authority boundary: no package, catalog, Handoff record, or deterministic validator becomes backend execution authority.
 
 | Component | v0.7.0 | v0.7.1 |
 | --- | ---: | ---: |
@@ -35,22 +37,24 @@ AIR is not hidden model memory and it is not a backend enforcement layer. Its ru
 | Runtime Route Map | `1.0.1` | `1.1.0` |
 | Specialist Package Index | `1.2.0` | `1.3.0` |
 
-Foundation identity for this candidate is `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`. Governance remains 2.3.0 because Core owns route, object-constructor, alignment, binding, action, and handoff-restoration semantics.
+Foundation identity for this release is `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`. Governance remains 2.3.0 because Core owns route, object-constructor, alignment, binding, action, and Handoff-restoration semantics.
 
-Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Static validation and replayable behavioral evaluation remain separate evidence classes.
+Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Deterministic/static checks and model/host behavior remain distinct evidence classes. Release acceptance for v0.7.1 is based on the completed audit/remediation suite together with maintainer acceptance through active AIR use.
 
 ## What's in v0.7.1
 
-1. adds a Core-owned closed-world `RESPONSE_EMISSION_CLOSURE` so the alignment pair cannot satisfy a response while other route/lifecycle objects are silently dropped;
-2. mirrors the closure in Control, Default Starter, and Runtime Route Map without creating a second semantic owner;
-3. advances Handoff schema 2.3.0 to revision 16 and closes root-field/schema-manifest declaration coverage;
-4. normalizes reusable Method Packs to Core's canonical `ordered_steps`, staleness, handoff, and binding carriers;
-5. completes the Specification-First Verification Specialist's canonical Specialist profile surfaces;
-6. strengthens Public Surface Copywriting with explicit required-input, knowledge-to-execution, MII, synthetic-benchmark, and observable anti-generic delta contracts;
-7. repairs stale sibling/peer compatibility identities and removes construction-time peer manifest hash snapshots from operative runtime packages;
-8. makes release publication state externally verified rather than a stale runtime-catalog assertion; and
-9. adds a permanent deterministic release-contract validator plus replayable regression fixture definitions; and
-10. moves operative five-file Foundation compatibility predicates into a typed deterministic contract registry with closed-world coverage accounting and per-check mutation tests, leaving prose validation expectations explicitly non-operative.
+The v0.7.1 remediation was completed in eight bounded repair phases:
+
+1. **Foundation deterministic spine** — repairs route delimiters, control-event binding, deterministic-route membership, boot/version checks, alignment reachability, registry coverage, Route Map anchors, and route prerequisites.
+2. **Formal objects and authorization** — closes the formal-object registry, normalizes Gate and Authorization semantics, registers Artifact fields correctly, and gives failure records a deterministic ledger-backed construction path.
+3. **Handoff and restoration** — validates exact approval-token derivation, adds executable rev15→rev16 migration before required-carrier validation, preserves visibility/profile authority provenance, fixes conditional predicates, and supplies typed Method-Pack restoration contracts.
+4. **Shared package schema normalization** — normalizes MII morphology carriers, Executor interfaces, Method interfaces, Specialist surfaces, and Session Domain Overlay representation without expanding package authority.
+5. **Capability Ecology constructor chain** — makes the canonical 44-field Domain Package contract consistent across fixtures, Translator output, Architect construction, negative mutations, and typed evidence-waiver handling.
+6. **Package-local behavioral contracts** — makes Governance input acquisition conditional on actual gaps and gives Public Surface Copywriting an explicit proportional stopping/step-optimality loop.
+7. **Lifecycle, version, history, and reseal truth** — aligns current Foundation identities, package readiness mirrors, candidate/release lifecycle vocabulary, historical records, component receipts, and dependency-graph resealing.
+8. **Presentation and portability cleanup** — restores canonical sentinel references and boot-mark ownership, exposes all four system modifiers, pins NFKC filename normalization, and hardens unknown-target/reserved-name portability behavior.
+
+The repository also carries permanent deterministic validation, mutation/meta tests, behavioral transaction contract checks, release-contract validation, and dependency-graph reseal verification so the shipped source can be checked against its declared contracts.
 
 ## Start AIR
 
@@ -86,11 +90,11 @@ Load the current Foundation and choose the import route during onboarding. Suppl
 catalog/   discovery metadata for routes and Specialist packages
 profiles/  optional reusable Specialist capability packages
 prompts/   canonical five-file AIR Foundation
-tools/     deterministic public release-contract validator
-tests/     replayable regression fixture definitions
+tools/     deterministic validators, remediation/reseal tooling, and regression runners
+tests/     replayable contract, mutation, and regression fixtures
 ```
 
-The public repository is intentionally small. It includes one deterministic release-contract validator and replayable regression fixture definitions so shipped runtime/package claims can be checked against the actual tree. Private evaluation logs, hidden model traces, and historical release-process material are not part of the public AIR runtime surface.
+The public repository contains the deterministic validation and regression material needed to check the shipped AIR contracts against the actual tree. Private evaluation logs, hidden model traces, and historical working/audit artifacts are not part of the public AIR runtime surface.
 
 ### `prompts/`
 
@@ -113,7 +117,7 @@ The catalog improves route and Specialist discovery. It does not independently c
 
 ### `profiles/`
 
-Optional reusable Specialist capability packages in AIR Kit v0.7.0:
+Optional reusable Specialist capability packages in AIR Kit v0.7.1:
 
 - AI Governance Specialist
 - Capability Ecology Architect
@@ -146,7 +150,7 @@ For implementation guidance, compatibility notes, testing methodology, and relea
 
 Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible AIR defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
 
-When reporting a behavioral issue, include the AIR Kit release or candidate identity, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
+When reporting a behavioral issue, include the AIR Kit release, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
 
 Do not post exploitable security details publicly.
 
@@ -159,8 +163,3 @@ AIR/VM4AI names and brand marks are separate from the code license. Reusable bra
 ---
 
 **Built with AIR, reviewed by a human.**
-
-
-## Control-plane semantic-loophole closure (v0.7.1 candidate)
-
-The current v0.7.1 candidate separates cognitive inference from control authority. Deterministic runtime routes use typed control-event guards; approval/rejection uses exact declared response tokens; authority-bearing objects must be visibly ledgered before dependent material effects; Handoff is delivered only as a validated downloadable `AIR_HANDOFF_CARD.json`; and session failure modes are recorded with stable IDs, queried before retries, preserved through Handoff, and applied to all Specialist packages through Core without granting Specialists registry-mutation authority. Behavioral revalidation remains required before release.
