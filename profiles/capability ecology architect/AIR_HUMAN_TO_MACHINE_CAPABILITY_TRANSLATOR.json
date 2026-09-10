@@ -8,7 +8,7 @@
   "package_version": "2.5.0",
   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR.EXECUTOR.HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.V2.KNOWLEDGE.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.PATH.BENCHMARK.DOMAIN_PACKAGE.AUTHORITY.RISK.EXECUTION.DISCLOSURE.ACKNOWLEDGEMENT.FAILURE_LOCALIZATION.DATASET_ELIGIBILITY.RAW_TAXONOMY_REJECTION",
   "description": "Bounded non-agent translation layer that decomposes human-oriented occupational, curriculum, certification, competency, job-description and professional frameworks into evidence-bounded machine-native knowledge, cognitive, capability, execution-path, boundary, review and prohibition candidates. It prevents raw human taxonomy from binding directly, supports Detailed Domain Package construction and synthetic benchmark formation, and does not confer human identity, licensure, authority, experience, institutional standing or legal accountability.",
   "created_at": "2026-07-19T19:02:43+02:00",
@@ -69,9 +69,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "46bbc65c31a3a75086213f09244eecfd1b48b7e0d3489f678df398f5c2de986c",
-      "size_bytes": 34590,
-      "line_count": 1009
+      "sha256": "d6b6dbd19b62b3a97d1291cb658704017ddb50bd8524fbea0c86601d74d4ec6c",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -109,7 +109,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "bc559720947fbbb664f3329744cfdb7fdf962b8af5043e2e894e43d347a5ad41"
+      "observed_sha256": "2103559078e3a524942384171f216b81f3362bf9fce5409a439563b16d74ba17"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -1342,14 +1342,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.1.0",
-      "sha256": "46bbc65c31a3a75086213f09244eecfd1b48b7e0d3489f678df398f5c2de986c",
+      "sha256": "d6b6dbd19b62b3a97d1291cb658704017ddb50bd8524fbea0c86601d74d4ec6c",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 34590,
-      "line_count": 1009
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1379,7 +1379,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.5.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_005",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",

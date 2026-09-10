@@ -606,5 +606,47 @@
         "next_step": "CW04_FORM_CANDIDATE_STRUCTURE"
       }
     }
+  ],
+  "r7_lifecycle_reseal_cases": [
+    {
+      "id": "R7-LC-01-CANDIDATE-NOT-RELEASED",
+      "finding_ids": [
+        "AIR-AUD-006",
+        "AIR-AUD-073"
+      ],
+      "invalid_if": "a SET_005/V071 release-candidate entry uses RELEASE_CATALOG_ENTRY before external release sealing"
+    },
+    {
+      "id": "R7-LC-02-BEHAVIORAL-EVIDENCE-BOUNDARY",
+      "finding_ids": [
+        "AIR-AUD-032",
+        "AIR-AUD-042",
+        "AIR-AUD-048",
+        "AIR-AUD-055",
+        "AIR-AUD-058"
+      ],
+      "invalid_if": "current component or package state claims behavioral PASS without a replayable/model-host evidence manifest for the exact current Foundation identity"
+    },
+    {
+      "id": "R7-LC-03-HISTORY-IMMUTABLE",
+      "finding_ids": [
+        "AIR-AUD-074"
+      ],
+      "invalid_if": "current dependency reseal rewrites t7_change_record, historical_release_catalogs, source_baseline, mainline_release_binding, or another explicitly historical container"
+    },
+    {
+      "id": "R7-LC-04-SFV-PACKAGE-VERSION-SOURCE",
+      "finding_ids": [
+        "AIR-AUD-061"
+      ],
+      "invalid_if": "SFV Method duplicates a stale required_package_version literal instead of checking the canonical top-level package_version"
+    },
+    {
+      "id": "R7-LC-05-GOVERNANCE-COMPONENT-ROLES",
+      "finding_ids": [
+        "AIR-AUD-050"
+      ],
+      "invalid_if": "Governance reseal records null component_roles_observed instead of the actual manifest roles"
+    }
   ]
 }

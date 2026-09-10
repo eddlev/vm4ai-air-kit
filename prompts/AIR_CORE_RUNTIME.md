@@ -3189,7 +3189,14 @@ Minimum index entry:
 - short_activation_summary
 - short_non_activation_summary
 - foundation_compatibility_identity
-- availability_state = RELEASE_CATALOG_ENTRY
+- availability_state in { RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION, RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION, RELEASE_CATALOG_ENTRY }
+
+Patch marker: AIR_SPECIALIST_PACKAGE_INDEX_LIFECYCLE_V1
+Candidate-to-release lifecycle:
+- RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION = candidate bytes are discoverable but current deterministic/static validation has not passed; this is not a released catalog entry.
+- RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION = current deterministic/static validation has passed for the candidate bytes, but required replayable/model-host behavioral evidence remains pending; this is not a released catalog entry.
+- RELEASE_CATALOG_ENTRY = release-sealed catalog entry. This state may be emitted only after the release process closes every validation requirement declared by that release and the release-sealed index carries the exact manifest receipt.
+- Candidate states are discovery metadata only and never grant selection, approval, binding, or execution authority.
 
 Index rules:
 - Index presence does not make any Specialist package present, selected, validated for the current task, approved, or bound.
