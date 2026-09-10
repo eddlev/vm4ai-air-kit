@@ -37,7 +37,8 @@ s=mut.read_text(encoding='utf-8')
 if "PASS (12/12 mutants killed)" not in s:
     old="print('AIR validator mutation suite: PASS (8/8 mutants killed)')\n"
     if old not in s: raise SystemExit('R8 validator extension generic mutation anchor missing')
-    extra=r'''\ndef r8_control_boot_owner(t: Path) -> None:
+    extra=r'''
+def r8_control_boot_owner(t: Path) -> None:
     p=t/'prompts'/'AIR_CONTROL_SURFACE.md'; x=p.read_text(encoding='utf-8')
     x=x.replace('patch marker AIR_BOOT_BRAND_MARK_M2','patch marker BROKEN_BOOT_OWNER',1); p.write_text(x,encoding='utf-8')
 
