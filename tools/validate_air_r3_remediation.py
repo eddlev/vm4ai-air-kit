@@ -107,7 +107,12 @@ def main():
         schema_ids.add(ms['schema_id'])
     req(len(schema_ids)==5,'039 schema ids not unique')
     mh=H['execution_state']['method_handoff_state']; req('method_specific_state_schema_ref' in mh and 'method_specific_state_schema_version' in mh,'039 Handoff schema refs absent')
-    req(sm['validation_registry']['rules']['HC-VALIDATE-METHOD']['operator']=='ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID','039 active method validator absent')
+    mvr=sm['validation_registry']['rules']['HC-VALIDATE-METHOD']
+    if mvr.get('operator')=='ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID':
+        active_method_validator=True
+    else:
+        active_method_validator=mvr.get('operator')=='ALL' and any(p.get('operator')=='ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID' for p in mvr.get('predicates',[]))
+    req(active_method_validator,'039 active method validator absent')
     ov=load('profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json'); vals=ov['binding_rules']['activation_state_values']; req('NOT_EVALUATED' in vals,'051 NOT_EVALUATED missing'); req('pre_evaluation_transition_rule' in ov['binding_rules'],'051 transition rule missing')
     gm=load('profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json'); exp=['PENDING','ACTIVE','COMPLETE','BLOCKED','REVIEW','SKIPPED_APPROVED','FAILED','INVALIDATED']; req(gm['method_execution_state_schema']['step_states']==exp,'052 step state enum mismatch')
     pc=H['source_state']['source_rights_projection_contract']; req(pc['governance_owner_path']=='AIR_HANDOFF_CARD.governance_state.governance_source_rights_state' and pc['projection_authority']=='DERIVED_NONAUTHORITATIVE' and pc['last_writer_wins'] is False,'069 projection contract missing')
