@@ -21,6 +21,9 @@ jobs:
         run: |
           python3 tools/validate_air_contract_registry.py
           python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
           python3 tools/test_air_contract_registry_mutations.py
           python3 tools/test_air_r1_mutations.py
 
