@@ -137,6 +137,49 @@ def main() -> None:
     require('independently satisfiable source-supported remainder' in joined, 'CW-BEH-02 safe remainder outcome missing')
     require('no invented product or domain truth' in cw2.get('invariants', []), 'CW-BEH-02 no-invention invariant missing')
 
+
+    # R6 package-local behavioral contradiction regressions.
+    r6_cases = fixtures.get('r6_package_local_behavior_cases', [])
+    r6_ids = {x.get('id') for x in r6_cases}
+    require({
+        'GOV-BEH-01-ALREADY-SATISFIED',
+        'GOV-BEH-02-ONE-MISSING',
+        'CW-BEH-04-FURTHER-SEARCH-NO-PASS',
+        'CW-BEH-05-PASS-AND-STOPPED',
+        'CW-BEH-06-PASS-BUT-FURTHER-SEARCH',
+    } <= r6_ids, 'R6 package-local behavior fixtures missing')
+
+    gov = load('profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json')
+    boot = gov['source_layer']['source_access_boot_protocol']
+    require(boot.get('visible_request_required') == 'CONDITIONAL_ON_MATERIAL_REQUIRED_INPUT_GAP', 'Governance boot request is not conditional')
+    require(boot.get('pre_request_context_check_required') is True, 'Governance pre-request context check missing')
+    decision = boot.get('request_decision_contract', {})
+    all_ok = decision.get('all_material_inputs_available', {})
+    one_gap = decision.get('material_required_input_gap_remaining', {})
+    require(all_ok.get('emit_user_information_request') is False and all_ok.get('action') == 'ACKNOWLEDGE_CURRENT_SOURCE_ACCESS_STATE', 'Governance already-satisfied state still requests input')
+    require(one_gap.get('emit_user_information_request') is True and one_gap.get('action') == 'REQUEST_SMALLEST_EXACT_MISSING_INPUT', 'Governance missing-input state does not request smallest exact input')
+    require('request_once_at_boot' not in boot, 'Governance unconditional boot request list remains')
+    require(not any(x == 'Ask for source inventory and access mode at boot before material governance mapping.' for x in gov.get('execution_constraints', [])), 'Governance unconditional boot execution constraint remains')
+    require(gov['source_layer']['source_access_boot_protocol'].get('default_if_paid_material_absent') == 'PUBLIC_SOURCE_ONLY', 'Governance PUBLIC_SOURCE_ONLY fallback changed')
+
+    cw = load('profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json')
+    opt = cw.get('step_optimality_contribution_contract', {}).get('CW06_COMPARE_AND_SELECT', {})
+    adv = opt.get('advance_to_cw07_requires', {})
+    search = opt.get('further_search_branch', {})
+    require(adv.get('candidate_contribution_state') == 'PASS_CANDIDATE', 'CW06 pass candidate requirement missing')
+    require(adv.get('further_search_justified') is False, 'CW06 advance permits further search')
+    require(adv.get('proportional_stopping_basis_recorded') is True, 'CW06 proportional stopping basis not required')
+    require(adv.get('material_unresolved_domination') is False, 'CW06 advance permits unresolved domination')
+    require(search.get('when', {}).get('further_search_justified') is True and search.get('advance_to_cw07') is False and search.get('next_step') == 'CW04_FORM_CANDIDATE_STRUCTURE', 'CW06 further-search branch does not remain in search/comparison')
+    for coll in ('method_steps', 'ordered_steps'):
+        step = next(x for x in cw[coll] if x.get('step_id') == 'CW06_COMPARE_AND_SELECT')
+        require(step.get('branch_contract_ref') == 'step_optimality_contribution_contract.CW06_COMPARE_AND_SELECT', f'CW06 branch ref missing in {coll}')
+        require(step.get('further_search_route') == 'CW04_FORM_CANDIDATE_STRUCTURE', f'CW06 further-search route missing in {coll}')
+        joined = ' '.join(step.get('evidence_to_advance', []))
+        require(' or further search is justified' not in joined, f'CW06 premature OR condition remains in {coll}')
+        require('further_search_justified is false' in joined and 'proportional_stopping_basis_recorded is true' in joined, f'CW06 stopping evidence incomplete in {coll}')
+    require(cw.get('authority_boundary', {}).get('positive_material_execution_authority_source') == 'SOLE_BOUND_ORBIT_0_AIR_ARTIFACT', 'Copywriting authority boundary changed')
+
     print('AIR behavioral transaction contract validation: PASS')
     print('Orbit transition atomic bundle: PASS')
     print('Material action deterministic transaction: PASS')

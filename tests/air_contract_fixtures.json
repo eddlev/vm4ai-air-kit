@@ -535,5 +535,76 @@
       "id": "R2-GOV-01-RETIRED-GATE-PATHS",
       "invalid_if": "Governance source-rights mapping targets evidence_check/allowed_action_check/stop_condition_check instead of AIR_GATE.evaluation_checks nested paths"
     }
+  ],
+  "r6_package_local_behavior_cases": [
+    {
+      "id": "GOV-BEH-01-ALREADY-SATISFIED",
+      "finding": "AIR-AUD-053",
+      "input": {
+        "missing_material_required_inputs": []
+      },
+      "expected": {
+        "emit_user_information_request": false,
+        "action": "ACKNOWLEDGE_CURRENT_SOURCE_ACCESS_STATE"
+      }
+    },
+    {
+      "id": "GOV-BEH-02-ONE-MISSING",
+      "finding": "AIR-AUD-053",
+      "input": {
+        "missing_material_required_inputs": [
+          "Target jurisdictions and sectors"
+        ]
+      },
+      "expected": {
+        "emit_user_information_request": true,
+        "action": "REQUEST_SMALLEST_EXACT_MISSING_INPUT",
+        "requested_inputs": [
+          "Target jurisdictions and sectors"
+        ]
+      }
+    },
+    {
+      "id": "CW-BEH-04-FURTHER-SEARCH-NO-PASS",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "NO_PASS_CANDIDATE",
+        "further_search_justified": true,
+        "proportional_stopping_basis_recorded": false,
+        "material_unresolved_domination": true
+      },
+      "expected": {
+        "advance_to_cw07": false,
+        "next_step": "CW04_FORM_CANDIDATE_STRUCTURE"
+      }
+    },
+    {
+      "id": "CW-BEH-05-PASS-AND-STOPPED",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "PASS_CANDIDATE",
+        "further_search_justified": false,
+        "proportional_stopping_basis_recorded": true,
+        "material_unresolved_domination": false
+      },
+      "expected": {
+        "advance_to_cw07": true,
+        "next_step": "CW07_REVIEW_COPY_IN_SCOPE"
+      }
+    },
+    {
+      "id": "CW-BEH-06-PASS-BUT-FURTHER-SEARCH",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "PASS_CANDIDATE",
+        "further_search_justified": true,
+        "proportional_stopping_basis_recorded": false,
+        "material_unresolved_domination": false
+      },
+      "expected": {
+        "advance_to_cw07": false,
+        "next_step": "CW04_FORM_CANDIDATE_STRUCTURE"
+      }
+    }
   ]
 }

@@ -413,8 +413,22 @@
   ],
   "source_layer": {
     "source_access_boot_protocol": {
-      "visible_request_required": true,
-      "request_once_at_boot": [
+      "visible_request_required": "CONDITIONAL_ON_MATERIAL_REQUIRED_INPUT_GAP",
+      "pre_request_context_check_required": true,
+      "pre_request_context_sources": [
+        "current session",
+        "source inventory",
+        "validated package state",
+        "authorized tools and connectors",
+        "source rights",
+        "freshness",
+        "jurisdiction",
+        "lifecycle",
+        "organizational role",
+        "intended purpose",
+        "evidence obligations"
+      ],
+      "requestable_input_categories": [
         "Target jurisdictions and sectors",
         "AI system or use-case description, lifecycle stage, and intended purpose",
         "Organization role and likely AI Act role, if known",
@@ -422,6 +436,20 @@
         "Any lawfully accessible licensed standards, extracts, or clause references the user wants mapped",
         "Requested output: orientation, governance design, gap review, clause-level mapping, audit support, or external claim review"
       ],
+      "request_selection_rule": "Request only still-missing categories that are materially required, choosing the smallest exact sufficient request after the pre-request context check.",
+      "request_decision_contract": {
+        "all_material_inputs_available": {
+          "emit_user_information_request": false,
+          "action": "ACKNOWLEDGE_CURRENT_SOURCE_ACCESS_STATE",
+          "preserve_existing_authorized_context": true
+        },
+        "material_required_input_gap_remaining": {
+          "emit_user_information_request": true,
+          "action": "REQUEST_SMALLEST_EXACT_MISSING_INPUT",
+          "request_scope": "STILL_MISSING_MATERIALLY_REQUIRED_CATEGORIES_ONLY",
+          "preserve_unresolved_state_until_satisfied": true
+        }
+      },
       "source_access_modes": {
         "FULL_MIXED_SOURCE": "User supplied internal/project sources and any licensed material needed, supplemented by current public official sources.",
         "PUBLIC_SOURCE_ONLY": "No licensed normative text supplied. Continue using public law, regulator material, public framework text, public standard metadata/abstracts, and user project truth.",
@@ -566,7 +594,7 @@
     "A material source conflict or staleness issue remains hidden or unresolved."
   ],
   "execution_constraints": [
-    "Ask for source inventory and access mode at boot before material governance mapping.",
+    "At boot, inspect authorized current context before material governance mapping. If a material required governance input remains missing, request only the smallest exact missing input; otherwise acknowledge the current source-access state without re-requesting information.",
     "Continue in PUBLIC_SOURCE_ONLY mode when paid material is unavailable, with explicit tags and blocked clause-level claims.",
     "Use current official retrieval for laws, implementation dates, standards status, regulator guidance, and platform behavior.",
     "Keep law, official guidance, standards, voluntary frameworks, technical guidance, internal policy, and empirical evidence separately labelled.",
