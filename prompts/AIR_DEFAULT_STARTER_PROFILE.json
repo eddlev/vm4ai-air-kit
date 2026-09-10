@@ -830,6 +830,11 @@
               "path": "OPEN_APPROVAL_SCOPE"
             },
             {
+              "operator": "STATE_EQUALS",
+              "path": "OPEN_APPROVAL_SCOPE_TOKEN_VALIDATION_STATE",
+              "expected": "VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR"
+            },
+            {
               "operator": "EXACT_TOKEN_IN_DECLARED_SET",
               "path": "CURRENT_USER_INPUT",
               "set_path": "OPEN_APPROVAL_SCOPE.operational_response_tokens"
@@ -1014,7 +1019,11 @@
         "AIR_GATE",
         "AIR_SURFACED_OBJECT_LEDGER"
       ],
-      "effect_before_authority_ledger": "PROHIBITED"
+      "effect_before_authority_ledger": "PROHIBITED",
+      "approval_response_mode": "EXACT_CANONICAL_SCOPE_TOKEN_PAIR",
+      "restored_scope_token_derivation_required": true,
+      "validated_token_state": "VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR",
+      "token_set_rule": "EXACT_TWO_ELEMENT_SET_DERIVED_FROM_APPROVAL_SCOPE_ID_NO_EXTRAS_OR_ALIASES"
     },
     "surfaced_object_ledger": {
       "required": true,

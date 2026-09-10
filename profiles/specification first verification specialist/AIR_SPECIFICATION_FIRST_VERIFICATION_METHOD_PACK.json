@@ -618,19 +618,50 @@
       "treat prior-task SFV state as historical or candidate input until applicability is revalidated under the newly bound task AIR_ARTIFACT"
     ]
   },
-  "handoff_requirements": [
-    "method identity and version",
-    "method origin",
-    "active_method_state",
-    "active_method_step",
-    "method_step_gate",
-    "method_evidence_state",
-    "staleness_state",
-    "unresolved blockers",
-    "next allowed action",
-    "evidence references",
-    "method_specific_state containing specification_target_refs, task_classification, open ambiguity/assumption/evidence requests, selected verification layers, verification_specification identity/content or canonical reference, specification adequacy decision, baseline evidence state, observed verification evidence refs, integrity review state, intent reconciliation state, and test_evidence_mode when material"
-  ],
+  "handoff_requirements": {
+    "schema_version": "1.0.0",
+    "schema_id": "SPECIFICATION_FIRST_VERIFICATION_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
+    ],
+    "method_specific_state_schema": {
+      "schema_id": "SPECIFICATION_FIRST_VERIFICATION_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "specification_target_refs",
+        "task_classification",
+        "open_ambiguity_requests",
+        "open_assumption_requests",
+        "open_evidence_requests",
+        "selected_verification_layers",
+        "verification_specification_ref_or_snapshot",
+        "specification_adequacy_decision",
+        "baseline_evidence_state",
+        "observed_verification_evidence_refs",
+        "integrity_review_state",
+        "intent_reconciliation_state"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
+    "continuation_rule": "Restore only as continuation input; current identity, applicability, evidence, staleness, and Orbit 0 artifact compilation must be revalidated."
+  },
   "binding_requirements": {
     "schema_validation_required": true,
     "compatibility_review_required": true,

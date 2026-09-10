@@ -390,6 +390,7 @@
   ],
   "binding_rules": {
     "activation_state_values": [
+      "NOT_EVALUATED",
       "NOT_TRIGGERED",
       "TRIGGERED_PENDING_VALIDATION",
       "VALIDATED_AVAILABLE_UNBOUND",
@@ -404,7 +405,8 @@
     ],
     "operative_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.",
     "new_task_boundary_rule": "On Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT, reset delegated-action trigger evaluation for the new task. Prior delegated-authority maps, tool/permission matrices, checkpoints, containment, rollback, incident, and accountability state are historical or candidate input only until the Agentic Overlay trigger and applicability are re-evaluated under the newly bound task artifact.",
-    "core_router_relationship": "Core Specialist Capability Resolution Router governs discovery/acquisition of the AI Governance specialist package. Once that package is selected and available, Agentic Overlay activation remains an internal conditional Governance decision based on delegated-action/tool/external-effect triggers."
+    "core_router_relationship": "Core Specialist Capability Resolution Router governs discovery/acquisition of the AI Governance specialist package. Once that package is selected and available, Agentic Overlay activation remains an internal conditional Governance decision based on delegated-action/tool/external-effect triggers.",
+    "pre_evaluation_transition_rule": "NOT_EVALUATED -> NOT_TRIGGERED when trigger evaluation is complete and no trigger applies; NOT_EVALUATED -> TRIGGERED_PENDING_VALIDATION when a declared trigger applies. No other implicit transition is permitted."
   },
   "package_completion_state": {
     "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",

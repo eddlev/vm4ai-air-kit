@@ -1889,14 +1889,43 @@
     "no_silent_reuse": true
   },
   "handoff_requirements": {
-    "required_fields": [
-      "method_id and version",
-      "current method step",
-      "method execution state",
-      "source/evidence basis refs",
-      "unresolved items",
-      "next safe action"
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_METHOD_GROUNDING_REVIEW_AND_EXECUTION_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
     ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_METHOD_GROUNDING_REVIEW_AND_EXECUTION_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "grounding_need_state",
+        "grounding_scope",
+        "source_access_mode",
+        "source_freshness_state",
+        "grounding_decision_state",
+        "grounding_component_refs",
+        "required_input_request_refs",
+        "revalidation_triggers"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
     "continuation_rule": "Restore method state only as continuation input; revalidate identity, task fit, staleness, dependencies, evidence and the current bound Orbit 0 artifact before operative reuse."
   },
   "binding_requirements": {

@@ -118,6 +118,11 @@ Every material approval gate must carry an open_approval_scope record with:
 - operational_response_tokens for material action approval scopes
 - approval_response_mode
 
+Allowed approval_response_mode values:
+- EXACT_CANONICAL_SCOPE_TOKEN_PAIR
+
+For a material scope, operational_response_tokens is valid only when it is the exact two-element set derived from approval_scope_id: AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>, with no substitution, alias, duplicate, or extra token. Restored scopes must re-run this derivation check before Core approval resolution can consume the set.
+
 Allowed approval_state values:
 - NOT_OPEN
 - OPEN
@@ -190,9 +195,12 @@ floor_invariant_reference:
 - resolution_state
 
 Allowed resolution_state values:
+- UNRESOLVED
 - RESOLVED
 - REVIEW_REQUIRED
 - REJECTED
+
+UNRESOLVED is a bootstrap/serialization value only. It has no positive authority and must transition to RESOLVED, REVIEW_REQUIRED, or REJECTED before Governance-dependent operative use.
 
 Rules:
 1. The canonical invariant definitions remain in Core Runtime. This supplement references them by identifier and does not duplicate or redefine their text.
@@ -278,6 +286,12 @@ Rules:
 
 Governance source-rights state must feed AIR_GATE.evaluation_checks.evidence, AIR_GATE.evaluation_checks.allowed_action, AIR_GATE.evaluation_checks.stop_condition, and AIR_GATE.reason when source use is material.
 
+Canonical ownership and projection:
+- the Governance governance_source_rights_state record set is the canonical mutable owner for Governance-controlled source permissions and restrictions, keyed by source_rights_id;
+- AIR_ARTIFACT.source_rights_state and AIR_HANDOFF_CARD.source_state.source_rights_state are DERIVED_NONAUTHORITATIVE views for Governance-owned records and must reference the canonical governance record by source_rights_id/governance_record_ref;
+- a projection may carry projected_rights_state but cannot independently alter permissions, restrictions, expiry/revocation, evidence, or decision reason;
+- missing canonical reference or any owner/projection disagreement routes to REVIEW and blocks affected use; last-writer-wins and consumer-selected precedence are prohibited.
+
 ==================================================
 FRAMEWORK SELECTION AND ADAPTATION
 ==================================================
@@ -358,7 +372,7 @@ Rules:
 1. Rendering edition does not change execution authority.
 2. Rendering edition does not permit suppression of required governance records.
 3. A conversion must preserve or tighten decisions, evidence boundaries, and stop conditions.
-4. If semantic equivalence cannot be shown, route to REVIEW_REQUIRED.
+4. If semantic equivalence cannot be shown, route through Core AIR_GATE with decision = REVIEW.
 5. Edition selection is available through normal language. It is not added to the minimal AIR command surface.
 
 ==================================================

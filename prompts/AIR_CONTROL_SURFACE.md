@@ -3264,4 +3264,15 @@ Patch marker: AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1
 
 AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. The downloadable file preserves failure_mode_state and surfaced_object_ledger_state. The latter contains exact canonical snapshots for every ledgered formal AIR object up to the declared pre-file capture cutoff. Every snapshot must re-hash to the recorded emission hash; missing/mutated history blocks Handoff delivery. The Handoff file and post-freeze delivery objects are explicitly excluded to avoid self-reference.
 
+Patch marker: AIR_CONTROL_HANDOFF_R3_RESTORATION_RENDERER_V1
+
+Handoff restoration rendering rules for rev16:
+- validate any declared revision migration before reporting current-revision carrier completeness;
+- treat migrated rev15 failure/ledger history as LEGACY_UNRECORDED_PRE_REV16, never as empty-complete history;
+- restore MINIMUM_REQUIRED_OBJECTS only when object_visibility_authority_state proves explicit authority; otherwise render ALL_OBJECTS and the review reason;
+- never present restored weaker-profile posture as accepted without a valid profile_posture_acceptance_state record;
+- do not render an approval scope as actionable until its exact AIR_APPROVE::<approval_scope_id> / AIR_REJECT::<approval_scope_id> pair and canonical response mode have been revalidated;
+- when a Method Pack is active, show REVIEW if its method_specific_state schema reference or required typed state is missing;
+- Governance-owned source-rights state controls any generic source-rights projection; conflicting projections render REVIEW rather than choosing a carrier.
+
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2

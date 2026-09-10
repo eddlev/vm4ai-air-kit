@@ -591,13 +591,14 @@
     "step_states": [
       "PENDING",
       "ACTIVE",
-      "COMPLETED",
+      "COMPLETE",
       "BLOCKED",
+      "REVIEW",
       "SKIPPED_APPROVED",
       "FAILED",
-      "INVALIDATED",
-      "STALE_NEEDS_REGROUND"
-    ]
+      "INVALIDATED"
+    ],
+    "staleness_state_location": "METHOD_EXECUTION_LEVEL_NOT_STEP_STATE_ENUM"
   },
   "invalidation_conditions": [
     "Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT.",
@@ -1691,14 +1692,43 @@
     "no_silent_reuse": true
   },
   "handoff_requirements": {
-    "required_fields": [
-      "method_id and version",
-      "current method step",
-      "method execution state",
-      "source/evidence basis refs",
-      "unresolved items",
-      "next safe action"
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_AI_GOVERNANCE_METHOD_PACK_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
     ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_AI_GOVERNANCE_METHOD_PACK_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "source_access_mode",
+        "jurisdiction_and_role_state",
+        "agentic_overlay_state",
+        "framework_adapter_state",
+        "regulatory_evidence_requirement_state",
+        "human_authority_gates",
+        "unresolved_required_inputs",
+        "staleness_triggers"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
     "continuation_rule": "Restore method state only as continuation input; revalidate identity, task fit, staleness, dependencies, evidence and the current bound Orbit 0 artifact before operative reuse."
   },
   "binding_requirements": {

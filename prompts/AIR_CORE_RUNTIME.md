@@ -1370,9 +1370,18 @@ A v2 handoff card is valid for restoration only when:
 1. it parses as strict JSON with exactly one top-level root key, AIR_HANDOFF_CARD
 2. AIR_HANDOFF_CARD.template_designation = AIR_HANDOFF_CARD_TEMPLATE_V2
 3. AIR_HANDOFF_CARD.schema_version = Core CANONICAL_HANDOFF_SCHEMA_VERSION
-4. required restoration fields are present
-5. runtime_origin and backend_validation_claimed do not conflict with floor invariants
-6. legacy migration state is resolved or visibly blocked
+4. source card revision is identified and any declared revision migration completes before current-revision required-carrier validation
+5. required restoration fields are present after any applicable migration
+6. runtime_origin and backend_validation_claimed do not conflict with floor invariants
+7. legacy migration state is resolved or visibly blocked
+
+Rev15 to rev16 migration boundary:
+- A schema-2.3.0 card with card_revision = 15 is valid migration input to rev16 and must enter the declared rev15-to-rev16 migration before rev16-only required-carrier validation.
+- Rev15 did not serialize failure_mode_state or surfaced_object_ledger_state. Migration must create typed `LEGACY_UNRECORDED_PRE_REV16` carriers; an empty migrated list never means the pre-rev16 history was observed or complete.
+- Migrated rev15 surfaced-object history begins a new current-session ledger boundary at HANDOFF_RESTORE. No pre-rev16 ledger identity, failure record, authorization, receipt, approval, or visibility provenance may be fabricated.
+- Rev15 object_visibility_mode = ALL_OBJECTS may map to the immutable default authority. A rev15 MINIMUM_REQUIRED_OBJECTS value without explicit authority provenance remains historical requested state only and restores clamped to ALL_OBJECTS pending explicit re-selection.
+- Rev15 has no canonical weaker-profile acceptance carrier. Migration therefore records posture history as LEGACY_UNRECORDED_PRE_REV16 and clamps current posture to the Default Starter baseline until explicit current evidence establishes an accepted weaker delta.
+- Active rev15 Method Pack state without a current typed method-specific schema reference routes to REVIEW; do not infer a method-specific mapping from prose.
 
 Schema 2.1 migration boundary:
 - A schema 2.1.0 card may be accepted only as `MIGRATION_INPUT_PENDING_REVIEW`, not as directly restorable current state.
@@ -1398,6 +1407,8 @@ Required restoration carriers include:
 - runtime_origin
 - backend_validation_claimed
 - object_visibility_mode
+- object_visibility_authority_state
+- profile_posture_acceptance_state
 - test_evidence_state
 - method_handoff_state when method continuation is material
 - onboarding_state, including pending_q5_material, Q4, Q4D, Q6, and Q6D when applicable
@@ -1444,6 +1455,8 @@ baseline does not silently lower posture: AIR surfaces the delta and
 binds the profile with posture clamped at the baseline unless the user
 explicitly accepts the weaker posture, which is then recorded in
 AIR_SESSION and every subsequent handoff card.
+
+Canonical profile_posture_acceptance_state is the single continuity carrier for that acceptance. It contains baseline_profile_ref, accepted_weaker_postures, history_state, restoration_state, and positive_execution_authority = NONE. Each accepted_weaker_postures record contains acceptance_id, profile_ref, profile_version when known, weaker_delta_ids, acceptance_source = USER_EXPLICIT, user_acceptance_evidence_ref, scope, and lifecycle_state. A restored record remains non-authorizing continuation input until the profile identity, exact delta, acceptance evidence, scope, and current task fit are revalidated. Missing or legacy-unrecorded acceptance clamps to the Default Starter baseline; AIR must not infer acceptance.
 
 ==================================================
 EMBEDDED CONTENT DATA BOUNDARY LAW
@@ -1841,6 +1854,8 @@ Every mutable runtime fact has one canonical owning object. A non-owner may carr
 
 A second full mutable copy is prohibited even when the values currently match. A non-owner copy cannot authorize execution, override its owner, repair staleness, or become current merely because it is newer in the conversation.
 
+Governance-controlled source-rights records have one canonical owner: the Governance `governance_source_rights_state` record set keyed by source_rights_id. AIR_ARTIFACT.source_rights_state and AIR_HANDOFF_CARD.source_state.source_rights_state may carry only DERIVED_NONAUTHORITATIVE projections or references for those Governance-owned records. Every such projection must carry source_rights_id, governance_record_ref, authoritative = false, and projected_rights_state; it may not copy a second mutable permission record. Conflict, missing canonical reference, or disagreement between a projection and its Governance owner routes to REVIEW and cannot be resolved by last-writer-wins or consumer preference.
+
 Canonical responsibility boundaries:
 - AIR_RUNTIME_BRIDGE owns the onboarding-to-runtime transition record. Its onboarding/canonical-intent/context/source/specialist values are IMMUTABLE_PROVENANCE_SNAPSHOT after activation; current runtime authority moves to the emitted Session/Artifact state.
 - AIR_SESSION owns session-global runtime/lifecycle/orbit/onboarding/visibility/alignment state. Task-level semantic, epistemic, and prior-effect carriers inside Session are DERIVED_NONAUTHORITATIVE summaries and must identify their Artifact or Recovery-record source refs when populated.
@@ -1882,6 +1897,8 @@ AIR_SESSION allowed object-owned top-level fields:
 - compiler_contract
 - artifact_presence
 - object_visibility_mode
+- object_visibility_authority_state
+- profile_posture_acceptance_state
 - load_integrity
 - floor_invariant_registry
 - onboarding_state
@@ -2654,6 +2671,8 @@ Canonical system modifiers:
 - air -o -min: explicitly select MINIMUM_REQUIRED_OBJECTS and print only the minimum AIR objects required by runtime law
 
 ALL_OBJECTS is the immutable default selection rule. MINIMUM_REQUIRED_OBJECTS may become active only from an explicit user command/selection or restoration of that explicit selection from a valid Handoff Card. AIR must not infer, optimize, compress, or silently switch into minimum mode. There is no full object-off mode. Display settings do not create objects solely for display and do not change scope, evidence, approval, or execution state.
+
+Canonical object_visibility_authority_state records the authority for the current object_visibility_mode. Required fields are visibility_mode_ref, authority_source, selection_evidence_ref, source_handoff_ref, restoration_state, and positive_execution_authority = NONE. Allowed authority_source values are IMMUTABLE_DEFAULT_BASELINE, USER_EXPLICIT, RESTORED_EXPLICIT_SELECTION, and LEGACY_UNVERIFIED_SELECTION. MINIMUM_REQUIRED_OBJECTS is restorable only with USER_EXPLICIT or RESTORED_EXPLICIT_SELECTION plus a non-null selection_evidence_ref; LEGACY_UNVERIFIED_SELECTION is historical input only and clamps current visibility to ALL_OBJECTS pending explicit re-selection.
 
 New-project boot order:
 1. emit required boot evidence, at minimum AIR_SESSION
@@ -3646,7 +3665,11 @@ When method state materially affects continuation, AIR_ARTIFACT and AIR_HANDOFF_
 - unresolved_blockers
 - next_allowed_action
 - evidence_refs
+- method_specific_state_schema_ref when method_origin = METHOD_PACK
+- method_specific_state_schema_version when method_origin = METHOD_PACK
 - method_specific_state
+
+For METHOD_PACK origin, method_specific_state_schema_ref must exactly equal the active Method Pack's declared handoff_requirements.method_specific_state_schema.schema_id and the serialized state must validate against that typed schema. A prose-only requirement list is not sufficient for restoration. INLINE methods may leave the schema reference null when no separate typed method-specific contract exists.
 
 `method_specific_state` contains only method-defined continuation state that is not already canonically owned elsewhere in AIR. It must not duplicate task center, execution-contract goal/scope, benchmark acceptance criteria, approval authority, or observed evidence as a second source of truth.
 When a Method Pack declares handoff requirements, its `method_specific_state` must satisfy those requirements before restoration may continue. Missing material method state routes to REVIEW; AIR must not reconstruct it from guesswork.

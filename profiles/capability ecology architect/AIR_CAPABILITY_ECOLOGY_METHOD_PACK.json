@@ -1022,27 +1022,50 @@
     "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative."
   },
   "handoff_requirements": {
-    "required_fields": [
-      "method_id and version",
-      "active branch",
-      "method_execution_state",
-      "current and completed step states",
-      "step evidence ledger",
-      "component designations, filenames and hashes",
-      "bound Orbit 0 artifact identity",
-      "selected, deferred and rejected capabilities",
-      "domain matches and Domain Package references",
-      "knowledge dimensions and cognitive depth",
-      "knowledge-to-execution path state",
-      "fixture or representative-task results",
-      "required-input request state",
-      "blockers, approvals and next gate",
-      "staleness and rebind triggers",
-      "test-evidence mode, mode source and effective-from boundary",
-      "test-evidence recommendation and regulatory evidence obligation state",
-      "produced suite, run manifest, per-test result, log, fixture and README references",
-      "test-evidence class, reproducibility limits, sanitization state and rerun requirement"
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_METHOD_CAPABILITY_ECOLOGY_RECONSTRUCTION_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
     ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_METHOD_CAPABILITY_ECOLOGY_RECONSTRUCTION_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "active_branch",
+        "step_state_by_id",
+        "step_evidence_refs",
+        "component_receipts",
+        "selected_capability_refs",
+        "deferred_capability_refs",
+        "rejected_capability_refs",
+        "domain_match_refs",
+        "domain_package_refs",
+        "knowledge_dimension_state",
+        "cognitive_depth_state",
+        "knowledge_to_execution_path_ref",
+        "representative_task_result_refs",
+        "required_input_request_refs",
+        "test_evidence_state_ref"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
     "continuation_rule": "A Handoff Card is continuation-bootstrap input only. The receiver must validate the card, exact required files, source state and exactly one Orbit 0 artifact before restoring method state. Restore AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY state without treating a handoff reference as proof of test execution or regulatory sufficiency.",
     "missing_file_rule": "Fail closed for the affected action and name the exact missing canonical file or smallest resolving capability role."
   },

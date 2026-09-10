@@ -453,14 +453,39 @@
     "no_silent_reuse": true
   },
   "handoff_requirements": {
-    "required_fields": [
-      "method selection state",
-      "current method step",
-      "source basis refs",
-      "unresolved items",
-      "candidate comparison state when material",
-      "review contribution and revalidation triggers"
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
     ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "method_selection_state",
+        "candidate_comparison_state",
+        "review_contribution_state",
+        "revalidation_triggers"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
     "continuation_rule": "Do not restore prior task-operative method state without applicability revalidation against the new task artifact."
   },
   "binding_requirements": {

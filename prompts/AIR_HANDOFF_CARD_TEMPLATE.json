@@ -122,6 +122,21 @@
       "restoration_rule": "Restore exact requested identities and actions, including responsive-binding scope/effects/exclusions and approval gate references when present. Recheck current availability, freshness, completeness, compatibility, source rights, permission, approval validity, and satisfaction before repeating a request or resuming the controlled action."
     },
     "object_visibility_mode": "ALL_OBJECTS",
+    "object_visibility_authority_state": {
+      "visibility_mode_ref": "AIR_HANDOFF_CARD.object_visibility_mode",
+      "authority_source": "IMMUTABLE_DEFAULT_BASELINE",
+      "selection_evidence_ref": null,
+      "source_handoff_ref": null,
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "positive_execution_authority": "NONE"
+    },
+    "profile_posture_acceptance_state": {
+      "baseline_profile_ref": "AIR_DEFAULT_STARTER_V2",
+      "accepted_weaker_postures": [],
+      "history_state": "CURRENT_REV16_NO_ACCEPTED_WEAKER_POSTURE_RECORDED",
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "positive_execution_authority": "NONE"
+    },
     "onboarding_state": {
       "restore_state": "UNRESOLVED",
       "q1": null,
@@ -232,7 +247,23 @@
       "claim_sources": [],
       "tool_observed_evidence": [],
       "operator_witnessed_evidence": [],
-      "restricted_source_text_excluded": true
+      "restricted_source_text_excluded": true,
+      "source_rights_projection_contract": {
+        "governance_owner_path": "AIR_HANDOFF_CARD.governance_state.governance_source_rights_state",
+        "projection_path": "AIR_HANDOFF_CARD.source_state.source_rights_state",
+        "projection_authority": "DERIVED_NONAUTHORITATIVE",
+        "projection_key": "source_rights_id",
+        "required_projection_fields": [
+          "source_rights_id",
+          "governance_record_ref",
+          "authoritative",
+          "projected_rights_state"
+        ],
+        "authoritative_required": false,
+        "conflict_behavior": "REVIEW_BLOCK_AFFECTED_USE",
+        "last_writer_wins": false,
+        "reconciliation_state": "NOT_EVALUATED"
+      }
     },
     "evidence_state": {
       "known_present": [],
@@ -359,7 +390,8 @@
         "replacement_policy": null,
         "mutation_scope": [],
         "validation_plan": null,
-        "last_validation_state": null
+        "last_validation_state": null,
+        "patch_activity_state": "NOT_ACTIVE"
       },
       "ai_governance_state": {
         "ai_governance_need": null,
@@ -400,6 +432,8 @@
         "unresolved_blockers": [],
         "next_allowed_action": null,
         "evidence_refs": [],
+        "method_specific_state_schema_ref": null,
+        "method_specific_state_schema_version": null,
         "method_specific_state": {}
       },
       "semantic_fidelity_contract": null,
@@ -464,8 +498,12 @@
         "v2_2_to_v2_3_evidence_presentation": "Map legacy SUMMARY_ONLY display intent to STANDARD_EVIDENCE_PRESENTATION and legacy FULL_TEST_EVIDENCE display intent to EXPANDED_EVIDENCE_PRESENTATION only. Do not infer evidence capture or reproducibility from the old display mode.",
         "v2_2_to_v2_3_mii": "Missing MII, semantic-fidelity, morphology, or epistemic-sufficiency carriers are valid legacy absence, not inferred completed state. Reconstruct only from explicit supported source/artifact state and current evaluation; otherwise preserve UNRESOLVED or request required input.",
         "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING",
-        "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS."
-      }
+        "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS.",
+        "v2_3_rev15_to_rev16_root_carriers": "MIGRATE_BEFORE_REV16_REQUIRED_CARRIER_VALIDATION; ADD_FAILURE_AND_SURFACED_LEDGER_CARRIERS_AS_LEGACY_UNRECORDED_PRE_REV16; ADD_VISIBILITY_AUTHORITY_AND_PROFILE_POSTURE_CARRIERS_WITH_NONAUTHORITATIVE_SAFE_DEFAULTS; NEVER_FABRICATE_HISTORY; REQUIRE_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING"
+      },
+      "source_card_revision": null,
+      "revision_migration_path": null,
+      "legacy_history_state": null
     },
     "load_integrity": {
       "foundation_file_states": [],
@@ -519,6 +557,8 @@
         "blockers",
         "required_input_state",
         "object_visibility_mode",
+        "object_visibility_authority_state",
+        "profile_posture_acceptance_state",
         "onboarding_state",
         "working_agreement",
         "governance_state",
@@ -674,38 +714,46 @@
           "id": "HC-COND-APPROVAL",
           "condition": "open_approval_scope is not null",
           "requirements": [
-            "approval_scope_id",
-            "gate_id",
-            "exact_gate_question",
-            "requested_action",
-            "authorized_action_ids",
-            "excluded_action_ids",
-            "required_evidence",
-            "stop_conditions",
-            "expiry_or_completion_condition",
-            "approval_state",
-            "approval_source",
-            "operational_response_tokens when the open scope governs a material action",
-            "approval_response_mode"
+            "open_approval_scope.approval_scope_id",
+            "open_approval_scope.gate_id",
+            "open_approval_scope.exact_gate_question",
+            "open_approval_scope.requested_action",
+            "open_approval_scope.authorized_action_ids",
+            "open_approval_scope.excluded_action_ids",
+            "open_approval_scope.required_evidence",
+            "open_approval_scope.stop_conditions",
+            "open_approval_scope.expiry_or_completion_condition",
+            "open_approval_scope.approval_state",
+            "open_approval_scope.approval_source",
+            "open_approval_scope.operational_response_tokens when material",
+            "open_approval_scope.approval_response_mode when material"
           ],
           "failure_behavior": "REVIEW_OR_REJECT",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-APPROVAL"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-APPROVAL",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-APPROVAL"
         },
         {
           "id": "HC-COND-GOV",
           "condition": "governance state is material",
           "requirements": [
-            "prompt_edition",
-            "governance_floor_version",
-            "floor_invariant_reference",
-            "active_framework_projections",
-            "governance_source_rights_state",
-            "governance_blockers"
+            "governance_state.governance_supplement_designation",
+            "governance_state.governance_supplement_version",
+            "governance_state.prompt_edition",
+            "governance_state.governance_floor_version",
+            "governance_state.floor_invariant_reference",
+            "governance_state.open_approval_scope_ref",
+            "governance_state.active_framework_projections",
+            "governance_state.governance_source_rights_state",
+            "governance_state.token_debug_preference",
+            "governance_state.governance_blockers",
+            "governance_state.governance_evidence_references",
+            "governance_state.restricted_content_excluded"
           ],
           "failure_behavior": "REVIEW",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-GOV"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-GOV",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-GOV"
         },
         {
           "id": "HC-COND-SPECIALIST",
@@ -721,27 +769,30 @@
           ],
           "failure_behavior": "REVIEW",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SPECIALIST"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SPECIALIST",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-SPECIALIST"
         },
         {
           "id": "HC-COND-METHOD",
           "condition": "method execution state affects continuation or a Method Pack is active/stale",
           "requirements": [
             "execution_state.method_handoff_state.method_identity or execution_state.method inline identity",
-            "method_origin",
-            "active_method_state",
-            "active_method_step",
-            "method_step_gate",
-            "method_evidence_state",
-            "staleness_state",
-            "unresolved_blockers",
-            "next_allowed_action",
-            "evidence_refs",
-            "method_specific_state satisfies active Method Pack handoff_requirements when applicable"
+            "execution_state.method_handoff_state.method_origin",
+            "execution_state.method_handoff_state.active_method_state",
+            "execution_state.method_handoff_state.active_method_step",
+            "execution_state.method_handoff_state.method_step_gate",
+            "execution_state.method_handoff_state.method_evidence_state",
+            "execution_state.method_handoff_state.staleness_state",
+            "execution_state.method_handoff_state.unresolved_blockers",
+            "execution_state.method_handoff_state.next_allowed_action",
+            "execution_state.method_handoff_state.evidence_refs",
+            "execution_state.method_handoff_state.method_specific_state_schema_ref and version when METHOD_PACK",
+            "execution_state.method_handoff_state.method_specific_state validates active Method Pack typed handoff schema"
           ],
           "failure_behavior": "REVIEW_WITHOUT_INVENTING_MISSING_METHOD_STATE",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-METHOD"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-METHOD",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-METHOD"
         },
         {
           "id": "HC-COND-PATCH",
@@ -755,7 +806,8 @@
           ],
           "failure_behavior": "EVIDENCE_REQUIRED_OR_REJECT",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-PATCH"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-PATCH",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-PATCH"
         },
         {
           "id": "HC-COND-FILE-RECEIPT",
@@ -786,7 +838,8 @@
           ],
           "failure_behavior": "ARTIFACT_BINDING_RECOVERY_OR_REVIEW",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ACTION-GOVERNANCE"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-ACTION-GOVERNANCE",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-ACTION-GOVERNANCE"
         },
         {
           "id": "HC-COND-BOOT-VALIDATION-PROPORTIONALITY",
@@ -931,7 +984,8 @@
           ],
           "failure_behavior": "REVIEW_OR_REJECT_STAGE_COMPLETION_RESTORATION",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
-          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-AMRS-STEP-OPTIMALITY-REV15"
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-AMRS-STEP-OPTIMALITY-REV15",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-AMRS-STEP-OPTIMALITY"
         },
         {
           "id": "HC-COND-SCHEMA-ROOT-CLOSURE-REV16",
@@ -974,6 +1028,41 @@
             "completeness_state = COMPLETE_PRE_FILE_CAPTURE for generated handoff"
           ],
           "failure_behavior": "REJECT_HANDOFF_FILE_DELIVERY"
+        },
+        {
+          "id": "HC-COND-VISIBILITY-AUTHORITY",
+          "condition": "object visibility mode always has typed authority provenance",
+          "requirements": [
+            "object_visibility_authority_state"
+          ],
+          "failure_behavior": "REVIEW_AND_CLAMP_TO_ALL_OBJECTS",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-VISIBILITY-AUTHORITY",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-VISIBILITY-AUTHORITY"
+        },
+        {
+          "id": "HC-COND-PROFILE-POSTURE",
+          "condition": "a weaker profile posture acceptance is serialized",
+          "requirements": [
+            "profile_posture_acceptance_state.accepted_weaker_postures"
+          ],
+          "failure_behavior": "REVIEW_AND_CLAMP_TO_DEFAULT_STARTER_BASELINE",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-PROFILE-POSTURE",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-PROFILE-POSTURE"
+        },
+        {
+          "id": "HC-COND-SOURCE-RIGHTS-PROJECTION",
+          "condition": "governance or generic source-rights state is serialized",
+          "requirements": [
+            "governance_state.governance_source_rights_state",
+            "source_state.source_rights_state",
+            "source_state.source_rights_projection_contract"
+          ],
+          "failure_behavior": "REVIEW_BLOCK_AFFECTED_USE",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SOURCE-RIGHTS-PROJECTION",
+          "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-SOURCE-RIGHTS-PROJECTION"
         }
       ],
       "nullability": {
@@ -1038,9 +1127,10 @@
         "one-root check",
         "template designation and schema version check",
         "formal object common-field and HANDOFF_CREATE evaluation_basis check",
-        "required-carrier check",
-        "canonical claim consistency check",
+        "source card revision detection and applicable revision migration check",
         "legacy migration check",
+        "required-carrier check after applicable migration",
+        "canonical claim consistency check",
         "file identity receipt check",
         "required-input identity, availability, validation, satisfaction, and AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION check",
         "governance and approval-scope check",
@@ -1080,7 +1170,9 @@
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
         "schema_2_2_migration_rule": "Accept as migration input only; normalize cadence/evidence display semantics and require current alignment plus artifact rebinding before execution.",
         "canonical_schema_version_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
-        "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION"
+        "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION",
+        "revision_migration_before_required_carrier_validation": true,
+        "rev15_to_rev16_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV15_TO_REV16"
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -1124,7 +1216,10 @@
           "SOURCE_SET_CONTAINS_FILENAME",
           "PATH_GTE",
           "ALL",
-          "PATH_NOT_IN"
+          "PATH_NOT_IN",
+          "ANY",
+          "PATH_EXISTS",
+          "PATH_IN"
         ],
         "unknown_operator_behavior": "FAIL_CLOSED",
         "predicates": {
@@ -1176,35 +1271,132 @@
             "path": "$.governance_state"
           },
           "HC-COND-SPECIALIST": {
-            "operator": "ANY_PATH_NONEMPTY",
-            "paths": [
-              "$.specialist_binding_state.supporting_specialists",
-              "$.specialist_binding_state.available_specialists",
-              "$.specialist_binding_state.recommended_specialists"
+            "operator": "ANY",
+            "predicates": [
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.specialist_binding_state.active_specialist"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.specialist_binding_state.supporting_specialists"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.specialist_binding_state.available_specialists"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.specialist_binding_state.recommended_specialists"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.specialist_binding_state.generated_pending_validation"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.profile_stack.supporting_profile_refs"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.profile_stack.domain_overlay_refs"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.profile_stack.source_pack_refs"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.profile_stack.method_pack_refs"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.profile_stack.executor_refs"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.profile_stack.active_specialist_profile_ref"
+              }
             ]
           },
           "HC-COND-METHOD": {
-            "operator": "ANY_PATH_NOT_NULL",
-            "paths": [
-              "$.execution_state.method",
-              "$.execution_state.method_handoff_state"
+            "operator": "ANY",
+            "predicates": [
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.execution_state.method"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.execution_state.method_handoff_state.method_identity"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.execution_state.method_handoff_state.active_method_state"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.execution_state.method_handoff_state.active_method_step"
+              }
             ]
           },
           "HC-COND-PATCH": {
-            "operator": "PATH_NONEMPTY",
-            "path": "$.execution_state.patch_state.source_inventory"
+            "operator": "ANY",
+            "predicates": [
+              {
+                "operator": "PATH_EQUALS",
+                "path": "$.execution_state.patch_state.patch_activity_state",
+                "expected": "ACTIVE_FILE_MUTATION_OR_PATCH"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.execution_state.patch_state.source_inventory"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.execution_state.patch_state.mutation_scope"
+              }
+            ]
           },
           "HC-COND-FILE-RECEIPT": {
             "operator": "PATH_NONEMPTY",
             "path": "$.file_identity_and_delivery_state.file_receipts"
           },
           "HC-COND-ACTION-GOVERNANCE": {
-            "operator": "ANY_PATH_NONEMPTY",
-            "paths": [
-              "$.action_governance_state.resource_scope_pins",
-              "$.action_governance_state.historical_action_authorizations",
-              "$.action_governance_state.action_receipts",
-              "$.action_governance_state.unbound_prior_effects"
+            "operator": "ANY",
+            "predicates": [
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.action_governance_state.resource_scope_pins"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.action_governance_state.historical_action_authorizations"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.action_governance_state.open_authorizations"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.action_governance_state.action_receipts"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.action_governance_state.unbound_prior_effects"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.active_artifact.resource_scope_pin"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.active_artifact.action_governance_state"
+              },
+              {
+                "operator": "PATH_NOT_NULL",
+                "path": "$.active_artifact.artifact_lease.lease_state_before_handoff"
+              }
             ]
           },
           "HC-COND-BOOT-VALIDATION-PROPORTIONALITY": {
@@ -1268,11 +1460,18 @@
                 "expected": 15
               },
               {
-                "operator": "PATH_NOT_IN",
-                "path": "$.execution_state.review_state.step_optimality_state",
-                "values": [
-                  null,
-                  "NOT_APPLICABLE"
+                "operator": "ANY",
+                "predicates": [
+                  {
+                    "operator": "PATH_EQUALS",
+                    "path": "$.execution_state.knowledge_to_execution_path_state.path_validation_state",
+                    "expected": "COMPLETE_FOR_ACTIVE_STEP"
+                  },
+                  {
+                    "operator": "PATH_EQUALS",
+                    "path": "$.execution_state.readiness_state.completion_readiness_state",
+                    "expected": "TARGET_SATISFIED"
+                  }
                 ]
               }
             ]
@@ -1289,7 +1488,328 @@
           "HC-COND-SURFACED-OBJECT-LEDGER": {
             "operator": "PATH_NOT_NULL",
             "path": "$.surfaced_object_ledger_state"
+          },
+          "HC-COND-VISIBILITY-AUTHORITY": {
+            "operator": "CONST_TRUE"
+          },
+          "HC-COND-PROFILE-POSTURE": {
+            "operator": "PATH_NONEMPTY",
+            "path": "$.profile_posture_acceptance_state.accepted_weaker_postures"
+          },
+          "HC-COND-SOURCE-RIGHTS-PROJECTION": {
+            "operator": "ANY",
+            "predicates": [
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.governance_state.governance_source_rights_state"
+              },
+              {
+                "operator": "PATH_NONEMPTY",
+                "path": "$.source_state.source_rights_state"
+              }
+            ]
           }
+        }
+      },
+      "validation_registry": {
+        "registry_version": "1.0.0",
+        "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+        "unknown_operator_behavior": "FAIL_CLOSED",
+        "allowed_operators": [
+          "ALL",
+          "PATH_EXISTS",
+          "PATH_EQUALS",
+          "PATH_IN",
+          "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR",
+          "OBJECT_VISIBILITY_AUTHORITY_VALID",
+          "PROFILE_POSTURE_ACCEPTANCE_VALID",
+          "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID",
+          "SOURCE_RIGHTS_PROJECTION_CONSISTENT",
+          "PATCH_ACTIVITY_REQUIREMENTS_VALID",
+          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID"
+        ],
+        "operator_semantics": {
+          "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR": "For non-null material open scope, require approval_response_mode=EXACT_CANONICAL_SCOPE_TOKEN_PAIR and operational_response_tokens set equality with exactly AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>. Produce OPEN_APPROVAL_SCOPE_TOKEN_VALIDATION_STATE=VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR only on success.",
+          "OBJECT_VISIBILITY_AUTHORITY_VALID": "visibility_mode_ref must name AIR_HANDOFF_CARD.object_visibility_mode. MINIMUM_REQUIRED_OBJECTS requires USER_EXPLICIT or RESTORED_EXPLICIT_SELECTION and non-null selection_evidence_ref; LEGACY_UNVERIFIED_SELECTION cannot restore minimum and clamps to ALL_OBJECTS.",
+          "PROFILE_POSTURE_ACCEPTANCE_VALID": "Each accepted weaker posture requires exact profile/delta identity, USER_EXPLICIT acceptance evidence, scope and lifecycle. Missing, legacy-unrecorded, or conflicting acceptance clamps to Default Starter baseline.",
+          "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID": "If method_origin=METHOD_PACK, schema ref/version must exactly match the active Method Pack handoff_requirements.method_specific_state_schema and method_specific_state must satisfy required fields. Missing schema or field routes REVIEW without reconstruction.",
+          "SOURCE_RIGHTS_PROJECTION_CONSISTENT": "Governance-owned source_rights_id is canonical. Generic projections must reference that owner, set authoritative=false, and match projected_rights_state; conflicts route REVIEW.",
+          "PATCH_ACTIVITY_REQUIREMENTS_VALID": "ACTIVE_FILE_MUTATION_OR_PATCH requires nonempty source_inventory, replacement_policy, mutation_scope, validation_plan and last_validation_state carrier.",
+          "AMRS_STEP_OPTIMALITY_COMPLETION_VALID": "When the completion trigger is true, path_validation_state must be COMPLETE_FOR_ACTIVE_STEP and step_optimality_state must be PASS with preserved basis/stopping evidence as applicable."
+        },
+        "rules": {
+          "HC-VALIDATE-APPROVAL": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.approval_scope_id"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.gate_id"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.exact_gate_question"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.requested_action"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.authorized_action_ids"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.excluded_action_ids"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.required_evidence"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.stop_conditions"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.expiry_or_completion_condition"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.approval_state"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.approval_source"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.operational_response_tokens"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.approval_response_mode"
+              },
+              {
+                "operator": "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR",
+                "path": "$.open_approval_scope"
+              }
+            ]
+          },
+          "HC-VALIDATE-GOV": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_supplement_designation"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_supplement_version"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.prompt_edition"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_floor_version"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.floor_invariant_reference"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.open_approval_scope_ref"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.active_framework_projections"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_source_rights_state"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.token_debug_preference"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_blockers"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.governance_evidence_references"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.governance_state.restricted_content_excluded"
+              },
+              {
+                "operator": "PATH_IN",
+                "path": "$.governance_state.floor_invariant_reference.resolution_state",
+                "values": [
+                  "UNRESOLVED",
+                  "RESOLVED",
+                  "REVIEW_REQUIRED",
+                  "REJECTED"
+                ]
+              }
+            ]
+          },
+          "HC-VALIDATE-SPECIALIST": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.specialist_binding_state.active_specialist"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.specialist_binding_state.restoration_state"
+              }
+            ]
+          },
+          "HC-VALIDATE-METHOD": {
+            "operator": "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID",
+            "path": "$.execution_state.method_handoff_state"
+          },
+          "HC-VALIDATE-PATCH": {
+            "operator": "PATCH_ACTIVITY_REQUIREMENTS_VALID",
+            "path": "$.execution_state.patch_state"
+          },
+          "HC-VALIDATE-ACTION-GOVERNANCE": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.action_governance_state.open_authorizations"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.action_governance_state.authorization_restoration_rule"
+              }
+            ]
+          },
+          "HC-VALIDATE-AMRS-STEP-OPTIMALITY": {
+            "operator": "AMRS_STEP_OPTIMALITY_COMPLETION_VALID",
+            "path": "$.execution_state"
+          },
+          "HC-VALIDATE-VISIBILITY-AUTHORITY": {
+            "operator": "OBJECT_VISIBILITY_AUTHORITY_VALID",
+            "path": "$.object_visibility_authority_state"
+          },
+          "HC-VALIDATE-PROFILE-POSTURE": {
+            "operator": "PROFILE_POSTURE_ACCEPTANCE_VALID",
+            "path": "$.profile_posture_acceptance_state"
+          },
+          "HC-VALIDATE-SOURCE-RIGHTS-PROJECTION": {
+            "operator": "SOURCE_RIGHTS_PROJECTION_CONSISTENT",
+            "path": "$.source_state.source_rights_state"
+          }
+        }
+      },
+      "revision_migration_contracts": {
+        "REV15_TO_REV16": {
+          "source_schema_version": "2.3.0",
+          "source_card_revision": 15,
+          "target_schema_version": "2.3.0",
+          "target_card_revision": 16,
+          "apply_before_current_required_carrier_check": true,
+          "missing_pre_rev16_history_semantics": "LEGACY_UNRECORDED_PRE_REV16_NOT_EMPTY_COMPLETE",
+          "allowed_added_root_carriers": [
+            "failure_mode_state",
+            "surfaced_object_ledger_state",
+            "object_visibility_authority_state",
+            "profile_posture_acceptance_state"
+          ],
+          "failure_mode_state_template": {
+            "registry_version": "1.0.0",
+            "state": "LEGACY_UNRECORDED_PRE_REV16",
+            "records": [],
+            "active_corrective_constraint_refs": [],
+            "mitigated_retain_for_regression_refs": [],
+            "recurrent_refs": [],
+            "superseded_refs": [],
+            "artifact_application_refs": [],
+            "specialist_application_refs": [],
+            "registry_owner": "AIR_CORE_RUNTIME_V2",
+            "positive_execution_authority": "NONE",
+            "restoration_rule": "Restore exact failure-mode records as UNVALIDATED_BOOTSTRAP_INPUT. Revalidate evidence, lifecycle, applicability signatures, supersession, recurrence, and current task match; compile applicable constraints into the rebound Orbit 0 Artifact before they become operative. Specialist packages consume only Core-validated applicable records.",
+            "record_integrity_rule": "EACH_RECORD_PRESERVES_CANONICAL_ID_APPLICABILITY_SIGNATURE_HASH_SOURCE_LEDGER_ENTRY_AND_VALUES_WITHOUT_SEMANTIC_MUTATION",
+            "automatic_match_rule": "EXACT_CANONICAL_SIGNATURE_HASH_EQUALITY_ONLY_AFTER_RESTORE_VALIDATION",
+            "source_history_carrier": "AIR_HANDOFF_CARD.surfaced_object_ledger_state",
+            "source_ledger_entry_ref_semantics": "SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY",
+            "source_ledger_entry_ref_validation_rule": "MUST_RESOLVE_TO_COMMITTED_LEDGER_ENTRY_WITH_OBJECT_NAME_AIR_FAILURE_MODE_RECORD_AND_CANONICAL_SNAPSHOT_HASH_EQUAL_TO_RECORD_HASH",
+            "unresolved_reserved_reference_behavior": "FAIL_CLOSED_DO_NOT_PERSIST_OR_AUTO_APPLY",
+            "history_completeness_state": "LEGACY_UNRECORDED_PRE_REV16",
+            "legacy_source_card_revision": 15
+          },
+          "surfaced_object_ledger_state_template": {
+            "ledger_version": "1.0.0",
+            "state": "LEGACY_UNRECORDED_PRE_REV16",
+            "capture_cutoff": {
+              "last_included_message_count": null,
+              "last_included_state_epoch": null,
+              "last_included_ledger_id": null,
+              "last_included_ledger_hash": null,
+              "freeze_point": "HANDOFF_RESTORE_BOUNDARY_FROM_REV15_NO_PRE_REV16_LEDGER"
+            },
+            "entries": [],
+            "entry_requirements": {
+              "required_fields": [
+                "ledger_entry_ref",
+                "emission_sequence",
+                "object_name",
+                "object_identity",
+                "record_class",
+                "evaluation_id",
+                "canonical_object_sha256",
+                "visibility_state",
+                "source_message_count",
+                "source_state_epoch",
+                "canonical_object_snapshot"
+              ],
+              "visibility_state_required": "USER_VISIBLE_EMITTED",
+              "snapshot_hash_rule": "SHA256_CANONICAL_UTF8_JSON_SNAPSHOT_EQUALS_CANONICAL_OBJECT_SHA256",
+              "sequence_rule": "UNIQUE_MONOTONIC_WITH_NO_UNEXPLAINED_GAPS_WITHIN_CAPTURED_LEDGER",
+              "mutation_rule": "EXACT_CANONICAL_OBJECT_COPY_NO_SEMANTIC_MUTATION",
+              "ledger_entry_ref_rule": "AIR_SURFACED_OBJECT_LEDGER_ENTRY::<ledger_id>::<emission_sequence>; UNIQUE_AND_MATCHES_ENTRY_LEDGER_ID_AND_EMISSION_SEQUENCE",
+              "reserved_reference_rule": "RESERVATION_ALONE_IS_NOT_HISTORY; ONLY_COMMITTED_USER_VISIBLE_EMITTED_ENTRY_MAY_BE_SERIALIZED"
+            },
+            "completeness_state": "LEGACY_UNRECORDED_PRE_REV16",
+            "excluded_by_design": [
+              "AIR_HANDOFF_CARD_FILE_SELF",
+              "POST_FREEZE_HANDOFF_DELIVERY_FORMAL_OBJECTS",
+              "POST_FREEZE_FILE_DELIVERY_RECEIPT"
+            ],
+            "positive_execution_authority": "NONE_HISTORY_ONLY",
+            "restoration_rule": "Treat all snapshots as historical provenance only. Validate ledger chain, hashes, source-message ordering, object identities, and capture cutoff. No historical object becomes current execution authority; current HANDOFF_RESTORE alignment and Artifact rebinding remain required.",
+            "history_origin": "LEGACY_UNRECORDED_PRE_REV16"
+          },
+          "all_objects_visibility_authority_template": {
+            "visibility_mode_ref": "AIR_HANDOFF_CARD.object_visibility_mode",
+            "authority_source": "IMMUTABLE_DEFAULT_BASELINE",
+            "selection_evidence_ref": null,
+            "source_handoff_ref": null,
+            "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+            "positive_execution_authority": "NONE"
+          },
+          "minimum_visibility_legacy_behavior": "PRESERVE_REQUESTED_VALUE_AS_HISTORY_BUT_CLAMP_CURRENT_SESSION_TO_ALL_OBJECTS_PENDING_EXPLICIT_RESELECTION",
+          "profile_posture_legacy_behavior": "HISTORY_LEGACY_UNRECORDED_PRE_REV16_CLAMP_TO_DEFAULT_STARTER_BASELINE",
+          "method_pack_legacy_behavior": "ACTIVE_METHOD_PACK_WITHOUT_TYPED_SCHEMA_REF_ROUTES_REVIEW_NO_PROSE_INFERENCE",
+          "history_synthesis": "PROHIBITED",
+          "positive_execution_authority": "NONE",
+          "post_migration_requirements": [
+            "CURRENT_HANDOFF_RESTORE_ALIGNMENT",
+            "ARTIFACT_PRECHECK",
+            "ARTIFACT_REBINDING"
+          ]
         }
       }
     },
@@ -1488,7 +2008,8 @@
       "source_history_carrier": "AIR_HANDOFF_CARD.surfaced_object_ledger_state",
       "source_ledger_entry_ref_semantics": "SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY",
       "source_ledger_entry_ref_validation_rule": "MUST_RESOLVE_TO_COMMITTED_LEDGER_ENTRY_WITH_OBJECT_NAME_AIR_FAILURE_MODE_RECORD_AND_CANONICAL_SNAPSHOT_HASH_EQUAL_TO_RECORD_HASH",
-      "unresolved_reserved_reference_behavior": "FAIL_CLOSED_DO_NOT_PERSIST_OR_AUTO_APPLY"
+      "unresolved_reserved_reference_behavior": "FAIL_CLOSED_DO_NOT_PERSIST_OR_AUTO_APPLY",
+      "history_completeness_state": "CURRENT_REV16_GENERATED_HISTORY_REQUIRED"
     },
     "surfaced_object_ledger_state": {
       "ledger_version": "1.0.0",
@@ -1529,7 +2050,8 @@
         "POST_FREEZE_FILE_DELIVERY_RECEIPT"
       ],
       "positive_execution_authority": "NONE_HISTORY_ONLY",
-      "restoration_rule": "Treat all snapshots as historical provenance only. Validate ledger chain, hashes, source-message ordering, object identities, and capture cutoff. No historical object becomes current execution authority; current HANDOFF_RESTORE alignment and Artifact rebinding remain required."
+      "restoration_rule": "Treat all snapshots as historical provenance only. Validate ledger chain, hashes, source-message ordering, object identities, and capture cutoff. No historical object becomes current execution authority; current HANDOFF_RESTORE alignment and Artifact rebinding remain required.",
+      "history_origin": "REV16_NATIVE"
     }
   }
 }
