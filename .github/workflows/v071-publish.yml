@@ -1,0 +1,102 @@
+name: Publish AIR v0.7.1
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: ${{ github.event.pull_request.head.ref == 'release/v0.7.1-publish' }}
+    runs-on: ubuntu-24.04
+    env:
+      TARGET_SHA: 85a08b6256c98ca438ccd92cd3da1914cfdd5bb2
+      TAG: v0.7.1
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 85a08b6256c98ca438ccd92cd3da1914cfdd5bb2
+          fetch-depth: 0
+
+      - name: Verify pinned release target and validation suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --tags --force
+          test "$(git rev-parse origin/main)" = "$TARGET_SHA"
+          test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+          test "$(cat VERSION)" = "0.7.1"
+          python3 tools/validate_air_suite.py
+
+      - name: Create or verify v0.7.1 tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
+            git fetch origin "refs/tags/$TAG:refs/tags/$TAG" --force
+            test "$(git rev-list -n 1 "$TAG")" = "$TARGET_SHA"
+          else
+            git tag "$TAG" "$TARGET_SHA"
+            git push origin "refs/tags/$TAG"
+          fi
+
+      - name: Prepare release notes
+        shell: bash
+        run: |
+          cat > /tmp/release-notes.md <<'EOF'
+          ## What's Changed
+
+          AIR Kit v0.7.1 is a patch-hardening release over v0.7.0. It advances the Foundation to 2.6.0 / `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`, Handoff to revision 16, Specialist packages to 2.5.0, Runtime Route Map to 1.1.0, and Specialist Package Index to 1.3.0.
+
+          The release closes 74 audited source findings across the deterministic Foundation spine, formal-object/Gate/Authorization contracts, Handoff migration and restoration, shared package schemas, Capability Ecology construction, package-local behavioral contracts, lifecycle/history/reseal truth, and presentation/filename portability.
+
+          The permanent repository validation suite, mutation/meta tests, behavioral transaction checks, release-contract checks, dependency-graph reseal verification, and release-seal validation are shipped with the source.
+
+          ## Release identities
+
+          - AIR Kit: `0.7.1`
+          - AIR Foundation: `2.6.0` / `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`
+          - Runtime Route Map: `1.1.0`
+          - Specialist Package Index: `1.3.0`
+          - Handoff schema: `2.3.0`, card revision 16
+          - Specialist packages: `2.5.0`
+
+          ## Validation and release boundary
+
+          The audited remediation closed **74/74** planned findings. The release-seal gate preserves replayable/model-host behavioral evidence as pending rather than synthesizing a behavioral PASS. Release acceptance is the maintainer decision based on the completed audit/remediation and active AIR use as the ongoing behavioral test workflow.
+
+          AIR remains a prompt-based project runtime. v0.7.1 does not claim deterministic model inference, backend AIR enforcement, universal provider/model compatibility, hidden model-state transfer, or universal behavioral certification.
+
+          **Full Changelog**: https://github.com/eddlev/vm4ai-air-kit/compare/v0.7.0...v0.7.1
+          EOF
+
+      - name: Create or verify GitHub Release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq .target_commitish)" = "$TARGET_SHA"
+          else
+            gh release create "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --verify-tag \
+              --target "$TARGET_SHA" \
+              --title "AIR Kit v0.7.1" \
+              --notes-file /tmp/release-notes.md
+          fi
+
+      - name: Verify published release identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "refs/tags/$TAG:refs/tags/$TAG" --force
+          test "$(git rev-list -n 1 "$TAG")" = "$TARGET_SHA"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq .tag_name)" = "$TAG"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq .target_commitish)" = "$TARGET_SHA"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq .draft)" = "false"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" --jq .prerelease)" = "false"
