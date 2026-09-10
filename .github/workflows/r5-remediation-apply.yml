@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git hash-object tools/apply_r5_remediation.py)" = "055d5631792ab4732b42d3eb291f4c76a6ffae15"
-          test "$(git hash-object tools/validate_air_r5_remediation.py)" = "78e71aef1c512e03992dddd0394ca9945cb0572a"
+          test "$(git hash-object tools/validate_air_r5_remediation.py)" = "23c3cda8c10134e144c12b29c17d2712f8ab3fba"
           test "$(git hash-object tools/test_air_r5_mutations.py)" = "63d643044292a3cda17f0d162930f0ccddbe09b7"
           test "$(git hash-object tests/r5_remediation_fixtures.json)" = "5ebc883eae571f188285f3c27d98322c2c656d82"
           test "$(git hash-object tools/validate_air_r2_remediation.py)" = "3aff1b18c36d4df175eb4ef5467dfba5027f8b54"
