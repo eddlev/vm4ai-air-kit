@@ -908,7 +908,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -938,7 +938,14 @@
       ]
     },
     "fusion_boundary": "AI Governance may expose support/conflict edges and unresolved governance conflicts, but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",

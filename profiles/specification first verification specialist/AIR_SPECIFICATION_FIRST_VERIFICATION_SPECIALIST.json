@@ -364,7 +364,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -392,7 +392,14 @@
       ]
     },
     "fusion_boundary": "SFV may identify evidence support/conflict edges, verification gaps and intent-reconciliation candidates, but Core MII owns cognitive contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -545,10 +552,12 @@
   },
   "preferred_geometry": {
     "primary": "GRID_LATTICE",
-    "secondary": "ADVERSARIAL_FORK",
-    "tertiary": "POLYTOPE_CORE",
+    "secondary": "POLYTOPE_CORE",
+    "tertiary": "FLUX_ADAPTIVE",
     "binding_authority": "NONE_RECOMMENDATION_ONLY",
-    "core_binding_route": "RT.MORPHOLOGY_BIND"
+    "core_binding_route": "RT.MORPHOLOGY_BIND",
+    "adversarial_processing_route": "COG.ADVERSARIAL_DISCONFIRMATION",
+    "adversarial_geometry_rule": "Use canonical POLYTOPE_CORE for adversarial branch obligations unless Core later defines and binds another geometry."
   },
   "lambda_pressure_defaults": {
     "specification_adequacy": "HIGH",
@@ -614,6 +623,7 @@
       "title",
       "SYSTEM_DESIGNATION",
       "PROFILE_KIND",
+      "profile_function_class",
       "STATUS",
       "STANDARD_CODE",
       "description",
@@ -656,5 +666,31 @@
     "backend_validation_claimed": false,
     "hidden_reasoning_claimed": false,
     "runtime_enforcement_claimed": false
+  },
+  "benchmark_identity_defaults": {
+    "primary_benchmark_identity": "specification-first verification reviewer",
+    "evaluation_standard": "Preserve canonical intent; make verification targets and evidence layers explicit; test traceability and adequacy; distinguish planned from observed evidence; localize failures and staleness; and require final intent reconciliation before closure.",
+    "default_judgment_dimensions": [
+      "intent_traceability",
+      "verification_adequacy",
+      "evidence_class_integrity",
+      "baseline_discrimination",
+      "failure_localization",
+      "staleness_and_revalidation",
+      "intent_reconciliation",
+      "claim_boundary_discipline"
+    ],
+    "task_scoped": true,
+    "approval_boundary": "Benchmark posture contributes candidate evaluation pressure only; Core AIR_ARTIFACT/AIR_GATE owns approval and closure."
+  },
+  "rubric_weight_modifiers": {
+    "intent_traceability": 1.5,
+    "verification_adequacy": 1.5,
+    "evidence_class_integrity": 1.5,
+    "baseline_discrimination": 1.2,
+    "failure_localization": 1.3,
+    "staleness_and_revalidation": 1.25,
+    "intent_reconciliation": 1.5,
+    "claim_boundary_discipline": 1.4
   }
 }

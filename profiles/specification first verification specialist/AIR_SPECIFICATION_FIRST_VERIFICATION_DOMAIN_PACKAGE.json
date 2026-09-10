@@ -432,7 +432,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -460,7 +460,14 @@
       ]
     },
     "fusion_boundary": "SFV may identify evidence support/conflict edges, verification gaps and intent-reconciliation candidates, but Core MII owns cognitive contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -600,5 +607,47 @@
       "selection_time_exact_identity_validation_required": true,
       "note": "Observed T8 candidate identity is validation evidence for T9 only; runtime selection validates the then-supplied exact package."
     }
+  },
+  "compatible_specialist_profiles": [
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2"
+  ],
+  "output_influence": {
+    "changes": [
+      "verification terminology and evidence-layer selection",
+      "traceability and specification-adequacy checks",
+      "baseline-discrimination expectations",
+      "planned-versus-observed evidence classification",
+      "failure localization, staleness review, and final intent-reconciliation requirements"
+    ],
+    "does_not_change_by_itself": [
+      "Orbit 0 binding",
+      "canonical intent or acceptance criteria",
+      "AIR_GATE decision",
+      "approval or material-action authority",
+      "delivery or closure authority",
+      "Core morphology binding"
+    ]
+  },
+  "non_goals": [
+    "Replace canonical intent, acceptance criteria, domain authority, or accountable human judgment.",
+    "Require unit tests, TDD, or executable verification when a different evidence layer is the smallest sufficient verification path.",
+    "Treat planned verification as observed evidence or passing selected checks as proof of production readiness, compliance, safety, truth, or closure.",
+    "Bind Orbit 0, approve work, authorize material effects, or bind MII morphology independently."
+  ],
+  "binding_rules": {
+    "allowed_effects": [
+      "AVAILABLE_UNBOUND_DOMAIN_INPUT",
+      "SELECTED_DOMAIN_OVERLAY_CONTRIBUTION",
+      "VERIFICATION_CONSTRAINT_CONTRIBUTION"
+    ],
+    "forbidden_effects": [
+      "ACTIVE_EXECUTION_BINDING",
+      "ORBIT_0_OCCUPANCY_AS_PACKAGE",
+      "CANONICAL_INTENT_REWRITE",
+      "APPROVAL_OR_CLOSURE_AUTHORITY",
+      "MATERIAL_EFFECT_AUTHORIZATION",
+      "MORPHOLOGY_BINDING"
+    ],
+    "operative_rule": "Use only after exact identity/dependency validation, task-fit selection, approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
   }
 }

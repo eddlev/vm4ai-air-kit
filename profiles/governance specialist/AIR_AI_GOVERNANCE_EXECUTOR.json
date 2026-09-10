@@ -3,12 +3,12 @@
   "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V2",
   "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
-  "PROFILE_KIND": "EXECUTOR_CONTRACT",
-  "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+  "PROFILE_KIND": "EXECUTOR",
+  "profile_function_class": "EXECUTOR",
   "artifact_class": "AIR_EXECUTOR_CONTRACT",
   "package_version": "2.5.0",
   "package_subtype": "AI_GOVERNANCE_BOUNDED_EXECUTOR",
-  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+  "STATUS": "DRAFT",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -616,7 +616,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -646,7 +646,14 @@
       ]
     },
     "fusion_boundary": "AI Governance may expose support/conflict edges and unresolved governance conflicts, but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -757,5 +764,12 @@
     "semantic_fidelity_and_epistemic_sufficiency_findings",
     "morphology_recommendations",
     "required_input_proposals"
-  ]
+  ],
+  "claim_boundary": "Produces task-scoped AI-governance review packet candidates under declared source, rights, jurisdiction and authority constraints. It does not provide legal advice, certify compliance/conformity, accept organizational risk, approve deployment, claim backend validation, or grant material execution authority.",
+  "executor_extension_contract": {
+    "canonical_core_interface": "TOP_LEVEL_AIR_EXECUTOR_FIELDS",
+    "package_local_allowed_operations_role": "VARIANTS_UNDER_CANONICAL_OPERATION",
+    "variant_selection_rule": "SELECT_EXACTLY_ONE_ALLOWED_OPERATION_PER_INVOCATION_OR_COMPILE_THE_DECLARED_PACKET_OPERATION",
+    "package_local_fields_must_not_override_core_interface": true
+  }
 }

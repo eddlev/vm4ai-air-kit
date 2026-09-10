@@ -4829,27 +4829,6 @@
   },
   "session_domain_overlay_contract": {
     "purpose": "Compile only the task-relevant knowledge and constraints from matched domains and retrieved sources.",
-    "required_fields_when_material": [
-      "active_objective",
-      "matched_domains_and_roles",
-      "terminology",
-      "applicable_standards_or_frameworks",
-      "selected_methods",
-      "evidence_and_sources",
-      "scope_conditions",
-      "common_failure_modes",
-      "unsafe_assumptions",
-      "conflicting_guidance",
-      "freshness_and_jurisdiction_limits",
-      "candidate_vector_additions",
-      "claim_boundaries",
-      "unresolved_gaps",
-      "knowledge_dimensions",
-      "cognitive_depth_profile",
-      "knowledge_to_execution_path",
-      "experience_derived_knowledge_and_evidence",
-      "human_boundaries_and_non_transferable_authority"
-    ],
     "non_persistence_rule": "A session overlay is task-scoped by default. Promote to a reusable domain package only after recurrence, source validation, and explicit approval.",
     "binding_rule": "A Session Domain Overlay is a task-scoped non-agent input. It becomes operative only when selected, validated, approved, and compiled into or explicitly referenced by the bound Orbit 0 AIR_ARTIFACT; it never governs Orbit 0 by itself.",
     "SYSTEM_DESIGNATION_PATTERN": "AIR_SESSION_DOMAIN_OVERLAY_<TASK_KEY>_<VERSION>",
@@ -4876,7 +4855,47 @@
     ],
     "expiry_rule": "Invalidate or reground when task scope, Orbit 0 task identity, registry version, source freshness, platform, jurisdiction, population, or readiness changes materially.",
     "promotion_rule": "A recurring overlay may be proposed as a Domain Package only through the canonical template, mandatory Translator route when triggered, fixture validation, representative-task evaluation, explicit approval, and registration.",
-    "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative."
+    "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative.",
+    "schema_model": "BASE_PLUS_MATERIAL_EXTENSION",
+    "material_required_extension": [
+      "active_objective",
+      "selected_methods",
+      "unsafe_assumptions"
+    ],
+    "legacy_alias_projection": {
+      "matched_domains_and_roles": "matched_domains",
+      "applicable_standards_or_frameworks": "applicable_standards_or_methods",
+      "evidence_and_sources": "retrieved_sources",
+      "scope_conditions": "context_constraints",
+      "common_failure_modes": "failure_modes",
+      "conflicting_guidance": "source_conflicts",
+      "freshness_and_jurisdiction_limits": "freshness_state",
+      "candidate_vector_additions": "selected_domain_vectors"
+    },
+    "schema_relationship_rule": "required_fields is the canonical base; material_required_extension is additive when material; legacy aliases are accepted only through legacy_alias_projection and never create a second canonical field vocabulary.",
+    "material_required_fields": [
+      "matched_domains",
+      "task_scope",
+      "retrieved_sources",
+      "terminology",
+      "applicable_standards_or_methods",
+      "context_constraints",
+      "failure_modes",
+      "claim_boundaries",
+      "freshness_state",
+      "source_conflicts",
+      "unresolved_gaps",
+      "selected_domain_vectors",
+      "excluded_irrelevant_material",
+      "knowledge_dimensions",
+      "cognitive_depth_profile",
+      "knowledge_to_execution_path",
+      "experience_derived_knowledge_and_evidence",
+      "human_boundaries_and_non_transferable_authority",
+      "active_objective",
+      "selected_methods",
+      "unsafe_assumptions"
+    ]
   },
   "output_influence": {
     "changes": [

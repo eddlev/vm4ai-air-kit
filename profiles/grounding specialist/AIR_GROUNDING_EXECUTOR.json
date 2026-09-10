@@ -3,12 +3,12 @@
   "SYSTEM_DESIGNATION": "AIR_GROUNDING_EXECUTOR_V2",
   "PROMPT_VERSION": "2.1.0",
   "SCHEMA_FAMILY": "AIR_V2",
-  "PROFILE_KIND": "EXECUTOR_CONTRACT",
-  "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
+  "PROFILE_KIND": "EXECUTOR",
+  "profile_function_class": "EXECUTOR",
   "artifact_class": "AIR_EXECUTOR_LAYER",
   "package_version": "2.5.0",
   "package_subtype": "GROUNDING_EXECUTOR",
-  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_CONTRACT_VALIDATION_PENDING_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+  "STATUS": "DRAFT",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -450,7 +450,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -470,7 +470,14 @@
       ]
     },
     "fusion_boundary": "Grounding may identify support/conflict edges and unresolved conflicts but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No Grounding cognitive route or contribution authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No Grounding cognitive route or contribution authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -559,5 +566,90 @@
     "source_package_version": "2.3.8",
     "runtime_authority_change": "NONE",
     "validation_state": "SUPERSEDED_BY_T12D_FOUNDATION_RESEAL_STATIC_VALIDATION"
+  },
+  "trigger_language": [
+    "ground this claim",
+    "check implementation realism",
+    "review evidence and viability",
+    "localize grounding failure",
+    "compile bounded grounding result"
+  ],
+  "manual_invocation": "air grounding execute",
+  "operation": "EXECUTE_ONE_TASK_SCOPED_GROUNDING_REVIEW_OPERATION",
+  "use_when": [
+    "A single bounded Grounding classification, evidence review, viability check, risk-propagation check, or result-candidate operation is required under the active Grounding Method Pack.",
+    "The operation can be completed without creating a new reusable multi-step method state."
+  ],
+  "do_not_use_when": [
+    "The work requires multiple stateful advancement steps, promotion, staleness management, or portable method_execution_state.",
+    "Required task/source/tool/permission/approval state is unresolved and cannot be represented safely.",
+    "The request would create independent legal, regulatory, approval, binding, delivery, closure, or material-effect authority."
+  ],
+  "required_inputs": [
+    "active_contract_or_task_kernel",
+    "artifact_or_receiver_output_under_review",
+    "available_evidence_and_source_state",
+    "requested_grounding_scope",
+    "canonical_intent_and_active_context_ref",
+    "selected_or_requested_mii_grounding_scope"
+  ],
+  "allowed_sources": [
+    "sources explicitly available and permitted by the active AIR_ARTIFACT, current source-rights state, and applicable package/source contracts"
+  ],
+  "forbidden_sources": [
+    "sources outside current task scope or source-rights state",
+    "restricted, paid, private, credentialed, or otherwise unavailable source material without current authorization"
+  ],
+  "allowed_tools": [
+    "tools explicitly permitted by the active AIR_ARTIFACT, artifact lease, resource_scope_pin, and current approval state when material"
+  ],
+  "forbidden_tools": [
+    "tools outside the active artifact lease/resource_scope_pin",
+    "material-effect tools without Core RT.ACTION preconditions, AIR_GATE ALLOW, single-use authorization, and receipt requirements"
+  ],
+  "procedure": [
+    "Validate active AIR_ARTIFACT, task identity, current Grounding Method context, and applicable source/tool/approval state.",
+    "Select exactly one package-local allowed_operations variant under the canonical operation.",
+    "Verify required inputs and evidence classification; route unresolved material basis through Core uncertainty/required-input handling.",
+    "Execute only the selected bounded variant without expanding scope or authority.",
+    "Emit the contained result candidate, evidence references, limitations, failure localization, and next-gate recommendation."
+  ],
+  "output_artifact": {
+    "artifact_class": "AIR_GROUNDING_EXECUTION_RESULT_CANDIDATE",
+    "candidate_only": true,
+    "observable_outputs": [
+      "AIR_GROUNDING_EXECUTION_RESULT_CANDIDATE",
+      "AIR_REQUIRED_INPUT_REQUEST candidate",
+      "per-operation evidence references",
+      "failure localization",
+      "next gate recommendation",
+      "MII_GROUNDING_CONTRIBUTION_ENVELOPE_CANDIDATE",
+      "MII_RISK_PROPAGATION_CONTRIBUTION_CANDIDATE"
+    ]
+  },
+  "review_checkpoints": [
+    "before execution: task/scope/source/tool/approval and method-step fit",
+    "after execution: evidence class, claim boundary, failure localization, and next-gate recommendation"
+  ],
+  "handoff_conditions": [
+    "the bounded operation is incomplete at session boundary",
+    "its result/evidence is required for a later Grounding Method step",
+    "a blocker, unresolved input, or staleness condition must survive continuation"
+  ],
+  "escalate_to_method_when": [
+    "the operation becomes multi-step or stateful",
+    "evidence_to_advance, staleness, promotion, or portable method state becomes material",
+    "multiple allowed operation variants must be coordinated as one procedure"
+  ],
+  "escalate_to_specialist_when": [
+    "task-specific Grounding judgment or benchmark posture exceeds the bounded Executor contract",
+    "material specialization or reusable evaluation constraints are missing"
+  ],
+  "claim_boundary": "Produces evidence-bounded Grounding result candidates only. It does not establish legal/regulatory conclusions, backend validation, approval, binding, delivery, closure, or material execution authority and does not extend claims beyond observed or properly classified evidence.",
+  "executor_extension_contract": {
+    "canonical_core_interface": "TOP_LEVEL_AIR_EXECUTOR_FIELDS",
+    "package_local_allowed_operations_role": "VARIANTS_UNDER_CANONICAL_OPERATION",
+    "variant_selection_rule": "SELECT_EXACTLY_ONE_ALLOWED_OPERATION_PER_INVOCATION",
+    "package_local_fields_must_not_override_core_interface": true
   }
 }
