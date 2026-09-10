@@ -13,72 +13,70 @@
 
 **AI work, carried forward.**
 
-AIR (**AI Resource**) is a prompt-compiled project runtime for sustained AI work. It gives an AI session an explicit working contract, keeps one material task bound at a time, preserves approval and evidence boundaries, and carries recorded project state forward across sessions and compatible AI platforms through Handoff.
+AIR (**AI Resource**) is a prompt-based framework for sustained work with AI.
 
-AIR is not hidden model memory and it is not a backend enforcement layer. Its runtime behavior is governed by the loaded AIR Foundation together with the host model, platform instructions, available context, and tools.
+Instead of treating every chat as an isolated conversation, AIR gives the AI an explicit project structure: what you are trying to accomplish, what is active now, what evidence matters, what requires your approval, and what needs to carry forward.
+
+You talk to AIR normally. AIR handles the structure.
+
+AIR is not a separate application or service stack. Its baseline runtime needs a compatible AI platform and the AIR Foundation. Additional tools, sources, services or specialist capabilities are determined by the work you ask AIR to do.
 
 [Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
 
-## AIR Kit v0.7.1
+## Why AIR?
 
-**AIR Kit v0.7.1** is a patch-hardening release over v0.7.0. It carries AIR Foundation **2.6.0**, Handoff schema **2.3.0 revision 16**, Specialist packages **2.5.0**, and the coordinated Foundation identity `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`.
+Long or complex AI work tends to drift.
 
-The v0.7.1 hardening pass closes **74 audited source findings** across the Foundation, Handoff, runtime catalogs, Specialist packages, package construction paths, lifecycle metadata, validation contracts, and release tooling. The release preserves AIR's prompt-runtime authority boundary: no package, catalog, Handoff record, or deterministic validator becomes backend execution authority.
+Goals change inside long conversations. Earlier decisions become difficult to find. Assumptions can quietly turn into facts. A new session may need to reconstruct the project before useful work can continue.
 
-| Component | v0.7.0 | v0.7.1 |
-| --- | ---: | ---: |
-| AIR Kit | `0.7.0` | `0.7.1` |
-| Core Runtime | `2.5.0` | `2.6.0` |
-| Control Surface | `2.5.0` | `2.6.0` |
-| Default Starter | `2.5.0` | `2.6.0` |
-| Governance Supplement | `2.3.0` | `2.3.0` |
-| Handoff schema | `2.3.0` rev15 | `2.3.0` rev16 |
-| Specialist packages | `2.4.0` | `2.5.0` |
-| Runtime Route Map | `1.0.1` | `1.1.0` |
-| Specialist Package Index | `1.2.0` | `1.3.0` |
+AIR adds a visible working frame around that process.
 
-Foundation identity for this release is `AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005`. Governance remains 2.3.0 because Core owns route, object-constructor, alignment, binding, action, and Handoff-restoration semantics.
+It helps AI and humans:
 
-Release status does **not** claim universal behavioral certification across every provider/model, deterministic LLM behavior, universal host compatibility, or backend AIR enforcement. Deterministic/static checks and model/host behavior remain distinct evidence classes. Release acceptance for v0.7.1 is based on the completed audit/remediation suite together with maintainer acceptance through active AIR use.
+- keep one material task clearly active at a time;
+- preserve project purpose, scope, constraints and decisions;
+- distinguish assumptions, sources and evidence;
+- surface blockers instead of silently working around them;
+- require explicit human approval for material actions when appropriate;
+- carry recorded project state between sessions and compatible AI platforms;
+- add focused Specialist capabilities when a task needs them.
 
-## What's in v0.7.1
+## Current release — AIR Kit v0.7.1
 
-The v0.7.1 remediation was completed in eight bounded repair phases:
+The current release is **AIR Kit v0.7.1**.
 
-1. **Foundation deterministic spine** — repairs route delimiters, control-event binding, deterministic-route membership, boot/version checks, alignment reachability, registry coverage, Route Map anchors, and route prerequisites.
-2. **Formal objects and authorization** — closes the formal-object registry, normalizes Gate and Authorization semantics, registers Artifact fields correctly, and gives failure records a deterministic ledger-backed construction path.
-3. **Handoff and restoration** — validates exact approval-token derivation, adds executable rev15→rev16 migration before required-carrier validation, preserves visibility/profile authority provenance, fixes conditional predicates, and supplies typed Method-Pack restoration contracts.
-4. **Shared package schema normalization** — normalizes MII morphology carriers, Executor interfaces, Method interfaces, Specialist surfaces, and Session Domain Overlay representation without expanding package authority.
-5. **Capability Ecology constructor chain** — makes the canonical 44-field Domain Package contract consistent across fixtures, Translator output, Architect construction, negative mutations, and typed evidence-waiver handling.
-6. **Package-local behavioral contracts** — makes Governance input acquisition conditional on actual gaps and gives Public Surface Copywriting an explicit proportional stopping/step-optimality loop.
-7. **Lifecycle, version, history, and reseal truth** — aligns current Foundation identities, package readiness mirrors, candidate/release lifecycle vocabulary, historical records, component receipts, and dependency-graph resealing.
-8. **Presentation and portability cleanup** — restores canonical sentinel references and boot-mark ownership, exposes all four system modifiers, pins NFKC filename normalization, and hardens unknown-target/reserved-name portability behavior.
+It includes:
 
-The repository also carries permanent deterministic validation, mutation/meta tests, behavioral transaction contract checks, release-contract validation, and dependency-graph reseal verification so the shipped source can be checked against its declared contracts.
+- AIR Foundation **2.6.0**
+- Handoff schema **2.3.0**, revision 16
+- Specialist packages **2.5.0**
+- Runtime Route Map **1.1.0**
+- Specialist Package Index **1.3.0**
+
+v0.7.1 is a hardening release over v0.7.0 and closes 74 audited findings across the AIR Foundation, Handoff, runtime contracts, Specialist packages and release tooling.
+
+See the [v0.7.1 release](https://github.com/eddlev/vm4ai-air-kit/releases/tag/v0.7.1) for the detailed change and validation record.
 
 ## Start AIR
 
-For normal AIR Kit v0.7.1 use, load the **five required Foundation files** and, when available, the **two recommended Foundation-adjacent bootstrap catalogs**.
+Load the five required AIR Foundation files from [`prompts/`](prompts/):
 
-Required Foundation files from [`prompts/`](prompts/):
+```text
+AIR_CORE_RUNTIME.md
+AIR_CONTROL_SURFACE.md
+AIR_GOV.md
+AIR_DEFAULT_STARTER_PROFILE.json
+AIR_HANDOFF_CARD_TEMPLATE.json
+```
 
-1. `AIR_CORE_RUNTIME.md`
-2. `AIR_CONTROL_SURFACE.md`
-3. `AIR_GOV.md`
-4. `AIR_DEFAULT_STARTER_PROFILE.json`
-5. `AIR_HANDOFF_CARD_TEMPLATE.json`
+For normal use, also load the two recommended bootstrap catalogs from [`catalog/`](catalog/):
 
-Recommended bootstrap catalogs from [`catalog/`](catalog/):
+```text
+AIR_RUNTIME_ROUTE_MAP.json
+AIR_SPECIALIST_PACKAGE_INDEX.json
+```
 
-6. `AIR_RUNTIME_ROUTE_MAP.json`
-7. `AIR_SPECIALIST_PACKAGE_INDEX.json`
-
-The five Foundation files remain the complete required and authoritative Foundation set. The two catalog files are recommended because they improve bootstrap discovery without expanding authority:
-
-- `AIR_RUNTIME_ROUTE_MAP.json` gives the session a compact machine-readable view of the Core-owned route/dependency graph. This improves route salience and static route validation without making the map a semantic or execution authority; Core remains authoritative if the map is absent, stale, or incompatible.
-- `AIR_SPECIALIST_PACKAGE_INDEX.json` gives the session release-level discovery metadata for available Specialist packages without preloading those packages. This lets AIR identify potentially relevant capabilities on demand while preserving task-fit evaluation, validation, approval, compilation, and binding boundaries.
-
-Together, the recommended seven-file bundle follows AIR's intended **Foundation + indexes + demand-loaded capabilities** structure: the Foundation governs, the catalogs improve discovery, and Specialist packages remain unloaded until materially needed.
+The five Foundation files govern AIR. The catalogs improve route and Specialist discovery but do not gain execution authority.
 
 Then send:
 
@@ -86,56 +84,50 @@ Then send:
 Start a new AIR project.
 ```
 
-AIR validates the loaded Foundation and starts the fresh-project onboarding route. The activation phrase selects the route; it does not silently answer onboarding questions for you. The recommended catalog files are discovery inputs and are not required to make the five-file Foundation authoritative.
+AIR validates the loaded Foundation and starts onboarding.
 
-### Continue an AIR project
+No special command syntax or prior AIR knowledge is required for normal project conversation.
 
-Load the same current five-file Foundation, preferably the two current Foundation-adjacent bootstrap catalogs, together with the populated `AIR_HANDOFF_CARD` from the previous AIR session and choose the continuation route.
+## Human approval and material actions
 
-Handoff carries **recorded AIR project state**, not hidden model state or previously earned execution authority. The destination session validates the current Foundation and Handoff, evaluates the restored state in the new session, and rebinds the nominated artifact before material execution resumes.
+AIR separates conversational agreement from material authorization.
 
-### Import an existing non-AIR project
-
-Load the current Foundation, preferably with the two bootstrap catalogs, and choose the import route during onboarding. Supply the existing project material as source input. AIR reconstructs an explicit project contract from the material you provide rather than inventing prior AIR state.
-
-## Public repository structure
+When a material action requires your approval—such as binding a capability or changing an external resource—AIR opens a specific approval scope and provides exact response tokens:
 
 ```text
-catalog/   discovery metadata for routes and Specialist packages
-profiles/  optional reusable Specialist capability packages
-prompts/   canonical five-file AIR Foundation
-tools/     deterministic validators, remediation/reseal tooling, and regression runners
-tests/     replayable contract, mutation, and regression fixtures
+AIR_APPROVE::<approval-scope>
+AIR_REJECT::<approval-scope>
 ```
 
-The public repository contains the deterministic validation and regression material needed to check the shipped AIR contracts against the actual tree. Private evaluation logs, hidden model traces, and historical working/audit artifacts are not part of the public AIR runtime surface.
+The exact approval token authorizes only the scope AIR described.
 
-### `prompts/`
+A casual response such as “looks good” or “go ahead” does not silently become material authorization when exact approval is required.
 
-The canonical AIR Foundation. These five files are the complete required Foundation set for AIR:
+Approval and execution are also separate: approving an action does not prove that the action succeeded. AIR records and evaluates the resulting effect separately.
 
-- `AIR_CORE_RUNTIME.md`
-- `AIR_CONTROL_SURFACE.md`
-- `AIR_GOV.md`
-- `AIR_DEFAULT_STARTER_PROFILE.json`
-- `AIR_HANDOFF_CARD_TEMPLATE.json`
+This keeps **direction**, **approval**, and **execution evidence** distinct.
 
-For normal use, pair this required set with the two recommended bootstrap catalogs below. Doing so does not change the Foundation's five-file identity or authority boundary.
+## Continue or import a project
 
-### `catalog/`
+### Continue with Handoff
 
-Foundation-adjacent discovery metadata and recommended normal-boot inputs:
+AIR uses a Handoff Card to carry recorded project state into another session or compatible platform.
 
-- `AIR_RUNTIME_ROUTE_MAP.json`
-- `AIR_SPECIALIST_PACKAGE_INDEX.json`
+Load the current AIR Foundation with the populated `AIR_HANDOFF_CARD.json` and choose the continuation route during onboarding.
 
-The Route Map makes the Core-owned runtime graph easier to discover and validate at boot. The Specialist Package Index exposes release-level Specialist identities and capability metadata without loading or binding the Specialist packages themselves. Together they improve navigation and capability discovery while keeping the authoritative Foundation small and keeping optional capabilities demand-loaded.
+Handoff can preserve project scope, the active task, decisions, blockers, working agreements, Specialist state and approval boundaries.
 
-Neither catalog independently creates semantic, selection, approval, binding, or execution authority. Core remains authoritative for runtime route semantics, and Specialist packages still require exact-identity validation, task-fit evaluation, and any required approval before compilation or use.
+It transfers **recorded AIR state**. It does not transfer hidden model memory, hidden reasoning or previously granted execution authority. The receiving session validates and rebinds the project before material execution resumes.
 
-### `profiles/`
+### Import existing work
 
-Optional reusable Specialist capability packages in AIR Kit v0.7.1:
+AIR can also structure a project that did not begin in AIR.
+
+Start AIR, choose the import route, and provide the existing project material. AIR builds an explicit project frame from the sources you provide rather than pretending previous AIR state existed.
+
+## Specialists
+
+AIR Kit includes optional Specialist packages for work that benefits from more focused capability or review:
 
 - AI Governance Specialist
 - Capability Ecology Architect
@@ -143,40 +135,52 @@ Optional reusable Specialist capability packages in AIR Kit v0.7.1:
 - Public Surface Copywriting Specialist
 - Specification-First Verification Specialist
 
-A package being present does not mean it is automatically selected or bound. AIR still evaluates package identity, Foundation compatibility, task fit, and any required approval before use.
+Specialists are not autonomous agents.
+
+A Specialist being present in the repository does not make it active. AIR evaluates task fit, validates the package, obtains any required approval, and binds the relevant capability to the active task.
 
 ## AIR's operating boundary
 
-AIR separates the state and decisions represented inside the prompt runtime from claims about the world outside it.
+AIR operates at the prompt/project-runtime layer.
 
-A surfaced AIR record can establish what AIR declared, evaluated, approved, or bound in the session. It does not by itself prove that an external tool call succeeded, a deployment happened, a factual source is correct, or a backend enforced an AIR gate.
+It can structure work, surface project state, preserve boundaries, manage approval flow, request evidence and carry recorded project context forward.
 
-Likewise:
+It does **not** by itself prove that:
 
-- deterministic or static file checks do not make model inference deterministic;
-- a successful session does not prove universal model or platform compatibility;
-- Handoff does not transfer hidden model state;
-- human approval authorizes an AIR action boundary but does not prove an external effect that was not independently observed.
+- an external tool action succeeded;
+- an external source is correct;
+- a backend enforced an AIR rule;
+- model inference is deterministic;
+- every AI model or platform behaves identically;
+- hidden model state moved between sessions.
 
-## Compatibility
+Those claims require their own evidence.
 
-Compatibility is empirical and configuration-dependent. Provider/model versions, context budget, attachment handling, system instructions, available tools, and host behavior can all affect AIR.
+Compatibility is therefore empirical and configuration-dependent. Model/provider versions, context limits, attachment handling, available tools and platform behavior can affect AIR.
 
-For implementation guidance, compatibility notes, testing methodology, and release information, use the [VM4AI documentation](https://vm4ai.com/air-docs.html) and GitHub Releases.
+## Repository structure
+
+```text
+prompts/   the five-file AIR Foundation
+catalog/   route and Specialist discovery metadata
+profiles/  optional Specialist capability packages
+tools/     deterministic validation and release tooling
+tests/     replayable contract, mutation and regression fixtures
+```
 
 ## Community and bugs
 
-Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible AIR defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion, and feature ideas.
+Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible defects.
 
-When reporting a behavioral issue, include the AIR Kit release, AIR Foundation version, model/provider, host/platform, reproduction sequence, expected behavior, observed behavior, and visible AIR output where possible.
+Use [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion and feature ideas.
 
-Do not post exploitable security details publicly.
+When reporting behavioral issues, include the AIR Kit release, AIR Foundation version, AI model/provider, platform, reproduction steps, expected behavior and observed behavior where possible.
 
 ## License and brand
 
-The project code and prompt materials are licensed under **Apache-2.0**; see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+AIR's code and prompt materials are licensed under **Apache-2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-AIR/VM4AI names and brand marks are separate from the code license. Reusable brand assets live in [eddlev/air-brand](https://github.com/eddlev/air-brand).
+AIR and VM4AI names and brand marks are separate from the code license. Reusable brand assets are maintained in [eddlev/air-brand](https://github.com/eddlev/air-brand).
 
 ---
 
