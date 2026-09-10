@@ -6,13 +6,13 @@
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
-  "status": "AIR_2_6_0_OBJECT_CONTRACT_SET_005_FIVE_PACKAGE_INDEX_V071_RELEASE_CANDIDATE",
+  "status": "AIR_2_6_0_OBJECT_CONTRACT_SET_005_FIVE_PACKAGE_INDEX_V071_RELEASE_SEALED",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
   "generated_at": "2026-09-05T09:11:37Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
-    "catalog_completeness_claim": "COMPLETE_FOR_AIR_2_6_0_OBJECT_CONTRACT_SET_005_V071_RELEASE_CANDIDATE_SPECIALIST_CATALOG",
+    "catalog_completeness_claim": "COMPLETE_FOR_AIR_2_6_0_OBJECT_CONTRACT_SET_005_V071_RELEASE_SPECIALIST_CATALOG",
     "canonical_reusable_specialist_construction_route": {
       "route_id": "RT.CAPABILITY_RESOLVE",
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -104,14 +104,14 @@
   },
   "index_rules": [
     "Index presence does not make any Specialist package present, selected, task-validated, approved, compiled, or bound.",
-    "An entry establishes candidate release-catalog identity and expected manifest identity only; actual package bytes must still be available and exact-identity validated for task fit before selection, approval, compilation, or use.",
+    "An entry establishes release-catalog identity and expected manifest identity only; actual package bytes must still be available and exact-identity validated for task fit before selection, approval, compilation, or use.",
     "This index is a compact discovery directory and must not duplicate full Specialist prompts or MII contribution bodies.",
     "RT.CAPABILITY_RESOLVE is Core-owned. AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2 is the canonical reusable-Specialist construction package when that route determines reusable construction is warranted.",
     "MII contribution tags are discovery metadata only; they do not select cognitive routes, fuse contributions, bind morphology, or authorize benchmark consumption.",
     "If this index is absent, stale, or incompatible, AIR may use only Specialist identities independently established by current validated session/package state and must not infer catalog completeness from absence.",
     "Offline deterministic Specialist discovery for a released build requires a current release-sealed index.",
     "AIR_RUNTIME_ROUTE_MAP and AIR_SPECIALIST_PACKAGE_INDEX are Foundation-adjacent catalogs with no execution, selection, approval, or binding authority.",
-    "Handoff schema 2.3.0 rev15 may record this index identity under extensions.specialist_catalog_state for continuation provenance; that provenance remains discovery-only and does not restore, select, reinterpret, or bind Specialists by itself.",
+    "Handoff schema 2.3.0 rev16 may record this index identity under extensions.specialist_catalog_state for continuation provenance; that provenance remains discovery-only and does not restore, select, reinterpret, or bind Specialists by itself.",
     "Specialist entries may contribute candidate benchmark, evidence, method, or review pressure but do not own task sufficiency, step-optimality, AMRS stage completion, promotion, approval, binding, or execution authority.",
     "Every catalogued Specialist package participates in Core AIR_FAILURE_MODE_REGISTRY_V1 across all package components; applicable exact-match corrective constraints are queried before relevant execution and become operative only through the current Orbit 0 Artifact."
   ],
@@ -123,10 +123,10 @@
     "cognitive_route_selection_authority": "NONE",
     "mii_fusion_authority": "NONE",
     "attachment_effect": "DISCOVERY_METADATA_ONLY",
-    "operative_rule": "An index entry establishes candidate release-catalog identity and expected manifest identity only. Actual package bytes must be available and validated for exact identity, Foundation compatibility, task fit, and required approval before compilation into or reference by the sole bound Orbit 0 AIR_ARTIFACT."
+    "operative_rule": "An index entry establishes release-catalog identity and expected manifest identity only. Actual package bytes must be available and validated for exact identity, Foundation compatibility, task fit, and required approval before compilation into or reference by the sole bound Orbit 0 AIR_ARTIFACT."
   },
   "validation_state": {
-    "decision": "STATIC_VALIDATED_CANDIDATE_PENDING_REPLAYABLE_BEHAVIORAL_REVALIDATION",
+    "decision": "RELEASE_SEALED_MAINTAINER_ACCEPTED_ACTIVE_USE_WITH_REPLAYABLE_MODEL_HOST_EVIDENCE_PENDING",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
     "manifest_hash_closure": "PASS_R7_EXACT_RESEAL",
@@ -140,9 +140,9 @@
     "static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
-    "operative_lifecycle_coherence": "PASS_R7_CURRENT_CANDIDATE_LIFECYCLE",
+    "operative_lifecycle_coherence": "PASS_V071_RELEASE_SEALED_LIFECYCLE",
     "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS",
-    "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Candidate catalog bytes do not assert completed publication as runtime truth."
+    "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth."
   },
   "entries": [
     {
@@ -182,7 +182,7 @@
       "short_activation_summary": "Use when AI governance, risk, assurance, policy-to-control translation, regulatory/enterprise oversight, evidence planning, or agentic-AI governance materially affects the task.",
       "short_non_activation_summary": "Do not select for simple low-risk AI explanation, pure creative ideation without governance consequence, or a narrow legal conclusion requiring qualified legal authority.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
     },
@@ -220,7 +220,7 @@
       "short_activation_summary": "Use when the material task capability envelope is incomplete, cross-disciplinary, unknown/emerging, disproportionate, or requires Domain Package, machine-native benchmark, or reusable Specialist construction.",
       "short_non_activation_summary": "Do not select when the task capability envelope, benchmark, domain requirements, and operative vector set are already sufficiently specified and no reusable capability construction gap exists.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
     },
@@ -259,7 +259,7 @@
       "short_activation_summary": "Use when implementation consequence, viability, architecture, current capability, public/technical claims, blast radius, evidence sufficiency, or execution realism materially affects the result.",
       "short_non_activation_summary": "Do not select for simple low-risk factual Q&A, general conversation, pure creative exploration without execution/claim pressure, or formatting-only work without material risk.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
     },
@@ -295,7 +295,7 @@
       "short_activation_summary": "Use when a material public-facing task requires recurring copywriting/positioning judgment, source-bounded claim language, audience/page-role framing, technical-to-plain explanation, brand adaptation, or cross-surface copy review beyond Default Starter.",
       "short_non_activation_summary": "Do not select for trivial edits, private/internal writing, missing subject-matter truth, or tasks whose actual gap is legal/accessibility/compliance/technical/domain authority rather than copywriting judgment.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "content_revision": "2.0.0",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
@@ -333,7 +333,7 @@
       "short_activation_summary": "Use when a material outcome depends on correctly interpreting intent/requirements and evidence must justify verification, closure, release, publication, handoff, or downstream reliance.",
       "short_non_activation_summary": "Do not select for simple low-risk conversation, pre-commitment brainstorming with no verification decision, or formatting-only changes with no material specification/evidence risk.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
     }
@@ -358,7 +358,7 @@
       "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "RELEASE_CATALOG_ENTRY"
     ],
-    "current_candidate_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+    "current_candidate_state": "RELEASE_CATALOG_ENTRY",
     "released_state": "RELEASE_CATALOG_ENTRY",
     "candidate_states_are_release_sealed": false,
     "authority_effect": "DISCOVERY_METADATA_ONLY_NO_SELECTION_APPROVAL_BINDING_OR_EXECUTION_AUTHORITY"
