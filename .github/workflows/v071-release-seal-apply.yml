@@ -44,3 +44,5 @@ jobs:
           git add -A
           git commit -m "Seal AIR Kit v0.7.1 release catalog [v071-sealed]"
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+# PR synchronize trigger for the release-seal gate.
