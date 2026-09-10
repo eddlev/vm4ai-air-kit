@@ -25,6 +25,7 @@ jobs:
           test "$(git hash-object tools/validate_air_r8_remediation.py)" = "8e3d3b6eeb0470643364b8f2ca4efee34e07b8c3"
           test "$(git hash-object tools/test_air_r8_mutations.py)" = "0daaf170333b12e3004ec99257453cb401113545"
           test "$(git hash-object tools/patch_r8_validator_extensions.py)" = "8b870dd0b8f142c882542ae63b169164ac1ce366"
+          test "$(git hash-object tools/refresh_r8_route_anchors.py)" = "b5b543159aee14962dd14ec0eeef35a66ff0f43c"
           test "$(git hash-object tools/reseal_air_candidate.py)" = "336d967e0daf36ef0a659225b2ff2f22aa4bb15e"
           test "$(git hash-object tools/validate_air_suite.py)" = "8f5c11f81d567742fed7427ecc537f8058215754"
           test "$(git hash-object tools/validate_air_boot.py)" = "b9fd4fbd080404bfb99ec4b416c7929db090d0d8"
@@ -51,7 +52,9 @@ jobs:
           python3 -m py_compile tools/validate_air_boot.py tools/validate_air_release.py tools/validate_air_suite.py tools/test_air_validator_mutations.py tools/validate_air_r8_remediation.py tools/test_air_r8_mutations.py
 
       - name: Apply R8 presentation and portability truth
-        run: python3 tools/apply_r8_remediation.py .
+        run: |
+          python3 tools/apply_r8_remediation.py .
+          python3 tools/refresh_r8_route_anchors.py
 
       - name: Capture historical records before reseal
         shell: bash
@@ -139,6 +142,7 @@ jobs:
           git diff -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py > /tmp/r8-before.diff
           python3 tools/patch_r8_validator_extensions.py
           python3 tools/apply_r8_remediation.py .
+          python3 tools/refresh_r8_route_anchors.py
           python3 tools/reseal_air_candidate.py --apply
           git diff -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py > /tmp/r8-after.diff
           diff -u /tmp/r8-before.diff /tmp/r8-after.diff
