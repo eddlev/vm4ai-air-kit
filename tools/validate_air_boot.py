@@ -5,6 +5,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+from validate_air_r1_remediation import E as R1ValidationError, eval_registry
 
 class BootValidationError(Exception):
     pass
@@ -66,7 +67,7 @@ def main(root: Path) -> None:
     handoff_root = load(prompts / 'AIR_HANDOFF_CARD_TEMPLATE.json')
     card = handoff_root.get('AIR_HANDOFF_CARD', {})
     require(card.get('TEMPLATE_DESIGNATION') == 'AIR_HANDOFF_CARD_TEMPLATE_V2', 'Handoff designation mismatch')
-    canonical_schema = header_value(core if 'core' in locals() else (prompts / 'AIR_CORE_RUNTIME.md').read_text(encoding='utf-8'), 'CANONICAL_HANDOFF_SCHEMA_VERSION')
+    canonical_schema = header_value(core, 'CANONICAL_HANDOFF_SCHEMA_VERSION')
     require(card.get('SCHEMA_VERSION') == card.get('schema_version') == canonical_schema, 'Handoff schema mismatch')
     restored = card.get('profile_stack', {}).get('starter_profile', {})
     require(restored.get('SYSTEM_DESIGNATION') == starter.get('SYSTEM_DESIGNATION'), 'Handoff Starter designation mismatch')
@@ -74,12 +75,20 @@ def main(root: Path) -> None:
     require('Patch marker: AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1' in core, 'Core deterministic-pipeline law missing')
     require('AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE' in core, 'Core floor 025 missing')
     require('AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION' in core, 'Core floor 026 missing')
+    # R1: routine boot executes the same typed deterministic registry that owns version,
+    # role/filename, strict-JSON, collision, floor-set, and Starter identity checks.
+    try:
+        executed = eval_registry(root, starter)
+    except (R1ValidationError, KeyError) as exc:
+        raise BootValidationError(f'deterministic registry boot check failed: {exc}') from exc
+    require(executed == 80, f'R1 deterministic boot registry expected 80 checks, got {executed}')
+    require(len(starter.get('authority_contract', {}).get('required_files', [])) == 5, 'R1 Foundation authority manifest must contain five roles')
     print('AIR routine boot consumer validation: PASS')
-    print(f"Core={markdown_versions['AIR_CORE_RUNTIME.md']} Control={markdown_versions['AIR_CONTROL_SURFACE.md']} Starter={starter['PROMPT_VERSION']} Handoff={card['schema_version']} rev{card['card_revision']}")
+    print(f"Core={markdown_versions['AIR_CORE_RUNTIME.md']} Control={markdown_versions['AIR_CONTROL_SURFACE.md']} Starter={starter['PROMPT_VERSION']} Handoff={card['schema_version']} rev{card['card_revision']} Registry={executed}/{executed}")
 
 if __name__ == '__main__':
     try:
-        root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('.')
+        root = (Path(sys.argv[1]) if len(sys.argv) > 1 else Path('.')).resolve()
         main(root)
     except BootValidationError as exc:
         raise SystemExit(f'AIR routine boot validation FAILED: {exc}')
