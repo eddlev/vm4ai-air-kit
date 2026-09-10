@@ -58,7 +58,9 @@ The repository also carries permanent deterministic validation, mutation/meta te
 
 ## Start AIR
 
-Attach all five files from [`prompts/`](prompts/) to a fresh compatible AI session:
+For normal AIR Kit v0.7.1 use, load the **five required Foundation files** and, when available, the **two recommended Foundation-adjacent bootstrap catalogs**.
+
+Required Foundation files from [`prompts/`](prompts/):
 
 1. `AIR_CORE_RUNTIME.md`
 2. `AIR_CONTROL_SURFACE.md`
@@ -66,23 +68,35 @@ Attach all five files from [`prompts/`](prompts/) to a fresh compatible AI sessi
 4. `AIR_DEFAULT_STARTER_PROFILE.json`
 5. `AIR_HANDOFF_CARD_TEMPLATE.json`
 
+Recommended bootstrap catalogs from [`catalog/`](catalog/):
+
+6. `AIR_RUNTIME_ROUTE_MAP.json`
+7. `AIR_SPECIALIST_PACKAGE_INDEX.json`
+
+The five Foundation files remain the complete required and authoritative Foundation set. The two catalog files are recommended because they improve bootstrap discovery without expanding authority:
+
+- `AIR_RUNTIME_ROUTE_MAP.json` gives the session a compact machine-readable view of the Core-owned route/dependency graph. This improves route salience and static route validation without making the map a semantic or execution authority; Core remains authoritative if the map is absent, stale, or incompatible.
+- `AIR_SPECIALIST_PACKAGE_INDEX.json` gives the session release-level discovery metadata for available Specialist packages without preloading those packages. This lets AIR identify potentially relevant capabilities on demand while preserving task-fit evaluation, validation, approval, compilation, and binding boundaries.
+
+Together, the recommended seven-file bundle follows AIR's intended **Foundation + indexes + demand-loaded capabilities** structure: the Foundation governs, the catalogs improve discovery, and Specialist packages remain unloaded until materially needed.
+
 Then send:
 
 ```text
 Start a new AIR project.
 ```
 
-AIR validates the loaded Foundation and starts the fresh-project onboarding route. The activation phrase selects the route; it does not silently answer onboarding questions for you.
+AIR validates the loaded Foundation and starts the fresh-project onboarding route. The activation phrase selects the route; it does not silently answer onboarding questions for you. The recommended catalog files are discovery inputs and are not required to make the five-file Foundation authoritative.
 
 ### Continue an AIR project
 
-Load the same current five-file Foundation together with the populated `AIR_HANDOFF_CARD` from the previous AIR session and choose the continuation route.
+Load the same current five-file Foundation, preferably the two current Foundation-adjacent bootstrap catalogs, together with the populated `AIR_HANDOFF_CARD` from the previous AIR session and choose the continuation route.
 
 Handoff carries **recorded AIR project state**, not hidden model state or previously earned execution authority. The destination session validates the current Foundation and Handoff, evaluates the restored state in the new session, and rebinds the nominated artifact before material execution resumes.
 
 ### Import an existing non-AIR project
 
-Load the current Foundation and choose the import route during onboarding. Supply the existing project material as source input. AIR reconstructs an explicit project contract from the material you provide rather than inventing prior AIR state.
+Load the current Foundation, preferably with the two bootstrap catalogs, and choose the import route during onboarding. Supply the existing project material as source input. AIR reconstructs an explicit project contract from the material you provide rather than inventing prior AIR state.
 
 ## Public repository structure
 
@@ -98,7 +112,7 @@ The public repository contains the deterministic validation and regression mater
 
 ### `prompts/`
 
-The canonical AIR Foundation. These five files are the complete normal boot set for AIR:
+The canonical AIR Foundation. These five files are the complete required Foundation set for AIR:
 
 - `AIR_CORE_RUNTIME.md`
 - `AIR_CONTROL_SURFACE.md`
@@ -106,14 +120,18 @@ The canonical AIR Foundation. These five files are the complete normal boot set 
 - `AIR_DEFAULT_STARTER_PROFILE.json`
 - `AIR_HANDOFF_CARD_TEMPLATE.json`
 
+For normal use, pair this required set with the two recommended bootstrap catalogs below. Doing so does not change the Foundation's five-file identity or authority boundary.
+
 ### `catalog/`
 
-Foundation-adjacent discovery metadata:
+Foundation-adjacent discovery metadata and recommended normal-boot inputs:
 
 - `AIR_RUNTIME_ROUTE_MAP.json`
 - `AIR_SPECIALIST_PACKAGE_INDEX.json`
 
-The catalog improves route and Specialist discovery. It does not independently create semantic, selection, approval, binding, or execution authority. Core remains authoritative for runtime route semantics.
+The Route Map makes the Core-owned runtime graph easier to discover and validate at boot. The Specialist Package Index exposes release-level Specialist identities and capability metadata without loading or binding the Specialist packages themselves. Together they improve navigation and capability discovery while keeping the authoritative Foundation small and keeping optional capabilities demand-loaded.
+
+Neither catalog independently creates semantic, selection, approval, binding, or execution authority. Core remains authoritative for runtime route semantics, and Specialist packages still require exact-identity validation, task-fit evaluation, and any required approval before compilation or use.
 
 ### `profiles/`
 
