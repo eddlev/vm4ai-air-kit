@@ -1,0 +1,94 @@
+name: Apply R4 audit remediation
+
+on:
+  push:
+    branches:
+      - audit-remediation-r4-from-r3
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r4:
+    if: ${{ !contains(github.event.head_commit.message, '[r4-applied]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify R4 support blobs
+        shell: bash
+        run: |
+          test "$(git hash-object tools/apply_r4_remediation.py)" = "dd50bf485c9872a042c001fca67242d6e1c9d461"
+          test "$(git hash-object tools/validate_air_r4_remediation.py)" = "bdb9f0629781ad1504458423f4ceb391db2a255f"
+          test "$(git hash-object tools/test_air_r4_mutations.py)" = "2c8b5a5083ca32c9d77b51f5682d438859dba160"
+
+      - name: Apply R4 source repair
+        run: python3 tools/apply_r4_remediation.py .
+
+      - name: Verify exact R4 audited-source scope
+        shell: bash
+        run: |
+          cat > /tmp/r4-expected.txt <<'EOF'
+          profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json
+          profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json
+          profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json
+          EOF
+          git diff --name-only -- prompts catalog profiles | sort > /tmp/r4-actual.txt
+          diff -u /tmp/r4-expected.txt /tmp/r4-actual.txt
+
+      - name: Validate R1 through R4 contracts
+        shell: bash
+        run: |
+          python3 tools/validate_air_contract_registry.py
+          python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_r2_remediation.py
+          python3 tools/validate_air_r3_remediation.py
+          python3 tools/validate_air_r4_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/test_air_contract_registry_mutations.py
+          python3 tools/test_air_r1_mutations.py
+          python3 tools/test_air_r2_mutations.py
+          python3 tools/test_air_r3_mutations.py
+          python3 tools/test_air_r4_mutations.py . tools/validate_air_r4_remediation.py
+          python3 tools/test_air_behavioral_contract_mutations.py
+          python3 tools/test_air_control_plane_mutations.py
+
+      - name: Verify R4 patch idempotence
+        shell: bash
+        run: |
+          git diff -- prompts catalog profiles > /tmp/r4-before.diff
+          python3 tools/apply_r4_remediation.py .
+          git diff -- prompts catalog profiles > /tmp/r4-after.diff
+          diff -u /tmp/r4-before.diff /tmp/r4-after.diff
+          echo 'R4 patch idempotence: PASS'
+
+      - name: Commit repaired source
+        shell: bash
+        run: |
+          if git diff --quiet -- prompts catalog profiles; then
+            echo "No R4 source changes remain to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prompts catalog profiles
+          git commit -m "Apply R4 shared package schema normalization [r4-applied]"
+          git push
