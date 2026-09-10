@@ -5,10 +5,10 @@
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "EXECUTOR_CONTRACT",
   "artifact_class": "AIR_CAPABILITY_TRANSLATION_EXECUTOR_LAYER",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR",
   "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR.EXECUTOR.HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.V2.KNOWLEDGE.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.PATH.BENCHMARK.DOMAIN_PACKAGE.AUTHORITY.RISK.EXECUTION.DISCLOSURE.ACKNOWLEDGEMENT.FAILURE_LOCALIZATION.DATASET_ELIGIBILITY.RAW_TAXONOMY_REJECTION",
   "description": "Bounded non-agent translation layer that decomposes human-oriented occupational, curriculum, certification, competency, job-description and professional frameworks into evidence-bounded machine-native knowledge, cognitive, capability, execution-path, boundary, review and prohibition candidates. It prevents raw human taxonomy from binding directly, supports Detailed Domain Package construction and synthetic benchmark formation, and does not confer human identity, licensure, authority, experience, institutional standing or legal accountability.",
   "created_at": "2026-07-19T19:02:43+02:00",
@@ -48,28 +48,30 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
     "record_mode": "PROMPT_LAYER_APPLIED",
     "backend_enforcement_claimed": false,
     "hidden_reasoning_claimed": false,
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -107,7 +109,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
+      "observed_sha256": "496a53b61df443fc2a0eb3fde3733f8350b42dd1fb8eec3bec639b7db686b3b4"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",
@@ -935,13 +937,176 @@
       "test_evidence_references",
       "reproducibility_limits",
       "additional_evidence_run_required",
-      "regulatory_evidence_requirement_state"
+      "regulatory_evidence_requirement_state",
+      "recommended_mii_routes",
+      "required_mii_routes",
+      "multi_lens_candidate_dimensions",
+      "causal_counterfactual_requirements",
+      "risk_propagation_requirements",
+      "adversarial_disconfirmation_requirements",
+      "decision_tradeoff_requirements",
+      "uncertainty_fusion_requirements",
+      "temporal_system_dynamics_requirements",
+      "information_gain_requirements",
+      "evidence_triangulation_requirements",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "mii_contribution_acceptance_criteria",
+      "uncertainty_resolution_requirements"
     ],
     "raw_source_preservation_required": true,
     "raw_direct_binding_allowed": false,
     "operative_authority": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_AND_COMPILED_OR_REFERENCED_BY_BOUND_ORBIT_0_ARTIFACT",
     "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative.",
-    "new_task_boundary_effect": "Source-bounded translation content may remain reusable candidate material; task-specific selected vectors, execution-mode decisions, knowledge-to-execution path contributions, synthetic benchmark contributions, and other operative downstream effects require revalidation under the newly bound task artifact."
+    "new_task_boundary_effect": "Source-bounded translation content may remain reusable candidate material; task-specific selected vectors, execution-mode decisions, knowledge-to-execution path contributions, synthetic benchmark contributions, and other operative downstream effects require revalidation under the newly bound task artifact.",
+    "required_translation_output_projection": {
+      "knowledge_required": {
+        "path": "$.knowledge_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "conceptual_relations_required": {
+        "path": "$.conceptual_relations_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "procedures_required": {
+        "path": "$.procedures_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "recognition_and_pattern_capabilities": {
+        "path": "$.recognition_and_pattern_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "analysis_capabilities": {
+        "path": "$.analysis_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evaluation_capabilities": {
+        "path": "$.evaluation_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "adaptation_capabilities": {
+        "path": "$.adaptation_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "creation_or_synthesis_capabilities": {
+        "path": "$.creation_or_synthesis_capabilities",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "experience_derived_candidates": {
+        "path": "$.experience_derived_candidates",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "human_bound_elements": {
+        "path": "$.human_bound_elements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "authority_non_transferable": {
+        "path": "$.authority_non_transferable",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evidence_required": {
+        "path": "$.evidence_required",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "representative_tests": {
+        "path": "$.representative_tests",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "recommended_mii_routes": {
+        "path": "$.recommended_mii_routes",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "required_mii_routes": {
+        "path": "$.required_mii_routes",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "multi_lens_candidate_dimensions": {
+        "path": "$.multi_lens_candidate_dimensions",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "causal_counterfactual_requirements": {
+        "path": "$.causal_counterfactual_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "risk_propagation_requirements": {
+        "path": "$.risk_propagation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "adversarial_disconfirmation_requirements": {
+        "path": "$.adversarial_disconfirmation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "decision_tradeoff_requirements": {
+        "path": "$.decision_tradeoff_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "uncertainty_fusion_requirements": {
+        "path": "$.uncertainty_fusion_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "temporal_system_dynamics_requirements": {
+        "path": "$.temporal_system_dynamics_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "information_gain_requirements": {
+        "path": "$.information_gain_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "evidence_triangulation_requirements": {
+        "path": "$.evidence_triangulation_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "semantic_fidelity_requirements": {
+        "path": "$.semantic_fidelity_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "epistemic_sufficiency_requirements": {
+        "path": "$.epistemic_sufficiency_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "morphology_recommendations": {
+        "path": "$.morphology_recommendations",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "mii_contribution_acceptance_criteria": {
+        "path": "$.mii_contribution_acceptance_criteria",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      },
+      "uncertainty_resolution_requirements": {
+        "path": "$.uncertainty_resolution_requirements",
+        "required": true,
+        "projection": "DIRECT_TOP_LEVEL_FIELD"
+      }
+    }
   },
   "review_checkpoints": [
     "Missing or stale source/version/terms/provenance",
@@ -1108,7 +1273,7 @@
     {
       "amendment_id": "AIR_MII_MAJOR_ARCHITECTURE_INTEGRATION_001",
       "amendment_version": "2.2.0",
-      "package_version": "2.4.0",
+      "package_version": "2.5.0",
       "approved_scope": "AIR 2.5.0 MII contribution integration; universal semantic-translation relationship; task-fit multi-lens, causal, risk, uncertainty and morphology recommendations; epistemic sufficiency; evidence/presentation separation; exact Foundation F1 compatibility; no execution/binding authority expansion.",
       "floor_invariants": [
         "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
@@ -1176,15 +1341,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1213,12 +1378,12 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1226,10 +1391,10 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
+      "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_integration_contract": {

@@ -1,0 +1,108 @@
+name: Apply R6 audit remediation
+
+on:
+  push:
+    branches:
+      - audit-remediation-r6-from-r5
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r6:
+    if: ${{ contains(github.event.head_commit.message, '[r6-run]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify R6 support blobs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object tools/apply_r6_remediation.py)" = "62ff2cd9a8195c509799a8ae9a75060283e74fee"
+          test "$(git hash-object tools/validate_air_r6_remediation.py)" = "de825749cf41d624c5a116d937c8ca4edd6d8db4"
+          test "$(git hash-object tools/test_air_r6_mutations.py)" = "fcea45e9bcb9aeb4949dced0b6e58f2465db7c1e"
+          test "$(git hash-object tools/validate_air_suite.py)" = "3662f40da88a056ae14919b287b01ee7c9350821"
+          test "$(git hash-object tools/validate_air_r5_remediation.py)" = "23c3cda8c10134e144c12b29c17d2712f8ab3fba"
+          test "$(git hash-object tools/validate_air_r4_remediation.py)" = "bdb9f0629781ad1504458423f4ceb391db2a255f"
+          test "$(git hash-object tools/validate_air_r3_remediation.py)" = "906a71ca8b8baad9638c84cf897318611260c875"
+          test "$(git hash-object tools/validate_air_r2_remediation.py)" = "3aff1b18c36d4df175eb4ef5467dfba5027f8b54"
+
+      - name: Apply R6 package-local repair
+        run: python3 tools/apply_r6_remediation.py .
+
+      - name: Verify exact R6 change scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/r6-audited-expected.txt <<'EOF'
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json
+          EOF
+          sed -i 's/^          //' /tmp/r6-audited-expected.txt
+          git diff --name-only -- prompts catalog profiles | sort > /tmp/r6-audited-actual.txt
+          diff -u /tmp/r6-audited-expected.txt /tmp/r6-audited-actual.txt
+
+          cat > /tmp/r6-overall-expected.txt <<'EOF'
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json
+          tests/air_contract_fixtures.json
+          tools/validate_air_behavioral_contracts.py
+          EOF
+          sed -i 's/^          //' /tmp/r6-overall-expected.txt
+          git diff --name-only -- prompts catalog profiles tests/air_contract_fixtures.json tools/validate_air_behavioral_contracts.py | sort > /tmp/r6-overall-actual.txt
+          diff -u /tmp/r6-overall-expected.txt /tmp/r6-overall-actual.txt
+
+      - name: Validate R1 through R6 contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/validate_air_contract_registry.py
+          python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_r2_remediation.py
+          python3 tools/validate_air_r3_remediation.py
+          python3 tools/validate_air_r4_remediation.py
+          python3 tools/validate_air_r5_remediation.py
+          python3 tools/validate_air_r6_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/test_air_contract_registry_mutations.py
+          python3 tools/test_air_r1_mutations.py
+          python3 tools/test_air_r2_mutations.py
+          python3 tools/test_air_r3_mutations.py
+          python3 tools/test_air_r4_mutations.py . tools/validate_air_r4_remediation.py
+          python3 tools/test_air_r5_mutations.py . tools/validate_air_r5_remediation.py
+          python3 tools/test_air_r6_mutations.py . tools/validate_air_r6_remediation.py
+          python3 tools/test_air_behavioral_contract_mutations.py
+          python3 tools/test_air_control_plane_mutations.py
+
+      - name: Verify R6 patch idempotence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff -- profiles/governance\ specialist/AIR_AI_GOVERNANCE_SPECIALIST.json profiles/public\ surface\ copywriting\ specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json tests/air_contract_fixtures.json tools/validate_air_behavioral_contracts.py > /tmp/r6-before.diff
+          python3 tools/apply_r6_remediation.py .
+          git diff -- profiles/governance\ specialist/AIR_AI_GOVERNANCE_SPECIALIST.json profiles/public\ surface\ copywriting\ specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json tests/air_contract_fixtures.json tools/validate_air_behavioral_contracts.py > /tmp/r6-after.diff
+          diff -u /tmp/r6-before.diff /tmp/r6-after.diff
+          echo 'R6 patch idempotence: PASS'
+
+      - name: Commit repaired source and behavioral regressions
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- profiles/governance\ specialist/AIR_AI_GOVERNANCE_SPECIALIST.json profiles/public\ surface\ copywriting\ specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json tests/air_contract_fixtures.json tools/validate_air_behavioral_contracts.py; then
+            echo "No R6 changes remain to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json' \
+            'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json' \
+            tests/air_contract_fixtures.json \
+            tools/validate_air_behavioral_contracts.py
+          git commit -m "Apply R6 package-local behavioral remediation [r6-applied]"
+          git push

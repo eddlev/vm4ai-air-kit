@@ -1,0 +1,652 @@
+{
+  "fixture_set": "AIR_SET005_REGRESSION_FIXTURES_V1",
+  "fixture_version": "1.1.0",
+  "foundation_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+  "purpose": "Permanent deterministic and replayable regression definitions for the defect classes repaired in AIR Kit v0.7.1. Fixtures are test definitions, not proof that a model evaluation ran.",
+  "emission_closure_cases": [
+    {
+      "id": "EC-01-FIRST-ACTIVATION",
+      "state": "FIRST_ACTIVATION after onboarding resolves",
+      "required_visible_objects": [
+        "AIR_RUNTIME_BRIDGE",
+        "AIR_SESSION",
+        "AIR_PROJECT_INITIALIZATION_BRIEF",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "failure_example": "alignment/validation pair or Artifact emitted while Initialization Brief or Execution Map is omitted"
+    },
+    {
+      "id": "EC-02-POST-ACTIVATION-COMPATIBLE",
+      "state": "ARTIFACT_COMPATIBLE_RUNTIME_INPUT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "runtime_anchor_required": true
+    },
+    {
+      "id": "EC-03-MATERIAL-AMENDMENT",
+      "state": "MATERIAL_ARTIFACT_AMENDMENT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_ARTIFACT"
+      ],
+      "conditional_visible_objects": [
+        "AIR_PROJECT_EXECUTION_MAP when roadmap/active-step/blocker changed materially"
+      ]
+    },
+    {
+      "id": "EC-04-TASK-SWITCH",
+      "state": "TASK_OR_STEP_REPLACEMENT",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "conditional_visible_objects": [
+        "AIR_SESSION when Orbit state changes"
+      ]
+    },
+    {
+      "id": "EC-05-MATERIAL-ACTION",
+      "state": "material action allowed and attempted",
+      "required_sequence": [
+        "turn-entry alignment pair",
+        "AIR_GATE",
+        "AIR_ACTION_AUTHORIZATION",
+        "effect",
+        "POST_MATERIAL_EFFECT alignment pair",
+        "AIR_ACTION_RECEIPT"
+      ]
+    },
+    {
+      "id": "EC-06-STRICT-HANDOFF",
+      "state": "final strict AIR_HANDOFF_CARD delivery",
+      "required_visible_objects": [
+        "AIR_HANDOFF_CARD raw one-root JSON only"
+      ],
+      "exception": "alignment/evaluation dependencies execute but are serialized in card provenance rather than extra roots"
+    },
+    {
+      "id": "EC-07-ORBIT-RESUME-ATOMIC-BUNDLE",
+      "state": "Return from a completed side task to a paused prior task with Orbit 0 ownership changing",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "atomic_bundle": [
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "invalid_if": "Artifact is rebound/resumed while AIR_SESSION or AIR_PROJECT_EXECUTION_MAP is omitted"
+    },
+    {
+      "id": "EC-08-NEW-SIDE-TASK-ORBIT-BUNDLE",
+      "state": "New independent side task replaces current Orbit 0 execution binding",
+      "required_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "atomic_bundle": [
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "invalid_if": "Task switch emits only Map/Artifact or only Artifact without the changed AIR_SESSION"
+    }
+  ],
+  "copywriting_behavior_cases": [
+    {
+      "id": "CW-BEH-01-MATERIAL-LANDING-PAGE",
+      "input_shape": "Public landing page for a technical product with supplied claims, evidence, audience and page goal.",
+      "expected_specialist_deltas": [
+        "audience/surface-job basis",
+        "source-claim map",
+        "multiple positioning/structure candidates",
+        "counter-reading",
+        "benchmark-based selection rationale",
+        "claim/semantic review"
+      ],
+      "fail_if": [
+        "only polished prose is returned",
+        "unsupported persuasion upgrade",
+        "no candidate contrast despite consequential positioning choice"
+      ]
+    },
+    {
+      "id": "CW-BEH-02-MISSING-DOMAIN-TRUTH",
+      "input_shape": "Public copy request where a material product or regulated claim is not supported by supplied source truth.",
+      "expected_result": "Reject the unsupported claim-specific branch. If that exact claim is necessary, route to EVIDENCE_REQUIRED or the smallest exact required input. If a broader independently satisfiable source-supported remainder exists, AIR may safely fulfill that remainder while keeping the unsupported branch blocked. No invented truth and no domain-authority substitution.",
+      "acceptable_runtime_outcomes": [
+        "EVIDENCE_REQUIRED or exact required-input route for the unsupported claim-specific branch when it is necessary to the requested result",
+        "explicit rejection of the unsupported claim-specific branch plus safe fulfillment of an independently satisfiable source-supported remainder"
+      ],
+      "invariants": [
+        "no invented product or domain truth",
+        "no domain-authority substitution",
+        "unsupported claim-specific branch remains rejected or evidence-blocked",
+        "safe remainder does not imply the rejected claim"
+      ]
+    },
+    {
+      "id": "CW-BEH-03-TRIVIAL-EDIT",
+      "input_shape": "Single low-risk wording cleanup with no material claim, positioning, evidence, or cross-surface burden.",
+      "expected_result": "Specialist ceremony may remain unselected; Default Starter/direct handling remains valid"
+    }
+  ],
+  "method_contract_negative_cases": [
+    {
+      "id": "MC-01",
+      "invalid_if": "METHOD_PACK uses only method_steps and lacks canonical ordered_steps"
+    },
+    {
+      "id": "MC-02",
+      "invalid_if": "ordered step lacks action/preconditions/required_inputs/expected_outputs/evidence_to_advance/failure_behavior/next_step_rule"
+    }
+  ],
+  "handoff_negative_cases": [
+    {
+      "id": "HC-ROOT-01",
+      "invalid_if": "AIR_HANDOFF_CARD contains a root field not declared in required_fields or optional_fields"
+    },
+    {
+      "id": "HC-02-FALSE-HISTORICAL-AUTHORIZATION",
+      "invalid_if": "Strict Handoff invents a historical AIR_ACTION_AUTHORIZATION identity from approval, Gate state, planned sequence, receipt reference, or effect success when no canonical authorization object was observed in the source session"
+    },
+    {
+      "id": "HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE",
+      "invalid_if": "Handoff changes a material effect with missing or unknown authorization state into an authorized historical effect instead of preserving MISSING/UNKNOWN and reconciliation state"
+    }
+  ],
+  "evidence_boundary": {
+    "deterministic_validator_can_prove": [
+      "JSON/schema/manifest/hash/size/line/route contract closure"
+    ],
+    "replayable_model_evaluation_required_for": [
+      "Copywriting behavioral distinctiveness",
+      "cross-model drift rate",
+      "provider/model behavioral compatibility"
+    ],
+    "must_not_claim": [
+      "universal deterministic model behavior",
+      "backend enforcement",
+      "behavioral certification from static checks"
+    ]
+  },
+  "semantic_reseal_negative_cases": [
+    {
+      "id": "SR-01-UNSUPPORTED-BEHAVIORAL-PASS",
+      "invalid_if": "current SET_005 profile/package state claims BEHAVIORAL_REVALIDATION_PASS without a replay manifest for the same Foundation identity with result PASS"
+    },
+    {
+      "id": "SR-02-STALE-HANDOFF-REVISION-RECEIPT",
+      "invalid_if": "a live compatibility receipt for AIR_HANDOFF_CARD_TEMPLATE.json carries card_revision different from the actual template card_revision"
+    },
+    {
+      "id": "SR-03-PACKAGE-COMPONENT-BEHAVIORAL-CONTRADICTION",
+      "invalid_if": "package-level current state says behavioral revalidation pending while a current SET_005 component state says behavioral revalidation PASS"
+    }
+  ],
+  "routine_boot_negative_cases": [
+    {
+      "id": "RB-01-DISPLACED-TERMINAL-SENTINEL",
+      "invalid_if": "a required markdown Foundation sentinel exists but is not the final content line"
+    },
+    {
+      "id": "RB-02-STARTER-SELF-VERSION-MISMATCH",
+      "invalid_if": "AIR_DEFAULT_STARTER_PROFILE PROMPT_VERSION differs from validation_contract.required_version"
+    },
+    {
+      "id": "RB-03-HANDOFF-STARTER-VERSION-MISMATCH",
+      "invalid_if": "Handoff profile_stack.starter_profile identity/version differs from the current Default Starter"
+    }
+  ],
+  "deterministic_pipeline_negative_cases": [
+    {
+      "id": "DP-01-MISSING-REQUIRED-INPUT",
+      "invalid_if": "DETERMINISTIC_PIPELINE fills a missing required input by inference instead of FAIL_CLOSED or exact required-input request"
+    },
+    {
+      "id": "DP-02-REORDER-OR-SKIP",
+      "invalid_if": "DETERMINISTIC_PIPELINE reorders, skips, optimizes away, or silently defaults a declared step"
+    },
+    {
+      "id": "DP-03-COGNITIVE-CONTAMINATION",
+      "invalid_if": "MII, Specialist, heuristic, remembered, or contextual output fills a deterministic slot without an explicit declared ingestion and validation step"
+    },
+    {
+      "id": "DP-04-ROUTER-CONSEQUENCE-INVENTION",
+      "invalid_if": "router/classifier identifies a condition but invents or substitutes the consequence instead of following the declared route table"
+    },
+    {
+      "id": "DP-05-FUTURE-PROJECTION-ORDER",
+      "invalid_if": "Any validation_after_receipt, continuation plan, required-input follow-up, or other surfaced projection reorders declared deterministic steps even when the actual execution later uses the correct order or operations commute"
+    }
+  ],
+  "validation_spine_negative_cases": [
+    {
+      "id": "VS-01-CHILD-VALIDATOR-FAILURE-PROPAGATION",
+      "invalid_if": "a child validator exits non-zero but the canonical suite or CI reports PASS"
+    },
+    {
+      "id": "VS-02-STALE-LIVE-SIBLING-HASH",
+      "invalid_if": "a live operational component carries a hash/size/line receipt that differs from the referenced current component bytes"
+    },
+    {
+      "id": "VS-03-RESEAL-NON-IDEMPOTENCE",
+      "invalid_if": "a second dependency-graph reseal pass would change any candidate byte or live receipt"
+    },
+    {
+      "id": "VS-04-CONTENT-HASH-DEPENDENCY-CYCLE",
+      "invalid_if": "two or more operational files form a cycle of exact content-hash dependencies that cannot be topologically resealed"
+    }
+  ],
+  "deterministic_contract_representation_negative_cases": [
+    {
+      "id": "DCR-01-OPERATIVE-PROSE-PREDICATE",
+      "invalid_if": "an operative deterministic compatibility/load requirement is represented only as a free-form string rather than a typed executable check"
+    },
+    {
+      "id": "DCR-02-DUPLICATED-CANONICAL-LITERAL",
+      "invalid_if": "a deterministic operative value is copied into a secondary current compatibility field when a canonical path reference is available"
+    },
+    {
+      "id": "DCR-03-UNKNOWN-OPERATOR",
+      "invalid_if": "a declared deterministic check uses an operator the registry executor does not implement"
+    },
+    {
+      "id": "DCR-04-UNEXECUTED-CHECK",
+      "invalid_if": "declared deterministic check count differs from executed check count"
+    },
+    {
+      "id": "DCR-05-COVERAGE-MISMATCH",
+      "invalid_if": "declared, implemented, and executed deterministic contract counts are not equal or any allowed-missing count is nonzero"
+    },
+    {
+      "id": "DCR-06-UNRESOLVED-REFERENCE",
+      "invalid_if": "a deterministic check references a missing file, header, JSON path, or manifest path and execution continues by inference"
+    }
+  ],
+  "material_action_transaction_negative_cases": [
+    {
+      "id": "MAT-01-MISSING-TURN-ENTRY",
+      "invalid_if": "material effect approval/effect turn proceeds without its current TURN_ENTRY alignment pair"
+    },
+    {
+      "id": "MAT-02-REVIEW-GATE-IMPLICITLY-UPGRADED",
+      "invalid_if": "prior REVIEW Gate is treated as current ALLOW after approval without constructing and emitting a current ALLOW Gate"
+    },
+    {
+      "id": "MAT-03-MISSING-RESOURCE-SCOPE-PIN",
+      "invalid_if": "material effect authorization proceeds with null or missing exact resource scope pin"
+    },
+    {
+      "id": "MAT-04-AUTHORIZATION-NOT-EMITTED-BEFORE-EFFECT",
+      "invalid_if": "effect is attempted before a canonical matching AIR_ACTION_AUTHORIZATION is constructed and emitted"
+    },
+    {
+      "id": "MAT-05-WRONG-POST-EFFECT-ALIGNMENT-PROFILE",
+      "invalid_if": "post-effect reconciliation uses STATE_TRANSITION or another profile instead of POST_MATERIAL_EFFECT"
+    },
+    {
+      "id": "MAT-06-NONCANONICAL-RECEIPT-SCHEMA",
+      "invalid_if": "AIR_ACTION_RECEIPT uses wrong record_class, lacks current evaluation_basis, or substitutes noncanonical fields for required receipt fields"
+    },
+    {
+      "id": "MAT-07-RECEIPT-AUTHORIZATION-REF-MISMATCH",
+      "invalid_if": "receipt authorization_ref differs from the single-use authorization consumed for the effect"
+    },
+    {
+      "id": "MAT-08-POST-EFFECT-ARTIFACT-CONSTRUCTOR-INVALID",
+      "invalid_if": "post-effect AIR_ARTIFACT is emitted without current evaluation_basis or other canonical constructor requirements"
+    },
+    {
+      "id": "MAT-09-NONCANONICAL-GATE-SCHEMA",
+      "invalid_if": "AIR_GATE is emitted with a noncanonical record_class or constructor shape"
+    }
+  ],
+  "control_plane_semantic_loophole_cases": [
+    {
+      "id": "CP-01-APPROVAL-EXACT-TOKEN",
+      "input": "open approval scope then exact AIR_APPROVE token",
+      "expected": [
+        "TURN_ENTRY pair",
+        "ALLOW Gate",
+        "Authorization",
+        "surfaced-object ledger before effect"
+      ],
+      "fail_if": [
+        "effect before ledgered Authorization",
+        "natural-language-only implicit approval"
+      ]
+    },
+    {
+      "id": "CP-02-REJECTION-EXACT-TOKEN",
+      "input": "open approval scope then exact AIR_REJECT token",
+      "expected": [
+        "TURN_ENTRY pair",
+        "REJECT Gate",
+        "surfaced-object ledger",
+        "no effect"
+      ],
+      "fail_if": [
+        "Authorization emitted",
+        "effect attempted"
+      ]
+    },
+    {
+      "id": "CP-03-NONEXACT-APPROVAL",
+      "input": "ambiguous or paraphrased approval response",
+      "expected": [
+        "REVIEW",
+        "request exact declared token",
+        "no effect"
+      ],
+      "fail_if": [
+        "approval inferred"
+      ]
+    },
+    {
+      "id": "CP-04-AUTHORITY-LEDGER-BARRIER",
+      "input": "constructed Authorization without visible ledger entry",
+      "expected": [
+        "effect blocked"
+      ],
+      "fail_if": [
+        "constructed internal state unlocks effect"
+      ]
+    },
+    {
+      "id": "CP-05-UNTYPED-ROUTE-TRIGGER",
+      "input": "deterministic route lacks control_event_ref or operative trigger is free text",
+      "expected": [
+        "static validation fail closed"
+      ]
+    }
+  ],
+  "handoff_file_delivery_cases": [
+    {
+      "id": "HF-01-FILE-ONLY",
+      "expected": [
+        "AIR_HANDOFF_CARD.json download",
+        "no inline card payload",
+        "strict JSON parse pass",
+        "duplicate-key pass"
+      ]
+    },
+    {
+      "id": "HF-02-POSTWRITE-VALIDATION",
+      "expected": [
+        "reopen exact written bytes",
+        "schema/provenance validation before link"
+      ]
+    },
+    {
+      "id": "HF-03-NO-FILE-CAPABILITY",
+      "expected": [
+        "fail closed",
+        "no inline fallback"
+      ]
+    },
+    {
+      "id": "HF-04-LEDGER-PROVENANCE",
+      "expected": [
+        "historical surfaced objects copied only from surfaced-object ledger"
+      ],
+      "fail_if": [
+        "unledgered object labelled surfaced"
+      ]
+    },
+    {
+      "id": "HF-05-FULL-SURFACED-HISTORY",
+      "setup": "session emits alignment, validation, Session, Map, Artifact, Gate, Authorization, Receipt, Prior Effect, Failure Mode and ledger objects before Handoff",
+      "expected": [
+        "surfaced_object_ledger_state required",
+        "all ledgered pre-file formal objects represented by exact canonical snapshots",
+        "each snapshot re-hashes to its emission hash",
+        "capture cutoff declared",
+        "post-freeze Handoff delivery objects excluded explicitly"
+      ],
+      "fail_if": [
+        "ledger entry omitted without declared boundary",
+        "snapshot invented or mutated",
+        "hash mismatch",
+        "historical object gains execution authority"
+      ]
+    }
+  ],
+  "failure_mode_learning_cases": [
+    {
+      "id": "FM-01-RETRY-EXACT-MATCH",
+      "setup": "first attempt produces evidenced reusable failure mode",
+      "next_attempt": "same applicability signature without user reminder",
+      "expected": [
+        "stable failure_mode_id",
+        "registry query before retry",
+        "corrective constraint compiled into Artifact",
+        "prohibited retry pattern not repeated"
+      ]
+    },
+    {
+      "id": "FM-02-MITIGATION-RETENTION",
+      "setup": "corrected retry passes",
+      "expected": [
+        "state MITIGATED_RETAIN_FOR_REGRESSION",
+        "record retained"
+      ]
+    },
+    {
+      "id": "FM-03-RECURRENCE",
+      "setup": "same exact failure recurs after mitigation",
+      "expected": [
+        "recurrence_count increment",
+        "state RECURRENT",
+        "root-cause/corrective-constraint review"
+      ]
+    },
+    {
+      "id": "FM-04-COMPATIBLE-NOT-EXACT",
+      "setup": "similar but non-exact task",
+      "expected": [
+        "failure record may enter review/cognition",
+        "no automatic operative constraint without Artifact compilation"
+      ]
+    },
+    {
+      "id": "FM-05-SPECIALIST-PACKAGE",
+      "setup": "failure occurs in bound Specialist/Method/Domain/Executor component",
+      "expected": [
+        "failure observation proposed to Core",
+        "Core owns record",
+        "next exact specialist execution queries registry"
+      ],
+      "fail_if": [
+        "private Specialist failure registry",
+        "specialist mutates Core registry"
+      ]
+    },
+    {
+      "id": "FM-06-HANDOFF-PERSISTENCE",
+      "setup": "failure registry non-empty then handoff",
+      "expected": [
+        "failure_mode_state serialized",
+        "IDs/evidence/applicability/corrective/retest/recurrence preserved",
+        "restore as UNVALIDATED_BOOTSTRAP_INPUT"
+      ]
+    },
+    {
+      "id": "FM-07-FIRST-EMISSION-LEDGER-RESERVATION",
+      "setup": "new evidenced reusable failure mode has no prior surfaced ledger entry",
+      "expected": [
+        "reserve next ledger_entry_ref without committing visibility",
+        "construct failure record with reserved source_ledger_entry_ref",
+        "hash and visibly emit exact failure record",
+        "commit matching USER_VISIBLE_EMITTED ledger entry with same ref and exact hash",
+        "only then allow persistence/retry/Handoff resolution"
+      ],
+      "fail_if": [
+        "record emitted with null or invented source_ledger_entry_ref",
+        "reservation treated as emitted history or authority",
+        "ledger entry hash differs from exact emitted failure record",
+        "dependency or Handoff resolves the ref before entry commit"
+      ]
+    },
+    {
+      "id": "FM-08-FAILURE-LEDGER-REF-MISMATCH",
+      "setup": "failure record carries a source_ledger_entry_ref that resolves to a different object/ref/hash",
+      "expected": [
+        "fail closed for persistence and automatic applicability",
+        "do not repair reference by semantic inference"
+      ],
+      "fail_if": [
+        "mismatched entry accepted",
+        "record auto-applied despite unresolved or mismatched self-ledger identity"
+      ]
+    }
+  ],
+  "r2_formal_object_contract_cases": [
+    {
+      "id": "R2-FO-01-FORMAL-CLASS-CLOSURE",
+      "invalid_if": "reserved Core formal object with closed-world field schema is absent from canonical formal-object class registry"
+    },
+    {
+      "id": "R2-FO-02-ARTIFACT-TRACE-REGISTRATION",
+      "invalid_if": "prompt_layer_qualitative_trace is required/used but absent from AIR_ARTIFACT allowed field registry"
+    },
+    {
+      "id": "R2-GATE-01-NONCANONICAL-HOLD",
+      "invalid_if": "HOLD is referenced as an AIR_GATE decision/state without being in canonical Gate enum"
+    },
+    {
+      "id": "R2-AUTH-01-REJECT-AUTHORIZATION",
+      "invalid_if": "AIR_ACTION_AUTHORIZATION accepts REJECT without an explicit canonical reject-authorization lifecycle"
+    },
+    {
+      "id": "R2-GOV-01-RETIRED-GATE-PATHS",
+      "invalid_if": "Governance source-rights mapping targets evidence_check/allowed_action_check/stop_condition_check instead of AIR_GATE.evaluation_checks nested paths"
+    }
+  ],
+  "r6_package_local_behavior_cases": [
+    {
+      "id": "GOV-BEH-01-ALREADY-SATISFIED",
+      "finding": "AIR-AUD-053",
+      "input": {
+        "missing_material_required_inputs": []
+      },
+      "expected": {
+        "emit_user_information_request": false,
+        "action": "ACKNOWLEDGE_CURRENT_SOURCE_ACCESS_STATE"
+      }
+    },
+    {
+      "id": "GOV-BEH-02-ONE-MISSING",
+      "finding": "AIR-AUD-053",
+      "input": {
+        "missing_material_required_inputs": [
+          "Target jurisdictions and sectors"
+        ]
+      },
+      "expected": {
+        "emit_user_information_request": true,
+        "action": "REQUEST_SMALLEST_EXACT_MISSING_INPUT",
+        "requested_inputs": [
+          "Target jurisdictions and sectors"
+        ]
+      }
+    },
+    {
+      "id": "CW-BEH-04-FURTHER-SEARCH-NO-PASS",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "NO_PASS_CANDIDATE",
+        "further_search_justified": true,
+        "proportional_stopping_basis_recorded": false,
+        "material_unresolved_domination": true
+      },
+      "expected": {
+        "advance_to_cw07": false,
+        "next_step": "CW04_FORM_CANDIDATE_STRUCTURE"
+      }
+    },
+    {
+      "id": "CW-BEH-05-PASS-AND-STOPPED",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "PASS_CANDIDATE",
+        "further_search_justified": false,
+        "proportional_stopping_basis_recorded": true,
+        "material_unresolved_domination": false
+      },
+      "expected": {
+        "advance_to_cw07": true,
+        "next_step": "CW07_REVIEW_COPY_IN_SCOPE"
+      }
+    },
+    {
+      "id": "CW-BEH-06-PASS-BUT-FURTHER-SEARCH",
+      "finding": "AIR-AUD-056",
+      "input": {
+        "candidate_contribution_state": "PASS_CANDIDATE",
+        "further_search_justified": true,
+        "proportional_stopping_basis_recorded": false,
+        "material_unresolved_domination": false
+      },
+      "expected": {
+        "advance_to_cw07": false,
+        "next_step": "CW04_FORM_CANDIDATE_STRUCTURE"
+      }
+    }
+  ],
+  "r7_lifecycle_reseal_cases": [
+    {
+      "id": "R7-LC-01-CANDIDATE-NOT-RELEASED",
+      "finding_ids": [
+        "AIR-AUD-006",
+        "AIR-AUD-073"
+      ],
+      "invalid_if": "a SET_005/V071 release-candidate entry uses RELEASE_CATALOG_ENTRY before external release sealing"
+    },
+    {
+      "id": "R7-LC-02-BEHAVIORAL-EVIDENCE-BOUNDARY",
+      "finding_ids": [
+        "AIR-AUD-032",
+        "AIR-AUD-042",
+        "AIR-AUD-048",
+        "AIR-AUD-055",
+        "AIR-AUD-058"
+      ],
+      "invalid_if": "current component or package state claims behavioral PASS without a replayable/model-host evidence manifest for the exact current Foundation identity"
+    },
+    {
+      "id": "R7-LC-03-HISTORY-IMMUTABLE",
+      "finding_ids": [
+        "AIR-AUD-074"
+      ],
+      "invalid_if": "current dependency reseal rewrites t7_change_record, historical_release_catalogs, source_baseline, mainline_release_binding, or another explicitly historical container"
+    },
+    {
+      "id": "R7-LC-04-SFV-PACKAGE-VERSION-SOURCE",
+      "finding_ids": [
+        "AIR-AUD-061"
+      ],
+      "invalid_if": "SFV Method duplicates a stale required_package_version literal instead of checking the canonical top-level package_version"
+    },
+    {
+      "id": "R7-LC-05-GOVERNANCE-COMPONENT-ROLES",
+      "finding_ids": [
+        "AIR-AUD-050"
+      ],
+      "invalid_if": "Governance reseal records null component_roles_observed instead of the actual manifest roles"
+    }
+  ]
+}

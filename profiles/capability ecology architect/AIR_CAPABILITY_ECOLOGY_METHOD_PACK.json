@@ -5,10 +5,10 @@
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "METHOD_PACK",
   "artifact_class": "AIR_METHOD_PACK",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "CAPABILITY_ECOLOGY_RECONSTRUCTION_SELECTION_AND_DOMAIN_CONSTRUCTION",
   "profile_function_class": "METHOD_PACK",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR-METHOD-CAPABILITY-ECOLOGY-V2",
   "description": "Reusable evidence-gated method for reconstructing the complete relevant capability envelope, translating human-oriented knowledge frameworks into bounded machine-native requirements, compiling knowledge-to-execution paths and synthetic benchmarks, applying risk and proportionality, constructing candidate Detailed Domain Packages, and selecting the smallest sufficient operative capability set for compilation into the sole bound Orbit 0 AIR_ARTIFACT.",
   "remediated_at": "2026-08-28T21:05:00+02:00",
@@ -34,47 +34,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+        "size_bytes": 394118,
+        "line_count": 7656
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "f4c2026b927e2c99d5fa88bf4bd8a15cf22f254672dc5d8a4ec1c6f2b5a34536",
+        "size_bytes": 165616,
+        "line_count": 3269
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "bf7d8bf7b857f6472a39e889f31d9de9ae605e07846f00ead4e92301b92ac1fe",
+        "size_bytes": 29297,
+        "line_count": 550
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "b9d1e30c696238eb6a95f6bef1d5da2e1e0049cd888b33dc0546696717f561d3",
+        "size_bytes": 161424,
+        "line_count": 3429
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "009482e03559934626ce6cab1578e9f9a3a72022bfb23dc6eae19c06eed01ad7",
+        "size_bytes": 110310,
+        "line_count": 2074
       }
     ],
     "required_floor_invariants": [
@@ -89,10 +89,12 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
     "method_layer_law": "AIR_METHOD_LAYER_V2",
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "required_foundation_files": [
       "AIR_CORE_RUNTIME.md",
       "AIR_CONTROL_SURFACE.md",
@@ -101,21 +103,21 @@
       "AIR_HANDOFF_CARD_TEMPLATE.json"
     ],
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -153,19 +155,19 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "e0b492a15a916fcae0a08f0315effb040a3d79fae6dbedbe53b8d84833ec895f"
+      "observed_sha256": "496a53b61df443fc2a0eb3fde3733f8350b42dd1fb8eec3bec639b7db686b3b4"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "e2fc862ea1420fd578144a91e8b3252aca9fdad138b5d6c07bf48612e86ecc42"
+      "observed_sha256": "5f9fbb7e05293c1f16f31dbc0614fcafcbf9be577abcb8ae5070c8e88a6f20ae"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "9058c0f72b6118fc9276b6253e084f49c4b12a6366f38ba09c5465a491f14bd3"
+      "observed_sha256": "b623efb359904a4616d0e6cd148b4273e26686cec00abf4cf92c8ae406c317a6"
     },
     "package_manifest": {
       "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
@@ -286,7 +288,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "8bde91ab64770477cb61c8d87664d27686d61f5bfa4afb6029453cba89be6f3d",
+      "sha256": "b623efb359904a4616d0e6cd148b4273e26686cec00abf4cf92c8ae406c317a6",
       "required_for": [
         "all branches"
       ]
@@ -294,7 +296,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "122e2821a42370531246e00a036c930f46fc3b1e3f026f23de908ebdd2d4318d",
+      "sha256": "496a53b61df443fc2a0eb3fde3733f8350b42dd1fb8eec3bec639b7db686b3b4",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -304,7 +306,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "77aac666ea6d7380e312ecc4db4369156ad9531b7b8cdb4214f675ad56a471b5",
+      "sha256": "5f9fbb7e05293c1f16f31dbc0614fcafcbf9be577abcb8ae5070c8e88a6f20ae",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",
@@ -353,7 +355,7 @@
       "BLOCKED_BY_CONTRACT",
       "BLOCKED_BY_STALENESS"
     ],
-    "completion_rule": "A method step cannot become COMPLETE without its declared evidence_to_advance unless an explicit permitted waiver is recorded. The whole method cannot become COMPLETE while a required branch step is BLOCKED, REVIEW, FAILED, INVALIDATED or stale.",
+    "completion_rule": "A method step cannot become COMPLETE without its declared evidence_to_advance unless an exact matching AIR_METHOD_EVIDENCE_WAIVER is recorded, permitted, current for this method/step/requirement, and referenced by step_evidence_waiver_refs. Free text, generic approval, or reconstructed state never satisfies the exception. The whole method cannot become COMPLETE while a required branch step is BLOCKED, REVIEW, FAILED, INVALIDATED or stale.",
     "gate_precedence": "AIR_GATE is stricter when AIR_GATE and method_step_gate disagree.",
     "execution_proof_boundary": "Method execution state is a governance record, not backend proof, tool proof, external outcome proof or professional competence proof."
   },
@@ -502,7 +504,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -527,7 +529,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -550,7 +552,7 @@
         "M1",
         "M2",
         "M3",
-        "M4_WHEN_TRIGGERED",
+        "M4",
         "M5",
         "M6",
         "M7",
@@ -610,24 +612,7 @@
         "mandatory regulatory evidence is not marked satisfied by the toggle alone"
       ],
       "failure_behavior": "Route missing or mismatched files to AIR_REQUIRED_INPUT_REQUEST and EVIDENCE_REQUIRED; route multiple or absent Orbit 0 authority to ARTIFACT_BINDING_RECOVERY; mark stale state STALE_NEEDS_REGROUND.",
-      "next_step_rule": "Advance to M1 for execution branches; for compatibility review, proceed to M2 after package inventory is established.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
-        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "SOURCE_ACQUISITION_AND_CLASSIFICATION"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      },
-      "new_task_boundary_behavior": "If current Orbit 0 task identity differs from the prior method state, mark prior task-operative method state STALE_NEEDS_REGROUND and restart at the earliest task-dependent step before any operative reuse."
+      "next_step_rule": "Advance to M1 for execution branches; for compatibility review, proceed to M2 after package inventory is established."
     },
     {
       "step_id": "M1",
@@ -654,23 +639,7 @@
         "task center remains aligned with Orbit 0"
       ],
       "failure_behavior": "Use REVIEW for resolvable ambiguity, RESCOPE_REQUIRED for a changed task center, and continue only independent safe work when the affected action is suspended.",
-      "next_step_rule": "Advance to M2 when routing inputs are sufficient.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
-        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M2 when routing inputs are sufficient."
     },
     {
       "step_id": "M2",
@@ -698,23 +667,7 @@
         "satisfied requests are not repeated"
       ],
       "failure_behavior": "Use EVIDENCE_REQUIRED for blocking absence, REVIEW for identity or compatibility ambiguity, PROVISIONAL_ALLOW only for bounded planning, and REJECT when source rights or integrity prohibit use.",
-      "next_step_rule": "Advance to M3 when sufficient routing evidence exists; compatibility review may advance directly to M12 after all component checks.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
-        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "SOURCE_ACQUISITION_AND_CLASSIFICATION"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M3 when sufficient routing evidence exists; compatibility review may advance directly to M12 after all component checks."
     },
     {
       "step_id": "M3",
@@ -743,23 +696,7 @@
         "no Domain Package is fabricated"
       ],
       "failure_behavior": "Request the Registry or complete package when required; use REVIEW for material domain ambiguity; route new detailed-domain need to the Domain Package branch.",
-      "next_step_rule": "Advance to M4 when material human-oriented frameworks are present; otherwise record M4 as SKIPPED_APPROVED with reason and advance to M5.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
-        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M4 when material human-oriented frameworks are present; otherwise record M4 as SKIPPED_APPROVED with reason and advance to M5."
     },
     {
       "step_id": "M4",
@@ -789,23 +726,7 @@
         "acknowledgement does not upgrade prohibited execution"
       ],
       "failure_behavior": "Use EVIDENCE_REQUIRED for missing framework sources, REVIEW for unresolved transfer boundaries, and REJECT for attempted human-status or authority transfer.",
-      "next_step_rule": "Advance to M5 when translation is complete; if not triggered, retain explicit SKIPPED_APPROVED evidence.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
-        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M5 when translation is complete; if not triggered, retain explicit SKIPPED_APPROVED evidence."
     },
     {
       "step_id": "M5",
@@ -834,24 +755,7 @@
         "experience-derived claims are sourced and bounded"
       ],
       "failure_behavior": "Route missing conceptual, metacognitive or experience evidence to REVIEW or EVIDENCE_REQUIRED; reject simulated expertise and unsupported intuition.",
-      "next_step_rule": "Advance to M6 when the knowledge-processing envelope is sufficient to expand capabilities.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
-        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
-        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M6 when the knowledge-processing envelope is sufficient to expand capabilities."
     },
     {
       "step_id": "M6",
@@ -880,23 +784,7 @@
         "dependencies, conflicts and source needs are explicit"
       ],
       "failure_behavior": "Use REVIEW when omission risk remains material; request missing sources or Specialists; do not silently expand the task center.",
-      "next_step_rule": "Advance to M7 when the candidate envelope is complete enough for path and benchmark construction.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
-        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M7 when the candidate envelope is complete enough for path and benchmark construction."
     },
     {
       "step_id": "M7",
@@ -925,31 +813,7 @@
         "benchmark can approve, review or reject using observable evidence without claiming private reasoning"
       ],
       "failure_behavior": "Set REVIEW_REQUIRED or REJECTED_INSUFFICIENT_PATH for missing stages, applicability, exception analysis, result evaluation, human-boundary or evidence requirements.",
-      "next_step_rule": "Advance to M8 when the path is structurally complete for risk and proportionality evaluation.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "SOURCE_ACQUISITION_AND_CLASSIFICATION",
-        "COMPREHENSION_AND_CONCEPTUAL_RELATION",
-        "CONTEXTUALIZATION_AND_APPLICABILITY_ANALYSIS",
-        "ASSUMPTION_BOUNDARY_AND_CONDITION_TESTING",
-        "ALTERNATIVE_EXCEPTION_AND_FAILURE_ANALYSIS",
-        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
-        "ADAPTATION_AND_EXECUTION_PLANNING",
-        "EXECUTION",
-        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
-        "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M8 when the path is structurally complete for risk and proportionality evaluation."
     },
     {
       "step_id": "M8",
@@ -978,22 +842,7 @@
         "overengineering and underengineering risks are both evaluated"
       ],
       "failure_behavior": "Use BLOCKED_BY_CONTRACT or REJECT for floor conflicts; REVIEW for resolvable proportionality ambiguity; RESCOPE_REQUIRED when adequate controls change the task center.",
-      "next_step_rule": "Advance to M9 when selection constraints are explicit.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M9 when selection constraints are explicit."
     },
     {
       "step_id": "M9",
@@ -1021,23 +870,7 @@
         "selection is candidate-only until compiled into Orbit 0"
       ],
       "failure_behavior": "Return to M6 or M7 when selection reveals a missing dependency or benchmark hole; use REVIEW when sufficiency cannot be established.",
-      "next_step_rule": "Advance to M10 when the candidate set is coherent.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "DOMAIN_JUDGMENT_AND_PROPORTIONALITY",
-        "ADAPTATION_AND_EXECUTION_PLANNING"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M10 when the candidate set is coherent."
     },
     {
       "step_id": "M10",
@@ -1064,22 +897,7 @@
         "synthetic roles do not transfer human identity or authority"
       ],
       "failure_behavior": "Use REVIEW for incomplete candidate structure, EVIDENCE_REQUIRED for missing source backing, and REJECT for authority or fixture-runtime violations.",
-      "next_step_rule": "Advance to M11 when fixture or representative-task evaluation applies; otherwise record M11 as SKIPPED_APPROVED and advance to M12.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "ADAPTATION_AND_EXECUTION_PLANNING"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M11 when fixture or representative-task evaluation applies; otherwise record M11 as SKIPPED_APPROVED and advance to M12."
     },
     {
       "step_id": "M11",
@@ -1119,22 +937,7 @@
         "prior standard-presentation runs are not retroactively reconstructed"
       ],
       "failure_behavior": "Route failed golden cases or accepted negative cases to REJECTED_INSUFFICIENT_PATH or REVIEW; prohibit Domain Package promotion until required tests pass. If full evidence is required but unavailable, route to EVIDENCE_REQUIRED. If full mode was enabled only after the prior run, require a new authorized run and do not reconstruct prior evidence.",
-      "next_step_rule": "Advance to M12 when evaluation evidence is complete or a clear REVIEW/REJECT decision is established.",
-      "applicable_branches": [
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "EXECUTION",
-        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "Advance to M12 when evaluation evidence is complete or a clear REVIEW/REJECT decision is established."
     },
     {
       "step_id": "M12",
@@ -1163,7 +966,7 @@
         "exact evidence references or visible standard-presentation limitation"
       ],
       "evidence_to_advance": [
-        "no step is closed without evidence or permitted waiver",
+        "no step is closed without evidence or exact matching AIR_METHOD_EVIDENCE_WAIVER",
         "method completion is not represented as task execution proof",
         "receiver delivery state is explicit",
         "unresolved inputs and stale dependencies survive handoff",
@@ -1172,24 +975,7 @@
         "prior standard-presentation evidence is not retroactively fabricated"
       ],
       "failure_behavior": "If evidence is missing, emit EVIDENCE_REQUIRED or REVIEW and keep method incomplete. If a hard boundary fails, emit REJECT. If the task center changed, emit RESCOPE_REQUIRED. Otherwise return candidate outputs to the bound Orbit 0 benchmark.",
-      "next_step_rule": "End the method invocation; any later resumption must revalidate freshness, package identity, required inputs and the bound Orbit 0 artifact.",
-      "applicable_branches": [
-        "ACTIVE_TASK_CAPABILITY_ENVELOPE",
-        "SYNTHETIC_ROLE_AND_EXECUTION_BENCHMARK",
-        "DETAILED_DOMAIN_PACKAGE_CONSTRUCTION_OR_AMENDMENT",
-        "CAPABILITY_ECOLOGY_PACKAGE_COMPATIBILITY_REVIEW"
-      ],
-      "knowledge_to_execution_stage_links": [
-        "RESULT_EVALUATION_AND_ERROR_LOCALIZATION",
-        "UPDATE_ESCALATION_OR_REVALIDATION_SIGNAL"
-      ],
-      "method_step_gate_effects": {
-        "ALLOW": "advance when evidence_to_advance is satisfied",
-        "REVIEW": "suspend only the affected action and request the smallest resolving input",
-        "EVIDENCE_REQUIRED": "request the exact missing source, file, package, tool, credential, approval or user action",
-        "REJECT": "stop the affected branch when a hard authority, safety, integrity or claim boundary fails",
-        "RESCOPE_REQUIRED": "return to the bound Orbit 0 AIR_ARTIFACT for explicit task-center amendment"
-      }
+      "next_step_rule": "End the method invocation; any later resumption must revalidate freshness, package identity, required inputs and the bound Orbit 0 artifact."
     }
   ],
   "proportionality_contract": {
@@ -1236,27 +1022,51 @@
     "new_task_boundary_rule": "A Core NEW_TASK_BOUNDARY, replacement of the Orbit 0 task identity, or binding of a different task AIR_ARTIFACT invalidates prior task-operative Capability Ecology state. Reusable source-derived material may remain available as candidate input, but task execution envelopes, selected capability sets, Session Domain Overlays, synthetic benchmark/path contributions, and execution-specific translation effects must be revalidated against the newly bound task artifact before becoming operative."
   },
   "handoff_requirements": {
-    "required_fields": [
-      "method_id and version",
-      "active branch",
-      "method_execution_state",
-      "current and completed step states",
-      "step evidence ledger",
-      "component designations, filenames and hashes",
-      "bound Orbit 0 artifact identity",
-      "selected, deferred and rejected capabilities",
-      "domain matches and Domain Package references",
-      "knowledge dimensions and cognitive depth",
-      "knowledge-to-execution path state",
-      "fixture or representative-task results",
-      "required-input request state",
-      "blockers, approvals and next gate",
-      "staleness and rebind triggers",
-      "test-evidence mode, mode source and effective-from boundary",
-      "test-evidence recommendation and regulatory evidence obligation state",
-      "produced suite, run manifest, per-test result, log, fixture and README references",
-      "test-evidence class, reproducibility limits, sanitization state and rerun requirement"
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_METHOD_CAPABILITY_ECOLOGY_RECONSTRUCTION_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
     ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_METHOD_CAPABILITY_ECOLOGY_RECONSTRUCTION_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "active_branch",
+        "step_state_by_id",
+        "step_evidence_refs",
+        "step_evidence_waiver_refs",
+        "component_receipts",
+        "selected_capability_refs",
+        "deferred_capability_refs",
+        "rejected_capability_refs",
+        "domain_match_refs",
+        "domain_package_refs",
+        "knowledge_dimension_state",
+        "cognitive_depth_state",
+        "knowledge_to_execution_path_ref",
+        "representative_task_result_refs",
+        "required_input_request_refs",
+        "test_evidence_state_ref"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
     "continuation_rule": "A Handoff Card is continuation-bootstrap input only. The receiver must validate the card, exact required files, source state and exactly one Orbit 0 artifact before restoring method state. Restore AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY state without treating a handoff reference as proof of test execution or regulatory sufficiency.",
     "missing_file_rule": "Fail closed for the affected action and name the exact missing canonical file or smallest resolving capability role."
   },
@@ -1459,7 +1269,7 @@
     {
       "amendment_id": "AIR_MII_MAJOR_ARCHITECTURE_INTEGRATION_001",
       "amendment_version": "2.2.0",
-      "package_version": "2.4.0",
+      "package_version": "2.5.0",
       "approved_scope": "AIR 2.5.0 MII contribution integration; universal semantic-translation relationship; task-fit multi-lens, causal, risk, uncertainty and morphology recommendations; epistemic sufficiency; evidence/presentation separation; exact Foundation F1 compatibility; no execution/binding authority expansion.",
       "floor_invariants": [
         "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
@@ -1527,15 +1337,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1564,12 +1374,12 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1577,10 +1387,10 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
+      "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_method_integration_contract": {
@@ -1623,5 +1433,27 @@
     "morphology_owner": "RT.MORPHOLOGY_BIND",
     "uncertainty_owner": "RT.UNCERTAINTY_RESOLVE",
     "operative_boundary": "Method outputs are candidate content only until validated and compiled into the bound AIR_ARTIFACT benchmark."
+  },
+  "evidence_waiver_contract": {
+    "formal_object": "AIR_METHOD_EVIDENCE_WAIVER",
+    "waiver_scope": "METHOD_STEP_EVIDENCE_TO_ADVANCE_ONLY",
+    "allowed_permission_basis_types": [
+      "EXPLICIT_USER_APPROVAL"
+    ],
+    "method_policy_waiver_enabled": false,
+    "required_match_fields": [
+      "method_identity",
+      "method_version",
+      "step_id",
+      "waived_requirement",
+      "artifact_scope_ref"
+    ],
+    "accepted_validity_states": [
+      "ACTIVE_CURRENT",
+      "APPLIED_RECORDED"
+    ],
+    "completion_rule": "A COMPLETE step with missing evidence_to_advance must have exactly one matching current or applied AIR_METHOD_EVIDENCE_WAIVER reference for the missing requirement. Revoked, expired, mismatched, free-text, or unresolved refs fail the completion predicate.",
+    "handoff_persistence_path": "$.execution_state.method_handoff_state.method_specific_state.step_evidence_waiver_refs",
+    "positive_execution_authority": "NONE"
   }
 }

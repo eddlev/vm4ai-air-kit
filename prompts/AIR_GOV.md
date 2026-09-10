@@ -11,6 +11,7 @@ This supplement is additive governance law for AIR v2.
 It is subordinate to AIR Core Runtime for canonical object classes, state vocabularies, gate decisions, receiver delivery states, binding rules, and floor invariants.
 It may tighten governance requirements. It may not weaken, rename, or replace Core-owned law.
 It does not claim backend enforcement, legal authority, certification, compliance, or access to hidden reasoning.
+Governance may not convert natural-language guidance into deterministic control authority; AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION remains Core-owned and binding on deterministic validation surfaces.
 
 ==================================================
 GOVERNANCE SUPPLEMENT PURPOSE AND BOUNDARY
@@ -48,8 +49,9 @@ Governance is subordinate to AIR Core Runtime for canonical route semantics, ali
 
 Rules:
 - Governance may tighten a Core dependency or add domain/governance constraints to a bound benchmark.
-- Governance must not create an alternate route for RT.ALIGN, RT.INPUT_TRANSLATE, RT.COGNITIVE_RESOLVE, RT.UNCERTAINTY_RESOLVE, RT.CAPABILITY_RESOLVE, RT.ACTION, RT.RECEIPT, RT.DELIVER, RT.CLOSE, or RT.HANDOFF_CREATE.
+- Governance must not create an alternate route for RT.ALIGN, RT.INPUT_TRANSLATE, RT.COGNITIVE_RESOLVE, RT.UNCERTAINTY_RESOLVE, RT.CAPABILITY_RESOLVE, RT.APPROVAL_RESOLVE, RT.ACTION, RT.RECEIPT, RT.DELIVER, RT.CLOSE, or RT.HANDOFF_CREATE.
 - Governance findings are candidate benchmark/governance contributions until compiled into or explicitly referenced by the bound Orbit 0 AIR_ARTIFACT.
+- Governance may not infer, substitute, optimize, reorder, skip, or default a Core-declared DETERMINISTIC_PIPELINE step or slot; AIR-FLOOR-025 remains Core-owned.
 - A governance projection, framework mapping, risk finding, approval record, or evidence record never grants positive execution authority by itself.
 
 ==================================================
@@ -113,6 +115,13 @@ Every material approval gate must carry an open_approval_scope record with:
 - approval_state
 - approval_source
 - approval_recorded_at when a reliable timestamp is available
+- operational_response_tokens for material action approval scopes
+- approval_response_mode
+
+Allowed approval_response_mode values:
+- EXACT_CANONICAL_SCOPE_TOKEN_PAIR
+
+For a material scope, operational_response_tokens is valid only when it is the exact two-element set derived from approval_scope_id: AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>, with no substitution, alias, duplicate, or extra token. Restored scopes must re-run this derivation check before Core approval resolution can consume the set.
 
 Allowed approval_state values:
 - NOT_OPEN
@@ -186,9 +195,12 @@ floor_invariant_reference:
 - resolution_state
 
 Allowed resolution_state values:
+- UNRESOLVED
 - RESOLVED
 - REVIEW_REQUIRED
 - REJECTED
+
+UNRESOLVED is a bootstrap/serialization value only. It has no positive authority and must transition to RESOLVED, REVIEW_REQUIRED, or REJECTED before Governance-dependent operative use.
 
 Rules:
 1. The canonical invariant definitions remain in Core Runtime. This supplement references them by identifier and does not duplicate or redefine their text.
@@ -199,7 +211,7 @@ Rules:
 6. A component may tighten a floor invariant only when the tighter rule is explicit, compatible, and identified in tightened_invariant_ids.
 7. An attempted relaxation must identify the component, invariant ID, conflicting text or state, and the resulting AIR_GATE decision.
 8. Operative floor references must use the Core registry canonical named identifiers. Numeric-only AIR-FLOOR-### values are migration or historical aliases only and must be normalized through the Core alias map before governance resolution; alias normalization does not create a second invariant.
-9. The active registry includes AIR-FLOOR-021 through AIR-FLOOR-024. Governance may tighten them but may not redefine alignment-evaluation dependency, semantic fidelity, epistemic sufficiency, or MII contribution authority.
+9. The active registry includes AIR-FLOOR-021 through AIR-FLOOR-027. Governance may tighten them but may not redefine alignment-evaluation dependency, semantic fidelity, epistemic sufficiency, MII contribution authority, deterministic-pipeline non-inference, deterministic control representation, or failure-mode learning/retry semantics.
 
 ==================================================
 GOVERNANCE SOURCE RIGHTS
@@ -272,7 +284,13 @@ Rules:
 9. Source-rights state is project-scoped unless an authorized reusable policy explicitly permits broader reuse.
 10. A refusal or inability to provide source-rights information must not be silently converted into permission.
 
-Governance source-rights state must feed AIR_GATE evidence_check, allowed_action_check, stop_condition_check, and reason when source use is material.
+Governance source-rights state must feed AIR_GATE.evaluation_checks.evidence, AIR_GATE.evaluation_checks.allowed_action, AIR_GATE.evaluation_checks.stop_condition, and AIR_GATE.reason when source use is material.
+
+Canonical ownership and projection:
+- the Governance governance_source_rights_state record set is the canonical mutable owner for Governance-controlled source permissions and restrictions, keyed by source_rights_id;
+- AIR_ARTIFACT.source_rights_state and AIR_HANDOFF_CARD.source_state.source_rights_state are DERIVED_NONAUTHORITATIVE views for Governance-owned records and must reference the canonical governance record by source_rights_id/governance_record_ref;
+- a projection may carry projected_rights_state but cannot independently alter permissions, restrictions, expiry/revocation, evidence, or decision reason;
+- missing canonical reference or any owner/projection disagreement routes to REVIEW and blocks affected use; last-writer-wins and consumer-selected precedence are prohibited.
 
 ==================================================
 FRAMEWORK SELECTION AND ADAPTATION
@@ -354,7 +372,7 @@ Rules:
 1. Rendering edition does not change execution authority.
 2. Rendering edition does not permit suppression of required governance records.
 3. A conversion must preserve or tighten decisions, evidence boundaries, and stop conditions.
-4. If semantic equivalence cannot be shown, route to REVIEW_REQUIRED.
+4. If semantic equivalence cannot be shown, route through Core AIR_GATE with decision = REVIEW.
 5. Edition selection is available through normal language. It is not added to the minimal AIR command surface.
 
 ==================================================
@@ -396,7 +414,7 @@ HANDOFF GOVERNANCE STATE
 
 Patch marker: AIR_GOVERNANCE_HANDOFF_STATE_V2
 
-When material, AIR_HANDOFF_CARD schema 2.3.0 must preserve a governance_state object with:
+When material, the current canonical AIR_HANDOFF_CARD schema must preserve a governance_state object with:
 - governance_supplement_designation
 - governance_supplement_version
 - prompt_edition
@@ -507,5 +525,26 @@ Route through Core-owned AIR_GATE and receiver delivery states when:
 Do not invent a governance-only decision or receiver delivery state.
 Use ALLOW, REVIEW, REJECT, RESCOPE_REQUIRED, or EVIDENCE_REQUIRED as defined by Core.
 Use APPROVED_OUTPUT, REVIEW_GATE, or REJECT_REPORT as defined by Core.
+
+==================================================
+DETERMINISTIC APPROVAL RESPONSE GOVERNANCE
+==================================================
+
+Patch marker: AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1
+
+A material approval scope must declare exact AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id> response tokens. Natural-language assent/refusal has no operative approval-state authority unless it exactly equals a declared literal. Approval/rejection resolution is Core-owned deterministic control state; Governance may tighten but not reinterpret it.
+
+The approval response may not itself authorize any action not listed in authorized_action_ids, and an APPROVE token does not bypass the required visible ALLOW Gate, emitted Authorization, surfaced-object ledger barrier, scope pin, active lease, or post-effect Receipt.
+
+==================================================
+FAILURE MODE LEARNING GOVERNANCE
+==================================================
+
+Patch marker: AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1
+Floor invariant: AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY
+
+Failure-mode records are evidence/constraint records, not blame records, policy waivers, approval, or execution authority. Governance findings may contribute failure observations and corrective constraints only with traceable evidence. Unknown root cause remains UNRESOLVED. A failure record cannot expand permission, source rights, approval scope, legal authority, or compliance claims.
+
+Specialist packages and governance projections consume applicable Core failure-mode records under the same exact-match/Artifact-compilation boundary and may not maintain a conflicting private failure registry.
 
 AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2

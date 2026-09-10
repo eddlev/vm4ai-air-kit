@@ -1,14 +1,14 @@
 {
   "title": "AIR Grounding Method Pack v2",
   "SYSTEM_DESIGNATION": "AIR_GROUNDING_METHOD_PACK_V2",
-  "PROMPT_VERSION": "2.1.0",
+  "PROMPT_VERSION": "2.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "PROFILE_KIND": "METHOD_PACK",
   "profile_function_class": "METHOD_PACK",
   "artifact_class": "AIR_METHOD_PACK",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "GROUNDING_REVIEW_AND_EXECUTION_METHOD",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -31,47 +31,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+        "size_bytes": 394118,
+        "line_count": 7656
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "f4c2026b927e2c99d5fa88bf4bd8a15cf22f254672dc5d8a4ec1c6f2b5a34536",
+        "size_bytes": 165616,
+        "line_count": 3269
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "bf7d8bf7b857f6472a39e889f31d9de9ae605e07846f00ead4e92301b92ac1fe",
+        "size_bytes": 29297,
+        "line_count": 550
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "b9d1e30c696238eb6a95f6bef1d5da2e1e0049cd888b33dc0546696717f561d3",
+        "size_bytes": 161424,
+        "line_count": 3429
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "009482e03559934626ce6cab1578e9f9a3a72022bfb23dc6eae19c06eed01ad7",
+        "size_bytes": 110310,
+        "line_count": 2074
       }
     ],
     "required_floor_invariants": [
@@ -86,25 +86,27 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -135,9 +137,9 @@
     {
       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "sha256": "edc6ade7b1d6753c350e06568925f8d26c68e0f19a90a803536ecd1fb905ffe2",
-      "size_bytes": 68532,
-      "line_count": 1137,
+      "sha256": "9d569886e63959f7af127312c59b0b40f86efd2f8cec2ba2a3ef49651f55427e",
+      "size_bytes": 68733,
+      "line_count": 1143,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
   ],
@@ -611,320 +613,6 @@
     "one-off exploratory work where method state does not affect closure or approval",
     "creative brainstorming with no execution, evidence, claim, handoff, or rescope pressure"
   ],
-  "procedure": [
-    {
-      "step_id": "G01",
-      "name": "ESTABLISH_ACTIVE_ARTIFACT_AND_GROUNDING_SCOPE",
-      "operation": "Validate bound Orbit 0 artifact, task center, current step, acceptance criteria, sources and grounding need.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G02",
-      "name": "ACQUIRE_EXACT_MISSING_INPUTS",
-      "operation": "Check package/source/tool availability and emit exact AIR_REQUIRED_INPUT_REQUEST when needed.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G03",
-      "name": "CLASSIFY_CLAIMS_AND_MECHANISMS",
-      "operation": "Separate observed, inferred, intended, implemented, tested, externally validated, production-proven and mechanism-claimed states.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G04",
-      "name": "EXTRACT_AMBITION_AND_EXECUTABLE_KERNEL",
-      "operation": "Separate ambition, interpretation, proposed implementation, executable kernel, frontier layer, blocked layer and unknowns.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G05",
-      "name": "ASSESS_CURRENT_TECHNOLOGY_CAPACITY",
-      "operation": "Classify dependencies as available now, available with constraints, research/frontier, blocked or unknown.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G06",
-      "name": "SCAN_ADJACENT_BLAST_RADIUS",
-      "operation": "Inspect relevant downstream, operator, cost, security, privacy, legal, regulatory, trust, maintenance, lock-in and failure-cascade surfaces.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G07",
-      "name": "DISCOVER_REGULATORY_AND_EVIDENCE_PRESSURE",
-      "operation": "Identify jurisdiction, regulated surfaces, release claims, required review and evidence obligations without claiming legal advice.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G08",
-      "name": "REVIEW_METHOD_STATE_AND_STALENESS",
-      "operation": "Check method step completion, evidence freshness, dependencies, invalidation and revalidation triggers.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G09",
-      "name": "RECONCILE_USER_WORKFLOW_AND_APPROVALS",
-      "operation": "Honor Q6/Q6D working agreement, delivery form and approval boundaries without weakening truth or gates.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G10",
-      "name": "FORM_COOPERATIVE_CHALLENGE_AND_REMEDIATION",
-      "operation": "Pair material pushback with a better option, narrower test, remediation path or explicit no-safe-path result.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G11",
-      "name": "EXECUTE_BOUNDED_GROUNDING_OPERATION",
-      "operation": "Route bounded mechanical work through the Grounding Executor only when authorized by the bound artifact.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G12",
-      "name": "EVALUATE_RESULT_AND_LOCALIZE_ERROR",
-      "operation": "Compare output to evidence, benchmark, claim boundaries and acceptance criteria; localize defects.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    },
-    {
-      "step_id": "G13",
-      "name": "UPDATE_GATE_HANDOFF_AND_REVALIDATION_STATE",
-      "operation": "Emit decision, evidence gaps, rescope, next action, package state and handoff-safe continuation data.",
-      "required_inputs": [
-        "bound Orbit 0 AIR_ARTIFACT",
-        "current source and evidence state",
-        "applicable Grounding Domain Package requirements"
-      ],
-      "evidence_gate": "Observable evidence or explicit unresolved state is required before completion.",
-      "failure_route": [
-        "REVIEW",
-        "EVIDENCE_REQUIRED",
-        "RESCOPE_REQUIRED",
-        "REJECT when no safe path exists"
-      ],
-      "outputs": [
-        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
-        "evidence references",
-        "next safe action"
-      ],
-      "handoff_safe": true,
-      "test_evidence_class": "REPRODUCIBLE_EXECUTABLE when deterministic; otherwise REPLAYABLE_EVALUATION or MANUAL_REVIEW_REQUIRED."
-    }
-  ],
   "definition_of_done": [
     "Method execution state requirement was classified.",
     "Active method step and step states were reviewed when material.",
@@ -1250,9 +938,7 @@
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
         "selection_time_exact_identity_validation_required": true,
-        "candidate_version_interface_reconciled": "2.4.0",
-        "t8_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
-        "t8_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+        "candidate_version_interface_reconciled": "2.5.0"
       },
       {
         "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -1264,12 +950,12 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_GROUNDING_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_GROUNDING_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1277,11 +963,11 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
-      "capability_ecology_candidate_version_reconciled": "2.4.0",
+      "runtime_route_map_version": "1.1.0",
+      "capability_ecology_candidate_version_reconciled": "2.5.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "foundation_routing_compatibility": {
@@ -1319,15 +1005,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_GROUNDING_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "capability_ecology_peer": {
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -1366,7 +1052,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -1386,7 +1072,14 @@
       ]
     },
     "fusion_boundary": "Grounding may identify support/conflict edges and unresolved conflicts but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No Grounding cognitive route or contribution authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No Grounding cognitive route or contribution authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -1468,7 +1161,7 @@
   },
   "air_2_5_0_mii_patch_state": {
     "patch_id": "AIR_T8_GROUNDING_MII_RECONCILIATION_001",
-    "package_version": "2.4.0",
+    "package_version": "2.5.0",
     "component_prompt_version": "2.1.0",
     "applied_at": "2026-08-28T21:15:00+02:00",
     "semantic_diff_class": "MINOR_PACKAGE_EXPANSION_NO_AUTHORITY_EXPANSION",
@@ -1524,5 +1217,453 @@
     "G13": [
       "COG.UNCERTAINTY_FUSION"
     ]
+  },
+  "purpose": "Reusable evidence-gated Grounding method for translating ambitious or uncertain work into a viable, proportionate, source-bounded execution path while preserving challenge, claim hygiene, regulatory pressure, method state, user workflow, and handoff safety.",
+  "scope": {
+    "use_when": [
+      "method-governed work is being reviewed for approval, closure, handoff, mutation, or rescope",
+      "AIR_ARTIFACT.method_execution_state is present or required",
+      "a Method Pack is used and may be stale or dependency-sensitive",
+      "method promotion is proposed",
+      "method_step_gate conflicts with AIR_GATE or bound Orbit 0 artifact contract requirements",
+      "method-governed output is being delivered in a form controlled by user_execution_workflow",
+      "delivery-form mismatch could affect method closure, user implementation, handoff, or approval"
+    ],
+    "do_not_use_when": [
+      "single low-risk conversational answer with no method-governed advancement",
+      "one-off exploratory work where method state does not affect closure or approval",
+      "creative brainstorming with no execution, evidence, claim, handoff, or rescope pressure"
+    ]
+  },
+  "inputs": {
+    "required": [
+      "bound Orbit 0 AIR_ARTIFACT",
+      "current source and evidence state",
+      "applicable Grounding Domain Package requirements"
+    ],
+    "conditional": [
+      "current source, tool, connector, permission and approval state when required by the selected ordered step",
+      "current user_execution_workflow and delivery-form state when method-governed delivery or closure is material"
+    ]
+  },
+  "outputs": [
+    "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+    "evidence references",
+    "next safe action",
+    "MII_RISK_PROPAGATION_CONTRIBUTION_CANDIDATE",
+    "MII_GROUNDING_CONTRIBUTION_ENVELOPE_CANDIDATE"
+  ],
+  "ordered_steps": [
+    {
+      "step_id": "G01",
+      "name": "ESTABLISH_ACTIVE_ARTIFACT_AND_GROUNDING_SCOPE",
+      "action": "Validate bound Orbit 0 artifact, task center, current step, acceptance criteria, sources and grounding need.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G02",
+      "name": "ACQUIRE_EXACT_MISSING_INPUTS",
+      "action": "Check package/source/tool/evidence/authority availability; when material basis is insufficient, route the smallest sufficient missing input through RT.UNCERTAINTY_RESOLVE and emit an AIR_REQUIRED_INPUT_REQUEST candidate using REQUIRED_INPUT_REQUEST_RECORD semantics.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G03",
+      "name": "CLASSIFY_CLAIMS_AND_MECHANISMS",
+      "action": "Separate observed, inferred, intended, implemented, tested, externally validated, production-proven and mechanism-claimed states.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G04",
+      "name": "EXTRACT_AMBITION_AND_EXECUTABLE_KERNEL",
+      "action": "Separate ambition, interpretation, proposed implementation, executable kernel, frontier layer, blocked layer and unknowns.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G05",
+      "name": "ASSESS_CURRENT_TECHNOLOGY_CAPACITY",
+      "action": "Classify dependencies as available now, available with constraints, research/frontier, blocked or unknown.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G06",
+      "name": "MODEL_ADJACENT_RISK_PROPAGATION",
+      "action": "Construct a COG.RISK_PROPAGATION graph from the originating action/decision through direct effects, affected assets/dependencies, secondary effects and cascade paths; assess scope, impact, reversibility, detectability, propagation depth, containment, controls, evidence quality and residual risk; use UNKNOWN for unsupported likelihood.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action",
+        "MII_RISK_PROPAGATION_CONTRIBUTION_CANDIDATE"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G07",
+      "name": "DISCOVER_REGULATORY_AND_EVIDENCE_PRESSURE",
+      "action": "Identify jurisdiction, regulated surfaces, release claims, required review and evidence obligations without claiming legal advice.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G08",
+      "name": "REVIEW_METHOD_STATE_AND_STALENESS",
+      "action": "Check method step completion, evidence freshness, dependencies, invalidation and revalidation triggers.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G09",
+      "name": "RECONCILE_USER_WORKFLOW_AND_APPROVALS",
+      "action": "Honor Q6/Q6D working agreement, delivery form and approval boundaries without weakening truth or gates.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G10",
+      "name": "FORM_COOPERATIVE_CHALLENGE_AND_REMEDIATION",
+      "action": "Pair material pushback with a better option, narrower test, remediation path or explicit no-safe-path result.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G11",
+      "name": "EXECUTE_BOUNDED_GROUNDING_OPERATION",
+      "action": "Route bounded mechanical work through the Grounding Executor only when authorized by the bound artifact.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G12",
+      "name": "EVALUATE_RESULT_AND_LOCALIZE_ERROR",
+      "action": "Compare output to evidence, benchmark, claim boundaries and acceptance criteria; localize defects.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    },
+    {
+      "step_id": "G13",
+      "name": "UPDATE_GATE_HANDOFF_AND_REVALIDATION_STATE",
+      "action": "Emit decision, evidence gaps, rescope, next action, package state and handoff-safe continuation data.",
+      "preconditions": [],
+      "required_inputs": [
+        "bound Orbit 0 AIR_ARTIFACT",
+        "current source and evidence state",
+        "applicable Grounding Domain Package requirements"
+      ],
+      "expected_outputs": [
+        "AIR_GROUNDING_METHOD_EXECUTION_STATE_UPDATE",
+        "evidence references",
+        "next safe action",
+        "MII_GROUNDING_CONTRIBUTION_ENVELOPE_CANDIDATE"
+      ],
+      "evidence_to_advance": [
+        "Observable evidence or explicit unresolved state is required before completion."
+      ],
+      "failure_behavior": [
+        "REVIEW",
+        "EVIDENCE_REQUIRED",
+        "RESCOPE_REQUIRED",
+        "REJECT when no safe path exists"
+      ],
+      "next_step_rule": "Advance to the next declared ordered step only when evidence_to_advance is satisfied; otherwise apply failure_behavior and preserve unresolved method state."
+    }
+  ],
+  "staleness_policy": {
+    "review_triggers": [
+      "Core NEW_TASK_BOUNDARY or Orbit 0 task identity changes",
+      "bound acceptance criteria or completion envelope changes materially",
+      "a required source, dependency, permission, or evidence basis changes materially",
+      "Foundation or package identity changes"
+    ],
+    "stale_state": "STALE_NEEDS_REGROUND",
+    "behavior": "Suspend affected method steps, revalidate the changed dependency, and invalidate downstream method evidence that depended on stale state.",
+    "no_silent_reuse": true
+  },
+  "handoff_requirements": {
+    "schema_version": "1.0.0",
+    "schema_id": "AIR_METHOD_GROUNDING_REVIEW_AND_EXECUTION_V2_HANDOFF_REQUIREMENTS_V1",
+    "generic_required_paths": [
+      "$.execution_state.method_handoff_state.method_identity",
+      "$.execution_state.method_handoff_state.method_origin",
+      "$.execution_state.method_handoff_state.active_method_state",
+      "$.execution_state.method_handoff_state.active_method_step",
+      "$.execution_state.method_handoff_state.method_step_gate",
+      "$.execution_state.method_handoff_state.method_evidence_state",
+      "$.execution_state.method_handoff_state.staleness_state",
+      "$.execution_state.method_handoff_state.unresolved_blockers",
+      "$.execution_state.method_handoff_state.next_allowed_action",
+      "$.execution_state.method_handoff_state.evidence_refs",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_ref",
+      "$.execution_state.method_handoff_state.method_specific_state_schema_version",
+      "$.execution_state.method_handoff_state.method_specific_state"
+    ],
+    "method_specific_state_schema": {
+      "schema_id": "AIR_METHOD_GROUNDING_REVIEW_AND_EXECUTION_V2_METHOD_SPECIFIC_STATE_V1",
+      "schema_version": "1.0.0",
+      "required_fields": [
+        "grounding_need_state",
+        "grounding_scope",
+        "source_access_mode",
+        "source_freshness_state",
+        "grounding_decision_state",
+        "grounding_component_refs",
+        "required_input_request_refs",
+        "revalidation_triggers"
+      ],
+      "optional_fields": [
+        "test_evidence_mode"
+      ],
+      "additional_fields_policy": "REVIEW_UNLESS_DECLARED",
+      "positive_execution_authority": "NONE"
+    },
+    "validation_rule": "GENERIC_PATHS_PRESENT_AND_METHOD_SPECIFIC_STATE_VALIDATES_EXACT_DECLARED_SCHEMA_BEFORE_RESTORE_REUSE",
+    "continuation_rule": "Restore method state only as continuation input; revalidate identity, task fit, staleness, dependencies, evidence and the current bound Orbit 0 artifact before operative reuse."
+  },
+  "binding_requirements": {
+    "sequence": [
+      "ATTACHED_OR_DISCOVERED",
+      "CLASSIFIED",
+      "PACKAGE_INTEGRITY_CHECKED",
+      "COMPATIBILITY_REVIEWED",
+      "TASK_FIT_SELECTED",
+      "APPROVED_WHEN_REQUIRED",
+      "COMPILED_OR_EXPLICITLY_REFERENCED_BY_BOUND_ORBIT_0_AIR_ARTIFACT"
+    ],
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "positive_material_execution_authority_source": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "no_self_binding": true
+  },
+  "ordered_steps_authority_contract": {
+    "canonical_machine_step_graph": "ordered_steps",
+    "method_steps_role": "PACKAGE_LOCAL_ANNOTATED_MIRROR",
+    "method_steps_must_not_override": "ordered_steps",
+    "conflict_rule": "ORDERED_STEPS_GOVERNS"
   }
 }

@@ -1,0 +1,147 @@
+name: Apply R7 lifecycle reseal remediation
+
+on:
+  push:
+    branches:
+      - audit-remediation-r7-from-r6
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r7:
+    if: ${{ contains(github.event.head_commit.message, '[r7-run]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify R7 support and pristine R6 audited source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object tools/apply_r7_remediation.py)" = "1341000df0c29d6e2c147b4d0ea08e46079fa9a1"
+          test "$(git hash-object tools/validate_air_r7_remediation.py)" = "59a595ce7b97841a9487219fce4f523103546ea8"
+          test "$(git hash-object tools/test_air_r7_mutations.py)" = "efea5507ebb5d3a1f3c0601658c358052b981bed"
+          test "$(git hash-object tools/patch_validate_air_release_r7.py)" = "3004c8020189979b611f5bb30c755caa2fd8c669"
+          test "$(git hash-object tools/reseal_air_candidate.py)" = "336d967e0daf36ef0a659225b2ff2f22aa4bb15e"
+          test "$(git hash-object tools/validate_air_suite.py)" = "8f5c11f81d567742fed7427ecc537f8058215754"
+          test -z "$(git diff --name-only 73a430e4993395c3494192525c4746f1d65b16aa..HEAD -- prompts catalog profiles)"
+          echo 'R7 support integrity + R6 audited-source baseline: PASS'
+
+      - name: Patch release validator for current-vs-history semantics
+        run: python3 tools/patch_validate_air_release_r7.py
+
+      - name: Apply R7 lifecycle and history truth
+        run: python3 tools/apply_r7_remediation.py .
+
+      - name: Capture repaired historical records before reseal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/r7-history-before.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          out={
+            't7_change_record':cea['t7_change_record'],
+            'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs'],
+          }
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+
+      - name: Dependency-graph reseal
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Verify history was not rewritten by reseal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/r7-history-after.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          out={
+            't7_change_record':cea['t7_change_record'],
+            'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs'],
+          }
+          print(json.dumps(out,sort_keys=True,indent=2))
+          PY
+          diff -u /tmp/r7-history-before.json /tmp/r7-history-after.json
+          echo 'R7 historical-container reseal immutability: PASS'
+
+      - name: Verify exact audited-source change set
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/r7-expected.txt <<'EOF'
+          catalog/AIR_RUNTIME_ROUTE_MAP.json
+          catalog/AIR_SPECIALIST_PACKAGE_INDEX.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json
+          profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json
+          profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json
+          profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json
+          profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json
+          prompts/AIR_CORE_RUNTIME.md
+          EOF
+          sed -i 's/^          //' /tmp/r7-expected.txt
+          sort -o /tmp/r7-expected.txt /tmp/r7-expected.txt
+          git diff --name-only -- prompts catalog profiles | sort > /tmp/r7-actual.txt
+          diff -u /tmp/r7-expected.txt /tmp/r7-actual.txt
+          test "$(wc -l < /tmp/r7-actual.txt)" -eq 27
+          echo 'R7 audited-source delta: PASS (27/31 changed)'
+
+      - name: Run canonical R1-R7 validation suite
+        run: python3 tools/validate_air_suite.py
+
+      - name: Verify final reseal fixed point and patch idempotence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/reseal_air_candidate.py --check
+          git diff -- prompts catalog profiles tests/air_contract_fixtures.json tools/validate_air_release.py > /tmp/r7-before.diff
+          python3 tools/apply_r7_remediation.py .
+          python3 tools/patch_validate_air_release_r7.py
+          python3 tools/reseal_air_candidate.py --apply
+          git diff -- prompts catalog profiles tests/air_contract_fixtures.json tools/validate_air_release.py > /tmp/r7-after.diff
+          diff -u /tmp/r7-before.diff /tmp/r7-after.diff
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_r7_remediation.py
+          python3 tools/validate_air_release.py
+          echo 'R7 patch + reseal idempotence: PASS'
+
+      - name: Commit R7 repaired source, fixtures and release validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- prompts catalog profiles tests/air_contract_fixtures.json tools/validate_air_release.py; then
+            echo 'No R7 changes remain to commit.'
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- prompts catalog profiles tests/air_contract_fixtures.json tools/validate_air_release.py
+          git commit -m "Apply R7 lifecycle version history reseal [r7-applied]"
+          git push

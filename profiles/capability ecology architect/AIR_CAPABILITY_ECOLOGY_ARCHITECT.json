@@ -3,13 +3,13 @@
   "SYSTEM_DESIGNATION": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
   "PROFILE_KIND": "TASK_COMPOSITE",
   "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR.SPECIALIST.CAPABILITY_ECOLOGY_ARCHITECT.V2.DOMAIN_PACKAGE.CONSTRUCTION.KNOWLEDGE_PROCESSING.COGNITIVE_DEPTH.EXPERIENCE_BOUNDARY.KNOWLEDGE_TO_EXECUTION_PATH.SYNTHETIC_BENCHMARK.PROPORTIONALITY.REQUIRED_INPUT.NON_AGENT",
   "description": "Reusable non-agent AIR Specialist profile that reconstructs the complete relevant capability envelope of an active task, routes domain needs through the researched Domain Capability Registry, invokes the Human-to-Machine Capability Translator when human-oriented frameworks are material, compiles knowledge and cognitive-depth obligations into the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path, constructs candidate Detailed Domain Packages and task-scoped synthetic benchmarks, and recommends the smallest sufficient candidate vector set for compilation into the bound Orbit 0 AIR_ARTIFACT. It does not replace approved Domain Packages as sources of truth, independently execute, approve, bind, occupy Orbit 0, or claim human authority, experience, backend enforcement, or hidden reasoning.",
   "PROMPT_VERSION": "2.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "artifact_class": "AIR_SPECIALIST_PROFILE",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "CAPABILITY_ECOLOGY_ARCHITECT",
   "remediated_at": "2026-08-28T21:05:00+02:00",
   "source_baseline": {
@@ -26,47 +26,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+        "size_bytes": 394118,
+        "line_count": 7656
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "f4c2026b927e2c99d5fa88bf4bd8a15cf22f254672dc5d8a4ec1c6f2b5a34536",
+        "size_bytes": 165616,
+        "line_count": 3269
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "bf7d8bf7b857f6472a39e889f31d9de9ae605e07846f00ead4e92301b92ac1fe",
+        "size_bytes": 29297,
+        "line_count": 550
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "b9d1e30c696238eb6a95f6bef1d5da2e1e0049cd888b33dc0546696717f561d3",
+        "size_bytes": 161424,
+        "line_count": 3429
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "009482e03559934626ce6cab1578e9f9a3a72022bfb23dc6eae19c06eed01ad7",
+        "size_bytes": 110310,
+        "line_count": 2074
       }
     ],
     "required_floor_invariants": [
@@ -81,9 +81,11 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "required_foundation_files": [
       "AIR_CORE_RUNTIME.md",
       "AIR_CONTROL_SURFACE.md",
@@ -92,21 +94,21 @@
       "AIR_HANDOFF_CARD_TEMPLATE.json"
     ],
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -137,13 +139,13 @@
     "domain_capability_registry": {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "122e2821a42370531246e00a036c930f46fc3b1e3f026f23de908ebdd2d4318d",
+      "sha256": "496a53b61df443fc2a0eb3fde3733f8350b42dd1fb8eec3bec639b7db686b3b4",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "77aac666ea6d7380e312ecc4db4369156ad9531b7b8cdb4214f675ad56a471b5",
+      "sha256": "5f9fbb7e05293c1f16f31dbc0614fcafcbf9be577abcb8ae5070c8e88a6f20ae",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     "source_and_control_registry": {
@@ -1540,7 +1542,14 @@
       "representative_task_tests",
       "specialist_consumption_contract",
       "validation_and_promotion_state",
-      "test_evidence_and_reproducibility_requirements"
+      "test_evidence_and_reproducibility_requirements",
+      "mii_cognitive_route_requirements",
+      "mii_contribution_contract",
+      "semantic_fidelity_requirements",
+      "epistemic_sufficiency_requirements",
+      "morphology_recommendations",
+      "risk_propagation_requirements",
+      "test_evidence_presentation_requirements"
     ],
     "fixture_validation_required": true,
     "representative_task_evaluation_required": true,
@@ -1555,7 +1564,113 @@
       "self-registration",
       "independent execution authority"
     ],
-    "test_evidence_rule": "Fixture and representative-task runs default to STANDARD_EVIDENCE_PRESENTATION. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities."
+    "test_evidence_rule": "Fixture and representative-task runs default to STANDARD_EVIDENCE_PRESENTATION. When air -t on is active before the run or qualifying regulatory evidence is required, preserve the available reproducibility package and exact fixture identities.",
+    "required_template_fields_source": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2.detailed_domain_package_template.required_fields",
+    "translator_to_canonical_package_mapping": {
+      "mapping_version": "1.0.0",
+      "source_contract": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2.detailed_domain_package_contribution_contract.required_outputs",
+      "target_contract": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2.detailed_domain_package_template.required_fields",
+      "unknown_source_field_behavior": "REVIEW",
+      "unmapped_required_output_behavior": "REJECT_CONSTRUCTION_AS_INCOMPLETE",
+      "mappings": {
+        "knowledge_required": {
+          "target_path": "$.knowledge_dimensions.FACTUAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "conceptual_relations_required": {
+          "target_path": "$.knowledge_dimensions.CONCEPTUAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "procedures_required": {
+          "target_path": "$.knowledge_dimensions.PROCEDURAL.translator_contribution",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "recognition_and_pattern_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.recognition_and_pattern",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "analysis_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.analysis",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "evaluation_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.evaluation",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "adaptation_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.adaptation",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "creation_or_synthesis_capabilities": {
+          "target_path": "$.cognitive_depth_profile.machine_native_capabilities.creation_or_synthesis",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "experience_derived_candidates": {
+          "target_path": "$.experience_derived_knowledge_requirements.translator_candidates",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "human_bound_elements": {
+          "target_path": "$.human_boundaries_and_non_transferable_authority.human_bound_elements",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "authority_non_transferable": {
+          "target_path": "$.human_boundaries_and_non_transferable_authority.authority_non_transferable",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "evidence_required": {
+          "target_path": "$.epistemic_requirements.translator_evidence_required",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        },
+        "representative_tests": {
+          "target_path": "$.representative_task_tests",
+          "operation": "MERGE_UNIQUE"
+        },
+        "test_evidence_and_reproducibility_requirements": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "required_test_evidence_classes": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements.required_test_evidence_classes",
+          "operation": "MERGE_UNIQUE"
+        },
+        "regulatory_evidence_obligation_candidates": {
+          "target_path": "$.test_evidence_and_reproducibility_requirements.regulatory_evidence_obligation_candidates",
+          "operation": "MERGE_UNIQUE"
+        },
+        "mii_cognitive_route_requirements": {
+          "target_path": "$.mii_cognitive_route_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "mii_contribution_contract": {
+          "target_path": "$.mii_contribution_contract",
+          "operation": "MERGE_OBJECT"
+        },
+        "semantic_fidelity_requirements": {
+          "target_path": "$.semantic_fidelity_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "epistemic_sufficiency_requirements": {
+          "target_path": "$.epistemic_sufficiency_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "morphology_recommendations": {
+          "target_path": "$.morphology_recommendations",
+          "operation": "MERGE_OBJECT"
+        },
+        "risk_propagation_requirements": {
+          "target_path": "$.risk_propagation_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "test_evidence_presentation_requirements": {
+          "target_path": "$.test_evidence_presentation_requirements",
+          "operation": "MERGE_OBJECT"
+        },
+        "uncertainty_resolution_requirements": {
+          "target_path": "$.epistemic_sufficiency_requirements.uncertainty_resolution_requirements",
+          "operation": "MERGE_OR_CREATE_DECLARED_SUBFIELD"
+        }
+      }
+    }
   },
   "required_input_acquisition_contract": {
     "floor_reference": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
@@ -1646,7 +1761,7 @@
     {
       "amendment_id": "AIR_MII_MAJOR_ARCHITECTURE_INTEGRATION_001",
       "amendment_version": "2.2.0",
-      "package_version": "2.4.0",
+      "package_version": "2.5.0",
       "approved_scope": "AIR 2.5.0 MII contribution integration; universal semantic-translation relationship; task-fit multi-lens, causal, risk, uncertainty and morphology recommendations; epistemic sufficiency; evidence/presentation separation; exact Foundation F1 compatibility; no execution/binding authority expansion.",
       "floor_invariants": [
         "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
@@ -1714,15 +1829,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
@@ -1751,12 +1866,12 @@
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -1764,10 +1879,10 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
+      "runtime_route_map_version": "1.1.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_integration_contract": {

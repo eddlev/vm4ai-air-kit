@@ -6,9 +6,9 @@
   "PROFILE_KIND": "CONDITIONAL_DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "artifact_class": "AIR_CONDITIONAL_DOMAIN_OVERLAY",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "AI_GOVERNANCE_DELEGATED_ACTION_OVERLAY",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -33,47 +33,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+        "size_bytes": 394118,
+        "line_count": 7656
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "f4c2026b927e2c99d5fa88bf4bd8a15cf22f254672dc5d8a4ec1c6f2b5a34536",
+        "size_bytes": 165616,
+        "line_count": 3269
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "bf7d8bf7b857f6472a39e889f31d9de9ae605e07846f00ead4e92301b92ac1fe",
+        "size_bytes": 29297,
+        "line_count": 550
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "b9d1e30c696238eb6a95f6bef1d5da2e1e0049cd888b33dc0546696717f561d3",
+        "size_bytes": 161424,
+        "line_count": 3429
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "009482e03559934626ce6cab1578e9f9a3a72022bfb23dc6eae19c06eed01ad7",
+        "size_bytes": 110310,
+        "line_count": 2074
       }
     ],
     "required_floor_invariants": [
@@ -88,25 +88,27 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -269,7 +271,7 @@
     {
       "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
       "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
-      "sha256": "c841a9716ad23107848042ddf04c1754f910199da014df126d38d9917aa3e3ac",
+      "sha256": "62b70e6aea2e4de9213112437102c4c4d0bdd331833973fc75e9cf36f52bf748",
       "required": true,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -388,6 +390,7 @@
   ],
   "binding_rules": {
     "activation_state_values": [
+      "NOT_EVALUATED",
       "NOT_TRIGGERED",
       "TRIGGERED_PENDING_VALIDATION",
       "VALIDATED_AVAILABLE_UNBOUND",
@@ -402,7 +405,8 @@
     ],
     "operative_rule": "Use only after exact identity and dependency validation, task-fit selection, explicit approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.",
     "new_task_boundary_rule": "On Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT, reset delegated-action trigger evaluation for the new task. Prior delegated-authority maps, tool/permission matrices, checkpoints, containment, rollback, incident, and accountability state are historical or candidate input only until the Agentic Overlay trigger and applicability are re-evaluated under the newly bound task artifact.",
-    "core_router_relationship": "Core Specialist Capability Resolution Router governs discovery/acquisition of the AI Governance specialist package. Once that package is selected and available, Agentic Overlay activation remains an internal conditional Governance decision based on delegated-action/tool/external-effect triggers."
+    "core_router_relationship": "Core Specialist Capability Resolution Router governs discovery/acquisition of the AI Governance specialist package. Once that package is selected and available, Agentic Overlay activation remains an internal conditional Governance decision based on delegated-action/tool/external-effect triggers.",
+    "pre_evaluation_transition_rule": "NOT_EVALUATED -> NOT_TRIGGERED when trigger evaluation is complete and no trigger applies; NOT_EVALUATED -> TRIGGERED_PENDING_VALIDATION when a declared trigger applies. No other implicit transition is permitted."
   },
   "package_completion_state": {
     "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -420,9 +424,7 @@
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
         "selection_time_exact_identity_validation_required": true,
-        "candidate_version_interface_reconciled": "2.4.0",
-        "t10_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
-        "t10_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+        "candidate_version_interface_reconciled": "2.5.0"
       },
       {
         "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
@@ -430,19 +432,17 @@
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
         "selection_time_exact_identity_validation_required": true,
-        "candidate_version_interface_reconciled": "2.4.0",
-        "t10_observed_manifest_sha256": "a979b97fd9da92e4703a7a2ece5f2f93d2e36cd77ef48ac8f0adef9e899eef80",
-        "t10_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+        "candidate_version_interface_reconciled": "2.5.0"
       }
     ],
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "mainline_release_binding": {
-      "release_identity": "AIR_AI_GOVERNANCE_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_AI_GOVERNANCE_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -450,13 +450,13 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
-      "capability_ecology_candidate_version_reconciled": "2.4.0",
-      "grounding_candidate_version_reconciled": "2.4.0",
+      "runtime_route_map_version": "1.1.0",
+      "capability_ecology_candidate_version_reconciled": "2.5.0",
+      "grounding_candidate_version_reconciled": "2.5.0",
       "sfv_candidate_version_cross_checked": "2.4.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "foundation_routing_compatibility": {
@@ -506,15 +506,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_AI_GOVERNANCE_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "peer_validation_context": {
       "capability_ecology": {
@@ -578,7 +578,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -608,7 +608,14 @@
       ]
     },
     "fusion_boundary": "AI Governance may expose support/conflict edges and unresolved governance conflicts, but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -704,7 +711,7 @@
   },
   "air_2_5_0_mii_patch_state": {
     "patch_id": "AIR_T10_AI_GOVERNANCE_MII_RECONCILIATION_001",
-    "package_version": "2.4.0",
+    "package_version": "2.5.0",
     "component_prompt_version": "2.1.0",
     "applied_at": "2026-08-28T21:20:00+02:00",
     "semantic_diff_class": "MINOR_PACKAGE_EXPANSION_NO_AUTHORITY_EXPANSION",

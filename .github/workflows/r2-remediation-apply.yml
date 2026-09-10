@@ -1,0 +1,50 @@
+name: Apply R2 audit remediation
+
+on:
+  push:
+    branches: [audit-remediation-r2-from-r1]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r2:
+    if: ${{ !contains(github.event.head_commit.message, '[r2-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Apply R2 source repair
+        run: python3 tools/apply_r2_remediation.py .
+
+      - name: Validate R1 and R2 repaired contracts
+        run: |
+          python3 tools/validate_air_contract_registry.py
+          python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_r2_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/test_air_contract_registry_mutations.py
+          python3 tools/test_air_r1_mutations.py
+          python3 tools/test_air_r2_mutations.py
+          python3 tools/test_air_behavioral_contract_mutations.py
+          python3 tools/test_air_control_plane_mutations.py
+
+      - name: Commit repaired source and fixtures
+        run: |
+          if git diff --quiet; then
+            echo "No R2 source changes remain to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prompts/AIR_CORE_RUNTIME.md \
+                  prompts/AIR_CONTROL_SURFACE.md \
+                  prompts/AIR_GOV.md \
+                  prompts/AIR_DEFAULT_STARTER_PROFILE.json \
+                  prompts/AIR_HANDOFF_CARD_TEMPLATE.json \
+                  catalog/AIR_RUNTIME_ROUTE_MAP.json \
+                  tests/air_contract_fixtures.json
+          git commit -m "Apply R2 formal-object and failure-ledger remediation [r2-applied]"
+          git push

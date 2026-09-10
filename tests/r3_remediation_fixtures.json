@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "R3_HANDOFF_APPROVAL_RESTORATION_CLOSURE",
+  "finding_scope": [
+    "AIR-AUD-016",
+    "AIR-AUD-020",
+    "AIR-AUD-021",
+    "AIR-AUD-022",
+    "AIR-AUD-023",
+    "AIR-AUD-025",
+    "AIR-AUD-026",
+    "AIR-AUD-027",
+    "AIR-AUD-028",
+    "AIR-AUD-039",
+    "AIR-AUD-051",
+    "AIR-AUD-052",
+    "AIR-AUD-069",
+    "AIR-AUD-072"
+  ],
+  "positive_cases": [
+    {"id":"R3-P01-EXPLICIT-MINIMUM-VISIBILITY","expect":"MINIMUM_REQUIRED_OBJECTS accepted only with explicit selection provenance"},
+    {"id":"R3-P02-CANONICAL-APPROVAL-PAIR","expect":"AIR_APPROVE::<scope> and AIR_REJECT::<scope> exact derived pair validates"},
+    {"id":"R3-P03-REV15-MIGRATION","expect":"published v0.7.0 rev15 card migrates before rev16 carrier checks without fabricated history"},
+    {"id":"R3-P04-NO-METHOD-BASELINE","expect":"baseline null method state does not trigger method restoration condition"},
+    {"id":"R3-P05-ACTIVE-METHOD-TYPED-SCHEMA","expect":"active Method Pack restoration is gated by exact typed method-specific schema"},
+    {"id":"R3-P06-SOURCE-RIGHTS-PROJECTION","expect":"generic source-rights carriers are non-authoritative projections of Governance owner"}
+  ],
+  "negative_cases": [
+    "R3-N01-VISIBILITY-AUTHORITY-CARRIER",
+    "R3-N02-METHOD-BASELINE-TRIGGER",
+    "R3-N03-ACTION-OPEN-AUTH-TRIGGER",
+    "R3-N04-AMRS-NONPASS-TRIGGER",
+    "R3-N05-PROFILE-POSTURE-CARRIER",
+    "R3-N06-FLOOR-UNRESOLVED-ENUM",
+    "R3-N07-APPROVAL-CANONICAL-VALIDATION",
+    "R3-N08-GOV-12-FIELD-COVERAGE",
+    "R3-N09-EDITION-REVIEW-TOKEN",
+    "R3-N10-METHOD-TYPED-HANDOFF-SCHEMA",
+    "R3-N11-OVERLAY-NOT-EVALUATED",
+    "R3-N12-GOV-METHOD-STEP-STATE",
+    "R3-N13-SOURCE-RIGHTS-PRECEDENCE",
+    "R3-N14-REV15-MIGRATION-ORDER"
+  ],
+  "release_boundary": "R3 remediation evidence only; coordinated receipt/hash/status reseal remains R7"
+}

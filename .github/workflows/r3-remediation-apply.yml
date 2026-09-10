@@ -1,0 +1,101 @@
+name: Apply R3 audit remediation
+
+on:
+  push:
+    branches: [audit-remediation-r3-from-r2]
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r3:
+    if: ${{ !contains(github.event.head_commit.message, '[r3-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply R3 source repair
+        run: |
+          python3 tools/apply_r3_remediation.py .
+
+      - name: Validate exact published rev15 migration
+        run: |
+          git fetch --tags --force origin
+          git show v0.7.0:prompts/AIR_HANDOFF_CARD_TEMPLATE.json > /tmp/AIR_HANDOFF_CARD_rev15.json
+          python3 tools/validate_air_r3_remediation.py . --rev15 /tmp/AIR_HANDOFF_CARD_rev15.json
+          python3 tools/migrate_air_handoff.py /tmp/AIR_HANDOFF_CARD_rev15.json --template prompts/AIR_HANDOFF_CARD_TEMPLATE.json --output /tmp/AIR_HANDOFF_CARD_rev16_migrated.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('/tmp/AIR_HANDOFF_CARD_rev16_migrated.json',encoding='utf-8'))['AIR_HANDOFF_CARD']
+          assert x['card_revision']==16
+          assert x['failure_mode_state']['history_completeness_state']=='LEGACY_UNRECORDED_PRE_REV16'
+          assert x['surfaced_object_ledger_state']['completeness_state']=='LEGACY_UNRECORDED_PRE_REV16'
+          assert x['failure_mode_state']['records']==[]
+          assert x['surfaced_object_ledger_state']['entries']==[]
+          assert x['migration_state']['revision_migration_path']=='REV15_TO_REV16'
+          assert x['migration_state']['legacy_history_state']['history_synthesis']=='PROHIBITED'
+          print('Exact v0.7.0 rev15 migration: PASS')
+          PY
+
+      - name: Validate R1 R2 R3 contracts
+        run: |
+          python3 tools/validate_air_contract_registry.py
+          python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_r2_remediation.py
+          python3 tools/validate_air_r3_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/test_air_contract_registry_mutations.py
+          python3 tools/test_air_r1_mutations.py
+          python3 tools/test_air_r2_mutations.py
+          python3 tools/test_air_r3_mutations.py
+          python3 tools/test_air_behavioral_contract_mutations.py
+          python3 tools/test_air_control_plane_mutations.py
+
+      - name: Verify R3 patch idempotence
+        run: |
+          files=(
+            prompts/AIR_CORE_RUNTIME.md
+            prompts/AIR_CONTROL_SURFACE.md
+            prompts/AIR_GOV.md
+            prompts/AIR_DEFAULT_STARTER_PROFILE.json
+            prompts/AIR_HANDOFF_CARD_TEMPLATE.json
+            catalog/AIR_RUNTIME_ROUTE_MAP.json
+            "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json"
+            "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json"
+            "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json"
+            "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json"
+            "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
+            "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json"
+          )
+          sha256sum "${files[@]}" > /tmp/r3-before.sha256
+          python3 tools/apply_r3_remediation.py .
+          sha256sum "${files[@]}" > /tmp/r3-after.sha256
+          diff -u /tmp/r3-before.sha256 /tmp/r3-after.sha256
+          echo 'R3 patch idempotence: PASS'
+
+      - name: Commit repaired source
+        run: |
+          if git diff --quiet; then
+            echo "No R3 source changes remain to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prompts/AIR_CORE_RUNTIME.md \
+                  prompts/AIR_CONTROL_SURFACE.md \
+                  prompts/AIR_GOV.md \
+                  prompts/AIR_DEFAULT_STARTER_PROFILE.json \
+                  prompts/AIR_HANDOFF_CARD_TEMPLATE.json \
+                  catalog/AIR_RUNTIME_ROUTE_MAP.json \
+                  "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json" \
+                  "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json" \
+                  "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json" \
+                  "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json" \
+                  "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json" \
+                  "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json"
+          git commit -m "Apply R3 Handoff approval and restoration remediation [r3-applied]"
+          git push

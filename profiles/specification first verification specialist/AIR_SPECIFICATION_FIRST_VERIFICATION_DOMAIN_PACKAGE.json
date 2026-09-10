@@ -6,9 +6,9 @@
   "PROFILE_KIND": "DOMAIN_OVERLAY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
   "artifact_class": "AIR_DOMAIN_PACKAGE",
-  "package_version": "2.4.0",
+  "package_version": "2.5.0",
   "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE",
-  "STATUS": "V2_4_0_OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -34,47 +34,47 @@
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c84bcd4e29f159aa869d084c91132b9c35215e78e5a7227fe6222907e9c23aa9",
-        "size_bytes": 341210,
-        "line_count": 7004
+        "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+        "size_bytes": 394118,
+        "line_count": 7656
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c8e3b3323f885e559ae711366c00985954a46ed9db5bf589942435a4c9861fae",
-        "size_bytes": 155401,
-        "line_count": 3172
+        "sha256": "f4c2026b927e2c99d5fa88bf4bd8a15cf22f254672dc5d8a4ec1c6f2b5a34536",
+        "size_bytes": 165616,
+        "line_count": 3269
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.0",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "08fb758dc6f498c113cffe7ad8d09c0b86e89cdd925ec46d5d0f32c46603864f",
-        "size_bytes": 25444,
-        "line_count": 511
+        "sha256": "bf7d8bf7b857f6472a39e889f31d9de9ae605e07846f00ead4e92301b92ac1fe",
+        "size_bytes": 29297,
+        "line_count": 550
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.5.0",
+        "version": "2.6.0",
         "class": "TASK_COMPOSITE",
-        "sha256": "b939bf1471296e7336cbc519dca5b8d50bac4a01be418f443fe438eda0811c62",
-        "size_bytes": 91296,
-        "line_count": 1639
+        "sha256": "b9d1e30c696238eb6a95f6bef1d5da2e1e0049cd888b33dc0546696717f561d3",
+        "size_bytes": 161424,
+        "line_count": 3429
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "b6a382c5dcb0040f0c70385a773712d2b405ab705748a6279deb0ce3110a0129",
-        "size_bytes": 61365,
-        "line_count": 1134
+        "sha256": "009482e03559934626ce6cab1578e9f9a3a72022bfb23dc6eae19c06eed01ad7",
+        "size_bytes": 110310,
+        "line_count": 2074
       }
     ],
     "required_floor_invariants": [
@@ -89,25 +89,27 @@
       "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
       "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_5_0_OBJECT_CONTRACT_SET_004",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_005",
     "target_foundation_versions": {
-      "core": "2.5.0",
-      "control": "2.5.0",
+      "core": "2.6.0",
+      "control": "2.6.0",
       "governance": "2.3.0",
-      "starter": "2.5.0",
+      "starter": "2.6.0",
       "handoff_schema": "2.3.0"
     },
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
-      "size_bytes": 19772,
-      "line_count": 693
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
+      "size_bytes": 35061,
+      "line_count": 1018
     }
   },
   "file_identity_contract": {
@@ -316,15 +318,15 @@
   "external_dependency_state": {
     "specialist": {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
-      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE"
     },
     "method_pack": {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
-      "availability_state": "SOURCE_PROMOTED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "availability_state": "SOURCE_PROMOTED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE"
     },
     "executor": {
       "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR_V2",
-      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "availability_state": "GENERATED_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE"
     },
     "optional_peer_packages": [
       {
@@ -353,12 +355,12 @@
   "package_completion_contract": {
     "component_count": 4,
     "manifest_required": true,
-    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_AVAILABLE_UNBOUND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE"
   },
   "integration_refresh": {
     "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
-    "refresh_version": "2.4.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_004",
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
     "optional_cross_package_compatibility": [
       {
         "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -366,9 +368,7 @@
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
         "selection_time_exact_identity_validation_required": true,
-        "candidate_version_interface_reconciled": "2.4.0",
-        "t9_observed_manifest_sha256": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
-        "t9_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+        "candidate_version_interface_reconciled": "2.5.0"
       },
       {
         "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
@@ -376,9 +376,7 @@
         "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
         "manifest_hash_pinned": false,
         "selection_time_exact_identity_validation_required": true,
-        "candidate_version_interface_reconciled": "2.4.0",
-        "t9_observed_manifest_sha256": "a979b97fd9da92e4703a7a2ece5f2f93d2e36cd77ef48ac8f0adef9e899eef80",
-        "t9_observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+        "candidate_version_interface_reconciled": "2.5.0"
       },
       {
         "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
@@ -391,9 +389,9 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
     "mainline_release_binding": {
-      "release_identity": "AIR_SFV_MII_INTEGRATION_CANDIDATE_V2_4_0",
+      "release_identity": "AIR_SFV_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",
-      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
       "foundation_versions": {
         "core": "2.5.0",
         "control": "2.5.0",
@@ -401,12 +399,12 @@
         "starter": "2.5.0",
         "handoff_schema": "2.3.0"
       },
-      "runtime_route_map_version": "1.0.0",
-      "capability_ecology_candidate_version_reconciled": "2.4.0",
-      "grounding_candidate_version_reconciled": "2.4.0",
+      "runtime_route_map_version": "1.1.0",
+      "capability_ecology_candidate_version_reconciled": "2.5.0",
+      "grounding_candidate_version_reconciled": "2.5.0",
       "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
       "functional_component_change": true,
-      "validation_state": "OBJECT_CONTRACT_SET_004_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PASS"
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
     }
   },
   "mii_sfv_contribution_contract": {
@@ -434,7 +432,7 @@
         "cognitive_route_ids",
         "route_objective",
         "required_cognitive_depth",
-        "morphology_recommendations",
+        "morphology_binding",
         "supported_findings",
         "interpretations",
         "alternatives",
@@ -462,7 +460,14 @@
       ]
     },
     "fusion_boundary": "SFV may identify evidence support/conflict edges, verification gaps and intent-reconciliation candidates, but Core MII owns cognitive contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
-    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy."
+    "authority_boundary": "No SFV cognitive contribution, verification result, adequacy recommendation or specialist decision independently authorizes execution, material action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
   },
   "semantic_fidelity_contract": {
     "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
@@ -574,15 +579,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.0.1",
-      "sha256": "41ba3b4e2bd4fd569527913e75066b4c7dfbb39db672bdb39329086f64da0dd0",
+      "version": "1.1.0",
+      "sha256": "28d21ab5da7934e5658a7cb9f50d58ec70eb730985f28422e78c16c3d40db329",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_SFV_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 19772,
-      "line_count": 693
+      "size_bytes": 35061,
+      "line_count": 1018
     },
     "capability_ecology_peer": {
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -602,5 +607,47 @@
       "selection_time_exact_identity_validation_required": true,
       "note": "Observed T8 candidate identity is validation evidence for T9 only; runtime selection validates the then-supplied exact package."
     }
+  },
+  "compatible_specialist_profiles": [
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2"
+  ],
+  "output_influence": {
+    "changes": [
+      "verification terminology and evidence-layer selection",
+      "traceability and specification-adequacy checks",
+      "baseline-discrimination expectations",
+      "planned-versus-observed evidence classification",
+      "failure localization, staleness review, and final intent-reconciliation requirements"
+    ],
+    "does_not_change_by_itself": [
+      "Orbit 0 binding",
+      "canonical intent or acceptance criteria",
+      "AIR_GATE decision",
+      "approval or material-action authority",
+      "delivery or closure authority",
+      "Core morphology binding"
+    ]
+  },
+  "non_goals": [
+    "Replace canonical intent, acceptance criteria, domain authority, or accountable human judgment.",
+    "Require unit tests, TDD, or executable verification when a different evidence layer is the smallest sufficient verification path.",
+    "Treat planned verification as observed evidence or passing selected checks as proof of production readiness, compliance, safety, truth, or closure.",
+    "Bind Orbit 0, approve work, authorize material effects, or bind MII morphology independently."
+  ],
+  "binding_rules": {
+    "allowed_effects": [
+      "AVAILABLE_UNBOUND_DOMAIN_INPUT",
+      "SELECTED_DOMAIN_OVERLAY_CONTRIBUTION",
+      "VERIFICATION_CONSTRAINT_CONTRIBUTION"
+    ],
+    "forbidden_effects": [
+      "ACTIVE_EXECUTION_BINDING",
+      "ORBIT_0_OCCUPANCY_AS_PACKAGE",
+      "CANONICAL_INTENT_REWRITE",
+      "APPROVAL_OR_CLOSURE_AUTHORITY",
+      "MATERIAL_EFFECT_AUTHORIZATION",
+      "MORPHOLOGY_BINDING"
+    ],
+    "operative_rule": "Use only after exact identity/dependency validation, task-fit selection, approval when required, and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT."
   }
 }

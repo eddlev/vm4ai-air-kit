@@ -1,0 +1,97 @@
+name: Apply R5 audit remediation
+
+on:
+  push:
+    branches:
+      - audit-remediation-r5-from-r4
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r5:
+    if: ${{ contains(github.event.head_commit.message, '[r5-run]') && !contains(github.event.head_commit.message, '[r5-applied]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify R5 support blobs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object tools/apply_r5_remediation.py)" = "055d5631792ab4732b42d3eb291f4c76a6ffae15"
+          test "$(git hash-object tools/validate_air_r5_remediation.py)" = "23c3cda8c10134e144c12b29c17d2712f8ab3fba"
+          test "$(git hash-object tools/test_air_r5_mutations.py)" = "63d643044292a3cda17f0d162930f0ccddbe09b7"
+          test "$(git hash-object tests/r5_remediation_fixtures.json)" = "5ebc883eae571f188285f3c27d98322c2c656d82"
+          test "$(git hash-object tools/validate_air_r2_remediation.py)" = "3aff1b18c36d4df175eb4ef5467dfba5027f8b54"
+          test "$(git hash-object tools/validate_air_r3_remediation.py)" = "906a71ca8b8baad9638c84cf897318611260c875"
+          test "$(git hash-object tools/validate_air_suite.py)" = "032c9955fa3bd6a7ca73414bfea63ed802e41cc5"
+
+      - name: Apply R5 source repair
+        run: python3 tools/apply_r5_remediation.py .
+
+      - name: Verify exact R5 audited-source scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/r5-expected.txt <<'EOF'
+          catalog/AIR_RUNTIME_ROUTE_MAP.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json
+          profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json
+          profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json
+          prompts/AIR_CORE_RUNTIME.md
+          prompts/AIR_DEFAULT_STARTER_PROFILE.json
+          prompts/AIR_HANDOFF_CARD_TEMPLATE.json
+          EOF
+          sed -i 's/^          //' /tmp/r5-expected.txt
+          git diff --name-only -- prompts catalog profiles | sort > /tmp/r5-actual.txt
+          diff -u /tmp/r5-expected.txt /tmp/r5-actual.txt
+
+      - name: Validate R1 through R5 contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/validate_air_contract_registry.py
+          python3 tools/validate_air_r1_remediation.py
+          python3 tools/validate_air_r2_remediation.py
+          python3 tools/validate_air_r3_remediation.py
+          python3 tools/validate_air_r4_remediation.py
+          python3 tools/validate_air_r5_remediation.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/test_air_contract_registry_mutations.py
+          python3 tools/test_air_r1_mutations.py
+          python3 tools/test_air_r2_mutations.py
+          python3 tools/test_air_r3_mutations.py
+          python3 tools/test_air_r4_mutations.py . tools/validate_air_r4_remediation.py
+          python3 tools/test_air_r5_mutations.py . tools/validate_air_r5_remediation.py
+          python3 tools/test_air_behavioral_contract_mutations.py
+          python3 tools/test_air_control_plane_mutations.py
+
+      - name: Verify R5 patch idempotence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff -- prompts catalog profiles > /tmp/r5-before.diff
+          python3 tools/apply_r5_remediation.py .
+          git diff -- prompts catalog profiles > /tmp/r5-after.diff
+          diff -u /tmp/r5-before.diff /tmp/r5-after.diff
+          echo 'R5 patch idempotence: PASS'
+
+      - name: Commit repaired source
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- prompts catalog profiles; then
+            echo "No R5 source changes remain to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add prompts catalog profiles
+          git commit -m "Apply R5 Capability Ecology constructor-chain remediation [r5-applied]"
+          git push

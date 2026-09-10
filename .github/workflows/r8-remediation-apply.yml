@@ -1,0 +1,167 @@
+name: Apply R8 presentation portability remediation
+
+on:
+  push:
+    branches:
+      - audit-remediation-r8-from-r7
+
+permissions:
+  contents: write
+
+jobs:
+  apply-r8:
+    if: ${{ contains(github.event.head_commit.message, '[r8-run]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify R8 support and pristine R7 audited source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object tools/apply_r8_remediation.py)" = "3831e4d96d820fcf64a798f09a5654d2fafa6ce0"
+          test "$(git hash-object tools/validate_air_r8_remediation.py)" = "8e3d3b6eeb0470643364b8f2ca4efee34e07b8c3"
+          test "$(git hash-object tools/test_air_r8_mutations.py)" = "0daaf170333b12e3004ec99257453cb401113545"
+          test "$(git hash-object tools/patch_r8_validator_extensions.py)" = "8b870dd0b8f142c882542ae63b169164ac1ce366"
+          test "$(git hash-object tools/refresh_r8_route_anchors.py)" = "b5b543159aee14962dd14ec0eeef35a66ff0f43c"
+          test "$(git hash-object tools/reseal_air_candidate.py)" = "336d967e0daf36ef0a659225b2ff2f22aa4bb15e"
+          test "$(git hash-object tools/validate_air_suite.py)" = "8f5c11f81d567742fed7427ecc537f8058215754"
+          test "$(git hash-object tools/validate_air_boot.py)" = "b9fd4fbd080404bfb99ec4b416c7929db090d0d8"
+          test "$(git hash-object tools/validate_air_release.py)" = "f65f556e81db088fe1b2c3897ac0e64829a5c24d"
+          test "$(git hash-object tools/test_air_validator_mutations.py)" = "725178690cbd1b7a000e22432aacc494f521a12f"
+          test -z "$(git diff --name-only 7bd73ba1a3fb244a1bc6d7c878a2758d652d15b3..HEAD -- prompts catalog profiles)"
+          echo 'R8 support integrity + R7 audited-source baseline: PASS'
+
+      - name: Prove pre-R8 focused negative baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          if python3 tools/validate_air_r8_remediation.py . > /tmp/r8-pre.out 2>&1; then
+            cat /tmp/r8-pre.out
+            echo 'R8 pre-repair validator unexpectedly passed' >&2
+            exit 1
+          fi
+          grep -F 'R8 sentinel declaration does not resolve all typed expectations' /tmp/r8-pre.out
+          echo 'R8 pre-repair negative baseline: PASS (defect detected)'
+
+      - name: Extend permanent boot release suite and generic mutation validators
+        run: |
+          python3 tools/patch_r8_validator_extensions.py
+          python3 -m py_compile tools/validate_air_boot.py tools/validate_air_release.py tools/validate_air_suite.py tools/test_air_validator_mutations.py tools/validate_air_r8_remediation.py tools/test_air_r8_mutations.py
+
+      - name: Apply R8 presentation and portability truth
+        run: |
+          python3 tools/apply_r8_remediation.py .
+          python3 tools/refresh_r8_route_anchors.py
+
+      - name: Capture historical records before reseal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/r8-history-before.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          print(json.dumps({'t7_change_record':cea['t7_change_record'],'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']},sort_keys=True,indent=2))
+          PY
+
+      - name: Dependency-graph reseal
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Verify R7 history was not rewritten by R8 reseal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/r8-history-after.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          print(json.dumps({'t7_change_record':cea['t7_change_record'],'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']},sort_keys=True,indent=2))
+          PY
+          diff -u /tmp/r8-history-before.json /tmp/r8-history-after.json
+          echo 'R8 historical-container reseal immutability: PASS'
+
+      - name: Verify exact audited-source change set
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/r8-expected.txt <<'EOF'
+          catalog/AIR_RUNTIME_ROUTE_MAP.json
+          catalog/AIR_SPECIALIST_PACKAGE_INDEX.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json
+          profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json
+          profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json
+          profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json
+          profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json
+          profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json
+          profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json
+          profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json
+          profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json
+          prompts/AIR_CONTROL_SURFACE.md
+          prompts/AIR_CORE_RUNTIME.md
+          prompts/AIR_DEFAULT_STARTER_PROFILE.json
+          prompts/AIR_HANDOFF_CARD_TEMPLATE.json
+          EOF
+          sed -i 's/^          //' /tmp/r8-expected.txt
+          sort -o /tmp/r8-expected.txt /tmp/r8-expected.txt
+          git diff --name-only -- prompts catalog profiles | sort > /tmp/r8-actual.txt
+          diff -u /tmp/r8-expected.txt /tmp/r8-actual.txt
+          test "$(wc -l < /tmp/r8-actual.txt)" -eq 30
+          echo 'R8 audited-source delta: PASS (30/31 changed)'
+
+      - name: Run canonical R1-R8 suite without mutations
+        run: python3 tools/validate_air_suite.py --without-mutations
+
+      - name: Run full canonical R1-R8 validation and mutation suite
+        run: python3 tools/validate_air_suite.py
+
+      - name: Verify final reseal fixed point and patch idempotence
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/reseal_air_candidate.py --check
+          git diff -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py > /tmp/r8-before.diff
+          python3 tools/patch_r8_validator_extensions.py
+          python3 tools/apply_r8_remediation.py .
+          python3 tools/refresh_r8_route_anchors.py
+          python3 tools/reseal_air_candidate.py --apply
+          git diff -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py > /tmp/r8-after.diff
+          diff -u /tmp/r8-before.diff /tmp/r8-after.diff
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_r8_remediation.py .
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_release.py
+          echo 'R8 patch + reseal idempotence: PASS'
+
+      - name: Commit R8 repaired source and permanent validators
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py; then
+            echo 'No R8 changes remain to commit.'
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- prompts catalog profiles tools/validate_air_boot.py tools/validate_air_release.py tools/test_air_validator_mutations.py tools/validate_air_suite.py
+          git commit -m "Apply R8 presentation portability cleanup [r8-applied]"
+          git push
