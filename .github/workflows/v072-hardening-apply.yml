@@ -76,6 +76,11 @@ jobs:
           if t.count(decision_line) != 1:
               raise SystemExit(f'FM-V072-R3-MIGRATION-DECISION-009: expected one R3 decision insertion anchor, got {t.count(decision_line)}')
           t=t.replace(decision_line,decision_insert,1)
+          release_tuple="        (\"print('AIR v0.7.1 set-005 deterministic validation: PASS')\", \"print('AIR v0.7.2 set-006 candidate deterministic validation: PASS')\"),\n"
+          release_insert=release_tuple + "        (\"deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}\", \"deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE', 'RT.TASK_SWITCH'}\"),\n"
+          if t.count(release_tuple) != 1:
+              raise SystemExit(f'FM-V072-RELEASE-ROUTE-SET-010: expected one release tuple insertion anchor, got {t.count(release_tuple)}')
+          t=t.replace(release_tuple,release_insert,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
