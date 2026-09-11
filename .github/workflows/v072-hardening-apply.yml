@@ -49,13 +49,18 @@ jobs:
               ("    b = o['baseline_defaults']\n", "    b = o['compiler_contract']\n", 'FM-V072-EXECUTOR-STARTER-PATH-001'),
               ("    deterministic = cc['deterministic_pipeline_non_inference']['deterministic_route_ids']\n", "    deterministic = cc['deterministic_pipeline_non_inference']['declared_runtime_routes']\n", 'FM-V072-EXECUTOR-STARTER-ROUTE-CARRIER-002'),
               ("    mig = h['migration_state']['compatibility_rules']\n", "    mig = h['migration_state']['rules']\n", 'FM-V072-EXECUTOR-HANDOFF-MIGRATION-CARRIER-003'),
-              ("072 order flag false'); seq=sm['validation_sequence'];", "072 order flag false')\\n    seq=sm['validation_sequence'];", 'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004A'),
-              ("072 sequence migration after required carriers'); req(rc['history_synthesis']", "072 sequence migration after required carriers')\\n    req(rc['history_synthesis']", 'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004B'),
           ]
           for old,new,fm in replacements:
               if t.count(old) != 1:
                   raise SystemExit(f'{fm}: expected exactly one repair anchor, got {t.count(old)}')
               t=t.replace(old,new,1)
+          old_r3 = r'''    old = "rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false'); seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers'); req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')"
+'''
+          new_r3 = r'''    old = "rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false')\n    seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers')\n    req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')"
+'''
+          if t.count(old_r3) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004: expected one complete old R3 literal, got {t.count(old_r3)}')
+          t=t.replace(old_r3,new_r3,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
