@@ -92,6 +92,11 @@ jobs:
           if t.count(seal_old) != 1:
               raise SystemExit(f'FM-V072-CANDIDATE-SEAL-MUTATION-016: expected one candidate-seal new-task anchor, got {t.count(seal_old)}')
           t=t.replace(seal_old,seal_new,1)
+          behavioral_old="    require(routes['RT.TASK_SWITCH'].get('execution_semantics') == 'DETERMINISTIC_PIPELINE', 'Route Map task-switch is not deterministic')\\n"
+          behavioral_new="    require(routes['RT.TASK_SWITCH'].get('execution_semantics') == 'DETERMINISTIC_PIPELINE' and routes['RT.TASK_SWITCH'].get('inference_policy') == 'PROHIBITED', 'Route Map task-switch is not deterministic')\\n"
+          if t.count(behavioral_old) != 1:
+              raise SystemExit(f'FM-V072-BEHAVIORAL-ROUTE-DETERMINISM-017: expected one behavioral task-switch assertion, got {t.count(behavioral_old)}')
+          t=t.replace(behavioral_old,behavioral_new,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
