@@ -83,11 +83,19 @@ jobs:
           if t.count(decision_line) != 1:
               raise SystemExit(f'FM-V072-R3-MIGRATION-DECISION-009: expected one R3 decision insertion anchor, got {t.count(decision_line)}')
           t=t.replace(decision_line,decision_insert,1)
-          release_tuple="        (\"print('AIR v0.7.1 set-005 deterministic validation: PASS')\", \"print('AIR v0.7.2 set-006 candidate deterministic validation: PASS')\"),\n"
-          release_insert=release_tuple + "        (\"deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}\", \"deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE', 'RT.TASK_SWITCH'}\"),\n"
-          if t.count(release_tuple) != 1:
-              raise SystemExit(f'FM-V072-RELEASE-ROUTE-SET-010: expected one release tuple insertion anchor, got {t.count(release_tuple)}')
-          t=t.replace(release_tuple,release_insert,1)
+          release_loop="    for old, new in reps:\n        t = replace_once(t, old, new, 'release validator '+old[:28])\n"
+          route_old="deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}"
+          route_new="deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE', 'RT.TASK_SWITCH'}"
+          release_route_insert=(
+              release_loop
+              + "    route_old = " + repr(route_old) + "\n"
+              + "    route_new = " + repr(route_new) + "\n"
+              + "    if route_new not in t:\n"
+              + "        t = replace_once(t, route_old, route_new, 'release validator deterministic route set')\n"
+          )
+          if t.count(release_loop) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-RELEASE-ROUTE-IDEMPOTENCE-021: expected one release-validator loop, got {t.count(release_loop)}')
+          t=t.replace(release_loop,release_route_insert,1)
           seal_old="    nt=starter['compiler_contract']['new_task_binding_transaction']; req(nt['required'] is True and nt['ordered_states'][-1]=='NEW_TASK_EXECUTION_ELIGIBLE','Starter new-task transaction invalid')\n"
           seal_new=seal_old + "    req(nt['ordered_states'][-3:]==['PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED','ARTIFACT_SURFACED_LEDGER_ACCOUNTED','NEW_TASK_EXECUTION_ELIGIBLE'],'Starter new-task visible/accounting terminal order invalid')\n"
           if t.count(seal_old) != 1:
