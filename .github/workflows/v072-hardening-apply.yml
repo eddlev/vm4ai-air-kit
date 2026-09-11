@@ -103,7 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
-          git diff --name-only "$BASE" | sort > /tmp/v072-actual.txt
+          { git diff --name-only "$BASE"; git ls-files --others --exclude-standard; } | sort -u > /tmp/v072-actual.txt
           python3 - <<'PY' > /tmp/v072-allowed.txt
           from pathlib import Path
           allowed = {
@@ -140,6 +140,7 @@ jobs:
             grep -Fx "$required" /tmp/v072-actual.txt >/dev/null
           done
           echo 'v0.7.2 approved path boundary: PASS'
+          echo "candidate paths: $(wc -l < /tmp/v072-actual.txt)"
 
       - name: Run canonical suite without mutations
         run: python3 tools/validate_air_suite.py --without-mutations
@@ -155,12 +156,14 @@ jobs:
         run: |
           set -euo pipefail
           BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
-          git diff --binary "$BASE" -- \
+          git add -A
+          git diff --cached --binary "$BASE" -- \
             . ':(exclude)tools/apply_v072_hardening.py' ':(exclude).github/workflows/v072-hardening-apply.yml' \
             > /tmp/v072-before.diff
           python3 tools/apply_v072_hardening.py .
           python3 tools/reseal_air_candidate.py --apply
-          git diff --binary "$BASE" -- \
+          git diff --exit-code
+          git diff --cached --binary "$BASE" -- \
             . ':(exclude)tools/apply_v072_hardening.py' ':(exclude).github/workflows/v072-hardening-apply.yml' \
             > /tmp/v072-after.diff
           diff -u /tmp/v072-before.diff /tmp/v072-after.diff
