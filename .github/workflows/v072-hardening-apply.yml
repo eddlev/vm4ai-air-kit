@@ -37,7 +37,7 @@ jobs:
           python3 -m py_compile tools/apply_v072_hardening.py
           echo 'v0.7.2 bootstrap scope: PASS'
 
-      - name: Repair evidenced executor Starter carrier defects
+      - name: Repair evidenced executor source-carrier defects
         shell: bash
         run: |
           set -euo pipefail
@@ -48,6 +48,7 @@ jobs:
           replacements=[
               ("    b = o['baseline_defaults']\n", "    b = o['compiler_contract']\n", 'FM-V072-EXECUTOR-STARTER-PATH-001'),
               ("    deterministic = cc['deterministic_pipeline_non_inference']['deterministic_route_ids']\n", "    deterministic = cc['deterministic_pipeline_non_inference']['declared_runtime_routes']\n", 'FM-V072-EXECUTOR-STARTER-ROUTE-CARRIER-002'),
+              ("    mig = h['migration_state']['compatibility_rules']\n", "    mig = h['migration_state']['rules']\n", 'FM-V072-EXECUTOR-HANDOFF-MIGRATION-CARRIER-003'),
           ]
           for old,new,fm in replacements:
               if t.count(old) != 1:
@@ -56,7 +57,7 @@ jobs:
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
-          echo 'Evidenced Starter carrier corrections applied'
+          echo 'Evidenced executor carrier corrections applied'
 
       - name: Apply v0.7.2 semantic hardening
         run: python3 tools/apply_v072_hardening.py .
