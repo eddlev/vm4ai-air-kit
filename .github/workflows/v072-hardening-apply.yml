@@ -1,0 +1,205 @@
+name: Apply AIR v0.7.2 full-repository hardening
+
+on:
+  push:
+    branches:
+      - v0.7.2-full-repo-hardening
+
+permissions:
+  contents: write
+
+jobs:
+  apply-v072-hardening:
+    if: ${{ contains(github.event.head_commit.message, '[v072-run]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact approved bootstrap state
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
+          BASE_TREE=d6ce261da503cc56657ef781bb5a7dedd90badde
+          test "$(git rev-parse "$BASE^{tree}")" = "$BASE_TREE"
+          git merge-base --is-ancestor "$BASE" HEAD
+          git diff --name-only "$BASE"..HEAD | sort > /tmp/v072-pre.txt
+          cat > /tmp/v072-pre-expected.txt <<'EOF'
+          .github/workflows/v072-hardening-apply.yml
+          tools/apply_v072_hardening.py
+          EOF
+          sed -i 's/^          //' /tmp/v072-pre-expected.txt
+          sort -o /tmp/v072-pre-expected.txt /tmp/v072-pre-expected.txt
+          diff -u /tmp/v072-pre-expected.txt /tmp/v072-pre.txt
+          test "$(git ls-tree -r --name-only "$BASE" | wc -l)" -eq 97
+          python3 -m py_compile tools/apply_v072_hardening.py
+          echo 'v0.7.2 bootstrap scope: PASS'
+
+      - name: Apply v0.7.2 semantic hardening
+        run: python3 tools/apply_v072_hardening.py .
+
+      - name: Dependency graph reseal
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Compile changed Python validation surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile \
+            tools/migrate_air_handoff.py \
+            tools/validate_air_release.py \
+            tools/validate_air_r7_remediation.py \
+            tools/validate_air_r3_remediation.py \
+            tools/test_air_r3_mutations.py \
+            tools/validate_air_control_plane.py \
+            tools/test_air_control_plane_mutations.py \
+            tools/validate_air_behavioral_contracts.py \
+            tools/test_air_behavioral_contract_mutations.py \
+            tools/validate_air_suite.py \
+            tools/validate_air_v072_release_seal.py \
+            tools/test_air_v072_release_seal_mutations.py
+
+      - name: Verify approved path boundary before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
+          git diff --name-only "$BASE" | sort > /tmp/v072-actual.txt
+          python3 - <<'PY' > /tmp/v072-allowed.txt
+          from pathlib import Path
+          allowed = {
+              'README.md','VERSION',
+              'prompts/AIR_CORE_RUNTIME.md','prompts/AIR_CONTROL_SURFACE.md','prompts/AIR_GOV.md',
+              'prompts/AIR_DEFAULT_STARTER_PROFILE.json','prompts/AIR_HANDOFF_CARD_TEMPLATE.json',
+              'catalog/AIR_RUNTIME_ROUTE_MAP.json','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',
+              'tests/air_contract_fixtures.json','tests/deterministic_contract_inventory.json',
+              'tools/migrate_air_handoff.py','tools/validate_air_release.py','tools/validate_air_r7_remediation.py',
+              'tools/validate_air_r3_remediation.py','tools/test_air_r3_mutations.py',
+              'tools/validate_air_control_plane.py','tools/test_air_control_plane_mutations.py',
+              'tools/validate_air_behavioral_contracts.py','tools/test_air_behavioral_contract_mutations.py',
+              'tools/validate_air_suite.py','tools/validate_air_v072_release_seal.py',
+              'tools/test_air_v072_release_seal_mutations.py','tools/test_air_validator_mutations.py',
+              'tools/apply_v072_hardening.py','.github/workflows/v072-hardening-apply.yml',
+          }
+          allowed.update(str(p) for p in Path('profiles').glob('**/*.json'))
+          print('\n'.join(sorted(allowed)))
+          PY
+          comm -23 /tmp/v072-actual.txt /tmp/v072-allowed.txt > /tmp/v072-unexpected.txt
+          if test -s /tmp/v072-unexpected.txt; then
+            echo 'Unexpected out-of-scope changed paths:' >&2
+            cat /tmp/v072-unexpected.txt >&2
+            exit 1
+          fi
+          for required in \
+            README.md VERSION \
+            prompts/AIR_CORE_RUNTIME.md prompts/AIR_CONTROL_SURFACE.md prompts/AIR_GOV.md \
+            prompts/AIR_DEFAULT_STARTER_PROFILE.json prompts/AIR_HANDOFF_CARD_TEMPLATE.json \
+            catalog/AIR_RUNTIME_ROUTE_MAP.json catalog/AIR_SPECIALIST_PACKAGE_INDEX.json \
+            tests/air_contract_fixtures.json tests/deterministic_contract_inventory.json \
+            tools/validate_air_control_plane.py tools/validate_air_behavioral_contracts.py \
+            tools/validate_air_v072_release_seal.py tools/test_air_v072_release_seal_mutations.py; do
+            grep -Fx "$required" /tmp/v072-actual.txt >/dev/null
+          done
+          echo 'v0.7.2 approved path boundary: PASS'
+
+      - name: Run canonical suite without mutations
+        run: python3 tools/validate_air_suite.py --without-mutations
+
+      - name: Run full canonical validation and mutation suite
+        run: python3 tools/validate_air_suite.py
+
+      - name: Verify reseal fixed point
+        run: python3 tools/reseal_air_candidate.py --check
+
+      - name: Verify semantic patch idempotence
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
+          git diff --binary "$BASE" -- \
+            . ':(exclude)tools/apply_v072_hardening.py' ':(exclude).github/workflows/v072-hardening-apply.yml' \
+            > /tmp/v072-before.diff
+          python3 tools/apply_v072_hardening.py .
+          python3 tools/reseal_air_candidate.py --apply
+          git diff --binary "$BASE" -- \
+            . ':(exclude)tools/apply_v072_hardening.py' ':(exclude).github/workflows/v072-hardening-apply.yml' \
+            > /tmp/v072-after.diff
+          diff -u /tmp/v072-before.diff /tmp/v072-after.diff
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_v072_release_seal.py
+          echo 'v0.7.2 semantic patch idempotence: PASS'
+
+      - name: Remove temporary executor surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm tools/apply_v072_hardening.py .github/workflows/v072-hardening-apply.yml
+
+      - name: Post-patch full-repository reconciliation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
+          test "$(git ls-files | wc -l)" -eq 99
+          git diff --name-only "$BASE" | sort > /tmp/v072-final-changed.txt
+          ! grep -Fx 'tools/apply_v072_hardening.py' /tmp/v072-final-changed.txt
+          ! grep -Fx '.github/workflows/v072-hardening-apply.yml' /tmp/v072-final-changed.txt
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          base='0451b31ff5c869595f0fcc7996d112d11bf2d6e6'
+          base_files=set(subprocess.check_output(['git','ls-tree','-r','--name-only',base],text=True).splitlines())
+          current_files=set(subprocess.check_output(['git','ls-files'],text=True).splitlines())
+          assert len(base_files)==97, len(base_files)
+          expected_new={'tools/validate_air_v072_release_seal.py','tools/test_air_v072_release_seal_mutations.py'}
+          assert current_files-base_files == expected_new, sorted(current_files-base_files)
+          assert not (base_files-current_files), sorted(base_files-current_files)
+          changed=set(subprocess.check_output(['git','diff','--name-only',base],text=True).splitlines())
+          allowed={
+              'README.md','VERSION',
+              'prompts/AIR_CORE_RUNTIME.md','prompts/AIR_CONTROL_SURFACE.md','prompts/AIR_GOV.md',
+              'prompts/AIR_DEFAULT_STARTER_PROFILE.json','prompts/AIR_HANDOFF_CARD_TEMPLATE.json',
+              'catalog/AIR_RUNTIME_ROUTE_MAP.json','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',
+              'tests/air_contract_fixtures.json','tests/deterministic_contract_inventory.json',
+              'tools/migrate_air_handoff.py','tools/validate_air_release.py','tools/validate_air_r7_remediation.py',
+              'tools/validate_air_r3_remediation.py','tools/test_air_r3_mutations.py',
+              'tools/validate_air_control_plane.py','tools/test_air_control_plane_mutations.py',
+              'tools/validate_air_behavioral_contracts.py','tools/test_air_behavioral_contract_mutations.py',
+              'tools/validate_air_suite.py','tools/validate_air_v072_release_seal.py',
+              'tools/test_air_v072_release_seal_mutations.py','tools/test_air_validator_mutations.py',
+          }
+          allowed.update(str(p) for p in Path('profiles').glob('**/*.json'))
+          unexpected=changed-allowed
+          assert not unexpected, sorted(unexpected)
+          # Reconciliation universe: 97 previously classified tracked files + 2 explicit v0.7.2 validator additions.
+          assert len(current_files)==99
+          print('AIR_PATCH_FULL_REPOSITORY_RECONCILIATION_V1: PASS')
+          print('tracked_files',len(current_files))
+          print('reconciled_files',len(current_files))
+          print('unclassified_files',0)
+          print('changed_files',len(changed))
+          PY
+
+      - name: Validate final candidate without temporary executor
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_suite.py --without-mutations
+          python3 tools/validate_air_v072_release_seal.py
+
+      - name: Commit validated v0.7.2 candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet; then
+            echo 'No v0.7.2 candidate changes remain to commit.' >&2
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "fix: harden AIR v0.7.2 control spine [v072-applied]"
+          git push origin HEAD:v0.7.2-full-repo-hardening
