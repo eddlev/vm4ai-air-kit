@@ -89,6 +89,35 @@ jobs:
       - name: Apply v0.7.2 semantic hardening
         run: python3 tools/apply_v072_hardening.py .
 
+      - name: Align permanent release validator to SET_006 candidate identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tools/validate_air_release.py')
+          t=p.read_text(encoding='utf-8')
+          pairs=[
+              ("inventory.get('inventory_id') == 'AIR_SET005_DETERMINISTIC_CONTRACT_INVENTORY_V1'", "inventory.get('inventory_id') == 'AIR_SET006_DETERMINISTIC_CONTRACT_INVENTORY_V1'", 'inventory identity'),
+              ("fixtures.get('fixture_set') == 'AIR_SET005_REGRESSION_FIXTURES_V1'", "fixtures.get('fixture_set') == 'AIR_SET006_REGRESSION_FIXTURES_V1'", 'fixture identity'),
+          ]
+          for old,new,label in pairs:
+              if old in t:
+                  if t.count(old)!=1: raise SystemExit(f'{label}: non-unique old anchor {t.count(old)}')
+                  t=t.replace(old,new,1)
+              elif t.count(new)!=1:
+                  raise SystemExit(f'{label}: neither unique old nor new anchor')
+          old_filter="'SET_005' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node"
+          new_filter="'SET_006' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node"
+          if old_filter in t:
+              if t.count(old_filter)!=2: raise SystemExit(f'SET behavioral filter count {t.count(old_filter)} != 2')
+              t=t.replace(old_filter,new_filter)
+          elif t.count(new_filter)!=2:
+              raise SystemExit(f'SET behavioral filter current count {t.count(new_filter)} != 2')
+          p.write_text(t,encoding='utf-8')
+          PY
+          echo 'SET_006 release validator identity/filter alignment: PASS'
+
       - name: Dependency graph reseal
         run: python3 tools/reseal_air_candidate.py --apply
 
