@@ -77,7 +77,8 @@ jobs:
               + "    t = replace_once(t, \"req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV15_TO_REV16'),'072 migration decision')\", \"req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV16_TO_REV17'),'072 migration decision')\", 'R3 migration decision')\n"
               + "    fp_old = \"    vr=sm['validation_registry']['rules']['HC-VALIDATE-APPROVAL']; req(any(p.get('operator')=='APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR' for p in vr['predicates']),'026 Handoff validation op missing')\" + chr(10)\n"
               + "    fp_new = fp_old + \"    req('APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' in sm['validation_registry']['allowed_operators'],'v072 approval fingerprint operator missing')\" + chr(10) + \"    req(any(p.get('operator')=='APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' for p in vr['predicates']),'v072 approval fingerprint predicate missing')\" + chr(10) + \"    req(any(p.get('path')=='$.open_approval_scope.approval_scope_fingerprint' for p in vr['predicates']),'v072 approval fingerprint path missing')\" + chr(10)\n"
-              + "    t = replace_once(t, fp_old, fp_new, 'R3 approval fingerprint validation')\n"
+              + "    if 'v072 approval fingerprint operator missing' not in t:\n"
+              + "        t = replace_once(t, fp_old, fp_new, 'R3 approval fingerprint validation')\n"
           )
           if t.count(decision_line) != 1:
               raise SystemExit(f'FM-V072-R3-MIGRATION-DECISION-009: expected one R3 decision insertion anchor, got {t.count(decision_line)}')
