@@ -121,6 +121,16 @@ jobs:
           if t.count(gov_idem_old) != 1:
               raise SystemExit(f'FM-V072-EXECUTOR-GOV-IDEMPOTENCE-019: expected one Governance scope reuse replacement, got {t.count(gov_idem_old)}')
           t=t.replace(gov_idem_old,gov_idem_new,1)
+          action_old="    events['RT.ACTION']['guards'] = prefixes + action_guards[2:]\n"
+          action_new="    prefix_paths={g.get('path') for g in prefixes}\n    events['RT.ACTION']['guards'] = prefixes + [g for g in action_guards if g.get('path') not in prefix_paths]\n"
+          if t.count(action_old) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-ACTION-GUARD-CONVERGENCE-022: expected one RT.ACTION guard assignment, got {t.count(action_old)}')
+          t=t.replace(action_old,action_new,1)
+          count_old="    dp['route_count'] = len(dp['declared_route_ids']) if 'route_count' in dp else dp.get('route_count')\n"
+          count_new="    dp['route_count'] = len(dp['declared_route_ids'])\n"
+          if t.count(count_old) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-ROUTE-COUNT-CONVERGENCE-023: expected one route_count assignment, got {t.count(count_old)}')
+          t=t.replace(count_old,count_new,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
