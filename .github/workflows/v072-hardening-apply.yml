@@ -54,13 +54,21 @@ jobs:
               if t.count(old) != 1:
                   raise SystemExit(f'{fm}: expected exactly one repair anchor, got {t.count(old)}')
               t=t.replace(old,new,1)
-          old_r3 = r'''    old = "rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false'); seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers'); req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')"
-'''
-          new_r3 = r'''    old = "rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false')\n    seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers')\n    req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')"
-'''
-          if t.count(old_r3) != 1:
-              raise SystemExit(f'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004: expected one complete old R3 literal, got {t.count(old_r3)}')
-          t=t.replace(old_r3,new_r3,1)
+          lines=t.splitlines(keepends=True)
+          prefix="    old = \"rc=sm['revision_migration_contracts']['REV15_TO_REV16']"
+          hits=[i for i,line in enumerate(lines) if line.startswith(prefix)]
+          if len(hits) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004: expected one complete R3 old-literal line, got {len(hits)}')
+          i=hits[0]
+          line=lines[i]
+          a="072 order flag false'); seq=sm['validation_sequence'];"
+          b="072 sequence migration after required carriers'); req(rc['history_synthesis']"
+          if line.count(a) != 1 or line.count(b) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004: R3 literal subanchors mismatch a={line.count(a)} b={line.count(b)}')
+          line=line.replace(a,"072 order flag false')"+chr(92)+"n    seq=sm['validation_sequence'];",1)
+          line=line.replace(b,"072 sequence migration after required carriers')"+chr(92)+"n    req(rc['history_synthesis']",1)
+          lines[i]=line
+          t=''.join(lines)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
