@@ -97,6 +97,16 @@ jobs:
           if t.count(behavioral_old) != 1:
               raise SystemExit(f'FM-V072-BEHAVIORAL-ROUTE-DETERMINISM-017: expected one behavioral task-switch assertion, got {t.count(behavioral_old)}')
           t=t.replace(behavioral_old,behavioral_new,1)
+          control_anchor='    if "RT.TASK_SWITCH not deterministic" not in t:\n'
+          control_guard=(
+              "    expected_tsg={('STATE_PRESENT','CURRENT_EVALUATION_BASIS',None),('STATE_EQUALS','NEW_TASK_BOUNDARY_STATE','LATCHED_NEW_TASK'),('STATE_EQUALS','NEW_TASK_IDENTITY_RESOLUTION_STATE','RESOLVED'),('STATE_EQUALS','NEW_TASK_ARTIFACT_COMPILATION_STATE','COMPILED'),('STATE_EQUALS','NEW_TASK_BENCHMARK_STATE','DERIVED'),('STATE_EQUALS','NEW_TASK_PRECHECK_ADMISSIBILITY_STATE','ADMISSIBLE_FOR_BINDING'),('STATE_EQUALS','NEW_TASK_BINDING_READINESS_STATE','READY')}\n"
+              "    got_tsg={(g.get('operator'),g.get('path'),g.get('expected')) for g in events['RT.TASK_SWITCH'].get('guards',[])}\n"
+              "    req(got_tsg==expected_tsg and len(events['RT.TASK_SWITCH'].get('guards',[]))==7,'RT.TASK_SWITCH guard contract mismatch')\n"
+          )
+          control_insert="    extra4 = extra4 + " + repr(control_guard) + "\n" + control_anchor
+          if t.count(control_anchor) != 1:
+              raise SystemExit(f'FM-V072-CONTROL-PLANE-TASK-SWITCH-GUARDS-018: expected one control task-switch insertion anchor, got {t.count(control_anchor)}')
+          t=t.replace(control_anchor,control_insert,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
