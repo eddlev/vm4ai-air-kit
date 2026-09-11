@@ -87,6 +87,11 @@ jobs:
           if t.count(release_tuple) != 1:
               raise SystemExit(f'FM-V072-RELEASE-ROUTE-SET-010: expected one release tuple insertion anchor, got {t.count(release_tuple)}')
           t=t.replace(release_tuple,release_insert,1)
+          seal_old="    nt=starter['compiler_contract']['new_task_binding_transaction']; req(nt['required'] is True and nt['ordered_states'][-1]=='NEW_TASK_EXECUTION_ELIGIBLE','Starter new-task transaction invalid')\n"
+          seal_new=seal_old + "    req(nt['ordered_states'][-3:]==['PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED','ARTIFACT_SURFACED_LEDGER_ACCOUNTED','NEW_TASK_EXECUTION_ELIGIBLE'],'Starter new-task visible/accounting terminal order invalid')\n"
+          if t.count(seal_old) != 1:
+              raise SystemExit(f'FM-V072-CANDIDATE-SEAL-MUTATION-016: expected one candidate-seal new-task anchor, got {t.count(seal_old)}')
+          t=t.replace(seal_old,seal_new,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
