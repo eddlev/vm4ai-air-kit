@@ -81,6 +81,11 @@ jobs:
           if t.count(release_tuple) != 1:
               raise SystemExit(f'FM-V072-RELEASE-ROUTE-SET-010: expected one release tuple insertion anchor, got {t.count(release_tuple)}')
           t=t.replace(release_tuple,release_insert,1)
+          fp_anchor="    vr=sm['validation_registry']['rules']['HC-VALIDATE-APPROVAL']; req(any(p.get('operator')=='APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR' for p in vr['predicates']),'026 Handoff validation op missing')\n"
+          fp_extra=fp_anchor + "    req('APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' in sm['validation_registry']['allowed_operators'],'v072 approval fingerprint operator missing')\n    req(any(p.get('operator')=='APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' for p in vr['predicates']),'v072 approval fingerprint predicate missing')\n    req(any(p.get('path')=='$.open_approval_scope.approval_scope_fingerprint' for p in vr['predicates']),'v072 approval fingerprint path missing')\n"
+          if t.count(fp_anchor) != 1:
+              raise SystemExit(f'FM-V072-R3-FINGERPRINT-MUTATION-013: expected one R3 approval validator anchor, got {t.count(fp_anchor)}')
+          t=t.replace(fp_anchor,fp_extra,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
