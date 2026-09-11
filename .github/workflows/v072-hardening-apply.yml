@@ -313,7 +313,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git rm tools/apply_v072_hardening.py .github/workflows/v072-hardening-apply.yml
+          git rm -f tools/apply_v072_hardening.py .github/workflows/v072-hardening-apply.yml
 
       - name: Post-patch full-repository reconciliation
         shell: bash
