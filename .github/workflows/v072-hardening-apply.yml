@@ -118,6 +118,29 @@ jobs:
           PY
           echo 'SET_006 release validator identity/filter alignment: PASS'
 
+      - name: Promote R1 version-drift mutation to current-version independent
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tools/test_air_r1_mutations.py')
+          t=p.read_text(encoding='utf-8')
+          old="    elif i==7: cp.write_text(cp.read_text().replace('PROMPT_VERSION: 2.6.0','PROMPT_VERSION: 9.9.9',1))\n"
+          new=(
+              "    elif i==7:\n"
+              "        s=cp.read_text(encoding='utf-8')\n"
+              "        matches=list(re.finditer(r'(?m)^PROMPT_VERSION:\\s*\\S+\\s*$',s))\n"
+              "        if len(matches)!=1: raise AssertionError(f'R1-N07 expected one current Core PROMPT_VERSION declaration, got {len(matches)}')\n"
+              "        m=matches[0]; cp.write_text(s[:m.start()]+'PROMPT_VERSION: 9.9.9'+s[m.end():],encoding='utf-8')\n"
+          )
+          if t.count(old)!=1:
+              raise SystemExit(f'FM-V072-R1-MUTATION-VERSION-012: expected exactly one old R1-N07 mutation line, got {t.count(old)}')
+          p.write_text(t.replace(old,new,1),encoding='utf-8')
+          PY
+          python3 -m py_compile tools/test_air_r1_mutations.py
+          echo 'R1-N07 current-version-independent mutation repair: PASS'
+
       - name: Dependency graph reseal
         run: python3 tools/reseal_air_candidate.py --apply
 
@@ -130,6 +153,7 @@ jobs:
             tools/validate_air_release.py \
             tools/validate_air_r7_remediation.py \
             tools/validate_air_r3_remediation.py \
+            tools/test_air_r1_mutations.py \
             tools/test_air_r3_mutations.py \
             tools/validate_air_control_plane.py \
             tools/test_air_control_plane_mutations.py \
@@ -157,7 +181,7 @@ jobs:
               'catalog/AIR_RUNTIME_ROUTE_MAP.json','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',
               'tests/air_contract_fixtures.json','tests/deterministic_contract_inventory.json',
               'tools/migrate_air_handoff.py','tools/validate_air_release.py','tools/validate_air_r7_remediation.py',
-              'tools/validate_air_r3_remediation.py','tools/test_air_r3_mutations.py',
+              'tools/validate_air_r3_remediation.py','tools/test_air_r1_mutations.py','tools/test_air_r3_mutations.py',
               'tools/validate_air_control_plane.py','tools/test_air_control_plane_mutations.py',
               'tools/validate_air_behavioral_contracts.py','tools/test_air_behavioral_contract_mutations.py',
               'tools/validate_air_suite.py','tools/validate_air_v072_release_seal.py',
@@ -179,7 +203,7 @@ jobs:
             prompts/AIR_DEFAULT_STARTER_PROFILE.json prompts/AIR_HANDOFF_CARD_TEMPLATE.json \
             catalog/AIR_RUNTIME_ROUTE_MAP.json catalog/AIR_SPECIALIST_PACKAGE_INDEX.json \
             tests/air_contract_fixtures.json tests/deterministic_contract_inventory.json \
-            tools/validate_air_control_plane.py tools/validate_air_behavioral_contracts.py \
+            tools/test_air_r1_mutations.py tools/validate_air_control_plane.py tools/validate_air_behavioral_contracts.py \
             tools/validate_air_v072_release_seal.py tools/test_air_v072_release_seal_mutations.py; do
             grep -Fx "$required" /tmp/v072-actual.txt >/dev/null
           done
@@ -250,7 +274,7 @@ jobs:
               'catalog/AIR_RUNTIME_ROUTE_MAP.json','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',
               'tests/air_contract_fixtures.json','tests/deterministic_contract_inventory.json',
               'tools/migrate_air_handoff.py','tools/validate_air_release.py','tools/validate_air_r7_remediation.py',
-              'tools/validate_air_r3_remediation.py','tools/test_air_r3_mutations.py',
+              'tools/validate_air_r3_remediation.py','tools/test_air_r1_mutations.py','tools/test_air_r3_mutations.py',
               'tools/validate_air_control_plane.py','tools/test_air_control_plane_mutations.py',
               'tools/validate_air_behavioral_contracts.py','tools/test_air_behavioral_contract_mutations.py',
               'tools/validate_air_suite.py','tools/validate_air_v072_release_seal.py',
