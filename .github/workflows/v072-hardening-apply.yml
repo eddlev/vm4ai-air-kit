@@ -37,6 +37,23 @@ jobs:
           python3 -m py_compile tools/apply_v072_hardening.py
           echo 'v0.7.2 bootstrap scope: PASS'
 
+      - name: Repair evidenced executor Starter carrier defect
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tools/apply_v072_hardening.py')
+          t=p.read_text(encoding='utf-8')
+          old="    b = o['baseline_defaults']\n"
+          new="    b = o['compiler_contract']\n"
+          if t.count(old) != 1:
+              raise SystemExit(f'expected exactly one baseline_defaults defect anchor, got {t.count(old)}')
+          p.write_text(t.replace(old,new,1),encoding='utf-8')
+          PY
+          python3 -m py_compile tools/apply_v072_hardening.py
+          echo 'FM-V072-EXECUTOR-STARTER-PATH-001 corrective constraint applied'
+
       - name: Apply v0.7.2 semantic hardening
         run: python3 tools/apply_v072_hardening.py .
 
@@ -173,7 +190,6 @@ jobs:
           allowed.update(str(p) for p in Path('profiles').glob('**/*.json'))
           unexpected=changed-allowed
           assert not unexpected, sorted(unexpected)
-          # Reconciliation universe: 97 previously classified tracked files + 2 explicit v0.7.2 validator additions.
           assert len(current_files)==99
           print('AIR_PATCH_FULL_REPOSITORY_RECONCILIATION_V1: PASS')
           print('tracked_files',len(current_files))
