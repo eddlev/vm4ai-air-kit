@@ -107,6 +107,11 @@ jobs:
           if t.count(control_anchor) != 1:
               raise SystemExit(f'FM-V072-CONTROL-PLANE-TASK-SWITCH-GUARDS-018: expected one control task-switch insertion anchor, got {t.count(control_anchor)}')
           t=t.replace(control_anchor,control_insert,1)
+          gov_idem_old="    t = replace_once(t, old, new, 'Governance scope reuse rules')\n"
+          gov_idem_new="    if '12. approval_scope_id must be unique to one canonical material-scope fingerprint' not in t:\n        t = replace_once(t, old, new, 'Governance scope reuse rules')\n"
+          if t.count(gov_idem_old) != 1:
+              raise SystemExit(f'FM-V072-EXECUTOR-GOV-IDEMPOTENCE-019: expected one Governance scope reuse replacement, got {t.count(gov_idem_old)}')
+          t=t.replace(gov_idem_old,gov_idem_new,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
