@@ -12,6 +12,8 @@ jobs:
   apply-v072-hardening:
     if: ${{ contains(github.event.head_commit.message, '[v072-run]') }}
     runs-on: ubuntu-24.04
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -97,6 +99,9 @@ jobs:
             tools/validate_air_suite.py \
             tools/validate_air_v072_release_seal.py \
             tools/test_air_v072_release_seal_mutations.py
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+          echo 'Generated Python bytecode cleanup: PASS'
 
       - name: Verify approved path boundary before validation
         shell: bash
@@ -156,6 +161,8 @@ jobs:
         run: |
           set -euo pipefail
           BASE=0451b31ff5c869595f0fcc7996d112d11bf2d6e6
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
           git add -A
           git diff --cached --binary "$BASE" -- \
             . ':(exclude)tools/apply_v072_hardening.py' ':(exclude).github/workflows/v072-hardening-apply.yml' \
@@ -228,11 +235,16 @@ jobs:
           python3 tools/reseal_air_candidate.py --check
           python3 tools/validate_air_suite.py --without-mutations
           python3 tools/validate_air_v072_release_seal.py
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+          test -z "$(git ls-files --others --exclude-standard)"
 
       - name: Commit validated v0.7.2 candidate
         shell: bash
         run: |
           set -euo pipefail
+          find . -type d -name __pycache__ -prune -exec rm -rf {} +
+          find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
           if git diff --quiet && git diff --cached --quiet; then
             echo 'No v0.7.2 candidate changes remain to commit.' >&2
             exit 1
