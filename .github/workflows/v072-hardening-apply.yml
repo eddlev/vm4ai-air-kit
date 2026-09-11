@@ -49,6 +49,8 @@ jobs:
               ("    b = o['baseline_defaults']\n", "    b = o['compiler_contract']\n", 'FM-V072-EXECUTOR-STARTER-PATH-001'),
               ("    deterministic = cc['deterministic_pipeline_non_inference']['deterministic_route_ids']\n", "    deterministic = cc['deterministic_pipeline_non_inference']['declared_runtime_routes']\n", 'FM-V072-EXECUTOR-STARTER-ROUTE-CARRIER-002'),
               ("    mig = h['migration_state']['compatibility_rules']\n", "    mig = h['migration_state']['rules']\n", 'FM-V072-EXECUTOR-HANDOFF-MIGRATION-CARRIER-003'),
+              ("072 order flag false'); seq=sm['validation_sequence'];", "072 order flag false')\\n    seq=sm['validation_sequence'];", 'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004A'),
+              ("072 sequence migration after required carriers'); req(rc['history_synthesis']", "072 sequence migration after required carriers')\\n    req(rc['history_synthesis']", 'FM-V072-EXECUTOR-R3-MIGRATION-ANCHOR-004B'),
           ]
           for old,new,fm in replacements:
               if t.count(old) != 1:
@@ -57,7 +59,7 @@ jobs:
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
-          echo 'Evidenced executor carrier corrections applied'
+          echo 'Evidenced executor carrier/anchor corrections applied'
 
       - name: Apply v0.7.2 semantic hardening
         run: python3 tools/apply_v072_hardening.py .
