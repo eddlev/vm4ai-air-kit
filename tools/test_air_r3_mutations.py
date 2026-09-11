@@ -36,6 +36,8 @@ def main():
     cases.append(('R3-N12-GOV-METHOD-STEP-STATE', mutate_json('profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json', lambda o:o['method_execution_state_schema'].__setitem__('step_states',['PENDING','ACTIVE','COMPLETED','BLOCKED','SKIPPED_APPROVED','FAILED','INVALIDATED','STALE_NEEDS_REGROUND']))))
     cases.append(('R3-N13-SOURCE-RIGHTS-PRECEDENCE', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['source_state']['source_rights_projection_contract'].__setitem__('last_writer_wins',True))))
     cases.append(('R3-N14-REV15-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV15_TO_REV16'].__setitem__('apply_before_current_required_carrier_check',False))))
+    cases.append(('R3-N15-REV16-TO-REV17-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV16_TO_REV17'].__setitem__('apply_before_current_required_carrier_check',False))))
+    cases.append(('R3-N16-APPROVAL-FINGERPRINT-VALIDATION', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['validation_registry']['allowed_operators'].remove('APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID'))))
     if run_validator(ROOT)!=0: raise SystemExit('R3-MUTATION-BASELINE failed')
     print('R3-MUTATION-BASELINE: PASS')
     killed=0

@@ -72,6 +72,16 @@ def mutate_route_bundle(root: Path):
     dump(p, x)
 
 
+def mutate_new_task_transaction(root: Path):
+    p=root/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; x=load(p)
+    x['compiler_contract']['new_task_binding_transaction']['ordered_states'].remove('ARTIFACT_SURFACED_LEDGER_ACCOUNTED'); dump(p,x)
+
+
+def mutate_new_task_route_determinism(root: Path):
+    p=root/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; x=load(p)
+    r=next(r for r in x['routes'] if r['route_id']=='RT.TASK_SWITCH'); r['inference_policy']='ALLOWED'; dump(p,x)
+
+
 MUTATIONS = [
     ('core_marker', mutate_remove_core_marker),
     ('orbit_bundle', mutate_orbit_bundle),
@@ -82,6 +92,8 @@ MUTATIONS = [
     ('cw2_safe_remainder', mutate_cw2),
     ('projection_order', mutate_projection_order),
     ('route_bundle', mutate_route_bundle),
+    ('new_task_transaction', mutate_new_task_transaction),
+    ('new_task_route_determinism', mutate_new_task_route_determinism),
 ]
 
 

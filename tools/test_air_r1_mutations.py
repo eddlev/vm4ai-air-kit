@@ -30,7 +30,11 @@ def mutate(t,i):
         s=load(sp); e=next(x for x in s['compiler_contract']['runtime_control_event_registry']['events'] if x['route_id']=='RT.ALIGN'); e['guards']=[{'operator':'STATE_PRESENT','path':'CURRENT_EVALUATION_BASIS'}]; save(sp,s)
     elif i==6:
         s=cp.read_text(); s=s.replace('DEP.APPROVAL_PRECONDITION_SATISFIED','DEP.APPROVAL_CURRENT',1); cp.write_text(s)
-    elif i==7: cp.write_text(cp.read_text().replace('PROMPT_VERSION: 2.6.0','PROMPT_VERSION: 9.9.9',1))
+    elif i==7:
+        s=cp.read_text(encoding='utf-8')
+        matches=list(re.finditer(r'(?m)^PROMPT_VERSION:\s*\S+\s*$',s))
+        if len(matches)!=1: raise AssertionError(f'R1-N07 expected one current Core PROMPT_VERSION declaration, got {len(matches)}')
+        m=matches[0]; cp.write_text(s[:m.start()]+'PROMPT_VERSION: 9.9.9'+s[m.end():],encoding='utf-8')
     elif i==8:
         s=load(sp); del s['profile_function_class']; save(sp,s)
     elif i==9:

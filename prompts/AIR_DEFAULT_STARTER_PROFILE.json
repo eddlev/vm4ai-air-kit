@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.6.0",
+  "PROMPT_VERSION": "2.6.1",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -105,8 +105,8 @@
     "runtime_drift_recovery_rule": "Detected loss of AIR application, disappearance of the bound task contract, skipped required reconciliation, or silent ordinary/default host-model fallback routes to ALIGNMENT_RECOVERY_SURFACE before affected governed work continues; prompt probabilism and absent backend enforcement are limitation records, not recovery bypasses.",
     "runtime_drift_suspicion_rule": "A user/operator report of apparent fallback triggers a targeted Core alignment evaluation; it is not proof of drift. Keep REPORTED_DRIFT_SUSPICION separate from ESTABLISHED_DRIFT. Do not set drift_detected=true or enter recovery solely from the report. Concrete operator-witnessed facts that establish an AIR violation may establish drift and trigger RT.RECOVERY.",
     "canonical_object_identity_rule": "Formal object record_class values are exact provider-invariant semantic identities owned by Core. Governance/evidence strength is separate evidence_class state and must never replace record_class. Provider changes may not rename, localize, summarize, or substitute AIR_SESSION, AIR_ARTIFACT, AIR_GATE, or other Core-owned object identities.",
-    "required_formal_object_rendering_rule": "When Core requires a chat formal object, render the canonical JSON object. ALL_OBJECTS versus MINIMUM_REQUIRED_OBJECTS changes optional repetition only; it never permits prose, key/value lists, pseudo-JSON, tables, or provider-native cards to substitute for required Session, Artifact, alignment, binding, recovery, Gate, Authorization, Receipt, surfaced-object ledger, failure-mode, or method-evidence-waiver records. AIR_HANDOFF_CARD payload is the separate file-only delivery artifact governed by AIR_HANDOFF_FILE_DELIVERY_V1 and is never inlined in chat.",
-    "required_emission_preflight_rule": "Before visible response composition, determine every formal AIR object required on the current response. After ARTIFACT_BOUND_EXECUTION, the current turn alignment evaluation and its required AIR_ALIGNMENT_CHECK plus coupled AIR_VALIDATION_REPORT are resolved before semantic route dispatch. Lifecycle-transition objects then render using the appropriate current evaluation basis. MINIMUM_REQUIRED_OBJECTS cannot defer, downgrade, reorder, or substitute for a required object. A late correction records a prior visibility/process miss but does not retroactively make the missed response compliant.",
+    "required_formal_object_rendering_rule": "When Core requires a chat formal object, render the canonical JSON object on the primary user-visible assistant response surface. ALL_OBJECTS versus MINIMUM_REQUIRED_OBJECTS changes optional repetition only; it never permits prose, key/value lists, pseudo-JSON, tables, provider-native cards, host reasoning/progress panels, collapsed `Worked for ...` sections, or comparable non-primary surfaces to substitute for required Session, Artifact, alignment, binding, recovery, Gate, Authorization, Receipt, surfaced-object ledger, failure-mode, or method-evidence-waiver records. AIR_HANDOFF_CARD payload is the separate file-only delivery artifact governed by AIR_HANDOFF_FILE_DELIVERY_V1 and is never inlined in chat.",
+    "required_emission_preflight_rule": "Before visible response composition, determine every formal AIR object required on the current response. After ARTIFACT_BOUND_EXECUTION, the current turn alignment evaluation and its required AIR_ALIGNMENT_CHECK plus coupled AIR_VALIDATION_REPORT are resolved before semantic route dispatch. Lifecycle-transition objects then render using the appropriate current evaluation basis. Required user-visible emission is satisfied only on the primary response surface; host reasoning/progress/collapsed surfaces do not discharge the duty. MINIMUM_REQUIRED_OBJECTS cannot defer, downgrade, reorder, or substitute for a required object. A late correction records a prior visibility/process miss but does not retroactively make the missed response compliant.",
     "record_mode_default": "PROMPT_LAYER_APPLIED",
     "backend_boundary": "Do not claim backend compilation, backend validation, latent-space modification, or runtime enforcement without tool or backend evidence. Backend absence limits only the claims or actions that actually require backend evidence; it does not deactivate PROMPT_COMPILED AIR.",
     "knowledge_to_execution_benchmark_contract": {
@@ -427,6 +427,7 @@
         "RT.HANDOFF_RESTORE",
         "RT.ONBOARD",
         "RT.RECEIPT",
+        "RT.TASK_SWITCH",
         "RT.TURN"
       ],
       "non_inference_rule": "Do not infer. Follow the declared deterministic pipeline."
@@ -470,6 +471,10 @@
       "ordered_pre_and_post_effect_states": [
         "TURN_ENTRY_ALIGNMENT",
         "CURRENT_ARTIFACT_BOUND",
+        "CURRENT_TASK_ARTIFACT_EXACT_MATCH",
+        "CURRENT_ARTIFACT_BENCHMARK_ADMISSIBLE",
+        "CURRENT_ARTIFACT_PRECHECK_ADMISSIBLE",
+        "CURRENT_ARTIFACT_PRIMARY_VISIBLE_AND_ACCOUNTED",
         "ACTIVE_LEASE",
         "NON_NULL_RESOURCE_SCOPE_PIN",
         "CURRENT_APPROVAL_WHEN_REQUIRED",
@@ -510,7 +515,11 @@
         "false_branch_rule": "approval_required=false produces APPROVAL_NOT_REQUIRED without synthesizing approval history",
         "unknown_rule": "UNRESOLVED_FAIL_CLOSED"
       },
-      "prior_review_gate_may_be_reused_as_allow": false
+      "prior_review_gate_may_be_reused_as_allow": false,
+      "exact_current_task_artifact_required": true,
+      "artifact_benchmark_admissibility_required": true,
+      "artifact_precheck_admissibility_required": true,
+      "artifact_primary_visible_accounting_required": true
     },
     "formal_object_constructor_validation": {
       "required": true,
@@ -749,6 +758,36 @@
             {
               "operator": "STATE_PRESENT",
               "path": "CURRENT_EVALUATION_BASIS"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_BOUNDARY_STATE",
+              "expected": "LATCHED_NEW_TASK"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_IDENTITY_RESOLUTION_STATE",
+              "expected": "RESOLVED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_ARTIFACT_COMPILATION_STATE",
+              "expected": "COMPILED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_BENCHMARK_STATE",
+              "expected": "DERIVED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_PRECHECK_ADMISSIBILITY_STATE",
+              "expected": "ADMISSIBLE_FOR_BINDING"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "NEW_TASK_BINDING_READINESS_STATE",
+              "expected": "READY"
             }
           ],
           "guard_join": "ALL",
@@ -857,6 +896,26 @@
             {
               "operator": "STATE_PRESENT",
               "path": "CURRENT_BOUND_ARTIFACT"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_TASK_ARTIFACT_MATCH_STATE",
+              "expected": "EXACT_MATCH"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_ARTIFACT_BENCHMARK_STATE",
+              "expected": "ADMISSIBLE"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_ARTIFACT_PRECHECK_STATE",
+              "expected": "ADMISSIBLE"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "CURRENT_ARTIFACT_VISIBLE_ACCOUNTING_STATE",
+              "expected": "PRIMARY_VISIBLE_AND_ACCOUNTED"
             },
             {
               "operator": "APPROVAL_PRECONDITION_SATISFIED",
@@ -1023,7 +1082,23 @@
       "approval_response_mode": "EXACT_CANONICAL_SCOPE_TOKEN_PAIR",
       "restored_scope_token_derivation_required": true,
       "validated_token_state": "VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR",
-      "token_set_rule": "EXACT_TWO_ELEMENT_SET_DERIVED_FROM_APPROVAL_SCOPE_ID_NO_EXTRAS_OR_ALIASES"
+      "token_set_rule": "EXACT_TWO_ELEMENT_SET_DERIVED_FROM_APPROVAL_SCOPE_ID_NO_EXTRAS_OR_ALIASES",
+      "approval_scope_id_revision_suffix_required": false,
+      "approval_scope_fingerprint_required": true,
+      "approval_scope_fingerprint_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "approval_scope_fingerprint_fields": [
+        "gate_id",
+        "exact_gate_question",
+        "requested_action",
+        "authorized_action_ids",
+        "excluded_action_ids",
+        "required_evidence",
+        "stop_conditions",
+        "expiry_or_completion_condition"
+      ],
+      "scope_id_reuse_rule": "SAME_APPROVAL_SCOPE_ID_WITH_DIFFERENT_FINGERPRINT_INVALID_REQUIRES_NEW_DISTINCT_ID",
+      "superseded_token_authority": "NONE",
+      "restored_scope_fingerprint_validation_required": true
     },
     "surfaced_object_ledger": {
       "required": true,
@@ -1134,7 +1209,10 @@
         "COMMIT_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_WITH_EXACT_HASH",
         "ONLY_THEN_SOURCE_LEDGER_ENTRY_REF_RESOLVES"
       ],
-      "reservation_authority": "NONE_UNTIL_MATCHING_LEDGER_ENTRY_COMMIT"
+      "reservation_authority": "NONE_UNTIL_MATCHING_LEDGER_ENTRY_COMMIT",
+      "execution_defect_rejection_capture_required": true,
+      "new_task_binding_barrier_failure_trigger": "NEW_TASK_BINDING_BARRIER_REJECT",
+      "recovery_capture_rule": "RT_RECOVERY_EVALUATES_REUSABLE_FAILURE_CAPTURE_BEFORE_END_RESPONSE"
     },
     "handoff_file_delivery": {
       "required": true,
@@ -1156,7 +1234,29 @@
       "post_freeze_objects": "EXCLUDED_BY_DESIGN_DECLARED_IN_CARD",
       "full_ledger_snapshot_revalidation_required": true
     },
-    "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception."
+    "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception.",
+    "new_task_binding_transaction": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_NEW_TASK_BINDING_TRANSACTION_V2",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED_AFTER_NEW_TASK_BOUNDARY_LATCH",
+      "ordered_states": [
+        "NEW_TASK_BOUNDARY_LATCHED",
+        "NEW_TASK_IDENTITY_RESOLVED",
+        "EXACT_TASK_ARTIFACT_COMPILED",
+        "TASK_BENCHMARK_DERIVED",
+        "ARTIFACT_PRECHECK_ADMISSIBLE",
+        "ATOMIC_ORBIT_0_BINDING_COMMITTED",
+        "PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED",
+        "ARTIFACT_SURFACED_LEDGER_ACCOUNTED",
+        "NEW_TASK_EXECUTION_ELIGIBLE"
+      ],
+      "direct_action_or_material_delivery_before_completion": "PROHIBITED",
+      "prior_task_authority_transfer": "PROHIBITED",
+      "pre_effect_failure_behavior": "FAIL_CLOSED_NONCOMPLIANT_ATTEMPT_TO_RT_RECOVERY_AND_FAILURE_CAPTURE_EVALUATION",
+      "observed_bypass_effect_behavior": "PRESERVE_AS_PRIOR_EFFECT_EXCLUDE_FROM_COMPLIANT_HISTORY_AND_RUN_FAILURE_CAPTURE_EVALUATION"
+    }
   },
   "bootstrap_contract": {
     "eligible_routes": [
@@ -3285,9 +3385,9 @@
       ],
       "foundation_prompt_version_contract": {
         "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
-        "CORE": "2.6.0",
-        "CONTROL": "2.6.0",
-        "GOVERNANCE": "2.3.0"
+        "CORE": "2.6.1",
+        "CONTROL": "2.6.1",
+        "GOVERNANCE": "2.3.1"
       }
     }
   },

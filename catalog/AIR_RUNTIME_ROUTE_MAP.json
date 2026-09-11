@@ -1,6 +1,6 @@
 {
   "SYSTEM_DESIGNATION": "AIR_RUNTIME_ROUTE_MAP_V1",
-  "MAP_VERSION": "1.1.0",
+  "MAP_VERSION": "1.2.0",
   "SCHEMA_FAMILY": "AIR_V2",
   "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
   "artifact_class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
@@ -14,8 +14,8 @@
   "source_of_truth": {
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
-    "prompt_version": "2.6.0",
-    "sha256": "100c1649943e1d63b645acd1105c955b653ffa9c564105917b7d6265c7f0d4e8",
+    "prompt_version": "2.6.1",
+    "sha256": "5a9baff19d89e9444be965aab41cd9d7ff97c0d6ea7ea4a062129082d0bcd201",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -61,7 +61,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 691
+        "line": 701
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -99,7 +99,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 709
+        "line": 719
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -139,7 +139,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 727
+        "line": 737
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "HANDOFF_RESTORE",
@@ -186,7 +186,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 748
+        "line": 758
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "ACTIVATION",
@@ -218,7 +218,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 763
+        "line": 773
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -257,7 +257,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 781
+        "line": 791
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -293,7 +293,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 799
+        "line": 809
       },
       "control_event_ref": "CE-RT-INPUT_TRANSLATE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -328,7 +328,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 811
+        "line": 821
       },
       "control_event_ref": "CE-RT-CLASSIFY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -359,7 +359,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 823
+        "line": 833
       },
       "control_event_ref": "CE-RT-COMPATIBLE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -398,7 +398,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 835
+        "line": 845
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "STATE_TRANSITION",
@@ -412,14 +412,21 @@
       "trigger": "TASK_OR_STEP_REPLACEMENT classified as new independent task",
       "requires": [
         "DEP.CURRENT_EVALUATION_BASIS",
-        "DEP.NEW_TASK_IDENTITY_RESOLVED"
+        "DEP.NEW_TASK_BOUNDARY_LATCHED",
+        "DEP.NEW_TASK_IDENTITY_RESOLVED",
+        "DEP.NEW_TASK_ARTIFACT_COMPILED",
+        "DEP.NEW_TASK_BENCHMARK_DERIVED",
+        "DEP.NEW_TASK_PRECHECK_ADMISSIBLE",
+        "DEP.NEW_TASK_BINDING_READY"
       ],
       "produces": [
         "NEW_TASK_ARTIFACT_CANDIDATE",
+        "NEW_TASK_BINDING_TRANSACTION_STATE",
         "ORBIT_TRANSITION",
         "AIR_SESSION_WHEN_ORBIT_CHANGED",
         "AIR_PROJECT_EXECUTION_MAP",
-        "AIR_ARTIFACT"
+        "AIR_ARTIFACT",
+        "NEW_TASK_ARTIFACT_VISIBLE_ACCOUNTING_STATE"
       ],
       "allowed_next_routes": [
         "RT.CAPABILITY_RESOLVE",
@@ -432,13 +439,16 @@
       "does_not_bypass": [
         "DEP.NEW_TASK_ARTIFACT",
         "DEP.ARTIFACT_PRECHECK",
-        "AIR-FLOOR-013"
+        "DEP.NEW_TASK_ARTIFACT_VISIBLE_ACCOUNTED",
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 850
+        "line": 860
       },
       "transition_emission_bundle": {
         "bundle_id": "ORBIT_TRANSITION_ATOMIC_BUNDLE",
@@ -451,7 +461,29 @@
         "atomic": true
       },
       "control_event_ref": "CE-RT-TASK_SWITCH",
-      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED",
+      "new_task_binding_transaction": {
+        "contract": "AIR_NEW_TASK_BINDING_TRANSACTION_V2",
+        "ordered_states": [
+          "NEW_TASK_BOUNDARY_LATCHED",
+          "NEW_TASK_IDENTITY_RESOLVED",
+          "EXACT_TASK_ARTIFACT_COMPILED",
+          "TASK_BENCHMARK_DERIVED",
+          "ARTIFACT_PRECHECK_ADMISSIBLE",
+          "ATOMIC_ORBIT_0_BINDING_COMMITTED",
+          "PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED",
+          "ARTIFACT_SURFACED_LEDGER_ACCOUNTED",
+          "NEW_TASK_EXECUTION_ELIGIBLE"
+        ],
+        "direct_action_or_material_delivery_before_completion": "PROHIBITED",
+        "failure_behavior": "FAIL_CLOSED_TO_RT.RECOVERY_AND_FAILURE_CAPTURE_EVALUATION"
+      }
     },
     {
       "route_id": "RT.CAPABILITY_RESOLVE",
@@ -483,7 +515,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 866
+        "line": 884
       },
       "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -523,7 +555,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 878
+        "line": 896
       },
       "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -556,7 +588,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 890
+        "line": 908
       },
       "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -588,7 +620,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 902
+        "line": 920
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
@@ -639,7 +671,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 917
+        "line": 935
       }
     },
     {
@@ -649,6 +681,10 @@
       "requires": [
         "DEP.CURRENT_EVALUATION_BASIS",
         "DEP.ARTIFACT_BOUND",
+        "DEP.CURRENT_TASK_ARTIFACT_EXACT_MATCH",
+        "DEP.CURRENT_ARTIFACT_BENCHMARK_ADMISSIBLE",
+        "DEP.CURRENT_ARTIFACT_PRECHECK_ADMISSIBLE",
+        "DEP.CURRENT_ARTIFACT_VISIBLE_ACCOUNTED",
         "DEP.LEASE_ACTIVE",
         "DEP.SCOPE_MATCH",
         "DEP.APPROVAL_PRECONDITION_SATISFIED",
@@ -676,7 +712,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 940
+        "line": 958
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "POST_MATERIAL_EFFECT",
@@ -699,7 +735,11 @@
         "exact_approval_token_required": true,
         "approval_precondition_dependency": "DEP.APPROVAL_PRECONDITION_SATISFIED",
         "approval_required_branch": "CURRENT_EXACT_APPROVAL_AND_ALLOW_RESOLUTION_EMITTED",
-        "approval_not_required_branch": "EXPLICIT_TYPED_APPROVAL_NOT_REQUIRED"
+        "approval_not_required_branch": "EXPLICIT_TYPED_APPROVAL_NOT_REQUIRED",
+        "current_task_artifact_exact_match_required": true,
+        "artifact_benchmark_admissible_required": true,
+        "artifact_precheck_admissible_required": true,
+        "artifact_primary_visible_accounted_required": true
       },
       "control_event_ref": "CE-RT-ACTION",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -735,7 +775,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 973
+        "line": 991
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -781,7 +821,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 997
+        "line": 1015
       },
       "control_event_ref": "CE-RT-DELIVER",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -815,7 +855,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1009
+        "line": 1027
       },
       "control_event_ref": "CE-RT-CLOSE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -848,7 +888,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1021
+        "line": 1039
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -881,7 +921,9 @@
       ],
       "produces": [
         "RECOVERY_STATE",
+        "FAILURE_CAPTURE_EVALUATION",
         "AIR_ERROR_OR_RECOVERY_RECORDS",
+        "AIR_FAILURE_MODE_RECORD_WHEN_REUSABLE",
         "SAFE_NEXT_ACTION"
       ],
       "allowed_next_routes": [
@@ -899,7 +941,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1047
+        "line": 1065
       },
       "control_event_ref": "CE-RT-RECOVERY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -982,9 +1024,11 @@
       "RT.HANDOFF_RESTORE",
       "RT.ONBOARD",
       "RT.RECEIPT",
+      "RT.TASK_SWITCH",
       "RT.TURN"
     ],
-    "rule": "Do not infer. Follow the declared deterministic pipeline. This metadata mirrors Core and has no independent semantic authority."
+    "rule": "Do not infer. Follow the declared deterministic pipeline. This metadata mirrors Core and has no independent semantic authority.",
+    "route_count": 10
   },
   "material_action_transaction": {
     "semantic_owner": "AIR_CORE_RUNTIME_V2",

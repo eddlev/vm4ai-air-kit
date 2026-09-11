@@ -33,6 +33,7 @@ def main() -> None:
         'AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1',
         'AIR_MATERIAL_ACTION_TRANSACTION_V1',
         'AIR_HANDOFF_PROVENANCE_FIDELITY_V1',
+        'AIR_NEW_TASK_BINDING_TRANSACTION_V2',
     ]
     for marker in core_markers:
         require(('Patch marker: ' + marker) in core, f'missing Core behavioral hardening marker {marker}')
@@ -41,6 +42,7 @@ def main() -> None:
         'AIR_CONTROL_MATERIAL_ACTION_TRANSACTION_RENDERER_V1',
         'AIR_CONTROL_FORMAL_OBJECT_CONSTRUCTOR_GUARD_V1',
         'AIR_CONTROL_HANDOFF_PROVENANCE_RENDERER_V1',
+        'AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1',
     ]:
         require(('Patch marker: ' + marker) in control, f'missing Control hardening marker {marker}')
 
@@ -52,7 +54,9 @@ def main() -> None:
 
     mat = cc.get('material_action_transaction', {})
     expected = [
-        'TURN_ENTRY_ALIGNMENT', 'CURRENT_ARTIFACT_BOUND', 'ACTIVE_LEASE', 'NON_NULL_RESOURCE_SCOPE_PIN',
+        'TURN_ENTRY_ALIGNMENT', 'CURRENT_ARTIFACT_BOUND', 'CURRENT_TASK_ARTIFACT_EXACT_MATCH',
+        'CURRENT_ARTIFACT_BENCHMARK_ADMISSIBLE', 'CURRENT_ARTIFACT_PRECHECK_ADMISSIBLE',
+        'CURRENT_ARTIFACT_PRIMARY_VISIBLE_AND_ACCOUNTED', 'ACTIVE_LEASE', 'NON_NULL_RESOURCE_SCOPE_PIN',
         'CURRENT_APPROVAL_WHEN_REQUIRED', 'CURRENT_AIR_GATE_ALLOW', 'AIR_ACTION_AUTHORIZATION_EMITTED',
         'AUTHORITY_OBJECTS_LEDGER_COMMITTED', 'EFFECT_ATTEMPT', 'OBSERVED_EFFECT_EVIDENCE', 'POST_MATERIAL_EFFECT_ALIGNMENT',
         'CANONICAL_AIR_ACTION_RECEIPT', 'POST_EFFECT_ARTIFACT_RECONCILIATION'
@@ -62,6 +66,9 @@ def main() -> None:
     require(mat.get('receipt_record_class') == 'ACTION_RECEIPT_RECORD', 'Starter receipt record class mismatch')
     require(mat.get('authorization_receipt_exact_match_required') is True, 'Starter authorization/receipt identity match not required')
     require(mat.get('prior_review_gate_may_be_reused_as_allow') is False, 'Starter improperly allows REVIEW Gate reuse as ALLOW')
+    nt=cc.get('new_task_binding_transaction', {})
+    require(nt.get('ordered_states') == ['NEW_TASK_BOUNDARY_LATCHED','NEW_TASK_IDENTITY_RESOLVED','EXACT_TASK_ARTIFACT_COMPILED','TASK_BENCHMARK_DERIVED','ARTIFACT_PRECHECK_ADMISSIBLE','ATOMIC_ORBIT_0_BINDING_COMMITTED','PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED','ARTIFACT_SURFACED_LEDGER_ACCOUNTED','NEW_TASK_EXECUTION_ELIGIBLE'], 'new-task transaction sequence mismatch')
+    require(nt.get('direct_action_or_material_delivery_before_completion') == 'PROHIBITED', 'new-task direct execution bypass allowed')
     require('prior_hold_gate_may_be_reused_as_allow' not in mat, 'Starter retains undefined HOLD Gate mirror')
 
     ctor = cc.get('formal_object_constructor_validation', {})
@@ -110,6 +117,8 @@ def main() -> None:
     bundle = routes['RT.TASK_SWITCH'].get('transition_emission_bundle', {})
     require(bundle.get('members') == ['AIR_SESSION', 'AIR_PROJECT_EXECUTION_MAP', 'AIR_ARTIFACT'], 'Route Map task-switch atomic bundle mismatch')
     require(bundle.get('atomic') is True, 'Route Map task-switch bundle not atomic')
+    require(routes['RT.TASK_SWITCH'].get('execution_semantics') == 'DETERMINISTIC_PIPELINE' and routes['RT.TASK_SWITCH'].get('inference_policy') == 'PROHIBITED', 'Route Map task-switch is not deterministic')
+    require(routes['RT.TASK_SWITCH'].get('new_task_binding_transaction', {}).get('direct_action_or_material_delivery_before_completion') == 'PROHIBITED', 'Route Map new-task bypass not prohibited')
     action = routes['RT.ACTION'].get('material_action_transaction', {})
     require(action.get('authorization_visible_before_effect') is True, 'Route Map action authorization visibility mismatch')
     require(action.get('resource_scope_pin_required') is True, 'Route Map action scope-pin requirement missing')
@@ -128,6 +137,10 @@ def main() -> None:
     mat_ids = {x.get('id') for x in fixtures.get('material_action_transaction_negative_cases', [])}
     require({f'MAT-{i:02d}-' for i in range(1, 10)} == {next((prefix for prefix in {f'MAT-{i:02d}-' for i in range(1, 10)} if str(cid).startswith(prefix)), '') for cid in mat_ids if str(cid).startswith('MAT-')} - {''}, 'material action transaction fixture coverage incomplete')
     require('MAT-02-REVIEW-GATE-IMPLICITLY-UPGRADED' in mat_ids, 'REVIEW Gate regression fixture missing')
+    ntb_ids={x.get('id') for x in fixtures.get('new_task_binding_barrier_negative_cases', [])}
+    require({f'NTB-{i:02d}-' for i in range(1,9)} == {next((p for p in {f'NTB-{i:02d}-' for i in range(1,9)} if str(cid).startswith(p)), '') for cid in ntb_ids} - {''}, 'new-task barrier fixture coverage incomplete')
+    asi={x.get('id') for x in fixtures.get('approval_scope_identity_cases', [])}; require({'ASI-01-SUFFIX-FREE-VALID','ASI-02-SUFFIX-NOT-REQUIRED','ASI-03-CHANGED-FINGERPRINT-REUSED-ID'} <= asi, 'approval identity fixtures missing')
+    prs={x.get('id') for x in fixtures.get('primary_response_surface_cases', [])}; require('PRS-01-COLLAPSED-HOST-SURFACE-NOT-EMISSION' in prs, 'primary surface fixture missing')
     handoff_ids = {x.get('id') for x in fixtures.get('handoff_negative_cases', [])}
     require({'HC-02-FALSE-HISTORICAL-AUTHORIZATION', 'HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE'} <= handoff_ids, 'handoff provenance fixtures missing')
     failure_ids = {x.get('id') for x in fixtures.get('failure_mode_learning_cases', [])}

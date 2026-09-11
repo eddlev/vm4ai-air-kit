@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 16,
+    "card_revision": 17,
     "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
     "evaluation_basis": {
@@ -174,7 +174,7 @@
     },
     "governance_state": {
       "governance_supplement_designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-      "governance_supplement_version": "2.3.0",
+      "governance_supplement_version": "2.3.1",
       "prompt_edition": "HUMAN_READABLE",
       "governance_floor_version": "2.3.0",
       "floor_invariant_reference": {
@@ -216,7 +216,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.6.0",
+        "PROMPT_VERSION": "2.6.1",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -394,7 +394,17 @@
         "mutation_scope": [],
         "validation_plan": null,
         "last_validation_state": null,
-        "patch_activity_state": "NOT_ACTIVE"
+        "patch_activity_state": "NOT_ACTIVE",
+        "repository_source_ref": null,
+        "repository_source_commit": null,
+        "repository_source_tree": null,
+        "tracked_file_count": null,
+        "reconciled_file_count": null,
+        "unclassified_file_count": null,
+        "reconciliation_state": "NOT_EVALUATED",
+        "disposition_matrix_ref": null,
+        "post_patch_reconciliation_required": false,
+        "post_patch_reconciliation_state": "NOT_APPLICABLE"
       },
       "ai_governance_state": {
         "ai_governance_need": null,
@@ -502,7 +512,8 @@
         "v2_2_to_v2_3_mii": "Missing MII, semantic-fidelity, morphology, or epistemic-sufficiency carriers are valid legacy absence, not inferred completed state. Reconstruct only from explicit supported source/artifact state and current evaluation; otherwise preserve UNRESOLVED or request required input.",
         "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING",
         "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS.",
-        "v2_3_rev15_to_rev16_root_carriers": "MIGRATE_BEFORE_REV16_REQUIRED_CARRIER_VALIDATION; ADD_FAILURE_AND_SURFACED_LEDGER_CARRIERS_AS_LEGACY_UNRECORDED_PRE_REV16; ADD_VISIBILITY_AUTHORITY_AND_PROFILE_POSTURE_CARRIERS_WITH_NONAUTHORITATIVE_SAFE_DEFAULTS; NEVER_FABRICATE_HISTORY; REQUIRE_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING"
+        "v2_3_rev15_to_rev16_root_carriers": "MIGRATE_BEFORE_REV16_REQUIRED_CARRIER_VALIDATION; ADD_FAILURE_AND_SURFACED_LEDGER_CARRIERS_AS_LEGACY_UNRECORDED_PRE_REV16; ADD_VISIBILITY_AUTHORITY_AND_PROFILE_POSTURE_CARRIERS_WITH_NONAUTHORITATIVE_SAFE_DEFAULTS; NEVER_FABRICATE_HISTORY; REQUIRE_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING",
+        "v2_3_rev16_to_rev17_patch_and_approval_identity": "Rev16 cards remain valid schema-2.3.0 migration input. Add patch-reconciliation carriers with unresolved safe defaults. Do not infer a missing approval fingerprint; a non-null open approval scope requires exact recomputation from complete explicit fields plus scope-id history validation or routes to REVIEW/reacquisition."
       },
       "source_card_revision": null,
       "revision_migration_path": null,
@@ -721,6 +732,7 @@
           "condition": "open_approval_scope is not null",
           "requirements": [
             "open_approval_scope.approval_scope_id",
+            "open_approval_scope.approval_scope_fingerprint",
             "open_approval_scope.gate_id",
             "open_approval_scope.exact_gate_question",
             "open_approval_scope.requested_action",
@@ -1170,7 +1182,7 @@
           "schema_version"
         ],
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
-        "card_revision_compatibility": "REV16_SCHEMA_2_3_0_WITH_EXPLICIT_ROOT_MANIFEST_CLOSURE_AND_MIGRATION_FROM_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
+        "card_revision_compatibility": "REV17_SCHEMA_2_3_0_WITH_EXPLICIT_PATCH_RECONCILIATION_APPROVAL_FINGERPRINT_AND_MIGRATION_FROM_REV16_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
         "specialist_catalog_extension_introduced_revision": 12,
         "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
@@ -1178,7 +1190,8 @@
         "canonical_schema_version_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
         "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION",
         "revision_migration_before_required_carrier_validation": true,
-        "rev15_to_rev16_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV15_TO_REV16"
+        "rev15_to_rev16_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV15_TO_REV16",
+        "rev16_to_rev17_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV16_TO_REV17"
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -1533,7 +1546,8 @@
           "SOURCE_RIGHTS_PROJECTION_CONSISTENT",
           "PATCH_ACTIVITY_REQUIREMENTS_VALID",
           "AMRS_STEP_OPTIMALITY_COMPLETION_VALID",
-          "METHOD_EVIDENCE_WAIVER_REFS_VALID"
+          "METHOD_EVIDENCE_WAIVER_REFS_VALID",
+          "APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID"
         ],
         "operator_semantics": {
           "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR": "For non-null material open scope, require approval_response_mode=EXACT_CANONICAL_SCOPE_TOKEN_PAIR and operational_response_tokens set equality with exactly AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>. Produce OPEN_APPROVAL_SCOPE_TOKEN_VALIDATION_STATE=VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR only on success.",
@@ -1541,9 +1555,10 @@
           "PROFILE_POSTURE_ACCEPTANCE_VALID": "Each accepted weaker posture requires exact profile/delta identity, USER_EXPLICIT acceptance evidence, scope and lifecycle. Missing, legacy-unrecorded, or conflicting acceptance clamps to Default Starter baseline.",
           "ACTIVE_METHOD_PACK_HANDOFF_SCHEMA_VALID": "If method_origin=METHOD_PACK, schema ref/version must exactly match the active Method Pack handoff_requirements.method_specific_state_schema and method_specific_state must satisfy required fields. Missing schema or field routes REVIEW without reconstruction.",
           "SOURCE_RIGHTS_PROJECTION_CONSISTENT": "Governance-owned source_rights_id is canonical. Generic projections must reference that owner, set authoritative=false, and match projected_rights_state; conflicts route REVIEW.",
-          "PATCH_ACTIVITY_REQUIREMENTS_VALID": "ACTIVE_FILE_MUTATION_OR_PATCH requires nonempty source_inventory, replacement_policy, mutation_scope, validation_plan and last_validation_state carrier.",
+          "PATCH_ACTIVITY_REQUIREMENTS_VALID": "ACTIVE_FILE_MUTATION_OR_PATCH requires nonempty source_inventory, replacement_policy, mutation_scope, validation_plan and last_validation_state carrier. When repository patch reconciliation is material, repository_source_ref/source_commit/source_tree, tracked_file_count, reconciled_file_count, unclassified_file_count, reconciliation_state, disposition_matrix_ref, and post-patch reconciliation state must be present; completion requires tracked_file_count=reconciled_file_count, unclassified_file_count=0, reconciliation_state=PASS, and required post-patch reconciliation=PASS.",
           "AMRS_STEP_OPTIMALITY_COMPLETION_VALID": "When the completion trigger is true, path_validation_state must be COMPLETE_FOR_ACTIVE_STEP and step_optimality_state must be PASS with preserved basis/stopping evidence as applicable.",
-          "METHOD_EVIDENCE_WAIVER_REFS_VALID": "If active Method Pack method_specific_state declares step_evidence_waiver_refs, each non-null ref must resolve to a surfaced canonical AIR_METHOD_EVIDENCE_WAIVER snapshot whose method/version/step/waived_requirement/artifact scope match the serialized method state and whose validity_state is ACTIVE_CURRENT or APPLIED_RECORDED. Empty refs are allowed when no waiver was used. Unresolved, free-text, mismatched, revoked, expired, or synthesized refs route REVIEW."
+          "METHOD_EVIDENCE_WAIVER_REFS_VALID": "If active Method Pack method_specific_state declares step_evidence_waiver_refs, each non-null ref must resolve to a surfaced canonical AIR_METHOD_EVIDENCE_WAIVER snapshot whose method/version/step/waived_requirement/artifact scope match the serialized method state and whose validity_state is ACTIVE_CURRENT or APPLIED_RECORDED. Empty refs are allowed when no waiver was used. Unresolved, free-text, mismatched, revoked, expired, or synthesized refs route REVIEW.",
+          "APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID": "For a non-null material open scope, recompute SHA-256 canonical JSON over the Core-owned fingerprint field set; require equality with approval_scope_fingerprint; require the approval_scope_id not be associated with a different prior lifecycle fingerprint; revision suffixes are optional. Produce OPEN_APPROVAL_SCOPE_IDENTITY_VALIDATION_STATE=VALIDATED_CURRENT_UNIQUE_SCOPE_FINGERPRINT only on success."
         },
         "rules": {
           "HC-VALIDATE-APPROVAL": {
@@ -1552,6 +1567,10 @@
               {
                 "operator": "PATH_EXISTS",
                 "path": "$.open_approval_scope.approval_scope_id"
+              },
+              {
+                "operator": "PATH_EXISTS",
+                "path": "$.open_approval_scope.approval_scope_fingerprint"
               },
               {
                 "operator": "PATH_EXISTS",
@@ -1603,6 +1622,10 @@
               },
               {
                 "operator": "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR",
+                "path": "$.open_approval_scope"
+              },
+              {
+                "operator": "APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID",
                 "path": "$.open_approval_scope"
               }
             ]
@@ -1827,6 +1850,33 @@
             "ARTIFACT_PRECHECK",
             "ARTIFACT_REBINDING"
           ]
+        },
+        "REV16_TO_REV17": {
+          "source_schema_version": "2.3.0",
+          "source_card_revision": 16,
+          "target_schema_version": "2.3.0",
+          "target_card_revision": 17,
+          "apply_before_current_required_carrier_check": true,
+          "nested_additions": {
+            "execution_state.patch_state": [
+              "repository_source_ref",
+              "repository_source_commit",
+              "repository_source_tree",
+              "tracked_file_count",
+              "reconciled_file_count",
+              "unclassified_file_count",
+              "reconciliation_state",
+              "disposition_matrix_ref",
+              "post_patch_reconciliation_required",
+              "post_patch_reconciliation_state"
+            ],
+            "open_approval_scope_when_non_null": [
+              "approval_scope_fingerprint"
+            ]
+          },
+          "approval_scope_migration_rule": "MISSING_PRE_REV17_FINGERPRINT_IS_NOT_INFERRED; NON_NULL_OPEN_SCOPE_ROUTES_REVIEW_AND_REACQUISITION_UNLESS_EXACT_SCOPE_FINGERPRINT_CAN_BE_RECOMPUTED_FROM_COMPLETE_EXPLICIT_FIELDS_AND_ID_HISTORY_VALIDATED",
+          "patch_state_migration_rule": "ADD_RECONCILIATION_CARRIERS_WITH_UNRESOLVED_SAFE_DEFAULTS; DO_NOT CLAIM PRIOR_FULL_REPOSITORY_RECONCILIATION",
+          "history_synthesis": "PROHIBITED"
         }
       }
     },
