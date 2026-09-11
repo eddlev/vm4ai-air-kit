@@ -71,6 +71,11 @@ jobs:
           line=line.replace(b,"072 sequence migration after required carriers')"+chr(92)+"n    req(rc['history_synthesis']",1)
           lines[i]=line
           t=''.join(lines)
+          decision_line="    t = replace_once(t, old2, new2, 'R3 current migration target')\n"
+          decision_insert=decision_line + "    t = replace_once(t, \"req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV15_TO_REV16'),'072 migration decision')\", \"req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV16_TO_REV17'),'072 migration decision')\", 'R3 migration decision')\n"
+          if t.count(decision_line) != 1:
+              raise SystemExit(f'FM-V072-R3-MIGRATION-DECISION-009: expected one R3 decision insertion anchor, got {t.count(decision_line)}')
+          t=t.replace(decision_line,decision_insert,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_hardening.py
