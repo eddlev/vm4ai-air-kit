@@ -71,7 +71,6 @@ jobs:
               elif t.count(new)!=1:
                   raise SystemExit(f'{label}: neither unique old nor new carrier found')
 
-          # FM-V072-COGNITIVE-SCOPE-RELEASE-VALIDATOR-ORDER-001
           starter_check = "\\n    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n"
           if starter_check in t:
               if t.count(starter_check)!=1: raise SystemExit('release Starter cognitive check source is non-unique')
@@ -88,10 +87,6 @@ jobs:
               )
               t=t.replace(release_anchor,injected,1)
 
-          # FM-V072-COGNITIVE-SCOPE-MUTATION-SUITE-001
-          # Floor 028 is already covered by DC-STARTER-FLOOR-028 and DC-CORE-FLOOR-028
-          # in the deterministic-contract mutation suite. Do not widen the historical
-          # fixed 14-case R1 mutation harness with a fixture it has no mutator for.
           r1_extra = "    if not any(x.get('id') == 'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING' for x in r1['negative_cases']):\n        r1['negative_cases'].append({'id':'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING','mutation':'remove AIR-FLOOR-028 canonical identifier from Core','must_fail':'DC-CORE-FLOOR-028'})\n"
           if r1_extra in t:
               if t.count(r1_extra)!=1: raise SystemExit('R1 redundant cognitive fixture source is non-unique')
@@ -118,6 +113,38 @@ jobs:
 
       - name: Apply SET_007 cognitive-scope patch
         run: python3 tools/apply_v072_cognitive_scope.py .
+
+      - name: Close mapped SET_007 validator gaps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p=Path('tools/validate_air_r3_remediation.py')
+          t=p.read_text(encoding='utf-8')
+          anchor="    req(visibility_valid(H),'016 baseline visibility authority invalid')\n"
+          addition=(
+              anchor
+              + "    cs=H['execution_state']['cognitive_scope_state']; req(cs.get('positive_execution_authority')=='NONE','v072 Handoff cognitive scope gained authority'); req(cs.get('validation_ingress_state')=='NOT_EVALUATED','v072 Handoff cognitive scope baseline fabricated validation'); req(H['mii_state'].get('cognitive_scope_ref')=='AIR_HANDOFF_CARD.execution_state.cognitive_scope_state','v072 Handoff cognitive scope ref mismatch')\n"
+          )
+          if 'v072 Handoff cognitive scope gained authority' not in t:
+              if t.count(anchor)!=1: raise SystemExit(f'R3 cognitive baseline anchor count {t.count(anchor)} != 1')
+              t=t.replace(anchor,addition,1)
+          p.write_text(t,encoding='utf-8')
+
+          p=Path('tools/validate_air_release.py')
+          t=p.read_text(encoding='utf-8')
+          old="AIR v0.7.2 set-006 candidate deterministic validation: PASS"
+          new="AIR v0.7.2 set-007 candidate deterministic validation: PASS"
+          if old in t:
+              if t.count(old)!=1: raise SystemExit(f'release SET banner old count {t.count(old)} != 1')
+              t=t.replace(old,new,1)
+          elif t.count(new)!=1:
+              raise SystemExit('release SET_007 PASS banner not found')
+          p.write_text(t,encoding='utf-8')
+          print('Mapped validator gap closure: PASS')
+          PY
 
       - name: Compile modified permanent tools
         run: |
