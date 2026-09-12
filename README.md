@@ -8,7 +8,7 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.6.1-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
+[![Foundation](https://img.shields.io/badge/foundation-2.6.2-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
 ![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
 
 **AI work, carried forward.**
@@ -41,33 +41,25 @@ It helps AI and humans:
 - carry recorded project state between sessions and compatible AI platforms;
 - add focused Specialist capabilities when a task needs them.
 
-## Current release — AIR Kit v0.7.1
+## Current release — AIR Kit v0.7.2
 
-The current release is **AIR Kit v0.7.1**.
+The current tagged version is **AIR Kit v0.7.2**.
 
 It includes:
 
-- AIR Foundation **2.6.0**
-- Handoff schema **2.3.0**, revision 16
+- AIR Foundation **2.6.2 / Object Contract SET_007**
+- Handoff schema **2.3.0**, revision 18
 - Specialist packages **2.5.0**
-- Runtime Route Map **1.1.0**
-- Specialist Package Index **1.3.0**
+- Runtime Route Map **1.2.1**
+- Specialist Package Index **1.3.2**
 
-v0.7.1 is a hardening release over v0.7.0 and closes 74 audited findings across the AIR Foundation, Handoff, runtime contracts, Specialist packages and release tooling.
+v0.7.2 is a full-repository control-spine hardening release. It strengthens new-task Artifact binding, exact task-to-Artifact action checks, failure capture, repository patch reconciliation, approval-scope identity, required formal-object visibility, and cognitive-scope authority isolation.
 
-See the [v0.7.1 release](https://github.com/eddlev/vm4ai-air-kit/releases/tag/v0.7.1) for the detailed change and validation record.
-
-
-## Development candidate - AIR Kit v0.7.2
-
-This branch prepares **AIR Kit v0.7.2**. The latest published release remains v0.7.1 until a v0.7.2 tag/release is actually published.
-
-v0.7.2 hardens AIR's control spine around new-task Artifact binding, exact task-to-Artifact action checks, failure capture, repository patch reconciliation, approval-scope identity reuse, Handoff revision 17, and required formal-object visibility.
+Browse the exact tagged version at [`v0.7.2`](https://github.com/eddlev/vm4ai-air-kit/tree/v0.7.2).
 
 ### Best practices
 
 **Cognitive scope authority isolation.** AIR v0.7.2 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
-
 
 **Thinking Effort.** AIR does not currently require a specific ChatGPT Thinking Effort setting. For day-to-day AIR use, **High** is a reasonable starting point. **Extra High** may be useful for unusually difficult analysis or architecture work, but there is not currently evidence that Thinking Effort causes or prevents AIR runtime drift. Treat cross-effort observations as empirical host-behavior evidence, not AIR execution authority.
 
