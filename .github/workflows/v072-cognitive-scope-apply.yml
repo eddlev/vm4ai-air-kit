@@ -60,6 +60,7 @@ jobs:
           from pathlib import Path
           p=Path('tools/apply_v072_cognitive_scope.py')
           t=p.read_text(encoding='utf-8')
+
           replacements=[
               ("cr = h['migration_state']['compatibility_rules']", "cr = h['migration_state']['rules']", 'Handoff migration carrier'),
               ("mii = cc['mii_cognitive_routing']", "mii = o['routing_contracts']['mii_cognitive_routing']", 'Starter MII routing carrier'),
@@ -91,6 +92,46 @@ jobs:
           if r1_extra in t:
               if t.count(r1_extra)!=1: raise SystemExit('R1 redundant cognitive fixture source is non-unique')
               t=t.replace(r1_extra,'',1)
+
+          # FM-V072-COGNITIVE-SCOPE-PATCH-FIXED-POINT-001:
+          # replace_once must recognize an already-applied `new` value before testing
+          # an `old` value that is intentionally a substring of the new block.
+          old_helper = '''def replace_once(text: str, old: str, new: str, label: str) -> str:
+    if old == new:
+        return text
+    if old in text:
+        if text.count(old) != 1:
+            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')
+        return text.replace(old, new, 1)
+    if new in text:
+        return text
+    raise SystemExit(f'{label}: missing old/new anchor')
+'''
+          new_helper = '''def replace_once(text: str, old: str, new: str, label: str) -> str:
+    if old == new:
+        return text
+    if new in text:
+        return text
+    if old in text:
+        if text.count(old) != 1:
+            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')
+        return text.replace(old, new, 1)
+    raise SystemExit(f'{label}: missing old/new anchor')
+'''
+          if old_helper in t:
+              if t.count(old_helper)!=1: raise SystemExit('replace_once helper source is non-unique')
+              t=t.replace(old_helper,new_helper,1)
+          elif t.count(new_helper)!=1:
+              raise SystemExit('fixed-point replace_once helper not found')
+
+          old_r7 = "    t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
+          new_r7 = "    if NEW_FOUNDATION not in t:\n        t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
+          if old_r7 in t:
+              if t.count(old_r7)!=1: raise SystemExit(f'R7 broad replacement source count {t.count(old_r7)} != 1')
+              t=t.replace(old_r7,new_r7,1)
+          elif t.count(new_r7)!=1:
+              raise SystemExit('fixed-point R7 replacement guard not found')
+
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_cognitive_scope.py
