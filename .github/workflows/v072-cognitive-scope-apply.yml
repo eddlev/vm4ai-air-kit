@@ -1,0 +1,221 @@
+name: Apply AIR v0.7.2 cognitive-scope authority isolation
+
+on:
+  push:
+    branches:
+      - v0.7.2-full-repo-hardening
+
+permissions:
+  contents: write
+
+jobs:
+  apply-v072-cognitive-scope:
+    if: ${{ contains(github.event.head_commit.message, '[v072-cognitive-scope-run]') }}
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact approved bootstrap state
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=68a934869592845c6960d3ad2498802ca2ed82da
+          test "$(git rev-parse "$BASE^{tree}")" = "7cd6b6cff893a8686cfaa4ba5ba2de9180bd059e"
+          git merge-base --is-ancestor "$BASE" HEAD
+          git diff --name-only "$BASE"..HEAD | sort > /tmp/bootstrap-actual.txt
+          cat > /tmp/bootstrap-expected.txt <<'EOF'
+          .github/workflows/v072-cognitive-scope-apply.yml
+          tools/apply_v072_cognitive_scope.py
+          EOF
+          sed -i 's/^          //' /tmp/bootstrap-expected.txt
+          sort -o /tmp/bootstrap-expected.txt /tmp/bootstrap-expected.txt
+          diff -u /tmp/bootstrap-expected.txt /tmp/bootstrap-actual.txt
+          test "$(git ls-tree -r --name-only "$BASE" | wc -l)" -eq 99
+          test "$(git rev-list --count "$BASE"..HEAD)" -eq 2
+          echo 'Approved bootstrap scope: PASS'
+
+      - name: Validate executor assumptions and repair temporary carrier typo
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          starter=json.loads(Path('prompts/AIR_DEFAULT_STARTER_PROFILE.json').read_text())
+          card=json.loads(Path('prompts/AIR_HANDOFF_CARD_TEMPLATE.json').read_text())['AIR_HANDOFF_CARD']
+          assert starter['PROMPT_VERSION']=='2.6.1'
+          assert len(starter['validation_contract']['deterministic_contract_registry']['checks'])==80
+          assert 'mii_cognitive_routing' in starter['compiler_contract']
+          ev={e['route_id']:e for e in starter['compiler_contract']['runtime_control_event_registry']['events']}
+          assert 'RT.COGNITIVE_RESOLVE' in ev and isinstance(ev['RT.COGNITIVE_RESOLVE']['guards'],list)
+          assert card['card_revision']==17
+          assert 'rules' in card['migration_state']
+          assert card['governance_state']['governance_supplement_version']=='2.3.1'
+          print('Executor assumptions: PASS')
+          PY
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('tools/apply_v072_cognitive_scope.py')
+          t=p.read_text(encoding='utf-8')
+          old="cr = h['migration_state']['compatibility_rules']"
+          new="cr = h['migration_state']['rules']"
+          if old in t:
+              if t.count(old)!=1: raise SystemExit('temporary migration carrier typo is non-unique')
+              t=t.replace(old,new,1)
+          elif new not in t:
+              raise SystemExit('temporary migration carrier path not found')
+          p.write_text(t,encoding='utf-8')
+          PY
+          python3 -m py_compile tools/apply_v072_cognitive_scope.py
+
+      - name: Capture immutable historical records
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/history-before.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          print(json.dumps({
+              't7_change_record':cea['t7_change_record'],
+              'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']
+          },sort_keys=True,indent=2))
+          PY
+
+      - name: Apply SET_007 cognitive-scope patch
+        run: python3 tools/apply_v072_cognitive_scope.py .
+
+      - name: Compile modified permanent tools
+        run: |
+          python3 -m py_compile \
+            tools/migrate_air_handoff.py \
+            tools/test_air_behavioral_contract_mutations.py \
+            tools/test_air_control_plane_mutations.py \
+            tools/test_air_r3_mutations.py \
+            tools/test_air_v072_release_seal_mutations.py \
+            tools/validate_air_behavioral_contracts.py \
+            tools/validate_air_boot.py \
+            tools/validate_air_control_plane.py \
+            tools/validate_air_r1_remediation.py \
+            tools/validate_air_r3_remediation.py \
+            tools/validate_air_r7_remediation.py \
+            tools/validate_air_release.py \
+            tools/validate_air_v072_release_seal.py
+
+      - name: Dependency-graph reseal
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Verify historical containers unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' > /tmp/history-after.json
+          import json
+          from pathlib import Path
+          cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
+          idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
+          print(json.dumps({
+              't7_change_record':cea['t7_change_record'],
+              'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']
+          },sort_keys=True,indent=2))
+          PY
+          diff -u /tmp/history-before.json /tmp/history-after.json
+          echo 'Historical-container immutability: PASS'
+
+      - name: Run focused SET_007 validators
+        run: |
+          python3 tools/validate_air_r1_remediation.py .
+          python3 tools/validate_air_r3_remediation.py .
+          python3 tools/validate_air_r7_remediation.py .
+          python3 tools/validate_air_control_plane.py
+          python3 tools/validate_air_behavioral_contracts.py
+          python3 tools/validate_air_boot.py
+          python3 tools/validate_air_release.py
+          python3 tools/validate_air_v072_release_seal.py
+
+      - name: Run canonical suite without mutations
+        run: python3 tools/validate_air_suite.py --without-mutations
+
+      - name: Run full canonical validation and mutation suite
+        run: python3 tools/validate_air_suite.py
+
+      - name: Verify patch and reseal fixed point
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/reseal_air_candidate.py --check
+          git diff -- . ':(exclude)tools/apply_v072_cognitive_scope.py' ':(exclude).github/workflows/v072-cognitive-scope-apply.yml' > /tmp/permanent-before.diff
+          python3 tools/apply_v072_cognitive_scope.py .
+          python3 tools/reseal_air_candidate.py --apply
+          git diff -- . ':(exclude)tools/apply_v072_cognitive_scope.py' ':(exclude).github/workflows/v072-cognitive-scope-apply.yml' > /tmp/permanent-after.diff
+          diff -u /tmp/permanent-before.diff /tmp/permanent-after.diff
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_v072_release_seal.py
+          echo 'Patch + reseal fixed point: PASS'
+
+      - name: Remove executor surfaces and reconcile all 99 tracked files
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=68a934869592845c6960d3ad2498802ca2ed82da
+          git rm tools/apply_v072_cognitive_scope.py .github/workflows/v072-cognitive-scope-apply.yml
+          git add -A
+          git ls-tree -r --name-only "$BASE" | sort > /tmp/base-files.txt
+          git ls-files | sort > /tmp/final-files.txt
+          diff -u /tmp/base-files.txt /tmp/final-files.txt
+          test "$(wc -l < /tmp/final-files.txt)" -eq 99
+          python3 - <<'PY'
+          import subprocess
+          base='68a934869592845c6960d3ad2498802ca2ed82da'
+          files=set(subprocess.check_output(['git','ls-files'],text=True).splitlines())
+          direct={
+            'README.md','prompts/AIR_CONTROL_SURFACE.md','prompts/AIR_CORE_RUNTIME.md','prompts/AIR_DEFAULT_STARTER_PROFILE.json','prompts/AIR_GOV.md','prompts/AIR_HANDOFF_CARD_TEMPLATE.json',
+            'tests/air_contract_fixtures.json','tests/deterministic_contract_inventory.json','tests/r1_remediation_fixtures.json','tests/r3_remediation_fixtures.json',
+            'tools/migrate_air_handoff.py','tools/test_air_behavioral_contract_mutations.py','tools/test_air_control_plane_mutations.py','tools/test_air_r3_mutations.py','tools/test_air_v072_release_seal_mutations.py',
+            'tools/validate_air_behavioral_contracts.py','tools/validate_air_boot.py','tools/validate_air_control_plane.py','tools/validate_air_r1_remediation.py','tools/validate_air_r3_remediation.py','tools/validate_air_r7_remediation.py','tools/validate_air_release.py','tools/validate_air_v072_release_seal.py'
+          }
+          generated={'catalog/AIR_RUNTIME_ROUTE_MAP.json'}
+          compat={'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'} | {x for x in files if x.startswith('profiles/')}
+          validation={
+            '.github/workflows/air-reproducibility.yml','tests/r4_remediation_fixtures.json','tests/r5_remediation_fixtures.json',
+            'tools/refresh_r8_route_anchors.py','tools/reseal_air_candidate.py','tools/test_air_contract_registry_mutations.py','tools/test_air_r1_mutations.py','tools/test_air_r2_mutations.py','tools/test_air_r4_mutations.py','tools/test_air_r5_mutations.py','tools/test_air_r6_mutations.py','tools/test_air_r7_mutations.py','tools/test_air_r8_mutations.py','tools/test_air_validator_mutations.py','tools/validate_air_contract_registry.py','tools/validate_air_r2_remediation.py','tools/validate_air_r4_remediation.py','tools/validate_air_r5_remediation.py','tools/validate_air_r6_remediation.py','tools/validate_air_r8_remediation.py','tools/validate_air_suite.py'
+          }
+          nochange={
+            '.gitattributes','.gitignore','LICENSE','NOTICE','VERSION',
+            '.github/workflows/r1-remediation-apply.yml','.github/workflows/r2-remediation-apply.yml','.github/workflows/r3-remediation-apply.yml','.github/workflows/r4-remediation-apply.yml','.github/workflows/r5-remediation-apply.yml','.github/workflows/r6-remediation-apply.yml','.github/workflows/r7-remediation-apply.yml','.github/workflows/r8-remediation-apply.yml',
+            'tests/r5_run_trigger.txt','tests/r6_run_trigger.txt','tests/r7_run_trigger.txt','tests/r8_run_trigger.txt',
+            'tools/apply_r1_remediation.py','tools/apply_r2_remediation.py','tools/apply_r3_remediation.py','tools/apply_r4_remediation.py','tools/apply_r5_remediation.py','tools/apply_r6_remediation.py','tools/apply_r7_remediation.py','tools/apply_r8_remediation.py','tools/patch_r8_validator_extensions.py','tools/patch_validate_air_release_r7.py','tools/test_air_v071_release_seal_mutations.py','tools/validate_air_v071_release_seal.py'
+          }
+          groups=[direct,generated,compat,validation,nochange]
+          assert [len(x) for x in groups]==[23,1,25,21,29], [len(x) for x in groups]
+          union=set().union(*groups)
+          assert len(union)==99, len(union)
+          assert union==files, sorted(files^union)
+          for i,a in enumerate(groups):
+              for b in groups[i+1:]: assert not (a & b), sorted(a&b)
+          changed=set(subprocess.check_output(['git','diff','--cached','--name-only',base],text=True).splitlines())
+          allowed=direct|generated|compat
+          assert changed <= allowed, sorted(changed-allowed)
+          assert direct <= changed, sorted(direct-changed)
+          assert generated <= changed, sorted(generated-changed)
+          assert not (changed & validation), sorted(changed&validation)
+          assert not (changed & nochange), sorted(changed&nochange)
+          print('Full repository reconciliation: PASS')
+          print('tracked=99 reconciled=99 unclassified=0')
+          print('dispositions direct=23 generated=1 compatibility=25 validation_only=21 no_change=29')
+          print('net_changed_files',len(changed))
+          PY
+
+      - name: Commit and push validated SET_007 candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat: isolate cognitive scope authority in AIR v0.7.2 [v072-cognitive-scope-applied]"
+          git push
