@@ -44,9 +44,9 @@
       "profile_kind": "DOMAIN_REGISTRY_AND_SOURCE_ROUTING_PACK",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "1295e2299ae6f9eb1a7a8238697521bb8beb0e60f1272f72e1c6c2ac38c29841",
-      "size_bytes": 263230,
-      "line_count": 5799,
+      "sha256": "9e43761fcc199e5652a1159b006eb92a2d70ead260c7686639fc20487e2b709e",
+      "size_bytes": 263434,
+      "line_count": 5802,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -60,9 +60,9 @@
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "c51d64918c042ea5d4a743cdf78fe6e0fc8b5035c50df509efb2ec02242f0abf",
-      "size_bytes": 75578,
-      "line_count": 1448,
+      "sha256": "337b38bc4d16a1a149a43f617ca15243f7dc5e50b5b68ea00fe12727e6501e01",
+      "size_bytes": 75782,
+      "line_count": 1451,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -76,9 +76,9 @@
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "edb2e96edf45ec5aa20644d9ee444e54c00a0eb6da24ec9715753a3fc74fd917",
-      "size_bytes": 106352,
-      "line_count": 2002,
+      "sha256": "0580e9ca2b9af19770edf04fc68b35b3d64b170103856e55cb4d59506c3834d6",
+      "size_bytes": 106556,
+      "line_count": 2005,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -92,9 +92,9 @@
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "8c1cfaaf0aaeca8c0781583db0eb42d1ae7f0ea815a5b9f6bc4bf79a9ea3baec",
-      "size_bytes": 76919,
-      "line_count": 1459,
+      "sha256": "e1f0911e5904b47ceb554dc38e7093aa89818f280cf775fa695dbfc3c80c3932",
+      "size_bytes": 77123,
+      "line_count": 1462,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -194,10 +194,12 @@
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
-      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007"
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "package_integrity_contract": {
     "strict_json_required": true,
@@ -299,7 +301,7 @@
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS"
   },
   "claim_boundary": "This manifest proves only the tool-observed identity and validated package relationships recorded for the delivered files. It does not prove backend enforcement, hidden reasoning, human professional equivalence, regulatory compliance, empirical task superiority, or correct execution of any future task.",
   "foundation_routing_compatibility": {

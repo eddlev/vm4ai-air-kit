@@ -88,9 +88,11 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "target_foundation_versions": {
       "core": "2.6.2",
       "control": "2.6.2",
@@ -107,7 +109,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_GROUNDING_SPECIALIST.json",
@@ -138,17 +141,17 @@
     {
       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "sha256": "559a088f01cc6b47f0d47f832dd9e7b7971a7e89c53e9500c57300fea9968736",
-      "size_bytes": 68733,
-      "line_count": 1143,
+      "sha256": "94b38a43cacd2527dec67ea244dc086ebbeba4ffaee72f2488cf88d98dbb3f04",
+      "size_bytes": 68937,
+      "line_count": 1146,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_GROUNDING_METHOD_PACK_V2",
       "filename": "AIR_GROUNDING_METHOD_PACK.json",
-      "sha256": "994563fd26b6132f9949cc7f66265fbca69d3cefdf9b31635f7af6e946180980",
-      "size_bytes": 82519,
-      "line_count": 1669,
+      "sha256": "db2cb23017f158d7afeb7e63ed5c58d53f7162081a16281c356e61ab6b0726f2",
+      "size_bytes": 82723,
+      "line_count": 1672,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
   ],

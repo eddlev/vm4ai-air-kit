@@ -50,12 +50,14 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
     "record_mode": "PROMPT_LAYER_APPLIED",
     "backend_enforcement_claimed": false,
     "hidden_reasoning_claimed": false,
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "target_foundation_versions": {
       "core": "2.6.2",
       "control": "2.6.2",
@@ -72,7 +74,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -109,7 +112,7 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "1295e2299ae6f9eb1a7a8238697521bb8beb0e60f1272f72e1c6c2ac38c29841"
+      "observed_sha256": "9e43761fcc199e5652a1159b006eb92a2d70ead260c7686639fc20487e2b709e"
     },
     "source_and_control_registry": {
       "legacy_reference": "AIR_SOURCE_AND_CONTROL_REGISTRY_V1",

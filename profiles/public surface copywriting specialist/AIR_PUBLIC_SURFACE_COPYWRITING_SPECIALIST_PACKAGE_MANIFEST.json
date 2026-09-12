@@ -10,7 +10,7 @@
   "package_class": "REUSABLE_SPECIALIST_PACKAGE_WITH_OPTIONAL_METHOD",
   "package_identity": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "V2_5_0_REUSABLE_SPECIALIST_REDESIGN_SET_005_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "package_purpose": "Distribute a reusable Public-Surface Copywriting SPECIALIST_CAPABILITY_PROFILE plus an optional repeatable Method Pack. The Specialist is usable as a capability posture without requiring the Method Pack. Product/domain truth and project-specific positioning remain task-local authoritative inputs, not package-owned truth.",
   "architecture_decision": {
     "required_runtime_layer": "SPECIALIST_PROFILE",
@@ -46,9 +46,9 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "4d487f5c2a7d2d7a79d9e8cbdb4947e5e39bf1655ab3d92a23a0a37d7afb717f",
-      "size_bytes": 26852,
-      "line_count": 559,
+      "sha256": "bfb98cc0492a151b2aa7166c9fdf8915ba106012db9b75ab6d86d581c6a90564",
+      "size_bytes": 27920,
+      "line_count": 578,
       "canonical_role": "SPECIALIST_PROFILE",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "version": "2.5.0",
@@ -58,13 +58,13 @@
       "required_for_package": true,
       "runtime_required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "status": "V2_5_0_REUSABLE_SPECIALIST_REDESIGN_SET_005_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND"
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "7446d846789ebe148e7ded67df1486a932610205e74eecd5f6af04714b1fd5da",
-      "size_bytes": 26621,
-      "line_count": 542,
+      "sha256": "a845ca93b7b0eed00f8e2d045bdaf3d0da9cc914adad52f4bf83c827bad6c0ba",
+      "size_bytes": 27689,
+      "line_count": 561,
       "canonical_role": "METHOD_PACK",
       "designation": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
       "version": "2.5.0",
@@ -74,7 +74,7 @@
       "required_for_package": true,
       "runtime_required": false,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "status": "V2_5_0_REUSABLE_SPECIALIST_REDESIGN_SET_005_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND"
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     }
   ],
   "component_dependency_edges": [],
@@ -98,7 +98,7 @@
   },
   "foundation_compatibility": {
     "target_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
-    "state": "COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
+    "state": "COORDINATED_SET_007_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
@@ -178,12 +178,15 @@
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
-      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
     "required_semantic_contracts": [
       "AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
       "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH"
-    ]
+    ],
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "package_integrity_contract": {
     "strict_json_required": true,
@@ -210,8 +213,8 @@
     "static_design_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "foundation_reseal": "PASS_COORDINATED_SET_005_RESEAL",
-    "release_catalog_registration": "INCLUDED_IN_SET_005_V071_RELEASE_CANDIDATE_INDEX",
-    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
+    "release_catalog_registration": "INCLUDED_IN_SET_007_V072_RELEASE_CANDIDATE_INDEX",
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS"
   },
   "construction_basis": {
     "canonical_adapter": "AIR_CONSTRUCTION_ADAPTER_SPECIALIST_V2",

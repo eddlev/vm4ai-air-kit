@@ -46,9 +46,9 @@
       "artifact_class": "AIR_DOMAIN_PACKAGE",
       "profile_kind": "DOMAIN_OVERLAY",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "193d1ad9bcd10ecfa55a6f82154939da98c1ff6336d0bf0911d42b2c09f76e18",
-      "size_bytes": 34635,
-      "line_count": 653,
+      "sha256": "29fae2b07ac9d3e0f22844ac9bca94db90e7826a1153cc2532d8061a1f8df52b",
+      "size_bytes": 34839,
+      "line_count": 656,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -60,9 +60,9 @@
       "artifact_class": "AIR_METHOD_PACK",
       "profile_kind": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "fe60b0a9b82f9d05ad46fb63ee82c259f0808265b874b7876fb236818056931c",
-      "size_bytes": 53949,
-      "line_count": 1076,
+      "sha256": "32dd06be6f477b27723389cef08c75d8c2635bde082afc9dc227c0b81b578453",
+      "size_bytes": 54153,
+      "line_count": 1079,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -74,9 +74,9 @@
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_kind": "TASK_COMPOSITE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "c1e2a3a197be7f1c11f80a9f7c3d924f4ad7506fd3d0cc918a7c837e387fb8ef",
-      "size_bytes": 33913,
-      "line_count": 696,
+      "sha256": "17c3f9a35652120b4972a880668b7102a20d7f798718a1f11a21d55661707be6",
+      "size_bytes": 34117,
+      "line_count": 699,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -88,9 +88,9 @@
       "artifact_class": "AIR_EXECUTOR_LAYER",
       "profile_kind": "EXECUTOR_CONTRACT",
       "status": "DRAFT",
-      "sha256": "cd7f464047ba691fe8317865c8f55b2a9bff76bcb479ecd3006bd353fd029b79",
-      "size_bytes": 30487,
-      "line_count": 565,
+      "sha256": "18a033ccae1c217797aa167afdb3f810c78a41d550fbb3ae1561a121ceef9796",
+      "size_bytes": 30691,
+      "line_count": 568,
       "required": true,
       "availability_state": "AVAILABLE_UNVALIDATED"
     }
@@ -190,9 +190,10 @@
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
-      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "target_foundation_versions": {
       "core": "2.6.2",
       "control": "2.6.2",
@@ -209,7 +210,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "package_integrity_contract": {
     "canonical_filenames_only": true,
@@ -303,7 +305,7 @@
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,

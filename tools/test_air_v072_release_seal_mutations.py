@@ -23,6 +23,12 @@ def main():
     add('V072-N06-COGNITIVE-SCOPE-CONTROL',m6)
     def m7(d): p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state']['positive_execution_authority']='ALLOW'; dump(p,o)
     add('V072-N07-HANDOFF-COGNITIVE-AUTHORITY',m7)
+    def m8(d):
+        p=d/'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json'; o=load(p); o['foundation_compatibility']['required_floor_invariants'].remove('AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'); dump(p,o)
+    add('V072-N08-SPECIALIST-FLOOR028-MISSING',m8)
+    def m9(d):
+        p=d/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'; o=load(p); o['validation_state']['handoff_rev18_catalog_compatibility']='STALE_REV17'; dump(p,o)
+    add('V072-N09-INDEX-HANDOFF-REV18-STALE',m9)
     for name,fn in cases:
         with tempfile.TemporaryDirectory(prefix='v072-seal-mut-') as td:
             d=Path(td)/'repo'; shutil.copytree(ROOT,d,ignore=shutil.ignore_patterns('.git','__pycache__','*.pyc')); fn(d)

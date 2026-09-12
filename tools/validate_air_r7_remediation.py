@@ -7,6 +7,8 @@ FOUNDATION_ID='AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
 FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
 STATIC_PASS='PASS_R7_DETERMINISTIC_STATIC_SUITE'
 BEHAVIOR_PENDING='PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
+SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007'
+SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
 T7={
  'change_id':'AIR_T7_CEA_MII_INTEGRATION_001','package_version':'2.4.0','component_prompt_version':'2.2.0','manifest_prompt_version':'2.1.0',
  'change_class':'MINOR_SEMANTIC_PACKAGE_EXPANSION_WITH_NO_AUTHORITY_EXPANSION',
@@ -63,6 +65,19 @@ def main():
  for e in idx['entries']:
   req(e['foundation_compatibility_identity']==FOUNDATION_ID,'index entry Foundation identity stale')
   req(e['availability_state']=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','006 index entry lifecycle mismatch')
+ profile_count=0
+ for p,o in parsed.items():
+  if not str(p).startswith(str(ROOT/'profiles')):continue
+  profile_count+=1
+  fc=o.get('foundation_compatibility') if isinstance(o,dict) else None
+  req(isinstance(fc,dict),f'{p}: foundation compatibility missing')
+  req(fc.get('compatibility_state')==SPECIALIST_COMPAT,f'{p}: stale Foundation compatibility state')
+  req(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
+  req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
+ req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
+ ivs=idx['validation_state']
+ req(ivs.get('handoff_rev18_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY','Index Handoff rev18 provenance missing')
+ req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs,'stale current Handoff rev16/rev17 provenance remains')
  count=0
  for p,o in parsed.items():
   if not str(p).startswith(str(ROOT/'profiles')):continue

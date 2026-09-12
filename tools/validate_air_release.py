@@ -57,6 +57,8 @@ R7_STATIC_PASS = 'PASS_R7_DETERMINISTIC_STATIC_SUITE'
 R7_BEHAVIOR_PENDING = 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
 R7_INDEX_COMPLETENESS = 'COMPLETE_FOR_AIR_2_6_2_OBJECT_CONTRACT_SET_007_V072_CANDIDATE_SPECIALIST_CATALOG'
 R7_CANDIDATE_STATE = 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007'
+SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
 
 class ValidationError(Exception):
     pass
@@ -343,6 +345,12 @@ def main() -> None:
         if isinstance(obj, dict) and 'PACKAGE_VERSION' in obj:
             require(obj['PACKAGE_VERSION'] == EXPECTED_PACKAGE_VERSION, f'{p}: PACKAGE_VERSION mismatch')
 
+        fc=obj.get('foundation_compatibility') if isinstance(obj,dict) else None
+        require(isinstance(fc,dict), f'{p}: foundation_compatibility missing')
+        require(fc.get('compatibility_state') == SPECIALIST_COMPAT, f'{p}: Foundation compatibility state stale')
+        require(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants', []))), f'{p}: floors 027/028 missing')
+        require(fc.get('cognitive_scope_authority_ref') == 'AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION', f'{p}: Floor 028 reference missing')
+
     require(specialist_count == 5, f'expected 5 Specialist profiles, found {specialist_count}')
     require(method_count >= 5, f'expected at least 5 Method Packs, found {method_count}')
     require(manifest_count == 5, f'expected 5 package manifests, found {manifest_count}')
@@ -421,6 +429,9 @@ def main() -> None:
     require(index['catalog_scope']['specialist_package_count'] == 5, 'Index package count mismatch')
     require(index['validation_state'].get('release_publication_state') == 'EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY', 'Index carries stale publication state')
     require(index['foundation_compatibility_catalog']['identity'] == EXPECTED_FOUNDATION_ID, 'Index Foundation identity mismatch')
+    ivs=index['validation_state']
+    require(ivs.get('handoff_rev18_catalog_compatibility') == 'PASS_DISCOVERY_PROVENANCE_ONLY', 'Index Handoff rev18 compatibility missing')
+    require('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs, 'Index stale Handoff rev16/rev17 compatibility remains')
     for entry in index['entries']:
         require(entry['package_version'] == EXPECTED_PACKAGE_VERSION, f'Index package version stale: {entry["package_identity"]}')
         manifest_name = entry['manifest_filename']

@@ -111,7 +111,7 @@
     "If this index is absent, stale, or incompatible, AIR may use only Specialist identities independently established by current validated session/package state and must not infer catalog completeness from absence.",
     "Offline deterministic Specialist discovery for a released build requires a current release-sealed index.",
     "AIR_RUNTIME_ROUTE_MAP and AIR_SPECIALIST_PACKAGE_INDEX are Foundation-adjacent catalogs with no execution, selection, approval, or binding authority.",
-    "Handoff schema 2.3.0 rev16 may record this index identity under extensions.specialist_catalog_state for continuation provenance; that provenance remains discovery-only and does not restore, select, reinterpret, or bind Specialists by itself.",
+    "Handoff schema 2.3.0 rev18 may record this index identity under extensions.specialist_catalog_state for continuation provenance; that provenance remains discovery-only and does not restore, select, reinterpret, or bind Specialists by itself.",
     "Specialist entries may contribute candidate benchmark, evidence, method, or review pressure but do not own task sufficiency, step-optimality, AMRS stage completion, promotion, approval, binding, or execution authority.",
     "Every catalogued Specialist package participates in Core AIR_FAILURE_MODE_REGISTRY_V1 across all package components; applicable exact-match corrective constraints are queried before relevant execution and become operative only through the current Orbit 0 Artifact."
   ],
@@ -142,7 +142,7 @@
     "operative_lifecycle_coherence": "PASS_V072_CANDIDATE_LIFECYCLE",
     "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
-    "handoff_rev17_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY"
+    "handoff_rev18_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY"
   },
   "entries": [
     {
@@ -150,7 +150,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "5f3a15be7374a8348e72a92d2fcb4c53e6bc5bfde838bdd465b636b631b47b11",
+      "manifest_sha256": "dc66ef50d983a6ab0ea06a27e340d5bb6ab6cd2e2e8ef7515823e210aeeded42",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -191,7 +191,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "6861bf1ca49ec3b6ab3513231d29612b45e728b51ceb22a1c5f7e0bef067c64c",
+      "manifest_sha256": "ce625f9ec919b7e2599d765ff9ae4d93b5edc4036e85ea5675199748741279f2",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -229,7 +229,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "2fe9001110083c6310c5eb669f1916d3fd27d37cdac755ca6f6096a6c3c562f2",
+      "manifest_sha256": "4e68314f03bf45af6081469695521a312b2936e5ae18142eaf36e23e97aec18d",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -268,7 +268,7 @@
       "specialist_designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "manifest_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "4854f8716b7e3a0517a98b4c9b0e5c919b3b5a1f3370dfe43ef020d52b4dad16",
+      "manifest_sha256": "aab9fb5a464fb454e30cf346647649e7c56929731c15fa182b87b013c461b506",
       "canonical_component_filenames": [
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
         "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
@@ -305,7 +305,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "aa1b4921d65b6aa84ada01c96a628c29f5fb845e2e45517efd4592d6a3c46fad",
+      "manifest_sha256": "3b9d7ec266dd9d18386ef768135d18d4b142c159660bf3f780b622cf33247953",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",

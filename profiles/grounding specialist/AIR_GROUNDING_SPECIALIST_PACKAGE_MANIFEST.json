@@ -82,9 +82,9 @@
       "profile_kind": "DOMAIN_OVERLAY",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "559a088f01cc6b47f0d47f832dd9e7b7971a7e89c53e9500c57300fea9968736",
-      "size_bytes": 68733,
-      "line_count": 1143,
+      "sha256": "94b38a43cacd2527dec67ea244dc086ebbeba4ffaee72f2488cf88d98dbb3f04",
+      "size_bytes": 68937,
+      "line_count": 1146,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -97,9 +97,9 @@
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "994563fd26b6132f9949cc7f66265fbca69d3cefdf9b31635f7af6e946180980",
-      "size_bytes": 82519,
-      "line_count": 1669,
+      "sha256": "db2cb23017f158d7afeb7e63ed5c58d53f7162081a16281c356e61ab6b0726f2",
+      "size_bytes": 82723,
+      "line_count": 1672,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -112,9 +112,9 @@
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "8b773d80d7ec9fd4329450feb08a90d46c0dd4d9148cd4713bffd0c3c76e7b43",
-      "size_bytes": 79797,
-      "line_count": 1387,
+      "sha256": "3b014d3a726b2e7ae406d2bebb985b674d039a45927b13b406adde91e16c1136",
+      "size_bytes": 80001,
+      "line_count": 1390,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -127,9 +127,9 @@
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
       "status": "DRAFT",
-      "sha256": "2f7357eea7dbb87d63572d5a5c5438317987e65ec2a27ecd1719b6580b97b1c1",
-      "size_bytes": 33113,
-      "line_count": 655,
+      "sha256": "b367f4aa63a4d3518f4de70474567035331afe2b79240086f96be3b61050a298",
+      "size_bytes": 33317,
+      "line_count": 658,
       "required": true,
       "availability_state": "AVAILABLE_UNVALIDATED"
     }
@@ -229,9 +229,10 @@
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
-      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "target_foundation_versions": {
       "core": "2.6.2",
       "control": "2.6.2",
@@ -248,7 +249,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "package_integrity_contract": {
     "canonical_filenames_only": true,
@@ -351,7 +353,7 @@
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,

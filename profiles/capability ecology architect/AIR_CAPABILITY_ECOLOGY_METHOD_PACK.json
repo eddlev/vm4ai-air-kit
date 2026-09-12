@@ -91,10 +91,12 @@
       "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
     "method_layer_law": "AIR_METHOD_LAYER_V2",
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "required_foundation_files": [
       "AIR_CORE_RUNTIME.md",
       "AIR_CONTROL_SURFACE.md",
@@ -118,7 +120,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "file_identity_contract": {
     "canonical_filename": "AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
@@ -155,19 +158,19 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "1295e2299ae6f9eb1a7a8238697521bb8beb0e60f1272f72e1c6c2ac38c29841"
+      "observed_sha256": "9e43761fcc199e5652a1159b006eb92a2d70ead260c7686639fc20487e2b709e"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "c51d64918c042ea5d4a743cdf78fe6e0fc8b5035c50df509efb2ec02242f0abf"
+      "observed_sha256": "337b38bc4d16a1a149a43f617ca15243f7dc5e50b5b68ea00fe12727e6501e01"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "edb2e96edf45ec5aa20644d9ee444e54c00a0eb6da24ec9715753a3fc74fd917"
+      "observed_sha256": "0580e9ca2b9af19770edf04fc68b35b3d64b170103856e55cb4d59506c3834d6"
     },
     "package_manifest": {
       "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
@@ -288,7 +291,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "edb2e96edf45ec5aa20644d9ee444e54c00a0eb6da24ec9715753a3fc74fd917",
+      "sha256": "0580e9ca2b9af19770edf04fc68b35b3d64b170103856e55cb4d59506c3834d6",
       "required_for": [
         "all branches"
       ]
@@ -296,7 +299,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "1295e2299ae6f9eb1a7a8238697521bb8beb0e60f1272f72e1c6c2ac38c29841",
+      "sha256": "9e43761fcc199e5652a1159b006eb92a2d70ead260c7686639fc20487e2b709e",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -306,7 +309,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "c51d64918c042ea5d4a743cdf78fe6e0fc8b5035c50df509efb2ec02242f0abf",
+      "sha256": "337b38bc4d16a1a149a43f617ca15243f7dc5e50b5b68ea00fe12727e6501e01",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",

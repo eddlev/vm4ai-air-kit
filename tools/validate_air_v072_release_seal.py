@@ -25,6 +25,16 @@ def main():
     req(len(idx['entries'])==5,'Index package count');
     for e in idx['entries']:
         req(e['package_version']=='2.5.0','Specialist package version changed'); req(e['foundation_compatibility_identity']==FOUNDATION,'Specialist Foundation compatibility stale'); req(e['availability_state']==CANDIDATE,'Specialist index availability not candidate'); m=list((ROOT/'profiles').glob('**/'+e['manifest_filename'])); req(len(m)==1,'manifest target missing'); req(e['manifest_sha256']==sha(m[0]),'manifest hash stale')
+    profile_files=sorted(ROOT.glob('profiles/**/*.json'))
+    req(len(profile_files)==24,'Specialist file count !=24')
+    required_floors={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
+    for p in profile_files:
+        o=load(p); fc=o.get('foundation_compatibility')
+        req(isinstance(fc,dict),f'{p}: foundation compatibility missing')
+        req(fc.get('compatibility_state')=='ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007',f'{p}: Foundation compatibility stale')
+        req(required_floors.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
+        req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
+    ivs=idx['validation_state']; req(ivs.get('handoff_rev18_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY','Index rev18 Handoff provenance missing'); req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs,'stale Index Handoff provenance remains')
     fx=load(ROOT/'tests/air_contract_fixtures.json'); req(fx['foundation_identity']==FOUNDATION,'fixtures Foundation stale'); req(len(fx.get('new_task_binding_barrier_negative_cases',[]))==8,'new-task fixtures incomplete'); req(len(fx.get('approval_scope_identity_cases',[]))>=3,'approval identity fixtures incomplete'); req(len(fx.get('repository_patch_reconciliation_cases',[]))>=2,'repo reconciliation fixtures incomplete'); req(len(fx.get('cognitive_scope_authority_cases',[]))>=10,'cognitive scope fixtures incomplete')
     print('AIR v0.7.2 candidate-seal validation: PASS'); print('foundation',FOUNDATION); print('handoff_revision',18); print('specialist_packages',5); print('behavioral_evidence','PENDING'); print('publication_state','EXTERNAL_ONLY')
 if __name__=='__main__':

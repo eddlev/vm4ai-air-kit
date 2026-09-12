@@ -20,9 +20,9 @@
       "version": "2.5.0",
       "state": "SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "a9d2d06f2fc230c7d9476ce573ee091f0225d7b1f867a8d0bf173dfe65dd2e81",
-      "size_bytes": 55087,
-      "line_count": 1052,
+      "sha256": "5eeb7c3c2e7b8597dca482dcd134ba697b003977f87298357026f3321e0a8841",
+      "size_bytes": 55291,
+      "line_count": 1055,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
@@ -32,9 +32,9 @@
       "version": "2.5.0",
       "state": "SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "d7e95e144ee1a912b2da082b84e504fed29b7a08de05fc2af8cc36c7f13291b0",
-      "size_bytes": 38592,
-      "line_count": 738,
+      "sha256": "a6feb69a0de46710d5ea9134dd3183b92a1bdfa021e46f25894ca6c8e2ea2459",
+      "size_bytes": 38796,
+      "line_count": 741,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
@@ -44,9 +44,9 @@
       "version": "2.5.0",
       "state": "SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "cdf436b2e06bee7be4c1daf5245bc92d928e4762e22091e89bf168f0c9e02695",
-      "size_bytes": 53795,
-      "line_count": 1041,
+      "sha256": "9837425f0e58b49ee2e7cb2980bff9e5bbd278a76cef4f9417885c4783a2877f",
+      "size_bytes": 53999,
+      "line_count": 1044,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
@@ -56,9 +56,9 @@
       "version": "2.5.0",
       "state": "SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "ac775d1a737d7238b02136355252941e3e86467673a044a9b649a39b18702395",
-      "size_bytes": 95921,
-      "line_count": 1755,
+      "sha256": "204d48c234da504da9319be944b83e3076676c42dc513c5738dae5cdd3af9b1f",
+      "size_bytes": 96125,
+      "line_count": 1758,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
@@ -68,9 +68,9 @@
       "version": "2.5.0",
       "state": "SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING_AVAILABLE_UNBOUND",
       "availability_state": "AVAILABLE_UNVALIDATED",
-      "sha256": "8b60474e59901bbb829c6a9f4b6475c465fd336a977d53d2de93dd26a67b6075",
-      "size_bytes": 40537,
-      "line_count": 775,
+      "sha256": "18500ef07ef71895e1823d4627e214554f3ffd2802e638b2272656d98b80c095",
+      "size_bytes": 40741,
+      "line_count": 778,
       "status": "DRAFT"
     }
   ],
@@ -172,9 +172,10 @@
       "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
-      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_0_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
     "target_foundation_versions": {
       "core": "2.6.2",
       "control": "2.6.2",
@@ -191,7 +192,8 @@
       "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
       "size_bytes": 38042,
       "line_count": 1075
-    }
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
   },
   "compatible_packages": [
     {
@@ -746,7 +748,7 @@
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_005_EXACT_RECEIPTS"
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS"
   },
   "generated_at": "2026-09-05T09:11:37Z",
   "failure_mode_integration_contract": {
