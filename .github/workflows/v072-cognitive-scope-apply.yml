@@ -35,10 +35,10 @@ jobs:
           sort -o /tmp/bootstrap-expected.txt /tmp/bootstrap-expected.txt
           diff -u /tmp/bootstrap-expected.txt /tmp/bootstrap-actual.txt
           test "$(git ls-tree -r --name-only "$BASE" | wc -l)" -eq 99
-          test "$(git rev-list --count "$BASE"..HEAD)" -eq 2
+          test "$(git rev-list --count "$BASE"..HEAD)" -eq 3
           echo 'Approved bootstrap scope: PASS'
 
-      - name: Validate executor assumptions and repair temporary carrier typo
+      - name: Validate executor assumptions and repair temporary carrier paths
         shell: bash
         run: |
           set -euo pipefail
@@ -49,7 +49,7 @@ jobs:
           card=json.loads(Path('prompts/AIR_HANDOFF_CARD_TEMPLATE.json').read_text())['AIR_HANDOFF_CARD']
           assert starter['PROMPT_VERSION']=='2.6.1'
           assert len(starter['validation_contract']['deterministic_contract_registry']['checks'])==80
-          assert 'mii_cognitive_routing' in starter['compiler_contract']
+          assert 'mii_cognitive_routing' in starter['routing_contracts']
           ev={e['route_id']:e for e in starter['compiler_contract']['runtime_control_event_registry']['events']}
           assert 'RT.COGNITIVE_RESOLVE' in ev and isinstance(ev['RT.COGNITIVE_RESOLVE']['guards'],list)
           assert card['card_revision']==17
@@ -61,16 +61,20 @@ jobs:
           from pathlib import Path
           p=Path('tools/apply_v072_cognitive_scope.py')
           t=p.read_text(encoding='utf-8')
-          old="cr = h['migration_state']['compatibility_rules']"
-          new="cr = h['migration_state']['rules']"
-          if old in t:
-              if t.count(old)!=1: raise SystemExit('temporary migration carrier typo is non-unique')
-              t=t.replace(old,new,1)
-          elif new not in t:
-              raise SystemExit('temporary migration carrier path not found')
+          replacements=[
+              ("cr = h['migration_state']['compatibility_rules']", "cr = h['migration_state']['rules']", 'Handoff migration carrier'),
+              ("mii = cc['mii_cognitive_routing']", "mii = o['routing_contracts']['mii_cognitive_routing']", 'Starter MII routing carrier'),
+          ]
+          for old,new,label in replacements:
+              if old in t:
+                  if t.count(old)!=1: raise SystemExit(f'{label}: old carrier non-unique: {t.count(old)}')
+                  t=t.replace(old,new,1)
+              elif t.count(new)!=1:
+                  raise SystemExit(f'{label}: neither unique old nor new carrier found')
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_cognitive_scope.py
+          echo 'Temporary executor carrier repairs: PASS'
 
       - name: Capture immutable historical records
         shell: bash
