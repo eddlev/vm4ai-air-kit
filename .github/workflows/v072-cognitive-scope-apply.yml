@@ -71,9 +71,7 @@ jobs:
               elif t.count(new)!=1:
                   raise SystemExit(f'{label}: neither unique old nor new carrier found')
 
-          # FM-V072-COGNITIVE-SCOPE-RELEASE-VALIDATOR-ORDER-001:
-          # keep Core/Control/Gov marker checks before Starter parsing, but place the
-          # Starter cognitive-contract assertion after `starter` is assigned.
+          # FM-V072-COGNITIVE-SCOPE-RELEASE-VALIDATOR-ORDER-001
           starter_check = "\\n    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n"
           if starter_check in t:
               if t.count(starter_check)!=1: raise SystemExit('release Starter cognitive check source is non-unique')
@@ -89,6 +87,15 @@ jobs:
                   + release_anchor
               )
               t=t.replace(release_anchor,injected,1)
+
+          # FM-V072-COGNITIVE-SCOPE-MUTATION-SUITE-001
+          # Floor 028 is already covered by DC-STARTER-FLOOR-028 and DC-CORE-FLOOR-028
+          # in the deterministic-contract mutation suite. Do not widen the historical
+          # fixed 14-case R1 mutation harness with a fixture it has no mutator for.
+          r1_extra = "    if not any(x.get('id') == 'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING' for x in r1['negative_cases']):\n        r1['negative_cases'].append({'id':'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING','mutation':'remove AIR-FLOOR-028 canonical identifier from Core','must_fail':'DC-CORE-FLOOR-028'})\n"
+          if r1_extra in t:
+              if t.count(r1_extra)!=1: raise SystemExit('R1 redundant cognitive fixture source is non-unique')
+              t=t.replace(r1_extra,'',1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_cognitive_scope.py
