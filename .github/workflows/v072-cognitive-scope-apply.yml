@@ -93,39 +93,16 @@ jobs:
               if t.count(r1_extra)!=1: raise SystemExit('R1 redundant cognitive fixture source is non-unique')
               t=t.replace(r1_extra,'',1)
 
-          # FM-V072-COGNITIVE-SCOPE-PATCH-FIXED-POINT-001:
-          # replace_once must recognize an already-applied `new` value before testing
-          # an `old` value that is intentionally a substring of the new block.
-          old_helper = '''def replace_once(text: str, old: str, new: str, label: str) -> str:
-    if old == new:
-        return text
-    if old in text:
-        if text.count(old) != 1:
-            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')
-        return text.replace(old, new, 1)
-    if new in text:
-        return text
-    raise SystemExit(f'{label}: missing old/new anchor')
-'''
-          new_helper = '''def replace_once(text: str, old: str, new: str, label: str) -> str:
-    if old == new:
-        return text
-    if new in text:
-        return text
-    if old in text:
-        if text.count(old) != 1:
-            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')
-        return text.replace(old, new, 1)
-    raise SystemExit(f'{label}: missing old/new anchor')
-'''
+          old_helper="def replace_once(text: str, old: str, new: str, label: str) -> str:\n    if old == new:\n        return text\n    if old in text:\n        if text.count(old) != 1:\n            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')\n        return text.replace(old, new, 1)\n    if new in text:\n        return text\n    raise SystemExit(f'{label}: missing old/new anchor')\n"
+          new_helper="def replace_once(text: str, old: str, new: str, label: str) -> str:\n    if old == new:\n        return text\n    if new in text:\n        return text\n    if old in text:\n        if text.count(old) != 1:\n            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')\n        return text.replace(old, new, 1)\n    raise SystemExit(f'{label}: missing old/new anchor')\n"
           if old_helper in t:
               if t.count(old_helper)!=1: raise SystemExit('replace_once helper source is non-unique')
               t=t.replace(old_helper,new_helper,1)
           elif t.count(new_helper)!=1:
               raise SystemExit('fixed-point replace_once helper not found')
 
-          old_r7 = "    t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
-          new_r7 = "    if NEW_FOUNDATION not in t:\n        t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
+          old_r7="    t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
+          new_r7="    if NEW_FOUNDATION not in t:\n        t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
           if old_r7 in t:
               if t.count(old_r7)!=1: raise SystemExit(f'R7 broad replacement source count {t.count(old_r7)} != 1')
               t=t.replace(old_r7,new_r7,1)
@@ -161,14 +138,10 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
-
           p=Path('tools/validate_air_r3_remediation.py')
           t=p.read_text(encoding='utf-8')
           anchor="    req(visibility_valid(H),'016 baseline visibility authority invalid')\n"
-          addition=(
-              anchor
-              + "    cs=H['execution_state']['cognitive_scope_state']; req(cs.get('positive_execution_authority')=='NONE','v072 Handoff cognitive scope gained authority'); req(cs.get('validation_ingress_state')=='NOT_EVALUATED','v072 Handoff cognitive scope baseline fabricated validation'); req(H['mii_state'].get('cognitive_scope_ref')=='AIR_HANDOFF_CARD.execution_state.cognitive_scope_state','v072 Handoff cognitive scope ref mismatch')\n"
-          )
+          addition=anchor+"    cs=H['execution_state']['cognitive_scope_state']; req(cs.get('positive_execution_authority')=='NONE','v072 Handoff cognitive scope gained authority'); req(cs.get('validation_ingress_state')=='NOT_EVALUATED','v072 Handoff cognitive scope baseline fabricated validation'); req(H['mii_state'].get('cognitive_scope_ref')=='AIR_HANDOFF_CARD.execution_state.cognitive_scope_state','v072 Handoff cognitive scope ref mismatch')\n"
           if 'v072 Handoff cognitive scope gained authority' not in t:
               if t.count(anchor)!=1: raise SystemExit(f'R3 cognitive baseline anchor count {t.count(anchor)} != 1')
               t=t.replace(anchor,addition,1)
