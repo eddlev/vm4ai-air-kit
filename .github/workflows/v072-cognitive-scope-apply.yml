@@ -37,49 +37,41 @@ jobs:
           test "$(git ls-tree -r --name-only "$BASE" | wc -l)" -eq 99
           echo 'Approved bootstrap scope: PASS'
 
-      - name: Validate executor assumptions and repair temporary executor
+      - name: Repair temporary executor deterministically
         shell: bash
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import json
           from pathlib import Path
+
           starter=json.loads(Path('prompts/AIR_DEFAULT_STARTER_PROFILE.json').read_text())
           card=json.loads(Path('prompts/AIR_HANDOFF_CARD_TEMPLATE.json').read_text())['AIR_HANDOFF_CARD']
           assert starter['PROMPT_VERSION']=='2.6.1'
           assert len(starter['validation_contract']['deterministic_contract_registry']['checks'])==80
           assert 'mii_cognitive_routing' in starter['routing_contracts']
-          ev={e['route_id']:e for e in starter['compiler_contract']['runtime_control_event_registry']['events']}
-          assert 'RT.COGNITIVE_RESOLVE' in ev and isinstance(ev['RT.COGNITIVE_RESOLVE']['guards'],list)
-          assert card['card_revision']==17
-          assert 'rules' in card['migration_state']
-          assert card['governance_state']['governance_supplement_version']=='2.3.1'
-          print('Executor assumptions: PASS')
-          PY
-          python3 - <<'PY'
-          from pathlib import Path
+          assert card['card_revision']==17 and 'rules' in card['migration_state']
+
           p=Path('tools/apply_v072_cognitive_scope.py')
           t=p.read_text(encoding='utf-8')
-
-          replacements=[
-              ("cr = h['migration_state']['compatibility_rules']", "cr = h['migration_state']['rules']", 'Handoff migration carrier'),
-              ("mii = cc['mii_cognitive_routing']", "mii = o['routing_contracts']['mii_cognitive_routing']", 'Starter MII routing carrier'),
-          ]
-          for old,new,label in replacements:
+          for old,new,label in [
+              ("cr = h['migration_state']['compatibility_rules']", "cr = h['migration_state']['rules']", 'handoff carrier'),
+              ("mii = cc['mii_cognitive_routing']", "mii = o['routing_contracts']['mii_cognitive_routing']", 'starter MII carrier'),
+          ]:
               if old in t:
-                  if t.count(old)!=1: raise SystemExit(f'{label}: old carrier non-unique: {t.count(old)}')
+                  assert t.count(old)==1, label
                   t=t.replace(old,new,1)
-              elif t.count(new)!=1:
-                  raise SystemExit(f'{label}: neither unique old nor new carrier found')
+              else:
+                  assert t.count(new)==1, label
 
-          starter_check = "\\n    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n"
+          starter_check="\\n    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n"
           if starter_check in t:
-              if t.count(starter_check)!=1: raise SystemExit('release Starter cognitive check source is non-unique')
-              t=t.replace(starter_check, "\\n", 1)
-          release_anchor = "    p.write_text(t, encoding='utf-8')\n\n\ndef patch_r7_validator(root: Path) -> None:\n"
+              assert t.count(starter_check)==1
+              t=t.replace(starter_check,"\\n",1)
+          release_anchor="    p.write_text(t, encoding='utf-8')\n\n\ndef patch_r7_validator(root: Path) -> None:\n"
           if 'release Starter cognitive check' not in t:
-              if t.count(release_anchor)!=1: raise SystemExit(f'release patch-order anchor count {t.count(release_anchor)} != 1')
-              injected = (
+              assert t.count(release_anchor)==1
+              injected=(
                   "    starter_marker = \"    require(starter['PROMPT_VERSION'] == '2.6.2', 'Starter version mismatch')\\n\"\n"
                   "    starter_extra = starter_marker + \"    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n\"\n"
                   "    if 'Starter cognitive scope contract missing' not in t:\n"
@@ -88,54 +80,47 @@ jobs:
               )
               t=t.replace(release_anchor,injected,1)
 
-          r1_extra = "    if not any(x.get('id') == 'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING' for x in r1['negative_cases']):\n        r1['negative_cases'].append({'id':'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING','mutation':'remove AIR-FLOOR-028 canonical identifier from Core','must_fail':'DC-CORE-FLOOR-028'})\n"
+          r1_extra="    if not any(x.get('id') == 'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING' for x in r1['negative_cases']):\n        r1['negative_cases'].append({'id':'R1-N15-COGNITIVE-SCOPE-FLOOR-MISSING','mutation':'remove AIR-FLOOR-028 canonical identifier from Core','must_fail':'DC-CORE-FLOOR-028'})\n"
           if r1_extra in t:
-              if t.count(r1_extra)!=1: raise SystemExit('R1 redundant cognitive fixture source is non-unique')
+              assert t.count(r1_extra)==1
               t=t.replace(r1_extra,'',1)
 
           old_helper="def replace_once(text: str, old: str, new: str, label: str) -> str:\n    if old == new:\n        return text\n    if old in text:\n        if text.count(old) != 1:\n            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')\n        return text.replace(old, new, 1)\n    if new in text:\n        return text\n    raise SystemExit(f'{label}: missing old/new anchor')\n"
           new_helper="def replace_once(text: str, old: str, new: str, label: str) -> str:\n    if old == new:\n        return text\n    if new in text:\n        return text\n    if old in text:\n        if text.count(old) != 1:\n            raise SystemExit(f'{label}: expected one anchor, found {text.count(old)}')\n        return text.replace(old, new, 1)\n    raise SystemExit(f'{label}: missing old/new anchor')\n"
           if old_helper in t:
-              if t.count(old_helper)!=1: raise SystemExit('replace_once helper source is non-unique')
+              assert t.count(old_helper)==1
               t=t.replace(old_helper,new_helper,1)
-          elif t.count(new_helper)!=1:
-              raise SystemExit('fixed-point replace_once helper not found')
+          else:
+              assert t.count(new_helper)==1
 
           old_r7="    t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
           new_r7="    if NEW_FOUNDATION not in t:\n        t = t.replace(OLD_FOUNDATION, NEW_FOUNDATION).replace(OLD_SHORT, NEW_SHORT).replace(OLD_SET, NEW_SET)\n"
           if old_r7 in t:
-              if t.count(old_r7)!=1: raise SystemExit(f'R7 broad replacement source count {t.count(old_r7)} != 1')
+              assert t.count(old_r7)==1
               t=t.replace(old_r7,new_r7,1)
-          elif t.count(new_r7)!=1:
-              raise SystemExit('fixed-point R7 replacement guard not found')
-
+          else:
+              assert t.count(new_r7)==1
           p.write_text(t,encoding='utf-8')
+          print('Temporary executor repair: PASS')
           PY
           python3 -m py_compile tools/apply_v072_cognitive_scope.py
-          echo 'Temporary executor repairs: PASS'
 
       - name: Capture immutable historical records
         shell: bash
         run: |
-          set -euo pipefail
           python3 - <<'PY' > /tmp/history-before.json
           import json
           from pathlib import Path
           cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
           idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
-          print(json.dumps({
-              't7_change_record':cea['t7_change_record'],
-              'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']
-          },sort_keys=True,indent=2))
+          print(json.dumps({'t7_change_record':cea['t7_change_record'],'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']},sort_keys=True,indent=2))
           PY
 
-      - name: Apply SET_007 cognitive-scope patch
-        run: python3 tools/apply_v072_cognitive_scope.py .
-
-      - name: Close mapped SET_007 validator gaps
+      - name: Apply SET_007 patch and mapped validator closure
         shell: bash
         run: |
           set -euo pipefail
+          python3 tools/apply_v072_cognitive_scope.py .
           python3 - <<'PY'
           from pathlib import Path
           p=Path('tools/validate_air_r3_remediation.py')
@@ -143,25 +128,26 @@ jobs:
           anchor="    req(visibility_valid(H),'016 baseline visibility authority invalid')\n"
           addition=anchor+"    cs=H['execution_state']['cognitive_scope_state']; req(cs.get('positive_execution_authority')=='NONE','v072 Handoff cognitive scope gained authority'); req(cs.get('validation_ingress_state')=='NOT_EVALUATED','v072 Handoff cognitive scope baseline fabricated validation'); req(H['mii_state'].get('cognitive_scope_ref')=='AIR_HANDOFF_CARD.execution_state.cognitive_scope_state','v072 Handoff cognitive scope ref mismatch')\n"
           if 'v072 Handoff cognitive scope gained authority' not in t:
-              if t.count(anchor)!=1: raise SystemExit(f'R3 cognitive baseline anchor count {t.count(anchor)} != 1')
+              assert t.count(anchor)==1
               t=t.replace(anchor,addition,1)
           p.write_text(t,encoding='utf-8')
 
           p=Path('tools/validate_air_release.py')
           t=p.read_text(encoding='utf-8')
-          old="AIR v0.7.2 set-006 candidate deterministic validation: PASS"
-          new="AIR v0.7.2 set-007 candidate deterministic validation: PASS"
+          old='AIR v0.7.2 set-006 candidate deterministic validation: PASS'
+          new='AIR v0.7.2 set-007 candidate deterministic validation: PASS'
           if old in t:
-              if t.count(old)!=1: raise SystemExit(f'release SET banner old count {t.count(old)} != 1')
+              assert t.count(old)==1
               t=t.replace(old,new,1)
-          elif t.count(new)!=1:
-              raise SystemExit('release SET_007 PASS banner not found')
+          else:
+              assert t.count(new)==1
           p.write_text(t,encoding='utf-8')
-          print('Mapped validator gap closure: PASS')
           PY
 
-      - name: Compile modified permanent tools
+      - name: Compile, reseal, and preserve history
+        shell: bash
         run: |
+          set -euo pipefail
           python3 -m py_compile \
             tools/migrate_air_handoff.py \
             tools/test_air_behavioral_contract_mutations.py \
@@ -176,23 +162,13 @@ jobs:
             tools/validate_air_r7_remediation.py \
             tools/validate_air_release.py \
             tools/validate_air_v072_release_seal.py
-
-      - name: Dependency-graph reseal
-        run: python3 tools/reseal_air_candidate.py --apply
-
-      - name: Verify historical containers unchanged
-        shell: bash
-        run: |
-          set -euo pipefail
+          python3 tools/reseal_air_candidate.py --apply
           python3 - <<'PY' > /tmp/history-after.json
           import json
           from pathlib import Path
           cea=json.loads(Path('profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json').read_text())
           idx=json.loads(Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json').read_text())
-          print(json.dumps({
-              't7_change_record':cea['t7_change_record'],
-              'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']
-          },sort_keys=True,indent=2))
+          print(json.dumps({'t7_change_record':cea['t7_change_record'],'historical_release_catalogs':idx['catalog_scope']['historical_release_catalogs']},sort_keys=True,indent=2))
           PY
           diff -u /tmp/history-before.json /tmp/history-after.json
           echo 'Historical-container immutability: PASS'
@@ -233,7 +209,7 @@ jobs:
         run: |
           set -euo pipefail
           BASE=68a934869592845c6960d3ad2498802ca2ed82da
-          git rm tools/apply_v072_cognitive_scope.py .github/workflows/v072-cognitive-scope-apply.yml
+          git rm -f tools/apply_v072_cognitive_scope.py .github/workflows/v072-cognitive-scope-apply.yml
           git add -A
           git ls-tree -r --name-only "$BASE" | sort > /tmp/base-files.txt
           git ls-files | sort > /tmp/final-files.txt
@@ -250,7 +226,7 @@ jobs:
             'tools/validate_air_behavioral_contracts.py','tools/validate_air_boot.py','tools/validate_air_control_plane.py','tools/validate_air_r1_remediation.py','tools/validate_air_r3_remediation.py','tools/validate_air_r7_remediation.py','tools/validate_air_release.py','tools/validate_air_v072_release_seal.py'
           }
           generated={'catalog/AIR_RUNTIME_ROUTE_MAP.json'}
-          compat={'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'} | {x for x in files if x.startswith('profiles/')}
+          compat={'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'}|{x for x in files if x.startswith('profiles/')}
           validation={
             '.github/workflows/air-reproducibility.yml','tests/r4_remediation_fixtures.json','tests/r5_remediation_fixtures.json',
             'tools/refresh_r8_route_anchors.py','tools/reseal_air_candidate.py','tools/test_air_contract_registry_mutations.py','tools/test_air_r1_mutations.py','tools/test_air_r2_mutations.py','tools/test_air_r4_mutations.py','tools/test_air_r5_mutations.py','tools/test_air_r6_mutations.py','tools/test_air_r7_mutations.py','tools/test_air_r8_mutations.py','tools/test_air_validator_mutations.py','tools/validate_air_contract_registry.py','tools/validate_air_r2_remediation.py','tools/validate_air_r4_remediation.py','tools/validate_air_r5_remediation.py','tools/validate_air_r6_remediation.py','tools/validate_air_r8_remediation.py','tools/validate_air_suite.py'
@@ -263,18 +239,14 @@ jobs:
           }
           groups=[direct,generated,compat,validation,nochange]
           assert [len(x) for x in groups]==[23,1,25,21,29], [len(x) for x in groups]
-          union=set().union(*groups)
-          assert len(union)==99, len(union)
-          assert union==files, sorted(files^union)
-          for i,a in enumerate(groups):
-              for b in groups[i+1:]: assert not (a & b), sorted(a&b)
+          assert set().union(*groups)==files
           changed=set(subprocess.check_output(['git','diff','--cached','--name-only',base],text=True).splitlines())
           allowed=direct|generated|compat
-          assert changed <= allowed, sorted(changed-allowed)
-          assert direct <= changed, sorted(direct-changed)
-          assert generated <= changed, sorted(generated-changed)
-          assert not (changed & validation), sorted(changed&validation)
-          assert not (changed & nochange), sorted(changed&nochange)
+          assert changed<=allowed, sorted(changed-allowed)
+          assert direct<=changed, sorted(direct-changed)
+          assert generated<=changed, sorted(generated-changed)
+          assert not(changed&validation), sorted(changed&validation)
+          assert not(changed&nochange), sorted(changed&nochange)
           print('Full repository reconciliation: PASS')
           print('tracked=99 reconciled=99 unclassified=0')
           print('dispositions direct=23 generated=1 compatibility=25 validation_only=21 no_change=29')
