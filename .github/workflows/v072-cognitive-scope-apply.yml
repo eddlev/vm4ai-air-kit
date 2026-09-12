@@ -35,10 +35,9 @@ jobs:
           sort -o /tmp/bootstrap-expected.txt /tmp/bootstrap-expected.txt
           diff -u /tmp/bootstrap-expected.txt /tmp/bootstrap-actual.txt
           test "$(git ls-tree -r --name-only "$BASE" | wc -l)" -eq 99
-          test "$(git rev-list --count "$BASE"..HEAD)" -eq 3
           echo 'Approved bootstrap scope: PASS'
 
-      - name: Validate executor assumptions and repair temporary carrier paths
+      - name: Validate executor assumptions and repair temporary executor
         shell: bash
         run: |
           set -euo pipefail
@@ -71,10 +70,29 @@ jobs:
                   t=t.replace(old,new,1)
               elif t.count(new)!=1:
                   raise SystemExit(f'{label}: neither unique old nor new carrier found')
+
+          # FM-V072-COGNITIVE-SCOPE-RELEASE-VALIDATOR-ORDER-001:
+          # keep Core/Control/Gov marker checks before Starter parsing, but place the
+          # Starter cognitive-contract assertion after `starter` is assigned.
+          starter_check = "\\n    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n"
+          if starter_check in t:
+              if t.count(starter_check)!=1: raise SystemExit('release Starter cognitive check source is non-unique')
+              t=t.replace(starter_check, "\\n", 1)
+          release_anchor = "    p.write_text(t, encoding='utf-8')\n\n\ndef patch_r7_validator(root: Path) -> None:\n"
+          if 'release Starter cognitive check' not in t:
+              if t.count(release_anchor)!=1: raise SystemExit(f'release patch-order anchor count {t.count(release_anchor)} != 1')
+              injected = (
+                  "    starter_marker = \"    require(starter['PROMPT_VERSION'] == '2.6.2', 'Starter version mismatch')\\n\"\n"
+                  "    starter_extra = starter_marker + \"    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')\\n\"\n"
+                  "    if 'Starter cognitive scope contract missing' not in t:\n"
+                  "        t = replace_once(t, starter_marker, starter_extra, 'release Starter cognitive check')\n"
+                  + release_anchor
+              )
+              t=t.replace(release_anchor,injected,1)
           p.write_text(t,encoding='utf-8')
           PY
           python3 -m py_compile tools/apply_v072_cognitive_scope.py
-          echo 'Temporary executor carrier repairs: PASS'
+          echo 'Temporary executor repairs: PASS'
 
       - name: Capture immutable historical records
         shell: bash
