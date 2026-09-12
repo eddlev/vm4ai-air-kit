@@ -21,6 +21,12 @@ def main():
         req(('Patch marker: '+m) in control, 'missing Control marker '+m)
     req('AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1' in gov, 'missing Governance approval deterministic rule')
     req('AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1' in gov, 'missing Governance failure learning rule')
+    req('AIR_NEW_TASK_BINDING_TRANSACTION_V2' in core, 'v0.7.2 new-task binding transaction missing')
+    req('AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1' in control, 'v0.7.2 primary response surface rule missing')
+    req('approval_scope_fingerprint' in gov, 'v0.7.2 approval fingerprint governance missing')
+    req('AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1' in core, 'cognitive scope Core law missing')
+    req('AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_SURFACE_V1' in control, 'cognitive scope Control law missing')
+    req('AIR_GOVERNANCE_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1' in gov, 'cognitive scope Governance law missing')
     req('AIR_SURFACED_OBJECT_LEDGER allowed object-owned top-level fields:' in core, 'surfaced-object ledger missing closed-world object schema')
     req('AIR_FAILURE_MODE_RECORD allowed object-owned top-level fields:' in core, 'failure-mode record missing closed-world object schema')
     for bad in ['Strict Handoff raw one-root output applies','Strict AIR_HANDOFF_CARD final delivery is the raw one-root serialization exception','Strict AIR_HANDOFF_CARD output is the explicit exception defined by STRICT HANDOFF JSON OUTPUT LAW','emit raw JSON only']:
@@ -34,6 +40,11 @@ def main():
     req(reg['authority_class']=='RUNTIME_OPERATIVE_TYPED_CONTRACT','runtime control registry authority mismatch')
     events={e['route_id']:e for e in reg['events']}
     routes={r['route_id']:r for r in rmap['routes']}
+    ts=routes['RT.TASK_SWITCH']; req(ts.get('execution_semantics')=='DETERMINISTIC_PIPELINE' and ts.get('inference_policy')=='PROHIBITED','RT.TASK_SWITCH not deterministic')
+    req('DEP.NEW_TASK_ARTIFACT_COMPILED' in ts.get('requires',[]) and 'DEP.NEW_TASK_ARTIFACT_VISIBLE_ACCOUNTED' in ts.get('does_not_bypass',[]),'RT.TASK_SWITCH exact Artifact barriers missing')
+    expected_tsg={('STATE_PRESENT','CURRENT_EVALUATION_BASIS',None),('STATE_EQUALS','NEW_TASK_BOUNDARY_STATE','LATCHED_NEW_TASK'),('STATE_EQUALS','NEW_TASK_IDENTITY_RESOLUTION_STATE','RESOLVED'),('STATE_EQUALS','NEW_TASK_ARTIFACT_COMPILATION_STATE','COMPILED'),('STATE_EQUALS','NEW_TASK_BENCHMARK_STATE','DERIVED'),('STATE_EQUALS','NEW_TASK_PRECHECK_ADMISSIBILITY_STATE','ADMISSIBLE_FOR_BINDING'),('STATE_EQUALS','NEW_TASK_BINDING_READINESS_STATE','READY')}
+    got_tsg={(g.get('operator'),g.get('path'),g.get('expected')) for g in events['RT.TASK_SWITCH'].get('guards',[])}
+    req(got_tsg==expected_tsg and len(events['RT.TASK_SWITCH'].get('guards',[]))==7,'RT.TASK_SWITCH guard contract mismatch')
     req(set(events)==set(routes),'control-event registry route coverage mismatch')
     req(reg['route_count']==len(routes)==rmap['route_count'],'route count mismatch')
     allowed=set(reg['allowed_guard_operators'])
@@ -46,18 +57,29 @@ def main():
     ar=cc['approval_response_resolution']
     req(ar['exact_match_required'] is True,'approval exact token not required')
     req(ar['natural_language_paraphrase_authority']=='NONE','natural-language approval has authority')
+    req(ar.get('approval_scope_id_revision_suffix_required') is False,'approval scope suffix incorrectly required')
+    req(ar.get('approval_scope_fingerprint_required') is True,'approval fingerprint not required')
+    req(ar.get('scope_id_reuse_rule')=='SAME_APPROVAL_SCOPE_ID_WITH_DIFFERENT_FINGERPRINT_INVALID_REQUIRES_NEW_DISTINCT_ID','scope-id fingerprint reuse barrier missing')
     mat=cc['material_action_transaction']
     seq=mat['ordered_pre_and_post_effect_states']
     req(seq.index('AUTHORITY_OBJECTS_LEDGER_COMMITTED')>seq.index('AIR_ACTION_AUTHORIZATION_EMITTED'),'authority ledger not after Authorization')
     req(seq.index('AUTHORITY_OBJECTS_LEDGER_COMMITTED')<seq.index('EFFECT_ATTEMPT'),'effect can precede authority ledger')
     req(mat['authority_ledger_required_before_effect'] is True,'authority ledger barrier missing')
+    req(mat.get('exact_current_task_artifact_required') is True,'exact current task Artifact backstop missing')
+    req(mat.get('artifact_benchmark_admissibility_required') is True,'Artifact benchmark backstop missing')
+    req(mat.get('artifact_precheck_admissibility_required') is True,'Artifact precheck backstop missing')
+    req(mat.get('artifact_primary_visible_accounting_required') is True,'Artifact primary visibility/accounting backstop missing')
+    nt=cc.get('new_task_binding_transaction',{}); req(nt.get('required') is True and nt.get('inference_policy')=='PROHIBITED_AFTER_NEW_TASK_BOUNDARY_LATCH','new-task typed transaction missing')
+    cs=cc.get('cognitive_scope_authority_isolation',{}); req(cs.get('required') is True and cs.get('cognition_to_control')=='PROHIBITED','cognitive scope control boundary missing'); req(cs.get('validated_contribution_ingress')=='EXPLICIT_DECLARED_INGESTION_ONLY','cognitive scope ingestion boundary missing'); req(cs.get('candidate_output_authority')=='NONE','cognitive candidates gained authority')
+    req(nt.get('ordered_states',[])[-1:] == ['NEW_TASK_EXECUTION_ELIGIBLE'],'new-task transaction order incomplete')
     led=cc['surfaced_object_ledger']; req(led['authorization_consumption_requires_ledger_entry'] is True,'Authorization ledger consumption barrier missing')
     req(led.get('coverage')=='ALL_CANONICAL_FORMAL_OBJECTS_EMITTED_IN_GOVERNED_SESSION','surfaced ledger does not cover all formal objects')
     req(led.get('ledger_delta_required_after_any_formal_emission') is True,'per-response surfaced ledger delta missing')
-    fm=cc['failure_mode_registry']; req(fm['pre_retry_query_required'] is True,'failure-mode pre-retry query missing'); req(fm['automatic_applicability']=='EXACT_MATCH_ONLY','failure-mode exact match boundary missing'); req(fm['specialist_registry_mutation_authority']=='NONE','Specialist can mutate failure registry')
+    fm=cc['failure_mode_registry']; req(fm['pre_retry_query_required'] is True,'failure-mode pre-retry query missing'); req(fm.get('execution_defect_rejection_capture_required') is True,'execution-defect capture requirement missing'); req(fm.get('recovery_capture_rule')=='RT_RECOVERY_EVALUATES_REUSABLE_FAILURE_CAPTURE_BEFORE_END_RESPONSE','recovery failure-capture route missing'); req(fm['automatic_applicability']=='EXACT_MATCH_ONLY','failure-mode exact match boundary missing'); req(fm['specialist_registry_mutation_authority']=='NONE','Specialist can mutate failure registry')
     req(fm['applicability_signature_schema']['exact_match_rule']=='CURRENT_SIGNATURE_HASH_EQUALS_RECORDED_APPLICABILITY_SIGNATURE_HASH','failure applicability signature hash rule missing')
     req(fm['failure_record_source_ledger_entry_required'] is True,'failure record ledger-source requirement missing')
     req('AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY' in starter['authority_contract']['floor_invariants_required'],'Starter floor027 missing')
+    cs_h=handoff['execution_state']['cognitive_scope_state']; req(cs_h['positive_execution_authority']=='NONE' and cs_h['validation_ingress_state']=='NOT_EVALUATED','handoff cognitive scope gained authority or fabricated validation')
     sm=handoff['schema_manifest']; req(sm['strict_output_mode']=='DOWNLOADABLE_JSON_FILE_ONLY','handoff is not file-only'); req(sm['handoff_delivery_contract']['inline_chat_payload']=='PROHIBITED','inline handoff payload allowed'); req('failure_mode_state' in sm['required_fields'],'handoff failure_mode_state not required')
     req('surfaced_object_ledger_state' in sm['required_fields'],'handoff full surfaced-object history not required')
     sls=handoff['surfaced_object_ledger_state']; req(sls['positive_execution_authority']=='NONE_HISTORY_ONLY','handoff surfaced history gained authority'); req(sls['entry_requirements']['mutation_rule']=='EXACT_CANONICAL_OBJECT_COPY_NO_SEMANTIC_MUTATION','handoff snapshot mutation boundary missing')

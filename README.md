@@ -8,7 +8,7 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.6.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
+[![Foundation](https://img.shields.io/badge/foundation-2.6.1-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
 ![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
 
 **AI work, carried forward.**
@@ -57,6 +57,22 @@ v0.7.1 is a hardening release over v0.7.0 and closes 74 audited findings across 
 
 See the [v0.7.1 release](https://github.com/eddlev/vm4ai-air-kit/releases/tag/v0.7.1) for the detailed change and validation record.
 
+
+## Development candidate - AIR Kit v0.7.2
+
+This branch prepares **AIR Kit v0.7.2**. The latest published release remains v0.7.1 until a v0.7.2 tag/release is actually published.
+
+v0.7.2 hardens AIR's control spine around new-task Artifact binding, exact task-to-Artifact action checks, failure capture, repository patch reconciliation, approval-scope identity reuse, Handoff revision 17, and required formal-object visibility.
+
+### Best practices
+
+**Cognitive scope authority isolation.** AIR v0.7.2 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
+
+
+**Thinking Effort.** AIR does not currently require a specific ChatGPT Thinking Effort setting. For day-to-day AIR use, **High** is a reasonable starting point. **Extra High** may be useful for unusually difficult analysis or architecture work, but there is not currently evidence that Thinking Effort causes or prevents AIR runtime drift. Treat cross-effort observations as empirical host-behavior evidence, not AIR execution authority.
+
+**Known ChatGPT presentation issue.** AIR formal records have occasionally been observed inside ChatGPT's collapsed **`Worked for ...`** section rather than in the main response. Expanding that section reveals the records. This has so far only been observed on ChatGPT; the cause has not been isolated between AIR response-surface behavior and host UI routing. AIR formal records are structured governance records, not hidden reasoning or chain of thought. If expected records appear missing in ChatGPT, check that section and include the behavior in any bug report.
+
 ## Start AIR
 
 Load the five required AIR Foundation files from [`prompts/`](prompts/):
@@ -99,7 +115,7 @@ AIR_APPROVE::<approval-scope>
 AIR_REJECT::<approval-scope>
 ```
 
-The exact approval token authorizes only the scope AIR described.
+The exact approval token authorizes only the scope AIR described. A version suffix such as `_V1` is optional; AIR must issue a new distinct scope ID if the material scope changes, so old tokens cannot silently authorize a different action.
 
 A casual response such as “looks good” or “go ahead” does not silently become material authorization when exact approval is required.
 

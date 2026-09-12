@@ -67,6 +67,36 @@ def main():
     def m16(d):
         p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['surfaced_object_ledger']['coverage']='AUTHORITY_OBJECTS_ONLY'; save(p,o)
     cases.append(('surfaced ledger reduced to authority-only',m16))
+    def m17(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['material_action_transaction']['exact_current_task_artifact_required']=False; save(p,o)
+    cases.append(('wrong task Artifact accepted',m17))
+    def m18(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); e=next(x for x in o['compiler_contract']['runtime_control_event_registry']['events'] if x['route_id']=='RT.TASK_SWITCH'); e['guards']=e['guards'][:1]; save(p,o)
+    cases.append(('task switch new-task guards removed',m18))
+    def m19(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['material_action_transaction']['artifact_benchmark_admissibility_required']=False; save(p,o)
+    cases.append(('Artifact benchmark backstop removed',m19))
+    def m20(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['material_action_transaction']['artifact_precheck_admissibility_required']=False; save(p,o)
+    cases.append(('Artifact precheck backstop removed',m20))
+    def m21(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['material_action_transaction']['artifact_primary_visible_accounting_required']=False; save(p,o)
+    cases.append(('Artifact primary visibility backstop removed',m21))
+    def m22(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['approval_response_resolution']['scope_id_reuse_rule']='REUSE_ALLOWED'; save(p,o)
+    cases.append(('approval scope fingerprint reuse allowed',m22))
+    def m23(d):
+        p=d/'prompts/AIR_CONTROL_SURFACE.md'; x=p.read_text(encoding='utf-8').replace('Patch marker: AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1','Patch marker: REMOVED_PRIMARY_SURFACE',1); p.write_text(x,encoding='utf-8')
+    cases.append(('primary response surface rule removed',m23))
+    def m24(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['failure_mode_registry']['execution_defect_rejection_capture_required']=False; save(p,o)
+    cases.append(('execution defect failure capture removed',m24))
+    def m25(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['cognitive_scope_authority_isolation']['cognition_to_control']='ALLOWED'; save(p,o)
+    cases.append(('cognitive contribution gains control authority',m25))
+    def m26(d):
+        p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state']['positive_execution_authority']='ALLOW'; save(p,o)
+    cases.append(('handoff cognitive scope gains authority',m26))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

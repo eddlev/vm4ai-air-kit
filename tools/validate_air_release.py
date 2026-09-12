@@ -8,12 +8,12 @@ from typing import Any
 from validate_air_r8_remediation import E as R8ValidationError, main as validate_r8
 
 ROOT = Path('.')
-EXPECTED_KIT_VERSION = '0.7.1'
-EXPECTED_FOUNDATION_ID = 'AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005'
-EXPECTED_ROUTE_MAP_VERSION = '1.1.0'
-EXPECTED_INDEX_VERSION = '1.3.0'
+EXPECTED_KIT_VERSION = '0.7.2'
+EXPECTED_FOUNDATION_ID = 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
+EXPECTED_ROUTE_MAP_VERSION = '1.2.1'
+EXPECTED_INDEX_VERSION = '1.3.2'
 EXPECTED_PACKAGE_VERSION = '2.5.0'
-EXPECTED_HANDOFF_CARD_REVISION = 16
+EXPECTED_HANDOFF_CARD_REVISION = 18
 EXPECTED_SPECIALIST_DIRS = {
     'capability ecology architect',
     'governance specialist',
@@ -39,12 +39,12 @@ SPECIALIST_REQUIRED_FIELDS = {
     'compatible_domain_packages', 'runtime_law_extensions',
 }
 FOUNDATION_VERSION = {
-    'AIR_CORE_RUNTIME.md': '2.6.0',
-    'AIR_CONTROL_SURFACE.md': '2.6.0',
-    'AIR_GOV.md': '2.3.0',
-    'AIR_DEFAULT_STARTER_PROFILE.json': '2.6.0',
+    'AIR_CORE_RUNTIME.md': '2.6.2',
+    'AIR_CONTROL_SURFACE.md': '2.6.2',
+    'AIR_GOV.md': '2.3.2',
+    'AIR_DEFAULT_STARTER_PROFILE.json': '2.6.2',
     'AIR_HANDOFF_CARD_TEMPLATE.json': '2.3.0',
-    'AIR_RUNTIME_ROUTE_MAP.json': '1.1.0',
+    'AIR_RUNTIME_ROUTE_MAP.json': '1.2.1',
 }
 
 
@@ -55,8 +55,8 @@ HISTORICAL_CONTAINER_KEYS = {
 }
 R7_STATIC_PASS = 'PASS_R7_DETERMINISTIC_STATIC_SUITE'
 R7_BEHAVIOR_PENDING = 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
-R7_INDEX_COMPLETENESS = 'COMPLETE_FOR_AIR_2_6_0_OBJECT_CONTRACT_SET_005_V071_RELEASE_SPECIALIST_CATALOG'
-R7_CANDIDATE_STATE = 'RELEASE_CATALOG_ENTRY'
+R7_INDEX_COMPLETENESS = 'COMPLETE_FOR_AIR_2_6_2_OBJECT_CONTRACT_SET_007_V072_CANDIDATE_SPECIALIST_CATALOG'
+R7_CANDIDATE_STATE = 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
 
 class ValidationError(Exception):
     pass
@@ -200,8 +200,8 @@ def main() -> None:
 
     core = (ROOT / 'prompts' / 'AIR_CORE_RUNTIME.md').read_text(encoding='utf-8')
     control = (ROOT / 'prompts' / 'AIR_CONTROL_SURFACE.md').read_text(encoding='utf-8')
-    require('PROMPT_VERSION: 2.6.0' in core, 'Core version mismatch')
-    require('PROMPT_VERSION: 2.6.0' in control, 'Control version mismatch')
+    require('PROMPT_VERSION: 2.6.2' in core, 'Core version mismatch')
+    require('PROMPT_VERSION: 2.6.2' in control, 'Control version mismatch')
     require('Patch marker: AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1' in core, 'missing Core closed-world emission closure')
     require('Patch marker: AIR_CONTROL_CLOSED_WORLD_EMISSION_RENDERER_V1' in control, 'missing Control emission renderer closure')
 
@@ -219,10 +219,17 @@ def main() -> None:
     require('AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION' in core, 'missing Core floor 026')
     require('AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY' in core, 'missing Core floor 027')
     require('Patch marker: AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1' in core, 'missing deterministic contract representation law')
+    require('Patch marker: AIR_NEW_TASK_BINDING_TRANSACTION_V2' in core, 'missing v0.7.2 new-task binding transaction')
+    require('Patch marker: AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1' in control, 'missing v0.7.2 primary response surface law')
+    require('Patch marker: AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1' in core, 'missing cognitive scope authority isolation law')
+    require('Patch marker: AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_SURFACE_V1' in control, 'missing cognitive scope surface law')
+    require('Patch marker: AIR_GOVERNANCE_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1' in gov, 'missing governance cognitive scope law')
+    require('PROMPT_VERSION: 2.3.2' in gov, 'Governance version mismatch')
 
     starter_path = ROOT / 'prompts' / 'AIR_DEFAULT_STARTER_PROFILE.json'
     starter = parsed[starter_path]
-    require(starter['PROMPT_VERSION'] == '2.6.0', 'Starter version mismatch')
+    require(starter['PROMPT_VERSION'] == '2.6.2', 'Starter version mismatch')
+    require(starter.get('compiler_contract', {}).get('cognitive_scope_authority_isolation', {}).get('required') is True, 'Starter cognitive scope contract missing')
     require(starter.get('compiler_contract', {}).get('closed_world_emission_closure', {}).get('required') is True, 'Starter missing closed-world emission closure mirror')
     vc = starter.get('validation_contract', {})
     require('required_version' not in vc, 'Starter duplicated required_version literal remains')
@@ -267,7 +274,7 @@ def main() -> None:
     require('AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION' in routes['RT.ACTIVATE']['produces'], 'RT.ACTIVATE missing execution map emission token')
     require('AIR_ARTIFACT' in routes['RT.AMEND']['produces'], 'RT.AMEND missing revised artifact emission')
     require('AIR_PROJECT_EXECUTION_MAP' in routes['RT.TASK_SWITCH']['produces'] and 'AIR_ARTIFACT' in routes['RT.TASK_SWITCH']['produces'], 'RT.TASK_SWITCH emission closure incomplete')
-    deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE'}
+    deterministic_routes = {'RT.BOOT', 'RT.ONBOARD', 'RT.HANDOFF_RESTORE', 'RT.TURN', 'RT.ALIGN', 'RT.APPROVAL_RESOLVE', 'RT.ACTION', 'RT.RECEIPT', 'RT.HANDOFF_CREATE', 'RT.TASK_SWITCH'}
     for rid in sorted(deterministic_routes):
         require(rid in routes, f'missing deterministic Core route {rid}')
         require(routes[rid].get('execution_semantics') == 'DETERMINISTIC_PIPELINE', f'{rid}: execution_semantics mismatch')
@@ -387,7 +394,7 @@ def main() -> None:
 
     behavioral_pass_claims: list[str] = []
     def collect_behavioral_pass(node: Any, loc: tuple[str, ...], owner: Path) -> None:
-        if isinstance(node, str) and 'SET_005' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
+        if isinstance(node, str) and 'SET_006' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
             behavioral_pass_claims.append(f'{owner}:{".".join(loc)}')
     for p in sorted(ROOT.glob('profiles/**/*.json')):
         walk_current(parsed[p], lambda node, loc, owner=p: collect_behavioral_pass(node, loc, owner))
@@ -404,7 +411,7 @@ def main() -> None:
         if 'BEHAVIORAL_REVALIDATION_PENDING' in top_status:
             contradictory: list[str] = []
             def collect_contradiction(node: Any, loc: tuple[str, ...]) -> None:
-                if isinstance(node, str) and 'SET_005' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
+                if isinstance(node, str) and 'SET_006' in node and 'BEHAVIORAL_REVALIDATION_PASS' in node:
                     contradictory.append('.'.join(loc))
             walk(obj.get('components', []), collect_contradiction)
             require(not contradictory, f'{p}: package behavioral state pending but component PASS remains at {contradictory}')
@@ -474,13 +481,13 @@ def main() -> None:
     require(cea_manifest.get('t7_change_record', {}).get('source_package_version') == '2.3.9', 'R7 T7 historical source version rewritten')
 
     inventory = parsed[ROOT / 'tests' / 'deterministic_contract_inventory.json']
-    require(inventory.get('inventory_id') == 'AIR_SET005_DETERMINISTIC_CONTRACT_INVENTORY_V1', 'deterministic contract inventory identity mismatch')
+    require(inventory.get('inventory_id') == 'AIR_SET007_DETERMINISTIC_CONTRACT_INVENTORY_V1', 'deterministic contract inventory identity mismatch')
     require(inventory.get('typed_deterministic_check_count') == len(registry.get('checks', [])), 'deterministic contract inventory count mismatch')
     require(inventory.get('migrated_validation_expectation_count') == len(vc.get('validation_expectations', [])), 'validation expectation inventory count mismatch')
     require(inventory.get('legacy_required_cross_file_checks_operational_state') == 'REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY', 'legacy operative prose inventory state mismatch')
 
     fixtures = parsed[ROOT / 'tests' / 'air_contract_fixtures.json']
-    require(fixtures.get('fixture_set') == 'AIR_SET005_REGRESSION_FIXTURES_V1', 'fixture identity mismatch')
+    require(fixtures.get('fixture_set') == 'AIR_SET007_REGRESSION_FIXTURES_V1', 'fixture identity mismatch')
     require(len(fixtures.get('emission_closure_cases', [])) >= 5, 'insufficient emission fixtures')
     require(len(fixtures.get('copywriting_behavior_cases', [])) >= 3, 'insufficient Copywriting behavior fixtures')
     require(len(fixtures.get('semantic_reseal_negative_cases', [])) >= 3, 'insufficient semantic reseal negative fixtures')
@@ -501,7 +508,7 @@ def main() -> None:
         'R7-LC-05-GOVERNANCE-COMPONENT-ROLES',
     } <= r7_ids, 'R7 lifecycle/reseal regression fixtures missing')
 
-    print('AIR v0.7.1 set-005 deterministic validation: PASS')
+    print('AIR v0.7.2 set-007 candidate deterministic validation: PASS')
     print(f'Strict JSON files: {len(parsed)}')
     print(f'Specialist profiles: {specialist_count}/5')
     print(f'Method packs: {method_count}')

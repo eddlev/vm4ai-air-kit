@@ -58,13 +58,14 @@ def visibility_valid(H):
 def main():
     core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text(); control=(ROOT/'prompts/AIR_CONTROL_SURFACE.md').read_text(); gov=(ROOT/'prompts/AIR_GOV.md').read_text()
     starter=load('prompts/AIR_DEFAULT_STARTER_PROFILE.json'); H=load('prompts/AIR_HANDOFF_CARD_TEMPLATE.json')['AIR_HANDOFF_CARD']; sm=H['schema_manifest']; preds=sm['condition_registry']['predicates']
-    req(len(starter['validation_contract']['deterministic_contract_registry']['checks'])==80,'R1 registry lost')
+    req(len(starter['validation_contract']['deterministic_contract_registry']['checks'])==82,'R1 registry lost')
     req('AIR_SURFACED_OBJECT_LEDGER: SURFACED_OBJECT_LEDGER_RECORD' in core,'R2 formal class lost')
     req('AIR_FAILURE_MODE_RECORD: FAILURE_MODE_RECORD' in core,'R2 failure class lost')
     req('"decision": "ALLOW"' in core and '"decision": "ALLOW | REJECT"' not in core,'R2 allow-only authorization lost')
     req('object_visibility_authority_state' in H and 'object_visibility_authority_state' in sm['required_fields'],'016 Handoff carrier missing')
     req('object_visibility_authority_state' in core and 'AIR_SESSION allowed object-owned top-level fields:' in core,'016 Core session carrier missing')
     req(visibility_valid(H),'016 baseline visibility authority invalid')
+    cs=H['execution_state']['cognitive_scope_state']; req(cs.get('positive_execution_authority')=='NONE','v072 Handoff cognitive scope gained authority'); req(cs.get('validation_ingress_state')=='NOT_EVALUATED','v072 Handoff cognitive scope baseline fabricated validation'); req(H['mii_state'].get('cognitive_scope_ref')=='AIR_HANDOFF_CARD.execution_state.cognitive_scope_state','v072 Handoff cognitive scope ref mismatch')
     hm=copy.deepcopy(H); hm['object_visibility_mode']='MINIMUM_REQUIRED_OBJECTS'; req(not visibility_valid(hm),'016 min without explicit evidence passed')
     hm['object_visibility_authority_state']['authority_source']='USER_EXPLICIT'; hm['object_visibility_authority_state']['selection_evidence_ref']='USER_SELECTION::1'; req(visibility_valid(hm),'016 explicit min failed')
     req(not eval_pred(H,preds['HC-COND-METHOD']),'020 baseline no-method triggers')
@@ -90,6 +91,9 @@ def main():
     bad={'approval_scope_id':'SCOPE-TEST','operational_response_tokens':['YES','NO'],'approval_response_mode':'EXACT_CANONICAL_SCOPE_TOKEN_PAIR'}
     req(token_pair_valid(good) and not token_pair_valid(bad),'026 token derivation behavior wrong')
     vr=sm['validation_registry']['rules']['HC-VALIDATE-APPROVAL']; req(any(p.get('operator')=='APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR' for p in vr['predicates']),'026 Handoff validation op missing')
+    req('APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' in sm['validation_registry']['allowed_operators'],'v072 approval fingerprint operator missing')
+    req(any(p.get('operator')=='APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID' for p in vr['predicates']),'v072 approval fingerprint predicate missing')
+    req(any(p.get('path')=='$.open_approval_scope.approval_scope_fingerprint' for p in vr['predicates']),'v072 approval fingerprint path missing')
     req('Allowed approval_response_mode values:' in gov and 'EXACT_CANONICAL_SCOPE_TOKEN_PAIR' in gov,'026 Gov mode enum missing')
     gov_fields=['governance_supplement_designation','governance_supplement_version','prompt_edition','governance_floor_version','floor_invariant_reference','open_approval_scope_ref','active_framework_projections','governance_source_rights_state','token_debug_preference','governance_blockers','governance_evidence_references','restricted_content_excluded']
     rule=next(r for r in sm['conditional_rules'] if r['id']=='HC-COND-GOV')
@@ -118,17 +122,15 @@ def main():
     pc=H['source_state']['source_rights_projection_contract']; req(pc['governance_owner_path']=='AIR_HANDOFF_CARD.governance_state.governance_source_rights_state' and pc['projection_authority']=='DERIVED_NONAUTHORITATIVE' and pc['last_writer_wins'] is False,'069 projection contract missing')
     req('Canonical ownership and projection:' in gov and 'Governance-controlled source-rights records have one canonical owner' in core,'069 owner law missing')
     req(pc['conflict_behavior']=='REVIEW_BLOCK_AFFECTED_USE','069 conflict not review')
-    rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false')
-    seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers')
-    req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')
+    rc=sm['revision_migration_contracts']['REV15_TO_REV16']; req(rc['apply_before_current_required_carrier_check'] is True,'072 order flag false'); rc17=sm['revision_migration_contracts']['REV16_TO_REV17']; req(rc17['apply_before_current_required_carrier_check'] is True,'v072 rev16->17 order flag false'); req(rc17['history_synthesis']=='PROHIBITED','v072 rev16->17 history synthesis not prohibited'); rc18=sm['revision_migration_contracts']['REV17_TO_REV18']; req(rc18['apply_before_current_required_carrier_check'] is True,'v072 rev17->18 order flag false'); req(rc18['history_synthesis']=='PROHIBITED','v072 rev17->18 history synthesis not prohibited'); seq=sm['validation_sequence']; req(seq.index('source card revision detection and applicable revision migration check') < seq.index('required-carrier check after applicable migration'),'072 sequence migration after required carriers'); req(rc['history_synthesis']=='PROHIBITED','072 history synthesis not prohibited')
     spec=importlib.util.spec_from_file_location('mig',str(ROOT/'tools/migrate_air_handoff.py')); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
     if REV15_PATH:
         src=json.loads(Path(REV15_PATH).read_text(encoding='utf-8'))
         req(src.get('AIR_HANDOFF_CARD',{}).get('card_revision')==15,'072 supplied historical card is not rev15')
     else:
         base=json.loads((ROOT/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json').read_text(encoding='utf-8')); src=copy.deepcopy(base); c=src['AIR_HANDOFF_CARD']; c['card_revision']=15; c.pop('failure_mode_state',None); c.pop('surfaced_object_ledger_state',None); c.pop('object_visibility_authority_state',None); c.pop('profile_posture_acceptance_state',None)
-    migrated=mod.migrate_rev15_to_rev16(src,{'AIR_HANDOFF_CARD':H})['AIR_HANDOFF_CARD']
-    req(migrated['card_revision']==16,'072 target rev'); req(migrated['failure_mode_state']['history_completeness_state']=='LEGACY_UNRECORDED_PRE_REV16','072 failure history'); req(migrated['surfaced_object_ledger_state']['completeness_state']=='LEGACY_UNRECORDED_PRE_REV16','072 ledger history'); req(not migrated['failure_mode_state']['records'] and not migrated['surfaced_object_ledger_state']['entries'],'072 fabricated history'); req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV15_TO_REV16'),'072 migration decision')
+    migrated=mod.migrate_to_current(src,{'AIR_HANDOFF_CARD':H})['AIR_HANDOFF_CARD']
+    req(migrated['card_revision']==18,'072 target rev'); req(migrated['failure_mode_state']['history_completeness_state']=='LEGACY_UNRECORDED_PRE_REV16','072 failure history'); req(migrated['surfaced_object_ledger_state']['completeness_state']=='LEGACY_UNRECORDED_PRE_REV16','072 ledger history'); req(not migrated['failure_mode_state']['records'] and not migrated['surfaced_object_ledger_state']['entries'],'072 fabricated history'); req(migrated['migration_state']['migration_decision'].startswith('MIGRATED_REV17_TO_REV18'),'072 migration decision'); req(migrated['execution_state']['cognitive_scope_state']['positive_execution_authority']=='NONE','v072 migrated cognitive scope gained authority'); req(migrated['execution_state']['cognitive_scope_state']['validation_ingress_state']=='NOT_EVALUATED','v072 migrated cognitive scope fabricated validation')
     declared=set(sm['required_fields'])|set(sm['optional_fields']); req(set(H)==declared,'Handoff root manifest not closed')
     rmap=load('catalog/AIR_RUNTIME_ROUTE_MAP.json'); req(rmap['source_of_truth']['sha256']==hashlib.sha256(core.encode()).hexdigest(),'route map core hash stale')
     line_by={ln.split('=',1)[1]:i for i,ln in enumerate(core.splitlines(),1) if ln.startswith('id=RT.')}
