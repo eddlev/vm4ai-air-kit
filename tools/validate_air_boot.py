@@ -82,7 +82,7 @@ def main(root: Path) -> None:
         executed = eval_registry(root, starter)
     except (R1ValidationError, KeyError) as exc:
         raise BootValidationError(f'deterministic registry boot check failed: {exc}') from exc
-    require(executed == 80, f'R1 deterministic boot registry expected 80 checks, got {executed}')
+    require(executed == 82, f'R1 deterministic boot registry expected 82 checks, got {executed}')
     require(len(starter.get('authority_contract', {}).get('required_files', [])) == 5, 'R1 Foundation authority manifest must contain five roles')
     try:
         validate_r8(root)

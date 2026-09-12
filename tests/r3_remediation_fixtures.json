@@ -18,28 +18,50 @@
     "AIR-AUD-072"
   ],
   "positive_cases": [
-    {"id":"R3-P01-EXPLICIT-MINIMUM-VISIBILITY","expect":"MINIMUM_REQUIRED_OBJECTS accepted only with explicit selection provenance"},
-    {"id":"R3-P02-CANONICAL-APPROVAL-PAIR","expect":"AIR_APPROVE::<scope> and AIR_REJECT::<scope> exact derived pair validates"},
-    {"id":"R3-P03-REV15-MIGRATION","expect":"published v0.7.0 rev15 card migrates before rev16 carrier checks without fabricated history"},
-    {"id":"R3-P04-NO-METHOD-BASELINE","expect":"baseline null method state does not trigger method restoration condition"},
-    {"id":"R3-P05-ACTIVE-METHOD-TYPED-SCHEMA","expect":"active Method Pack restoration is gated by exact typed method-specific schema"},
-    {"id":"R3-P06-SOURCE-RIGHTS-PROJECTION","expect":"generic source-rights carriers are non-authoritative projections of Governance owner"}
+    {
+      "id": "R3-P01-EXPLICIT-MINIMUM-VISIBILITY",
+      "expect": "MINIMUM_REQUIRED_OBJECTS accepted only with explicit selection provenance"
+    },
+    {
+      "id": "R3-P02-CANONICAL-APPROVAL-PAIR",
+      "expect": "AIR_APPROVE::<scope> and AIR_REJECT::<scope> exact derived pair validates"
+    },
+    {
+      "id": "R3-P03-REV15-MIGRATION",
+      "expect": "published v0.7.0 rev15 card migrates through rev16 and rev17 to rev18 before current carrier checks without fabricated history or cognitive authority"
+    },
+    {
+      "id": "R3-P04-NO-METHOD-BASELINE",
+      "expect": "baseline null method state does not trigger method restoration condition"
+    },
+    {
+      "id": "R3-P05-ACTIVE-METHOD-TYPED-SCHEMA",
+      "expect": "active Method Pack restoration is gated by exact typed method-specific schema"
+    },
+    {
+      "id": "R3-P06-SOURCE-RIGHTS-PROJECTION",
+      "expect": "generic source-rights carriers are non-authoritative projections of Governance owner"
+    }
   ],
   "negative_cases": [
-    "R3-N01-VISIBILITY-AUTHORITY-CARRIER",
-    "R3-N02-METHOD-BASELINE-TRIGGER",
-    "R3-N03-ACTION-OPEN-AUTH-TRIGGER",
-    "R3-N04-AMRS-NONPASS-TRIGGER",
-    "R3-N05-PROFILE-POSTURE-CARRIER",
-    "R3-N06-FLOOR-UNRESOLVED-ENUM",
-    "R3-N07-APPROVAL-CANONICAL-VALIDATION",
-    "R3-N08-GOV-12-FIELD-COVERAGE",
-    "R3-N09-EDITION-REVIEW-TOKEN",
-    "R3-N10-METHOD-TYPED-HANDOFF-SCHEMA",
-    "R3-N11-OVERLAY-NOT-EVALUATED",
-    "R3-N12-GOV-METHOD-STEP-STATE",
-    "R3-N13-SOURCE-RIGHTS-PRECEDENCE",
-    "R3-N14-REV15-MIGRATION-ORDER"
+    "R3-N01-",
+    "R3-N02-",
+    "R3-N03-",
+    "R3-N04-",
+    "R3-N05-",
+    "R3-N06-",
+    "R3-N07-",
+    "R3-N08-",
+    "R3-N09-",
+    "R3-N10-",
+    "R3-N11-",
+    "R3-N12-",
+    "R3-N13-",
+    "R3-N14-",
+    "R3-N15-",
+    "R3-N16-",
+    "R3-N17-",
+    "R3-N18-"
   ],
   "release_boundary": "R3 remediation evidence only; coordinated receipt/hash/status reseal remains R7"
 }

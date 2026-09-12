@@ -5,7 +5,7 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 17,
+    "card_revision": 18,
     "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
     "evaluation_basis": {
@@ -174,7 +174,7 @@
     },
     "governance_state": {
       "governance_supplement_designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-      "governance_supplement_version": "2.3.1",
+      "governance_supplement_version": "2.3.2",
       "prompt_edition": "HUMAN_READABLE",
       "governance_floor_version": "2.3.0",
       "floor_invariant_reference": {
@@ -216,7 +216,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.6.1",
+        "PROMPT_VERSION": "2.6.2",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -453,7 +453,23 @@
       "epistemic_sufficiency_state_ref": "AIR_HANDOFF_CARD.epistemic_sufficiency_state",
       "mii_cognitive_lattice_ref": "AIR_HANDOFF_CARD.mii_state",
       "mii_fusion_state": null,
-      "morphology_binding_ref": "AIR_HANDOFF_CARD.morphology_state"
+      "morphology_binding_ref": "AIR_HANDOFF_CARD.morphology_state",
+      "cognitive_scope_state": {
+        "scope_id": null,
+        "scope_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+        "scope_owner_artifact_ref": null,
+        "objective": null,
+        "permitted_input_refs": [],
+        "permitted_route_ids": [],
+        "permitted_cognitive_operations": [],
+        "protected_control_state_classes": [],
+        "candidate_contribution_refs": [],
+        "validated_contribution_refs": [],
+        "held_or_rejected_contribution_refs": [],
+        "validation_ingress_state": "NOT_EVALUATED",
+        "positive_execution_authority": "NONE",
+        "restoration_rule": "Restore declared scope identity and contribution references only as non-authorizing continuation input. Revalidate current task/Artifact scope, inputs, protected control state, contribution availability, and validation-ingress eligibility before operative reuse; never reconstruct hidden reasoning or infer prior control authority from a contribution."
+      }
     },
     "receiver_delivery_state": {
       "state": null,
@@ -513,7 +529,8 @@
         "v2_2_schema": "ACCEPT_AS_MIGRATION_INPUT_TO_2_3_0_PENDING_CURRENT_ALIGNMENT_REVALIDATION_AND_ARTIFACT_REBINDING",
         "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS.",
         "v2_3_rev15_to_rev16_root_carriers": "MIGRATE_BEFORE_REV16_REQUIRED_CARRIER_VALIDATION; ADD_FAILURE_AND_SURFACED_LEDGER_CARRIERS_AS_LEGACY_UNRECORDED_PRE_REV16; ADD_VISIBILITY_AUTHORITY_AND_PROFILE_POSTURE_CARRIERS_WITH_NONAUTHORITATIVE_SAFE_DEFAULTS; NEVER_FABRICATE_HISTORY; REQUIRE_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING",
-        "v2_3_rev16_to_rev17_patch_and_approval_identity": "Rev16 cards remain valid schema-2.3.0 migration input. Add patch-reconciliation carriers with unresolved safe defaults. Do not infer a missing approval fingerprint; a non-null open approval scope requires exact recomputation from complete explicit fields plus scope-id history validation or routes to REVIEW/reacquisition."
+        "v2_3_rev16_to_rev17_patch_and_approval_identity": "Rev16 cards remain valid schema-2.3.0 migration input. Add patch-reconciliation carriers with unresolved safe defaults. Do not infer a missing approval fingerprint; a non-null open approval scope requires exact recomputation from complete explicit fields plus scope-id history validation or routes to REVIEW/reacquisition.",
+        "v2_3_rev17_to_rev18_cognitive_scope_authority_isolation": "Rev17 cards remain valid schema-2.3.0 migration input. Add the cognitive-scope carrier with non-authorizing unresolved defaults and a stable MII reference. Preserve explicit supported contribution references only; do not reconstruct hidden reasoning, validated ingestion, or control authority. Require current HANDOFF_RESTORE alignment and Artifact rebinding."
       },
       "source_card_revision": null,
       "revision_migration_path": null,
@@ -1182,7 +1199,7 @@
           "schema_version"
         ],
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
-        "card_revision_compatibility": "REV17_SCHEMA_2_3_0_WITH_EXPLICIT_PATCH_RECONCILIATION_APPROVAL_FINGERPRINT_AND_MIGRATION_FROM_REV16_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
+        "card_revision_compatibility": "REV18_SCHEMA_2_3_0_WITH_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_AND_MIGRATION_FROM_REV17_REV16_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
         "specialist_catalog_extension_introduced_revision": 12,
         "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
         "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
@@ -1191,7 +1208,8 @@
         "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION",
         "revision_migration_before_required_carrier_validation": true,
         "rev15_to_rev16_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV15_TO_REV16",
-        "rev16_to_rev17_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV16_TO_REV17"
+        "rev16_to_rev17_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV16_TO_REV17",
+        "rev17_to_rev18_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV17_TO_REV18"
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -1877,6 +1895,23 @@
           "approval_scope_migration_rule": "MISSING_PRE_REV17_FINGERPRINT_IS_NOT_INFERRED; NON_NULL_OPEN_SCOPE_ROUTES_REVIEW_AND_REACQUISITION_UNLESS_EXACT_SCOPE_FINGERPRINT_CAN_BE_RECOMPUTED_FROM_COMPLETE_EXPLICIT_FIELDS_AND_ID_HISTORY_VALIDATED",
           "patch_state_migration_rule": "ADD_RECONCILIATION_CARRIERS_WITH_UNRESOLVED_SAFE_DEFAULTS; DO_NOT CLAIM PRIOR_FULL_REPOSITORY_RECONCILIATION",
           "history_synthesis": "PROHIBITED"
+        },
+        "REV17_TO_REV18": {
+          "source_schema_version": "2.3.0",
+          "source_card_revision": 17,
+          "target_schema_version": "2.3.0",
+          "target_card_revision": 18,
+          "apply_before_current_required_carrier_check": true,
+          "nested_additions": {
+            "execution_state": [
+              "cognitive_scope_state"
+            ],
+            "mii_state": [
+              "cognitive_scope_ref"
+            ]
+          },
+          "cognitive_scope_migration_rule": "ADD_SAFE_NONAUTHORIZING_UNVALIDATED_SCOPE_DEFAULTS; PRESERVE_ONLY_EXPLICIT_SUPPORTED_CONTRIBUTION_REFERENCES; NEVER_RECONSTRUCT_HIDDEN_REASONING_OR_CONTROL_AUTHORITY",
+          "history_synthesis": "PROHIBITED"
         }
       }
     },
@@ -2039,7 +2074,8 @@
       "rejected_contribution_refs": [],
       "unresolved_conflicts": [],
       "fusion_state": null,
-      "restoration_rule": "MII state is continuation input only. Cognitive contributions have no positive execution authority and become operative only after validation and compilation into or explicit reference by the bound Orbit 0 AIR_ARTIFACT benchmark."
+      "restoration_rule": "MII state is continuation input only. Cognitive contributions have no positive execution authority and become operative only after validation and compilation into or explicit reference by the bound Orbit 0 AIR_ARTIFACT benchmark.",
+      "cognitive_scope_ref": "AIR_HANDOFF_CARD.execution_state.cognitive_scope_state"
     },
     "morphology_state": {
       "task_morphology_ref": null,

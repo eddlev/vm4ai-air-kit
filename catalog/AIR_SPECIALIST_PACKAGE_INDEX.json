@@ -1,18 +1,18 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.1",
+  "INDEX_VERSION": "1.3.2",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
-  "status": "AIR_2_6_1_OBJECT_CONTRACT_SET_006_FIVE_PACKAGE_INDEX_V072_CANDIDATE_STATIC_VALIDATED",
+  "status": "AIR_2_6_2_OBJECT_CONTRACT_SET_007_FIVE_PACKAGE_INDEX_V072_CANDIDATE_STATIC_VALIDATED",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
   "generated_at": "2026-09-05T09:11:37Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
-    "catalog_completeness_claim": "COMPLETE_FOR_AIR_2_6_1_OBJECT_CONTRACT_SET_006_V072_CANDIDATE_SPECIALIST_CATALOG",
+    "catalog_completeness_claim": "COMPLETE_FOR_AIR_2_6_2_OBJECT_CONTRACT_SET_007_V072_CANDIDATE_SPECIALIST_CATALOG",
     "canonical_reusable_specialist_construction_route": {
       "route_id": "RT.CAPABILITY_RESOLVE",
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -31,54 +31,54 @@
     ]
   },
   "foundation_compatibility_catalog": {
-    "identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+    "identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
     "state": "EXACT_HASH_SET",
     "required_files": [
       {
         "filename": "AIR_CORE_RUNTIME.md",
         "designation": "AIR_CORE_RUNTIME_V2",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "5a9baff19d89e9444be965aab41cd9d7ff97c0d6ea7ea4a062129082d0bcd201",
-        "size_bytes": 400174,
-        "line_count": 7699
+        "sha256": "f70e2f5acad90c8f75e9cfc05f36c2702d093e88c1cdd0fa7a97b02ba338b2e6",
+        "size_bytes": 404573,
+        "line_count": 7761
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "c788fe256eef2d99d38bba3df34a9250632bf56f226007abad57afed5ab24dbe",
-        "size_bytes": 167793,
-        "line_count": 3288
+        "sha256": "c590ac304ed067bef1796318e5b3f8a5f9e4962ad222198dcd6974c3feeebce6",
+        "size_bytes": 169215,
+        "line_count": 3303
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
-        "version": "2.3.1",
+        "version": "2.3.2",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "3a59afba43b1f18df0cbbc7583dae5ed943e1a0e8b2edf19a85dc8cb5adfcec6",
-        "size_bytes": 30156,
-        "line_count": 553
+        "sha256": "80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842",
+        "size_bytes": 31075,
+        "line_count": 564
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
-        "version": "2.6.1",
+        "version": "2.6.2",
         "class": "TASK_COMPOSITE",
-        "sha256": "690035ea0ce4e278f278315cd39931519e1f6568b9b88e9d740e943bcce3dae5",
-        "size_bytes": 165925,
-        "line_count": 3529
+        "sha256": "da67f1aad58df2a71889ce93d3667c2bbb91e1b6beb6a5c8c63606a686262a91",
+        "size_bytes": 168944,
+        "line_count": 3593
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "9682ac31263e5eb0fd604ea27398833ec6a143c40cf3c2119dddba06b1c3f10b",
-        "size_bytes": 113938,
-        "line_count": 2124,
-        "card_revision": 17
+        "sha256": "ec89384963da149d6b14d13415efe7b861f67f30208448e13bbfaf8bde006ef7",
+        "size_bytes": 116280,
+        "line_count": 2160,
+        "card_revision": 18
       }
     ]
   },
@@ -87,11 +87,11 @@
     "runtime_route_map": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "890d5cc43abce430cb8c3786d2cdf6894f86f9779660783d19b631901097d70b",
-      "size_bytes": 37085,
-      "line_count": 1062,
+      "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
+      "size_bytes": 38042,
+      "line_count": 1075,
       "authority": {
         "execution": "NONE",
         "binding": "NONE",
@@ -130,7 +130,7 @@
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
     "manifest_hash_closure": "PASS_R7_EXACT_RESEAL",
-    "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+    "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
     "route_map_identity_closure": "PASS_R7_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
     "catalog_uniqueness": "PASS",
@@ -140,7 +140,7 @@
     "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
     "operative_lifecycle_coherence": "PASS_V072_CANDIDATE_LIFECYCLE",
-    "component_internal_foundation_compatibility": "PASS_SET_006_EXACT_RECEIPTS",
+    "component_internal_foundation_compatibility": "PASS_SET_007_EXACT_RECEIPTS",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
     "handoff_rev17_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY"
   },
@@ -150,7 +150,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "db9d7b268a98164735b154fece4d07e6d076770f90a05babde9a5a05d3cc3400",
+      "manifest_sha256": "5f3a15be7374a8348e72a92d2fcb4c53e6bc5bfde838bdd465b636b631b47b11",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -181,7 +181,7 @@
       ],
       "short_activation_summary": "Use when AI governance, risk, assurance, policy-to-control translation, regulatory/enterprise oversight, evidence planning, or agentic-AI governance materially affects the task.",
       "short_non_activation_summary": "Do not select for simple low-risk AI explanation, pure creative ideation without governance consequence, or a narrow legal conclusion requiring qualified legal authority.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
       "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
@@ -191,7 +191,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "9e05f38ce6193a1dde53d8bc2570ecb0d5d0e24ed7cab61fde6e48fcff8d5885",
+      "manifest_sha256": "6861bf1ca49ec3b6ab3513231d29612b45e728b51ceb22a1c5f7e0bef067c64c",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -219,7 +219,7 @@
       ],
       "short_activation_summary": "Use when the material task capability envelope is incomplete, cross-disciplinary, unknown/emerging, disproportionate, or requires Domain Package, machine-native benchmark, or reusable Specialist construction.",
       "short_non_activation_summary": "Do not select when the task capability envelope, benchmark, domain requirements, and operative vector set are already sufficiently specified and no reusable capability construction gap exists.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
       "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
@@ -229,7 +229,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "4a24571830a04b1b88f2bf21aab2cfd5fb4b1b83a05a172ba32ca5fb2b061534",
+      "manifest_sha256": "2fe9001110083c6310c5eb669f1916d3fd27d37cdac755ca6f6096a6c3c562f2",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -258,7 +258,7 @@
       ],
       "short_activation_summary": "Use when implementation consequence, viability, architecture, current capability, public/technical claims, blast radius, evidence sufficiency, or execution realism materially affects the result.",
       "short_non_activation_summary": "Do not select for simple low-risk factual Q&A, general conversation, pure creative exploration without execution/claim pressure, or formatting-only work without material risk.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
       "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"
@@ -268,7 +268,7 @@
       "specialist_designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "manifest_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "8ad8c72e6f94176ddabda5ff64141ad643a923841869d45142ac8ff4966dc928",
+      "manifest_sha256": "4854f8716b7e3a0517a98b4c9b0e5c919b3b5a1f3370dfe43ef020d52b4dad16",
       "canonical_component_filenames": [
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
         "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
@@ -294,7 +294,7 @@
       ],
       "short_activation_summary": "Use when a material public-facing task requires recurring copywriting/positioning judgment, source-bounded claim language, audience/page-role framing, technical-to-plain explanation, brand adaptation, or cross-surface copy review beyond Default Starter.",
       "short_non_activation_summary": "Do not select for trivial edits, private/internal writing, missing subject-matter truth, or tasks whose actual gap is legal/accessibility/compliance/technical/domain authority rather than copywriting judgment.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
       "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "content_revision": "2.0.0",
       "failure_mode_integration_required": true,
@@ -305,7 +305,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "a4130c1745a5105af01555727c91101c666f803fbe8ecb05cb3268b2aa1c9d42",
+      "manifest_sha256": "aa1b4921d65b6aa84ada01c96a628c29f5fb845e2e45517efd4592d6a3c46fad",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -332,7 +332,7 @@
       ],
       "short_activation_summary": "Use when a material outcome depends on correctly interpreting intent/requirements and evidence must justify verification, closure, release, publication, handoff, or downstream reliance.",
       "short_non_activation_summary": "Do not select for simple low-risk conversation, pre-commitment brainstorming with no verification decision, or formatting-only changes with no material specification/evidence risk.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
       "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2"

@@ -1,7 +1,7 @@
 {
-  "fixture_set": "AIR_SET006_REGRESSION_FIXTURES_V1",
+  "fixture_set": "AIR_SET007_REGRESSION_FIXTURES_V1",
   "fixture_version": "1.2.0",
-  "foundation_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+  "foundation_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
   "purpose": "Permanent deterministic and replayable regression definitions for AIR Kit v0.7.2 control-spine hardening and retained v0.7.1 defect classes. Fixtures are test definitions, not proof that a model evaluation ran.",
   "emission_closure_cases": [
     {
@@ -711,6 +711,58 @@
     {
       "id": "RPR-02-POST-PATCH-RECONCILIATION-MISSING",
       "invalid_if": "Repository patch completion is claimed before the complete tracked-file inventory is reconciled again against the final patched state."
+    }
+  ],
+  "cognitive_scope_authority_cases": [
+    {
+      "id": "CSA-01-DIRECT-TASK-IDENTITY-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive contribution directly changes current task or Artifact identity"
+    },
+    {
+      "id": "CSA-02-DIRECT-ORBIT-BINDING-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive contribution directly changes Orbit placement or binding state"
+    },
+    {
+      "id": "CSA-03-DIRECT-APPROVAL-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive conclusion creates, changes, or consumes approval scope/token state"
+    },
+    {
+      "id": "CSA-04-DIRECT-GATE-AUTH-RECEIPT-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognition directly creates or changes Gate Authorization Receipt or authority-ledger state"
+    },
+    {
+      "id": "CSA-05-DIRECT-LEASE-SCOPE-PIN-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognition directly changes Artifact lease or resource scope pin"
+    },
+    {
+      "id": "CSA-06-DETERMINISTIC-ROUTE-REORDER",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive optimization reorders or supplies deterministic route state"
+    },
+    {
+      "id": "CSA-07-SURFACED-PROVENANCE-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive output fabricates or mutates surfaced-object provenance"
+    },
+    {
+      "id": "CSA-08-FAILURE-REGISTRY-MUTATION",
+      "kind": "NEGATIVE",
+      "invalid_if": "cognitive output directly mutates failure-mode registry authority/applicability"
+    },
+    {
+      "id": "CSA-P01-VALIDATED-EXPLICIT-INGESTION",
+      "kind": "POSITIVE",
+      "valid_when": "in-scope candidate contribution passes declared validation and enters task/Artifact state only through explicit ingestion"
+    },
+    {
+      "id": "CSA-P02-HANDOFF-NONAUTHORITY",
+      "kind": "POSITIVE",
+      "valid_when": "Handoff preserves scope/contribution refs as non-authorizing input and current session revalidates before reuse"
     }
   ]
 }

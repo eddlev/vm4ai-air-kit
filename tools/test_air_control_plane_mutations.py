@@ -91,6 +91,12 @@ def main():
     def m24(d):
         p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['failure_mode_registry']['execution_defect_rejection_capture_required']=False; save(p,o)
     cases.append(('execution defect failure capture removed',m24))
+    def m25(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['cognitive_scope_authority_isolation']['cognition_to_control']='ALLOWED'; save(p,o)
+    cases.append(('cognitive contribution gains control authority',m25))
+    def m26(d):
+        p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state']['positive_execution_authority']='ALLOW'; save(p,o)
+    cases.append(('handoff cognitive scope gains authority',m26))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

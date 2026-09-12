@@ -19,6 +19,10 @@ def main():
     add('V072-N04-NEW-TASK-ACCOUNTING-REMOVED',m4)
     def m5(d): p=d/'prompts/AIR_CONTROL_SURFACE.md'; p.write_text(p.read_text().replace('AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1','REMOVED_PRIMARY_SURFACE',1))
     add('V072-N05-PRIMARY-SURFACE-REMOVED',m5)
+    def m6(d): p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['cognitive_scope_authority_isolation']['cognition_to_control']='ALLOWED'; dump(p,o)
+    add('V072-N06-COGNITIVE-SCOPE-CONTROL',m6)
+    def m7(d): p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state']['positive_execution_authority']='ALLOW'; dump(p,o)
+    add('V072-N07-HANDOFF-COGNITIVE-AUTHORITY',m7)
     for name,fn in cases:
         with tempfile.TemporaryDirectory(prefix='v072-seal-mut-') as td:
             d=Path(td)/'repo'; shutil.copytree(ROOT,d,ignore=shutil.ignore_patterns('.git','__pycache__','*.pyc')); fn(d)

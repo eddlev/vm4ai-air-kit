@@ -66,6 +66,9 @@ v0.7.2 hardens AIR's control spine around new-task Artifact binding, exact task-
 
 ### Best practices
 
+**Cognitive scope authority isolation.** AIR v0.7.2 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
+
+
 **Thinking Effort.** AIR does not currently require a specific ChatGPT Thinking Effort setting. For day-to-day AIR use, **High** is a reasonable starting point. **Extra High** may be useful for unusually difficult analysis or architecture work, but there is not currently evidence that Thinking Effort causes or prevents AIR runtime drift. Treat cross-effort observations as empirical host-behavior evidence, not AIR execution authority.
 
 **Known ChatGPT presentation issue.** AIR formal records have occasionally been observed inside ChatGPT's collapsed **`Worked for ...`** section rather than in the main response. Expanding that section reveals the records. This has so far only been observed on ChatGPT; the cause has not been isolated between AIR response-surface behavior and host UI routing. AIR formal records are structured governance records, not hidden reasoning or chain of thought. If expected records appear missing in ChatGPT, check that section and include the behavior in any bug report.

@@ -1,6 +1,6 @@
 {
-  "inventory_id": "AIR_SET006_DETERMINISTIC_CONTRACT_INVENTORY_V1",
-  "foundation_identity": "AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006",
+  "inventory_id": "AIR_SET007_DETERMINISTIC_CONTRACT_INVENTORY_V1",
+  "foundation_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
   "scope": "FIVE_FILE_FOUNDATION_LOAD_AND_CROSS_FILE_COMPATIBILITY",
   "source_files": [
     "AIR_CORE_RUNTIME.md",
@@ -13,7 +13,7 @@
   "legacy_required_cross_file_checks_operational_state": "REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY",
   "migrated_validation_expectation_count": 55,
   "migrated_validation_expectation_authority": "NON_OPERATIVE_DESCRIPTION",
-  "typed_deterministic_check_count": 80,
+  "typed_deterministic_check_count": 82,
   "typed_registry_path": "AIR_DEFAULT_STARTER_PROFILE.json.validation_contract.deterministic_contract_registry",
   "coverage_requirement": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
   "inference_policy": "PROHIBITED",
@@ -30,5 +30,9 @@
     "replacement": "typed canonical-path equality between Handoff profile_stack.starter_profile.PROMPT_VERSION and Default Starter PROMPT_VERSION",
     "literal_duplication_removed": true
   },
-  "claim_boundary": "This inventory covers deterministic five-file Foundation load/cross-file compatibility predicates for SET_006. Runtime behavioral laws, including the deterministic task-switch/action transaction, and replayable model behavior remain separately validated and are not reclassified as deterministic executable evidence."
+  "claim_boundary": "This inventory covers deterministic five-file Foundation load/cross-file compatibility predicates for SET_006. Runtime behavioral laws, including the deterministic task-switch/action transaction, and replayable model behavior remain separately validated and are not reclassified as deterministic executable evidence.",
+  "r072_cognitive_scope_added_coverage": [
+    "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION required in Starter authority contract",
+    "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION required in Core canonical floor registry"
+  ]
 }

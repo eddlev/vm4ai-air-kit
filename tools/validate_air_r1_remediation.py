@@ -155,9 +155,9 @@ def main(root):
     req(len(starter['authority_contract']['required_files'])==5,'authority required_files not five')
     req({x['canonical_filename'] for x in starter['authority_contract']['required_files']}=={'AIR_CORE_RUNTIME.md','AIR_CONTROL_SURFACE.md','AIR_GOV.md','AIR_DEFAULT_STARTER_PROFILE.json','AIR_HANDOFF_CARD_TEMPLATE.json'},'authority file set mismatch')
     # Expanded registry and mandatory coverage.
-    n=eval_registry(root,starter); req(n==80,f'expected 80 deterministic checks, got {n}')
+    n=eval_registry(root,starter); req(n==82,f'expected 82 deterministic checks, got {n}')
     ids={c['check_id'] for c in starter['validation_contract']['deterministic_contract_registry']['checks']}
-    for x in ['DC-VERSION-CORE','DC-VERSION-CONTROL','DC-VERSION-GOV','DC-KIND-STARTER','DC-FUNCTION-CLASS-STARTER','DC-FILENAME-STARTER','DC-STRICT-JSON-STARTER','DC-STRICT-JSON-HANDOFF','DC-FOUNDATION-MANIFEST-EXACT','DC-FOUNDATION-NORMALIZED-COLLISION']:
+    for x in ['DC-VERSION-CORE','DC-VERSION-CONTROL','DC-VERSION-GOV','DC-KIND-STARTER','DC-FUNCTION-CLASS-STARTER','DC-FILENAME-STARTER','DC-STRICT-JSON-STARTER','DC-STRICT-JSON-HANDOFF','DC-FOUNDATION-MANIFEST-EXACT','DC-FOUNDATION-NORMALIZED-COLLISION','DC-STARTER-FLOOR-028','DC-CORE-FLOOR-028']:
         req(x in ids,f'missing deterministic check {x}')
     for i in range(1,28): req((f'DC-CORE-FLOOR-{i:03d}' in ids) if i<25 else True,f'missing floor check {i}')
     # Route Map anchors, Core hash, and RT.ACTION requirement mirror.

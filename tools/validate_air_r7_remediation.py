@@ -3,7 +3,7 @@ import hashlib,json,sys,re
 from pathlib import Path
 from typing import Any
 ROOT=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve()
-FOUNDATION_ID='AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006'
+FOUNDATION_ID='AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
 FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
 STATIC_PASS='PASS_R7_DETERMINISTIC_STATIC_SUITE'
 BEHAVIOR_PENDING='PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
@@ -49,8 +49,8 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx['status']=='AIR_2_6_1_OBJECT_CONTRACT_SET_006_FIVE_PACKAGE_INDEX_V072_CANDIDATE_STATIC_VALIDATED','073 current index status incoherent')
- req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_1_OBJECT_CONTRACT_SET_006_V072_CANDIDATE_SPECIALIST_CATALOG','073 completeness identity incoherent')
+ req(idx['status']=='AIR_2_6_2_OBJECT_CONTRACT_SET_007_FIVE_PACKAGE_INDEX_V072_CANDIDATE_STATIC_VALIDATED','073 current index status incoherent')
+ req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_2_OBJECT_CONTRACT_SET_007_V072_CANDIDATE_SPECIALIST_CATALOG','073 completeness identity incoherent')
  histrel=idx['catalog_scope'].get('historical_release_catalogs',[])
  req(histrel==[{'kit_release':'0.7.0','foundation_identity':'AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004','index_generation':'V070','catalog_completeness_claim':'COMPLETE_FOR_AIR_2_5_0_SET_004_V070_RELEASE_SPECIALIST_CATALOG','state':'RELEASED_HISTORICAL_NON_OPERATIVE'}],'073 v0.7.0 history not explicit/immutable')
  lc=idx.get('candidate_lifecycle_contract',{})
@@ -102,6 +102,7 @@ def main():
     req('BEHAVIORAL_REVALIDATION_PASS' not in v,f'{p}:{".".join(loc)} unsupported current behavioral PASS')
     req(v!='PASS_CURRENT_SESSION_PROMPT_RUNTIME_REPRESENTATIVE_SCENARIO_REVALIDATION',f'{p}:{".".join(loc)} stale current-session behavioral PASS')
     req('OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_005' not in v,f'{p}:{".".join(loc)} old operative Foundation identity')
+    req('OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_1_OBJECT_CONTRACT_SET_006' not in v,f'{p}:{".".join(loc)} stale SET_006 operative Foundation identity')
  gov=parsed[ROOT/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json']
  expected=[c.get('role') for c in gov['components']]
  roles=gov['failure_mode_integration_contract'].get('component_roles_observed')

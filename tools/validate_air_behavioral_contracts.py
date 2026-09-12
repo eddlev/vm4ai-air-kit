@@ -34,6 +34,7 @@ def main() -> None:
         'AIR_MATERIAL_ACTION_TRANSACTION_V1',
         'AIR_HANDOFF_PROVENANCE_FIDELITY_V1',
         'AIR_NEW_TASK_BINDING_TRANSACTION_V2',
+        'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1',
     ]
     for marker in core_markers:
         require(('Patch marker: ' + marker) in core, f'missing Core behavioral hardening marker {marker}')
@@ -43,6 +44,7 @@ def main() -> None:
         'AIR_CONTROL_FORMAL_OBJECT_CONSTRUCTOR_GUARD_V1',
         'AIR_CONTROL_HANDOFF_PROVENANCE_RENDERER_V1',
         'AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1',
+        'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_SURFACE_V1',
     ]:
         require(('Patch marker: ' + marker) in control, f'missing Control hardening marker {marker}')
 
@@ -69,6 +71,10 @@ def main() -> None:
     nt=cc.get('new_task_binding_transaction', {})
     require(nt.get('ordered_states') == ['NEW_TASK_BOUNDARY_LATCHED','NEW_TASK_IDENTITY_RESOLVED','EXACT_TASK_ARTIFACT_COMPILED','TASK_BENCHMARK_DERIVED','ARTIFACT_PRECHECK_ADMISSIBLE','ATOMIC_ORBIT_0_BINDING_COMMITTED','PRIMARY_USER_VISIBLE_ARTIFACT_EMITTED','ARTIFACT_SURFACED_LEDGER_ACCOUNTED','NEW_TASK_EXECUTION_ELIGIBLE'], 'new-task transaction sequence mismatch')
     require(nt.get('direct_action_or_material_delivery_before_completion') == 'PROHIBITED', 'new-task direct execution bypass allowed')
+    cs=cc.get('cognitive_scope_authority_isolation', {})
+    require(cs.get('required') is True and cs.get('cognition_to_control') == 'PROHIBITED', 'cognitive scope authority isolation missing')
+    require(cs.get('validated_contribution_ingress') == 'EXPLICIT_DECLARED_INGESTION_ONLY', 'cognitive scope ingestion boundary missing')
+    require(cs.get('authority_escape_failure_class') == 'COGNITIVE_AUTHORITY_ESCAPE', 'cognitive authority escape failure class missing')
     require('prior_hold_gate_may_be_reused_as_allow' not in mat, 'Starter retains undefined HOLD Gate mirror')
 
     ctor = cc.get('formal_object_constructor_validation', {})
@@ -141,6 +147,7 @@ def main() -> None:
     require({f'NTB-{i:02d}-' for i in range(1,9)} == {next((p for p in {f'NTB-{i:02d}-' for i in range(1,9)} if str(cid).startswith(p)), '') for cid in ntb_ids} - {''}, 'new-task barrier fixture coverage incomplete')
     asi={x.get('id') for x in fixtures.get('approval_scope_identity_cases', [])}; require({'ASI-01-SUFFIX-FREE-VALID','ASI-02-SUFFIX-NOT-REQUIRED','ASI-03-CHANGED-FINGERPRINT-REUSED-ID'} <= asi, 'approval identity fixtures missing')
     prs={x.get('id') for x in fixtures.get('primary_response_surface_cases', [])}; require('PRS-01-COLLAPSED-HOST-SURFACE-NOT-EMISSION' in prs, 'primary surface fixture missing')
+    csa={x.get('id') for x in fixtures.get('cognitive_scope_authority_cases', [])}; require({'CSA-01-DIRECT-TASK-IDENTITY-MUTATION','CSA-03-DIRECT-APPROVAL-MUTATION','CSA-06-DETERMINISTIC-ROUTE-REORDER','CSA-P01-VALIDATED-EXPLICIT-INGESTION','CSA-P02-HANDOFF-NONAUTHORITY'} <= csa, 'cognitive scope fixtures missing')
     handoff_ids = {x.get('id') for x in fixtures.get('handoff_negative_cases', [])}
     require({'HC-02-FALSE-HISTORICAL-AUTHORIZATION', 'HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE'} <= handoff_ids, 'handoff provenance fixtures missing')
     failure_ids = {x.get('id') for x in fixtures.get('failure_mode_learning_cases', [])}
