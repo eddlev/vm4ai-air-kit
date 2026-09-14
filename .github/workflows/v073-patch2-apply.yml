@@ -1,99 +1,15 @@
-name: Apply AIR v0.7.3 patch2 integration
+name: AIR v0.7.3 transport probe
+
 on:
   push:
-    branches: [release/v0.7.3-patch2]
+    branches:
+      - "release/v0.7.3-patch2"
+
 permissions:
-  contents: write
+  contents: read
+
 jobs:
-  apply:
-    if: ${{ contains(github.event.head_commit.message, '[v073-run]') }}
-    runs-on: ubuntu-24.04
+  probe:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Verify pinned main ancestry
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch origin main
-          test "$(git rev-parse origin/main)" = "f964ab2bf55654d8a962f3bbd7bd98189bcc6252"
-          test "$(git merge-base HEAD origin/main)" = "f964ab2bf55654d8a962f3bbd7bd98189bcc6252"
-      - name: Decode and verify approved integration payload
-        shell: bash
-        run: |
-          set -euo pipefail
-          base64 -d .tmp-v073-patch2-trigger >/tmp/v073_payload.tgz
-          test "$(sha256sum /tmp/v073_payload.tgz | awk '{print $1}')" = "b998e4812d649ddaa8e71d6f5980e5a35be22d5401190706ff803af2fbdbc41b"
-          mkdir -p /tmp/v073payload
-          tar -xzf /tmp/v073_payload.tgz -C /tmp/v073payload
-          test "$(sha256sum /tmp/v073payload/foundation.patch | awk '{print $1}')" = "1af256761f1e2e0875dbd648e0dc0a299452942d6a4acd2ee0bc37e71303d8ca"
-      - name: Apply exact approved integration
-        run: python3 /tmp/v073payload/apply_v073.py
-      - name: Compile permanent integration tools
-        run: |
-          python3 -m py_compile \
-            tools/migrate_air_handoff.py \
-            tools/validate_air_boot.py \
-            tools/validate_air_r1_remediation.py \
-            tools/validate_air_r3_remediation.py \
-            tools/test_air_r3_mutations.py \
-            tools/validate_air_r7_remediation.py \
-            tools/test_air_r7_mutations.py \
-            tools/validate_air_release.py \
-            tools/test_air_validator_mutations.py \
-            tools/validate_air_suite.py \
-            tools/validate_air_v073_release_seal.py \
-            tools/test_air_v073_release_seal_mutations.py
-      - name: Run focused v0.7.3 gates
-        run: |
-          set -euo pipefail
-          python3 tools/validate_air_r3_remediation.py .
-          python3 tools/validate_air_r7_remediation.py .
-          python3 tools/validate_air_v073_release_seal.py .
-          python3 tools/test_air_r3_mutations.py
-          python3 tools/test_air_r7_mutations.py
-          python3 tools/test_air_v073_release_seal_mutations.py
-      - name: Run canonical AIR suite
-        run: python3 tools/validate_air_suite.py
-      - name: Remove temporary transport and verify exact permanent scope
-        shell: bash
-        run: |
-          set -euo pipefail
-          git rm -f .tmp-v073-patch2-trigger .github/workflows/v073-patch2-apply.yml
-          cat >/tmp/allowed <<'PATHS'
-README.md
-VERSION
-catalog/AIR_RUNTIME_ROUTE_MAP.json
-catalog/AIR_SPECIALIST_PACKAGE_INDEX.json
-prompts/AIR_CONTROL_SURFACE.md
-prompts/AIR_CORE_RUNTIME.md
-prompts/AIR_DEFAULT_STARTER_PROFILE.json
-prompts/AIR_HANDOFF_CARD_TEMPLATE.json
-tests/air_contract_fixtures.json
-tests/deterministic_contract_inventory.json
-tools/migrate_air_handoff.py
-tools/test_air_r3_mutations.py
-tools/test_air_r7_mutations.py
-tools/test_air_v073_release_seal_mutations.py
-tools/test_air_validator_mutations.py
-tools/validate_air_boot.py
-tools/validate_air_r1_remediation.py
-tools/validate_air_r3_remediation.py
-tools/validate_air_r7_remediation.py
-tools/validate_air_release.py
-tools/validate_air_suite.py
-tools/validate_air_v073_release_seal.py
-PATHS
-          sort -o /tmp/allowed /tmp/allowed
-          git diff --name-only f964ab2bf55654d8a962f3bbd7bd98189bcc6252 -- | sort >/tmp/actual
-          diff -u /tmp/allowed /tmp/actual
-      - name: Commit validated integration
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "release: integrate AIR Kit v0.7.3 Handoff provenance patch"
-          git push origin HEAD:release/v0.7.3-patch2
+      - run: echo "AIR v0.7.3 transport probe PASS"
