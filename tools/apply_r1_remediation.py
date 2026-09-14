@@ -83,12 +83,12 @@ mnew="""    elif op=='JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL':
         for part in c['left']['path'][2:].split('.'):
             cur=cur[part]
         if isinstance(cur,dict):
-            cur['__AIR_CONTRACT_MUTANT__']=c['expected']
+            c['expected']='{'
         elif isinstance(cur,list):
-            cur.append(c['expected'])
+            c['expected']='['
         else:
-            raise RuntimeError('JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL target must be dict/list')
-        save(p,obj)"""
+            c['expected']=str(cur)
+"""
 if mold not in mt: raise SystemExit('v073 deterministic mutation-harness anchor missing')
 mh.write_text(mt.replace(mold,mnew,1),encoding='utf-8')
 run(sys.executable,'tools/test_air_contract_registry_mutations.py')
