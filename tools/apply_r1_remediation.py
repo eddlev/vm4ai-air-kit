@@ -34,7 +34,12 @@ v=v73.read_text(encoding='utf-8')
 vold="req('transcript resupply' in core.lower() and 'PROHIBITED' in core, 'transcript-resupply prohibition missing')"
 vnew="req('must not prescribe transcript export/paste as a recovery mechanism' in core.lower(), 'transcript-recovery prohibition missing')"
 if vold not in v: raise SystemExit('v073 transcript recovery validator anchor missing')
-v73.write_text(v.replace(vold,vnew,1),encoding='utf-8')
+v=v.replace(vold,vnew,1)
+# REV18_TO_REV19 stores its split-counter rule under root_revision_split.
+uold="req(contracts['REV18_TO_REV19']['user_revision_rule'].startswith('PRESERVE_EXPLICIT_INDEPENDENT_COUNTER'), 'rev18 user revision rule wrong')"
+unew="req(contracts['REV18_TO_REV19']['root_revision_split']['user_revision_rule'].startswith('PRESERVE_EXPLICIT_INDEPENDENT_COUNTER'), 'rev18 user revision rule wrong')"
+if uold not in v: raise SystemExit('v073 rev18 user revision validator anchor missing')
+v73.write_text(v.replace(uold,unew,1),encoding='utf-8')
 run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
