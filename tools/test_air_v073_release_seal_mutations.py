@@ -66,6 +66,18 @@ def main() -> None:
         dump(p, o)
     add('V073-N06-REGISTRY-COVERAGE-DROPPED', registry_count)
 
+    add('V073-N07-COPYWRITING-SET007-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity', 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))
+    add('V073-N08-COPYWRITING-PENDING-STATIC-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
+
+    def copywriting_card_revision(d: Path):
+        p = d / 'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json'; o = load(p)
+        hr = next(x for x in o['foundation_compatibility']['required_files'] if x['filename'] == 'AIR_HANDOFF_CARD_TEMPLATE.json')
+        hr['card_revision'] = 18
+        dump(p, o)
+    add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
+
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.3')))
+
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:

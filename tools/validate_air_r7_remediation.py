@@ -3,11 +3,18 @@ import hashlib,json,sys,re
 from pathlib import Path
 from typing import Any
 ROOT=Path(sys.argv[1] if len(sys.argv)>1 else '.').resolve()
-FOUNDATION_ID='AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
-FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
+FOUNDATION_ID='AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008'
+LEGACY_FOUNDATION_ID='AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
+FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+LEGACY_FOUNDATION_ID
+SET008_FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
 STATIC_PASS='PASS_R7_DETERMINISTIC_STATIC_SUITE'
 BEHAVIOR_PENDING='PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
 SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007'
+SET008_SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008'
+PENDING_STATIC='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION'
+PENDING_BEHAVIOR='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+CW_PACKAGE='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
+CW_DIR='public surface copywriting specialist'
 SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
 T7={
  'change_id':'AIR_T7_CEA_MII_INTEGRATION_001','package_version':'2.4.0','component_prompt_version':'2.2.0','manifest_prompt_version':'2.1.0',
@@ -51,6 +58,8 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
+ req(idx.get('INDEX_VERSION')=='1.3.4','Copywriting SET_008 index version mismatch')
+ req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
  req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
  req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
  histrel=idx['catalog_scope'].get('historical_release_catalogs',[])
@@ -61,17 +70,33 @@ def main():
  req(lc.get('current_candidate_state')=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION' and lc.get('candidate_states_are_release_sealed') is False,'006 release state semantics wrong')
  req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
  req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
+ prog=idx['validation_state'].get('set008_static_revalidation_progress',{})
+ req(prog.get('passed_package_identities')==[CW_PACKAGE] and prog.get('passed_count')==1 and prog.get('pending_count')==4 and prog.get('behavioral_revalidation_ready_package_identities')==[CW_PACKAGE],'R7 SET_008 progress carrier mismatch')
+ req(len(prog.get('pending_package_identities',[]))==4 and CW_PACKAGE not in prog.get('pending_package_identities',[]),'R7 SET_008 pending package set mismatch')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
-  req(e['foundation_compatibility_identity']==FOUNDATION_ID,'index entry Foundation identity stale')
-  req(e['availability_state']=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','006 index entry lifecycle mismatch')
+  if e['package_identity']==CW_PACKAGE:
+   req(e['foundation_compatibility_identity']==FOUNDATION_ID,'Copywriting index Foundation identity not SET_008')
+   req(e['availability_state']==PENDING_BEHAVIOR,'Copywriting index lifecycle not pending behavioral revalidation')
+   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Copywriting SET_008 state mismatch')
+  else:
+   req(e['foundation_compatibility_identity']==LEGACY_FOUNDATION_ID,'non-Copywriting index Foundation identity changed before revalidation')
+   req(e['availability_state']==PENDING_STATIC,'non-Copywriting index lifecycle changed before static revalidation')
  profile_count=0
  for p,o in parsed.items():
   if not str(p).startswith(str(ROOT/'profiles')):continue
   profile_count+=1
   fc=o.get('foundation_compatibility') if isinstance(o,dict) else None
   req(isinstance(fc,dict),f'{p}: foundation compatibility missing')
-  req(fc.get('compatibility_state')==SPECIALIST_COMPAT,f'{p}: stale Foundation compatibility state')
+  is_cw=CW_DIR in str(p)
+  expected_compat=SET008_SPECIALIST_COMPAT if is_cw else SPECIALIST_COMPAT
+  req(fc.get('compatibility_state')==expected_compat,f'{p}: stale Foundation compatibility state')
+  if is_cw:
+   req(fc.get('target_identity')==FOUNDATION_ID,f'{p}: Copywriting target identity not SET_008')
+   h=next((x for x in fc.get('required_files',[]) if x.get('filename')=='AIR_HANDOFF_CARD_TEMPLATE.json'),{})
+   req(h.get('template_revision')==19 and h.get('revision_fields')==['template_revision','user_revision'] and 'card_revision' not in h,f'{p}: Copywriting Handoff revision split stale')
+   rr=fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}
+   req(rr.get('version')=='1.2.2' and rr.get('sha256')=='a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',f'{p}: Copywriting Route Map receipt stale')
   req(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
   req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
  req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
@@ -83,7 +108,9 @@ def main():
   if not str(p).startswith(str(ROOT/'profiles')):continue
   ir=o.get('integration_refresh') if isinstance(o,dict) else None
   if isinstance(ir,dict) and 'foundation_identity_state' in ir:
-   count+=1;req(ir['foundation_identity_state']==FOUNDATION_STATE,f'{p}: stale current Foundation identity')
+   count+=1
+   expected_state=SET008_FOUNDATION_STATE if CW_DIR in str(p) else FOUNDATION_STATE
+   req(ir['foundation_identity_state']==expected_state,f'{p}: stale current Foundation identity')
  req(count==21,f'current integration_refresh identity carrier count changed: {count}')
  mans=sorted(ROOT.glob('profiles/**/*PACKAGE_MANIFEST.json'))
  req(len(mans)==5,'manifest count !=5')
@@ -104,6 +131,10 @@ def main():
    cst=status_of(cp)
    req(c.get('status')==cst,f'{p}: component status mirror mismatch {fn}')
    req(c.get('availability_state')==avail(cst),f'{p}: component availability mirror mismatch {fn}')
+ cwman=parsed[ROOT/'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json']
+ req(cwman['foundation_compatibility'].get('state')=='COORDINATED_SET_008_RESEAL_STATIC_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Copywriting manifest SET_008 state mismatch')
+ cpvs=cwman.get('package_validation_state',{})
+ req(cpvs.get('foundation_reseal')=='PASS_COORDINATED_SET_008_RESEAL' and cpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','Copywriting SET_008 manifest validation state mismatch')
  for e in idx['entries']:
   targets=list(ROOT.glob('profiles/**/'+e['manifest_filename']))
   req(len(targets)==1,'index manifest target ambiguity '+e['manifest_filename'])
