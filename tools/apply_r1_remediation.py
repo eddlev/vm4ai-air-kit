@@ -28,6 +28,13 @@ old="elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(jget(load(root/c['left']['file'
 new="elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(str(jget(load(root/c['left']['file']),c['left']['path']))==header((root/c['right']['file']).read_text(),c['right']['header']),f'{cid}: JSON/header mismatch')"
 if old not in t: raise SystemExit('v073 R1 JSON/header scalar normalization anchor missing')
 r1.write_text(t.replace(old,new,1),encoding='utf-8')
+# Validate Core's actual fail-closed transcript-recovery law rather than a phrase it does not use.
+v73=R/'tools/validate_air_v073_release_seal.py'
+v=v73.read_text(encoding='utf-8')
+vold="req('transcript resupply' in core.lower() and 'PROHIBITED' in core, 'transcript-resupply prohibition missing')"
+vnew="req('must not prescribe transcript export/paste as a recovery mechanism' in core.lower(), 'transcript-recovery prohibition missing')"
+if vold not in v: raise SystemExit('v073 transcript recovery validator anchor missing')
+v73.write_text(v.replace(vold,vnew,1),encoding='utf-8')
 run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
