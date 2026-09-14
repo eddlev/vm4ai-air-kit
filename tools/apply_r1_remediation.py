@@ -95,6 +95,13 @@ run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
 (R/'tools/apply_r1_remediation.py').write_bytes(orig); shutil.rmtree(C)
+# Remove only untracked Python bytecode emitted by the validation runtime.
+pre_untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],cwd=R,text=True).splitlines())
+for rel in pre_untracked:
+    parts=Path(rel).parts
+    if '__pycache__' in parts or rel.endswith('.pyc'):
+        p=R/rel
+        if p.is_file(): p.unlink()
 tracked=set(subprocess.check_output(['git','diff','--name-only','origin/main','--'],cwd=R,text=True).splitlines())
 untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],cwd=R,text=True).splitlines())
 changed=tracked|untracked
