@@ -45,7 +45,33 @@ v=v.replace(uold,unew,1)
 pold="        req('Monica Angiuli' not in txt and 'AIR-HANDOFF-MONICA' not in txt, f'private fixture leaked into {rel}')"
 pnew="        private_markers = ('Mon' + 'ica Angiuli', 'AIR-HANDOFF-' + 'MONICA')\n        req(all(marker not in txt for marker in private_markers), f'private fixture leaked into {rel}')"
 if pold not in v: raise SystemExit('v073 privacy scanner anchor missing')
-v73.write_text(v.replace(pold,pnew,1),encoding='utf-8')
+v=v.replace(pold,pnew,1)
+# Preserve the still-valid v0.7.2 Route Map provenance projection alongside
+# the stronger v0.7.3 durable-snapshot policy, then reseal adjacent hashes.
+routep=R/'catalog/AIR_RUNTIME_ROUTE_MAP.json'
+rm=json.loads(routep.read_text(encoding='utf-8'))
+hr=next(r for r in rm['routes'] if r['route_id']=='RT.HANDOFF_CREATE')
+hp=hr['handoff_provenance_policy']
+hp['observed_object_identities_only']=True
+hp['unsurfaced_authorization_reconstruction']='PROHIBITED'
+hp['missing_authorization_effect_route']='PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE'
+routep.write_text(json.dumps(rm,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+rsha=hashlib.sha256(routep.read_bytes()).hexdigest()
+if rsha!='a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c': raise SystemExit('v073 Route Map compatibility reseal mismatch '+rsha)
+idxp=R/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'
+idx=json.loads(idxp.read_text(encoding='utf-8'))
+idx['foundation_adjacent_compatibility_catalog']['runtime_route_map']['sha256']=rsha
+idxp.write_text(json.dumps(idx,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+isha=hashlib.sha256(idxp.read_bytes()).hexdigest()
+if isha!='fdf21d97c86355a364775a04d9af606216f54163d3299fa6946a328b98664d6a': raise SystemExit('v073 Specialist Index reseal mismatch '+isha)
+# The release seal pins exact public bytes, so advance its Route Map/Index receipts.
+v=v73.read_text(encoding='utf-8')
+rold="'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a1e8f08d977ce0f229ff568703601856c6e90f14725d856be26eae6729f9b54e'"
+rnew="'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c'"
+iold="'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '5f91f5c1b22eb5ce5ad129a4f3d3d0504de1e52c342e060ed225c26488af3c50'"
+inew="'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'fdf21d97c86355a364775a04d9af606216f54163d3299fa6946a328b98664d6a'"
+if rold not in v or iold not in v: raise SystemExit('v073 release exact-hash reseal anchors missing')
+v73.write_text(v.replace(rold,rnew,1).replace(iold,inew,1),encoding='utf-8')
 run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
