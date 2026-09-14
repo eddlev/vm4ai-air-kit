@@ -65,7 +65,6 @@ idxp.write_text(json.dumps(idx,indent=2,ensure_ascii=False)+'\n',encoding='utf-8
 isha=hashlib.sha256(idxp.read_bytes()).hexdigest()
 if isha!='fdf21d97c86355a364775a04d9af606216f54163d3299fa6946a328b98664d6a': raise SystemExit('v073 Specialist Index reseal mismatch '+isha)
 # The release seal pins exact public bytes, so advance its Route Map/Index receipts.
-v=v73.read_text(encoding='utf-8')
 rold="'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a1e8f08d977ce0f229ff568703601856c6e90f14725d856be26eae6729f9b54e'"
 rnew="'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c'"
 iold="'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '5f91f5c1b22eb5ce5ad129a4f3d3d0504de1e52c342e060ed225c26488af3c50'"
