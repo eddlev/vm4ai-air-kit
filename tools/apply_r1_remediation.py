@@ -19,6 +19,15 @@ with tempfile.TemporaryDirectory(prefix='air-v073-') as td:
         b=(p/e['path']).read_bytes()
         if len(b)!=e['size'] or hashlib.sha256(b).hexdigest()!=e['sha256']: raise SystemExit('payload member mismatch '+e['path'])
     run(sys.executable,str(p/'apply_v073_repository_integration.py'),str(p))
+# v0.7.3 adds an integer template_revision cross-file check. The canonical
+# markdown-header comparison is lexical, so normalize the JSON scalar to its
+# lexical representation before comparison. Existing string checks remain exact.
+r1=R/'tools/validate_air_r1_remediation.py'
+t=r1.read_text(encoding='utf-8')
+old="elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(jget(load(root/c['left']['file']),c['left']['path'])==header((root/c['right']['file']).read_text(),c['right']['header']),f'{cid}: JSON/header mismatch')"
+new="elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(str(jget(load(root/c['left']['file']),c['left']['path']))==header((root/c['right']['file']).read_text(),c['right']['header']),f'{cid}: JSON/header mismatch')"
+if old not in t: raise SystemExit('v073 R1 JSON/header scalar normalization anchor missing')
+r1.write_text(t.replace(old,new,1),encoding='utf-8')
 run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
