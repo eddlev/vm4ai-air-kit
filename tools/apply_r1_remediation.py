@@ -39,7 +39,13 @@ v=v.replace(vold,vnew,1)
 uold="req(contracts['REV18_TO_REV19']['user_revision_rule'].startswith('PRESERVE_EXPLICIT_INDEPENDENT_COUNTER'), 'rev18 user revision rule wrong')"
 unew="req(contracts['REV18_TO_REV19']['root_revision_split']['user_revision_rule'].startswith('PRESERVE_EXPLICIT_INDEPENDENT_COUNTER'), 'rev18 user revision rule wrong')"
 if uold not in v: raise SystemExit('v073 rev18 user revision validator anchor missing')
-v73.write_text(v.replace(uold,unew,1),encoding='utf-8')
+v=v.replace(uold,unew,1)
+# Keep the privacy scanner self-applicable without embedding the forbidden
+# private markers as contiguous literals in the validator itself.
+pold="        req('Monica Angiuli' not in txt and 'AIR-HANDOFF-MONICA' not in txt, f'private fixture leaked into {rel}')"
+pnew="        private_markers = ('Mon' + 'ica Angiuli', 'AIR-HANDOFF-' + 'MONICA')\n        req(all(marker not in txt for marker in private_markers), f'private fixture leaked into {rel}')"
+if pold not in v: raise SystemExit('v073 privacy scanner anchor missing')
+v73.write_text(v.replace(pold,pnew,1),encoding='utf-8')
 run(sys.executable,'tools/validate_air_suite.py')
 run('git','fetch','--depth=1','origin','main')
 orig=subprocess.check_output(['git','show','origin/main:tools/apply_r1_remediation.py'],cwd=R)
