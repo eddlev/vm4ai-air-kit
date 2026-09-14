@@ -40,6 +40,8 @@ def main():
     cases.append(('R3-N16-APPROVAL-FINGERPRINT-VALIDATION', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['validation_registry']['allowed_operators'].remove('APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID'))))
     cases.append(('R3-N17-REV17-TO-REV18-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV17_TO_REV18'].__setitem__('apply_before_current_required_carrier_check',False))))
     cases.append(('R3-N18-COGNITIVE-SCOPE-AUTHORITY', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state'].__setitem__('positive_execution_authority','ALLOW'))))
+    cases.append(('R3-N19-REV18-TO-REV19-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV18_TO_REV19'].__setitem__('apply_before_current_required_carrier_check',False))))
+    cases.append(('R3-N20-LEGACY-2-2-REVISION-SEMANTICS', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['LEGACY_2_2_FLOOR_TO_REV19'].__setitem__('legacy_revision_interpretation','TEMPLATE_REVISION'))))
     if run_validator(ROOT)!=0: raise SystemExit('R3-MUTATION-BASELINE failed')
     print('R3-MUTATION-BASELINE: PASS')
     killed=0

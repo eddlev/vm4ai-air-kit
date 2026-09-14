@@ -1,6 +1,6 @@
 {
-  "inventory_id": "AIR_SET007_DETERMINISTIC_CONTRACT_INVENTORY_V1",
-  "foundation_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
+  "inventory_id": "AIR_SET008_DETERMINISTIC_CONTRACT_INVENTORY_V1",
+  "foundation_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
   "scope": "FIVE_FILE_FOUNDATION_LOAD_AND_CROSS_FILE_COMPATIBILITY",
   "source_files": [
     "AIR_CORE_RUNTIME.md",
@@ -13,7 +13,7 @@
   "legacy_required_cross_file_checks_operational_state": "REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY",
   "migrated_validation_expectation_count": 55,
   "migrated_validation_expectation_authority": "NON_OPERATIVE_DESCRIPTION",
-  "typed_deterministic_check_count": 82,
+  "typed_deterministic_check_count": 90,
   "typed_registry_path": "AIR_DEFAULT_STARTER_PROFILE.json.validation_contract.deterministic_contract_registry",
   "coverage_requirement": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
   "inference_policy": "PROHIBITED",
@@ -30,9 +30,15 @@
     "replacement": "typed canonical-path equality between Handoff profile_stack.starter_profile.PROMPT_VERSION and Default Starter PROMPT_VERSION",
     "literal_duplication_removed": true
   },
-  "claim_boundary": "This inventory covers deterministic five-file Foundation load/cross-file compatibility predicates for SET_006. Runtime behavioral laws, including the deterministic task-switch/action transaction, and replayable model behavior remain separately validated and are not reclassified as deterministic executable evidence.",
+  "claim_boundary": "This inventory covers deterministic five-file Foundation load/cross-file compatibility predicates for SET_008. Runtime behavioral laws, durable provenance provider behavior, and replayable model behavior remain separately validated and are not reclassified as deterministic executable evidence.",
   "r072_cognitive_scope_added_coverage": [
     "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION required in Starter authority contract",
     "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION required in Core canonical floor registry"
+  ],
+  "v073_handoff_added_coverage": [
+    "template_revision 19 / user_revision split and current card_revision prohibition",
+    "durable surfaced-object provenance contract and strict-Handoff durability surface",
+    "legacy schema-2.2 Starter-2.4.3 compatibility floor with user revision preservation",
+    "current template predicates must not use legacy card_revision"
   ]
 }

@@ -51,20 +51,20 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx['status']=='AIR_2_6_2_OBJECT_CONTRACT_SET_007_FIVE_PACKAGE_INDEX_V072_CANDIDATE_STATIC_VALIDATED','073 current index status incoherent')
- req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_2_OBJECT_CONTRACT_SET_007_V072_CANDIDATE_SPECIALIST_CATALOG','073 completeness identity incoherent')
+ req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
+ req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
  histrel=idx['catalog_scope'].get('historical_release_catalogs',[])
  req(histrel==[{'kit_release':'0.7.0','foundation_identity':'AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004','index_generation':'V070','catalog_completeness_claim':'COMPLETE_FOR_AIR_2_5_0_SET_004_V070_RELEASE_SPECIALIST_CATALOG','state':'RELEASED_HISTORICAL_NON_OPERATIVE'}],'073 v0.7.0 history not explicit/immutable')
  lc=idx.get('candidate_lifecycle_contract',{})
  req(lc.get('core_patch_marker')=='AIR_SPECIALIST_PACKAGE_INDEX_LIFECYCLE_V1','006 index lifecycle not bound to Core')
  req(lc.get('states')==['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY'],'006 lifecycle state set mismatch')
- req(lc.get('current_candidate_state')=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION' and lc.get('candidate_states_are_release_sealed') is False,'006 release state semantics wrong')
- req(idx['validation_state'].get('static_validation')==STATIC_PASS,'R7 index static validation not PASS')
- req(idx['validation_state'].get('behavioral_revalidation')==BEHAVIOR_PENDING,'R7 index behavioral state not pending')
+ req(lc.get('current_candidate_state')=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION' and lc.get('candidate_states_are_release_sealed') is False,'006 release state semantics wrong')
+ req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
+ req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
   req(e['foundation_compatibility_identity']==FOUNDATION_ID,'index entry Foundation identity stale')
-  req(e['availability_state']=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','006 index entry lifecycle mismatch')
+  req(e['availability_state']=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','006 index entry lifecycle mismatch')
  profile_count=0
  for p,o in parsed.items():
   if not str(p).startswith(str(ROOT/'profiles')):continue
@@ -76,8 +76,8 @@ def main():
   req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
  req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
  ivs=idx['validation_state']
- req(ivs.get('handoff_rev18_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY','Index Handoff rev18 provenance missing')
- req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs,'stale current Handoff rev16/rev17 provenance remains')
+ req(ivs.get('handoff_rev19_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED','Index Handoff rev19 provenance missing')
+ req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs and 'handoff_rev18_catalog_compatibility' not in ivs,'stale current Handoff rev16/rev17/rev18 provenance remains')
  count=0
  for p,o in parsed.items():
   if not str(p).startswith(str(ROOT/'profiles')):continue

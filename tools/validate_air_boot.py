@@ -82,14 +82,14 @@ def main(root: Path) -> None:
         executed = eval_registry(root, starter)
     except (R1ValidationError, KeyError) as exc:
         raise BootValidationError(f'deterministic registry boot check failed: {exc}') from exc
-    require(executed == 82, f'R1 deterministic boot registry expected 82 checks, got {executed}')
+    require(executed == 90, f'R1 deterministic boot registry expected 90 checks, got {executed}')
     require(len(starter.get('authority_contract', {}).get('required_files', [])) == 5, 'R1 Foundation authority manifest must contain five roles')
     try:
         validate_r8(root)
     except (R8ValidationError, KeyError, ValueError) as exc:
         raise BootValidationError(f'R8 presentation/portability boot check failed: {exc}') from exc
     print('AIR routine boot consumer validation: PASS')
-    print(f"Core={markdown_versions['AIR_CORE_RUNTIME.md']} Control={markdown_versions['AIR_CONTROL_SURFACE.md']} Starter={starter['PROMPT_VERSION']} Handoff={card['schema_version']} rev{card['card_revision']} Registry={executed}/{executed}")
+    print(f"Core={markdown_versions['AIR_CORE_RUNTIME.md']} Control={markdown_versions['AIR_CONTROL_SURFACE.md']} Starter={starter['PROMPT_VERSION']} Handoff={card['schema_version']} template_rev{card['template_revision']} user_rev{card.get('user_revision')} Registry={executed}/{executed}")
 
 if __name__ == '__main__':
     try:

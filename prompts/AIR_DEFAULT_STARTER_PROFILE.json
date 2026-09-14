@@ -1,7 +1,7 @@
 {
   "title": "AIR Default Project Starter",
   "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-  "PROMPT_VERSION": "2.6.2",
+  "PROMPT_VERSION": "2.6.3",
   "SCHEMA_FAMILY": "AIR_V2",
   "AUDITED_BASELINE_VERSION": "1.0.0",
   "SUPERSEDES": "AIR_DEFAULT_STARTER_V1",
@@ -540,16 +540,21 @@
     "handoff_provenance_fidelity": {
       "required": true,
       "semantic_owner": "AIR_CORE_RUNTIME_V2",
-      "core_patch_marker": "AIR_HANDOFF_PROVENANCE_FIDELITY_V1",
+      "core_patch_marker": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
       "historical_authorization_policy": "OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY",
       "unsurfaced_authorization_reconstruction": "PROHIBITED",
       "receipt_reference_is_authorization_evidence": false,
       "planned_authorization_is_authorization_evidence": false,
       "effect_success_is_authorization_evidence": false,
       "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_AUTHORIZATION_STATE_AT_EFFECT_MISSING_OR_UNKNOWN",
-      "source_of_surfaced_history": "AIR_SURFACED_OBJECT_LEDGER_V1_ONLY",
+      "source_of_surfaced_history": "AIR_SURFACED_OBJECT_LEDGER_V1_PLUS_MATCHING_DURABLE_CANONICAL_SNAPSHOT_STORE",
       "ledger_entry_required_for_surfaced_claim": true,
-      "failure_mode_state_preserved": true
+      "failure_mode_state_preserved": true,
+      "durable_snapshot_required_for_current_native_history": true,
+      "historical_chat_turn_retrieval_dependency": "PROHIBITED",
+      "transcript_export_or_paste_recovery": "PROHIBITED",
+      "strict_handoff_requires_complete_store_coverage_to_cutoff": true,
+      "pre_durable_migrated_history_behavior": "PRESERVE_LEGACY_UNRECORDED_BOUNDARY_NO_SYNTHESIS"
     },
     "deterministic_projection_order_integrity": {
       "required": true,
@@ -1132,7 +1137,8 @@
       "entry_reference_format": "AIR_SURFACED_OBJECT_LEDGER_ENTRY::<ledger_id>::<emission_sequence>",
       "failure_record_entry_reservation": {
         "permitted_for": [
-          "AIR_FAILURE_MODE_RECORD.source_ledger_entry_ref"
+          "AIR_FAILURE_MODE_RECORD.source_ledger_entry_ref",
+          "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1 canonical snapshot preparation for any canonical formal object"
         ],
         "reservation_state": "RESERVED_NOT_EMITTED_NOT_AUTHORITY",
         "sequence_allocation_rule": "RESERVE_NEXT_UNCOMMITTED_EMISSION_SEQUENCE_WITHOUT_ADVANCING_COMMITTED_SEQUENCE",
@@ -1140,7 +1146,11 @@
         "abort_rule": "DISCARD_RESERVATION_AND_DO_NOT_ADVANCE_COMMITTED_SEQUENCE",
         "resolution_rule": "REFERENCE_RESOLVES_ONLY_AFTER_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_COMMIT",
         "inference_policy": "PROHIBITED"
-      }
+      },
+      "handoff_snapshot_source": "MATCHING_COMMITTED_VISIBLE_DURABLE_PROVENANCE_RECORD_ONLY_FOR_REV19_NATIVE_HISTORY",
+      "handoff_historical_chat_lookup": "PROHIBITED",
+      "handoff_transcript_recovery_fallback": "PROHIBITED",
+      "durable_capture_contract_ref": "compiler_contract.durable_surfaced_object_provenance"
     },
     "failure_mode_registry": {
       "required": true,
@@ -1288,6 +1298,46 @@
       ],
       "handoff_restore_authority": "NONE_REVALIDATE_AND_REBIND",
       "hidden_reasoning_boundary": "NO_PRIVATE_CHAIN_OF_THOUGHT_ACCESS_OR_EXPOSURE_CLAIMED"
+    },
+    "durable_surfaced_object_provenance": {
+      "required_for_strict_handoff": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
+      "allowed_durability_states": [
+        "AVAILABLE_VERIFIED",
+        "UNAVAILABLE",
+        "DEGRADED_INCOMPLETE",
+        "FAILED_INTEGRITY"
+      ],
+      "availability_resolution_deadline": "NO_LATER_THAN_FIRST_POST_ACTIVATION_CANONICAL_FORMAL_OBJECT_EMISSION",
+      "qualifying_provider_rule": "RUNTIME_CONTROLLED_WRITE_PLUS_EXACT_READBACK_PLUS_LATER_STABLE_RETRIEVAL_INDEPENDENT_OF_MODEL_CONTEXT_WINDOW",
+      "non_qualifying_sources": [
+        "CURRENT_CONTEXT_WINDOW",
+        "CHAT_SUMMARY",
+        "MODEL_MEMORY",
+        "LATER_LEDGER_DESCRIPTION",
+        "SEMANTIC_RECONSTRUCTION",
+        "USER_VISIBLE_OLD_TURN_WITHOUT_EXACT_RUNTIME_RETRIEVAL"
+      ],
+      "record_states": [
+        "PREPARED",
+        "COMMITTED_VISIBLE",
+        "ORPHANED"
+      ],
+      "authority": "NONE_PERSISTENCE_ONLY",
+      "commit_match_fields": [
+        "ledger_entry_ref",
+        "emission_sequence",
+        "object_name",
+        "object_identity",
+        "canonical_object_sha256"
+      ],
+      "pre_emission_readback_required": true,
+      "prepared_or_orphaned_authority": "NONE",
+      "bounded_growth_rule": "ONE_CANONICAL_SNAPSHOT_PER_COMMITTED_EMISSION_IDENTITY_PLUS_FIXED_METADATA_NO_CUMULATIVE_HISTORY_EMBEDDING",
+      "content_deduplication": "PERMITTED_ONLY_WITH_EXACT_LEDGER_REF_TO_SNAPSHOT_MAPPING",
+      "unavailable_behavior": "SURFACE_EARLY_STRICT_HANDOFF_UNAVAILABLE; ORDINARY_SAFE_WORK_MAY_CONTINUE; RT.HANDOFF_CREATE_STRICT_COMPLETION_INELIGIBLE",
+      "missing_snapshot_behavior": "FAIL_CLOSED_NO_TRANSCRIPT_EXPORT_OR_PASTE_RECOVERY"
     }
   },
   "bootstrap_contract": {
@@ -2274,10 +2324,30 @@
       "semantic fidelity state and canonical intent/context references needed for continuation",
       "MII lattice contribution references, unresolved cognitive conflicts, and morphology state when material",
       "epistemic sufficiency state and unresolved required-input acquisition state",
-      "current and target readiness, target-readiness basis, readiness gap, completion-readiness state, and stage-relative step-optimality state/basis/stopping basis"
+      "current and target readiness, target-readiness basis, readiness gap, completion-readiness state, and stage-relative step-optimality state/basis/stopping basis",
+      "template_revision and user_revision as separate Handoff identities",
+      "durable surfaced-object provenance capture provider/state, exact cutoff coverage, and legacy pre-durable boundary state"
     ],
     "binding_boundary": "The handoff restores serialized state as continuation-bootstrap input only. Current alignment evaluation and exactly one Orbit 0 AIR_ARTIFACT rebinding remain required before positive execution.",
-    "schema_target_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION"
+    "schema_target_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
+    "revision_identity_contract": {
+      "current_template_revision_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_TEMPLATE_REVISION",
+      "current_template_revision": 19,
+      "template_revision_semantics": "CANONICAL_HANDOFF_TEMPLATE_FORMAT_REVISION",
+      "user_revision_semantics": "PER_CARD_LINEAGE_SUCCESSFUL_HANDOFF_GENERATION_COUNTER",
+      "legacy_card_revision_current_emission": "PROHIBITED",
+      "legacy_2_2_floor_mapping": "card_revision -> user_revision exactly; template revision remains UNRECORDED_LEGACY_PROFILE",
+      "legacy_2_3_pre_rev19_mapping": "card_revision -> template revision only after schema 2.3.0 classification; user revision remains unrecorded absent independent evidence",
+      "user_revision_format_authority": "NONE"
+    },
+    "backward_compatibility_contract": {
+      "floor_profile": "AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1",
+      "floor_is_template_generation_not_user_counter": true,
+      "supported_from_floor_forward": "DECLARED_MIGRATION_PATHS_ONLY",
+      "pre_floor_behavior": "UNSUPPORTED_LEGACY_HANDOFF_BELOW_COMPATIBILITY_FLOOR_OR_REVIEW",
+      "missing_state_rule": "LEGACY_UNRECORDED_OR_UNRESOLVED_NO_INFERENCE",
+      "current_execution_after_restore": "FRESH_HANDOFF_RESTORE_ALIGNMENT_PLUS_ARTIFACT_REBINDING_REQUIRED"
+    }
   },
   "validation_contract": {
     "strict_json": true,
@@ -2375,7 +2445,16 @@
       "K2E COMPLETE_FOR_ACTIVE_STEP without step_optimality PASS does not complete or promote a maturity-bearing AMRS stage",
       "identified materially superior feasible alternative prevents step-optimality PASS until the path is revised or the alternative is shown infeasible under binding constraints",
       "optimization stopping PASS records why further search is unlikely to materially change the selected path",
-      "non-maturity-bearing task keeps target readiness NOT_APPLICABLE rather than manufacturing an AMRS target"
+      "non-maturity-bearing task keeps target readiness NOT_APPLICABLE rather than manufacturing an AMRS target",
+      "strict Handoff succeeds from durable canonical snapshots after early chat turns are unavailable without transcript re-supply",
+      "every retained Handoff snapshot re-hashes exactly to its surfaced ledger canonical_object_sha256",
+      "durable provenance growth is linear in snapshot bytes plus fixed metadata and does not recursively embed prior history",
+      "missing or hash-mismatched durable snapshot fails strict Handoff closed without transcript export/paste recovery",
+      "schema-2.2.0 compatibility-floor card maps legacy card_revision to user_revision and never template revision",
+      "current template rev19 emits template_revision and user_revision separately and emits no root card_revision",
+      "legacy 2.3 rev14-rev18 card_revision is interpreted as template revision only after source schema 2.3.0 is established",
+      "pre-floor legacy card is unsupported or routed to review rather than silently migrated",
+      "migrated historical objects remain non-authorizing and require current HANDOFF_RESTORE alignment plus Artifact rebinding"
     ],
     "required_version_source": "TOP_LEVEL_PROMPT_VERSION",
     "version_consistency_rule": "Top-level PROMPT_VERSION is the canonical Starter version. Cross-file consumers reference that path; no secondary operative version literal exists in validation_contract.",
@@ -2729,7 +2808,7 @@
       }
     ],
     "deterministic_contract_registry": {
-      "registry_version": "1.1.0",
+      "registry_version": "1.2.0",
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
       "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
@@ -2737,9 +2816,9 @@
       "prose_authority": "NON_OPERATIVE_DESCRIPTION",
       "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
       "coverage_contract": {
-        "declared_check_count": 82,
-        "implemented_check_count_required": 82,
-        "executed_check_count_required": 82,
+        "declared_check_count": 90,
+        "implemented_check_count_required": 90,
+        "executed_check_count_required": 90,
         "unimplemented_allowed": 0,
         "unexecuted_allowed": 0,
         "duplicate_check_ids_allowed": 0,
@@ -3441,12 +3520,88 @@
           "on_failure": "FAIL_CLOSED",
           "file": "prompts/AIR_CORE_RUNTIME.md",
           "expected": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+        },
+        {
+          "check_id": "DC-HANDOFF-TEMPLATE-REVISION",
+          "operator": "JSON_EQUALS_MARKDOWN_HEADER",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.template_revision"
+          },
+          "right": {
+            "file": "prompts/AIR_CORE_RUNTIME.md",
+            "header": "CANONICAL_HANDOFF_TEMPLATE_REVISION"
+          }
+        },
+        {
+          "check_id": "DC-HANDOFF-NO-CURRENT-CARD-REVISION",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.card_revision"
+          }
+        },
+        {
+          "check_id": "DC-HANDOFF-REQUIRED-TEMPLATE-REVISION",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+          },
+          "expected": "template_revision"
+        },
+        {
+          "check_id": "DC-HANDOFF-REQUIRED-USER-REVISION",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+          },
+          "expected": "user_revision"
+        },
+        {
+          "check_id": "DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION",
+          "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.condition_registry.predicates"
+          },
+          "expected": "$.card_revision"
+        },
+        {
+          "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1"
+        },
+        {
+          "check_id": "DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "Strict-Handoff durability surface:"
+        },
+        {
+          "check_id": "DC-STARTER-DURABLE-PROVENANCE-CONTRACT",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.durable_surfaced_object_provenance.required_for_strict_handoff"
+          },
+          "expected": true
         }
       ],
       "foundation_prompt_version_contract": {
         "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
-        "CORE": "2.6.2",
-        "CONTROL": "2.6.2",
+        "CORE": "2.6.3",
+        "CONTROL": "2.6.3",
         "GOVERNANCE": "2.3.2"
       }
     }
