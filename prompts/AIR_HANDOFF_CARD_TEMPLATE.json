@@ -5,7 +5,8 @@
     "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
     "schema_version": "2.3.0",
     "card_id": null,
-    "card_revision": 18,
+    "template_revision": 19,
+    "user_revision": null,
     "object_version": "2.0.0",
     "record_class": "TRANSFER_RECORD",
     "evaluation_basis": {
@@ -216,7 +217,7 @@
     "profile_stack": {
       "starter_profile": {
         "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
-        "PROMPT_VERSION": "2.6.2",
+        "PROMPT_VERSION": "2.6.3",
         "availability_state": "EXPECTED_OR_RESTORED"
       },
       "active_specialist_profile_ref": null,
@@ -522,7 +523,6 @@
         "v1_governance": "LEGACY_GOVERNANCE_STATE_REVIEW_REQUIRED",
         "v2_1_method_state": "MIGRATE_EXPLICIT_METHOD_AND_METHOD_EXECUTION_STATE_TO_2_2_METHOD_HANDOFF_STATE_WHEN_FULLY_RECOVERABLE; OTHERWISE_REVIEW",
         "v2_1_schema": "RESTORE_ONLY_AS_MIGRATION_INPUT_PENDING_REVIEW_UNTIL_2_2_REQUIRED_STATE_IS_MAPPED",
-        "v2_2_pre_rev12_specialist_catalog_state": "NO_SCHEMA_MIGRATION_REQUIRED; rev11 or earlier schema-2.2.0 cards may omit specialist catalog provenance. Treat originating catalog identity as UNRECORDED_PRE_REV12, restore all other explicit state normally, and use any currently supplied compatible index only for new discovery after restoration/revalidation. Never claim it was the originating catalog.",
         "v2_2_to_v2_3_alignment": "MIGRATE runtime_watchdog_state/cadence carriers as historical provenance only. Preserve post_activation_user_message_count only as diagnostic/anchor state. Do not restore alignment intervals, periodic-due state, or historical PASS as current authority. Execute a new HANDOFF_RESTORE alignment evaluation.",
         "v2_2_to_v2_3_evidence_presentation": "Map legacy SUMMARY_ONLY display intent to STANDARD_EVIDENCE_PRESENTATION and legacy FULL_TEST_EVIDENCE display intent to EXPANDED_EVIDENCE_PRESENTATION only. Do not infer evidence capture or reproducibility from the old display mode.",
         "v2_2_to_v2_3_mii": "Missing MII, semantic-fidelity, morphology, or epistemic-sufficiency carriers are valid legacy absence, not inferred completed state. Reconstruct only from explicit supported source/artifact state and current evaluation; otherwise preserve UNRESOLVED or request required input.",
@@ -530,11 +530,22 @@
         "v2_3_rev14_to_rev15_target_readiness": "Rev14 cards remain valid schema-2.3.0 migration input. Reconstruct target readiness and step-optimality state only from explicit completion definition, acceptance criteria, readiness, benchmark, evidence, and blocker state. If not fully recoverable, preserve TARGET_UNRESOLVED / NOT_EVALUATED and route to current uncertainty or review; do not invent PASS.",
         "v2_3_rev15_to_rev16_root_carriers": "MIGRATE_BEFORE_REV16_REQUIRED_CARRIER_VALIDATION; ADD_FAILURE_AND_SURFACED_LEDGER_CARRIERS_AS_LEGACY_UNRECORDED_PRE_REV16; ADD_VISIBILITY_AUTHORITY_AND_PROFILE_POSTURE_CARRIERS_WITH_NONAUTHORITATIVE_SAFE_DEFAULTS; NEVER_FABRICATE_HISTORY; REQUIRE_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING",
         "v2_3_rev16_to_rev17_patch_and_approval_identity": "Rev16 cards remain valid schema-2.3.0 migration input. Add patch-reconciliation carriers with unresolved safe defaults. Do not infer a missing approval fingerprint; a non-null open approval scope requires exact recomputation from complete explicit fields plus scope-id history validation or routes to REVIEW/reacquisition.",
-        "v2_3_rev17_to_rev18_cognitive_scope_authority_isolation": "Rev17 cards remain valid schema-2.3.0 migration input. Add the cognitive-scope carrier with non-authorizing unresolved defaults and a stable MII reference. Preserve explicit supported contribution references only; do not reconstruct hidden reasoning, validated ingestion, or control authority. Require current HANDOFF_RESTORE alignment and Artifact rebinding."
+        "v2_3_rev17_to_rev18_cognitive_scope_authority_isolation": "Rev17 cards remain valid schema-2.3.0 migration input. Add the cognitive-scope carrier with non-authorizing unresolved defaults and a stable MII reference. Preserve explicit supported contribution references only; do not reconstruct hidden reasoning, validated ingestion, or control authority. Require current HANDOFF_RESTORE alignment and Artifact rebinding.",
+        "legacy_2_2_floor_revision_semantics": "SUPPORTED_2_2_FLOOR_PROFILE: legacy card_revision is user_revision; template revision is UNRECORDED_LEGACY_PROFILE and is never inferred from the numeric user counter.",
+        "legacy_2_3_pre_rev19_revision_semantics": "SUPPORTED_SCHEMA_2_3_PRE_REV19: legacy card_revision is template revision only after schema 2.3.0 is established; user revision remains UNRECORDED unless independently explicit.",
+        "rev19_revision_split": "CURRENT_REV19_PLUS: template_revision selects format migration; user_revision counts successful Handoff generations in the lineage and has zero format authority.",
+        "backward_compatibility_floor": "AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1_AND_NEWER_DECLARED_SUPPORTED_GENERATIONS",
+        "pre_floor_behavior": "UNSUPPORTED_LEGACY_HANDOFF_BELOW_COMPATIBILITY_FLOOR_OR_REVIEW_NO_AUTOMATIC_MIGRATION"
       },
-      "source_card_revision": null,
       "revision_migration_path": null,
-      "legacy_history_state": null
+      "legacy_history_state": null,
+      "source_template_revision": null,
+      "source_user_revision": null,
+      "legacy_card_revision": null,
+      "revision_semantics_source": null,
+      "source_compatibility_profile": null,
+      "legacy_user_revision_state": null,
+      "user_revision_counting_epoch": null
     },
     "load_integrity": {
       "foundation_file_states": [],
@@ -574,7 +585,8 @@
         "template_designation",
         "schema_version",
         "card_id",
-        "card_revision",
+        "template_revision",
+        "user_revision",
         "record_class",
         "evaluation_basis",
         "object_version",
@@ -902,7 +914,7 @@
             "exact same-release catalog match permits normal discovery only after restored explicit state is revalidated",
             "missing current index degrades discovery without invalidating otherwise valid explicit Specialist/package state",
             "different or foundation-incompatible current index requires targeted catalog compatibility reconciliation before new discovery",
-            "rev11 or earlier schema-2.2.0 cards may omit catalog provenance without schema failure and are tagged UNRECORDED_PRE_REV12 rather than inferred"
+            "supported legacy compatibility-floor cards may omit originating catalog provenance; preserve it as LEGACY_UNRECORDED rather than inferring it from the currently supplied index"
           ],
           "failure_behavior": "RESTORE_EXPLICIT_STATE; DEGRADE_OR_REVALIDATE_CATALOG_DISCOVERY; NEVER_SILENTLY_SUBSTITUTE_SPECIALIST",
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
@@ -982,7 +994,7 @@
         },
         {
           "id": "HC-COND-OBJECT-RESPONSIBILITY-REV14",
-          "condition": "card_revision >= 14",
+          "condition": "template_revision >= 14",
           "requirements": [
             "transfer_ownership_contract is present",
             "current transfer-level carriers are interpreted according to canonical_transfer_carriers",
@@ -995,7 +1007,7 @@
         },
         {
           "id": "HC-COND-TARGET-READINESS-REV15",
-          "condition": "card_revision >= 15 and execution_state.readiness_state is maturity-bearing",
+          "condition": "template_revision >= 15 and execution_state.readiness_state is maturity-bearing",
           "requirements": [
             "readiness_stage preserves the current evidenced AMRS stage",
             "target_readiness_stage and target_readiness_basis are explicit",
@@ -1009,7 +1021,7 @@
         },
         {
           "id": "HC-COND-AMRS-STEP-OPTIMALITY-REV15",
-          "condition": "card_revision >= 15 and an AMRS stage is serialized as complete or promotion-ready",
+          "condition": "template_revision >= 15 and an AMRS stage is serialized as complete or promotion-ready",
           "requirements": [
             "knowledge_to_execution_path.path_validation_state = COMPLETE_FOR_ACTIVE_STEP",
             "step_optimality_state = PASS",
@@ -1024,7 +1036,7 @@
         },
         {
           "id": "HC-COND-SCHEMA-ROOT-CLOSURE-REV16",
-          "condition": "card_revision >= 16",
+          "condition": "template_revision >= 16",
           "requirements": [
             "every emitted AIR_HANDOFF_CARD root field is declared in schema_manifest.required_fields or schema_manifest.optional_fields",
             "undeclared top-level extension carriers are rejected rather than silently accepted",
@@ -1098,6 +1110,19 @@
           "condition_authority": "NON_OPERATIVE_DESCRIPTION",
           "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-SOURCE-RIGHTS-PROJECTION",
           "validation_ref": "AIR_HANDOFF_CARD.schema_manifest.validation_registry.HC-VALIDATE-SOURCE-RIGHTS-PROJECTION"
+        },
+        {
+          "id": "HC-COND-REVISION-IDENTITY-REV19",
+          "condition": "current generated Handoff card under template revision 19 or later",
+          "requirements": [
+            "template_revision equals Core CANONICAL_HANDOFF_TEMPLATE_REVISION",
+            "user_revision is a positive integer for a generated card",
+            "legacy root card_revision is absent",
+            "user_revision has no template/format migration authority"
+          ],
+          "failure_behavior": "REJECT_REVISION_IDENTITY_CONFLATION_OR_REVIEW_LEGACY_MIGRATION",
+          "condition_authority": "NON_OPERATIVE_DESCRIPTION",
+          "predicate_ref": "AIR_HANDOFF_CARD.schema_manifest.condition_registry.HC-COND-REVISION-IDENTITY-REV19"
         }
       ],
       "nullability": {
@@ -1155,12 +1180,19 @@
         "Material Orbit transition treated as emission-complete when any required AIR_SESSION, AIR_PROJECT_EXECUTION_MAP, or AIR_ARTIFACT bundle member was omitted",
         "AIR_HANDOFF_CARD payload emitted inline in chat instead of downloadable JSON file",
         "Historical surfaced-object identity serialized without matching AIR_SURFACED_OBJECT_LEDGER entry",
-        "Failure-mode record invented, semantically broadened, or mutated during handoff serialization"
+        "Failure-mode record invented, semantically broadened, or mutated during handoff serialization",
+        "Current rev19+ card emits legacy root card_revision",
+        "user_revision used as template or schema migration authority",
+        "schema-2.2 legacy card_revision interpreted as template revision",
+        "missing historical numeric template revision fabricated during legacy migration",
+        "strict Handoff marked complete when durable provenance coverage through cutoff is missing or hash-invalid",
+        "old chat transcript export/paste required as strict-Handoff provenance recovery"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
         "one-root check",
-        "template designation and schema version check",
+        "template designation, source schema/profile, compatibility-floor and revision-semantics check",
+        "legacy revision normalization before current template-revision predicates",
         "formal object common-field and HANDOFF_CREATE evaluation_basis check",
         "source card revision detection and applicable revision migration check",
         "legacy migration check",
@@ -1199,17 +1231,26 @@
           "schema_version"
         ],
         "failure_behavior": "BLOCK_BOOT_OR_RESTORATION_AND_REJECT_RELEASE_DELIVERY",
-        "card_revision_compatibility": "REV18_SCHEMA_2_3_0_WITH_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_AND_MIGRATION_FROM_REV17_REV16_REV15_REV14_REV13_AND_SCHEMA_2_2_0_REV12_AND_EARLIER",
-        "specialist_catalog_extension_introduced_revision": 12,
-        "pre_rev12_missing_catalog_extension_behavior": "VALID_SCHEMA_2_2_0_MIGRATION_INPUT; ORIGINATING_CATALOG_PROVENANCE_UNRECORDED_PRE_REV12",
-        "older_reader_extension_behavior": "SCHEMA_2_3_0_REQUIRES_A_2_3_CAPABLE_READER_FOR_NEW_ALIGNMENT_MII_SEMANTIC_AND_EPISTEMIC_CARRIERS; OPTIONAL_SPECIALIST_CATALOG_EXTENSION_RETAINS_REV12_DISCOVERY_ONLY_MEANING",
-        "schema_2_2_migration_rule": "Accept as migration input only; normalize cadence/evidence display semantics and require current alignment plus artifact rebinding before execution.",
+        "older_reader_extension_behavior": "Older supported readers remain migration inputs only according to the declared compatibility floor and schema/profile migration contracts; optional Specialist catalog provenance never grants authority.",
+        "schema_2_2_migration_rule": "Accept only declared floor-generation or newer compatible schema-2.2.0 input; map legacy card_revision to user_revision, preserve template revision as UNRECORDED_LEGACY_PROFILE, add only safe non-authorizing current carriers, require current HANDOFF_RESTORE alignment plus Artifact rebinding.",
         "canonical_schema_version_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
         "starter_identity_version_source": "AIR_DEFAULT_STARTER_V2.PROMPT_VERSION",
         "revision_migration_before_required_carrier_validation": true,
         "rev15_to_rev16_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV15_TO_REV16",
         "rev16_to_rev17_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV16_TO_REV17",
-        "rev17_to_rev18_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV17_TO_REV18"
+        "rev17_to_rev18_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV17_TO_REV18",
+        "template_revision_compatibility": "REV19_SCHEMA_2_3_0_WITH_DURABLE_PROVENANCE_AND_REVISION_SPLIT; MIGRATION_FROM_SCHEMA_2_3_0_REV18_REV17_REV16_REV15_REV14_REV13_AND_DECLARED_SCHEMA_2_2_0_COMPATIBILITY_FLOOR",
+        "current_template_revision_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_TEMPLATE_REVISION",
+        "current_revision_fields": [
+          "template_revision",
+          "user_revision"
+        ],
+        "legacy_card_revision_current_emission": "PROHIBITED",
+        "backward_compatibility_floor": "AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1",
+        "compatibility_floor_rule": "Template-generation/profile floor; legacy user/card revision magnitude does not select compatibility.",
+        "rev18_to_rev19_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.REV18_TO_REV19",
+        "legacy_2_2_floor_to_rev19_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.LEGACY_2_2_FLOOR_TO_REV19",
+        "schema_2_3_pre_rev19_to_rev19_migration_contract_ref": "AIR_HANDOFF_CARD.schema_manifest.revision_migration_contracts.SCHEMA_2_3_PRE_REV19_TO_REV19"
       },
       "operative_compatibility_authority": {
         "authority_class": "RUNTIME_OPERATIVE",
@@ -1218,6 +1259,7 @@
           "AIR_HANDOFF_CARD.SCHEMA_VERSION",
           "AIR_HANDOFF_CARD.template_designation",
           "AIR_HANDOFF_CARD.schema_version",
+          "AIR_HANDOFF_CARD.template_revision",
           "AIR_HANDOFF_CARD.profile_stack.starter_profile.SYSTEM_DESIGNATION",
           "AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION",
           "AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.canonical_schema_version_source",
@@ -1238,7 +1280,10 @@
         "post_write_schema_validation_required": true,
         "external_delivery_receipt_required": true,
         "self_hash_inside_payload": "PROHIBITED",
-        "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK"
+        "file_capability_missing_behavior": "FAIL_CLOSED_NO_INLINE_FALLBACK",
+        "pre_write_provenance_requirement": "DURABLE_PROVENANCE_AVAILABLE_VERIFIED_AND_COMPLETE_THROUGH_FROZEN_LEDGER_CUTOFF",
+        "historical_chat_retrieval_dependency": "PROHIBITED",
+        "transcript_recovery_fallback": "PROHIBITED"
       },
       "condition_registry": {
         "registry_version": "1.0.0",
@@ -1471,7 +1516,7 @@
           },
           "HC-COND-OBJECT-RESPONSIBILITY-REV14": {
             "operator": "PATH_GTE",
-            "path": "$.card_revision",
+            "path": "$.template_revision",
             "expected": 14
           },
           "HC-COND-TARGET-READINESS-REV15": {
@@ -1479,7 +1524,7 @@
             "predicates": [
               {
                 "operator": "PATH_GTE",
-                "path": "$.card_revision",
+                "path": "$.template_revision",
                 "expected": 15
               },
               {
@@ -1493,7 +1538,7 @@
             "predicates": [
               {
                 "operator": "PATH_GTE",
-                "path": "$.card_revision",
+                "path": "$.template_revision",
                 "expected": 15
               },
               {
@@ -1515,7 +1560,7 @@
           },
           "HC-COND-SCHEMA-ROOT-CLOSURE-REV16": {
             "operator": "PATH_GTE",
-            "path": "$.card_revision",
+            "path": "$.template_revision",
             "expected": 16
           },
           "HC-COND-FAILURE-MODE-STATE": {
@@ -1543,6 +1588,21 @@
               {
                 "operator": "PATH_NONEMPTY",
                 "path": "$.source_state.source_rights_state"
+              }
+            ]
+          },
+          "HC-COND-REVISION-IDENTITY-REV19": {
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "PATH_GTE",
+                "path": "$.template_revision",
+                "expected": 19
+              },
+              {
+                "operator": "PATH_GTE",
+                "path": "$.user_revision",
+                "expected": 1
               }
             ]
           }
@@ -1775,9 +1835,7 @@
       "revision_migration_contracts": {
         "REV15_TO_REV16": {
           "source_schema_version": "2.3.0",
-          "source_card_revision": 15,
           "target_schema_version": "2.3.0",
-          "target_card_revision": 16,
           "apply_before_current_required_carrier_check": true,
           "missing_pre_rev16_history_semantics": "LEGACY_UNRECORDED_PRE_REV16_NOT_EMPTY_COMPLETE",
           "allowed_added_root_carriers": [
@@ -1806,7 +1864,7 @@
             "source_ledger_entry_ref_validation_rule": "MUST_RESOLVE_TO_COMMITTED_LEDGER_ENTRY_WITH_OBJECT_NAME_AIR_FAILURE_MODE_RECORD_AND_CANONICAL_SNAPSHOT_HASH_EQUAL_TO_RECORD_HASH",
             "unresolved_reserved_reference_behavior": "FAIL_CLOSED_DO_NOT_PERSIST_OR_AUTO_APPLY",
             "history_completeness_state": "LEGACY_UNRECORDED_PRE_REV16",
-            "legacy_source_card_revision": 15
+            "legacy_source_template_revision": 15
           },
           "surfaced_object_ledger_state_template": {
             "ledger_version": "1.0.0",
@@ -1867,13 +1925,14 @@
             "CURRENT_HANDOFF_RESTORE_ALIGNMENT",
             "ARTIFACT_PRECHECK",
             "ARTIFACT_REBINDING"
-          ]
+          ],
+          "source_template_revision": 15,
+          "target_template_revision": 16,
+          "legacy_revision_interpretation": "ONLY_AFTER_SOURCE_SCHEMA_2_3_0_CONFIRMED_AND_template_revision_ABSENT"
         },
         "REV16_TO_REV17": {
           "source_schema_version": "2.3.0",
-          "source_card_revision": 16,
           "target_schema_version": "2.3.0",
-          "target_card_revision": 17,
           "apply_before_current_required_carrier_check": true,
           "nested_additions": {
             "execution_state.patch_state": [
@@ -1894,13 +1953,14 @@
           },
           "approval_scope_migration_rule": "MISSING_PRE_REV17_FINGERPRINT_IS_NOT_INFERRED; NON_NULL_OPEN_SCOPE_ROUTES_REVIEW_AND_REACQUISITION_UNLESS_EXACT_SCOPE_FINGERPRINT_CAN_BE_RECOMPUTED_FROM_COMPLETE_EXPLICIT_FIELDS_AND_ID_HISTORY_VALIDATED",
           "patch_state_migration_rule": "ADD_RECONCILIATION_CARRIERS_WITH_UNRESOLVED_SAFE_DEFAULTS; DO_NOT CLAIM PRIOR_FULL_REPOSITORY_RECONCILIATION",
-          "history_synthesis": "PROHIBITED"
+          "history_synthesis": "PROHIBITED",
+          "source_template_revision": 16,
+          "target_template_revision": 17,
+          "legacy_revision_interpretation": "ONLY_AFTER_SOURCE_SCHEMA_2_3_0_CONFIRMED_AND_template_revision_ABSENT"
         },
         "REV17_TO_REV18": {
           "source_schema_version": "2.3.0",
-          "source_card_revision": 17,
           "target_schema_version": "2.3.0",
-          "target_card_revision": 18,
           "apply_before_current_required_carrier_check": true,
           "nested_additions": {
             "execution_state": [
@@ -1911,7 +1971,90 @@
             ]
           },
           "cognitive_scope_migration_rule": "ADD_SAFE_NONAUTHORIZING_UNVALIDATED_SCOPE_DEFAULTS; PRESERVE_ONLY_EXPLICIT_SUPPORTED_CONTRIBUTION_REFERENCES; NEVER_RECONSTRUCT_HIDDEN_REASONING_OR_CONTROL_AUTHORITY",
-          "history_synthesis": "PROHIBITED"
+          "history_synthesis": "PROHIBITED",
+          "source_template_revision": 17,
+          "target_template_revision": 18,
+          "legacy_revision_interpretation": "ONLY_AFTER_SOURCE_SCHEMA_2_3_0_CONFIRMED_AND_template_revision_ABSENT"
+        },
+        "REV18_TO_REV19": {
+          "source_schema_version": "2.3.0",
+          "source_template_revision": 18,
+          "legacy_source_field": "card_revision",
+          "legacy_revision_interpretation": "TEMPLATE_REVISION_ONLY_AFTER_SOURCE_SCHEMA_2_3_0_CONFIRMED",
+          "target_schema_version": "2.3.0",
+          "target_template_revision": 19,
+          "apply_before_current_required_carrier_check": true,
+          "root_revision_split": {
+            "add": "template_revision,user_revision",
+            "remove_current_emission": "card_revision",
+            "template_revision_rule": "SET_19_AFTER_MIGRATION",
+            "user_revision_rule": "PRESERVE_EXPLICIT_INDEPENDENT_COUNTER_IF_AVAILABLE_ELSE_LEGACY_UNRECORDED; DO_NOT_COPY_TEMPLATE_REVISION"
+          },
+          "durable_provenance_migration_rule": "PRE_REV19_HISTORY_WITHOUT_DURABLE_CAPTURE_REMAINS_EXPLICIT_LEGACY_UNRECORDED_OR_CARRIED_HANDOFF_SNAPSHOT_HISTORY; START_NEW_CURRENT_SESSION_DURABLE_BOUNDARY; NEVER_RECONSTRUCT_FROM_CHAT_SUMMARIES_OR_MEMORY",
+          "history_synthesis": "PROHIBITED",
+          "post_migration_requirements": [
+            "CURRENT_HANDOFF_RESTORE_ALIGNMENT",
+            "ARTIFACT_PRECHECK",
+            "ARTIFACT_REBINDING"
+          ]
+        },
+        "LEGACY_2_2_FLOOR_TO_REV19": {
+          "source_template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+          "source_schema_version": "2.2.0",
+          "compatibility_floor_profile": "AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1",
+          "minimum_recognized_starter_profile": {
+            "SYSTEM_DESIGNATION": "AIR_DEFAULT_STARTER_V2",
+            "PROMPT_VERSION": "2.4.3"
+          },
+          "legacy_source_field": "card_revision",
+          "legacy_revision_interpretation": "USER_REVISION",
+          "source_template_revision_state": "UNRECORDED_LEGACY_PROFILE",
+          "target_schema_version": "2.3.0",
+          "target_template_revision": 19,
+          "user_revision_mapping": "COPY_POSITIVE_INTEGER_legacy_card_revision_EXACTLY",
+          "apply_before_current_required_carrier_check": true,
+          "missing_current_root_carriers": {
+            "evaluation_basis": "CURRENT_HANDOFF_RESTORE_EVALUATION_ONLY_NOT_HISTORICAL_INFERENCE",
+            "object_version": "CURRENT_NORMALIZATION_2_0_0",
+            "object_visibility_authority_state": "SAFE_CURRENT_BASELINE_OR_EXPLICIT_REVALIDATED_SOURCE_ONLY",
+            "profile_posture_acceptance_state": "SAFE_CURRENT_BASELINE_OR_EXPLICIT_REVALIDATED_SOURCE_ONLY",
+            "runtime_alignment_state": "NEW_HANDOFF_RESTORE_ALIGNMENT_REQUIRED",
+            "semantic_fidelity_state": "UNRESOLVED_OR_RECONSTRUCT_ONLY_FROM_EXPLICIT_SUPPORTED_SOURCE",
+            "mii_state": "UNRESOLVED_LEGACY_ABSENCE",
+            "morphology_state": "UNRESOLVED_LEGACY_ABSENCE",
+            "epistemic_sufficiency_state": "UNRESOLVED_OR_CURRENT_REEVALUATION",
+            "failure_mode_state": "LEGACY_UNRECORDED",
+            "surfaced_object_ledger_state": "LEGACY_UNRECORDED_PRE_DURABLE_BOUNDARY"
+          },
+          "pre_durable_history_rule": "START_NEW_CURRENT_SESSION_DURABLE_PROVENANCE_BOUNDARY; DO_NOT FABRICATE PRIOR LEDGER OR SNAPSHOTS",
+          "history_synthesis": "PROHIBITED",
+          "positive_execution_authority": "NONE",
+          "post_migration_requirements": [
+            "CURRENT_HANDOFF_RESTORE_ALIGNMENT",
+            "ARTIFACT_PRECHECK",
+            "ARTIFACT_REBINDING"
+          ]
+        },
+        "SCHEMA_2_3_PRE_REV19_TO_REV19": {
+          "source_schema_version": "2.3.0",
+          "source_template_revision_field_when_split_present": "template_revision",
+          "legacy_source_template_revision_field_when_split_absent": "card_revision",
+          "supported_source_template_revision_range": [
+            13,
+            18
+          ],
+          "legacy_revision_interpretation": "TEMPLATE_REVISION_ONLY_AFTER_SOURCE_SCHEMA_2_3_0_CONFIRMED",
+          "target_schema_version": "2.3.0",
+          "target_template_revision": 19,
+          "apply_before_current_required_carrier_check": true,
+          "preservation_rule": "PRESERVE_ALL_EXPLICIT_SUPPORTED_STATE; APPLY_REVISION_SPECIFIC_SAFE_ADDITIONS_WHEN_MISSING; NEVER_SYNTHESIZE_HISTORICAL_AUTHORITY_OR_PROVENANCE",
+          "user_revision_rule": "PRESERVE_EXPLICIT_INDEPENDENT_USER_COUNTER_IF_AVAILABLE; OTHERWISE LEGACY_UNRECORDED_AND_DO_NOT_COPY_TEMPLATE_REVISION",
+          "durable_provenance_rule": "START_OR_CONTINUE_CURRENT_DURABLE_BOUNDARY; PRE_DURABLE_HISTORY_REMAINS_EXPLICITLY_LEGACY_UNRECORDED_OR_CARRIED_EXACT_HANDOFF_SNAPSHOT_HISTORY",
+          "post_migration_requirements": [
+            "CURRENT_HANDOFF_RESTORE_ALIGNMENT",
+            "ARTIFACT_PRECHECK",
+            "ARTIFACT_REBINDING"
+          ]
         }
       }
     },
@@ -1934,7 +2077,7 @@
           "foundation_compatibility_identity": null,
           "comparison_state": "NOT_EVALUATED"
         },
-        "backward_compatibility_state": "SCHEMA_2_3_0_REV14_AND_REV13_MAY_BE_MIGRATED_TO_REV15_WITH_TARGET_READINESS_STEP_OPTIMALITY_AND_TRANSFER_OWNERSHIP_REVALIDATION; SCHEMA_2_2_0_REV12_OR_EARLIER_MAY_BE_MIGRATED_WITH_CATALOG_PROVENANCE_RULES_PRESERVED",
+        "backward_compatibility_state": "SUPPORTED_HANDOFF_INPUTS_BEGIN_AT_AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1; LATER_DECLARED_SCHEMA_2_3_TEMPLATE_MIGRATIONS_REMAIN_SUPPORTED",
         "restoration_precedence": "EXPLICIT_HANDOFF_SPECIALIST_AND_PACKAGE_STATE_PRECEDES_CATALOG_DISCOVERY",
         "authority_effect": "DISCOVERY_ONLY",
         "rules": [
@@ -1944,9 +2087,17 @@
           "A missing current index degrades only catalog discovery; it does not invalidate otherwise valid explicit Specialist/package handoff state.",
           "A different current index preserves restored Specialist/package state and requires targeted catalog compatibility reconciliation before new discovery.",
           "A foundation-incompatible current index is treated as a new-environment discovery input and cannot be represented as exact continuation.",
-          "For pre-rev12 cards with no catalog provenance, originating catalog identity is UNRECORDED_PRE_REV12 rather than inferred from the currently supplied index.",
+          "For supported legacy cards with no originating catalog provenance, record LEGACY_UNRECORDED rather than inferring an originating catalog from the currently supplied index.",
           "Migration to schema 2.3.0 does not grant the Specialist Package Index route, selection, approval, compilation, binding, or execution authority."
         ]
+      },
+      "handoff_revision_lineage_state": {
+        "template_revision_semantics": "CANONICAL_HANDOFF_TEMPLATE_FORMAT_REVISION",
+        "user_revision_semantics": "PER_CARD_LINEAGE_SUCCESSFUL_HANDOFF_GENERATION_COUNTER",
+        "legacy_card_revision_emission": "PROHIBITED_FOR_REV19_PLUS",
+        "user_revision_increment_rule": "INCREMENT_EXACTLY_ONCE_AFTER_SUCCESSFUL_REPLACEMENT_HANDOFF_GENERATION_AND_VALIDATION",
+        "failed_generation_increment_effect": "NONE",
+        "format_authority_of_user_revision": "NONE"
       }
     },
     "transfer_ownership_contract": {
@@ -1959,7 +2110,8 @@
         "Historical alignment evaluations, action authorizations, gates, receipts, and artifact bindings restore only as provenance/history unless the current runtime separately revalidates and reissues the required current object.",
         "Action-history snapshots must preserve only observed source-session canonical object identities; missing authorizations remain missing or unknown and are never reconstructed during handoff creation.",
         "Failure-mode records restore only from the serialized failure_mode_state carrier and preserve source IDs, evidence, applicability, corrective constraints, retest state, recurrence, and supersession without semantic broadening.",
-        "The surfaced_object_ledger_state is the canonical immutable transfer carrier for all formal AIR objects actually emitted before the Handoff file freeze point; snapshots preserve exact structure/values and never restore execution authority."
+        "The surfaced_object_ledger_state is the canonical immutable transfer carrier for all formal AIR objects actually emitted before the Handoff file freeze point; snapshots preserve exact structure/values and never restore execution authority.",
+        "Durable provenance snapshots remain historical source snapshots only; store presence or carried Handoff snapshots grant no current authority."
       ],
       "canonical_transfer_carriers": {
         "current_task_binding": "AIR_HANDOFF_CARD.task_binding",
@@ -2112,10 +2264,10 @@
       "source_ledger_entry_ref_semantics": "SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY",
       "source_ledger_entry_ref_validation_rule": "MUST_RESOLVE_TO_COMMITTED_LEDGER_ENTRY_WITH_OBJECT_NAME_AIR_FAILURE_MODE_RECORD_AND_CANONICAL_SNAPSHOT_HASH_EQUAL_TO_RECORD_HASH",
       "unresolved_reserved_reference_behavior": "FAIL_CLOSED_DO_NOT_PERSIST_OR_AUTO_APPLY",
-      "history_completeness_state": "CURRENT_REV16_GENERATED_HISTORY_REQUIRED"
+      "history_completeness_state": "CURRENT_REV19_GENERATED_HISTORY_REQUIRED_OR_EXPLICIT_MIGRATED_LEGACY_BOUNDARY"
     },
     "surfaced_object_ledger_state": {
-      "ledger_version": "1.0.0",
+      "ledger_version": "1.1.0",
       "state": "UNVALIDATED_TEMPLATE",
       "capture_cutoff": {
         "last_included_message_count": null,
@@ -2149,12 +2301,27 @@
       "completeness_state": "UNVALIDATED_TEMPLATE",
       "excluded_by_design": [
         "AIR_HANDOFF_CARD_FILE_SELF",
+        "UNCOMMITTED_TAIL_LEDGER_OBJECT",
         "POST_FREEZE_HANDOFF_DELIVERY_FORMAL_OBJECTS",
         "POST_FREEZE_FILE_DELIVERY_RECEIPT"
       ],
       "positive_execution_authority": "NONE_HISTORY_ONLY",
-      "restoration_rule": "Treat all snapshots as historical provenance only. Validate ledger chain, hashes, source-message ordering, object identities, and capture cutoff. No historical object becomes current execution authority; current HANDOFF_RESTORE alignment and Artifact rebinding remain required.",
-      "history_origin": "REV16_NATIVE"
+      "restoration_rule": "Treat all snapshots as historical provenance only. Validate ledger chain, hashes, source-message ordering, object identities, capture cutoff, and durable-capture metadata when native rev19 history is claimed. No historical object becomes current execution authority; current HANDOFF_RESTORE alignment and Artifact rebinding remain required.",
+      "history_origin": "REV19_DURABLE_PROVENANCE_OR_MIGRATED_LEGACY",
+      "provenance_capture": {
+        "capture_contract": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
+        "provenance_store_id": null,
+        "persistence_provider_class": null,
+        "durability_state": "UNVALIDATED_TEMPLATE",
+        "write_readback_state": "UNVALIDATED_TEMPLATE",
+        "last_persisted_emission_sequence": null,
+        "last_committed_emission_sequence": null,
+        "coverage_through_capture_cutoff": "UNVALIDATED_TEMPLATE",
+        "strict_handoff_eligibility": "UNVALIDATED_TEMPLATE",
+        "historical_chat_turn_retrieval_required": false,
+        "transcript_export_or_paste_fallback": "PROHIBITED",
+        "positive_execution_authority": "NONE"
+      }
     }
   }
 }

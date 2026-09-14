@@ -8,7 +8,7 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.6.2-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
+[![Foundation](https://img.shields.io/badge/foundation-2.6.3-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
 ![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
 
 **AI work, carried forward.**
@@ -41,21 +41,21 @@ It helps AI and humans:
 - carry recorded project state between sessions and compatible AI platforms;
 - add focused Specialist capabilities when a task needs them.
 
-## Current release — AIR Kit v0.7.2
+## Current release — AIR Kit v0.7.3
 
-The current tagged version is **AIR Kit v0.7.2**.
+The current release candidate is **AIR Kit v0.7.3**. The tag is created only after the validated mainline merge.
 
 It includes:
 
-- AIR Foundation **2.6.2 / Object Contract SET_007**
-- Handoff schema **2.3.0**, revision 18
+- AIR Foundation **2.6.3 / Object Contract SET_008**
+- Handoff schema **2.3.0**, template revision 19 with independent `user_revision`
 - Specialist packages **2.5.0**
-- Runtime Route Map **1.2.1**
-- Specialist Package Index **1.3.2**
+- Runtime Route Map **1.2.2**
+- Specialist Package Index **1.3.3** (SET_008 package revalidation pending; SET_007 package receipts retained)
 
-v0.7.2 is a full-repository control-spine hardening release. It strengthens new-task Artifact binding, exact task-to-Artifact action checks, failure capture, repository patch reconciliation, approval-scope identity, required formal-object visibility, and cognitive-scope authority isolation.
+v0.7.3 hardens strict Handoff provenance and backward-compatible restoration. Exact surfaced-object snapshots are captured on a durable non-authorizing provenance surface so strict Handoff creation no longer depends on future verbatim access to old chat turns. Handoff revision semantics are split into `template_revision` and `user_revision`, and the supported legacy schema-2.2 floor migrates without inventing missing template history or restoring historical execution authority.
 
-Browse the exact tagged version at [`v0.7.2`](https://github.com/eddlev/vm4ai-air-kit/tree/v0.7.2).
+The v0.7.3 release is sealed from the validated `main` commit after repository CI passes; the existing `v0.7.2` tag is never moved or redefined.
 
 ### Best practices
 

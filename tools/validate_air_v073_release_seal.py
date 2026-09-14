@@ -1,0 +1,226 @@
+from __future__ import annotations
+
+import copy
+import hashlib
+import importlib.util
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else '.').resolve()
+
+KIT_VERSION = '0.7.3'
+FOUNDATION_ID = 'AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008'
+SET007 = 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007'
+PENDING_STATIC = 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION'
+EXPECTED_HASHES = {
+    'prompts/AIR_CORE_RUNTIME.md': 'e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371',
+    'prompts/AIR_CONTROL_SURFACE.md': '0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff',
+    'prompts/AIR_DEFAULT_STARTER_PROFILE.json': '465cac6cb3303d98fed14a9110061f2b487cdec364e787f4310ffcbf35aa649c',
+    'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
+    'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
+    'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'fdf21d97c86355a364775a04d9af606216f54163d3299fa6946a328b98664d6a',
+}
+
+
+class E(Exception):
+    pass
+
+
+def req(cond: bool, msg: str) -> None:
+    if not cond:
+        raise E(msg)
+
+
+def reject_dupes(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    out: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in out:
+            raise E(f'duplicate JSON key {key}')
+        out[key] = value
+    return out
+
+
+def load(path: Path) -> Any:
+    return json.loads(path.read_text(encoding='utf-8'), object_pairs_hook=reject_dupes)
+
+
+def sha(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_migrator():
+    path = ROOT / 'tools' / 'migrate_air_handoff.py'
+    spec = importlib.util.spec_from_file_location('air_handoff_migrator_v073', str(path))
+    req(spec is not None and spec.loader is not None, 'migration utility import failed')
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def synthetic_floor_card() -> dict[str, Any]:
+    return {
+        'AIR_HANDOFF_CARD': {
+            'TEMPLATE_DESIGNATION': 'AIR_HANDOFF_CARD_TEMPLATE_V2',
+            'SCHEMA_VERSION': '2.2.0',
+            'template_designation': 'AIR_HANDOFF_CARD_TEMPLATE_V2',
+            'schema_version': '2.2.0',
+            'card_id': 'AIR-HANDOFF-SYNTHETIC-FLOOR',
+            'card_revision': 44,
+            'record_class': 'TRANSFER_RECORD',
+            'runtime_origin': 'PROMPT_COMPILED',
+            'backend_validation_claimed': False,
+            'hidden_reasoning_claimed': False,
+            'project_state': {'project_id': 'SYNTHETIC-FLOOR', 'project_status': 'ACTIVE'},
+            'object_visibility_mode': 'ALL_OBJECTS',
+            'profile_stack': {
+                'starter_profile': {
+                    'SYSTEM_DESIGNATION': 'AIR_DEFAULT_STARTER_V2',
+                    'PROMPT_VERSION': '2.4.3',
+                }
+            },
+            'schema_manifest': {'schema_compatibility_contract': {'canonical_schema_version': '2.2.0'}},
+            'extensions': {'synthetic_fixture': True},
+        }
+    }
+
+
+def main() -> None:
+    req((ROOT / 'VERSION').read_text(encoding='utf-8').strip() == KIT_VERSION, 'VERSION is not 0.7.3')
+    for rel, expected in EXPECTED_HASHES.items():
+        p = ROOT / rel
+        req(p.is_file(), f'missing sealed file {rel}')
+        req(sha(p) == expected, f'exact sealed hash mismatch {rel}')
+
+    core = (ROOT / 'prompts/AIR_CORE_RUNTIME.md').read_text(encoding='utf-8')
+    control = (ROOT / 'prompts/AIR_CONTROL_SURFACE.md').read_text(encoding='utf-8')
+    starter = load(ROOT / 'prompts/AIR_DEFAULT_STARTER_PROFILE.json')
+    handoff = load(ROOT / 'prompts/AIR_HANDOFF_CARD_TEMPLATE.json')['AIR_HANDOFF_CARD']
+    route = load(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json')
+    index = load(ROOT / 'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
+
+    req('PROMPT_VERSION: 2.6.3' in core, 'Core not 2.6.3')
+    req('PROMPT_VERSION: 2.6.3' in control, 'Control not 2.6.3')
+    req(starter.get('PROMPT_VERSION') == '2.6.3', 'Starter not 2.6.3')
+    req('CANONICAL_HANDOFF_TEMPLATE_REVISION: 19' in core, 'Core Handoff template revision not 19')
+    req('AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1' in core, 'durable provenance law missing')
+    req('Strict-Handoff durability surface:' in control, 'Control durability surface missing')
+    req('must not prescribe transcript export/paste as a recovery mechanism' in core.lower(), 'transcript-recovery prohibition missing')
+
+    registry = starter['validation_contract']['deterministic_contract_registry']
+    checks = registry['checks']
+    ids = {c['check_id'] for c in checks}
+    req(len(checks) == 90, f'deterministic registry count {len(checks)} != 90')
+    req(registry['coverage_contract']['declared_check_count'] == 90, 'declared registry count not 90')
+    for cid in {
+        'DC-HANDOFF-TEMPLATE-REVISION',
+        'DC-HANDOFF-NO-CURRENT-CARD-REVISION',
+        'DC-HANDOFF-REQUIRED-TEMPLATE-REVISION',
+        'DC-HANDOFF-REQUIRED-USER-REVISION',
+        'DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION',
+        'DC-CORE-DURABLE-PROVENANCE-LAW',
+        'DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE',
+        'DC-STARTER-DURABLE-PROVENANCE-CONTRACT',
+    }:
+        req(cid in ids, f'missing deterministic check {cid}')
+
+    req(handoff['schema_version'] == handoff['SCHEMA_VERSION'] == '2.3.0', 'Handoff schema mismatch')
+    req(handoff['template_revision'] == 19, 'Handoff template_revision mismatch')
+    req(handoff['user_revision'] is None, 'template user_revision baseline must be null')
+    req('card_revision' not in handoff, 'current rev19 template still emits card_revision')
+    declared = set(handoff['schema_manifest']['required_fields']) | set(handoff['schema_manifest'].get('optional_fields', []))
+    req(set(handoff) == declared, 'Handoff root manifest closure mismatch')
+    contracts = handoff['schema_manifest']['revision_migration_contracts']
+    for key in ['REV18_TO_REV19', 'LEGACY_2_2_FLOOR_TO_REV19', 'SCHEMA_2_3_PRE_REV19_TO_REV19']:
+        req(key in contracts, f'missing Handoff migration contract {key}')
+    floor = contracts['LEGACY_2_2_FLOOR_TO_REV19']
+    req(floor['minimum_recognized_starter_profile']['PROMPT_VERSION'] == '2.4.3', 'legacy floor Starter mismatch')
+    req(floor['legacy_revision_interpretation'] == 'USER_REVISION', 'legacy 2.2 revision semantics wrong')
+    req(contracts['REV18_TO_REV19']['root_revision_split']['user_revision_rule'].startswith('PRESERVE_EXPLICIT_INDEPENDENT_COUNTER'), 'rev18 user revision rule wrong')
+
+    req(route['MAP_VERSION'] == route['ROUTE_MAP_VERSION'] == '1.2.2', 'Route Map version split mismatch')
+    req(route['source_of_truth']['prompt_version'] == '2.6.3', 'Route Map Core version stale')
+    req(route['source_of_truth']['sha256'] == sha(ROOT / 'prompts/AIR_CORE_RUNTIME.md'), 'Route Map Core hash stale')
+    handoff_route = next(x for x in route['routes'] if x['route_id'] == 'RT.HANDOFF_CREATE')
+    req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
+    req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
+
+    req(index['INDEX_VERSION'] == '1.3.3', 'Index version mismatch')
+    req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
+    rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
+    req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
+    req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_STATIC, 'Index aggregate candidate lifecycle overclaims evidence')
+    req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_STATIC_VALIDATION', 'Index validation decision not pending-static')
+    req(index['validation_state']['static_validation'] == 'PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index static state mismatch')
+    req(index['validation_state']['behavioral_revalidation'] == 'BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index behavioral state not blocked by static')
+    req(all(e['availability_state'] == PENDING_STATIC for e in index['entries']), 'Index entry lifecycle not uniformly pending-static')
+    req(all(e['foundation_compatibility_identity'] == SET007 for e in index['entries']), 'Specialist historical compatibility identity was rewritten')
+    req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in index['entries']), 'Specialist SET_008 compatibility inferred')
+
+    # Manifest receipts remain exact for the unchanged SET_007 package bytes.
+    for entry in index['entries']:
+        targets = list(ROOT.glob('profiles/**/' + entry['manifest_filename']))
+        req(len(targets) == 1, f"manifest target ambiguous {entry['manifest_filename']}")
+        req(sha(targets[0]) == entry['manifest_sha256'], f"manifest hash changed {entry['manifest_filename']}")
+
+    migrator = load_migrator()
+    current_doc = {'AIR_HANDOFF_CARD': handoff}
+    legacy = synthetic_floor_card()
+    migrated = migrator.migrate_to_current(copy.deepcopy(legacy), current_doc)['AIR_HANDOFF_CARD']
+    req(migrated['template_revision'] == 19, 'legacy floor did not reach template rev19')
+    req(migrated['user_revision'] == 44, 'legacy card_revision 44 was not preserved as user_revision')
+    req('card_revision' not in migrated, 'legacy card_revision leaked into rev19 output')
+    req(migrated['migration_state']['source_template_revision'] is None, 'legacy 2.2 invented a template revision')
+    req(migrated['migration_state']['source_user_revision'] == 44, 'legacy 2.2 source user revision not recorded')
+    req(migrated['migration_state']['revision_migration_path'] == 'LEGACY_2_2_FLOOR_TO_REV19', 'legacy floor migration path wrong')
+    req(migrated['surfaced_object_ledger_state']['positive_execution_authority'] == 'NONE_HISTORY_ONLY', 'legacy history gained authority')
+    req(migrated['project_state']['project_id'] == 'SYNTHETIC-FLOOR', 'legacy explicit project state not preserved')
+
+    prefloor = copy.deepcopy(legacy)
+    prefloor['AIR_HANDOFF_CARD']['SCHEMA_VERSION'] = prefloor['AIR_HANDOFF_CARD']['schema_version'] = '2.1.0'
+    try:
+        migrator.migrate_to_current(prefloor, current_doc)
+    except migrator.MigrationError:
+        pass
+    else:
+        raise E('pre-floor schema 2.1.0 was accepted')
+
+    rev18 = copy.deepcopy(current_doc)
+    c18 = rev18['AIR_HANDOFF_CARD']
+    c18.pop('template_revision', None)
+    c18.pop('user_revision', None)
+    c18['card_revision'] = 18
+    r18 = migrator.migrate_to_current(rev18, current_doc)['AIR_HANDOFF_CARD']
+    req(r18['template_revision'] == 19 and r18['user_revision'] is None and 'card_revision' not in r18, 'schema 2.3 rev18 migration semantics wrong')
+    req(r18['migration_state']['source_template_revision'] == 18, 'rev18 source template revision missing')
+
+    # Public source must not contain the private fixture identity/content.
+    for rel in [
+        'prompts/AIR_CORE_RUNTIME.md', 'prompts/AIR_CONTROL_SURFACE.md',
+        'prompts/AIR_DEFAULT_STARTER_PROFILE.json', 'prompts/AIR_HANDOFF_CARD_TEMPLATE.json',
+        'catalog/AIR_RUNTIME_ROUTE_MAP.json', 'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',
+        'tools/migrate_air_handoff.py', 'tools/validate_air_v073_release_seal.py',
+        'tests/air_contract_fixtures.json', 'tests/deterministic_contract_inventory.json',
+    ]:
+        txt = (ROOT / rel).read_text(encoding='utf-8')
+        private_markers = ('Mon' + 'ica Angiuli', 'AIR-HANDOFF-' + 'MONICA')
+        req(all(marker not in txt for marker in private_markers), f'private fixture leaked into {rel}')
+
+    print('AIR v0.7.3 release-seal validation: PASS')
+    print('foundation', FOUNDATION_ID)
+    print('handoff_schema', '2.3.0')
+    print('handoff_template_revision', 19)
+    print('legacy_floor', '2.2.0 / Starter 2.4.3')
+    print('route_map', '1.2.2')
+    print('specialist_index', '1.3.3 pending SET_008 static revalidation')
+    print('deterministic_registry', '90/90')
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except (E, KeyError, ValueError) as exc:
+        print('AIR v0.7.3 release-seal validation: FAIL:', exc, file=sys.stderr)
+        raise SystemExit(1)

@@ -31,7 +31,7 @@ add('R7-N16-MANIFEST-RECEIPT-STALE','profiles/specification first verification s
 add('R7-N17-RESEAL-HISTORY-GUARD-REMOVED','tools/reseal_air_candidate.py',lambda p:p.write_text(p.read_text().replace('if historical_path(path): return','if False: return',1)))
 add('R7-N18-FLOOR028-MISSING','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',jfn(lambda o:o['foundation_compatibility']['required_floor_invariants'].remove('AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION')))
 add('R7-N19-COPYWRITING-COMPAT-STALE','profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json',jfn(lambda o:o['foundation_compatibility'].__setitem__('compatibility_state','COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING')))
-add('R7-N20-INDEX-HANDOFF-REV18-STALE','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['validation_state'].__setitem__('handoff_rev18_catalog_compatibility','STALE_REV17')))
+add('R7-N20-INDEX-HANDOFF-REV19-STALE','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['validation_state'].__setitem__('handoff_rev19_catalog_compatibility','STALE_REV18')))
 if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')
 print('R7-MUTATION-BASELINE: PASS')
 with tempfile.TemporaryDirectory(prefix='air-r7-mutations-') as td:

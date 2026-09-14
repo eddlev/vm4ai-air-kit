@@ -17,7 +17,17 @@ def mutate_check(c:dict,t:Path):
     elif op=='JSON_EQUALS_REFERENCE': c['right']['path']='$.__AIR_CONTRACT_MUTANT_MISSING__'
     elif op=='JSON_EQUALS_MARKDOWN_HEADER': c['right']['header']='__AIR_CONTRACT_MUTANT_MISSING__'
     elif op=='JSON_ROOT_KEYS_DECLARED_BY_MANIFEST': c['required_path']='$.__AIR_CONTRACT_MUTANT_MISSING__'
-    elif op=='JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL': c['expected']='NON_OPERATIVE_DESCRIPTION'
+    elif op=='JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL':
+        p=t/c['left']['file']; obj=load(p); cur=obj
+        for part in c['left']['path'][2:].split('.'):
+            cur=cur[part]
+        if isinstance(cur,dict):
+            c['expected']='{'
+        elif isinstance(cur,list):
+            c['expected']='['
+        else:
+            c['expected']=str(cur)
+
     elif op=='JSON_PATH_ABSENT':
         if c['left']['file'].endswith('AIR_HANDOFF_CARD_TEMPLATE.json'):
             c['left']['path']='$.AIR_HANDOFF_CARD.schema_version'
