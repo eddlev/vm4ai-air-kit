@@ -76,7 +76,17 @@ def main() -> None:
         dump(p, o)
     add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
 
-    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.3')))
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.4')))
+
+    add('V073-N11-COPYWRITING-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
+
+    def evidence_receipt_stale(d: Path):
+        p = d / 'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json'; o = load(p); o['behavioral_evidence_receipt']['sha256'] = '0' * 64; dump(p, o)
+    add('V073-N12-COPYWRITING-EVIDENCE-RECEIPT-STALE', evidence_receipt_stale)
+
+    def evidence_passcount_stale(d: Path):
+        p = d / 'tests/AIR_PUBLIC_SURFACE_COPYWRITING_SET008_BEHAVIORAL_EVIDENCE_V1.json'; o = load(p); o['summary']['pass_count'] = 5; dump(p, o)
+    add('V073-N13-COPYWRITING-EVIDENCE-PASSCOUNT-STALE', evidence_passcount_stale)
 
     killed = 0
     for name, fn in cases:

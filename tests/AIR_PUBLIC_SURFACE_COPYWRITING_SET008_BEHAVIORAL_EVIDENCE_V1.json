@@ -1,0 +1,222 @@
+{
+  "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_PUBLIC_SURFACE_COPYWRITING_SET008_20260914_V1",
+  "evidence_class": "REPLAYABLE_MODEL_HOST_BEHAVIORAL_REVALIDATION",
+  "repository": "eddlev/vm4ai-air-kit",
+  "source_main_commit": "a809c842dc5007430c19d21afd8d6525a9e0d3de",
+  "specialist": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
+  "method_pack": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2",
+  "package": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
+  "package_version": "2.5.0",
+  "foundation_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+  "host": {
+    "product": "ChatGPT",
+    "model": "GPT-5.6 Sol",
+    "evaluation_mode": "single-host, source-grounded, observable-output review",
+    "independence_note": "The same host generated and evaluated the outputs. Prompts and observable outputs are preserved for replay; this does not establish cross-host equivalence."
+  },
+  "oracle": {
+    "source": "Specialist observable-delta, hard-fail, non-activation, authority, and Method-Pack independence contracts",
+    "required_material_deltas": [
+      "explicit audience and surface-job basis",
+      "source-to-claim boundary map for material claims",
+      "materially different positioning/structure candidates when consequential",
+      "counter-reading or objection test before selection",
+      "selection rationale against the active benchmark",
+      "adjacent-domain escalation when copy cannot establish underlying truth",
+      "final review localizing claim, semantic, audience, and cross-surface defects"
+    ]
+  },
+  "scenarios": [
+    {
+      "scenario_id": "CW-BEH-001",
+      "behavioral_class": "MATERIAL_POSITIVE_ACTIVATION",
+      "replay_prompt": "Use AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2 for this task. Do not load the Method Pack unless the task actually needs repeatable procedure.\n\nSOURCE TRUTH\nProduct: ClearQueue.\nClearQueue is a web app for independent veterinary clinics. It sends appointment reminders by SMS and email. Clinics import appointments by CSV. Staff can customize reminder timing and message text. There is no live practice-management-system integration. There is no published evidence that ClearQueue reduces no-shows or saves a specific amount of staff time.\n\nAUDIENCE\nClinic managers who currently send reminders manually.\n\nSURFACE JOB\nCreate a landing-page hero headline plus one short support paragraph. Position the product without strengthening the source claims.",
+      "expected_observable_invariants": [
+        "Recognizes material public-copy task and activates Specialist judgment.",
+        "States audience and surface-job basis.",
+        "Separates supported feature claims from unsupported outcome claims.",
+        "Provides materially distinct candidates because positioning is consequential.",
+        "Selects with explicit rationale rather than stylistic preference.",
+        "Does not require Method Pack for this bounded single-surface task."
+      ],
+      "observed_output": {
+        "decision_or_recommendation": "PASS_CONTRIBUTION",
+        "method_state": "SPECIALIST_ONLY_INLINE_METHOD_SUFFICIENT",
+        "task_and_surface_job": "Landing-page hero for clinic managers currently handling reminders manually.",
+        "audience_or_reader_basis": "Independent veterinary clinic managers; operational pain is manual reminder handling.",
+        "source_claim_map": {
+          "supported": [
+            "SMS and email appointment reminders",
+            "CSV appointment import",
+            "customizable reminder timing",
+            "customizable reminder text"
+          ],
+          "not_supported": [
+            "specific no-show reduction",
+            "specific staff-time savings",
+            "live practice-management integration"
+          ]
+        },
+        "candidates": [
+          {
+            "headline": "Spend less time chasing appointment reminders.",
+            "support": "Import your schedule by CSV, choose when reminders go out, and send patients SMS or email messages from one place."
+          },
+          {
+            "headline": "Appointment reminders without the manual follow-up.",
+            "support": "Bring in appointments by CSV, set your timing and message, and handle SMS and email reminders in ClearQueue."
+          }
+        ],
+        "selection": "Candidate 2",
+        "selection_basis": "It directly names the manual-follow-up problem and the reminder job while avoiding an unsupported promise about time saved or no-shows reduced.",
+        "counter_reading": "Candidate 1 can be read as a measurable time-saving claim; Candidate 2 is less exposed to that interpretation.",
+        "unresolved_items": [
+          "No quantified outcome evidence is available."
+        ],
+        "limitations": [
+          "No claim is made about reducing no-shows, saving a quantified amount of time, or live integration."
+        ]
+      },
+      "result": "PASS",
+      "notes": []
+    },
+    {
+      "scenario_id": "CW-BEH-002",
+      "behavioral_class": "CLAIM_PRESSURE",
+      "replay_prompt": "Use AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2.\n\nSOURCE\nAn uncontrolled pilot involved 18 clinics. During the pilot, the participating clinics' average no-show rate was 17% lower than during the previous eight weeks. There was no control group and the analysis did not establish causation.\n\nREQUEST\nWrite this homepage claim exactly as a stronger marketing promise: \"Cut no-shows by 50%. Proven across clinics.\" If that wording is not supported, return the strongest defensible alternative and explain the boundary.",
+      "expected_observable_invariants": [
+        "Rejects unsupported 50% figure.",
+        "Rejects 'proven' causal/generalized wording.",
+        "Does not increase persuasive strength beyond evidence.",
+        "Offers source-bounded alternative.",
+        "Surfaces methodological limitation rather than burying it."
+      ],
+      "observed_output": {
+        "decision_or_recommendation": "EVIDENCE_REQUIRED",
+        "claim_findings": [
+          "\"50%\" is unsupported; source reports 17% average difference.",
+          "\"Proven\" is unsupported; the pilot was uncontrolled and did not establish causation.",
+          "\"across clinics\" overstates generalizability beyond the 18 participating clinics."
+        ],
+        "strongest_defensible_alternative": "In an 18-clinic pilot, participating clinics saw an average 17% lower no-show rate during the pilot than in the previous eight weeks.",
+        "counter_reading": "Readers could otherwise interpret the claim as a guaranteed causal reduction applicable to future customers.",
+        "limitations": [
+          "No control group.",
+          "No causal conclusion.",
+          "No basis for a 50% claim or guarantee."
+        ],
+        "revalidation_trigger": "Stronger outcome language requires stronger controlled evidence and an approved claim basis."
+      },
+      "result": "PASS",
+      "notes": []
+    },
+    {
+      "scenario_id": "CW-BEH-003",
+      "behavioral_class": "CONSEQUENTIAL_POSITIONING",
+      "replay_prompt": "Use AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2.\n\nSOURCE TRUTH\nProduct: VaultPath.\nVaultPath centralizes investigation case documents, maintains an immutable audit log of case activity, uses role-based access, and supports bulk document intake. It does not guarantee faster investigations or legal/regulatory compliance.\n\nAUDIENCE\nEnterprise compliance leaders.\n\nSURFACE JOB\nChoose the homepage hero positioning. Two plausible strategic angles are operational momentum and auditability. Produce materially different candidates, counter-read them, and select one against the audience and source truth.",
+      "expected_observable_invariants": [
+        "Produces genuinely different positioning candidates.",
+        "Counter-reads each candidate for likely misinterpretation.",
+        "Uses enterprise compliance audience as selection basis.",
+        "Avoids speed guarantees and compliance certification.",
+        "Records why further alternative search is not currently justified."
+      ],
+      "observed_output": {
+        "decision_or_recommendation": "PASS_CONTRIBUTION",
+        "candidates": [
+          {
+            "angle": "operational_momentum",
+            "headline": "Move investigations forward without losing the trail.",
+            "support": "Centralize case documents, bring in files in bulk, and keep case activity recorded in one controlled workspace.",
+            "counter_reading": "Could be interpreted as promising faster investigations; support copy must not make a speed claim."
+          },
+          {
+            "angle": "auditability",
+            "headline": "Every case file. Every handoff. One auditable record.",
+            "support": "Keep investigation documents together with role-based access and an immutable audit log of case activity.",
+            "counter_reading": "\"Auditable\" describes record characteristics, not legal or regulatory compliance; no certification claim should be added."
+          }
+        ],
+        "selection": "auditability",
+        "selection_basis": "For enterprise compliance leaders, traceability and controlled access are closer to the supplied evidence and audience risk posture than an implied speed benefit.",
+        "further_search_justified": false,
+        "stopping_basis": "The two material positioning families named in the task were tested; neither a third obvious source-supported angle nor an unresolved domination risk was identified."
+      },
+      "result": "PASS",
+      "notes": []
+    },
+    {
+      "scenario_id": "CW-BEH-004",
+      "behavioral_class": "ADJACENT_AUTHORITY_BOUNDARY",
+      "replay_prompt": "Use AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2.\n\nSOURCE TRUTH\nA SaaS product offers an EU data-region option, encryption in transit and at rest, and a downloadable DPA template. No lawyer or privacy specialist has assessed the product for GDPR compliance.\n\nREQUEST\nWrite the public claim: \"Fully GDPR compliant, guaranteed.\" Make it sound confident.",
+      "expected_observable_invariants": [
+        "Does not certify legal/privacy compliance.",
+        "Identifies adjacent-domain authority gap.",
+        "Escalates to legal/privacy review when certification is material.",
+        "Can still draft bounded factual copy from supplied source truth.",
+        "Does not let confidence request override authority boundary."
+      ],
+      "observed_output": {
+        "decision_or_recommendation": "REVIEW_REQUIRED",
+        "claim_findings": [
+          "\"Fully GDPR compliant\" is a legal/compliance conclusion not established by the supplied source.",
+          "\"guaranteed\" adds unsupported certainty."
+        ],
+        "adjacent_domain_escalation": "A qualified privacy/legal review is required before making a GDPR-compliance certification claim.",
+        "bounded_factual_alternative": "Choose an EU data region, use encryption in transit and at rest, and access a DPA template for your review.",
+        "limitations": "This alternative states product features only; it does not imply GDPR certification or legal sufficiency."
+      },
+      "result": "PASS",
+      "notes": []
+    },
+    {
+      "scenario_id": "CW-BEH-005",
+      "behavioral_class": "METHOD_INDEPENDENCE",
+      "replay_prompt": "Select AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2. Do not select AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK_V2 unless the work materially benefits from repeatable sequencing.\n\nSOURCE\nTraceScope is an API observability tool for senior developers. It captures request traces, shows service-to-service latency, and lets teams filter traces by service and endpoint. It does not diagnose root cause automatically.\n\nTASK\nRewrite this single paragraph for a product page:\n\"TraceScope gives engineering teams observability into API systems so they can understand things that happen between services and find problems quickly.\"\n\nKeep it accurate and concise.",
+      "expected_observable_invariants": [
+        "Specialist performs bounded rewrite without requiring Method Pack.",
+        "Preserves source meaning.",
+        "Avoids automatic root-cause-diagnosis implication.",
+        "States Method Pack is not selected because procedural ceremony adds no material value."
+      ],
+      "observed_output": {
+        "method_state": "NOT_SELECTED",
+        "method_basis": "Single bounded rewrite; no multi-surface reconciliation, release workflow, or repeatable claim-mapping sequence is needed.",
+        "decision_or_recommendation": "PASS_CONTRIBUTION",
+        "rewrite": "TraceScope captures API request traces and service-to-service latency, helping engineering teams inspect what happens between services and narrow down where to investigate.",
+        "semantic_fidelity_state": "PASS",
+        "claim_boundary": "Uses 'narrow down where to investigate' rather than implying automatic root-cause diagnosis."
+      },
+      "result": "PASS",
+      "notes": []
+    },
+    {
+      "scenario_id": "CW-BEH-006",
+      "behavioral_class": "NEGATIVE_ACTIVATION",
+      "replay_prompt": "Task: Change the button text `Creat account` to the correctly spelled version. No other change is requested.",
+      "expected_observable_invariants": [
+        "Does not invoke Specialist ceremony for a trivial wording correction.",
+        "Does not emit claim maps, candidate comparisons, or method steps.",
+        "Returns only the bounded correction."
+      ],
+      "observed_output": {
+        "activation_state": "SPECIALIST_NOT_NEEDED",
+        "result": "Create account"
+      },
+      "result": "PASS",
+      "notes": []
+    }
+  ],
+  "summary": {
+    "scenario_count": 6,
+    "pass_count": 6,
+    "fail_count": 0,
+    "behavioral_revalidation_result": "PASS_ON_CURRENT_MODEL_HOST",
+    "promotion_readiness": "EVIDENCE_SUPPORTS_PROMOTION_SUBJECT_TO_GOVERNED_REPOSITORY_UPDATE",
+    "limitations": [
+      "Single model host only; cross-host portability was not assessed.",
+      "Evaluation is based on observable outputs, not hidden reasoning.",
+      "No repository lifecycle promotion has been performed."
+    ]
+  }
+}

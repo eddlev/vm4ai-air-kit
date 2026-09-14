@@ -9,10 +9,12 @@ FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+LEGACY_FOUN
 SET008_FOUNDATION_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
 STATIC_PASS='PASS_R7_DETERMINISTIC_STATIC_SUITE'
 BEHAVIOR_PENDING='PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
+BEHAVIOR_PASS='PASS_REPLAYABLE_MODEL_HOST_EVIDENCE'
 SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007'
 SET008_SPECIALIST_COMPAT='ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008'
 PENDING_STATIC='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION'
 PENDING_BEHAVIOR='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+RELEASED='RELEASE_CATALOG_ENTRY'
 CW_PACKAGE='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
 CW_DIR='public surface copywriting specialist'
 SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
@@ -58,7 +60,7 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx.get('INDEX_VERSION')=='1.3.4','Copywriting SET_008 index version mismatch')
+ req(idx.get('INDEX_VERSION')=='1.3.5','Copywriting SET_008 behavioral promotion index version mismatch')
  req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
  req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
  req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
@@ -71,14 +73,14 @@ def main():
  req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
  req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
  prog=idx['validation_state'].get('set008_static_revalidation_progress',{})
- req(prog.get('passed_package_identities')==[CW_PACKAGE] and prog.get('passed_count')==1 and prog.get('pending_count')==4 and prog.get('behavioral_revalidation_ready_package_identities')==[CW_PACKAGE],'R7 SET_008 progress carrier mismatch')
+ req(prog.get('passed_package_identities')==[CW_PACKAGE] and prog.get('passed_count')==1 and prog.get('pending_count')==4 and prog.get('behavioral_revalidation_ready_package_identities')==[] and prog.get('behavioral_revalidation_passed_package_identities')==[CW_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==1,'R7 SET_008 progress carrier mismatch')
  req(len(prog.get('pending_package_identities',[]))==4 and CW_PACKAGE not in prog.get('pending_package_identities',[]),'R7 SET_008 pending package set mismatch')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
   if e['package_identity']==CW_PACKAGE:
    req(e['foundation_compatibility_identity']==FOUNDATION_ID,'Copywriting index Foundation identity not SET_008')
-   req(e['availability_state']==PENDING_BEHAVIOR,'Copywriting index lifecycle not pending behavioral revalidation')
-   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Copywriting SET_008 state mismatch')
+   req(e['availability_state']==RELEASED,'Copywriting index lifecycle not released after behavioral revalidation')
+   req(e.get('current_foundation_compatibility_state')=='STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED' and e.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'Copywriting SET_008 behavioral state mismatch')
   else:
    req(e['foundation_compatibility_identity']==LEGACY_FOUNDATION_ID,'non-Copywriting index Foundation identity changed before revalidation')
    req(e['availability_state']==PENDING_STATIC,'non-Copywriting index lifecycle changed before static revalidation')
@@ -117,12 +119,14 @@ def main():
  for p in mans:
   o=parsed[p]
   st=str(o.get('status') or '')
-  req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')
+  is_cw=CW_DIR in str(p)
+  if is_cw:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: Copywriting top lifecycle not behavioral-pass')
+  else:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')
   pvs=o.get('package_validation_state',{})
   static_keys=[k for k in ('t7_static_validation','coordinated_reseal_static_validation','static_design_validation') if k in pvs]
   req(static_keys,f'{p}: no static validation carrier')
   for k in static_keys:req(pvs[k]==STATIC_PASS,f'{p}: {k} not static PASS')
-  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==BEHAVIOR_PENDING,f'{p}: behavioral validation not pending')
+  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if is_cw else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
   for c in o.get('components',[]):
    fn=c['filename']; cp=p.parent/fn; req(cp.is_file(),f'{p}: missing component {fn}')
    m=meta(cp)
@@ -132,9 +136,13 @@ def main():
    req(c.get('status')==cst,f'{p}: component status mirror mismatch {fn}')
    req(c.get('availability_state')==avail(cst),f'{p}: component availability mirror mismatch {fn}')
  cwman=parsed[ROOT/'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json']
- req(cwman['foundation_compatibility'].get('state')=='COORDINATED_SET_008_RESEAL_STATIC_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Copywriting manifest SET_008 state mismatch')
+ req(cwman['foundation_compatibility'].get('state')=='COORDINATED_SET_008_RESEAL_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED','Copywriting manifest SET_008 behavioral state mismatch')
  cpvs=cwman.get('package_validation_state',{})
  req(cpvs.get('foundation_reseal')=='PASS_COORDINATED_SET_008_RESEAL' and cpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','Copywriting SET_008 manifest validation state mismatch')
+ evp=ROOT/'tests/AIR_PUBLIC_SURFACE_COPYWRITING_SET008_BEHAVIORAL_EVIDENCE_V1.json'; req(evp.is_file(),'Copywriting behavioral evidence file missing'); ev=load(evp); er=cwman.get('behavioral_evidence_receipt',{})
+ req(meta(evp)['sha256']=='948dfcf7f9dfe1839e06475bb7566521b56430d2fb141cb96065e1e8fd45769d' and er.get('sha256')=='948dfcf7f9dfe1839e06475bb7566521b56430d2fb141cb96065e1e8fd45769d','Copywriting behavioral evidence hash mismatch')
+ req(ev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_PUBLIC_SURFACE_COPYWRITING_SET008_20260914_V1' and ev.get('summary',{}).get('pass_count')==6 and ev.get('summary',{}).get('scenario_count')==6 and ev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','Copywriting behavioral evidence result mismatch')
+ req(er.get('result')==BEHAVIOR_PASS and er.get('model_host')=='ChatGPT / GPT-5.6 Sol' and er.get('cross_host_equivalence_claimed') is False,'Copywriting behavioral evidence receipt mismatch')
  for e in idx['entries']:
   targets=list(ROOT.glob('profiles/**/'+e['manifest_filename']))
   req(len(targets)==1,'index manifest target ambiguity '+e['manifest_filename'])
@@ -169,7 +177,7 @@ def main():
  print('current_foundation_identity_carriers',count)
  print('package_manifests 5')
  print('operational_json 28')
- print('behavioral_evidence CURRENTLY_PENDING')
+ print('behavioral_evidence PASS_REPLAYABLE_MODEL_HOST_EVIDENCE')
 if __name__=='__main__':
  try:main()
  except (E,KeyError,StopIteration,IndexError) as e:
