@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.3",
+  "INDEX_VERSION": "1.3.4",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
   "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-14T11:23:00Z",
+  "generated_at": "2026-09-14T20:58:00Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -134,7 +134,7 @@
     "decision": "CANDIDATE_PENDING_STATIC_VALIDATION",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "HISTORICAL_SET_007_RECEIPTS_RETAINED_SET_008_REVALIDATION_PENDING",
+    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_COPYWRITING_SET_008_STATIC_PASS_OTHER_PACKAGES_PENDING",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -145,9 +145,25 @@
     "behavioral_revalidation": "BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
     "operative_lifecycle_coherence": "PASS_PENDING_STATIC_NO_INFERRED_UPGRADE",
-    "component_internal_foundation_compatibility": "REVALIDATION_REQUIRED_FOR_PACKAGES_AGAINST_SET_008_NO_INFERRED_UPGRADE",
+    "component_internal_foundation_compatibility": "COPYWRITING_PASS_SET_008_REMAINING_PACKAGES_REVALIDATION_REQUIRED",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
-    "handoff_rev19_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED"
+    "handoff_rev19_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED",
+    "set008_static_revalidation_progress": {
+      "passed_package_identities": [
+        "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2"
+      ],
+      "pending_package_identities": [
+        "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+        "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
+      ],
+      "passed_count": 1,
+      "pending_count": 4,
+      "behavioral_revalidation_ready_package_identities": [
+        "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2"
+      ]
+    }
   },
   "entries": [
     {
@@ -279,7 +295,7 @@
       "specialist_designation": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_V2",
       "manifest_filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "aab9fb5a464fb454e30cf346647649e7c56929731c15fa182b87b013c461b506",
+      "manifest_sha256": "a4c6ae173c20b980dd346d6c359066bbc46b1d2d92ed354823fef348033b89ee",
       "canonical_component_filenames": [
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
         "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json"
@@ -305,13 +321,13 @@
       ],
       "short_activation_summary": "Use when a material public-facing task requires recurring copywriting/positioning judgment, source-bounded claim language, audience/page-role framing, technical-to-plain explanation, brand adaptation, or cross-surface copy review beyond Default Starter.",
       "short_non_activation_summary": "Do not select for trivial edits, private/internal writing, missing subject-matter truth, or tasks whose actual gap is legal/accessibility/compliance/technical/domain authority rather than copywriting judgment.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "content_revision": "2.0.0",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL"
+      "current_foundation_compatibility_state": "STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
       "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",

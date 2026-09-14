@@ -32,6 +32,9 @@ add('R7-N17-RESEAL-HISTORY-GUARD-REMOVED','tools/reseal_air_candidate.py',lambda
 add('R7-N18-FLOOR028-MISSING','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',jfn(lambda o:o['foundation_compatibility']['required_floor_invariants'].remove('AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION')))
 add('R7-N19-COPYWRITING-COMPAT-STALE','profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json',jfn(lambda o:o['foundation_compatibility'].__setitem__('compatibility_state','COORDINATED_SET_005_RESEAL_STATIC_AND_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING')))
 add('R7-N20-INDEX-HANDOFF-REV19-STALE','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['validation_state'].__setitem__('handoff_rev19_catalog_compatibility','STALE_REV18')))
+add('R7-N21-COPYWRITING-INDEX-STATIC-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
+add('R7-N22-COPYWRITING-INDEX-SET007-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity','AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))
+add('R7-N23-COPYWRITING-CARD-REVISION-RESTORED','profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json',jfn(lambda o:next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json').__setitem__('card_revision',18)))
 if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')
 print('R7-MUTATION-BASELINE: PASS')
 with tempfile.TemporaryDirectory(prefix='air-r7-mutations-') as td:
