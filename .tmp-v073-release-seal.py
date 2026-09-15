@@ -1,0 +1,148 @@
+from __future__ import annotations
+
+import hashlib
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+def replace_one(path: str, old: str, new: str, label: str) -> None:
+    p = Path(path)
+    s = p.read_text(encoding='utf-8')
+    n = s.count(old)
+    if n != 1:
+        raise SystemExit(f'{label}: expected one anchor, observed {n}')
+    p.write_text(s.replace(old, new, 1), encoding='utf-8')
+
+
+# README public release metadata.
+replace_one(
+    'README.md',
+    'The current release candidate is **AIR Kit v0.7.3**. The tag is created only after the validated mainline merge.',
+    'The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.',
+    'README release state',
+)
+replace_one(
+    'README.md',
+    '- Specialist Package Index **1.3.3** (SET_008 package revalidation pending; SET_007 package receipts retained)',
+    '- Specialist Package Index **1.3.13** (all five Specialist packages SET_008 static-valid and replayable behavioral-pass; draft Executors remain explicitly unvalidated where applicable)',
+    'README Specialist Index identity',
+)
+replace_one(
+    'README.md',
+    'The v0.7.3 release is sealed from the validated `main` commit after repository CI passes; the existing `v0.7.2` tag is never moved or redefined.',
+    'All five catalogued Specialist packages carry SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.\n\nThe v0.7.3 release source is sealed from validated `main`; tag/release publication is verified separately against the exact sealed commit, and the existing `v0.7.2` tag is never moved or redefined.',
+    'README release seal boundary',
+)
+
+# Release-seal the discovery catalog without changing authority or behavioral receipts.
+idx_path = Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
+idx = json.loads(idx_path.read_text(encoding='utf-8'))
+old_status = 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED'
+new_status = 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V073_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED'
+old_complete = 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG'
+new_complete = 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V073_RELEASE_SPECIALIST_CATALOG'
+if idx.get('INDEX_VERSION') != '1.3.13':
+    raise SystemExit('Index version is not approved 1.3.13 baseline')
+if idx.get('status') != old_status:
+    raise SystemExit('Index candidate status anchor mismatch')
+if idx.get('catalog_scope', {}).get('catalog_completeness_claim') != old_complete:
+    raise SystemExit('Index candidate completeness anchor mismatch')
+if idx.get('candidate_lifecycle_contract', {}).get('current_candidate_state') != 'RELEASE_CATALOG_ENTRY':
+    raise SystemExit('Index aggregate lifecycle is not RELEASE_CATALOG_ENTRY')
+if idx.get('validation_state', {}).get('behavioral_revalidation') != 'PASS_REPLAYABLE_MODEL_HOST_EVIDENCE':
+    raise SystemExit('Index all-five behavioral pass missing')
+if idx.get('validation_state', {}).get('release_publication_state') != 'EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY':
+    raise SystemExit('Index publication boundary changed')
+idx['status'] = new_status
+idx['generated_at'] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+idx['catalog_scope']['catalog_completeness_claim'] = new_complete
+idx_path.write_text(json.dumps(idx, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+index_sha = hashlib.sha256(idx_path.read_bytes()).hexdigest()
+
+# R7 must reject rollback to the pre-seal candidate metadata.
+replace_one(
+    'tools/validate_air_r7_remediation.py',
+    "req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED','v073 current index status incoherent')",
+    "req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V073_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED','v073 release-sealed index status incoherent')",
+    'R7 release-seal status predicate',
+)
+replace_one(
+    'tools/validate_air_r7_remediation.py',
+    "req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')",
+    "req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V073_RELEASE_SPECIALIST_CATALOG','v073 release completeness identity incoherent')",
+    'R7 release completeness predicate',
+)
+
+r7_mut = Path('tools/test_air_r7_mutations.py')
+s = r7_mut.read_text(encoding='utf-8')
+marker = "if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')\n"
+if s.count(marker) != 1:
+    raise SystemExit('R7 mutation insertion anchor mismatch')
+extra = (
+    "add('R7-N61-INDEX-RELEASE-SEAL-STATUS-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o.__setitem__('status','AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED')))\n"
+    "add('R7-N62-INDEX-RELEASE-COMPLETENESS-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['catalog_scope'].__setitem__('catalog_completeness_claim','COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG')))\n"
+)
+r7_mut.write_text(s.replace(marker, extra + marker, 1), encoding='utf-8')
+
+# Dedicated v0.7.3 seal validator owns exact release-sealed catalog and README public state.
+v_path = Path('tools/validate_air_v073_release_seal.py')
+s = v_path.read_text(encoding='utf-8')
+old_hash = "'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '0b32ae3d5289c24959f444079195a3786d0bbdd5e32313eb0c9c26208c6a0693',"
+new_hash = f"'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '{index_sha}',"
+if s.count(old_hash) != 1:
+    raise SystemExit('v073 Index hash anchor mismatch')
+s = s.replace(old_hash, new_hash, 1)
+load_marker = "    index = load(ROOT / 'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')\n"
+if s.count(load_marker) != 1:
+    raise SystemExit('v073 index-load anchor mismatch')
+seal_checks = (
+    "    readme = (ROOT / 'README.md').read_text(encoding='utf-8')\n"
+    "    req(index['status'] == 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V073_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED', 'Index is not v0.7.3 release-sealed')\n"
+    "    req(index['catalog_scope']['catalog_completeness_claim'] == 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V073_RELEASE_SPECIALIST_CATALOG', 'Index v0.7.3 release completeness identity mismatch')\n"
+    "    req('The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`.' in readme, 'README release-sealed source statement missing')\n"
+    "    req('Specialist Package Index **1.3.13**' in readme, 'README Specialist Index identity stale')\n"
+    "    req('The current release candidate is **AIR Kit v0.7.3**.' not in readme, 'README still claims v0.7.3 release candidate')\n"
+)
+s = s.replace(load_marker, load_marker + seal_checks, 1)
+old_print = "    print('specialist_index', '1.3.13; all five Specialist packages SET_008 static-valid and replayable behavioral-pass; Grounding Executor remains DRAFT/unvalidated')"
+new_print = "    print('specialist_index', '1.3.13 release-sealed; all five Specialist packages SET_008 static-valid and replayable behavioral-pass; Grounding Executor remains DRAFT/unvalidated')"
+if s.count(old_print) != 1:
+    raise SystemExit('v073 diagnostic anchor mismatch')
+s = s.replace(old_print, new_print, 1)
+v_path.write_text(s, encoding='utf-8')
+
+# Mutation coverage for release-seal metadata and public README rollback.
+m_path = Path('tools/test_air_v073_release_seal_mutations.py')
+s = m_path.read_text(encoding='utf-8')
+marker = '    killed = 0\n'
+if s.count(marker) != 1:
+    raise SystemExit('v073 mutation insertion anchor mismatch')
+extra = '''    add('V073-N48-INDEX-RELEASE-SEAL-STATUS-ROLLBACK', idxmut(lambda o: o.__setitem__('status', 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED')))
+    add('V073-N49-INDEX-RELEASE-COMPLETENESS-ROLLBACK', idxmut(lambda o: o['catalog_scope'].__setitem__('catalog_completeness_claim', 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG')))
+
+    def readme_index_rollback(d: Path):
+        p = d / 'README.md'
+        t = p.read_text(encoding='utf-8')
+        old = 'Specialist Package Index **1.3.13**'
+        new = 'Specialist Package Index **1.3.3**'
+        if old not in t:
+            raise RuntimeError('README Index mutation anchor missing')
+        p.write_text(t.replace(old, new, 1), encoding='utf-8')
+    add('V073-N50-README-INDEX-ROLLBACK', readme_index_rollback)
+
+    def readme_candidate_rollback(d: Path):
+        p = d / 'README.md'
+        t = p.read_text(encoding='utf-8')
+        old = 'The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`.'
+        new = 'The current release candidate is **AIR Kit v0.7.3**.'
+        if old not in t:
+            raise RuntimeError('README release-state mutation anchor missing')
+        p.write_text(t.replace(old, new, 1), encoding='utf-8')
+    add('V073-N51-README-RELEASE-CANDIDATE-ROLLBACK', readme_candidate_rollback)
+
+'''
+m_path.write_text(s.replace(marker, extra + marker, 1), encoding='utf-8')
+
+print('v0.7.3 release-seal candidate constructed')
+print('index_sha256', index_sha)
