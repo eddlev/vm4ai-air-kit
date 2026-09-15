@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.9",
+  "INDEX_VERSION": "1.3.10",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
   "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-15T07:06:00Z",
+  "generated_at": "2026-09-15T07:18:00Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -134,7 +134,7 @@
     "decision": "CANDIDATE_PENDING_STATIC_VALIDATION",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_CEA_COPYWRITING_SFV_SET_008_BEHAVIORAL_PASS_OTHER_PACKAGES_PENDING",
+    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_GOVERNANCE_CEA_COPYWRITING_SFV_SET_008_GROUNDING_PENDING",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -145,22 +145,24 @@
     "behavioral_revalidation": "BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
     "operative_lifecycle_coherence": "PASS_PENDING_STATIC_NO_INFERRED_UPGRADE",
-    "component_internal_foundation_compatibility": "CEA_COPYWRITING_SFV_PASS_SET_008_GOVERNANCE_AND_GROUNDING_REVALIDATION_REQUIRED",
+    "component_internal_foundation_compatibility": "GOVERNANCE_CEA_COPYWRITING_SFV_PASS_SET_008_GROUNDING_REVALIDATION_REQUIRED",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
     "handoff_rev19_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED",
     "set008_static_revalidation_progress": {
       "passed_package_identities": [
+        "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
         "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
       ],
       "pending_package_identities": [
-        "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
         "AIR_GROUNDING_SPECIALIST_PACKAGE_V2"
       ],
-      "passed_count": 3,
-      "pending_count": 2,
-      "behavioral_revalidation_ready_package_identities": [],
+      "passed_count": 4,
+      "pending_count": 1,
+      "behavioral_revalidation_ready_package_identities": [
+        "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2"
+      ],
       "behavioral_revalidation_passed_package_identities": [
         "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
@@ -175,7 +177,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "dc66ef50d983a6ab0ea06a27e340d5bb6ab6cd2e2e8ef7515823e210aeeded42",
+      "manifest_sha256": "cba5c6e1d6fe2c210e10d65a3d540c69400cd3b68619fa78ee526409b1e2f79e",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -206,12 +208,12 @@
       ],
       "short_activation_summary": "Use when AI governance, risk, assurance, policy-to-control translation, regulatory/enterprise oversight, evidence planning, or agentic-AI governance materially affects the task.",
       "short_non_activation_summary": "Do not select for simple low-risk AI explanation, pure creative ideation without governance consequence, or a narrow legal conclusion requiring qualified legal authority.",
-      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION",
+      "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL"
+      "current_foundation_compatibility_state": "STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING"
     },
     {
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",

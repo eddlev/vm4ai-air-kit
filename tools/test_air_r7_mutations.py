@@ -54,6 +54,11 @@ add('R7-N39-CEA-BEHAVIORAL-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'
 add('R7-N40-CEA-EVIDENCE-RECEIPT-STALE','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json',jfn(lambda o:o['behavioral_evidence_receipt'].__setitem__('sha256','0'*64)))
 add('R7-N41-CEA-EVIDENCE-PASSCOUNT-STALE','tests/AIR_CAPABILITY_ECOLOGY_ARCHITECT_SET008_BEHAVIORAL_EVIDENCE_V1.json',jfn(lambda o:o['summary'].__setitem__('pass_count',5)))
 add('R7-N42-CEA-COMPONENT-BEHAVIORAL-ROLLBACK','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',jfn(lambda o:o.__setitem__('STATUS','V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING')))
+add('R7-N43-GOVERNANCE-INDEX-STATIC-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2').__setitem__('availability_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
+add('R7-N44-GOVERNANCE-INDEX-SET007-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity','AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))
+add('R7-N45-GOVERNANCE-EXECUTOR-PREMATURE-PROMOTION','profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json',jfn(lambda o:o.__setitem__('STATUS','V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING')))
+add('R7-N46-GOVERNANCE-CARD-REVISION-RESTORED','profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json',jfn(lambda o:next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json').__setitem__('card_revision',18)))
+add('R7-N47-GOVERNANCE-ROUTE-MAP-ROLLBACK','profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json',jfn(lambda o:o['foundation_routing_compatibility']['runtime_route_map'].__setitem__('version','1.2.1')))
 if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')
 print('R7-MUTATION-BASELINE: PASS')
 with tempfile.TemporaryDirectory(prefix='air-r7-mutations-') as td:

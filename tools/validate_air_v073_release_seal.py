@@ -20,6 +20,7 @@ BEHAVIOR_PASS = 'PASS_REPLAYABLE_MODEL_HOST_EVIDENCE'
 CW_PACKAGE = 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
 SFV_PACKAGE = 'AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2'
 CEA_PACKAGE = 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'
+GOV_PACKAGE = 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'
 EXPECTED_HASHES = {
     'prompts/AIR_CORE_RUNTIME.md': 'e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371',
     'prompts/AIR_CONTROL_SURFACE.md': '0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff',
@@ -27,7 +28,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'e1f77e6886485cc6ed0bab3c149741a92acb851b850e29eb5de0442d9ac0fa83',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'f85af5c719019d4ac96f503dce02548d1f9c6fa9711a51f12fe6aa7f170f86ac',
 }
 
 
@@ -153,7 +154,7 @@ def main() -> None:
     req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
     req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
 
-    req(index['INDEX_VERSION'] == '1.3.9', 'Index CEA-behavioral-promotion version mismatch')
+    req(index['INDEX_VERSION'] == '1.3.10', 'Index Governance-SET008-static version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
     rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
     req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
@@ -180,14 +181,34 @@ def main() -> None:
     req(cae['availability_state'] == RELEASED, 'CEA lifecycle not released after behavioral revalidation')
     req(cae['foundation_compatibility_identity'] == FOUNDATION_ID, 'CEA SET_008 identity missing')
     req(cae['current_foundation_compatibility_state'] == 'STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED' and cae.get('behavioral_revalidation_state') == BEHAVIOR_PASS, 'CEA SET_008 behavioral state mismatch')
-    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE}]
-    req(len(others) == 2 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
+    gov = [e for e in index['entries'] if e['package_identity'] == GOV_PACKAGE]
+    req(len(gov) == 1, 'Governance index entry missing')
+    goe = gov[0]
+    req(goe['availability_state'] == PENDING_BEHAVIOR, 'Governance lifecycle not pending behavioral after static validation')
+    req(goe['foundation_compatibility_identity'] == FOUNDATION_ID, 'Governance SET_008 identity missing')
+    req(goe['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'Governance SET_008 static state mismatch')
+    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE, GOV_PACKAGE}]
+    req(len(others) == 1 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
     req(all(e['foundation_compatibility_identity'] == SET007 for e in others), 'remaining historical compatibility identity changed')
     req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in others), 'remaining SET_008 compatibility inferred')
     prog = index['validation_state'].get('set008_static_revalidation_progress', {})
-    req(prog.get('passed_package_identities') == [CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 3 and prog.get('pending_count') == 2 and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 3, 'Index SET_008 progress mismatch')
+    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 4 and prog.get('pending_count') == 1 and prog.get('behavioral_revalidation_ready_package_identities') == [GOV_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 3, 'Index SET_008 progress mismatch')
 
-    # Manifest receipts remain exact for the unchanged SET_007 package bytes.
+    gov_dir = ROOT / 'profiles' / 'governance specialist'
+    gov_names = ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json','AIR_AI_GOVERNANCE_EXECUTOR.json']
+    for name in gov_names:
+        obj = load(gov_dir / name); fc = obj['foundation_compatibility']
+        req(fc.get('target_identity') == FOUNDATION_ID and fc.get('compatibility_state') == 'ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008', f'{name}: Governance SET_008 compatibility missing')
+        hr = next(x for x in fc['required_files'] if x['filename'] == 'AIR_HANDOFF_CARD_TEMPLATE.json')
+        req(hr.get('template_revision') == 19 and hr.get('revision_fields') == ['template_revision','user_revision'] and 'card_revision' not in hr, f'{name}: Governance Handoff revision split stale')
+        rr = fc['route_map_discovery_input']; req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Governance Route Map receipt stale')
+        if isinstance(obj.get('foundation_routing_compatibility'), dict) and isinstance(obj['foundation_routing_compatibility'].get('runtime_route_map'), dict):
+            rr2=obj['foundation_routing_compatibility']['runtime_route_map']; req(rr2.get('version') == '1.2.2' and rr2.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Governance secondary Route Map receipt stale')
+    req(load(gov_dir / 'AIR_AI_GOVERNANCE_EXECUTOR.json').get('STATUS') == 'DRAFT', 'Governance Executor prematurely promoted')
+    govm=load(gov_dir / 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json')
+    req(govm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS' and govm['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Governance manifest static/behavioral state mismatch')
+
+    # Manifest receipts remain exact for the current package bytes.
     for entry in index['entries']:
         targets = list(ROOT.glob('profiles/**/' + entry['manifest_filename']))
         req(len(targets) == 1, f"manifest target ambiguous {entry['manifest_filename']}")
