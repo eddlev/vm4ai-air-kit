@@ -21,6 +21,7 @@ CW_PACKAGE = 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
 SFV_PACKAGE = 'AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2'
 CEA_PACKAGE = 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'
 GOV_PACKAGE = 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'
+GROUND_PACKAGE = 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2'
 EXPECTED_HASHES = {
     'prompts/AIR_CORE_RUNTIME.md': 'e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371',
     'prompts/AIR_CONTROL_SURFACE.md': '0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff',
@@ -28,7 +29,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'f49450354f716fd82edda6e25d1f40958e1e8ef49d88296e07cf67895794483c',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '8c0599771be5a066f64cf77406cbe7c084f5528980aed65fb2c5991116519966',
 }
 
 
@@ -154,14 +155,14 @@ def main() -> None:
     req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
     req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
 
-    req(index['INDEX_VERSION'] == '1.3.11', 'Index Governance-SET008-behavioral version mismatch')
+    req(index['INDEX_VERSION'] == '1.3.12', 'Index Grounding-SET008-static version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
     rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
     req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
-    req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_STATIC, 'Index aggregate candidate lifecycle overclaims evidence')
-    req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_STATIC_VALIDATION', 'Index validation decision not pending-static')
-    req(index['validation_state']['static_validation'] == 'PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index static state mismatch')
-    req(index['validation_state']['behavioral_revalidation'] == 'BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index behavioral state not blocked by static')
+    req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_BEHAVIOR, 'Index aggregate candidate lifecycle not pending behavioral revalidation')
+    req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION', 'Index validation decision not pending-behavioral')
+    req(index['validation_state']['static_validation'] == 'PASS_R7_DETERMINISTIC_STATIC_SUITE', 'Index static state mismatch')
+    req(index['validation_state']['behavioral_revalidation'] == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Index behavioral state not pending Grounding evidence')
     cw = [e for e in index['entries'] if e['package_identity'] == CW_PACKAGE]
     req(len(cw) == 1, 'Copywriting index entry missing')
     ce = cw[0]
@@ -188,12 +189,14 @@ def main() -> None:
     req(goe['foundation_compatibility_identity'] == FOUNDATION_ID, 'Governance SET_008 identity missing')
     req(goe['current_foundation_compatibility_state'] == 'STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and goe.get('behavioral_revalidation_state') == BEHAVIOR_PASS, 'Governance SET_008 behavioral state mismatch')
     req(goe.get('executor_component_state') == 'DRAFT_AVAILABLE_UNVALIDATED', 'Governance Executor component boundary missing from index')
-    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE, GOV_PACKAGE}]
-    req(len(others) == 1 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
-    req(all(e['foundation_compatibility_identity'] == SET007 for e in others), 'remaining historical compatibility identity changed')
-    req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in others), 'remaining SET_008 compatibility inferred')
+    grounding = [e for e in index['entries'] if e['package_identity'] == GROUND_PACKAGE]
+    req(len(grounding) == 1, 'Grounding index entry missing')
+    gre = grounding[0]
+    req(gre['availability_state'] == PENDING_BEHAVIOR, 'Grounding lifecycle not pending behavioral revalidation')
+    req(gre['foundation_compatibility_identity'] == FOUNDATION_ID, 'Grounding SET_008 identity missing')
+    req(gre['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'Grounding SET_008 static state mismatch')
     prog = index['validation_state'].get('set008_static_revalidation_progress', {})
-    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 4 and prog.get('pending_count') == 1 and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')
+    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE, GROUND_PACKAGE] and prog.get('passed_count') == 5 and prog.get('pending_count') == 0 and prog.get('pending_package_identities') == [] and prog.get('behavioral_revalidation_ready_package_identities') == [GROUND_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')
 
     gov_dir = ROOT / 'profiles' / 'governance specialist'
     gov_names = ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json','AIR_AI_GOVERNANCE_EXECUTOR.json']
@@ -289,6 +292,20 @@ def main() -> None:
     ceaev=load(ceaevp); ceaer=ceam.get('behavioral_evidence_receipt',{})
     req(ceaev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_CAPABILITY_ECOLOGY_ARCHITECT_SET008_20260915_V1' and ceaev.get('summary',{}).get('pass_count')==6 and ceaev.get('summary',{}).get('scenario_count')==6 and ceaev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','CEA behavioral evidence result mismatch')
     req(ceaer.get('sha256')=='4779e1e48a4b9b614c66e892c7bf964fcabcd4b04bfae41af2bddbb01564307d' and ceaer.get('result')==BEHAVIOR_PASS and ceaer.get('cross_host_equivalence_claimed') is False,'CEA behavioral evidence receipt mismatch')
+
+    grounding_dir = ROOT / 'profiles' / 'grounding specialist'
+    for name in ['AIR_GROUNDING_DOMAIN_PACKAGE.json','AIR_GROUNDING_METHOD_PACK.json','AIR_GROUNDING_SPECIALIST.json','AIR_GROUNDING_EXECUTOR.json']:
+        obj = load(grounding_dir / name); fc = obj['foundation_compatibility']
+        req(fc.get('target_identity') == FOUNDATION_ID and fc.get('compatibility_state') == 'ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008', f'{name}: Grounding SET_008 compatibility missing')
+        hr = next(x for x in fc['required_files'] if x['filename'] == 'AIR_HANDOFF_CARD_TEMPLATE.json')
+        req(hr.get('template_revision') == 19 and hr.get('revision_fields') == ['template_revision','user_revision'] and 'card_revision' not in hr, f'{name}: Grounding Handoff revision split stale')
+        rr = fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}
+        req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Grounding Route Map receipt stale')
+    req(load(grounding_dir / 'AIR_GROUNDING_EXECUTOR.json').get('STATUS') == 'DRAFT', 'Grounding Executor was promoted out of DRAFT')
+    groundm = load(grounding_dir / 'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json')
+    req(groundm['foundation_compatibility'].get('target_identity') == FOUNDATION_ID, 'Grounding manifest target identity stale')
+    req(groundm['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Grounding behavioral state overclaimed')
+    req(groundm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS', 'Grounding component receipt state stale')
 
     migrator = load_migrator()
     current_doc = {'AIR_HANDOFF_CARD': handoff}
