@@ -39,7 +39,7 @@ def main() -> None:
         return m
 
     add('V073-N01-AGGREGATE-LIFECYCLE-OVERCLAIM', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
-    add('V073-N02-ENTRY-PREMATURE-RELEASE', idxmut(lambda o: o['entries'][0].__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY')))
+    add('V073-N02-ENTRY-PREMATURE-RELEASE', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY')))
 
     def route_version(d: Path):
         p = d / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o = load(p); o['MAP_VERSION'] = '1.2.1'; dump(p, o)
@@ -76,7 +76,7 @@ def main() -> None:
         dump(p, o)
     add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
 
-    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.9')))
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.10')))
 
     add('V073-N11-COPYWRITING-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 
@@ -163,6 +163,20 @@ def main() -> None:
     def governance_route_map_rollback(d: Path):
         p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json';o=load(p);o['foundation_routing_compatibility']['runtime_route_map']['version']='1.2.1';dump(p,o)
     add('V073-N34-GOVERNANCE-ROUTE-MAP-ROLLBACK', governance_route_map_rollback)
+
+    add('V073-N35-GOVERNANCE-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
+
+    def governance_evidence_receipt_stale(d: Path):
+        p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json';o=load(p);o['behavioral_evidence_receipt']['sha256']='0'*64;dump(p,o)
+    add('V073-N36-GOVERNANCE-EVIDENCE-RECEIPT-STALE', governance_evidence_receipt_stale)
+
+    def governance_evidence_passcount_stale(d: Path):
+        p=d/'tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json';o=load(p);o['summary']['pass_count']=5;dump(p,o)
+    add('V073-N37-GOVERNANCE-EVIDENCE-PASSCOUNT-STALE', governance_evidence_passcount_stale)
+
+    def governance_component_behavioral_rollback(d: Path):
+        p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
+    add('V073-N38-GOVERNANCE-COMPONENT-BEHAVIORAL-ROLLBACK', governance_component_behavioral_rollback)
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:

@@ -28,7 +28,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'f85af5c719019d4ac96f503dce02548d1f9c6fa9711a51f12fe6aa7f170f86ac',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'f49450354f716fd82edda6e25d1f40958e1e8ef49d88296e07cf67895794483c',
 }
 
 
@@ -154,7 +154,7 @@ def main() -> None:
     req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
     req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
 
-    req(index['INDEX_VERSION'] == '1.3.10', 'Index Governance-SET008-static version mismatch')
+    req(index['INDEX_VERSION'] == '1.3.11', 'Index Governance-SET008-behavioral version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
     rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
     req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
@@ -184,15 +184,16 @@ def main() -> None:
     gov = [e for e in index['entries'] if e['package_identity'] == GOV_PACKAGE]
     req(len(gov) == 1, 'Governance index entry missing')
     goe = gov[0]
-    req(goe['availability_state'] == PENDING_BEHAVIOR, 'Governance lifecycle not pending behavioral after static validation')
+    req(goe['availability_state'] == RELEASED, 'Governance lifecycle not released after behavioral revalidation')
     req(goe['foundation_compatibility_identity'] == FOUNDATION_ID, 'Governance SET_008 identity missing')
-    req(goe['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'Governance SET_008 static state mismatch')
+    req(goe['current_foundation_compatibility_state'] == 'STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and goe.get('behavioral_revalidation_state') == BEHAVIOR_PASS, 'Governance SET_008 behavioral state mismatch')
+    req(goe.get('executor_component_state') == 'DRAFT_AVAILABLE_UNVALIDATED', 'Governance Executor component boundary missing from index')
     others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE, GOV_PACKAGE}]
     req(len(others) == 1 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
     req(all(e['foundation_compatibility_identity'] == SET007 for e in others), 'remaining historical compatibility identity changed')
     req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in others), 'remaining SET_008 compatibility inferred')
     prog = index['validation_state'].get('set008_static_revalidation_progress', {})
-    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 4 and prog.get('pending_count') == 1 and prog.get('behavioral_revalidation_ready_package_identities') == [GOV_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 3, 'Index SET_008 progress mismatch')
+    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 4 and prog.get('pending_count') == 1 and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')
 
     gov_dir = ROOT / 'profiles' / 'governance specialist'
     gov_names = ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json','AIR_AI_GOVERNANCE_EXECUTOR.json']
@@ -204,9 +205,16 @@ def main() -> None:
         rr = fc['route_map_discovery_input']; req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Governance Route Map receipt stale')
         if isinstance(obj.get('foundation_routing_compatibility'), dict) and isinstance(obj['foundation_routing_compatibility'].get('runtime_route_map'), dict):
             rr2=obj['foundation_routing_compatibility']['runtime_route_map']; req(rr2.get('version') == '1.2.2' and rr2.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Governance secondary Route Map receipt stale')
+    for name in ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json']:
+        req(load(gov_dir / name).get('STATUS') == 'V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND', f'{name}: Governance behavioral lifecycle mismatch')
     req(load(gov_dir / 'AIR_AI_GOVERNANCE_EXECUTOR.json').get('STATUS') == 'DRAFT', 'Governance Executor prematurely promoted')
     govm=load(gov_dir / 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json')
-    req(govm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS' and govm['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Governance manifest static/behavioral state mismatch')
+    req(govm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS' and govm['package_validation_state'].get('behavioral_revalidation') == BEHAVIOR_PASS and govm['package_validation_state'].get('executor_validation_state') == 'DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS', 'Governance manifest behavioral state mismatch')
+    govevp=ROOT/'tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json'
+    req(govevp.is_file() and sha(govevp) == '7b568dfd9ea04e247b4b4b425af34e616765af0ad86c70a716e96c9629ebd3e9', 'Governance behavioral evidence file/hash mismatch')
+    govev=load(govevp); gover=govm.get('behavioral_evidence_receipt', {})
+    req(govev.get('evidence_id') == 'AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260915_V1' and govev.get('summary', {}).get('pass_count') == 6 and govev.get('summary', {}).get('scenario_count') == 6 and govev.get('summary', {}).get('behavioral_revalidation_result') == 'PASS_ON_CURRENT_MODEL_HOST', 'Governance behavioral evidence result mismatch')
+    req(gover.get('sha256') == '7b568dfd9ea04e247b4b4b425af34e616765af0ad86c70a716e96c9629ebd3e9' and gover.get('result') == BEHAVIOR_PASS and gover.get('cross_host_equivalence_claimed') is False and gover.get('executor_included_in_behavioral_pass') is False, 'Governance behavioral evidence receipt mismatch')
 
     # Manifest receipts remain exact for the current package bytes.
     for entry in index['entries']:
@@ -331,7 +339,7 @@ def main() -> None:
     print('handoff_template_revision', 19)
     print('legacy_floor', '2.2.0 / Starter 2.4.3')
     print('route_map', '1.2.2')
-    print('specialist_index', '1.3.9 pending SET_008 static revalidation')
+    print('specialist_index', '1.3.11; Governance/CEA/Copywriting/SFV behavioral-pass, Grounding pending static revalidation')
     print('deterministic_registry', '90/90')
 
 

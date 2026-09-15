@@ -24,9 +24,11 @@ SFV_DIR='specification first verification specialist'
 CEA_DIR='capability ecology architect'
 GOV_DIR='governance specialist'
 CEA_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
+GOV_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
 SFV_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
 SFV_PACKAGE_PASS_STATE='PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED'
 SFV_BEHAVIORAL_COMPONENTS={'AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json','AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json','AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json'}
+GOV_BEHAVIORAL_COMPONENTS={'AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json'}
 SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
 T7={
  'change_id':'AIR_T7_CEA_MII_INTEGRATION_001','package_version':'2.4.0','component_prompt_version':'2.2.0','manifest_prompt_version':'2.1.0',
@@ -70,7 +72,7 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx.get('INDEX_VERSION')=='1.3.10','Governance SET_008 static remediation index version mismatch')
+ req(idx.get('INDEX_VERSION')=='1.3.11','Governance SET_008 behavioral promotion index version mismatch')
  req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
  req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
  req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
@@ -83,14 +85,15 @@ def main():
  req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
  req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
  prog=idx['validation_state'].get('set008_static_revalidation_progress',{})
- req(prog.get('passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==4 and prog.get('pending_count')==1 and prog.get('behavioral_revalidation_ready_package_identities')==[GOV_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities')==[CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==3,'R7 SET_008 progress carrier mismatch')
+ req(prog.get('passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==4 and prog.get('pending_count')==1 and prog.get('behavioral_revalidation_ready_package_identities')==[] and prog.get('behavioral_revalidation_passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==4,'R7 SET_008 progress carrier mismatch')
  req(prog.get('pending_package_identities')==['AIR_GROUNDING_SPECIALIST_PACKAGE_V2'],'R7 SET_008 pending package set mismatch')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
   if e['package_identity']==GOV_PACKAGE:
    req(e['foundation_compatibility_identity']==FOUNDATION_ID,'Governance index Foundation identity not SET_008')
-   req(e['availability_state']==PENDING_BEHAVIOR,'Governance index lifecycle not pending behavioral revalidation')
-   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Governance SET_008 static state mismatch')
+   req(e['availability_state']==RELEASED,'Governance index lifecycle not released after behavioral revalidation')
+   req(e.get('current_foundation_compatibility_state')=='STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and e.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'Governance SET_008 behavioral state mismatch')
+   req(e.get('executor_component_state')=='DRAFT_AVAILABLE_UNVALIDATED','Governance Executor component boundary missing from index')
   elif e['package_identity']==CW_PACKAGE:
    req(e['foundation_compatibility_identity']==FOUNDATION_ID,'Copywriting index Foundation identity not SET_008')
    req(e['availability_state']==RELEASED,'Copywriting index lifecycle not released after behavioral revalidation')
@@ -133,6 +136,8 @@ def main():
   if p.name in SFV_BEHAVIORAL_COMPONENTS:
    req(status_of(p)==SFV_COMPONENT_PASS_STATUS,f'{p}: SFV behavioral component status mismatch')
    req(o.get('package_completion_contract',{}).get('package_state')==SFV_PACKAGE_PASS_STATE,f'{p}: SFV package completion state mismatch')
+  if p.name in GOV_BEHAVIORAL_COMPONENTS:
+   req(status_of(p)==GOV_COMPONENT_PASS_STATUS,f'{p}: Governance behavioral component status mismatch')
   if p.name=='AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json':
    req(o.get('STATUS')=='DRAFT',f'{p}: SFV Executor was promoted out of DRAFT')
   if p.name=='AIR_AI_GOVERNANCE_EXECUTOR.json':
@@ -158,13 +163,13 @@ def main():
   is_cw=CW_DIR in str(p)
   is_sfv=SFV_DIR in str(p)
   is_cea=CEA_DIR in str(p)
-  if is_cw or is_sfv or is_cea:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')
+  if is_cw or is_sfv or is_cea or (GOV_DIR in str(p)):req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')
   else:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')
   pvs=o.get('package_validation_state',{})
   static_keys=[k for k in ('t7_static_validation','coordinated_reseal_static_validation','static_design_validation') if k in pvs]
   req(static_keys,f'{p}: no static validation carrier')
   for k in static_keys:req(pvs[k]==STATIC_PASS,f'{p}: {k} not static PASS')
-  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if (is_cw or is_sfv or is_cea) else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
+  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if (is_cw or is_sfv or is_cea or (GOV_DIR in str(p))) else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
   for c in o.get('components',[]):
    fn=c['filename']; cp=p.parent/fn; req(cp.is_file(),f'{p}: missing component {fn}')
    m=meta(cp)
@@ -211,6 +216,15 @@ def main():
  expected=[c.get('role') for c in gov['components']]
  roles=gov['failure_mode_integration_contract'].get('component_roles_observed')
  req(roles==expected and all(roles),'050 Governance component roles not populated from actual roles')
+ gpvs=gov.get('package_validation_state',{})
+ req(gpvs.get('behavioral_revalidation')==BEHAVIOR_PASS and gpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS' and gpvs.get('executor_validation_state')=='DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS','Governance manifest behavioral validation state mismatch')
+ for fn in ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json']: req(status_of(ROOT/'profiles/governance specialist'/fn)==GOV_COMPONENT_PASS_STATUS,f'Governance behavioral component status mismatch {fn}')
+ govexec=parsed[ROOT/'profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json']; req(govexec.get('STATUS')=='DRAFT','Governance Executor was promoted out of DRAFT')
+ goventry=next(e for e in idx['entries'] if e['package_identity']==GOV_PACKAGE); req(goventry.get('availability_state')==RELEASED and goventry.get('behavioral_revalidation_state')==BEHAVIOR_PASS and goventry.get('executor_component_state')=='DRAFT_AVAILABLE_UNVALIDATED','Governance index behavioral promotion mismatch')
+ govevp=ROOT/'tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json'; req(govevp.is_file(),'Governance behavioral evidence file missing'); govev=load(govevp); gover=gov.get('behavioral_evidence_receipt',{})
+ req(meta(govevp)['sha256']=='7b568dfd9ea04e247b4b4b425af34e616765af0ad86c70a716e96c9629ebd3e9' and gover.get('sha256')=='7b568dfd9ea04e247b4b4b425af34e616765af0ad86c70a716e96c9629ebd3e9','Governance behavioral evidence hash mismatch')
+ req(govev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260915_V1' and govev.get('summary',{}).get('pass_count')==6 and govev.get('summary',{}).get('scenario_count')==6 and govev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','Governance behavioral evidence result mismatch')
+ req(gover.get('result')==BEHAVIOR_PASS and gover.get('model_host')=='ChatGPT / GPT-5.6 Sol' and gover.get('cross_host_equivalence_claimed') is False and gover.get('executor_included_in_behavioral_pass') is False,'Governance behavioral evidence receipt mismatch')
  sfv=parsed[ROOT/'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json']
  vc=sfv['validation_contract']
  req('required_package_version' not in vc,'061 stale duplicate required_package_version remains')
