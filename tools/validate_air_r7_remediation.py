@@ -21,6 +21,7 @@ CEA_PACKAGE='AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'
 CW_DIR='public surface copywriting specialist'
 SFV_DIR='specification first verification specialist'
 CEA_DIR='capability ecology architect'
+CEA_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
 SFV_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
 SFV_PACKAGE_PASS_STATE='PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED'
 SFV_BEHAVIORAL_COMPONENTS={'AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json','AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json','AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json'}
@@ -67,7 +68,7 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx.get('INDEX_VERSION')=='1.3.8','CEA SET_008 static revalidation index version mismatch')
+ req(idx.get('INDEX_VERSION')=='1.3.9','CEA SET_008 behavioral promotion index version mismatch')
  req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
  req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
  req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
@@ -80,7 +81,7 @@ def main():
  req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
  req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
  prog=idx['validation_state'].get('set008_static_revalidation_progress',{})
- req(prog.get('passed_package_identities')==[CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==3 and prog.get('pending_count')==2 and prog.get('behavioral_revalidation_ready_package_identities')==[CEA_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities')==[CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==2,'R7 SET_008 progress carrier mismatch')
+ req(prog.get('passed_package_identities')==[CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==3 and prog.get('pending_count')==2 and prog.get('behavioral_revalidation_ready_package_identities')==[] and prog.get('behavioral_revalidation_passed_package_identities')==[CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==3,'R7 SET_008 progress carrier mismatch')
  req(prog.get('pending_package_identities')==['AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2','AIR_GROUNDING_SPECIALIST_PACKAGE_V2'],'R7 SET_008 pending package set mismatch')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
@@ -95,8 +96,8 @@ def main():
    req(e.get('executor_component_state')=='DRAFT_AVAILABLE_UNVALIDATED','SFV Executor component boundary missing from index')
   elif e['package_identity']==CEA_PACKAGE:
    req(e['foundation_compatibility_identity']==FOUNDATION_ID,'CEA index Foundation identity not SET_008')
-   req(e['availability_state']==PENDING_BEHAVIOR,'CEA index lifecycle not pending behavioral revalidation')
-   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','CEA SET_008 static state mismatch')
+   req(e['availability_state']==RELEASED,'CEA index lifecycle not released after behavioral revalidation')
+   req(e.get('current_foundation_compatibility_state')=='STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED' and e.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'CEA SET_008 behavioral state mismatch')
   else:
    req(e['foundation_compatibility_identity']==LEGACY_FOUNDATION_ID,'remaining pending index Foundation identity changed before revalidation')
    req(e['availability_state']==PENDING_STATIC,'remaining pending index lifecycle changed before static revalidation')
@@ -145,13 +146,14 @@ def main():
   st=str(o.get('status') or '')
   is_cw=CW_DIR in str(p)
   is_sfv=SFV_DIR in str(p)
-  if is_cw or is_sfv:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')
+  is_cea=CEA_DIR in str(p)
+  if is_cw or is_sfv or is_cea:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')
   else:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')
   pvs=o.get('package_validation_state',{})
   static_keys=[k for k in ('t7_static_validation','coordinated_reseal_static_validation','static_design_validation') if k in pvs]
   req(static_keys,f'{p}: no static validation carrier')
   for k in static_keys:req(pvs[k]==STATIC_PASS,f'{p}: {k} not static PASS')
-  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if (is_cw or is_sfv) else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
+  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if (is_cw or is_sfv or is_cea) else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
   for c in o.get('components',[]):
    fn=c['filename']; cp=p.parent/fn; req(cp.is_file(),f'{p}: missing component {fn}')
    m=meta(cp)
@@ -206,7 +208,12 @@ def main():
  cea=parsed[ROOT/'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json']
  req(cea['foundation_compatibility'].get('target_identity')==FOUNDATION_ID and cea['foundation_compatibility'].get('compatibility_state')==SET008_SPECIALIST_COMPAT,'CEA manifest SET_008 compatibility missing')
  ceapvs=cea.get('package_validation_state',{})
- req(ceapvs.get('behavioral_revalidation')==BEHAVIOR_PENDING and ceapvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','CEA manifest validation state mismatch')
+ req(ceapvs.get('behavioral_revalidation')==BEHAVIOR_PASS and ceapvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','CEA manifest behavioral validation state mismatch')
+ for fn in ['AIR_DOMAIN_CAPABILITY_REGISTRY.json', 'AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json', 'AIR_CAPABILITY_ECOLOGY_ARCHITECT.json', 'AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json']: req(status_of(ROOT/'profiles/capability ecology architect'/fn)==CEA_COMPONENT_PASS_STATUS,f'CEA behavioral component status mismatch {fn}')
+ ceaevp=ROOT/'tests/AIR_CAPABILITY_ECOLOGY_ARCHITECT_SET008_BEHAVIORAL_EVIDENCE_V1.json'; req(ceaevp.is_file(),'CEA behavioral evidence file missing'); ceaev=load(ceaevp); ceaer=cea.get('behavioral_evidence_receipt',{})
+ req(meta(ceaevp)['sha256']=='4779e1e48a4b9b614c66e892c7bf964fcabcd4b04bfae41af2bddbb01564307d' and ceaer.get('sha256')=='4779e1e48a4b9b614c66e892c7bf964fcabcd4b04bfae41af2bddbb01564307d','CEA behavioral evidence hash mismatch')
+ req(ceaev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_CAPABILITY_ECOLOGY_ARCHITECT_SET008_20260915_V1' and ceaev.get('summary',{}).get('pass_count')==6 and ceaev.get('summary',{}).get('scenario_count')==6 and ceaev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','CEA behavioral evidence result mismatch')
+ req(ceaer.get('result')==BEHAVIOR_PASS and ceaer.get('model_host')=='ChatGPT / GPT-5.6 Sol' and ceaer.get('cross_host_equivalence_claimed') is False,'CEA behavioral evidence receipt mismatch')
  req(cea.get('t7_change_record')==T7,'074 T7 historical record mutated')
  rp=ROOT/'tools/reseal_air_candidate.py'
  if rp.is_file():

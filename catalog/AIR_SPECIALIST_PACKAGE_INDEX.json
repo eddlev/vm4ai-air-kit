@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.8",
+  "INDEX_VERSION": "1.3.9",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
   "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-15T06:35:00Z",
+  "generated_at": "2026-09-15T07:06:00Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -134,7 +134,7 @@
     "decision": "CANDIDATE_PENDING_STATIC_VALIDATION",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_CEA_COPYWRITING_SFV_SET_008_OTHER_PACKAGES_PENDING",
+    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_CEA_COPYWRITING_SFV_SET_008_BEHAVIORAL_PASS_OTHER_PACKAGES_PENDING",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -160,14 +160,13 @@
       ],
       "passed_count": 3,
       "pending_count": 2,
-      "behavioral_revalidation_ready_package_identities": [
-        "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2"
-      ],
+      "behavioral_revalidation_ready_package_identities": [],
       "behavioral_revalidation_passed_package_identities": [
+        "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
       ],
-      "behavioral_revalidation_passed_count": 2
+      "behavioral_revalidation_passed_count": 3
     }
   },
   "entries": [
@@ -219,7 +218,7 @@
       "specialist_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "94644d860729ae4541bb57eea1be8911d1f46dc20d48c2f104311ff3d221f0b6",
+      "manifest_sha256": "e7f01150f697c4ec3307ae5aabb21fadf05884ce93153bfb4d27e9f1401a4c73",
       "canonical_component_filenames": [
         "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
         "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
@@ -248,11 +247,21 @@
       "short_activation_summary": "Use when the material task capability envelope is incomplete, cross-disciplinary, unknown/emerging, disproportionate, or requires Domain Package, machine-native benchmark, or reusable Specialist construction.",
       "short_non_activation_summary": "Do not select when the task capability envelope, benchmark, domain requirements, and operative vector set are already sufficiently specified and no reusable capability construction gap exists.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING"
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED",
+      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+      "behavioral_evidence_ref": {
+        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_CAPABILITY_ECOLOGY_ARCHITECT_SET008_20260915_V1",
+        "filename": "tests/AIR_CAPABILITY_ECOLOGY_ARCHITECT_SET008_BEHAVIORAL_EVIDENCE_V1.json",
+        "sha256": "4779e1e48a4b9b614c66e892c7bf964fcabcd4b04bfae41af2bddbb01564307d",
+        "model_host": "ChatGPT / GPT-5.6 Sol",
+        "scenario_count": 6,
+        "pass_count": 6,
+        "cross_host_equivalence_claimed": false
+      }
     },
     {
       "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
