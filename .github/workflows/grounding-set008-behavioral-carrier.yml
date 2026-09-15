@@ -344,7 +344,7 @@ jobs:
           EOF
           sed -i 's/^          //' /tmp/product-expected.txt
           sort -o /tmp/product-expected.txt /tmp/product-expected.txt
-          git diff --name-only "$BASE" -- . ':!.github/workflows/grounding-set008-behavioral-carrier.yml' ':.tmp-grounding-set008-behavioral-trigger' | sort > /tmp/product-actual.txt
+          git diff --name-only "$BASE" -- . ':!.github/workflows/grounding-set008-behavioral-carrier.yml' ':!.tmp-grounding-set008-behavioral-trigger' | sort > /tmp/product-actual.txt
           diff -u /tmp/product-expected.txt /tmp/product-actual.txt
           test "$(wc -l < /tmp/product-actual.txt)" -eq 10
           echo 'Grounding behavioral product scope: PASS (10/10)'
@@ -355,7 +355,7 @@ jobs:
           set -euo pipefail
           python3 tools/validate_air_suite.py | tee /tmp/full-suite.out
           grep -F 'AIR canonical validation suite: PASS' /tmp/full-suite.out
-          grep -F 'R7 mutation suite: PASS (60/60 targeted mutants killed)' /tmp/full-suite.out
+          grep -F 'AIR R7 remediation mutation suite: PASS (60/60 targeted mutants killed)' /tmp/full-suite.out
           grep -F 'AIR v0.7.3 release-seal mutation suite: PASS (47/47 targeted mutants killed)' /tmp/full-suite.out
           grep -F 'deterministic_registry 90/90' /tmp/full-suite.out || grep -F '90/90' /tmp/full-suite.out
 
