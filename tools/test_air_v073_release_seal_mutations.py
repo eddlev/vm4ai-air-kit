@@ -76,7 +76,7 @@ def main() -> None:
         dump(p, o)
     add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
 
-    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.8')))
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.9')))
 
     add('V073-N11-COPYWRITING-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 
@@ -148,6 +148,21 @@ def main() -> None:
     def cea_component_behavioral_rollback(d: Path):
         p=d/'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
     add('V073-N29-CEA-COMPONENT-BEHAVIORAL-ROLLBACK', cea_component_behavioral_rollback)
+
+    add('V073-N30-GOVERNANCE-SET007-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity', 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))
+    add('V073-N31-GOVERNANCE-PENDING-STATIC-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
+
+    def governance_executor_promoted(d: Path):
+        p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
+    add('V073-N32-GOVERNANCE-EXECUTOR-PREMATURE-PROMOTION', governance_executor_promoted)
+
+    def governance_card_revision(d: Path):
+        p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json';o=load(p);hr=next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json');hr['card_revision']=18;dump(p,o)
+    add('V073-N33-GOVERNANCE-CARD-REVISION-RESTORED', governance_card_revision)
+
+    def governance_route_map_rollback(d: Path):
+        p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json';o=load(p);o['foundation_routing_compatibility']['runtime_route_map']['version']='1.2.1';dump(p,o)
+    add('V073-N34-GOVERNANCE-ROUTE-MAP-ROLLBACK', governance_route_map_rollback)
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:
