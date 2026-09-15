@@ -219,8 +219,9 @@
       "invalid_if": "a required markdown Foundation sentinel exists but is not the final content line"
     },
     {
-      "id": "RB-02-STARTER-SELF-VERSION-MISMATCH",
-      "invalid_if": "AIR_DEFAULT_STARTER_PROFILE PROMPT_VERSION differs from validation_contract.required_version"
+      "id": "RB-02-STARTER-CANONICAL-VERSION-MISMATCH",
+      "canonical_version_source": "AIR_DEFAULT_STARTER_PROFILE top-level PROMPT_VERSION",
+      "invalid_if": "AIR_DEFAULT_STARTER_PROFILE top-level PROMPT_VERSION disagrees with a current boot consumer such as AIR_HANDOFF_CARD_TEMPLATE profile_stack.starter_profile.PROMPT_VERSION, or validation_contract.required_version exists as a duplicated operative Starter-version literal"
     },
     {
       "id": "RB-03-HANDOFF-STARTER-VERSION-MISMATCH",
