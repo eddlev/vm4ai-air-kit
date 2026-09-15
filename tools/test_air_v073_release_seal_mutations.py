@@ -38,7 +38,7 @@ def main() -> None:
             o = load(p); fn(o); dump(p, o)
         return m
 
-    add('V073-N01-AGGREGATE-LIFECYCLE-OVERCLAIM', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
+    add('V073-N01-AGGREGATE-LIFECYCLE-ROLLBACK', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
     add('V073-N02-ENTRY-PREMATURE-RELEASE', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY')))
 
     def route_version(d: Path):
@@ -177,6 +177,21 @@ def main() -> None:
     def governance_component_behavioral_rollback(d: Path):
         p=d/'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
     add('V073-N38-GOVERNANCE-COMPONENT-BEHAVIORAL-ROLLBACK', governance_component_behavioral_rollback)
+    add('V073-N39-GROUNDING-SET007-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity', 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))
+    add('V073-N40-GROUNDING-PENDING-STATIC-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))
+
+    def grounding_executor_promoted(d: Path):
+        p=d/'profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
+    add('V073-N41-GROUNDING-EXECUTOR-PREMATURE-PROMOTION', grounding_executor_promoted)
+
+    def grounding_card_revision(d: Path):
+        p=d/'profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json';o=load(p);hr=next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json');hr['card_revision']=18;dump(p,o)
+    add('V073-N42-GROUNDING-CARD-REVISION-RESTORED', grounding_card_revision)
+
+    def grounding_route_map_rollback(d: Path):
+        p=d/'profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json';o=load(p);rr=o['foundation_compatibility'].get('route_map_discovery_input') or o['foundation_compatibility'].get('foundation_adjacent_route_map');rr['version']='1.2.1';dump(p,o)
+    add('V073-N43-GROUNDING-ROUTE-MAP-ROLLBACK', grounding_route_map_rollback)
+
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:
