@@ -29,7 +29,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '8c0599771be5a066f64cf77406cbe7c084f5528980aed65fb2c5991116519966',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '0b32ae3d5289c24959f444079195a3786d0bbdd5e32313eb0c9c26208c6a0693',
 }
 
 
@@ -155,14 +155,14 @@ def main() -> None:
     req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
     req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
 
-    req(index['INDEX_VERSION'] == '1.3.12', 'Index Grounding-SET008-static version mismatch')
+    req(index['INDEX_VERSION'] == '1.3.13', 'Index Grounding-SET008-behavioral-promotion version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
     rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
     req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
-    req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_BEHAVIOR, 'Index aggregate candidate lifecycle not pending behavioral revalidation')
-    req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION', 'Index validation decision not pending-behavioral')
+    req(index['candidate_lifecycle_contract']['current_candidate_state'] == RELEASED, 'Index aggregate lifecycle not fully released after all-five behavioral revalidation')
+    req(index['validation_state']['decision'] == 'PASS_ALL_FIVE_SET008_REPLAYABLE_BEHAVIORAL_REVALIDATION', 'Index validation decision not all-five behavioral-pass')
     req(index['validation_state']['static_validation'] == 'PASS_R7_DETERMINISTIC_STATIC_SUITE', 'Index static state mismatch')
-    req(index['validation_state']['behavioral_revalidation'] == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Index behavioral state not pending Grounding evidence')
+    req(index['validation_state']['behavioral_revalidation'] == BEHAVIOR_PASS, 'Index behavioral state not all-five replayable pass')
     cw = [e for e in index['entries'] if e['package_identity'] == CW_PACKAGE]
     req(len(cw) == 1, 'Copywriting index entry missing')
     ce = cw[0]
@@ -192,11 +192,12 @@ def main() -> None:
     grounding = [e for e in index['entries'] if e['package_identity'] == GROUND_PACKAGE]
     req(len(grounding) == 1, 'Grounding index entry missing')
     gre = grounding[0]
-    req(gre['availability_state'] == PENDING_BEHAVIOR, 'Grounding lifecycle not pending behavioral revalidation')
+    req(gre['availability_state'] == RELEASED, 'Grounding lifecycle not released after behavioral revalidation')
     req(gre['foundation_compatibility_identity'] == FOUNDATION_ID, 'Grounding SET_008 identity missing')
-    req(gre['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'Grounding SET_008 static state mismatch')
+    req(gre['current_foundation_compatibility_state'] == 'STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and gre.get('behavioral_revalidation_state') == BEHAVIOR_PASS, 'Grounding SET_008 behavioral state mismatch')
+    req(gre.get('executor_component_state') == 'DRAFT_AVAILABLE_UNVALIDATED', 'Grounding Executor component boundary missing from index')
     prog = index['validation_state'].get('set008_static_revalidation_progress', {})
-    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE, GROUND_PACKAGE] and prog.get('passed_count') == 5 and prog.get('pending_count') == 0 and prog.get('pending_package_identities') == [] and prog.get('behavioral_revalidation_ready_package_identities') == [GROUND_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')
+    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE, GROUND_PACKAGE] and prog.get('passed_count') == 5 and prog.get('pending_count') == 0 and prog.get('pending_package_identities') == [] and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE, GROUND_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 5, 'Index SET_008 progress mismatch')
 
     gov_dir = ROOT / 'profiles' / 'governance specialist'
     gov_names = ['AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json','AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json','AIR_AI_GOVERNANCE_SPECIALIST.json','AIR_AI_GOVERNANCE_METHOD_PACK.json','AIR_AI_GOVERNANCE_EXECUTOR.json']
@@ -301,11 +302,20 @@ def main() -> None:
         req(hr.get('template_revision') == 19 and hr.get('revision_fields') == ['template_revision','user_revision'] and 'card_revision' not in hr, f'{name}: Grounding Handoff revision split stale')
         rr = fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}
         req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Grounding Route Map receipt stale')
+        if name != 'AIR_GROUNDING_EXECUTOR.json':
+            req(obj.get('STATUS') == 'V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND', f'{name}: Grounding behavioral status missing')
+            req(obj.get('package_completion_contract', {}).get('package_state') == 'PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED', f'{name}: Grounding package completion behavioral state missing')
     req(load(grounding_dir / 'AIR_GROUNDING_EXECUTOR.json').get('STATUS') == 'DRAFT', 'Grounding Executor was promoted out of DRAFT')
     groundm = load(grounding_dir / 'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json')
     req(groundm['foundation_compatibility'].get('target_identity') == FOUNDATION_ID, 'Grounding manifest target identity stale')
-    req(groundm['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Grounding behavioral state overclaimed')
+    req(groundm['package_validation_state'].get('behavioral_revalidation') == BEHAVIOR_PASS, 'Grounding behavioral evidence not promoted')
     req(groundm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS', 'Grounding component receipt state stale')
+    req(groundm['package_validation_state'].get('executor_validation_state') == 'DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS', 'Grounding Executor validation boundary missing')
+    groundevp = ROOT / 'tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json'
+    req(groundevp.is_file() and sha(groundevp) == '77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92', 'Grounding behavioral evidence file/hash mismatch')
+    groundev = load(groundevp); grounder = groundm.get('behavioral_evidence_receipt', {})
+    req(groundev.get('evidence_id') == 'AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1' and groundev.get('summary', {}).get('pass_count') == 6 and groundev.get('summary', {}).get('scenario_count') == 6 and groundev.get('summary', {}).get('behavioral_revalidation_result') == 'PASS_ON_CURRENT_MODEL_HOST', 'Grounding behavioral evidence result mismatch')
+    req(grounder.get('sha256') == '77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92' and grounder.get('result') == BEHAVIOR_PASS and grounder.get('cross_host_equivalence_claimed') is False and grounder.get('executor_included_in_behavioral_pass') is False, 'Grounding behavioral evidence receipt mismatch')
 
     migrator = load_migrator()
     current_doc = {'AIR_HANDOFF_CARD': handoff}
@@ -356,7 +366,7 @@ def main() -> None:
     print('handoff_template_revision', 19)
     print('legacy_floor', '2.2.0 / Starter 2.4.3')
     print('route_map', '1.2.2')
-    print('specialist_index', '1.3.11; Governance/CEA/Copywriting/SFV behavioral-pass, Grounding pending static revalidation')
+    print('specialist_index', '1.3.13; all five Specialist packages SET_008 static-valid and replayable behavioral-pass; Grounding Executor remains DRAFT/unvalidated')
     print('deterministic_registry', '90/90')
 
 
