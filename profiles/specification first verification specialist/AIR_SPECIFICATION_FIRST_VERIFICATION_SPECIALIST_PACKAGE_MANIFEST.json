@@ -9,8 +9,8 @@
   "package_class": "NON_AGENT_SPECIALIST_PACKAGE",
   "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-  "generated_at": "2026-09-15T05:28:00Z",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+  "generated_at": "2026-09-15T06:03:46Z",
   "source_baseline": {
     "source_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK(4).json",
     "repository_path": "profiles/specification first method pack/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -45,9 +45,9 @@
       "version": "2.5.0",
       "artifact_class": "AIR_DOMAIN_PACKAGE",
       "profile_kind": "DOMAIN_OVERLAY",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "2d52ef6f91d5e755347c263d723190ea9e45d964f4d23bc45f68b2d24a1b057a",
-      "size_bytes": 35040,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "e9751113e1c34aa9f40e78a057c903f48e78897c1abf2fde2ce96beebe8858e4",
+      "size_bytes": 35004,
       "line_count": 662,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -59,9 +59,9 @@
       "version": "2.5.0",
       "artifact_class": "AIR_METHOD_PACK",
       "profile_kind": "METHOD_PACK",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "78618ccf50d773bd18b542594aa8b8ce7d1bb34f0ba93418e3ec245a80408572",
-      "size_bytes": 54354,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "59697a4899e41664f324d7c0b8cfa2477b2d02e93aaec5c3f442e1a244a0b040",
+      "size_bytes": 54318,
       "line_count": 1085,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -73,9 +73,9 @@
       "version": "2.5.0",
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_kind": "TASK_COMPOSITE",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "7b57d11884afd88e23836096b772d9c6e78cbb825ce4bf6103cc2364c82a063f",
-      "size_bytes": 34318,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "ba9503eba974c88deb5bc32b56ace61e31c7e0c6245d7d7e5c0eb6b592742200",
+      "size_bytes": 34282,
       "line_count": 705,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -298,20 +298,22 @@
     }
   },
   "package_validation_state": {
-    "decision": "STATIC_VALIDATED_AVAILABLE_UNBOUND_BEHAVIORAL_REVALIDATION_PENDING",
+    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
     "component_count": 4,
     "manifest_count": 1,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
     "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
     "cross_file": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
-    "regression": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "prior_behavioral_evidence_inheritance": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "regression": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "prior_behavioral_evidence_inheritance": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "t12c_specialist_closure_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
-    "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS"
+    "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
+    "executor_validation_state": "DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS",
+    "release_catalog_registration": "INCLUDED_IN_SET_008_V073_RELEASE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,
@@ -597,5 +599,32 @@
     "exact_match_rule": "CURRENT_CANONICAL_APPLICABILITY_SIGNATURE_HASH_EQUALS_RECORDED_HASH",
     "failure_record_source": "CORE_LEDGER_BACKED_AIR_FAILURE_MODE_RECORD_ONLY",
     "semantic_similarity_activation": "PROHIBITED"
+  },
+  "behavioral_validation_scope": {
+    "validated_components": [
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json"
+    ],
+    "excluded_component": {
+      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "reason": "This behavioral pass validates SFV Domain/Method/Specialist observable behavior and the boundary that prevents use or promotion of the draft Executor. It does not validate Executor operations."
+    },
+    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_EXPLICITLY_DRAFT_UNAVAILABLE_UNVALIDATED"
+  },
+  "behavioral_evidence_receipt": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1",
+    "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json",
+    "sha256": "831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649",
+    "size_bytes": 13993,
+    "line_count": 222,
+    "model_host": "ChatGPT / GPT-5.6 Sol",
+    "scenario_count": 6,
+    "pass_count": 6,
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "cross_host_equivalence_claimed": false,
+    "executor_included_in_behavioral_pass": false,
+    "source_main_commit": "bef013e6b625e73822d7705d743dd483cc6d66b2"
   }
 }

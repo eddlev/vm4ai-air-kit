@@ -19,6 +19,9 @@ CW_PACKAGE='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
 SFV_PACKAGE='AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2'
 CW_DIR='public surface copywriting specialist'
 SFV_DIR='specification first verification specialist'
+SFV_COMPONENT_PASS_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND'
+SFV_PACKAGE_PASS_STATE='PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED'
+SFV_BEHAVIORAL_COMPONENTS={'AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json','AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json','AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json'}
 SPECIALIST_REQUIRED_FLOORS={'AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY','AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION'}
 T7={
  'change_id':'AIR_T7_CEA_MII_INTEGRATION_001','package_version':'2.4.0','component_prompt_version':'2.2.0','manifest_prompt_version':'2.1.0',
@@ -62,7 +65,7 @@ def main():
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
- req(idx.get('INDEX_VERSION')=='1.3.6','SFV SET_008 static revalidation index version mismatch')
+ req(idx.get('INDEX_VERSION')=='1.3.7','SFV SET_008 behavioral promotion index version mismatch')
  req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
  req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')
  req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG','v073 completeness identity incoherent')
@@ -75,7 +78,7 @@ def main():
  req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')
  req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')
  prog=idx['validation_state'].get('set008_static_revalidation_progress',{})
- req(prog.get('passed_package_identities')==[CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==2 and prog.get('pending_count')==3 and prog.get('behavioral_revalidation_ready_package_identities')==[SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities')==[CW_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==1,'R7 SET_008 progress carrier mismatch')
+ req(prog.get('passed_package_identities')==[CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==2 and prog.get('pending_count')==3 and prog.get('behavioral_revalidation_ready_package_identities')==[] and prog.get('behavioral_revalidation_passed_package_identities')==[CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==2,'R7 SET_008 progress carrier mismatch')
  req(len(prog.get('pending_package_identities',[]))==3 and CW_PACKAGE not in prog.get('pending_package_identities',[]) and SFV_PACKAGE not in prog.get('pending_package_identities',[]),'R7 SET_008 pending package set mismatch')
  req(idx['validation_state'].get('release_publication_state')=='EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY','R7 publication authority changed')
  for e in idx['entries']:
@@ -85,8 +88,9 @@ def main():
    req(e.get('current_foundation_compatibility_state')=='STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED' and e.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'Copywriting SET_008 behavioral state mismatch')
   elif e['package_identity']==SFV_PACKAGE:
    req(e['foundation_compatibility_identity']==FOUNDATION_ID,'SFV index Foundation identity not SET_008')
-   req(e['availability_state']==PENDING_BEHAVIOR,'SFV index lifecycle not pending behavioral revalidation')
-   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','SFV SET_008 static state mismatch')
+   req(e['availability_state']==RELEASED,'SFV index lifecycle not released after behavioral revalidation')
+   req(e.get('current_foundation_compatibility_state')=='STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and e.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'SFV SET_008 behavioral state mismatch')
+   req(e.get('executor_component_state')=='DRAFT_AVAILABLE_UNVALIDATED','SFV Executor component boundary missing from index')
   else:
    req(e['foundation_compatibility_identity']==LEGACY_FOUNDATION_ID,'remaining pending index Foundation identity changed before revalidation')
    req(e['availability_state']==PENDING_STATIC,'remaining pending index lifecycle changed before static revalidation')
@@ -109,6 +113,11 @@ def main():
    req(rr.get('version')=='1.2.2' and rr.get('sha256')=='a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',f'{p}: Route Map receipt stale')
   req(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
   req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
+  if p.name in SFV_BEHAVIORAL_COMPONENTS:
+   req(status_of(p)==SFV_COMPONENT_PASS_STATUS,f'{p}: SFV behavioral component status mismatch')
+   req(o.get('package_completion_contract',{}).get('package_state')==SFV_PACKAGE_PASS_STATE,f'{p}: SFV package completion state mismatch')
+  if p.name=='AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json':
+   req(o.get('STATUS')=='DRAFT',f'{p}: SFV Executor was promoted out of DRAFT')
  req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
  ivs=idx['validation_state']
  req(ivs.get('handoff_rev19_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED','Index Handoff rev19 provenance missing')
@@ -128,13 +137,14 @@ def main():
   o=parsed[p]
   st=str(o.get('status') or '')
   is_cw=CW_DIR in str(p)
-  if is_cw:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: Copywriting top lifecycle not behavioral-pass')
+  is_sfv=SFV_DIR in str(p)
+  if is_cw or is_sfv:req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')
   else:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')
   pvs=o.get('package_validation_state',{})
   static_keys=[k for k in ('t7_static_validation','coordinated_reseal_static_validation','static_design_validation') if k in pvs]
   req(static_keys,f'{p}: no static validation carrier')
   for k in static_keys:req(pvs[k]==STATIC_PASS,f'{p}: {k} not static PASS')
-  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if is_cw else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
+  if 'behavioral_revalidation' in pvs:req(pvs['behavioral_revalidation']==(BEHAVIOR_PASS if (is_cw or is_sfv) else BEHAVIOR_PENDING),f'{p}: behavioral validation state mismatch')
   for c in o.get('components',[]):
    fn=c['filename']; cp=p.parent/fn; req(cp.is_file(),f'{p}: missing component {fn}')
    m=meta(cp)
@@ -154,11 +164,15 @@ def main():
  sfvman=parsed[ROOT/'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json']
  req(sfvman['foundation_compatibility'].get('target_identity')==FOUNDATION_ID and sfvman['foundation_compatibility'].get('compatibility_state')==SET008_SPECIALIST_COMPAT,'SFV manifest SET_008 compatibility missing')
  spvs=sfvman.get('package_validation_state',{})
- req(spvs.get('behavioral_revalidation')==BEHAVIOR_PENDING and spvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','SFV manifest validation state mismatch')
+ req(spvs.get('behavioral_revalidation')==BEHAVIOR_PASS and spvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS' and spvs.get('executor_validation_state')=='DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS','SFV manifest validation state mismatch')
  sfvexec=parsed[ROOT/'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json']
  req(sfvexec.get('STATUS')=='DRAFT','SFV Executor was promoted out of DRAFT')
  sfventry=next(e for e in idx['entries'] if e['package_identity']==SFV_PACKAGE)
- req(sfventry.get('availability_state')==PENDING_BEHAVIOR and sfventry.get('foundation_compatibility_identity')==FOUNDATION_ID,'SFV index static promotion mismatch')
+ req(sfventry.get('availability_state')==RELEASED and sfventry.get('foundation_compatibility_identity')==FOUNDATION_ID and sfventry.get('behavioral_revalidation_state')==BEHAVIOR_PASS,'SFV index behavioral promotion mismatch')
+ sfvevp=ROOT/'tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json'; req(sfvevp.is_file(),'SFV behavioral evidence file missing'); sfvev=load(sfvevp); sfver=sfvman.get('behavioral_evidence_receipt',{})
+ req(meta(sfvevp)['sha256']=='831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649' and sfver.get('sha256')=='831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649','SFV behavioral evidence hash mismatch')
+ req(sfvev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1' and sfvev.get('summary',{}).get('pass_count')==6 and sfvev.get('summary',{}).get('scenario_count')==6 and sfvev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','SFV behavioral evidence result mismatch')
+ req(sfver.get('result')==BEHAVIOR_PASS and sfver.get('model_host')=='ChatGPT / GPT-5.6 Sol' and sfver.get('cross_host_equivalence_claimed') is False and sfver.get('executor_included_in_behavioral_pass') is False,'SFV behavioral evidence receipt mismatch')
  for e in idx['entries']:
   targets=list(ROOT.glob('profiles/**/'+e['manifest_filename']))
   req(len(targets)==1,'index manifest target ambiguity '+e['manifest_filename'])
