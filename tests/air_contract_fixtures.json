@@ -65,10 +65,26 @@
     {
       "id": "EC-06-STRICT-HANDOFF",
       "state": "final strict AIR_HANDOFF_CARD delivery",
-      "required_visible_objects": [
-        "AIR_HANDOFF_CARD raw one-root JSON only"
+      "required_delivery": [
+        "validated downloadable UTF-8 AIR_HANDOFF_CARD.json",
+        "download link",
+        "external file delivery receipt"
       ],
-      "exception": "alignment/evaluation dependencies execute but are serialized in card provenance rather than extra roots"
+      "required_file_contract": [
+        "exactly one top-level AIR_HANDOFF_CARD key",
+        "no BOM",
+        "strict JSON parse and duplicate-key rejection",
+        "current Handoff schema and provenance validation",
+        "post-write reopen and validation of the exact written bytes"
+      ],
+      "required_chat_surface": "ordinary governed chat-side AIR records and runtime anchor where otherwise required",
+      "prohibited": [
+        "inline AIR_HANDOFF_CARD chat text",
+        "fenced JSON handoff payload",
+        "Markdown or prose handoff payload",
+        "inline fallback when file creation or exact post-write validation is unavailable"
+      ],
+      "exception": "alignment/evaluation dependencies execute; the file root carries handoff_generation_evaluation/evaluation_basis provenance without replacing required governed chat records"
     },
     {
       "id": "EC-07-ORBIT-RESUME-ATOMIC-BUNDLE",
