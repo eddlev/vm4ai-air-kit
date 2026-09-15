@@ -43,7 +43,7 @@ It helps AI and humans:
 
 ## Current release — AIR Kit v0.7.3
 
-The current release candidate is **AIR Kit v0.7.3**. The tag is created only after the validated mainline merge.
+The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
 
 It includes:
 
@@ -51,11 +51,13 @@ It includes:
 - Handoff schema **2.3.0**, template revision 19 with independent `user_revision`
 - Specialist packages **2.5.0**
 - Runtime Route Map **1.2.2**
-- Specialist Package Index **1.3.3** (SET_008 package revalidation pending; SET_007 package receipts retained)
+- Specialist Package Index **1.3.13** (all five Specialist packages SET_008 static-valid and replayable behavioral-pass; draft Executors remain explicitly unvalidated where applicable)
 
 v0.7.3 hardens strict Handoff provenance and backward-compatible restoration. Exact surfaced-object snapshots are captured on a durable non-authorizing provenance surface so strict Handoff creation no longer depends on future verbatim access to old chat turns. Handoff revision semantics are split into `template_revision` and `user_revision`, and the supported legacy schema-2.2 floor migrates without inventing missing template history or restoring historical execution authority.
 
-The v0.7.3 release is sealed from the validated `main` commit after repository CI passes; the existing `v0.7.2` tag is never moved or redefined.
+All five catalogued Specialist packages carry SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.
+
+The v0.7.3 release source is sealed from validated `main`; tag/release publication is verified separately against the exact sealed commit, and the existing `v0.7.2` tag is never moved or redefined.
 
 ### Best practices
 

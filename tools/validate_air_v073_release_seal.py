@@ -29,7 +29,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '0b32ae3d5289c24959f444079195a3786d0bbdd5e32313eb0c9c26208c6a0693',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '0e806ab58373941ed56b0f792c8821aa088e183eda20f16d59637318303cf7a2',
 }
 
 
@@ -108,6 +108,12 @@ def main() -> None:
     handoff = load(ROOT / 'prompts/AIR_HANDOFF_CARD_TEMPLATE.json')['AIR_HANDOFF_CARD']
     route = load(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json')
     index = load(ROOT / 'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
+    readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+    req(index['status'] == 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V073_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED', 'Index is not v0.7.3 release-sealed')
+    req(index['catalog_scope']['catalog_completeness_claim'] == 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V073_RELEASE_SPECIALIST_CATALOG', 'Index v0.7.3 release completeness identity mismatch')
+    req('The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`.' in readme, 'README release-sealed source statement missing')
+    req('Specialist Package Index **1.3.13**' in readme, 'README Specialist Index identity stale')
+    req('The current release candidate is **AIR Kit v0.7.3**.' not in readme, 'README still claims v0.7.3 release candidate')
 
     req('PROMPT_VERSION: 2.6.3' in core, 'Core not 2.6.3')
     req('PROMPT_VERSION: 2.6.3' in control, 'Control not 2.6.3')
@@ -366,7 +372,7 @@ def main() -> None:
     print('handoff_template_revision', 19)
     print('legacy_floor', '2.2.0 / Starter 2.4.3')
     print('route_map', '1.2.2')
-    print('specialist_index', '1.3.13; all five Specialist packages SET_008 static-valid and replayable behavioral-pass; Grounding Executor remains DRAFT/unvalidated')
+    print('specialist_index', '1.3.13 release-sealed; all five Specialist packages SET_008 static-valid and replayable behavioral-pass; Grounding Executor remains DRAFT/unvalidated')
     print('deterministic_registry', '90/90')
 
 

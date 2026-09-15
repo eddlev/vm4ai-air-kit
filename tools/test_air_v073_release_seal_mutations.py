@@ -206,6 +206,29 @@ def main() -> None:
 
     add('V073-N47-AGGREGATE-BEHAVIORAL-LIFECYCLE-ROLLBACK', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 
+    add('V073-N48-INDEX-RELEASE-SEAL-STATUS-ROLLBACK', idxmut(lambda o: o.__setitem__('status', 'AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED')))
+    add('V073-N49-INDEX-RELEASE-COMPLETENESS-ROLLBACK', idxmut(lambda o: o['catalog_scope'].__setitem__('catalog_completeness_claim', 'COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG')))
+
+    def readme_index_rollback(d: Path):
+        p = d / 'README.md'
+        t = p.read_text(encoding='utf-8')
+        old = 'Specialist Package Index **1.3.13**'
+        new = 'Specialist Package Index **1.3.3**'
+        if old not in t:
+            raise RuntimeError('README Index mutation anchor missing')
+        p.write_text(t.replace(old, new, 1), encoding='utf-8')
+    add('V073-N50-README-INDEX-ROLLBACK', readme_index_rollback)
+
+    def readme_candidate_rollback(d: Path):
+        p = d / 'README.md'
+        t = p.read_text(encoding='utf-8')
+        old = 'The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`.'
+        new = 'The current release candidate is **AIR Kit v0.7.3**.'
+        if old not in t:
+            raise RuntimeError('README release-state mutation anchor missing')
+        p.write_text(t.replace(old, new, 1), encoding='utf-8')
+    add('V073-N51-README-RELEASE-CANDIDATE-ROLLBACK', readme_candidate_rollback)
+
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:
