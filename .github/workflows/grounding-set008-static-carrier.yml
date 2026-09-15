@@ -25,7 +25,6 @@ jobs:
           git diff --name-only "$BASE"..HEAD | sort > /tmp/bootstrap.txt
           printf '%s\n' '.github/workflows/grounding-set008-static-carrier.yml' '.tmp-grounding-set008-static-trigger' | sort > /tmp/expected-bootstrap.txt
           diff -u /tmp/expected-bootstrap.txt /tmp/bootstrap.txt
-          echo 'Grounding carrier bootstrap scope: PASS'
 
       - name: Recover and execute previously exercised Grounding transformation
         shell: bash
@@ -61,9 +60,8 @@ jobs:
               *) git checkout "$BASE" -- "$path" ;;
             esac
           done
-          echo 'Outward reseal propagation restored to pinned-main bytes.'
 
-      - name: Reconcile Grounding manifest component mirrors and Index receipt
+      - name: Reconcile final manifest mirrors and all Index manifest receipts
         shell: bash
         run: |
           set -euo pipefail
@@ -74,22 +72,21 @@ jobs:
           g=root/'profiles/grounding specialist'
           mp=g/'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json'
           ip=root/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'
-          m=json.loads(mp.read_text())
           def meta(p):
             raw=p.read_bytes(); return hashlib.sha256(raw).hexdigest(),len(raw),len(raw.decode().splitlines())
+          m=json.loads(mp.read_text())
           for c in m['components']:
-            p=g/c['filename']; o=json.loads(p.read_text())
-            status=str(o.get('STATUS') or o.get('status') or '')
-            h,n,l=meta(p)
-            c['status']=status; c['sha256']=h; c['size_bytes']=n; c['line_count']=l
+            p=g/c['filename']; o=json.loads(p.read_text()); status=str(o.get('STATUS') or o.get('status') or '')
+            h,n,l=meta(p); c.update({'status':status,'sha256':h,'size_bytes':n,'line_count':l})
             c['availability_state']='AVAILABLE_UNVALIDATED' if status=='DRAFT' or 'STATIC_CONTRACT_VALIDATION_PENDING' in status else 'VALIDATED_AVAILABLE_UNBOUND'
           mp.write_text(json.dumps(m,indent=2,ensure_ascii=False)+'\n')
           idx=json.loads(ip.read_text())
-          h,_,_=meta(mp)
-          e=next(x for x in idx['entries'] if x['package_identity']=='AIR_GROUNDING_SPECIALIST_PACKAGE_V2')
-          e['manifest_sha256']=h
+          for e in idx['entries']:
+            targets=list(root.glob('profiles/**/'+e['manifest_filename']))
+            if len(targets)!=1: raise SystemExit('manifest target ambiguity '+e['manifest_filename'])
+            e['manifest_sha256']=meta(targets[0])[0]
           ip.write_text(json.dumps(idx,indent=2,ensure_ascii=False)+'\n')
-          print('Grounding manifest sha256',h)
+          print('Grounding manifest sha256',meta(mp)[0])
           PY
 
       - name: Seal current Specialist Index hash into v0.7.3 validator
@@ -99,13 +96,10 @@ jobs:
           python3 - <<'PY'
           import hashlib
           from pathlib import Path
-          idx=Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
-          h=hashlib.sha256(idx.read_bytes()).hexdigest()
-          p=Path('tools/validate_air_v073_release_seal.py')
-          s=p.read_text()
+          idx=Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'); h=hashlib.sha256(idx.read_bytes()).hexdigest()
+          p=Path('tools/validate_air_v073_release_seal.py'); s=p.read_text()
           if '__GROUNDING_INDEX_SHA__' not in s: raise SystemExit('index hash placeholder missing')
-          p.write_text(s.replace('__GROUNDING_INDEX_SHA__',h,1))
-          print('Grounding candidate index sha256',h)
+          p.write_text(s.replace('__GROUNDING_INDEX_SHA__',h,1)); print('Grounding candidate index sha256',h)
           PY
 
       - name: Verify exact product scope before validation
