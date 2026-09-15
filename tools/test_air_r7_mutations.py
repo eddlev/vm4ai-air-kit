@@ -13,7 +13,7 @@ def jfn(mut):
 CASES=[]
 def add(n,rel,fn):CASES.append((n,rel,fn))
 add('R7-N01-CORE-CANDIDATE-LIFECYCLE-REMOVED','prompts/AIR_CORE_RUNTIME.md',lambda p:p.write_text(p.read_text().replace('Patch marker: AIR_SPECIALIST_PACKAGE_INDEX_LIFECYCLE_V1','Patch marker: REMOVED_R7_LIFECYCLE',1)))
-add('R7-N02-INDEX-CANDIDATE-PREMATURE-RELEASE','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state','RELEASE_CATALOG_ENTRY')))
+add('R7-N02-GROUNDING-ENTRY-BEHAVIORAL-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 add('R7-N03-CEA-FOUNDATION-IDENTITY-STALE','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',jfn(lambda o:o['integration_refresh'].__setitem__('foundation_identity_state','OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_005')))
 add('R7-N04-CEA-MANIFEST-STATUS-MIRROR-STALE','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json',jfn(lambda o:o['components'][0].__setitem__('status','STALE_STATUS')))
 add('R7-N05-GROUNDING-FOUNDATION-IDENTITY-STALE','profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json',jfn(lambda o:o['integration_refresh'].__setitem__('foundation_identity_state','OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_2_5_0_MII_CANDIDATE_SET_005')))
@@ -68,6 +68,10 @@ add('R7-N53-GROUNDING-INDEX-STATIC-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_IND
 add('R7-N54-GROUNDING-EXECUTOR-PREMATURE-PROMOTION','profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json',jfn(lambda o:o.__setitem__('STATUS','V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING')))
 add('R7-N55-GROUNDING-CARD-REVISION-RESTORED','profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json',jfn(lambda o:next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json').__setitem__('card_revision',18)))
 add('R7-N56-GROUNDING-ROUTE-MAP-ROLLBACK','profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json',jfn(lambda o:(o['foundation_compatibility'].get('route_map_discovery_input') or o['foundation_compatibility'].get('foundation_adjacent_route_map')).__setitem__('version','1.2.1')))
+add('R7-N57-GROUNDING-EVIDENCE-RECEIPT-STALE','profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json',jfn(lambda o:o['behavioral_evidence_receipt'].__setitem__('sha256','0'*64)))
+add('R7-N58-GROUNDING-EVIDENCE-PASSCOUNT-STALE','tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json',jfn(lambda o:o['summary'].__setitem__('pass_count',5)))
+add('R7-N59-GROUNDING-COMPONENT-BEHAVIORAL-ROLLBACK','profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json',jfn(lambda o:o.__setitem__('STATUS','V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING')))
+add('R7-N60-AGGREGATE-BEHAVIORAL-LIFECYCLE-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['candidate_lifecycle_contract'].__setitem__('current_candidate_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')
 print('R7-MUTATION-BASELINE: PASS')
 with tempfile.TemporaryDirectory(prefix='air-r7-mutations-') as td:

@@ -8,7 +8,7 @@
   "artifact_class": "AIR_SPECIALIST_PROFILE",
   "package_version": "2.5.0",
   "package_subtype": "GROUNDING_SPECIALIST",
-  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -147,16 +147,16 @@
     {
       "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
       "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
-      "sha256": "c9c7c176cdb9b976d9c1624fabd770f0c0a53b20430369c84b42122867e3ba96",
-      "size_bytes": 69138,
+      "sha256": "38a40a0aaaf940de2073af3c4e7a4b6035bdd18142cc24fbc49c8077f7153fd0",
+      "size_bytes": 69117,
       "line_count": 1152,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     },
     {
       "designation": "AIR_GROUNDING_METHOD_PACK_V2",
       "filename": "AIR_GROUNDING_METHOD_PACK.json",
-      "sha256": "a972f9038c4818d005b2127177b8836fa3204599af8b7843fb413410489ea642",
-      "size_bytes": 82924,
+      "sha256": "b6572c59d0e2bd671213f90a2c4b92e2604f1ace76969d81326de60b2218196f",
+      "size_bytes": 82903,
       "line_count": 1678,
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
     }
@@ -1151,7 +1151,7 @@
   "package_completion_contract": {
     "component_count": 4,
     "manifest_required": true,
-    "package_state": "PACKAGE_COMPLETE_T12B_DEPENDENCY_CLOSURE_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_PENDING_INTEGRATED_STATIC_AND_BEHAVIORAL_REVALIDATION"
+    "package_state": "PACKAGE_STRUCTURALLY_COMPLETE_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED"
   },
   "integration_refresh": {
     "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",

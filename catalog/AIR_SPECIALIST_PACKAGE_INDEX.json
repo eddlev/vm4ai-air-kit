@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.12",
+  "INDEX_VERSION": "1.3.13",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
-  "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+  "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-15T09:55:00Z",
+  "generated_at": "2026-09-15T11:01:55Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -131,10 +131,10 @@
     "operative_rule": "An index entry establishes release-catalog identity and expected manifest identity only. Actual package bytes must be available and validated for exact identity, Foundation compatibility, task fit, and required approval before compilation into or reference by the sole bound Orbit 0 AIR_ARTIFACT."
   },
   "validation_state": {
-    "decision": "CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+    "decision": "PASS_ALL_FIVE_SET008_REPLAYABLE_BEHAVIORAL_REVALIDATION",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "PASS_ALL_FIVE_SPECIALIST_PACKAGES_SET_008_EXACT_MANIFEST_RECEIPTS_GOVERNANCE_CEA_COPYWRITING_SFV_BEHAVIORAL_PASS_GROUNDING_BEHAVIORAL_PENDING",
+    "manifest_hash_closure": "PASS_ALL_FIVE_SPECIALIST_PACKAGES_SET_008_EXACT_MANIFEST_RECEIPTS_ALL_BEHAVIORAL_PASS",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -142,9 +142,9 @@
     "mii_discovery_boundary": "PASS_DISCOVERY_ONLY",
     "target_readiness_step_optimality_boundary": "PASS_NONAUTHORIZING",
     "static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
-    "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
-    "operative_lifecycle_coherence": "PASS_ALL_STATIC_VALIDATED_GROUNDING_ONLY_BEHAVIORAL_PENDING",
+    "operative_lifecycle_coherence": "PASS_ALL_FIVE_SET008_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED",
     "component_internal_foundation_compatibility": "PASS_ALL_FIVE_PACKAGES_SET_008_EXACT_RECEIPTS",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
     "handoff_rev19_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED",
@@ -159,16 +159,15 @@
       "pending_package_identities": [],
       "passed_count": 5,
       "pending_count": 0,
-      "behavioral_revalidation_ready_package_identities": [
-        "AIR_GROUNDING_SPECIALIST_PACKAGE_V2"
-      ],
+      "behavioral_revalidation_ready_package_identities": [],
       "behavioral_revalidation_passed_package_identities": [
         "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
         "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
         "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
-        "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
+        "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+        "AIR_GROUNDING_SPECIALIST_PACKAGE_V2"
       ],
-      "behavioral_revalidation_passed_count": 4
+      "behavioral_revalidation_passed_count": 5
     }
   },
   "entries": [
@@ -282,7 +281,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "91de00363a58d97b9c8ae1fe9dace4d2fe409dbd04668c289ef07a59b9f92d7e",
+      "manifest_sha256": "b85f08ec4978cc1b7c5323c849e253bd94708e2ef6e871fa47ba3de132deba30",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -312,11 +311,23 @@
       "short_activation_summary": "Use when implementation consequence, viability, architecture, current capability, public/technical claims, blast radius, evidence sufficiency, or execution realism materially affects the result.",
       "short_non_activation_summary": "Do not select for simple low-risk factual Q&A, general conversation, pure creative exploration without execution/claim pressure, or formatting-only work without material risk.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING"
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "behavioral_evidence_ref": {
+        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
+        "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
+        "sha256": "77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92",
+        "model_host": "ChatGPT / GPT-5.6 Sol",
+        "scenario_count": 6,
+        "pass_count": 6,
+        "cross_host_equivalence_claimed": false,
+        "executor_included_in_behavioral_pass": false
+      }
     },
     {
       "package_identity": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
@@ -439,7 +450,7 @@
       "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
       "RELEASE_CATALOG_ENTRY"
     ],
-    "current_candidate_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+    "current_candidate_state": "RELEASE_CATALOG_ENTRY",
     "released_state": "RELEASE_CATALOG_ENTRY",
     "candidate_states_are_release_sealed": false,
     "authority_effect": "DISCOVERY_METADATA_ONLY_NO_SELECTION_APPROVAL_BINDING_OR_EXECUTION_AUTHORITY"

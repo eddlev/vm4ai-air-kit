@@ -9,8 +9,8 @@
   "package_class": "NON_AGENT_SPECIALIST_PACKAGE",
   "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-  "generated_at": "2026-09-15T09:55:00Z",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+  "generated_at": "2026-09-15T11:01:55Z",
   "source_baseline": {
     "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(18).json",
     "source_designation": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST_V1",
@@ -81,9 +81,9 @@
       "artifact_class": "AIR_DOMAIN_PACKAGE",
       "profile_kind": "DOMAIN_OVERLAY",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "c9c7c176cdb9b976d9c1624fabd770f0c0a53b20430369c84b42122867e3ba96",
-      "size_bytes": 69138,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "38a40a0aaaf940de2073af3c4e7a4b6035bdd18142cc24fbc49c8077f7153fd0",
+      "size_bytes": 69117,
       "line_count": 1152,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -96,9 +96,9 @@
       "artifact_class": "AIR_METHOD_PACK",
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "a972f9038c4818d005b2127177b8836fa3204599af8b7843fb413410489ea642",
-      "size_bytes": 82924,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "b6572c59d0e2bd671213f90a2c4b92e2604f1ace76969d81326de60b2218196f",
+      "size_bytes": 82903,
       "line_count": 1678,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -111,9 +111,9 @@
       "artifact_class": "AIR_SPECIALIST_PROFILE",
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
-      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
-      "sha256": "fb260a5e32e4b284f1e1027749f82dd62b4ab00fce56cd8d92c31613ea810986",
-      "size_bytes": 80202,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "678e2ce51fcb4e56091e827e1b860f480a02a50b77860add6ba5ecca5c6b32a3",
+      "size_bytes": 80181,
       "line_count": 1396,
       "required": true,
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
@@ -346,20 +346,22 @@
     }
   },
   "package_validation_state": {
-    "decision": "STATIC_VALIDATED_AVAILABLE_UNBOUND_BEHAVIORAL_REVALIDATION_PENDING",
+    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
     "component_count": 4,
     "manifest_count": 1,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATICALLY_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
     "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
     "cross_file": "PASS_AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
-    "regression": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "prior_behavioral_evidence_inheritance": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "regression": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "prior_behavioral_evidence_inheritance": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "t12c_specialist_closure_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
-    "behavioral_revalidation": "PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE",
-    "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS"
+    "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
+    "executor_validation_state": "DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS",
+    "release_catalog_registration": "INCLUDED_IN_SET_008_V073_RELEASE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,
@@ -633,5 +635,32 @@
     "exact_match_rule": "CURRENT_CANONICAL_APPLICABILITY_SIGNATURE_HASH_EQUALS_RECORDED_HASH",
     "failure_record_source": "CORE_LEDGER_BACKED_AIR_FAILURE_MODE_RECORD_ONLY",
     "semantic_similarity_activation": "PROHIBITED"
+  },
+  "behavioral_validation_scope": {
+    "validated_components": [
+      "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "AIR_GROUNDING_METHOD_PACK.json",
+      "AIR_GROUNDING_SPECIALIST.json"
+    ],
+    "excluded_component": {
+      "filename": "AIR_GROUNDING_EXECUTOR.json",
+      "state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "reason": "This behavioral pass validates Grounding Domain/Method/Specialist observable behavior and the boundary that prevents use or promotion of the draft Executor. It does not validate Executor operations."
+    },
+    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_EXPLICITLY_DRAFT_UNAVAILABLE_UNVALIDATED"
+  },
+  "behavioral_evidence_receipt": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
+    "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
+    "sha256": "77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92",
+    "size_bytes": 15421,
+    "line_count": 250,
+    "model_host": "ChatGPT / GPT-5.6 Sol",
+    "scenario_count": 6,
+    "pass_count": 6,
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "cross_host_equivalence_claimed": false,
+    "executor_included_in_behavioral_pass": false,
+    "source_main_commit": "d79602ecba8b7092102afcd35f77a606b27548a6"
   }
 }
