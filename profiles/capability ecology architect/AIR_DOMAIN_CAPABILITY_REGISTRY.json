@@ -8,7 +8,7 @@
   "package_version": "2.5.0",
   "package_subtype": "DOMAIN_CAPABILITY_REGISTRY",
   "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
-  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING",
   "STANDARD_CODE": "AIR.DOMAIN.CAPABILITY.REGISTRY.V2.NON_AGENT.DOMAIN_GRAPH.EPISTEMIC_REGIMES.SOURCE_REQUIREMENTS.VECTOR_EXPANSION.ORBIT_0_ARTIFACT_COMPILATION.FILE_IDENTITY_INTEGRITY",
   "description": "Extensible source-backed non-agent domain routing registry. It preserves the user-researched high-level domain-family taxonomy, defines the canonical construction schema for reusable detailed Domain Packages, and supplies tagged golden and negative fixtures for construction validation. Detailed fixtures have no runtime authority. Approved detailed domains are separate versioned Domain Packages and reusable sources of truth; optional Specialists may consume them but may not replace them. Human-oriented frameworks route through AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2, and every executable benchmark must carry the AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH knowledge-to-execution path.",
   "source_baseline": {
@@ -47,12 +47,12 @@
       "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
       "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
     ],
-    "compatibility_state": "ALIGNED_TO_AIR_2_6_2_OBJECT_CONTRACT_SET_007",
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008",
     "target_foundation_versions": {
-      "core": "2.6.2",
-      "control": "2.6.2",
+      "core": "2.6.3",
+      "control": "2.6.3",
       "governance": "2.3.2",
-      "starter": "2.6.2",
+      "starter": "2.6.3",
       "handoff_schema": "2.3.0"
     },
     "required_foundation_files": [
@@ -62,17 +62,70 @@
       "AIR_DEFAULT_STARTER_PROFILE.json",
       "AIR_HANDOFF_CARD_TEMPLATE.json"
     ],
-    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_discovery_input": {
       "filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
-      "size_bytes": 38042,
-      "line_count": 1075
+      "sha256": "a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c",
+      "size_bytes": 39383,
+      "line_count": 1098
     },
-    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.6.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371",
+        "size_bytes": 413548,
+        "line_count": 7839
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.6.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff",
+        "size_bytes": 170669,
+        "line_count": 3317
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.3.2",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842",
+        "size_bytes": 31075,
+        "line_count": 564
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.6.3",
+        "class": "TASK_COMPOSITE",
+        "sha256": "465cac6cb3303d98fed14a9110061f2b487cdec364e787f4310ffcbf35aa649c",
+        "size_bytes": 177103,
+        "line_count": 3748
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.3.0",
+        "class": "TEMPLATE",
+        "sha256": "05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2",
+        "size_bytes": 126877,
+        "line_count": 2327,
+        "template_revision": 19,
+        "revision_fields": [
+          "template_revision",
+          "user_revision"
+        ]
+      }
+    ],
+    "target_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008"
   },
   "file_identity_contract": {
     "canonical_role": "DOMAIN_CAPABILITY_REGISTRY",
@@ -5717,7 +5770,7 @@
     "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
     "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_ARTIFACT",
     "refresh_version": "2.5.0",
-    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "mainline_release_binding": {
       "release_identity": "AIR_SPECIALIST_LAYER_MII_INTEGRATION_CANDIDATE_V2_5_0",
       "integration_version": "2.4.0",

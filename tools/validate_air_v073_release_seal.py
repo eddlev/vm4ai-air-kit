@@ -19,6 +19,7 @@ RELEASED = 'RELEASE_CATALOG_ENTRY'
 BEHAVIOR_PASS = 'PASS_REPLAYABLE_MODEL_HOST_EVIDENCE'
 CW_PACKAGE = 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
 SFV_PACKAGE = 'AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2'
+CEA_PACKAGE = 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'
 EXPECTED_HASHES = {
     'prompts/AIR_CORE_RUNTIME.md': 'e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371',
     'prompts/AIR_CONTROL_SURFACE.md': '0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff',
@@ -26,7 +27,7 @@ EXPECTED_HASHES = {
     'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
     'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '221e571a691ceb5ae5ce29ee02662c2d79a4a1760463411f50eba47c592a6217',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'cf13dd95416559cdda9e594dd7916c1821e94a1fd9d3b2013f25ea97923ac176',
 }
 
 
@@ -152,7 +153,7 @@ def main() -> None:
     req('DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' in handoff_route['requires'], 'Route Map Handoff durability dependency missing')
     req(handoff_route['handoff_provenance_policy']['transcript_resupply_fallback'] == 'PROHIBITED', 'Route Map transcript fallback not prohibited')
 
-    req(index['INDEX_VERSION'] == '1.3.7', 'Index SFV-behavioral-promotion version mismatch')
+    req(index['INDEX_VERSION'] == '1.3.8', 'Index CEA-static-revalidation version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index SET_008 identity mismatch')
     rr = index['foundation_adjacent_compatibility_catalog']['runtime_route_map']
     req(rr['version'] == '1.2.2' and rr['sha256'] == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), 'Index Route Map receipt stale')
@@ -173,12 +174,18 @@ def main() -> None:
     req(se['foundation_compatibility_identity'] == FOUNDATION_ID, 'SFV SET_008 identity missing')
     req(se['current_foundation_compatibility_state'] == 'STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED' and se.get('behavioral_revalidation_state') == BEHAVIOR_PASS, 'SFV SET_008 behavioral state mismatch')
     req(se.get('executor_component_state') == 'DRAFT_AVAILABLE_UNVALIDATED', 'SFV Executor component boundary missing from index')
-    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE}]
-    req(len(others) == 3 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
+    cea = [e for e in index['entries'] if e['package_identity'] == CEA_PACKAGE]
+    req(len(cea) == 1, 'CEA index entry missing')
+    cae = cea[0]
+    req(cae['availability_state'] == PENDING_BEHAVIOR, 'CEA lifecycle not pending behavioral revalidation')
+    req(cae['foundation_compatibility_identity'] == FOUNDATION_ID, 'CEA SET_008 identity missing')
+    req(cae['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'CEA SET_008 static state mismatch')
+    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE}]
+    req(len(others) == 2 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')
     req(all(e['foundation_compatibility_identity'] == SET007 for e in others), 'remaining historical compatibility identity changed')
     req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in others), 'remaining SET_008 compatibility inferred')
     prog = index['validation_state'].get('set008_static_revalidation_progress', {})
-    req(prog.get('passed_package_identities') == [CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 2 and prog.get('pending_count') == 3 and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 2, 'Index SET_008 progress mismatch')
+    req(prog.get('passed_package_identities') == [CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 3 and prog.get('pending_count') == 2 and prog.get('behavioral_revalidation_ready_package_identities') == [CEA_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 2, 'Index SET_008 progress mismatch')
 
     # Manifest receipts remain exact for the unchanged SET_007 package bytes.
     for entry in index['entries']:
@@ -230,6 +237,26 @@ def main() -> None:
     req(sfvev.get('evidence_id') == 'AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1' and sfvev.get('summary', {}).get('pass_count') == 6 and sfvev.get('summary', {}).get('scenario_count') == 6 and sfvev.get('summary', {}).get('behavioral_revalidation_result') == 'PASS_ON_CURRENT_MODEL_HOST', 'SFV behavioral evidence result mismatch')
     req(sfver.get('sha256') == '831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649' and sfver.get('result') == BEHAVIOR_PASS and sfver.get('cross_host_equivalence_claimed') is False and sfver.get('executor_included_in_behavioral_pass') is False, 'SFV behavioral evidence receipt mismatch')
 
+    cea_dir = ROOT / 'profiles' / 'capability ecology architect'
+    for name in [
+        'AIR_DOMAIN_CAPABILITY_REGISTRY.json',
+        'AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json',
+        'AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',
+        'AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json',
+    ]:
+        obj = load(cea_dir / name)
+        fc = obj['foundation_compatibility']
+        req(fc.get('target_identity') == FOUNDATION_ID and fc.get('compatibility_state') == 'ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008', f'{name}: CEA SET_008 compatibility missing')
+        hr = next(x for x in fc['required_files'] if x['filename'] == 'AIR_HANDOFF_CARD_TEMPLATE.json')
+        req(hr.get('template_revision') == 19 and hr.get('revision_fields') == ['template_revision', 'user_revision'] and 'card_revision' not in hr, f'{name}: CEA stale Handoff revision contract')
+        rr = fc.get('route_map_discovery_input', {})
+        req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: CEA stale Route Map receipt')
+        req(obj.get('STATUS') == 'V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING', f'{name}: CEA static lifecycle mismatch')
+    ceam = load(cea_dir / 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json')
+    req(ceam['foundation_compatibility'].get('target_identity') == FOUNDATION_ID, 'CEA manifest target identity stale')
+    req(ceam['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'CEA behavioral state overclaimed')
+    req(ceam['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS', 'CEA component receipt state stale')
+
     migrator = load_migrator()
     current_doc = {'AIR_HANDOFF_CARD': handoff}
     legacy = synthetic_floor_card()
@@ -279,7 +306,7 @@ def main() -> None:
     print('handoff_template_revision', 19)
     print('legacy_floor', '2.2.0 / Starter 2.4.3')
     print('route_map', '1.2.2')
-    print('specialist_index', '1.3.3 pending SET_008 static revalidation')
+    print('specialist_index', '1.3.8 pending SET_008 static revalidation')
     print('deterministic_registry', '90/90')
 
 
