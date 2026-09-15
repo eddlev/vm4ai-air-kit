@@ -53,6 +53,11 @@ def reject(pairs):
 def load(p):return json.loads(p.read_text(encoding='utf-8'),object_pairs_hook=reject)
 def meta(p):
  raw=p.read_bytes();return {'sha256':hashlib.sha256(raw).hexdigest(),'size_bytes':len(raw),'line_count':len(raw.decode().splitlines())}
+def validate_route_receipt(node,expected,label,require_full=False):
+ fields=('version','sha256','size_bytes','line_count')
+ if require_full:req(all(k in node for k in fields),f'{label}: Route Map receipt incomplete')
+ for k in fields:
+  if k in node:req(node.get(k)==expected[k],f'{label}: Route Map {k} receipt stale')
 def hist(path):return any(x in HISTORY or x.startswith('historical_') for x in path)
 def walk(o,path=()):
  if hist(path):return
@@ -72,6 +77,10 @@ def main():
  files=sorted([*ROOT.glob('prompts/*.json'),*ROOT.glob('catalog/*.json'),*ROOT.glob('profiles/**/*.json')])
  req(len(files)==28,'operational JSON count != 28')
  parsed={p:load(p) for p in files}
+ route_path=ROOT/'catalog/AIR_RUNTIME_ROUTE_MAP.json';route_obj=parsed[route_path]
+ route_version=route_obj.get('ROUTE_MAP_VERSION')
+ req(isinstance(route_version,str) and route_version and route_obj.get('MAP_VERSION')==route_version,'Route Map version split mismatch')
+ route_expected={'version':route_version,**meta(route_path)}
  core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text()
  req('Patch marker: AIR_SPECIALIST_PACKAGE_INDEX_LIFECYCLE_V1' in core,'006 Core candidate lifecycle marker missing')
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
@@ -138,9 +147,7 @@ def main():
    h=next((x for x in fc.get('required_files',[]) if x.get('filename')=='AIR_HANDOFF_CARD_TEMPLATE.json'),{})
    req(h.get('template_revision')==19 and h.get('revision_fields')==['template_revision','user_revision'] and 'card_revision' not in h,f'{p}: Handoff revision split stale')
    rr=fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}
-   req(rr.get('version')=='1.2.2' and rr.get('sha256')=='a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',f'{p}: Route Map receipt stale')
-   if is_gov and isinstance(o.get('foundation_routing_compatibility'),dict) and isinstance(o['foundation_routing_compatibility'].get('runtime_route_map'),dict):
-    gr=o['foundation_routing_compatibility']['runtime_route_map'];req(gr.get('version')=='1.2.2' and gr.get('sha256')=='a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c',f'{p}: Governance secondary Route Map receipt stale')
+   validate_route_receipt(rr,route_expected,str(p),True)
   req(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
   req(fc.get('cognitive_scope_authority_ref')=='AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION',f'{p}: Floor 028 reference missing')
   if p.name in SFV_BEHAVIORAL_COMPONENTS:
@@ -157,6 +164,15 @@ def main():
    req(o.get('STATUS')=='DRAFT',f'{p}: Governance Executor was promoted out of DRAFT')
   if p.name=='AIR_GROUNDING_EXECUTOR.json':
    req(o.get('STATUS')=='DRAFT',f'{p}: Grounding Executor was promoted out of DRAFT')
+ for p,o in parsed.items():
+  for path,node in walk(o):
+   if not isinstance(node,dict):continue
+   ref=node.get('filename') or node.get('canonical_filename')
+   designation=node.get('designation')
+   if ref!='AIR_RUNTIME_ROUTE_MAP.json' and designation!='AIR_RUNTIME_ROUTE_MAP_V1':continue
+   if not any(k in node for k in ('version','sha256','size_bytes','line_count')):continue
+   label=f"{p}:{'.'.join(path) or '<root>'}"
+   validate_route_receipt(node,route_expected,label,False)
  req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
  ivs=idx['validation_state']
  req(ivs.get('handoff_rev19_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED','Index Handoff rev19 provenance missing')
