@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.6",
+  "INDEX_VERSION": "1.3.7",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
   "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-15T05:28:00Z",
+  "generated_at": "2026-09-15T06:03:46Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -134,7 +134,7 @@
     "decision": "CANDIDATE_PENDING_STATIC_VALIDATION",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_COPYWRITING_AND_SFV_SET_008_STATIC_PASS_OTHER_PACKAGES_PENDING",
+    "manifest_hash_closure": "MIXED_SET_007_AND_SET_008_RECEIPTS_COPYWRITING_AND_SFV_SET_008_BEHAVIORAL_PASS_OTHER_PACKAGES_PENDING",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -160,13 +160,12 @@
       ],
       "passed_count": 2,
       "pending_count": 3,
-      "behavioral_revalidation_ready_package_identities": [
+      "behavioral_revalidation_ready_package_identities": [],
+      "behavioral_revalidation_passed_package_identities": [
+        "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
       ],
-      "behavioral_revalidation_passed_package_identities": [
-        "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2"
-      ],
-      "behavioral_revalidation_passed_count": 1
+      "behavioral_revalidation_passed_count": 2
     }
   },
   "entries": [
@@ -348,7 +347,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "6d533a58db5759824ae16b3e7458f2cc3695e9124fd7b795af0f743b7911f956",
+      "manifest_sha256": "2255c2bbfe2a2180a4ad257f9995aa005ddd902d3a5fd3303f81b686a29666eb",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -376,11 +375,23 @@
       "short_activation_summary": "Use when a material outcome depends on correctly interpreting intent/requirements and evidence must justify verification, closure, release, publication, handoff, or downstream reliance.",
       "short_non_activation_summary": "Do not select for simple low-risk conversation, pre-commitment brainstorming with no verification decision, or formatting-only changes with no material specification/evidence risk.",
       "foundation_compatibility_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "availability_state": "RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION",
+      "availability_state": "RELEASE_CATALOG_ENTRY",
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING"
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "behavioral_evidence_ref": {
+        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1",
+        "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json",
+        "sha256": "831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649",
+        "model_host": "ChatGPT / GPT-5.6 Sol",
+        "scenario_count": 6,
+        "pass_count": 6,
+        "cross_host_equivalence_claimed": false,
+        "executor_included_in_behavioral_pass": false
+      }
     }
   ],
   "backend_validation_claimed": false,

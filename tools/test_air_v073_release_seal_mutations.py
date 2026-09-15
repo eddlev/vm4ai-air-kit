@@ -76,7 +76,7 @@ def main() -> None:
         dump(p, o)
     add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
 
-    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.5')))
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.6')))
 
     add('V073-N11-COPYWRITING-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 
@@ -104,6 +104,20 @@ def main() -> None:
         dump(p, o)
     add('V073-N17-SFV-CARD-REVISION-RESTORED', sfv_card_revision)
 
+
+    add('V073-N18-SFV-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
+
+    def sfv_evidence_receipt_stale(d: Path):
+        p = d / 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json'; o = load(p); o['behavioral_evidence_receipt']['sha256'] = '0' * 64; dump(p, o)
+    add('V073-N19-SFV-EVIDENCE-RECEIPT-STALE', sfv_evidence_receipt_stale)
+
+    def sfv_evidence_passcount_stale(d: Path):
+        p = d / 'tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json'; o = load(p); o['summary']['pass_count'] = 5; dump(p, o)
+    add('V073-N20-SFV-EVIDENCE-PASSCOUNT-STALE', sfv_evidence_passcount_stale)
+
+    def sfv_component_behavioral_rollback(d: Path):
+        p = d / 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json'; o = load(p); o['STATUS'] = 'V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING'; dump(p, o)
+    add('V073-N21-SFV-COMPONENT-BEHAVIORAL-ROLLBACK', sfv_component_behavioral_rollback)
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:
