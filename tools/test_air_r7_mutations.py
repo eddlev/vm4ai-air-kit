@@ -74,6 +74,9 @@ add('R7-N59-GROUNDING-COMPONENT-BEHAVIORAL-ROLLBACK','profiles/grounding special
 add('R7-N60-AGGREGATE-BEHAVIORAL-LIFECYCLE-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['candidate_lifecycle_contract'].__setitem__('current_candidate_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 add('R7-N61-INDEX-RELEASE-SEAL-STATUS-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o.__setitem__('status','AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED')))
 add('R7-N62-INDEX-RELEASE-COMPLETENESS-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:o['catalog_scope'].__setitem__('catalog_completeness_claim','COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V072_PATCH2_CANDIDATE_SPECIALIST_CATALOG')))
+add('R7-N63-CEA-SECONDARY-ROUTE-MAP-SHA-STALE','profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json',jfn(lambda o:o['foundation_routing_compatibility']['runtime_route_map'].__setitem__('sha256','0'*64)))
+add('R7-N64-COPYWRITING-ROUTE-MAP-SIZE-STALE','profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json',jfn(lambda o:o['foundation_compatibility']['route_map_discovery_input'].__setitem__('size_bytes',39163)))
+add('R7-N65-COPYWRITING-ROUTE-MAP-LINE-STALE','profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json',jfn(lambda o:o['foundation_compatibility']['route_map_discovery_input'].__setitem__('line_count',1095)))
 if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')
 print('R7-MUTATION-BASELINE: PASS')
 with tempfile.TemporaryDirectory(prefix='air-r7-mutations-') as td:
