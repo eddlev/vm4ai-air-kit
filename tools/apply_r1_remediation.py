@@ -4,6 +4,10 @@ import subprocess
 
 SOURCE_COMMIT = '45c3b93cd527ccd158920fb1ea266fd3b48910ef'
 PATH = 'tools/apply_r1_remediation.py'
+
+# The Actions checkout is depth=1. Fetch exactly the failed carrier source commit
+# so the localized language repair can be applied without reconstructing its payload.
+subprocess.run(['git', 'fetch', '--no-tags', 'origin', SOURCE_COMMIT], check=True)
 raw = subprocess.run(
     ['git', 'show', f'{SOURCE_COMMIT}:{PATH}'],
     check=True,
