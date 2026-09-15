@@ -1,0 +1,320 @@
+name: Grounding SET008 static carrier
+
+on:
+  push:
+    branches: [grounding-set008-static-carrier-v1]
+
+permissions:
+  contents: write
+
+jobs:
+  build-grounding-static-carrier:
+    if: ${{ contains(github.event.head_commit.message, '[grounding-static-run]') }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify exact authorized base and helper-only bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=b411067fe0c13a45d5e039dfee32a24bcaf314f6
+          test "$(git merge-base "$BASE" HEAD)" = "$BASE"
+          git diff --name-only "$BASE"..HEAD | sort > /tmp/bootstrap.txt
+          cat > /tmp/expected-bootstrap.txt <<'EOF'
+          .github/workflows/grounding-set008-static-carrier.yml
+          .tmp-grounding-set008-static-trigger
+          EOF
+          sed -i 's/^          //' /tmp/expected-bootstrap.txt
+          sort -o /tmp/expected-bootstrap.txt /tmp/expected-bootstrap.txt
+          diff -u /tmp/expected-bootstrap.txt /tmp/bootstrap.txt
+          echo 'Grounding carrier bootstrap scope: PASS'
+
+      - name: Apply Grounding SET008 static compatibility transition
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib, json
+          from pathlib import Path
+
+          ROOT=Path('.')
+          GDIR=ROOT/'profiles/grounding specialist'
+          COMPONENTS=[
+            GDIR/'AIR_GROUNDING_DOMAIN_PACKAGE.json',
+            GDIR/'AIR_GROUNDING_METHOD_PACK.json',
+            GDIR/'AIR_GROUNDING_SPECIALIST.json',
+            GDIR/'AIR_GROUNDING_EXECUTOR.json',
+          ]
+          MANIFEST=GDIR/'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json'
+          INDEX=ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json'
+          FOUNDATION_ID='AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008'
+          SET008_STATE='OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_'+FOUNDATION_ID
+          OLD_STATUS='V2_5_0_OBJECT_CONTRACT_SET_007_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING'
+          NEW_STATUS='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING'
+          PENDING_BEHAV='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+          STATIC_PASS='PASS_R7_DETERMINISTIC_STATIC_SUITE'
+          BEHAV_PENDING='PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE'
+          GROUND='AIR_GROUNDING_SPECIALIST_PACKAGE_V2'
+          GOV='AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'
+          CEA='AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'
+          CW='AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2'
+          SFV='AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2'
+          HIST={'source_baseline','mainline_release_binding','t7_change_record','historical_release_catalogs','source_candidate_manifest','change_history','release_history','historical_records'}
+
+          def load(p):
+            return json.loads(p.read_text(encoding='utf-8'))
+          def dump(p,o):
+            p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          def meta(p):
+            raw=p.read_bytes(); txt=raw.decode('utf-8')
+            return {'sha256':hashlib.sha256(raw).hexdigest(),'size_bytes':len(raw),'line_count':len(txt.splitlines())}
+
+          file_specs={
+            'AIR_CORE_RUNTIME.md': ('AIR_CORE_RUNTIME_V2','2.6.3','FOUNDATION_PROMPT',ROOT/'prompts/AIR_CORE_RUNTIME.md'),
+            'AIR_CONTROL_SURFACE.md': ('AIR_CONTROL_SURFACE_V2','2.6.3','FOUNDATION_PROMPT',ROOT/'prompts/AIR_CONTROL_SURFACE.md'),
+            'AIR_GOV.md': ('AIR_HR_GOVERNANCE_SUPPLEMENT_V2','2.3.2','FOUNDATION_PROMPT',ROOT/'prompts/AIR_GOV.md'),
+            'AIR_DEFAULT_STARTER_PROFILE.json': ('AIR_DEFAULT_STARTER_V2','2.6.3','TASK_COMPOSITE',ROOT/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'),
+            'AIR_HANDOFF_CARD_TEMPLATE.json': ('AIR_HANDOFF_CARD_TEMPLATE_V2','2.3.0','TEMPLATE',ROOT/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'),
+          }
+          route_meta=meta(ROOT/'catalog/AIR_RUNTIME_ROUTE_MAP.json')
+
+          def refresh_ref(node):
+            fn=node.get('filename') if isinstance(node,dict) else None
+            if fn in file_specs:
+              des,ver,cls,p=file_specs[fn]; m=meta(p)
+              node.update({'designation':des,'version':ver,'class':cls,**m})
+              if fn=='AIR_HANDOFF_CARD_TEMPLATE.json':
+                node.pop('card_revision',None)
+                node['template_revision']=19
+                node['revision_fields']=['template_revision','user_revision']
+            if fn=='AIR_RUNTIME_ROUTE_MAP.json':
+              node.update({'designation':'AIR_RUNTIME_ROUTE_MAP_V1','version':'1.2.2','class':'FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG',**route_meta})
+
+          def walk(o,path=()):
+            if any(str(x) in HIST or str(x).startswith('historical_') for x in path):
+              return
+            if isinstance(o,dict):
+              refresh_ref(o)
+              for k,v in o.items(): walk(v,path+(k,))
+            elif isinstance(o,list):
+              for i,v in enumerate(o): walk(v,path+(str(i),))
+
+          def upgrade_component(p):
+            o=load(p); walk(o)
+            fc=o['foundation_compatibility']
+            fc['compatibility_state']='ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008'
+            fc['target_foundation_versions'].update({'core':'2.6.3','control':'2.6.3','governance':'2.3.2','starter':'2.6.3','handoff_schema':'2.3.0'})
+            fc['foundation_candidate_set_identity']=FOUNDATION_ID
+            fc['target_identity']=FOUNDATION_ID
+            rr=fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map')
+            if isinstance(rr,dict):
+              rr.update({'version':'1.2.2','sha256':route_meta['sha256'],'size_bytes':route_meta['size_bytes'],'line_count':route_meta['line_count']})
+            ir=o.get('integration_refresh')
+            if isinstance(ir,dict) and 'foundation_identity_state' in ir:
+              ir['foundation_identity_state']=SET008_STATE
+            if p.name!='AIR_GROUNDING_EXECUTOR.json' and o.get('STATUS')==OLD_STATUS:
+              o['STATUS']=NEW_STATUS
+            if p.name=='AIR_GROUNDING_EXECUTOR.json':
+              if o.get('STATUS')!='DRAFT': raise SystemExit('Grounding Executor was not DRAFT before remediation')
+            dump(p,o)
+
+          for p in COMPONENTS: upgrade_component(p)
+
+          m=load(MANIFEST); walk(m)
+          m['status']='PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING'
+          m['generated_at']='2026-09-15T09:55:00Z'
+          fc=m['foundation_compatibility']
+          fc['compatibility_state']='ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008'
+          fc['target_foundation_versions'].update({'core':'2.6.3','control':'2.6.3','governance':'2.3.2','starter':'2.6.3','handoff_schema':'2.3.0'})
+          fc['foundation_candidate_set_identity']=FOUNDATION_ID
+          fc['target_identity']=FOUNDATION_ID
+          rr=fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map')
+          if isinstance(rr,dict): rr.update({'version':'1.2.2','sha256':route_meta['sha256'],'size_bytes':route_meta['size_bytes'],'line_count':route_meta['line_count']})
+          pvs=m['package_validation_state']
+          for k,v in list(pvs.items()):
+            if isinstance(v,str): pvs[k]=v.replace('SET_007','SET_008').replace('AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007','AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008')
+          pvs['coordinated_reseal_static_validation']=STATIC_PASS
+          pvs['behavioral_revalidation']=BEHAV_PENDING
+          pvs['component_internal_foundation_compatibility']='PASS_SET_008_EXACT_RECEIPTS'
+          if 'package_state' in pvs: pvs['package_state']=pvs['package_state'].replace('SET_007','SET_008')
+          ir=m.get('integration_refresh')
+          if isinstance(ir,dict): ir['foundation_identity_state']=SET008_STATE
+          dump(MANIFEST,m)
+
+          idx=load(INDEX)
+          idx['INDEX_VERSION']='1.3.12'
+          idx['generated_at']='2026-09-15T09:55:00Z'
+          idx['status']='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+          vs=idx['validation_state']
+          vs['decision']='CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION'
+          vs['manifest_hash_closure']='PASS_ALL_FIVE_SPECIALIST_PACKAGES_SET_008_EXACT_MANIFEST_RECEIPTS_GOVERNANCE_CEA_COPYWRITING_SFV_BEHAVIORAL_PASS_GROUNDING_BEHAVIORAL_PENDING'
+          vs['static_validation']=STATIC_PASS
+          vs['behavioral_revalidation']=BEHAV_PENDING
+          vs['operative_lifecycle_coherence']='PASS_ALL_STATIC_VALIDATED_GROUNDING_ONLY_BEHAVIORAL_PENDING'
+          vs['component_internal_foundation_compatibility']='PASS_ALL_FIVE_PACKAGES_SET_008_EXACT_RECEIPTS'
+          prog=vs['set008_static_revalidation_progress']
+          prog['passed_package_identities']=[GOV,CEA,CW,SFV,GROUND]
+          prog['pending_package_identities']=[]
+          prog['passed_count']=5
+          prog['pending_count']=0
+          prog['behavioral_revalidation_ready_package_identities']=[GROUND]
+          prog['behavioral_revalidation_passed_package_identities']=[GOV,CEA,CW,SFV]
+          prog['behavioral_revalidation_passed_count']=4
+          lc=idx['candidate_lifecycle_contract']
+          lc['current_candidate_state']=PENDING_BEHAV
+          ge=next(e for e in idx['entries'] if e['package_identity']==GROUND)
+          ge['foundation_compatibility_identity']=FOUNDATION_ID
+          ge['availability_state']=PENDING_BEHAV
+          ge['current_foundation_compatibility_state']='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING'
+          dump(INDEX,idx)
+
+          # Extend R7 validator to make Grounding SET_008 state permanent and fail-closed.
+          p=ROOT/'tools/validate_air_r7_remediation.py'; s=p.read_text(encoding='utf-8')
+          def rep(old,new,count=1):
+            global s
+            if old not in s: raise SystemExit('R7 validator patch anchor missing: '+old[:120])
+            s=s.replace(old,new,count)
+          rep("GOV_PACKAGE='AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'\nCW_DIR=", "GOV_PACKAGE='AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'\nGROUND_PACKAGE='AIR_GROUNDING_SPECIALIST_PACKAGE_V2'\nCW_DIR=")
+          rep("GOV_DIR='governance specialist'\nCEA_COMPONENT_PASS_STATUS", "GOV_DIR='governance specialist'\nGROUND_DIR='grounding specialist'\nCEA_COMPONENT_PASS_STATUS")
+          rep("req(idx.get('INDEX_VERSION')=='1.3.11','Governance SET_008 behavioral promotion index version mismatch')", "req(idx.get('INDEX_VERSION')=='1.3.12','Grounding SET_008 static revalidation index version mismatch')")
+          rep("req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_STATIC_VALIDATION','v073 current index status incoherent')", "req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V072_PATCH2_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','v073 current index status incoherent')")
+          rep("req(lc.get('current_candidate_state')=='RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION' and lc.get('candidate_states_are_release_sealed') is False,'006 release state semantics wrong')", "req(lc.get('current_candidate_state')==PENDING_BEHAVIOR and lc.get('candidate_states_are_release_sealed') is False,'006 release state semantics wrong')")
+          rep("req(idx['validation_state'].get('static_validation')=='PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index static validation stage mismatch')", "req(idx['validation_state'].get('static_validation')==STATIC_PASS,'R7 index static validation stage mismatch')")
+          rep("req(idx['validation_state'].get('behavioral_revalidation')=='BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION','R7 index behavioral state must remain blocked pending static revalidation')", "req(idx['validation_state'].get('behavioral_revalidation')==BEHAVIOR_PENDING,'R7 index behavioral state must be pending Grounding replayable evidence')")
+          old="req(prog.get('passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('passed_count')==4 and prog.get('pending_count')==1 and prog.get('behavioral_revalidation_ready_package_identities')==[] and prog.get('behavioral_revalidation_passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==4,'R7 SET_008 progress carrier mismatch')\n req(prog.get('pending_package_identities')==['AIR_GROUNDING_SPECIALIST_PACKAGE_V2'],'R7 SET_008 pending package set mismatch')"
+          new="req(prog.get('passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE,GROUND_PACKAGE] and prog.get('passed_count')==5 and prog.get('pending_count')==0 and prog.get('behavioral_revalidation_ready_package_identities')==[GROUND_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities')==[GOV_PACKAGE,CEA_PACKAGE,CW_PACKAGE,SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count')==4,'R7 SET_008 progress carrier mismatch')\n req(prog.get('pending_package_identities')==[],'R7 SET_008 pending package set mismatch')"
+          rep(old,new)
+          old="  else:\n   req(e['foundation_compatibility_identity']==LEGACY_FOUNDATION_ID,'remaining pending index Foundation identity changed before revalidation')\n   req(e['availability_state']==PENDING_STATIC,'remaining pending index lifecycle changed before static revalidation')"
+          new="  elif e['package_identity']==GROUND_PACKAGE:\n   req(e['foundation_compatibility_identity']==FOUNDATION_ID,'Grounding index Foundation identity not SET_008')\n   req(e['availability_state']==PENDING_BEHAVIOR,'Grounding index lifecycle not pending behavioral revalidation')\n   req(e.get('current_foundation_compatibility_state')=='STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING','Grounding SET_008 static state mismatch')\n  else:\n   req(False,'unexpected Specialist package identity '+str(e.get('package_identity')))"
+          rep(old,new)
+          rep("  is_gov=GOV_DIR in str(p)\n  is_set008=is_cw or is_sfv or is_cea or is_gov", "  is_gov=GOV_DIR in str(p)\n  is_ground=GROUND_DIR in str(p)\n  is_set008=is_cw or is_sfv or is_cea or is_gov or is_ground")
+          rep("expected_state=SET008_FOUNDATION_STATE if (CW_DIR in str(p) or SFV_DIR in str(p) or CEA_DIR in str(p) or GOV_DIR in str(p)) else FOUNDATION_STATE", "expected_state=SET008_FOUNDATION_STATE if (CW_DIR in str(p) or SFV_DIR in str(p) or CEA_DIR in str(p) or GOV_DIR in str(p) or GROUND_DIR in str(p)) else FOUNDATION_STATE")
+          rep("  is_cea=CEA_DIR in str(p)\n  if is_cw or is_sfv or is_cea or (GOV_DIR in str(p)):req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')\n  else:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'STATIC_CONTRACT_VALIDATION_PENDING' not in st,f'{p}: top lifecycle not R7 static-pass/behavior-pending')", "  is_cea=CEA_DIR in str(p)\n  is_ground=GROUND_DIR in str(p)\n  if is_ground:req('STATIC_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' not in st,f'{p}: Grounding static-pass/behavior-pending lifecycle missing')\n  elif is_cw or is_sfv or is_cea or (GOV_DIR in str(p)):req('STATIC_VALIDATED' in st and 'REPLAYABLE_BEHAVIORAL_VALIDATED' in st and 'BEHAVIORAL_REVALIDATION_PENDING' not in st,f'{p}: SET_008 behavioral-pass lifecycle missing')\n  else:req(False,f'{p}: unexpected manifest package')")
+          marker=" for e in idx['entries']:\n  targets=list(ROOT.glob('profiles/**/'+e['manifest_filename']))"
+          insert=" groundman=parsed[ROOT/'profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json']\n req(groundman['foundation_compatibility'].get('target_identity')==FOUNDATION_ID and groundman['foundation_compatibility'].get('compatibility_state')==SET008_SPECIALIST_COMPAT,'Grounding manifest SET_008 compatibility missing')\n gmpvs=groundman.get('package_validation_state',{})\n req(gmpvs.get('behavioral_revalidation')==BEHAVIOR_PENDING and gmpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','Grounding manifest validation state mismatch')\n groundexec=parsed[ROOT/'profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json']\n req(groundexec.get('STATUS')=='DRAFT','Grounding Executor was promoted out of DRAFT')\n groundentry=next(e for e in idx['entries'] if e['package_identity']==GROUND_PACKAGE)\n req(groundentry.get('availability_state')==PENDING_BEHAVIOR and groundentry.get('foundation_compatibility_identity')==FOUNDATION_ID,'Grounding index static promotion mismatch')\n"
+          pos=s.rfind(marker)
+          if pos<0: raise SystemExit('R7 validator final entry-loop anchor missing')
+          s=s[:pos]+insert+s[pos:]
+          p.write_text(s,encoding='utf-8')
+
+          # Extend v0.7.3 release-seal validator for aggregate static closure and Grounding.
+          p=ROOT/'tools/validate_air_v073_release_seal.py'; s=p.read_text(encoding='utf-8')
+          def rep2(old,new,count=1):
+            global s
+            if old not in s: raise SystemExit('v073 validator patch anchor missing: '+old[:120])
+            s=s.replace(old,new,count)
+          rep2("GOV_PACKAGE = 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'\nEXPECTED_HASHES", "GOV_PACKAGE = 'AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2'\nGROUND_PACKAGE = 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2'\nEXPECTED_HASHES")
+          rep2("'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'f49450354f716fd82edda6e25d1f40958e1e8ef49d88296e07cf67895794483c',", "'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '__GROUNDING_INDEX_SHA__',")
+          rep2("req(index['INDEX_VERSION'] == '1.3.11', 'Index Governance-SET008-behavioral version mismatch')", "req(index['INDEX_VERSION'] == '1.3.12', 'Index Grounding-SET008-static version mismatch')")
+          rep2("req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_STATIC, 'Index aggregate candidate lifecycle overclaims evidence')", "req(index['candidate_lifecycle_contract']['current_candidate_state'] == PENDING_BEHAVIOR, 'Index aggregate candidate lifecycle not pending behavioral revalidation')")
+          rep2("req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_STATIC_VALIDATION', 'Index validation decision not pending-static')", "req(index['validation_state']['decision'] == 'CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION', 'Index validation decision not pending-behavioral')")
+          rep2("req(index['validation_state']['static_validation'] == 'PENDING_SPECIALIST_PACKAGE_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index static state mismatch')", "req(index['validation_state']['static_validation'] == 'PASS_R7_DETERMINISTIC_STATIC_SUITE', 'Index static state mismatch')")
+          rep2("req(index['validation_state']['behavioral_revalidation'] == 'BLOCKED_PENDING_SET_008_STATIC_COMPATIBILITY_REVALIDATION', 'Index behavioral state not blocked by static')", "req(index['validation_state']['behavioral_revalidation'] == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Index behavioral state not pending Grounding evidence')")
+          old="    others = [e for e in index['entries'] if e['package_identity'] not in {CW_PACKAGE, SFV_PACKAGE, CEA_PACKAGE, GOV_PACKAGE}]\n    req(len(others) == 1 and all(e['availability_state'] == PENDING_STATIC for e in others), 'remaining Specialist lifecycle not pending-static')\n    req(all(e['foundation_compatibility_identity'] == SET007 for e in others), 'remaining historical compatibility identity changed')\n    req(all(e['current_foundation_compatibility_state'] == 'REVALIDATION_REQUIRED_NOT_INFERRED_FROM_INDEX_RESEAL' for e in others), 'remaining SET_008 compatibility inferred')\n    prog = index['validation_state'].get('set008_static_revalidation_progress', {})\n    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('passed_count') == 4 and prog.get('pending_count') == 1 and prog.get('behavioral_revalidation_ready_package_identities') == [] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')"
+          new="    grounding = [e for e in index['entries'] if e['package_identity'] == GROUND_PACKAGE]\n    req(len(grounding) == 1, 'Grounding index entry missing')\n    gre = grounding[0]\n    req(gre['availability_state'] == PENDING_BEHAVIOR, 'Grounding lifecycle not pending behavioral revalidation')\n    req(gre['foundation_compatibility_identity'] == FOUNDATION_ID, 'Grounding SET_008 identity missing')\n    req(gre['current_foundation_compatibility_state'] == 'STATIC_COMPATIBILITY_VALIDATED_BEHAVIORAL_REVALIDATION_PENDING', 'Grounding SET_008 static state mismatch')\n    prog = index['validation_state'].get('set008_static_revalidation_progress', {})\n    req(prog.get('passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE, GROUND_PACKAGE] and prog.get('passed_count') == 5 and prog.get('pending_count') == 0 and prog.get('pending_package_identities') == [] and prog.get('behavioral_revalidation_ready_package_identities') == [GROUND_PACKAGE] and prog.get('behavioral_revalidation_passed_package_identities') == [GOV_PACKAGE, CEA_PACKAGE, CW_PACKAGE, SFV_PACKAGE] and prog.get('behavioral_revalidation_passed_count') == 4, 'Index SET_008 progress mismatch')"
+          rep2(old,new)
+          marker="    migrator = load_migrator()"
+          insert="    grounding_dir = ROOT / 'profiles' / 'grounding specialist'\n    for name in ['AIR_GROUNDING_DOMAIN_PACKAGE.json','AIR_GROUNDING_METHOD_PACK.json','AIR_GROUNDING_SPECIALIST.json','AIR_GROUNDING_EXECUTOR.json']:\n        obj = load(grounding_dir / name); fc = obj['foundation_compatibility']\n        req(fc.get('target_identity') == FOUNDATION_ID and fc.get('compatibility_state') == 'ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008', f'{name}: Grounding SET_008 compatibility missing')\n        hr = next(x for x in fc['required_files'] if x['filename'] == 'AIR_HANDOFF_CARD_TEMPLATE.json')\n        req(hr.get('template_revision') == 19 and hr.get('revision_fields') == ['template_revision','user_revision'] and 'card_revision' not in hr, f'{name}: Grounding Handoff revision split stale')\n        rr = fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}\n        req(rr.get('version') == '1.2.2' and rr.get('sha256') == sha(ROOT / 'catalog/AIR_RUNTIME_ROUTE_MAP.json'), f'{name}: Grounding Route Map receipt stale')\n    req(load(grounding_dir / 'AIR_GROUNDING_EXECUTOR.json').get('STATUS') == 'DRAFT', 'Grounding Executor was promoted out of DRAFT')\n    groundm = load(grounding_dir / 'AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json')\n    req(groundm['foundation_compatibility'].get('target_identity') == FOUNDATION_ID, 'Grounding manifest target identity stale')\n    req(groundm['package_validation_state'].get('behavioral_revalidation') == 'PENDING_REPLAYABLE_MODEL_HOST_EVIDENCE', 'Grounding behavioral state overclaimed')\n    req(groundm['package_validation_state'].get('component_internal_foundation_compatibility') == 'PASS_SET_008_EXACT_RECEIPTS', 'Grounding component receipt state stale')\n\n"
+          if marker not in s: raise SystemExit('v073 Grounding insertion anchor missing')
+          s=s.replace(marker,insert+marker,1)
+          p.write_text(s,encoding='utf-8')
+
+          # R7 mutations: five Grounding static regression classes.
+          p=ROOT/'tools/test_air_r7_mutations.py'; s=p.read_text(encoding='utf-8')
+          marker="if run(ROOT)!=0:raise SystemExit('R7-MUTATION-BASELINE failed')"
+          add="""add('R7-N52-GROUNDING-INDEX-SET007-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity','AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))\nadd('R7-N53-GROUNDING-INDEX-STATIC-ROLLBACK','catalog/AIR_SPECIALIST_PACKAGE_INDEX.json',jfn(lambda o:next(e for e in o['entries'] if e['package_identity']=='AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))\nadd('R7-N54-GROUNDING-EXECUTOR-PREMATURE-PROMOTION','profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json',jfn(lambda o:o.__setitem__('STATUS','V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING')))\nadd('R7-N55-GROUNDING-CARD-REVISION-RESTORED','profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json',jfn(lambda o:next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json').__setitem__('card_revision',18)))\nadd('R7-N56-GROUNDING-ROUTE-MAP-ROLLBACK','profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json',jfn(lambda o:(o['foundation_compatibility'].get('route_map_discovery_input') or o['foundation_compatibility'].get('foundation_adjacent_route_map')).__setitem__('version','1.2.1')))\n"""
+          if marker not in s: raise SystemExit('R7 mutation insertion anchor missing')
+          p.write_text(s.replace(marker,add+marker,1),encoding='utf-8')
+
+          # v0.7.3 mutations: invert aggregate carrier and add five Grounding regressions.
+          p=ROOT/'tools/test_air_v073_release_seal_mutations.py'; s=p.read_text(encoding='utf-8')
+          old="add('V073-N01-AGGREGATE-LIFECYCLE-OVERCLAIM', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))"
+          new="add('V073-N01-AGGREGATE-LIFECYCLE-ROLLBACK', idxmut(lambda o: o['candidate_lifecycle_contract'].__setitem__('current_candidate_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))"
+          if old not in s: raise SystemExit('v073 aggregate mutation anchor missing')
+          s=s.replace(old,new,1)
+          marker="    killed = 0"
+          add="""    add('V073-N39-GROUNDING-SET007-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('foundation_compatibility_identity', 'AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_007')))\n    add('V073-N40-GROUNDING-PENDING-STATIC-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_GROUNDING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION')))\n\n    def grounding_executor_promoted(d: Path):\n        p=d/'profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)\n    add('V073-N41-GROUNDING-EXECUTOR-PREMATURE-PROMOTION', grounding_executor_promoted)\n\n    def grounding_card_revision(d: Path):\n        p=d/'profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json';o=load(p);hr=next(x for x in o['foundation_compatibility']['required_files'] if x['filename']=='AIR_HANDOFF_CARD_TEMPLATE.json');hr['card_revision']=18;dump(p,o)\n    add('V073-N42-GROUNDING-CARD-REVISION-RESTORED', grounding_card_revision)\n\n    def grounding_route_map_rollback(d: Path):\n        p=d/'profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json';o=load(p);rr=o['foundation_compatibility'].get('route_map_discovery_input') or o['foundation_compatibility'].get('foundation_adjacent_route_map');rr['version']='1.2.1';dump(p,o)\n    add('V073-N43-GROUNDING-ROUTE-MAP-ROLLBACK', grounding_route_map_rollback)\n\n"""
+          if marker not in s: raise SystemExit('v073 mutation insertion anchor missing')
+          p.write_text(s.replace(marker,add+marker,1),encoding='utf-8')
+          PY
+
+      - name: Dependency-graph reseal approved operational bytes
+        run: python3 tools/reseal_air_candidate.py --apply
+
+      - name: Seal current Specialist Index hash into v0.7.3 validator
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+          idx=Path('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
+          h=hashlib.sha256(idx.read_bytes()).hexdigest()
+          p=Path('tools/validate_air_v073_release_seal.py')
+          s=p.read_text()
+          if '__GROUNDING_INDEX_SHA__' not in s: raise SystemExit('index hash placeholder missing')
+          p.write_text(s.replace('__GROUNDING_INDEX_SHA__',h,1))
+          print('Grounding candidate index sha256',h)
+          PY
+
+      - name: Verify exact product scope before validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE=b411067fe0c13a45d5e039dfee32a24bcaf314f6
+          cat > /tmp/expected-product.txt <<'EOF'
+          catalog/AIR_SPECIALIST_PACKAGE_INDEX.json
+          profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json
+          profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json
+          profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json
+          profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json
+          tools/test_air_r7_mutations.py
+          tools/test_air_v073_release_seal_mutations.py
+          tools/validate_air_r7_remediation.py
+          tools/validate_air_v073_release_seal.py
+          EOF
+          sed -i 's/^          //' /tmp/expected-product.txt
+          sort -o /tmp/expected-product.txt /tmp/expected-product.txt
+          git diff --name-only "$BASE" -- catalog profiles tools | sort > /tmp/actual-product.txt
+          diff -u /tmp/expected-product.txt /tmp/actual-product.txt
+          test "$(wc -l < /tmp/actual-product.txt)" -eq 10
+          echo 'Grounding product scope: PASS (10/10)'
+
+      - name: Validate Grounding SET008 candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m py_compile tools/validate_air_r7_remediation.py tools/test_air_r7_mutations.py tools/validate_air_v073_release_seal.py tools/test_air_v073_release_seal_mutations.py
+          python3 tools/reseal_air_candidate.py --check
+          python3 tools/validate_air_suite.py --without-mutations
+          python3 tools/test_air_r7_mutations.py
+          python3 tools/test_air_v073_release_seal_mutations.py
+          python3 tools/validate_air_suite.py
+          echo 'Grounding SET008 candidate validation: PASS'
+
+      - name: Remove carrier helpers and verify final net scope
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/grounding-set008-static-carrier.yml .tmp-grounding-set008-static-trigger
+          BASE=b411067fe0c13a45d5e039dfee32a24bcaf314f6
+          git diff --name-only "$BASE" | sort > /tmp/final-net.txt
+          diff -u /tmp/expected-product.txt /tmp/final-net.txt
+          test "$(wc -l < /tmp/final-net.txt)" -eq 10
+          echo 'Grounding final net scope: PASS (10 permanent paths; helpers absent)'
+
+      - name: Commit validated permanent carrier
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --name-only > /tmp/staged.txt
+          git commit -m "specialists: revalidate Grounding for SET_008 [grounding-static-applied]"
+          git push
