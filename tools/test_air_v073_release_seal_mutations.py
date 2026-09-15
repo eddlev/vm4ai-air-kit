@@ -76,7 +76,7 @@ def main() -> None:
         dump(p, o)
     add('V073-N09-COPYWRITING-CARD-REVISION-RESTORED', copywriting_card_revision)
 
-    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.7')))
+    add('V073-N10-INDEX-VERSION-ROLLBACK', idxmut(lambda o: o.__setitem__('INDEX_VERSION', '1.3.8')))
 
     add('V073-N11-COPYWRITING-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
 
@@ -134,6 +134,20 @@ def main() -> None:
         o['foundation_compatibility']['route_map_discovery_input']['version'] = '1.2.1'
         dump(p, o)
     add('V073-N25-CEA-ROUTE-MAP-ROLLBACK', cea_route_map_rollback)
+
+    add('V073-N26-CEA-BEHAVIORAL-ROLLBACK', idxmut(lambda o: next(e for e in o['entries'] if e['package_identity'] == 'AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2').__setitem__('availability_state', 'RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION')))
+
+    def cea_evidence_receipt_stale(d: Path):
+        p=d/'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json';o=load(p);o['behavioral_evidence_receipt']['sha256']='0'*64;dump(p,o)
+    add('V073-N27-CEA-EVIDENCE-RECEIPT-STALE', cea_evidence_receipt_stale)
+
+    def cea_evidence_passcount_stale(d: Path):
+        p=d/'tests/AIR_CAPABILITY_ECOLOGY_ARCHITECT_SET008_BEHAVIORAL_EVIDENCE_V1.json';o=load(p);o['summary']['pass_count']=5;dump(p,o)
+    add('V073-N28-CEA-EVIDENCE-PASSCOUNT-STALE', cea_evidence_passcount_stale)
+
+    def cea_component_behavioral_rollback(d: Path):
+        p=d/'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json';o=load(p);o['STATUS']='V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_AVAILABLE_UNBOUND_REPLAYABLE_BEHAVIORAL_REVALIDATION_PENDING';dump(p,o)
+    add('V073-N29-CEA-COMPONENT-BEHAVIORAL-ROLLBACK', cea_component_behavioral_rollback)
     killed = 0
     for name, fn in cases:
         with tempfile.TemporaryDirectory(prefix='air-v073-seal-mut-') as td:
