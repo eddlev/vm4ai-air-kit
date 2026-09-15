@@ -32,6 +32,7 @@ def main() -> None:
     run_stage('v073_release_seal', [py, 'tools/validate_air_v073_release_seal.py'])
     run_stage('control_plane_semantic_loopholes', [py, 'tools/validate_air_control_plane.py'])
     run_stage('behavioral_transaction_contracts', [py, 'tools/validate_air_behavioral_contracts.py'])
+    run_stage('failure_mode_learning_e2e', [py, 'tools/test_air_failure_mode_learning_e2e.py'])
     if not args.without_mutations:
         run_stage('validator_mutations', [py, 'tools/test_air_validator_mutations.py'])
         run_stage('deterministic_contract_mutations', [py, 'tools/test_air_contract_registry_mutations.py'])
