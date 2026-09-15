@@ -116,11 +116,13 @@ def main() -> None:
     require(fm.get('successful_retest_state') == 'MITIGATED_RETAIN_FOR_REGRESSION', 'successful retest state drifted')
     require(fm.get('specialist_registry_mutation_authority') == 'NONE', 'Starter grants Specialist registry mutation authority')
     require(fm.get('handoff_path') == 'AIR_HANDOFF_CARD.failure_mode_state', 'Starter failure-mode Handoff path drifted')
+    require(fm.get('failure_record_source_ledger_entry_required') is True, 'Starter no longer requires ledger-backed failure records')
     require(signature_schema.get('required_keys') == expected_signature_keys, 'applicability signature schema drifted')
     require(signature_schema.get('array_canonicalization') == 'SORTED_UNIQUE_STRINGS', 'signature array canonicalization drifted')
     require(handoff_fm.get('registry_version') == fm.get('registry_version'), 'Handoff failure registry version mismatch')
     require(handoff_fm.get('positive_execution_authority') == 'NONE', 'restored Handoff failure state gained execution authority')
     require(handoff_fm.get('automatic_match_rule') == 'EXACT_CANONICAL_SIGNATURE_HASH_EQUALITY_ONLY_AFTER_RESTORE_VALIDATION', 'Handoff automatic match rule drifted')
+    require(handoff_fm.get('source_history_carrier') == 'AIR_HANDOFF_CARD.surfaced_object_ledger_state', 'Handoff failure source-history carrier drifted')
     require(specialist_fm.get('pre_execution_query_required') is True, 'Specialist pre-execution failure registry query missing')
     require(specialist_fm.get('automatic_applicability') == 'EXACT_MATCH_ONLY', 'Specialist failure applicability is not exact-match only')
     require(specialist_fm.get('package_or_component_registry_mutation_authority') == 'NONE', 'Specialist package gained Core registry mutation authority')
@@ -150,23 +152,14 @@ def main() -> None:
         'prohibited_retry_pattern': 'REPEAT_UNVALIDATED_PATCH_TRANSPORT',
         'applicability_signature': canonical_signature,
         'applicability_signature_hash': applicability_hash,
-        'applicability_state': 'EXACT_MATCH_ONLY',
+        'applicability_state': 'EXACT_MATCH',
         'retest_requirement': 'REPLAY_SAME_EXACT_SIGNATURE_WITH_CORRECTIVE_CONSTRAINT',
         'retest_state': 'PENDING',
         'recurrence_count': 0,
-        'source_ledger_entry_ref': 'LEDGER-E2E-FM-001',
+        'source_ledger_entry_ref': 'AIR_SURFACED_OBJECT_LEDGER_ENTRY::LEDGER-E2E::1',
         'specialist_or_method_refs': ['AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2'],
         'evidence_refs': ['EVIDENCE-E2E-FIRST-FAILURE'],
     }
-    emitted_record_hash = canonical_hash(record)
-    ledger_entry = {
-        'ledger_entry_ref': record['source_ledger_entry_ref'],
-        'object_name': 'AIR_FAILURE_MODE_RECORD',
-        'visibility_state': 'USER_VISIBLE_EMITTED',
-        'canonical_snapshot_hash': emitted_record_hash,
-    }
-    require(ledger_entry['ledger_entry_ref'] == record['source_ledger_entry_ref'], 'first failure ledger ref mismatch')
-    require(ledger_entry['canonical_snapshot_hash'] == canonical_hash(record), 'first failure ledger snapshot hash mismatch')
     core_registry = {
         'registry_version': fm['registry_version'],
         'owner': fm['owner'],
