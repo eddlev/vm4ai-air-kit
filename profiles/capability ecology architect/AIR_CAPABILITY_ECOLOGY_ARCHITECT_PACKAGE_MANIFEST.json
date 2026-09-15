@@ -382,15 +382,15 @@
     "runtime_route_map": {
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
-      "version": "1.2.1",
-      "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
+      "version": "1.2.2",
+      "sha256": "a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 38042,
-      "line_count": 1075
+      "size_bytes": 39383,
+      "line_count": 1098
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
