@@ -19,17 +19,17 @@ def run_in_process(t):
 def mutate(t,i):
     cp=t/'prompts/AIR_CORE_RUNTIME.md'; sp=t/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; rp=t/'catalog/AIR_RUNTIME_ROUTE_MAP.json'
     if i==1:
-        s=cp.read_text(); s=s.replace('failure_route=RT.RECOVERY\n[AIR_ROUTE]','failure_route=RT.RECOVERY[AIR_ROUTE]',1); cp.write_text(s)
+        s=cp.read_text(encoding='utf-8'); s=s.replace('failure_route=RT.RECOVERY\n[AIR_ROUTE]','failure_route=RT.RECOVERY[AIR_ROUTE]',1); cp.write_text(s,encoding='utf-8')
     elif i==2:
         s=load(sp); s['compiler_contract']['deterministic_pipeline_non_inference']['declared_runtime_routes'].remove('RT.APPROVAL_RESOLVE'); save(sp,s)
     elif i==3:
-        s=cp.read_text(); m=re.search(r'(id=RT\.ALIGN\n.*?)(?=\n\[AIR_ROUTE\])',s,re.S); b=m.group(1).replace('control_event_ref=CE-RT-ALIGN\n',''); cp.write_text(s[:m.start(1)]+b+s[m.end(1):])
+        s=cp.read_text(encoding='utf-8'); m=re.search(r'(id=RT\.ALIGN\n.*?)(?=\n\[AIR_ROUTE\])',s,re.S); b=m.group(1).replace('control_event_ref=CE-RT-ALIGN\n',''); cp.write_text(s[:m.start(1)]+b+s[m.end(1):],encoding='utf-8')
     elif i==4:
         s=load(sp); s['typed_registries']['runtime_states']['alignment_evaluation_profile'].remove('ACTIVATION'); save(sp,s)
     elif i==5:
         s=load(sp); e=next(x for x in s['compiler_contract']['runtime_control_event_registry']['events'] if x['route_id']=='RT.ALIGN'); e['guards']=[{'operator':'STATE_PRESENT','path':'CURRENT_EVALUATION_BASIS'}]; save(sp,s)
     elif i==6:
-        s=cp.read_text(); s=s.replace('DEP.APPROVAL_PRECONDITION_SATISFIED','DEP.APPROVAL_CURRENT',1); cp.write_text(s)
+        s=cp.read_text(encoding='utf-8'); s=s.replace('DEP.APPROVAL_PRECONDITION_SATISFIED','DEP.APPROVAL_CURRENT',1); cp.write_text(s,encoding='utf-8')
     elif i==7:
         s=cp.read_text(encoding='utf-8')
         matches=list(re.finditer(r'(?m)^PROMPT_VERSION:\s*\S+\s*$',s))
@@ -40,9 +40,9 @@ def mutate(t,i):
     elif i==9:
         s=load(sp); s['authority_contract']['required_files']=[x for x in s['authority_contract']['required_files'] if x['canonical_role']!='HANDOFF_CARD_TEMPLATE']; save(sp,s)
     elif i==10:
-        raw=sp.read_text(); sp.write_text(raw.replace('  "PROFILE_KIND": "TASK_COMPOSITE",','  "PROFILE_KIND": "TASK_COMPOSITE",\n  "PROFILE_KIND": "TASK_COMPOSITE",',1))
+        raw=sp.read_text(encoding='utf-8'); sp.write_text(raw.replace('  "PROFILE_KIND": "TASK_COMPOSITE",','  "PROFILE_KIND": "TASK_COMPOSITE",\n  "PROFILE_KIND": "TASK_COMPOSITE",',1),encoding='utf-8')
     elif i==11:
-        cp.write_text(cp.read_text().replace('AIR-FLOOR-012-LEGACY-V1-NON-BINDING','AIR-FLOOR-012-MUTATED'))
+        cp.write_text(cp.read_text(encoding='utf-8').replace('AIR-FLOOR-012-LEGACY-V1-NON-BINDING','AIR-FLOOR-012-MUTATED'),encoding='utf-8')
         r=load(rp); r['source_of_truth']['sha256']=hashlib.sha256(cp.read_bytes()).hexdigest(); save(rp,r)
     elif i==12:
         s=load(rp); next(x for x in s['routes'] if x['route_id']=='RT.ACTION')['source_anchor']['line']-=1; save(rp,s)
