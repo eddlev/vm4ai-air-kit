@@ -65,14 +65,14 @@ def eval_registry(root,starter):
         req(c.get('on_failure')=='FAIL_CLOSED',f'{cid}: not fail closed')
         try:
             if op=='FILE_EXISTS': req((root/c['file']).is_file(),f'{cid}: missing file')
-            elif op=='MARKDOWN_HEADER_EQUALS_LITERAL': req(header((root/c['file']).read_text(),c['header'])==c['expected'],f'{cid}: header mismatch')
+            elif op=='MARKDOWN_HEADER_EQUALS_LITERAL': req(header((root/c['file']).read_text(encoding='utf-8'),c['header'])==c['expected'],f'{cid}: header mismatch')
             elif op=='MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE':
-                exp=jget(starter,c['registry_value_path']); got=header((root/c['file']).read_text(),c['header']); req(got==exp,f'{cid}: {got} != {exp}')
+                exp=jget(starter,c['registry_value_path']); got=header((root/c['file']).read_text(encoding='utf-8'),c['header']); req(got==exp,f'{cid}: {got} != {exp}')
             elif op=='MARKDOWN_FINAL_LINE_EQUALS_LITERAL':
-                lines=(root/c['file']).read_text().rstrip().splitlines(); req(lines and lines[-1]==c['expected'],f'{cid}: sentinel mismatch')
+                lines=(root/c['file']).read_text(encoding='utf-8').rstrip().splitlines(); req(lines and lines[-1]==c['expected'],f'{cid}: sentinel mismatch')
             elif op=='JSON_EQUALS_LITERAL': req(jget(load(root/c['left']['file']),c['left']['path'])==c['expected'],f'{cid}: JSON literal mismatch')
             elif op=='JSON_EQUALS_REFERENCE': req(jget(load(root/c['left']['file']),c['left']['path'])==jget(load(root/c['right']['file']),c['right']['path']),f'{cid}: JSON ref mismatch')
-            elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(str(jget(load(root/c['left']['file']),c['left']['path']))==header((root/c['right']['file']).read_text(),c['right']['header']),f'{cid}: JSON/header mismatch')
+            elif op=='JSON_EQUALS_MARKDOWN_HEADER': req(str(jget(load(root/c['left']['file']),c['left']['path']))==header((root/c['right']['file']).read_text(encoding='utf-8'),c['right']['header']),f'{cid}: JSON/header mismatch')
             elif op=='JSON_ROOT_KEYS_DECLARED_BY_MANIFEST':
                 o=load(root/c['file']); ro=jget(o,c['root_path']); declared=set(jget(o,c['required_path']))|set(jget(o,c['optional_path'])); req(not(set(ro)-declared),f'{cid}: undeclared root')
             elif op=='JSON_ARRAY_CONTAINS_LITERAL': req(c['expected'] in jget(load(root/c['left']['file']),c['left']['path']),f'{cid}: missing array literal')
@@ -82,8 +82,8 @@ def eval_registry(root,starter):
                 except KeyError: exists=False
                 req(not exists,f'{cid}: forbidden path present')
             elif op=='JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL': req(c['expected'] not in json.dumps(jget(load(root/c['left']['file']),c['left']['path']),ensure_ascii=False),f'{cid}: forbidden text present')
-            elif op=='TEXT_CONTAINS_LITERAL': req(c['expected'] in (root/c['file']).read_text(),f'{cid}: text missing')
-            elif op=='TEXT_NOT_CONTAINS_LITERAL': req(c['expected'] not in (root/c['file']).read_text(),f'{cid}: forbidden text present')
+            elif op=='TEXT_CONTAINS_LITERAL': req(c['expected'] in (root/c['file']).read_text(encoding='utf-8'),f'{cid}: text missing')
+            elif op=='TEXT_NOT_CONTAINS_LITERAL': req(c['expected'] not in (root/c['file']).read_text(encoding='utf-8'),f'{cid}: forbidden text present')
             elif op=='STRICT_JSON_PARSE_NO_DUPLICATES': load(root/c['file'])
             elif op=='FOUNDATION_MANIFEST_EXACT':
                 o=load(root/c['manifest_file']); arr=jget(o,c['manifest_path']); req(isinstance(arr,list) and len(arr)==5,f'{cid}: expected 5 roles')
@@ -93,7 +93,7 @@ def eval_registry(root,starter):
                 req(actual==set(names),f'{cid}: active Foundation set mismatch {actual^set(names)}')
                 for x in arr:
                     p=root/c['foundation_directory']/x['canonical_filename']; req(p.is_file(),f'{cid}: missing {p.name}')
-                    if p.suffix=='.md': got=header(p.read_text(), 'SYSTEM_DESIGNATION'); exp=x['SYSTEM_DESIGNATION']
+                    if p.suffix=='.md': got=header(p.read_text(encoding='utf-8'), 'SYSTEM_DESIGNATION'); exp=x['SYSTEM_DESIGNATION']
                     else:
                         obj=load(p)
                         if p.name=='AIR_HANDOFF_CARD_TEMPLATE.json': got=obj['AIR_HANDOFF_CARD']['TEMPLATE_DESIGNATION']; exp=x['TEMPLATE_DESIGNATION']
