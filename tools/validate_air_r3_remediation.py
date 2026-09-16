@@ -56,7 +56,7 @@ def visibility_valid(H):
         return s['authority_source'] in {'USER_EXPLICIT','RESTORED_EXPLICIT_SELECTION'} and s['selection_evidence_ref'] is not None
     return mode=='ALL_OBJECTS' and s['authority_source'] in {'IMMUTABLE_DEFAULT_BASELINE','USER_EXPLICIT','RESTORED_EXPLICIT_SELECTION','LEGACY_UNVERIFIED_SELECTION'}
 def main():
-    core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text(); control=(ROOT/'prompts/AIR_CONTROL_SURFACE.md').read_text(); gov=(ROOT/'prompts/AIR_GOV.md').read_text()
+    core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text(encoding='utf-8'); control=(ROOT/'prompts/AIR_CONTROL_SURFACE.md').read_text(encoding='utf-8'); gov=(ROOT/'prompts/AIR_GOV.md').read_text(encoding='utf-8')
     starter=load('prompts/AIR_DEFAULT_STARTER_PROFILE.json'); H=load('prompts/AIR_HANDOFF_CARD_TEMPLATE.json')['AIR_HANDOFF_CARD']; sm=H['schema_manifest']; preds=sm['condition_registry']['predicates']
     req(len(starter['validation_contract']['deterministic_contract_registry']['checks'])==90,'R1 registry lost')
     req('AIR_SURFACED_OBJECT_LEDGER: SURFACED_OBJECT_LEDGER_RECORD' in core,'R2 formal class lost')
@@ -105,7 +105,7 @@ def main():
     method_paths=list(ROOT.glob('profiles/**/*METHOD_PACK.json')); req(len(method_paths)==5,'expected 5 method packs')
     schema_ids=set()
     for p in method_paths:
-        m=json.loads(p.read_text()); hr=m.get('handoff_requirements'); req(isinstance(hr,dict),f'039 prose-only handoff requirements {p.name}')
+        m=json.loads(p.read_text(encoding='utf-8')); hr=m.get('handoff_requirements'); req(isinstance(hr,dict),f'039 prose-only handoff requirements {p.name}')
         ms=hr.get('method_specific_state_schema',{}); req(ms.get('schema_id') and isinstance(ms.get('required_fields'),list),f'039 typed method schema missing {p.name}')
         req(all(str(x).startswith('$.') for x in hr.get('generic_required_paths',[])),f'039 generic paths not typed {p.name}')
         schema_ids.add(ms['schema_id'])
