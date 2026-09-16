@@ -164,19 +164,19 @@
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "canonical_filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "2a282a42d94118dfb5b6acd80e69d17b4a6af620d820a72fad2b2753c2724ac6"
+      "observed_sha256": "a108835b8e18b8421f7f9dfae638bec2f79dc21db823d8dbbc1a1a7e36dea4ef"
     },
     "human_to_machine_capability_translator": {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "canonical_filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "5fb5f512f1fba2d8220235d0b9d9fed50acc48990a49d30265328442cf5047c8"
+      "observed_sha256": "ca84ec4fb6bd2781a24e94b0bbd90579f3c72d16f403a63cc92a3821b2008e9f"
     },
     "capability_ecology_architect": {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "canonical_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
       "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND",
-      "observed_sha256": "6b1d4d7acf97c874c311be09a79c2edfafb5c220b5045cac41936eda17b126ea"
+      "observed_sha256": "e11c8fed66bb5e3e915d8c31933681a27d3982a9bffc934a41f7a3965732dae2"
     },
     "package_manifest": {
       "planned_designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST_V2",
@@ -297,7 +297,7 @@
     {
       "designation": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_V2",
       "filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
-      "sha256": "0580e9ca2b9af19770edf04fc68b35b3d64b170103856e55cb4d59506c3834d6",
+      "sha256": "e11c8fed66bb5e3e915d8c31933681a27d3982a9bffc934a41f7a3965732dae2",
       "required_for": [
         "all branches"
       ]
@@ -305,7 +305,7 @@
     {
       "designation": "AIR_DOMAIN_CAPABILITY_REGISTRY_V2",
       "filename": "AIR_DOMAIN_CAPABILITY_REGISTRY.json",
-      "sha256": "9e43761fcc199e5652a1159b006eb92a2d70ead260c7686639fc20487e2b709e",
+      "sha256": "a108835b8e18b8421f7f9dfae638bec2f79dc21db823d8dbbc1a1a7e36dea4ef",
       "required_for": [
         "domain routing",
         "Domain Package template and fixture validation",
@@ -315,7 +315,7 @@
     {
       "designation": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR_V2",
       "filename": "AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
-      "sha256": "337b38bc4d16a1a149a43f617ca15243f7dc5e50b5b68ea00fe12727e6501e01",
+      "sha256": "ca84ec4fb6bd2781a24e94b0bbd90579f3c72d16f403a63cc92a3821b2008e9f",
       "required_for": [
         "material human-oriented framework translation",
         "knowledge and cognitive-depth translation",
@@ -1347,14 +1347,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.2.1",
-      "sha256": "ec783798ddaa5a5d6c3e5129c465ebbd4022fd54ff25219d4b33276e8581bb92",
+      "sha256": "a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_CAPABILITY_ECOLOGY_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 38042,
-      "line_count": 1075
+      "size_bytes": 39383,
+      "line_count": 1098
     },
     "specialist_package_index": {
       "role": "DISCOVERY_METADATA_ONLY",
