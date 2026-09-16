@@ -13,9 +13,13 @@ def run_stage(name: str, command: list[str]) -> None:
     if proc.returncode != 0:
         raise SystemExit(f'AIR validation suite FAILED at stage: {name} (exit {proc.returncode})')
 
+def skip_stage(name: str, reason: str) -> None:
+    print(f'=== AIR validation stage skipped: {name} ({reason}) ===', flush=True)
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('--without-mutations', action='store_true')
+    parser.add_argument('--candidate', action='store_true')
     args = parser.parse_args()
     py = sys.executable
     run_stage('deterministic_contract_registry', [py, 'tools/validate_air_contract_registry.py'])
@@ -28,8 +32,12 @@ def main() -> None:
     run_stage('r7_lifecycle_version_history_reseal', [py, 'tools/validate_air_r7_remediation.py'])
     run_stage('r8_low_risk_presentation_portability', [py, 'tools/validate_air_r8_remediation.py'])
     run_stage('routine_boot', [py, 'tools/validate_air_boot.py'])
-    run_stage('release_contract', [py, 'tools/validate_air_release.py'])
-    run_stage('v073_release_seal', [py, 'tools/validate_air_v073_release_seal.py'])
+    if args.candidate:
+        skip_stage('release_contract', 'candidate tree; v0.7.3 exact release validation not applicable')
+        skip_stage('v073_release_seal', 'candidate tree; v0.7.3 exact release seal not applicable')
+    else:
+        run_stage('release_contract', [py, 'tools/validate_air_release.py'])
+        run_stage('v073_release_seal', [py, 'tools/validate_air_v073_release_seal.py'])
     run_stage('control_plane_semantic_loopholes', [py, 'tools/validate_air_control_plane.py'])
     run_stage('behavioral_transaction_contracts', [py, 'tools/validate_air_behavioral_contracts.py'])
     run_stage('failure_mode_learning_e2e', [py, 'tools/test_air_failure_mode_learning_e2e.py'])
@@ -44,7 +52,10 @@ def main() -> None:
         run_stage('r6_package_local_behavioral_contradictions_mutations', [py, 'tools/test_air_r6_mutations.py', '.', 'tools/validate_air_r6_remediation.py'])
         run_stage('r7_lifecycle_version_history_reseal_mutations', [py, 'tools/test_air_r7_mutations.py', '.', 'tools/validate_air_r7_remediation.py'])
         run_stage('r8_low_risk_presentation_portability_mutations', [py, 'tools/test_air_r8_mutations.py', '.', 'tools/validate_air_r8_remediation.py'])
-        run_stage('v073_release_seal_mutations', [py, 'tools/test_air_v073_release_seal_mutations.py'])
+        if args.candidate:
+            skip_stage('v073_release_seal_mutations', 'candidate tree; v0.7.3 exact release-seal mutation baseline not applicable')
+        else:
+            run_stage('v073_release_seal_mutations', [py, 'tools/test_air_v073_release_seal_mutations.py'])
         run_stage('behavioral_transaction_mutations', [py, 'tools/test_air_behavioral_contract_mutations.py'])
         run_stage('control_plane_semantic_loophole_mutations', [py, 'tools/test_air_control_plane_mutations.py'])
     print('AIR canonical validation suite: PASS')
