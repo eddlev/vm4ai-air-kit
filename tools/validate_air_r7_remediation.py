@@ -81,7 +81,7 @@ def main():
  route_version=route_obj.get('ROUTE_MAP_VERSION')
  req(isinstance(route_version,str) and route_version and route_obj.get('MAP_VERSION')==route_version,'Route Map version split mismatch')
  route_expected={'version':route_version,**meta(route_path)}
- core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text()
+ core=(ROOT/'prompts/AIR_CORE_RUNTIME.md').read_text(encoding='utf-8')
  req('Patch marker: AIR_SPECIALIST_PACKAGE_INDEX_LIFECYCLE_V1' in core,'006 Core candidate lifecycle marker missing')
  for tok in ['RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_STATIC_VALIDATION','RELEASE_CATALOG_ENTRY_CANDIDATE_PENDING_BEHAVIORAL_REVALIDATION','RELEASE_CATALOG_ENTRY']:
   req(tok in core,'006 Core lifecycle token missing '+tok)
@@ -288,7 +288,7 @@ def main():
  req(cea.get('t7_change_record')==T7,'074 T7 historical record mutated')
  rp=ROOT/'tools/reseal_air_candidate.py'
  if rp.is_file():
-  txt=rp.read_text()
+  txt=rp.read_text(encoding='utf-8')
   req('HISTORICAL_CONTAINER_KEYS' in txt and 'historical_path' in txt and 'if historical_path(path): return' in txt,'R7 resealer historical exclusion missing')
  print('R7 remediation validation: PASS')
  print('r7_findings 14')
