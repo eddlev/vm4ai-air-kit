@@ -38,7 +38,11 @@ def mutate_check(c:dict,t:Path):
     elif op=='STRICT_JSON_PARSE_NO_DUPLICATES':
         bad=t/'prompts/__AIR_DUPLICATE_MUTANT__.json'; bad.write_text('{"x":1,"x":2}\n',encoding='utf-8'); c['file']='prompts/__AIR_DUPLICATE_MUTANT__.json'
     elif op=='FOUNDATION_MANIFEST_EXACT': c['manifest_path']='$.__AIR_CONTRACT_MUTANT_MISSING__'
-    elif op=='FOUNDATION_FILENAME_COLLISION_FREE': (t/'prompts/air_core_runtime.md').write_text('collision mutant\n',encoding='utf-8')
+    elif op=='FOUNDATION_FILENAME_COLLISION_FREE':
+        bad=t/'__AIR_NORMALIZED_COLLISION_MUTANT__.json'
+        save(bad,{'files':[{'canonical_filename':'AIR_CORE_RUNTIME.md'},{'canonical_filename':'air_core_runtime.md'}]})
+        c['manifest_file']='__AIR_NORMALIZED_COLLISION_MUTANT__.json'
+        c['manifest_path']='$.files'
     else: raise RuntimeError(f'no mutation strategy for {op}')
 
 def expect_fail(cid,t):
