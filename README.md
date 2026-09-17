@@ -41,9 +41,9 @@ It helps AI and humans:
 - carry recorded project state between sessions and compatible AI platforms;
 - add focused Specialist capabilities when a task needs them.
 
-## Current release candidate — AIR Kit v0.7.4
+## Current release — AIR Kit v0.7.4
 
-The **AIR Kit v0.7.4** source is a release candidate until canonical candidate validation and merge/seal complete. The previously sealed v0.7.3 source remains the release baseline until that integration finishes. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
+The release-sealed source for **AIR Kit v0.7.4** is maintained on validated `main`. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
 
 It includes:
 
@@ -58,11 +58,11 @@ v0.7.4 preserves strict Handoff integrity while adding a portable continuation p
 
 All five catalogued Specialist packages retain SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.
 
-The v0.7.4 candidate also makes validator-mutation execution candidate-aware so candidate validation uses reseal integrity checks where exact v0.7.3 release-seal hashes are intentionally inapplicable. The existing v0.7.2 tag is never moved or redefined.
+The v0.7.4 release also makes validator-mutation execution candidate-aware: pull-request and candidate validation use reseal integrity where exact release-seal hashes are intentionally inapplicable, while pushes to `main` use exact-release validation. Historical release tags remain immutable.
 
 ### Best practices
 
-**Cognitive scope authority isolation.** AIR v0.7.2 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
+**Cognitive scope authority isolation.** AIR v0.7.4 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
 
 **Thinking Effort.** AIR does not currently require a specific ChatGPT Thinking Effort setting. For day-to-day AIR use, **High** is a reasonable starting point. **Extra High** may be useful for unusually difficult analysis or architecture work, but there is not currently evidence that Thinking Effort causes or prevents AIR runtime drift. Treat cross-effort observations as empirical host-behavior evidence, not AIR execution authority.
 
