@@ -1039,6 +1039,11 @@
               "operator": "STATE_EQUALS",
               "path": "HANDOFF_DELIVERY_MODE",
               "expected": "DOWNLOADABLE_JSON_FILE_ONLY"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "HANDOFF_MODE_SELECTION_STATE",
+              "expected": "RESOLVED_FOR_REQUEST"
             }
           ],
           "guard_join": "ALL",
@@ -1129,9 +1134,9 @@
       "coverage": "ALL_CANONICAL_FORMAL_OBJECTS_EMITTED_IN_GOVERNED_SESSION",
       "ledger_delta_required_after_any_formal_emission": true,
       "same_response_self_entry": "PROHIBITED_NEXT_LEDGER_CAPTURES_PRIOR_LEDGER",
-      "handoff_full_history_required": true,
-      "handoff_snapshot_hash_revalidation": "REQUIRED_FOR_EVERY_CAPTURED_ENTRY",
-      "handoff_missing_or_hash_mismatch_behavior": "FAIL_CLOSED",
+      "handoff_full_history_required": "STRICT_PROVENANCE_ONLY",
+      "handoff_snapshot_hash_revalidation": "REQUIRED_FOR_EVERY_CAPTURED_ENTRY_IN_STRICT_PROVENANCE",
+      "handoff_missing_or_hash_mismatch_behavior": "STRICT_FAIL_CLOSED; PORTABLE_DOES_NOT_CLAIM_OR_RECONSTRUCT_HISTORY",
       "ledger_id_scope": "STABLE_FOR_GOVERNED_SESSION",
       "entry_reference_field": "ledger_entry_ref",
       "entry_reference_format": "AIR_SURFACED_OBJECT_LEDGER_ENTRY::<ledger_id>::<emission_sequence>",
@@ -1147,7 +1152,7 @@
         "resolution_rule": "REFERENCE_RESOLVES_ONLY_AFTER_MATCHING_USER_VISIBLE_EMITTED_LEDGER_ENTRY_COMMIT",
         "inference_policy": "PROHIBITED"
       },
-      "handoff_snapshot_source": "MATCHING_COMMITTED_VISIBLE_DURABLE_PROVENANCE_RECORD_ONLY_FOR_REV19_NATIVE_HISTORY",
+      "handoff_snapshot_source": "MATCHING_COMMITTED_VISIBLE_DURABLE_PROVENANCE_RECORD_ONLY_FOR_STRICT_PROVENANCE_NATIVE_HISTORY",
       "handoff_historical_chat_lookup": "PROHIBITED",
       "handoff_transcript_recovery_fallback": "PROHIBITED",
       "durable_capture_contract_ref": "compiler_contract.durable_surfaced_object_provenance"
@@ -1248,7 +1253,9 @@
       "surfaced_object_history_path": "AIR_HANDOFF_CARD.surfaced_object_ledger_state",
       "capture_cutoff": "LATEST_COMPLETE_PRE_FILE_SURFACED_OBJECT_LEDGER",
       "post_freeze_objects": "EXCLUDED_BY_DESIGN_DECLARED_IN_CARD",
-      "full_ledger_snapshot_revalidation_required": true
+      "full_ledger_snapshot_revalidation_required": "STRICT_PROVENANCE_ONLY",
+      "handoff_mode_selection_required": true,
+      "portable_state_history_behavior": "NOT_CLAIMED_PORTABLE_STATE_EMPTY_HISTORICAL_SNAPSHOT_AND_FAILURE_RECORD_SETS"
     },
     "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception.",
     "new_task_binding_transaction": {
@@ -1336,8 +1343,50 @@
       "prepared_or_orphaned_authority": "NONE",
       "bounded_growth_rule": "ONE_CANONICAL_SNAPSHOT_PER_COMMITTED_EMISSION_IDENTITY_PLUS_FIXED_METADATA_NO_CUMULATIVE_HISTORY_EMBEDDING",
       "content_deduplication": "PERMITTED_ONLY_WITH_EXACT_LEDGER_REF_TO_SNAPSHOT_MAPPING",
-      "unavailable_behavior": "SURFACE_EARLY_STRICT_HANDOFF_UNAVAILABLE; ORDINARY_SAFE_WORK_MAY_CONTINUE; RT.HANDOFF_CREATE_STRICT_COMPLETION_INELIGIBLE",
+      "unavailable_behavior": "SURFACE_EARLY_STRICT_HANDOFF_UNAVAILABLE; ORDINARY_SAFE_WORK_MAY_CONTINUE; GENERIC_HANDOFF_MAY_SELECT_PORTABLE_STATE; EXPLICIT_STRICT_REMAINS_INELIGIBLE",
       "missing_snapshot_behavior": "FAIL_CLOSED_NO_TRANSCRIPT_EXPORT_OR_PASTE_RECOVERY"
+    },
+    "handoff_mode_selection": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_HANDOFF_MODE_SELECTION_V1",
+      "request_modes": [
+        "GENERIC",
+        "STRICT_PROVENANCE",
+        "PORTABLE_STATE"
+      ],
+      "selected_modes": [
+        "STRICT_PROVENANCE",
+        "PORTABLE_STATE",
+        "BLOCKED"
+      ],
+      "strict_eligibility_states": [
+        "ELIGIBLE",
+        "INELIGIBLE_UNAVAILABLE",
+        "INELIGIBLE_INCOMPLETE",
+        "BLOCKED_FAILED_INTEGRITY"
+      ],
+      "selection_table": {
+        "GENERIC|ELIGIBLE": "STRICT_PROVENANCE",
+        "GENERIC|INELIGIBLE_UNAVAILABLE": "PORTABLE_STATE",
+        "GENERIC|INELIGIBLE_INCOMPLETE": "PORTABLE_STATE",
+        "GENERIC|BLOCKED_FAILED_INTEGRITY": "BLOCK_REVIEW",
+        "STRICT_PROVENANCE|ELIGIBLE": "STRICT_PROVENANCE",
+        "STRICT_PROVENANCE|INELIGIBLE_UNAVAILABLE": "FAIL_CLOSED",
+        "STRICT_PROVENANCE|INELIGIBLE_INCOMPLETE": "FAIL_CLOSED",
+        "STRICT_PROVENANCE|BLOCKED_FAILED_INTEGRITY": "BLOCK_REVIEW",
+        "PORTABLE_STATE|ELIGIBLE": "PORTABLE_STATE",
+        "PORTABLE_STATE|INELIGIBLE_UNAVAILABLE": "PORTABLE_STATE",
+        "PORTABLE_STATE|INELIGIBLE_INCOMPLETE": "PORTABLE_STATE",
+        "PORTABLE_STATE|BLOCKED_FAILED_INTEGRITY": "BLOCK_REVIEW"
+      },
+      "strict_dependency": "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE",
+      "portable_dependency": "DEP.PORTABLE_HANDOFF_STATE_VALID",
+      "explicit_strict_downgrade": "PROHIBITED",
+      "failed_integrity_behavior": "BLOCK_REVIEW",
+      "portable_history_claim": "NOT_CLAIMED_PORTABLE_STATE",
+      "portable_historical_authority_reconstruction": "PROHIBITED",
+      "restore_effect": "NONAUTHORIZING_REQUIRES_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING"
     }
   },
   "bootstrap_contract": {
@@ -2326,19 +2375,21 @@
       "epistemic sufficiency state and unresolved required-input acquisition state",
       "current and target readiness, target-readiness basis, readiness gap, completion-readiness state, and stage-relative step-optimality state/basis/stopping basis",
       "template_revision and user_revision as separate Handoff identities",
-      "durable surfaced-object provenance capture provider/state, exact cutoff coverage, and legacy pre-durable boundary state"
+      "durable surfaced-object provenance capture provider/state, exact cutoff coverage, and legacy pre-durable boundary state",
+      "handoff_mode_state request/selection, strict eligibility, durability observation, and historical-provenance claim state"
     ],
     "binding_boundary": "The handoff restores serialized state as continuation-bootstrap input only. Current alignment evaluation and exactly one Orbit 0 AIR_ARTIFACT rebinding remain required before positive execution.",
     "schema_target_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_SCHEMA_VERSION",
     "revision_identity_contract": {
       "current_template_revision_source": "AIR_CORE_RUNTIME_V2.CANONICAL_HANDOFF_TEMPLATE_REVISION",
-      "current_template_revision": 19,
+      "current_template_revision": 20,
       "template_revision_semantics": "CANONICAL_HANDOFF_TEMPLATE_FORMAT_REVISION",
       "user_revision_semantics": "PER_CARD_LINEAGE_SUCCESSFUL_HANDOFF_GENERATION_COUNTER",
       "legacy_card_revision_current_emission": "PROHIBITED",
       "legacy_2_2_floor_mapping": "card_revision -> user_revision exactly; template revision remains UNRECORDED_LEGACY_PROFILE",
       "legacy_2_3_pre_rev19_mapping": "card_revision -> template revision only after schema 2.3.0 classification; user revision remains unrecorded absent independent evidence",
-      "user_revision_format_authority": "NONE"
+      "user_revision_format_authority": "NONE",
+      "rev19_to_rev20_mapping": "preserve template_revision/user_revision semantics; add handoff_mode_state as non-authorizing NOT_EVALUATED migration carrier"
     },
     "backward_compatibility_contract": {
       "floor_profile": "AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1",
@@ -2451,10 +2502,16 @@
       "durable provenance growth is linear in snapshot bytes plus fixed metadata and does not recursively embed prior history",
       "missing or hash-mismatched durable snapshot fails strict Handoff closed without transcript export/paste recovery",
       "schema-2.2.0 compatibility-floor card maps legacy card_revision to user_revision and never template revision",
-      "current template rev19 emits template_revision and user_revision separately and emits no root card_revision",
+      "current template rev20 emits template_revision and user_revision separately, requires handoff_mode_state, and emits no root card_revision",
       "legacy 2.3 rev14-rev18 card_revision is interpreted as template revision only after source schema 2.3.0 is established",
       "pre-floor legacy card is unsupported or routed to review rather than silently migrated",
-      "migrated historical objects remain non-authorizing and require current HANDOFF_RESTORE alignment plus Artifact rebinding"
+      "migrated historical objects remain non-authorizing and require current HANDOFF_RESTORE alignment plus Artifact rebinding",
+      "generic Handoff selects strict provenance when strict eligibility is verified",
+      "generic Handoff selects portable state when strict durability is unavailable or incomplete",
+      "explicit strict Handoff never silently downgrades to portable state",
+      "FAILED_INTEGRITY blocks generic and portable fallback selection",
+      "portable Handoff carries no complete-history claim or reconstructed historical execution authority",
+      "schema-2.3.0 rev19 Handoff migrates to rev20 with non-authorizing mode state and preserved revision lineage"
     ],
     "required_version_source": "TOP_LEVEL_PROMPT_VERSION",
     "version_consistency_rule": "Top-level PROMPT_VERSION is the canonical Starter version. Cross-file consumers reference that path; no secondary operative version literal exists in validation_contract.",

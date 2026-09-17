@@ -35,6 +35,7 @@ def main() -> None:
         'AIR_HANDOFF_PROVENANCE_FIDELITY_V1',
         'AIR_NEW_TASK_BINDING_TRANSACTION_V2',
         'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1',
+        'AIR_HANDOFF_MODE_SELECTION_V1',
     ]
     for marker in core_markers:
         require(('Patch marker: ' + marker) in core, f'missing Core behavioral hardening marker {marker}')
@@ -45,6 +46,7 @@ def main() -> None:
         'AIR_CONTROL_HANDOFF_PROVENANCE_RENDERER_V1',
         'AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1',
         'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_SURFACE_V1',
+        'AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1',
     ]:
         require(('Patch marker: ' + marker) in control, f'missing Control hardening marker {marker}')
 
@@ -108,6 +110,14 @@ def main() -> None:
     hp = cc.get('handoff_provenance_fidelity', {})
     require(hp.get('historical_authorization_policy') == 'OBSERVED_SURFACED_CANONICAL_OBJECT_ONLY', 'Starter handoff authorization provenance policy mismatch')
     require(hp.get('unsurfaced_authorization_reconstruction') == 'PROHIBITED', 'Starter allows authorization reconstruction')
+    hm=cc.get('handoff_mode_selection', {})
+    require(hm.get('core_patch_marker')=='AIR_HANDOFF_MODE_SELECTION_V1','Starter Handoff mode contract missing')
+    require(hm.get('selection_table',{}).get('GENERIC|ELIGIBLE')=='STRICT_PROVENANCE','generic eligible Handoff not strict')
+    require(hm.get('selection_table',{}).get('GENERIC|INELIGIBLE_UNAVAILABLE')=='PORTABLE_STATE','generic unavailable Handoff lacks portable fallback')
+    require(hm.get('selection_table',{}).get('GENERIC|INELIGIBLE_INCOMPLETE')=='PORTABLE_STATE','generic incomplete Handoff lacks portable fallback')
+    require(hm.get('selection_table',{}).get('STRICT_PROVENANCE|INELIGIBLE_UNAVAILABLE')=='FAIL_CLOSED','explicit strict silently downgrades')
+    require(hm.get('selection_table',{}).get('PORTABLE_STATE|BLOCKED_FAILED_INTEGRITY')=='BLOCK_REVIEW','failed integrity permits portable fallback')
+    require(cc.get('surfaced_object_ledger',{}).get('handoff_full_history_required')=='STRICT_PROVENANCE_ONLY','full history still globally required')
 
     ags = handoff.get('action_governance_state', {})
     policy = ags.get('provenance_policy', {})
@@ -118,6 +128,9 @@ def main() -> None:
     require(any('Historical AIR_ACTION_AUTHORIZATION synthesized' in x for x in forbidden), 'Handoff false-history forbidden state missing')
     require('ledger_entry_ref' in handoff.get('surfaced_object_ledger_state', {}).get('entry_requirements', {}).get('required_fields', []), 'Handoff ledger history omits ledger_entry_ref')
     require(handoff.get('failure_mode_state', {}).get('source_ledger_entry_ref_semantics') == 'SELF_FIRST_COMMITTED_SURFACED_LEDGER_ENTRY', 'Handoff failure-mode ledger semantics mismatch')
+    hms=handoff.get('handoff_mode_state',{})
+    require(handoff.get('template_revision')==20 and hms.get('positive_execution_authority')=='NONE','Handoff rev20 mode baseline invalid')
+    require('HANDOFF_MODE_PROVENANCE_VALID' in handoff['schema_manifest']['validation_registry']['allowed_operators'],'Handoff mode/provenance validator missing')
 
     routes = {r['route_id']: r for r in route_map.get('routes', [])}
     bundle = routes['RT.TASK_SWITCH'].get('transition_emission_bundle', {})
@@ -135,6 +148,9 @@ def main() -> None:
     hroute = routes['RT.HANDOFF_CREATE'].get('handoff_provenance_policy', {})
     require(hroute.get('observed_object_identities_only') is True, 'Route Map handoff observed-only provenance missing')
     require(hroute.get('unsurfaced_authorization_reconstruction') == 'PROHIBITED', 'Route Map handoff reconstruction policy mismatch')
+    require('DEP.HANDOFF_MODE_RESOLVED' in routes['RT.HANDOFF_CREATE'].get('requires',[]) and 'DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' not in routes['RT.HANDOFF_CREATE'].get('requires',[]),'Route Map Handoff mode dependency not resolved')
+    require(hroute.get('mode_contract')=='AIR_HANDOFF_MODE_SELECTION_V1' and hroute.get('explicit_strict_downgrade')=='PROHIBITED','Route Map mode policy missing')
+    require(hroute.get('portable_complete_history_claim') is False and hroute.get('failed_integrity_behavior')=='BLOCK_REVIEW','Route Map portable assurance boundary missing')
 
     emission_ids = {x.get('id') for x in fixtures.get('emission_closure_cases', [])}
     require({'EC-07-ORBIT-RESUME-ATOMIC-BUNDLE', 'EC-08-NEW-SIDE-TASK-ORBIT-BUNDLE'} <= emission_ids, 'Orbit transition regression fixtures missing')
@@ -150,6 +166,8 @@ def main() -> None:
     csa={x.get('id') for x in fixtures.get('cognitive_scope_authority_cases', [])}; require({'CSA-01-DIRECT-TASK-IDENTITY-MUTATION','CSA-03-DIRECT-APPROVAL-MUTATION','CSA-06-DETERMINISTIC-ROUTE-REORDER','CSA-P01-VALIDATED-EXPLICIT-INGESTION','CSA-P02-HANDOFF-NONAUTHORITY'} <= csa, 'cognitive scope fixtures missing')
     handoff_ids = {x.get('id') for x in fixtures.get('handoff_negative_cases', [])}
     require({'HC-02-FALSE-HISTORICAL-AUTHORIZATION', 'HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE'} <= handoff_ids, 'handoff provenance fixtures missing')
+    mode_ids={x.get('id') for x in fixtures.get('handoff_mode_cases',[])}
+    require({'HM-01-GENERIC-AVAILABLE-STRICT','HM-02-GENERIC-UNAVAILABLE-PORTABLE','HM-03-GENERIC-INCOMPLETE-PORTABLE','HM-04-GENERIC-FAILED-INTEGRITY-BLOCK','HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL','HM-06-EXPLICIT-PORTABLE-UNAVAILABLE','HM-07-PORTABLE-HISTORY-AUTHORITY-REJECT'} <= mode_ids,'Handoff mode fixtures incomplete')
     failure_ids = {x.get('id') for x in fixtures.get('failure_mode_learning_cases', [])}
     require({'FM-07-FIRST-EMISSION-LEDGER-RESERVATION', 'FM-08-FAILURE-LEDGER-REF-MISMATCH'} <= failure_ids, 'failure-mode ledger regression fixtures missing')
     cw2 = next(x for x in fixtures.get('copywriting_behavior_cases', []) if x.get('id') == 'CW-BEH-02-MISSING-DOMAIN-TRUTH')

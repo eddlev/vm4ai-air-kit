@@ -60,10 +60,10 @@ def current_template_card(current_template_doc: dict[str, Any]) -> dict[str, Any
         raise MigrationError("current template designation mismatch")
     if tmpl.get("SCHEMA_VERSION") != "2.3.0" or tmpl.get("schema_version") != "2.3.0":
         raise MigrationError("current template must be schema 2.3.0")
-    if tmpl.get("template_revision") != 19:
-        raise MigrationError("current template must be template_revision 19")
+    if tmpl.get("template_revision") != 20:
+        raise MigrationError("current template must be template_revision 20")
     if "card_revision" in tmpl:
-        raise MigrationError("current rev19 template must not emit card_revision")
+        raise MigrationError("current rev20 template must not emit card_revision")
     return tmpl
 
 
@@ -170,7 +170,7 @@ def _finalize_current_card(
     card["template_designation"] = tmpl["template_designation"]
     card["SCHEMA_VERSION"] = tmpl["SCHEMA_VERSION"]
     card["schema_version"] = tmpl["schema_version"]
-    card["template_revision"] = 19
+    card["template_revision"] = 20
     card["user_revision"] = source_user_revision
     card.setdefault("object_version", "2.0.0")
     card.setdefault("record_class", "TRANSFER_RECORD")
@@ -188,6 +188,17 @@ def _finalize_current_card(
     _normalize_legacy_history(card, tmpl, source_template_revision)
     _normalize_non_authority_boundaries(card, tmpl)
     _copy_missing_required_root_carriers(card, tmpl)
+    mode = card.get("handoff_mode_state")
+    if isinstance(mode, dict):
+        mode["request_mode"] = "UNRESOLVED"
+        mode["selected_mode"] = "UNRESOLVED"
+        mode["selection_state"] = "NOT_EVALUATED"
+        mode["selection_reason"] = None
+        mode["strict_eligibility_state"] = "NOT_EVALUATED"
+        mode["portable_eligibility_state"] = "NOT_EVALUATED"
+        mode["historical_provenance_claim"] = "NOT_EVALUATED"
+        mode["positive_execution_authority"] = "NONE"
+        mode["restoration_state"] = "MIGRATED_INPUT_MODE_REEVALUATION_REQUIRED"
 
     ms = copy.deepcopy(tmpl.get("migration_state", {}))
     old_ms = src.get("migration_state") if isinstance(src.get("migration_state"), dict) else {}
@@ -208,20 +219,20 @@ def _finalize_current_card(
     ms["revision_semantics_source"] = revision_semantics_source
     ms["source_compatibility_profile"] = source_compatibility_profile
     ms["legacy_user_revision_state"] = "RECORDED_FROM_LEGACY_CARD_REVISION" if source_user_revision is not None and source_schema_version == "2.2.0" else ("PRESERVED_EXPLICIT" if source_user_revision is not None else "UNRECORDED")
-    ms["user_revision_counting_epoch"] = "LEGACY_2_2_CARD_REVISION_COUNTER" if source_schema_version == "2.2.0" else ("EXPLICIT_USER_REVISION" if source_user_revision is not None else "STARTS_WITH_NEXT_SUCCESSFUL_REV19_HANDOFF")
+    ms["user_revision_counting_epoch"] = "LEGACY_2_2_CARD_REVISION_COUNTER" if source_schema_version == "2.2.0" else ("EXPLICIT_USER_REVISION" if source_user_revision is not None else "STARTS_WITH_NEXT_SUCCESSFUL_REV20_HANDOFF")
     ms["source_schema_manifest_sha256"] = canonical_sha(src.get("schema_manifest", {}))
     card["migration_state"] = ms
     card["schema_manifest"] = copy.deepcopy(tmpl["schema_manifest"])
 
-    # Current rev19 cards never emit legacy card_revision.
+    # Current rev20 cards never emit legacy card_revision.
     card.pop("card_revision", None)
 
     required = set(tmpl["schema_manifest"]["required_fields"])
     missing = sorted(required - set(card))
     if missing:
         raise MigrationError("migrated card missing current required root carriers: " + ", ".join(missing))
-    if card.get("template_revision") != 19 or "card_revision" in card:
-        raise MigrationError("rev19 revision split not normalized")
+    if card.get("template_revision") != 20 or "card_revision" in card:
+        raise MigrationError("rev20 revision/mode state not normalized")
     if card.get("surfaced_object_ledger_state", {}).get("positive_execution_authority") != "NONE_HISTORY_ONLY":
         raise MigrationError("migrated surfaced-object history gained authority")
     return out
@@ -250,8 +261,8 @@ def migrate_legacy_2_2_floor(doc: dict[str, Any], current_template_doc: dict[str
         source_user_revision=user_revision,
         source_compatibility_profile="AIR_HANDOFF_LEGACY_COMPAT_FLOOR_2_2_0_STARTER_2_4_3_V1",
         revision_semantics_source="LEGACY_2_2_CARD_REVISION_IS_USER_REVISION",
-        migration_path="LEGACY_2_2_FLOOR_TO_REV19",
-        migration_decision="MIGRATED_LEGACY_2_2_FLOOR_TO_REV19_PENDING_CURRENT_ALIGNMENT_AND_ARTIFACT_REBINDING",
+        migration_path="LEGACY_2_2_FLOOR_TO_REV19_TO_REV20",
+        migration_decision="MIGRATED_LEGACY_2_2_FLOOR_TO_REV20_PENDING_CURRENT_ALIGNMENT_MODE_REEVALUATION_AND_ARTIFACT_REBINDING",
     )
 
 
@@ -281,8 +292,29 @@ def migrate_schema_2_3_pre_rev19(doc: dict[str, Any], current_template_doc: dict
         source_user_revision=explicit_user_revision,
         source_compatibility_profile="AIR_HANDOFF_SCHEMA_2_3_PRE_REV19_SUPPORTED_GENERATION",
         revision_semantics_source="SCHEMA_2_3_PRE_REV19_CARD_REVISION_IS_TEMPLATE_REVISION_WHEN_SPLIT_ABSENT",
-        migration_path=f"SCHEMA_2_3_REV{source_template_revision}_TO_REV19",
-        migration_decision=f"MIGRATED_SCHEMA_2_3_REV{source_template_revision}_TO_REV19_PENDING_CURRENT_ALIGNMENT_AND_ARTIFACT_REBINDING",
+        migration_path=f"SCHEMA_2_3_REV{source_template_revision}_TO_REV19_TO_REV20",
+        migration_decision=f"MIGRATED_SCHEMA_2_3_REV{source_template_revision}_TO_REV20_PENDING_CURRENT_ALIGNMENT_MODE_REEVALUATION_AND_ARTIFACT_REBINDING",
+    )
+
+
+def migrate_schema_2_3_rev19(doc: dict[str, Any], current_template_doc: dict[str, Any]) -> dict[str, Any]:
+    src = require_one_root(doc)
+    if src.get("SCHEMA_VERSION") != "2.3.0" or src.get("schema_version") != "2.3.0":
+        raise MigrationError("source is not schema 2.3.0")
+    if src.get("template_revision") != 19 or "card_revision" in src:
+        raise MigrationError("source is not canonical schema-2.3 rev19 input")
+    user_revision = src.get("user_revision")
+    if user_revision is not None and (not isinstance(user_revision, int) or isinstance(user_revision, bool) or user_revision < 1):
+        raise MigrationError("rev19 user_revision must be a positive integer when present")
+    return _finalize_current_card(
+        doc, current_template_doc,
+        source_schema_version="2.3.0",
+        source_template_revision=19,
+        source_user_revision=user_revision,
+        source_compatibility_profile="AIR_HANDOFF_SCHEMA_2_3_REV19_SUPPORTED_GENERATION",
+        revision_semantics_source="REV19_SPLIT_REVISION_FIELDS_PRESERVED",
+        migration_path="SCHEMA_2_3_REV19_TO_REV20",
+        migration_decision="MIGRATED_SCHEMA_2_3_REV19_TO_REV20_PENDING_CURRENT_ALIGNMENT_MODE_REEVALUATION_AND_ARTIFACT_REBINDING",
     )
 
 
@@ -299,14 +331,16 @@ def migrate_to_current(doc: dict[str, Any], current_template_doc: dict[str, Any]
     if schema != "2.3.0":
         raise MigrationError(f"unsupported source schema_version {schema!r}")
 
-    if src.get("template_revision") == 19:
+    if src.get("template_revision") == 20:
         if "card_revision" in src:
-            raise MigrationError("rev19 card must not contain legacy card_revision")
+            raise MigrationError("rev20 card must not contain legacy card_revision")
         out = copy.deepcopy(doc)
         card = out["AIR_HANDOFF_CARD"]
         if set(card) - (set(tmpl["schema_manifest"]["required_fields"]) | set(tmpl["schema_manifest"].get("optional_fields", []))):
-            raise MigrationError("current rev19 card contains undeclared root fields")
+            raise MigrationError("current rev20 card contains undeclared root fields")
         return out
+    if src.get("template_revision") == 19:
+        return migrate_schema_2_3_rev19(doc, current_template_doc)
 
     return migrate_schema_2_3_pre_rev19(doc, current_template_doc)
 

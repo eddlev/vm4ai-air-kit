@@ -41,23 +41,24 @@ It helps AI and humans:
 - carry recorded project state between sessions and compatible AI platforms;
 - add focused Specialist capabilities when a task needs them.
 
-## Current release — AIR Kit v0.7.3
+## Current release candidate — AIR Kit v0.7.4
 
-The release-sealed source for **AIR Kit v0.7.3** is maintained on validated `main`. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
+The **AIR Kit v0.7.4** source is a release candidate until canonical candidate validation and merge/seal complete. The previously sealed v0.7.3 source remains the release baseline until that integration finishes. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
 
 It includes:
 
 - AIR Foundation **2.6.3 / Object Contract SET_008**
-- Handoff schema **2.3.0**, template revision 19 with independent `user_revision`
+- Handoff schema **2.3.0**, template revision **20** with independent `user_revision`
+- deterministic Handoff modes **STRICT_PROVENANCE** and **PORTABLE_STATE**
 - Specialist packages **2.5.0**
 - Runtime Route Map **1.2.2**
 - Specialist Package Index **1.3.13** (all five Specialist packages SET_008 static-valid and replayable behavioral-pass; draft Executors remain explicitly unvalidated where applicable)
 
-v0.7.3 hardens strict Handoff provenance and backward-compatible restoration. Exact surfaced-object snapshots are captured on a durable non-authorizing provenance surface so strict Handoff creation no longer depends on future verbatim access to old chat turns. Handoff revision semantics are split into `template_revision` and `user_revision`, and the supported legacy schema-2.2 floor migrates without inventing missing template history or restoring historical execution authority.
+v0.7.4 preserves strict Handoff integrity while adding a portable continuation path when durable surfaced-object provenance is unavailable or incomplete. Explicit strict requests still fail closed without strict provenance, `FAILED_INTEGRITY` never auto-downgrades, and portable cards carry current continuation state only as non-authorizing bootstrap input that must be re-aligned, revalidated, and rebound on restore. Both modes remain file-delivered rather than inline transcript reconstruction.
 
-All five catalogued Specialist packages carry SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.
+All five catalogued Specialist packages retain SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.
 
-The v0.7.3 release source is sealed from validated `main`; tag/release publication is verified separately against the exact sealed commit, and the existing `v0.7.2` tag is never moved or redefined.
+The v0.7.4 candidate also makes validator-mutation execution candidate-aware so candidate validation uses reseal integrity checks where exact v0.7.3 release-seal hashes are intentionally inapplicable. The existing v0.7.2 tag is never moved or redefined.
 
 ### Best practices
 

@@ -1,6 +1,6 @@
 {
   "fixture_set": "AIR_SET008_REGRESSION_FIXTURES_V1",
-  "fixture_version": "1.3.0",
+  "fixture_version": "1.3.1",
   "foundation_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
   "purpose": "Permanent deterministic and replayable regression definitions for AIR Kit v0.7.3 strict-Handoff durable provenance, revision-split migration, and retained earlier defect classes. Fixtures are test definitions, not proof that a model evaluation ran.",
   "emission_closure_cases": [
@@ -780,6 +780,58 @@
       "id": "CSA-P02-HANDOFF-NONAUTHORITY",
       "kind": "POSITIVE",
       "valid_when": "Handoff preserves scope/contribution refs as non-authorizing input and current session revalidates before reuse"
+    }
+  ],
+  "handoff_mode_cases": [
+    {
+      "id": "HM-01-GENERIC-AVAILABLE-STRICT",
+      "request_mode": "GENERIC",
+      "strict_eligibility_state": "ELIGIBLE",
+      "expected_selected_mode": "STRICT_PROVENANCE",
+      "expected_result": "ALLOW_STRICT"
+    },
+    {
+      "id": "HM-02-GENERIC-UNAVAILABLE-PORTABLE",
+      "request_mode": "GENERIC",
+      "strict_eligibility_state": "INELIGIBLE_UNAVAILABLE",
+      "expected_selected_mode": "PORTABLE_STATE",
+      "expected_result": "ALLOW_PORTABLE"
+    },
+    {
+      "id": "HM-03-GENERIC-INCOMPLETE-PORTABLE",
+      "request_mode": "GENERIC",
+      "strict_eligibility_state": "INELIGIBLE_INCOMPLETE",
+      "expected_selected_mode": "PORTABLE_STATE",
+      "expected_result": "ALLOW_PORTABLE"
+    },
+    {
+      "id": "HM-04-GENERIC-FAILED-INTEGRITY-BLOCK",
+      "request_mode": "GENERIC",
+      "strict_eligibility_state": "BLOCKED_FAILED_INTEGRITY",
+      "expected_selected_mode": "BLOCKED",
+      "expected_result": "REVIEW"
+    },
+    {
+      "id": "HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL",
+      "request_mode": "STRICT_PROVENANCE",
+      "strict_eligibility_state": "INELIGIBLE_UNAVAILABLE",
+      "expected_selected_mode": "BLOCKED",
+      "expected_result": "FAIL_CLOSED"
+    },
+    {
+      "id": "HM-06-EXPLICIT-PORTABLE-UNAVAILABLE",
+      "request_mode": "PORTABLE_STATE",
+      "strict_eligibility_state": "INELIGIBLE_UNAVAILABLE",
+      "expected_selected_mode": "PORTABLE_STATE",
+      "expected_result": "ALLOW_PORTABLE"
+    },
+    {
+      "id": "HM-07-PORTABLE-HISTORY-AUTHORITY-REJECT",
+      "request_mode": "PORTABLE_STATE",
+      "strict_eligibility_state": "INELIGIBLE_UNAVAILABLE",
+      "mutation": "ADD_COMPLETE_HISTORY_OR_HISTORICAL_EXECUTION_AUTHORITY",
+      "expected_selected_mode": "BLOCKED",
+      "expected_result": "REJECT"
     }
   ]
 }

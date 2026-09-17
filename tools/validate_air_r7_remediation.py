@@ -88,8 +88,8 @@ def main():
  idx=parsed[ROOT/'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json']
  req(idx.get('INDEX_VERSION')=='1.3.13','Grounding SET_008 behavioral promotion index version mismatch')
  req(idx['foundation_compatibility_catalog'].get('identity')==FOUNDATION_ID,'SET_008 catalog identity mismatch')
- req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V073_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED','v073 release-sealed index status incoherent')
- req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V073_RELEASE_SPECIALIST_CATALOG','v073 release completeness identity incoherent')
+ req(idx['status']=='AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V074_RELEASE_CANDIDATE_REPLAYABLE_BEHAVIORAL_VALIDATED','v074 release-candidate index status incoherent')
+ req(idx['catalog_scope']['catalog_completeness_claim']=='COMPLETE_FOR_AIR_2_6_3_OBJECT_CONTRACT_SET_008_V074_RELEASE_CANDIDATE_SPECIALIST_CATALOG','v074 release-candidate completeness identity incoherent')
  histrel=idx['catalog_scope'].get('historical_release_catalogs',[])
  req(histrel==[{'kit_release':'0.7.0','foundation_identity':'AIR_FOUNDATION_2_5_0_OBJECT_CONTRACT_SET_004','index_generation':'V070','catalog_completeness_claim':'COMPLETE_FOR_AIR_2_5_0_SET_004_V070_RELEASE_SPECIALIST_CATALOG','state':'RELEASED_HISTORICAL_NON_OPERATIVE'}],'073 v0.7.0 history not explicit/immutable')
  lc=idx.get('candidate_lifecycle_contract',{})
@@ -145,7 +145,7 @@ def main():
   if is_set008:
    req(fc.get('target_identity')==FOUNDATION_ID,f'{p}: SET_008 target identity missing')
    h=next((x for x in fc.get('required_files',[]) if x.get('filename')=='AIR_HANDOFF_CARD_TEMPLATE.json'),{})
-   req(h.get('template_revision')==19 and h.get('revision_fields')==['template_revision','user_revision'] and 'card_revision' not in h,f'{p}: Handoff revision split stale')
+   req(h.get('template_revision')==20 and h.get('revision_fields')==['template_revision','user_revision'] and 'card_revision' not in h,f'{p}: Handoff rev20 revision/mode compatibility stale')
    rr=fc.get('route_map_discovery_input') or fc.get('foundation_adjacent_route_map') or {}
    validate_route_receipt(rr,route_expected,str(p),True)
   req(SPECIALIST_REQUIRED_FLOORS.issubset(set(fc.get('required_floor_invariants',[]))),f'{p}: floors 027/028 missing')
@@ -175,8 +175,8 @@ def main():
    validate_route_receipt(node,route_expected,label,False)
  req(profile_count==24,f'Specialist profile/package file count changed: {profile_count}')
  ivs=idx['validation_state']
- req(ivs.get('handoff_rev19_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED','Index Handoff rev19 provenance missing')
- req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs and 'handoff_rev18_catalog_compatibility' not in ivs,'stale current Handoff rev16/rev17/rev18 provenance remains')
+ req(ivs.get('handoff_rev20_catalog_compatibility')=='PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED','Index Handoff rev20 provenance missing')
+ req('handoff_rev16_catalog_compatibility' not in ivs and 'handoff_rev17_catalog_compatibility' not in ivs and 'handoff_rev18_catalog_compatibility' not in ivs and 'handoff_rev19_catalog_compatibility' not in ivs,'stale current Handoff rev16/rev17/rev18/rev19 provenance remains')
  count=0
  for p,o in parsed.items():
   if not str(p).startswith(str(ROOT/'profiles')):continue
@@ -214,6 +214,7 @@ def main():
  req(cwman['foundation_compatibility'].get('state')=='COORDINATED_SET_008_RESEAL_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED','Copywriting manifest SET_008 behavioral state mismatch')
  cpvs=cwman.get('package_validation_state',{})
  req(cpvs.get('foundation_reseal')=='PASS_COORDINATED_SET_008_RESEAL' and cpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS','Copywriting SET_008 manifest validation state mismatch')
+ req(cpvs.get('release_catalog_registration')=='INCLUDED_IN_SET_008_V074_RELEASE_CANDIDATE_CATALOG','Copywriting v0.7.4 candidate catalog registration mismatch')
  evp=ROOT/'tests/AIR_PUBLIC_SURFACE_COPYWRITING_SET008_BEHAVIORAL_EVIDENCE_V1.json'; req(evp.is_file(),'Copywriting behavioral evidence file missing'); ev=load(evp); er=cwman.get('behavioral_evidence_receipt',{})
  req(meta(evp)['sha256']=='948dfcf7f9dfe1839e06475bb7566521b56430d2fb141cb96065e1e8fd45769d' and er.get('sha256')=='948dfcf7f9dfe1839e06475bb7566521b56430d2fb141cb96065e1e8fd45769d','Copywriting behavioral evidence hash mismatch')
  req(ev.get('evidence_id')=='AIR_BEHAVIORAL_EVIDENCE_PUBLIC_SURFACE_COPYWRITING_SET008_20260914_V1' and ev.get('summary',{}).get('pass_count')==6 and ev.get('summary',{}).get('scenario_count')==6 and ev.get('summary',{}).get('behavioral_revalidation_result')=='PASS_ON_CURRENT_MODEL_HOST','Copywriting behavioral evidence result mismatch')
@@ -222,6 +223,7 @@ def main():
  req(sfvman['foundation_compatibility'].get('target_identity')==FOUNDATION_ID and sfvman['foundation_compatibility'].get('compatibility_state')==SET008_SPECIALIST_COMPAT,'SFV manifest SET_008 compatibility missing')
  spvs=sfvman.get('package_validation_state',{})
  req(spvs.get('behavioral_revalidation')==BEHAVIOR_PASS and spvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS' and spvs.get('executor_validation_state')=='DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS','SFV manifest validation state mismatch')
+ req(spvs.get('release_catalog_registration')=='INCLUDED_IN_SET_008_V074_RELEASE_CANDIDATE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE','SFV v0.7.4 candidate catalog registration mismatch')
  sfvexec=parsed[ROOT/'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json']
  req(sfvexec.get('STATUS')=='DRAFT','SFV Executor was promoted out of DRAFT')
  sfventry=next(e for e in idx['entries'] if e['package_identity']==SFV_PACKAGE)
@@ -234,6 +236,7 @@ def main():
  req(groundman['foundation_compatibility'].get('target_identity')==FOUNDATION_ID and groundman['foundation_compatibility'].get('compatibility_state')==SET008_SPECIALIST_COMPAT,'Grounding manifest SET_008 compatibility missing')
  gmpvs=groundman.get('package_validation_state',{})
  req(gmpvs.get('behavioral_revalidation')==BEHAVIOR_PASS and gmpvs.get('component_internal_foundation_compatibility')=='PASS_SET_008_EXACT_RECEIPTS' and gmpvs.get('executor_validation_state')=='DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS','Grounding manifest validation state mismatch')
+ req(gmpvs.get('release_catalog_registration')=='INCLUDED_IN_SET_008_V074_RELEASE_CANDIDATE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE','Grounding v0.7.4 candidate catalog registration mismatch')
  groundexec=parsed[ROOT/'profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json']
  req(groundexec.get('STATUS')=='DRAFT','Grounding Executor was promoted out of DRAFT')
  groundentry=next(e for e in idx['entries'] if e['package_identity']==GROUND_PACKAGE)

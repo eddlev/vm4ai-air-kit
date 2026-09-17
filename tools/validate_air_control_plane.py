@@ -15,9 +15,9 @@ def main():
     rmap=load('catalog/AIR_RUNTIME_ROUTE_MAP.json')
     index=load('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
     fixtures=load('tests/air_contract_fixtures.json')
-    for m in ['AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1','AIR_APPROVAL_RESPONSE_RESOLUTION_V1','AIR_SURFACED_OBJECT_LEDGER_V1','AIR_FAILURE_MODE_REGISTRY_V1','AIR_HANDOFF_FILE_DELIVERY_V1']:
+    for m in ['AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1','AIR_APPROVAL_RESPONSE_RESOLUTION_V1','AIR_SURFACED_OBJECT_LEDGER_V1','AIR_FAILURE_MODE_REGISTRY_V1','AIR_HANDOFF_FILE_DELIVERY_V1','AIR_HANDOFF_MODE_SELECTION_V1']:
         req(('Patch marker: '+m) in core, 'missing Core marker '+m)
-    for m in ['AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1','AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1','AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1','AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1']:
+    for m in ['AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1','AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1','AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1','AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1','AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1']:
         req(('Patch marker: '+m) in control, 'missing Control marker '+m)
     req('AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1' in gov, 'missing Governance approval deterministic rule')
     req('AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1' in gov, 'missing Governance failure learning rule')
@@ -82,6 +82,13 @@ def main():
     cs_h=handoff['execution_state']['cognitive_scope_state']; req(cs_h['positive_execution_authority']=='NONE' and cs_h['validation_ingress_state']=='NOT_EVALUATED','handoff cognitive scope gained authority or fabricated validation')
     sm=handoff['schema_manifest']; req(sm['strict_output_mode']=='DOWNLOADABLE_JSON_FILE_ONLY','handoff is not file-only'); req(sm['handoff_delivery_contract']['inline_chat_payload']=='PROHIBITED','inline handoff payload allowed'); req('failure_mode_state' in sm['required_fields'],'handoff failure_mode_state not required')
     req('surfaced_object_ledger_state' in sm['required_fields'],'handoff full surfaced-object history not required')
+    req('handoff_mode_state' in sm['required_fields'] and handoff.get('template_revision')==20,'handoff rev20 mode carrier missing')
+    hms=handoff['handoff_mode_state']; req(hms.get('positive_execution_authority')=='NONE' and hms.get('mode_contract')=='AIR_HANDOFF_MODE_SELECTION_V1','handoff mode carrier authority/identity mismatch')
+    hm=cc.get('handoff_mode_selection',{}); req(hm.get('required') is True and hm.get('explicit_strict_downgrade')=='PROHIBITED','Starter Handoff mode selection missing')
+    req(hm.get('selection_table',{}).get('GENERIC|INELIGIBLE_UNAVAILABLE')=='PORTABLE_STATE' and hm.get('selection_table',{}).get('GENERIC|INELIGIBLE_INCOMPLETE')=='PORTABLE_STATE','generic portable fallback missing')
+    req(hm.get('selection_table',{}).get('GENERIC|BLOCKED_FAILED_INTEGRITY')=='BLOCK_REVIEW','failed-integrity generic fallback not blocked')
+    he=events['RT.HANDOFF_CREATE']; req(any(g.get('path')=='HANDOFF_MODE_SELECTION_STATE' and g.get('expected')=='RESOLVED_FOR_REQUEST' for g in he.get('guards',[])),'Handoff control event lacks resolved mode guard')
+    hr=routes['RT.HANDOFF_CREATE']; req('DEP.HANDOFF_MODE_RESOLVED' in hr.get('requires',[]) and 'DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' not in hr.get('requires',[]),'Handoff route retains unconditional durable dependency')
     sls=handoff['surfaced_object_ledger_state']; req(sls['positive_execution_authority']=='NONE_HISTORY_ONLY','handoff surfaced history gained authority'); req(sls['entry_requirements']['mutation_rule']=='EXACT_CANONICAL_OBJECT_COPY_NO_SEMANTIC_MUTATION','handoff snapshot mutation boundary missing')
     creg=sm['condition_registry']; preds=creg['predicates']; allowedc=set(creg['allowed_operators'])
     for rule in sm['conditional_rules']:
@@ -97,6 +104,7 @@ def main():
     req(index['failure_mode_integration_policy']['required_for_all_catalogued_packages'] is True,'Specialist index failure integration policy missing')
     for e in index['entries']: req(e.get('failure_mode_integration_required') is True,'Specialist index entry missing failure integration '+e.get('package_identity','?'))
     ids={x['id'] for x in fixtures['failure_mode_learning_cases']}; req({'FM-01-RETRY-EXACT-MATCH','FM-05-SPECIALIST-PACKAGE','FM-06-HANDOFF-PERSISTENCE'}<=ids,'failure learning fixtures incomplete')
+    mids={x['id'] for x in fixtures.get('handoff_mode_cases',[])}; req({'HM-01-GENERIC-AVAILABLE-STRICT','HM-02-GENERIC-UNAVAILABLE-PORTABLE','HM-04-GENERIC-FAILED-INTEGRITY-BLOCK','HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL','HM-07-PORTABLE-HISTORY-AUTHORITY-REJECT'}<=mids,'Handoff mode control fixtures incomplete')
     print('AIR semantic-loophole/control-plane validation: PASS')
     print('Typed runtime control events:',len(routes))
     print('Specialist failure-mode integration packages:',len(manifests))

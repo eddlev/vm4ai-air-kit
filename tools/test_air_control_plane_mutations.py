@@ -97,6 +97,15 @@ def main():
     def m26(d):
         p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state']['positive_execution_authority']='ALLOW'; save(p,o)
     cases.append(('handoff cognitive scope gains authority',m26))
+    def m27(d):
+        p=d/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; o=load(p); o['AIR_HANDOFF_CARD'].pop('handoff_mode_state'); save(p,o)
+    cases.append(('handoff mode carrier removed',m27))
+    def m28(d):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); r=next(x for x in o['routes'] if x['route_id']=='RT.HANDOFF_CREATE'); r['requires']=['DEP.CURRENT_STATE_RECONCILED','DEP.HANDOFF_SCHEMA_VALID','DEP.HANDOFF_GENERATION_EVALUATION','DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE']; save(p,o)
+    cases.append(('handoff durable dependency made unconditional',m28))
+    def m29(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['handoff_mode_selection']['selection_table']['GENERIC|BLOCKED_FAILED_INTEGRITY']='PORTABLE_STATE'; save(p,o)
+    cases.append(('failed integrity auto portable downgrade',m29))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

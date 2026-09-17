@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.3",
-    "sha256": "e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371",
+    "sha256": "f1130c65500e0569e283f5b6988ea7e4894fc84b2e88d51b79d42d4034b2a453",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -63,7 +63,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 811
+        "line": 860
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -101,7 +101,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 829
+        "line": 878
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -141,7 +141,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 847
+        "line": 896
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "HANDOFF_RESTORE",
@@ -188,7 +188,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 868
+        "line": 917
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "ACTIVATION",
@@ -220,7 +220,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 883
+        "line": 932
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -259,7 +259,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 901
+        "line": 950
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -295,7 +295,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 919
+        "line": 968
       },
       "control_event_ref": "CE-RT-INPUT_TRANSLATE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -330,7 +330,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 931
+        "line": 980
       },
       "control_event_ref": "CE-RT-CLASSIFY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -361,7 +361,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 943
+        "line": 992
       },
       "control_event_ref": "CE-RT-COMPATIBLE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -400,7 +400,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 955
+        "line": 1004
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "STATE_TRANSITION",
@@ -450,7 +450,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 970
+        "line": 1019
       },
       "transition_emission_bundle": {
         "bundle_id": "ORBIT_TRANSITION_ATOMIC_BUNDLE",
@@ -517,7 +517,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 994
+        "line": 1043
       },
       "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -560,7 +560,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1006
+        "line": 1055
       },
       "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
@@ -602,7 +602,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1023
+        "line": 1072
       },
       "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -634,7 +634,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1035
+        "line": 1084
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
@@ -685,7 +685,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1050
+        "line": 1099
       }
     },
     {
@@ -726,7 +726,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1073
+        "line": 1122
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "POST_MATERIAL_EFFECT",
@@ -789,7 +789,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1106
+        "line": 1155
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -835,7 +835,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1130
+        "line": 1179
       },
       "control_event_ref": "CE-RT-DELIVER",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -869,7 +869,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1142
+        "line": 1191
       },
       "control_event_ref": "CE-RT-CLOSE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -882,7 +882,7 @@
         "DEP.CURRENT_STATE_RECONCILED",
         "DEP.HANDOFF_SCHEMA_VALID",
         "DEP.HANDOFF_GENERATION_EVALUATION",
-        "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE"
+        "DEP.HANDOFF_MODE_RESOLVED"
       ],
       "produces": [
         "AIR_HANDOFF_CARD_FILE",
@@ -897,13 +897,15 @@
         "DEP.HANDOFF_VALIDATION",
         "AIR-FLOOR-013",
         "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
-        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+        "DEP.STRICT_PROVENANCE_WHEN_SELECTED",
+        "DEP.PORTABLE_NONAUTHORITY_WHEN_SELECTED"
       ],
       "failure_route": "RT.RECOVERY",
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1154
+        "line": 1203
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -912,13 +914,20 @@
       "unknown_condition_behavior": "FAIL_CLOSED",
       "conflict_behavior": "FAIL_CLOSED",
       "handoff_provenance_policy": {
-        "committed_ledger_matched_durable_snapshots_only": true,
+        "committed_ledger_matched_durable_snapshots_only": "STRICT_PROVENANCE_ONLY",
         "historical_chat_turn_retrieval": "PROHIBITED",
         "transcript_resupply_fallback": "PROHIBITED",
         "pre_durable_migrated_history": "EXPLICIT_LEGACY_UNRECORDED_BOUNDARY_ONLY",
         "observed_object_identities_only": true,
         "unsurfaced_authorization_reconstruction": "PROHIBITED",
-        "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE"
+        "missing_authorization_effect_route": "PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE",
+        "mode_contract": "AIR_HANDOFF_MODE_SELECTION_V1",
+        "strict_provenance_dependency": "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE",
+        "portable_state_dependency": "DEP.PORTABLE_HANDOFF_STATE_VALID",
+        "portable_complete_history_claim": false,
+        "portable_historical_authority_reconstruction": "PROHIBITED",
+        "explicit_strict_downgrade": "PROHIBITED",
+        "failed_integrity_behavior": "BLOCK_REVIEW"
       },
       "control_event_ref": "CE-RT-HANDOFF_CREATE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
@@ -929,7 +938,8 @@
         "post_write_reopen_parse": true,
         "post_write_schema_validation": true,
         "failure_without_file_capability": "FAIL_CLOSED_NO_INLINE_FALLBACK",
-        "pre_write_durable_provenance_coverage": true
+        "pre_write_durable_provenance_coverage": "STRICT_PROVENANCE_ONLY",
+        "handoff_mode_ref": "AIR_HANDOFF_CARD.handoff_mode_state"
       }
     },
     {
@@ -961,7 +971,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1180
+        "line": 1234
       },
       "control_event_ref": "CE-RT-RECOVERY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"

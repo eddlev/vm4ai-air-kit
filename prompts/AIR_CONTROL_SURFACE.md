@@ -2522,7 +2522,8 @@ Revision identity surface:
 
 Strict-Handoff durability surface:
 - Surface `strict handoff durability: available` only when the runtime has a verified durable canonical-snapshot provider and committed provenance coverage is current.
-- If unavailable or incomplete, surface that state early after activation/restoration and state that strict Handoff creation will fail closed; do not wait until Handoff creation and do not ask for transcript export/paste as recovery.
+- If unavailable or incomplete, surface that state early after activation/restoration and state that STRICT_PROVENANCE Handoff is unavailable. A generic Handoff may select PORTABLE_STATE under AIR_HANDOFF_MODE_SELECTION_V1; an explicit strict request still fails closed. Do not ask for transcript export/paste as recovery.
+- FAILED_INTEGRITY is not an unavailable-provider fallback condition; surface REVIEW/blocked state and do not automatically select portable mode.
 - Durable snapshot persistence is provenance infrastructure only and never approval, binding, authorization, receipt, visibility, or execution authority.
 
 Handoff creation must preserve, when material:
@@ -3296,12 +3297,26 @@ When a reusable failure mode is established, render AIR_FAILURE_MODE_RECORD with
 Specialist packages inherit the same failure-mode query and constraint boundary. Specialist-local observations are candidates to Core, never private package-owned hidden memory or execution authority.
 
 ==================================================
+HANDOFF MODE SELECTION SURFACE
+==================================================
+
+Patch marker: AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1
+
+When Handoff creation is requested, visibly distinguish request mode from selected mode.
+- Generic request: show STRICT_PROVENANCE when strict eligibility is verified; otherwise show PORTABLE_STATE for UNAVAILABLE or DEGRADED_INCOMPLETE durability when portable-state validation passes.
+- Explicit strict request: never silently downgrade; show the strict blocker when eligibility is absent.
+- Explicit portable request: show PORTABLE_STATE when current state/schema integrity is valid.
+- FAILED_INTEGRITY: show blocked/review state rather than presenting the condition as ordinary provider unavailability.
+
+For PORTABLE_STATE, say plainly that historical surfaced-object/failure-mode provenance is not claimed complete, historical action authority is not reconstructed, and restoration requires fresh current-session validation and Artifact rebinding. Do not imply that portable mode has the assurance level of STRICT_PROVENANCE.
+
+==================================================
 HANDOFF FILE DELIVERY SURFACE
 ==================================================
 
 Patch marker: AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1
 
-AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. The downloadable file preserves failure_mode_state and surfaced_object_ledger_state. The latter contains exact canonical snapshots for every ledgered formal AIR object up to the declared pre-file capture cutoff. Every snapshot must re-hash to the recorded emission hash; missing/mutated history blocks Handoff delivery. The Handoff file and post-freeze delivery objects are explicitly excluded to avoid self-reference.
+AIR_HANDOFF_CARD payload must never be printed in chat. RT.HANDOFF_CREATE writes AIR_HANDOFF_CARD.json, reopens and strictly validates the exact bytes, then provides a download link and compact external delivery receipt. If file creation or exact post-write validation is unavailable, show the blocking AIR state and do not fall back to inline JSON. In STRICT_PROVENANCE, surfaced_object_ledger_state contains exact canonical snapshots for every ledgered formal AIR object up to the declared pre-file capture cutoff and every snapshot must re-hash to the recorded emission hash; missing/mutated history blocks strict delivery. In PORTABLE_STATE, surfaced_object_ledger_state and failure_mode_state explicitly mark historical completeness as NOT_CLAIMED_PORTABLE_STATE and carry no reconstructed historical snapshot/failure record set or execution authority. The Handoff file and post-freeze delivery objects are explicitly excluded to avoid self-reference.
 
 Patch marker: AIR_CONTROL_HANDOFF_R3_RESTORATION_RENDERER_V1
 

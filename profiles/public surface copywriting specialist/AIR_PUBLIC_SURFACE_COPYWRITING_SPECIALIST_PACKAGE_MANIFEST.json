@@ -46,7 +46,7 @@
   "components": [
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
-      "sha256": "d101d820dfb5791280e9ac167f517bbdb9fa67ae23d453061c8e6c69b90e242c",
+      "sha256": "704b70fdb6261abf140f0ff2e1db1887ed726d8716acd714688ff32953b8e641",
       "size_bytes": 28010,
       "line_count": 582,
       "canonical_role": "SPECIALIST_PROFILE",
@@ -62,7 +62,7 @@
     },
     {
       "filename": "AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
-      "sha256": "310b15fe1993a7df6d1e449b6272dcc8f97ae2113a3986638689c0f82d0df12d",
+      "sha256": "4fb29d0d063892d4e88731995a3be60f929020dc88768600f63e1422f09be2c1",
       "size_bytes": 27779,
       "line_count": 565,
       "canonical_role": "METHOD_PACK",
@@ -105,18 +105,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "e6915ad2f8af6a75f68d52eac3a7cf45d2dd9a3d300310c0d79c11a4033c8371",
-        "size_bytes": 413548,
-        "line_count": 7839
+        "sha256": "f1130c65500e0569e283f5b6988ea7e4894fc84b2e88d51b79d42d4034b2a453",
+        "size_bytes": 417980,
+        "line_count": 7894
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "0ef70702500350aedf30ff3dc29fc5bc4533df2c00c505470aca01a70763e3ff",
-        "size_bytes": 170669,
-        "line_count": 3317
+        "sha256": "648d2a9e1e423981fb75e06c10b90dadc146a4d8ffe331b70bef562edad73d62",
+        "size_bytes": 172220,
+        "line_count": 3332
       },
       {
         "filename": "AIR_GOV.md",
@@ -132,19 +132,19 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.3",
         "class": "TASK_COMPOSITE",
-        "sha256": "465cac6cb3303d98fed14a9110061f2b487cdec364e787f4310ffcbf35aa649c",
-        "size_bytes": 177103,
-        "line_count": 3748
+        "sha256": "bd6271dc2c2fac7fceb97941ef3d4c0a58de0b3284083056058b1f2f4de72100",
+        "size_bytes": 180290,
+        "line_count": 3805
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "05ccdbc18ad82e81ab56ed69e524d5fa7b9dcbd19a65ed7662f422179af922e2",
-        "size_bytes": 126877,
-        "line_count": 2327,
-        "template_revision": 19,
+        "sha256": "7fe1fdef37341420e2c043033571cbd7fb977296897d1c67e273062dcfc3a266",
+        "size_bytes": 132761,
+        "line_count": 2404,
+        "template_revision": 20,
         "revision_fields": [
           "template_revision",
           "user_revision"
@@ -156,9 +156,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.2.2",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "a8817d0abe078a2b94f87562386ac5e63a575b0926c0b2d050a6e470f578e89c",
-      "size_bytes": 39383,
-      "line_count": 1098,
+      "sha256": "3ec1e78262aa8e7222188aeb25e53041c1ed6b482901653fb868607d289c4bd2",
+      "size_bytes": 40015,
+      "line_count": 1108,
       "authority": {
         "execution": "NONE",
         "binding": "NONE",
@@ -217,7 +217,7 @@
     "static_design_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "foundation_reseal": "PASS_COORDINATED_SET_008_RESEAL",
-    "release_catalog_registration": "INCLUDED_IN_SET_008_V073_RELEASE_CATALOG",
+    "release_catalog_registration": "INCLUDED_IN_SET_008_V074_RELEASE_CANDIDATE_CATALOG",
     "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS"
   },
   "construction_basis": {

@@ -90,6 +90,15 @@ def mutate_cognitive_scope_ingress(root: Path):
     p=root/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; x=load(p)
     x['compiler_contract']['cognitive_scope_authority_isolation']['validated_contribution_ingress']='IMPLICIT'; dump(p,x)
 
+def mutate_handoff_generic_fallback(root: Path):
+    p=root/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; x=load(p); x['compiler_contract']['handoff_mode_selection']['selection_table']['GENERIC|INELIGIBLE_UNAVAILABLE']='FAIL_CLOSED'; dump(p,x)
+
+def mutate_handoff_failed_integrity(root: Path):
+    p=root/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; x=load(p); x['compiler_contract']['handoff_mode_selection']['selection_table']['PORTABLE_STATE|BLOCKED_FAILED_INTEGRITY']='PORTABLE_STATE'; dump(p,x)
+
+def mutate_portable_history_authority(root: Path):
+    p=root/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; x=load(p); x['AIR_HANDOFF_CARD']['handoff_mode_state']['positive_execution_authority']='ALLOW'; dump(p,x)
+
 
 MUTATIONS = [
     ('core_marker', mutate_remove_core_marker),
@@ -105,6 +114,9 @@ MUTATIONS = [
     ('new_task_route_determinism', mutate_new_task_route_determinism),
     ('cognitive_scope_control', mutate_cognitive_scope_control),
     ('cognitive_scope_ingress', mutate_cognitive_scope_ingress),
+    ('handoff_generic_portable_fallback', mutate_handoff_generic_fallback),
+    ('handoff_failed_integrity_block', mutate_handoff_failed_integrity),
+    ('portable_history_nonauthority', mutate_portable_history_authority),
 ]
 
 

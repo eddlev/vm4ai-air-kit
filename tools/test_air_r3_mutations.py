@@ -42,6 +42,9 @@ def main():
     cases.append(('R3-N18-COGNITIVE-SCOPE-AUTHORITY', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['execution_state']['cognitive_scope_state'].__setitem__('positive_execution_authority','ALLOW'))))
     cases.append(('R3-N19-REV18-TO-REV19-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV18_TO_REV19'].__setitem__('apply_before_current_required_carrier_check',False))))
     cases.append(('R3-N20-LEGACY-2-2-REVISION-SEMANTICS', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['LEGACY_2_2_FLOOR_TO_REV19'].__setitem__('legacy_revision_interpretation','TEMPLATE_REVISION'))))
+    cases.append(('R3-N21-HANDOFF-MODE-CARRIER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD'].pop('handoff_mode_state'))))
+    cases.append(('R3-N22-REV19-TO-REV20-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV19_TO_REV20'].__setitem__('apply_before_current_required_carrier_check',False))))
+    cases.append(('R3-N23-HANDOFF-MODE-AUTHORITY', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['handoff_mode_state'].__setitem__('positive_execution_authority','ALLOW'))))
     if run_validator(ROOT)!=0: raise SystemExit('R3-MUTATION-BASELINE failed')
     print('R3-MUTATION-BASELINE: PASS')
     killed=0

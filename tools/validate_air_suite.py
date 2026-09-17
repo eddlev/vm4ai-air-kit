@@ -42,7 +42,7 @@ def main() -> None:
     run_stage('behavioral_transaction_contracts', [py, 'tools/validate_air_behavioral_contracts.py'])
     run_stage('failure_mode_learning_e2e', [py, 'tools/test_air_failure_mode_learning_e2e.py'])
     if not args.without_mutations:
-        run_stage('validator_mutations', [py, 'tools/test_air_validator_mutations.py'])
+        run_stage('validator_mutations', [py, 'tools/test_air_validator_mutations.py'] + (['--candidate'] if args.candidate else []))
         run_stage('deterministic_contract_mutations', [py, 'tools/test_air_contract_registry_mutations.py'])
         run_stage('r1_foundation_deterministic_spine_mutations', [py, 'tools/test_air_r1_mutations.py'])
         run_stage('r2_formal_object_gate_authorization_failure_ledger_mutations', [py, 'tools/test_air_r2_mutations.py'])

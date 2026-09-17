@@ -12,6 +12,10 @@ BOOT = ROOT / 'tools' / 'validate_air_boot.py'
 RELEASE = ROOT / 'tools' / 'validate_air_release.py'
 RESEAL = ROOT / 'tools' / 'reseal_air_candidate.py'
 
+if any(arg != '--candidate' for arg in sys.argv[1:]):
+    raise SystemExit(f'unknown validator mutation argument(s): {sys.argv[1:]!r}')
+CANDIDATE_MODE = '--candidate' in sys.argv[1:]
+
 def run(cmd: list[str], cwd: Path) -> subprocess.CompletedProcess[str]:
     return subprocess.run(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
@@ -105,8 +109,12 @@ def hash_cycle(t: Path) -> None:
 boot_mutation('RB-01-DISPLACED-TERMINAL-SENTINEL', displaced_sentinel, 'terminal sentinel is not the final content line')
 boot_mutation('RB-02-STARTER-CANONICAL-VERSION-MISMATCH', starter_self_version, 'Handoff Starter version mismatch')
 boot_mutation('RB-03-HANDOFF-STARTER-VERSION-MISMATCH', handoff_starter_version, 'Handoff Starter version mismatch')
-full_mutation('DP-ROUTE-INFERENCE-POLICY', route_inference_policy, 'exact sealed hash mismatch catalog/AIR_RUNTIME_ROUTE_MAP.json')
-full_mutation('RS-01-STALE-SIBLING-SHA', stale_sibling_sha, 'exact sealed hash mismatch catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
+if CANDIDATE_MODE:
+    full_mutation('DP-ROUTE-INFERENCE-POLICY', route_inference_policy, 'another reseal pass would change', 'tools/reseal_air_candidate.py', ['--check'])
+    full_mutation('RS-01-STALE-SIBLING-SHA', stale_sibling_sha, 'another reseal pass would change', 'tools/reseal_air_candidate.py', ['--check'])
+else:
+    full_mutation('DP-ROUTE-INFERENCE-POLICY', route_inference_policy, 'exact sealed hash mismatch catalog/AIR_RUNTIME_ROUTE_MAP.json')
+    full_mutation('RS-01-STALE-SIBLING-SHA', stale_sibling_sha, 'exact sealed hash mismatch catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
 full_mutation('RS-02-IDEMPOTENCE-DETECTS-DRIFT', stale_sibling_sha, 'another reseal pass would change', 'tools/reseal_air_candidate.py', ['--check'])
 full_mutation('RS-03-CONTENT-HASH-CYCLE', hash_cycle, 'content-hash dependency cycle', 'tools/reseal_air_candidate.py', ['--check'])
 full_mutation('VH-01-SUITE-PROPAGATES-CHILD-FAILURE', displaced_sentinel, 'AIR validation suite FAILED at stage: deterministic_contract_registry', 'tools/validate_air_suite.py', ['--without-mutations'])
