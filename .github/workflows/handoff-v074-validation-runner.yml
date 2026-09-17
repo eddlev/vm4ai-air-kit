@@ -42,6 +42,8 @@ jobs:
           test -f .air-validation/helpers/apply_handoff_runtime_patch.py
       - name: Apply confirmed patch and coordinated reseal
         run: python3 .air-validation/helpers/apply_air_v074_handoff_release_candidate.py . .air-validation .air-validation/helpers/apply_handoff_runtime_patch.py
+      - name: Apply R3 deterministic-registry carry-forward fix
+        run: python3 .air-validation/fix_r3_registry_count.py
       - name: Remove temporary validation harness
         run: rm -rf .air-validation .github/workflows/handoff-v074-validation.yml .github/workflows/handoff-v074-validation-runner.yml
       - name: Enforce confirmed final patch inventory
