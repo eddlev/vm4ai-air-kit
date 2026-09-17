@@ -82,7 +82,7 @@
       "profile_kind": "DOMAIN_OVERLAY",
       "profile_function_class": "DOMAIN_OVERLAY_OR_SOURCE_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "5fbdc85477fec1f6285387d34268505eadc3dd751a39c494837955066dcf8579",
+      "sha256": "6a3c9ad4ab080f5542c9e0b6335ddc12628624764c154df0546adbdedbfb93c7",
       "size_bytes": 69117,
       "line_count": 1152,
       "required": true,
@@ -97,7 +97,7 @@
       "profile_kind": "METHOD_PACK",
       "profile_function_class": "METHOD_PACK",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "2dc5e40c2132c623a394cd42f50176e4d90aa4282fcc7ee4739ca86fb9314961",
+      "sha256": "62928d8b52fea64177c68a0811fb2c6e93d8f906644179561733124f9496274f",
       "size_bytes": 82903,
       "line_count": 1678,
       "required": true,
@@ -112,7 +112,7 @@
       "profile_kind": "TASK_COMPOSITE",
       "profile_function_class": "SPECIALIST_CAPABILITY_PROFILE",
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "29715e9cdf466968bf01dd5a71a81e9adaf91afde9476cf8b19a5a15be7d93bd",
+      "sha256": "599ce91b3891df003af3fbac5fb1cd4e03fa854a2f1acbe17faf3987d7180b8d",
       "size_bytes": 80181,
       "line_count": 1396,
       "required": true,
@@ -127,7 +127,7 @@
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
       "status": "DRAFT",
-      "sha256": "567e36b890fe3653f7bbdde9715b738f7db78775c02649343b49fb68f6c57401",
+      "sha256": "831203aaf6d71952feed8101452cdc56ac86092722d3a2108d0a2744ec7aa6c4",
       "size_bytes": 33518,
       "line_count": 664,
       "required": true,
@@ -173,18 +173,18 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "f1130c65500e0569e283f5b6988ea7e4894fc84b2e88d51b79d42d4034b2a453",
-        "size_bytes": 417980,
-        "line_count": 7894
+        "sha256": "8e8b6aa53eee26506e97cbb3cc0b7ec0a2c296427a026448bc5d542acdf0475d",
+        "size_bytes": 426654,
+        "line_count": 7979
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "648d2a9e1e423981fb75e06c10b90dadc146a4d8ffe331b70bef562edad73d62",
-        "size_bytes": 172220,
-        "line_count": 3332
+        "sha256": "2ae5a45755852780fa9b360d751cdedb8c01bf208a2db1ab7ffe55519bf6a8c5",
+        "size_bytes": 173959,
+        "line_count": 3342
       },
       {
         "filename": "AIR_GOV.md",
@@ -200,18 +200,18 @@
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.3",
         "class": "TASK_COMPOSITE",
-        "sha256": "bd6271dc2c2fac7fceb97941ef3d4c0a58de0b3284083056058b1f2f4de72100",
-        "size_bytes": 180290,
-        "line_count": 3805
+        "sha256": "b7263abb81a7db252ba4bee2b7207f3699872ed275bb19d569820f576c86aac3",
+        "size_bytes": 188993,
+        "line_count": 3993
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "7fe1fdef37341420e2c043033571cbd7fb977296897d1c67e273062dcfc3a266",
-        "size_bytes": 132761,
-        "line_count": 2404,
+        "sha256": "13b2c0367375ba79d31ed94d7dcbf239a011afce28c0d8fcf194f7ad3a74b205",
+        "size_bytes": 136052,
+        "line_count": 2460,
         "template_revision": 20,
         "revision_fields": [
           "template_revision",
@@ -251,9 +251,9 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "version": "1.2.2",
       "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
-      "sha256": "3ec1e78262aa8e7222188aeb25e53041c1ed6b482901653fb868607d289c4bd2",
-      "size_bytes": 40015,
-      "line_count": 1108
+      "sha256": "a1127fbcea7b7d8403cd1a3cfbb9cde8bbc9726f777ee5ce04ab214159d8a423",
+      "size_bytes": 42930,
+      "line_count": 1156
     },
     "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
     "target_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008"
@@ -449,14 +449,14 @@
       "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
       "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
       "version": "1.2.2",
-      "sha256": "3ec1e78262aa8e7222188aeb25e53041c1ed6b482901653fb868607d289c4bd2",
+      "sha256": "a1127fbcea7b7d8403cd1a3cfbb9cde8bbc9726f777ee5ce04ab214159d8a423",
       "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
       "semantic_authority": "NONE",
       "execution_authority": "NONE",
       "binding_authority": "NONE",
       "absence_effect": "NO_GROUNDING_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
-      "size_bytes": 40015,
-      "line_count": 1108
+      "size_bytes": 42930,
+      "line_count": 1156
     },
     "capability_ecology_peer": {
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -650,17 +650,19 @@
     "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_EXPLICITLY_DRAFT_UNAVAILABLE_UNVALIDATED"
   },
   "behavioral_evidence_receipt": {
-    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
-    "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
-    "sha256": "77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92",
-    "size_bytes": 15421,
-    "line_count": 250,
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260917_V2",
+    "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V2.json",
+    "sha256": "8675a95d211e6673191526fff3749e88d3d8a9273b2803d30357438850209a26",
+    "size_bytes": 4168,
+    "line_count": 81,
     "model_host": "ChatGPT / GPT-5.6 Sol",
     "scenario_count": 6,
     "pass_count": 6,
     "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "cross_host_equivalence_claimed": false,
     "executor_included_in_behavioral_pass": false,
-    "source_main_commit": "d79602ecba8b7092102afcd35f77a606b27548a6"
+    "evidence_class": "REPLAYABLE_MODEL_HOST_BEHAVIORAL_REVALIDATION",
+    "source_baseline_commit": "f456fc579bed739aebcfaa55c175c2c14617d58d",
+    "candidate_foundation_runtime_fingerprint": "060bb6b415affa57d93b9672c62f54b823f23d026a82ab60032c861591439d07"
   }
 }

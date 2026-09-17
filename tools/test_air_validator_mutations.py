@@ -36,6 +36,8 @@ def boot_mutation(name: str, mutator, expected: str) -> None:
     with tempfile.TemporaryDirectory() as td:
         t = Path(td)
         shutil.copytree(ROOT / 'prompts', t / 'prompts')
+        (t / 'catalog').mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json', t / 'catalog' / 'AIR_RUNTIME_ROUTE_MAP.json')
         mutator(t)
         p = run([sys.executable, str(BOOT), str(t)], ROOT)
         expect_fail(name, p, expected)

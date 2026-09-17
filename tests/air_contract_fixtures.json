@@ -833,5 +833,168 @@
       "expected_selected_mode": "BLOCKED",
       "expected_result": "REJECT"
     }
+  ],
+  "handoff_runtime_contract_cases": [
+    {
+      "id": "HD-01-NO-PROVIDER",
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "HD-02-PRESENT-UNVERIFIED",
+      "expected": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ]
+    },
+    {
+      "id": "HD-03-VERIFIED-COMPLETE",
+      "expected": [
+        "AVAILABLE_VERIFIED",
+        "ELIGIBLE"
+      ]
+    },
+    {
+      "id": "HD-04-INTEGRITY-CONTRADICTION",
+      "expected": [
+        "FAILED_INTEGRITY",
+        "BLOCKED_FAILED_INTEGRITY"
+      ]
+    },
+    {
+      "id": "HD-05-LATE-PROVIDER-GAP",
+      "expected": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ]
+    },
+    {
+      "id": "HM-01-GENERIC-AVAILABLE-STRICT",
+      "expected": "STRICT_PROVENANCE"
+    },
+    {
+      "id": "HM-02-GENERIC-UNAVAILABLE-PORTABLE",
+      "expected": "PORTABLE_STATE"
+    },
+    {
+      "id": "HM-03-GENERIC-INCOMPLETE-PORTABLE",
+      "expected": "PORTABLE_STATE"
+    },
+    {
+      "id": "HM-04-GENERIC-FAILED-INTEGRITY-BLOCK",
+      "expected": "BLOCK_REVIEW"
+    },
+    {
+      "id": "HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL",
+      "expected": "FAIL_CLOSED"
+    },
+    {
+      "id": "HM-06-EXPLICIT-PORTABLE-UNAVAILABLE",
+      "expected": "PORTABLE_STATE"
+    },
+    {
+      "id": "HE-01-CURRENT-GENERATION-EVAL",
+      "expected": true
+    },
+    {
+      "id": "HE-02-STALE-GENERATION-EVAL",
+      "expected": false
+    },
+    {
+      "id": "HE-03-DUPLICATE-ROOT-CARRIER",
+      "expected": false
+    },
+    {
+      "id": "HP-01-PORTABLE-VALID",
+      "expected": true
+    },
+    {
+      "id": "HP-02-PORTABLE-HISTORY-REJECT",
+      "expected": false
+    },
+    {
+      "id": "HP-03-PORTABLE-FAILED-INTEGRITY-REJECT",
+      "expected": false
+    },
+    {
+      "id": "HP-04-PORTABLE-AUTHORITY-RECONSTRUCTION-REJECT",
+      "expected": false
+    },
+    {
+      "id": "HS-01-STRICT-VALID",
+      "expected": true
+    },
+    {
+      "id": "HS-02-STRICT-HASH-MISMATCH",
+      "expected": false
+    },
+    {
+      "id": "HR-01-RECEIPT-AFTER-VALIDATION",
+      "expected": true
+    },
+    {
+      "id": "HR-02-NO-SUCCESS-RECEIPT-ON-POSTWRITE-FAIL",
+      "expected": false
+    },
+    {
+      "id": "REST-01-TARGET-RENEGOTIATES-PROVIDER",
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ]
+    },
+    {
+      "id": "REST-02-SOURCE-AVAILABLE-DOES-NOT-UPGRADE-TARGET",
+      "expected": false
+    },
+    {
+      "id": "E2E-01-STRICT-CREATE-WRITE-REOPEN-RECEIPT",
+      "expected": [
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "id": "E2E-02-PORTABLE-CREATE-WRITE-REOPEN-RECEIPT",
+      "expected": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "E2E-03-EXPLICIT-STRICT-UNAVAILABLE-NO-DOWNGRADE-NO-RECEIPT",
+      "expected": [
+        "FAIL_CLOSED",
+        null
+      ]
+    },
+    {
+      "id": "E2E-04-POSTWRITE-TAMPER-BLOCKS-SUCCESS-RECEIPT",
+      "expected": [
+        false,
+        false,
+        null
+      ]
+    },
+    {
+      "id": "E2E-05-STRICT-RESTORE-TARGET-RENEGOTIATES",
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE",
+        true
+      ]
+    },
+    {
+      "id": "E2E-06-RESTORED-SPECIALIST-METHOD-NONAUTHORITY",
+      "expected": [
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "NONE_BOOTSTRAP_INPUT_ONLY",
+        true
+      ]
+    }
   ]
 }

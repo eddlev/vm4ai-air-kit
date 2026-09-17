@@ -7,7 +7,7 @@ ROOT=Path('.').resolve(); STARTER=Path('prompts/AIR_DEFAULT_STARTER_PROFILE.json
 def load(p): return json.loads(p.read_text(encoding='utf-8'))
 def save(p,o): p.write_text(json.dumps(o,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 def temp_prompts():
-    td=tempfile.TemporaryDirectory(); t=Path(td.name); shutil.copytree(ROOT/'prompts',t/'prompts'); return td,t
+    td=tempfile.TemporaryDirectory(); t=Path(td.name); shutil.copytree(ROOT/'prompts',t/'prompts'); (t/'catalog').mkdir(parents=True,exist_ok=True); shutil.copy2(ROOT/'catalog'/'AIR_RUNTIME_ROUTE_MAP.json',t/'catalog'/'AIR_RUNTIME_ROUTE_MAP.json'); return td,t
 
 def mutate_check(c:dict,t:Path):
     op=c['operator']

@@ -11,14 +11,15 @@ KIT_VERSION = '0.7.4'
 FOUNDATION_ID = 'AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008'
 RELEASED = 'RELEASE_CATALOG_ENTRY'
 BEHAVIOR_PASS = 'PASS_REPLAYABLE_MODEL_HOST_EVIDENCE'
+HANDOFF_RUNTIME_EVIDENCE_SHA256 = '35805cc0af69c84dc22c496d3b452024e3c4af5138f81a86c527cfe544353378'
 EXPECTED_HASHES = {
-    'prompts/AIR_CORE_RUNTIME.md': 'f1130c65500e0569e283f5b6988ea7e4894fc84b2e88d51b79d42d4034b2a453',
-    'prompts/AIR_CONTROL_SURFACE.md': '648d2a9e1e423981fb75e06c10b90dadc146a4d8ffe331b70bef562edad73d62',
+    'prompts/AIR_CORE_RUNTIME.md': '8e8b6aa53eee26506e97cbb3cc0b7ec0a2c296427a026448bc5d542acdf0475d',
+    'prompts/AIR_CONTROL_SURFACE.md': '2ae5a45755852780fa9b360d751cdedb8c01bf208a2db1ab7ffe55519bf6a8c5',
     'prompts/AIR_GOV.md': '80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842',
-    'prompts/AIR_DEFAULT_STARTER_PROFILE.json': 'bd6271dc2c2fac7fceb97941ef3d4c0a58de0b3284083056058b1f2f4de72100',
-    'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '7fe1fdef37341420e2c043033571cbd7fb977296897d1c67e273062dcfc3a266',
-    'catalog/AIR_RUNTIME_ROUTE_MAP.json': '3ec1e78262aa8e7222188aeb25e53041c1ed6b482901653fb868607d289c4bd2',
-    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': 'ce858d7dfff308c1803d664771d84fb1d5b9a9b3bf3b42a3a920bdc28c44ce62',
+    'prompts/AIR_DEFAULT_STARTER_PROFILE.json': 'b7263abb81a7db252ba4bee2b7207f3699872ed275bb19d569820f576c86aac3',
+    'prompts/AIR_HANDOFF_CARD_TEMPLATE.json': '13b2c0367375ba79d31ed94d7dcbf239a011afce28c0d8fcf194f7ad3a74b205',
+    'catalog/AIR_RUNTIME_ROUTE_MAP.json': 'a1127fbcea7b7d8403cd1a3cfbb9cde8bbc9726f777ee5ce04ab214159d8a423',
+    'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json': '8798d1a485c5f21936d62064fb633e3782224b1b28dc15c1d32252fc1e6a26bb',
 }
 HISTORICAL_V073_GIT_BLOBS = {
     'tools/validate_air_v073_release_seal.py': '29f2b05839adfb737ee8975e2731e70d20e7285b',
@@ -99,6 +100,9 @@ def main() -> None:
     req('CANONICAL_HANDOFF_TEMPLATE_REVISION: 20' in core, 'Core Handoff template revision not 20')
     req('AIR_HANDOFF_MODE_SELECTION_V1' in core, 'Core Handoff mode-selection contract missing')
     req('STRICT_PROVENANCE' in core and 'PORTABLE_STATE' in core, 'Core strict/portable Handoff modes missing')
+    req('AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1' in core, 'Core Handoff runtime durability/generation contract missing')
+    hev=ROOT/'tests/AIR_HANDOFF_V074_RUNTIME_BEHAVIORAL_EVIDENCE_V1.json'; req(hev.is_file() and sha(hev)==HANDOFF_RUNTIME_EVIDENCE_SHA256,'Handoff runtime behavioral evidence hash mismatch')
+    he=load(hev); req(he.get('static_check_count')==29 and he.get('executable_case_count')==30 and he.get('pass_count')==30 and he.get('fail_count')==0,'Handoff runtime behavioral evidence result mismatch')
 
     req(handoff['schema_version'] == handoff['SCHEMA_VERSION'] == '2.3.0', 'Handoff schema mismatch')
     req(handoff['template_revision'] == 20, 'Handoff template_revision mismatch')
@@ -124,6 +128,7 @@ def main() -> None:
     req(hp.get('explicit_strict_downgrade') == 'PROHIBITED', 'Explicit strict Handoff downgrade no longer prohibited')
     req(hp.get('failed_integrity_behavior') == 'BLOCK_REVIEW', 'FAILED_INTEGRITY behavior stale')
     req(handoff_route['handoff_file_delivery'].get('inline_payload') == 'PROHIBITED', 'Handoff inline payload no longer prohibited')
+    hreg=route.get('handoff_runtime_contract_registry',{}); req(hreg.get('live_session_owner_path')=='AIR_SESSION.handoff_durability_state','Route Map Handoff live Session durability owner missing'); req(hreg.get('generation_evaluation_serialized_carrier')=='AIR_HANDOFF_CARD.evaluation_basis','Route Map Handoff generation carrier stale'); req(hreg.get('receipt_contract',{}).get('formal_air_object') is False,'AIR_FILE_DELIVERY_RECEIPT incorrectly formal')
 
     req(index['INDEX_VERSION'] == '1.3.13', 'Index version mismatch')
     req(index['foundation_compatibility_catalog']['identity'] == FOUNDATION_ID, 'Index Foundation identity mismatch')
@@ -159,7 +164,7 @@ def main() -> None:
     print('handoff_modes', 'STRICT_PROVENANCE,PORTABLE_STATE')
     print('route_map', '1.2.2')
     print('specialist_index', '1.3.13 release-sealed')
-    print('deterministic_registry', '90/90')
+    print('deterministic_registry', '102/102')
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@
   "legacy_required_cross_file_checks_operational_state": "REMOVED_AS_OPERATIVE_FREE_FORM_AUTHORITY",
   "migrated_validation_expectation_count": 55,
   "migrated_validation_expectation_authority": "NON_OPERATIVE_DESCRIPTION",
-  "typed_deterministic_check_count": 90,
+  "typed_deterministic_check_count": 102,
   "typed_registry_path": "AIR_DEFAULT_STARTER_PROFILE.json.validation_contract.deterministic_contract_registry",
   "coverage_requirement": "DECLARED_EQUALS_IMPLEMENTED_EQUALS_EXECUTED",
   "inference_policy": "PROHIBITED",
@@ -40,5 +40,14 @@
     "durable surfaced-object provenance contract and strict-Handoff durability surface",
     "legacy schema-2.2 Starter-2.4.3 compatibility floor with user revision preservation",
     "current template predicates must not use legacy card_revision"
+  ],
+  "v074_handoff_runtime_contract_added_coverage": [
+    "typed durable-provenance provider adapter discovery contract",
+    "AIR_SESSION.handoff_durability_state canonical live owner",
+    "deterministic strict durability and eligibility transitions",
+    "explicit DEP.HANDOFF_GENERATION_EVALUATION producer with evaluation_basis sole root carrier",
+    "explicit DEP.PORTABLE_HANDOFF_STATE_VALID predicate",
+    "typed non-formal AIR_FILE_DELIVERY_RECEIPT transport contract",
+    "target-session provider renegotiation on Handoff restore"
   ]
 }

@@ -36,6 +36,7 @@ def main() -> None:
         'AIR_NEW_TASK_BINDING_TRANSACTION_V2',
         'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1',
         'AIR_HANDOFF_MODE_SELECTION_V1',
+        'AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1',
     ]
     for marker in core_markers:
         require(('Patch marker: ' + marker) in core, f'missing Core behavioral hardening marker {marker}')
@@ -47,6 +48,8 @@ def main() -> None:
         'AIR_PRIMARY_USER_VISIBLE_RESPONSE_SURFACE_V1',
         'AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_SURFACE_V1',
         'AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1',
+        'AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1',
+        'AIR_CONTROL_HANDOFF_GENERATION_EVALUATION_RENDERER_V1',
     ]:
         require(('Patch marker: ' + marker) in control, f'missing Control hardening marker {marker}')
 
@@ -168,6 +171,8 @@ def main() -> None:
     require({'HC-02-FALSE-HISTORICAL-AUTHORIZATION', 'HC-03-PRIOR-EFFECT-AUTHORIZATION-UPGRADE'} <= handoff_ids, 'handoff provenance fixtures missing')
     mode_ids={x.get('id') for x in fixtures.get('handoff_mode_cases',[])}
     require({'HM-01-GENERIC-AVAILABLE-STRICT','HM-02-GENERIC-UNAVAILABLE-PORTABLE','HM-03-GENERIC-INCOMPLETE-PORTABLE','HM-04-GENERIC-FAILED-INTEGRITY-BLOCK','HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL','HM-06-EXPLICIT-PORTABLE-UNAVAILABLE','HM-07-PORTABLE-HISTORY-AUTHORITY-REJECT'} <= mode_ids,'Handoff mode fixtures incomplete')
+    runtime_ids={x.get('id') for x in fixtures.get('handoff_runtime_contract_cases',[])}
+    require({'HD-01-NO-PROVIDER','HD-03-VERIFIED-COMPLETE','HD-04-INTEGRITY-CONTRADICTION','HE-02-STALE-GENERATION-EVAL','HP-04-PORTABLE-AUTHORITY-RECONSTRUCTION-REJECT','E2E-01-STRICT-CREATE-WRITE-REOPEN-RECEIPT','E2E-02-PORTABLE-CREATE-WRITE-REOPEN-RECEIPT','E2E-04-POSTWRITE-TAMPER-BLOCKS-SUCCESS-RECEIPT','E2E-06-RESTORED-SPECIALIST-METHOD-NONAUTHORITY'} <= runtime_ids,'Handoff runtime contract fixtures incomplete')
     failure_ids = {x.get('id') for x in fixtures.get('failure_mode_learning_cases', [])}
     require({'FM-07-FIRST-EMISSION-LEDGER-RESERVATION', 'FM-08-FAILURE-LEDGER-REF-MISMATCH'} <= failure_ids, 'failure-mode ledger regression fixtures missing')
     cw2 = next(x for x in fixtures.get('copywriting_behavior_cases', []) if x.get('id') == 'CW-BEH-02-MISSING-DOMAIN-TRUTH')
