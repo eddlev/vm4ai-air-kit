@@ -130,6 +130,10 @@ Handoff can preserve project scope, the active task, decisions, blockers, workin
 
 It transfers **recorded AIR state**. It does not transfer hidden model memory, hidden reasoning or previously granted execution authority. The receiving session validates and rebinds the project before material execution resumes.
 
+Strict Handoff requires qualifying durable provenance to have been available while the relevant AIR history was created. Adding a durable provider later cannot reconstruct missing strict provenance. When strict provenance is unavailable or incomplete, AIR can use `PORTABLE_STATE` if the current continuation state is otherwise valid.
+
+A Handoff file-delivery receipt proves the delivered file's observed transport and integrity state only. It carries no execution authority and cannot authorize, bind, approve, or restore authority in the receiving session.
+
 ### Import existing work
 
 AIR can also structure a project that did not begin in AIR.
