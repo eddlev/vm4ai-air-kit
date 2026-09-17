@@ -12,33 +12,55 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Verify exact f456 base and temporary-only prepatch delta
+      - name: Verify exact f456 ancestry and temporary-only prepatch delta
         shell: bash
         run: |
           set -euo pipefail
           git merge-base --is-ancestor f456fc579bed739aebcfaa55c175c2c14617d58d HEAD
-          git diff --name-only f456fc579bed739aebcfaa55c175c2c14617d58d..HEAD | sort > /tmp/prepatch.txt
-          printf '%s\n' '.github/workflows/handoff-v074-validation-runner.yml' '.github/workflows/handoff-v074-validation.yml' | sort > /tmp/expected.txt
-          diff -u /tmp/expected.txt /tmp/prepatch.txt
-      - name: Recover approved payload from temporary carrier workflow
+          python3 - <<'PY0'
+          import subprocess
+          base='f456fc579bed739aebcfaa55c175c2c14617d58d'
+          changed=set(subprocess.check_output(['git','diff','--name-only',base+'..HEAD'],text=True).splitlines())
+          bad=sorted(x for x in changed if not (x.startswith('.air-validation/') or x in {'.github/workflows/handoff-v074-validation.yml','.github/workflows/handoff-v074-validation-runner.yml'}))
+          if bad: raise SystemExit('non-temporary prepatch delta '+repr(bad))
+          print('temporary-only prepatch delta PASS',len(changed))
+          PY0
+      - name: Reconstruct approved payload from chunk files
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p .air-validation
-          awk '/^[[:space:]]*\/Td6WFo/{capture=1} capture{sub(/^[[:space:]]*/,""); print} /^[[:space:]]*PAYLOAD$/{exit}' .github/workflows/handoff-v074-validation.yml | sed '$d' > /tmp/payload.b64
-          test -s /tmp/payload.b64
-          base64 -d /tmp/payload.b64 | xz -d | tar -xf - -C .air-validation
+          cat .air-validation/payload.part.00 .air-validation/payload.part.01 .air-validation/payload.part.02 .air-validation/payload.part.03 > /tmp/payload.b64
+          python3 - <<'PY1'
+          import base64,lzma,tarfile,io,pathlib
+          s=pathlib.Path('/tmp/payload.b64').read_text().replace('\n','').encode()
+          raw=lzma.decompress(base64.b64decode(s,validate=True))
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:') as tf: tf.extractall('.air-validation')
+          print('approved payload reconstruction PASS',len(raw))
+          PY1
           rm /tmp/payload.b64
           test -f .air-validation/helpers/apply_air_v074_handoff_release_candidate.py
+          test -f .air-validation/helpers/apply_handoff_runtime_patch.py
       - name: Apply confirmed patch and coordinated reseal
         run: python3 .air-validation/helpers/apply_air_v074_handoff_release_candidate.py . .air-validation .air-validation/helpers/apply_handoff_runtime_patch.py
       - name: Remove temporary validation harness
         run: rm -rf .air-validation .github/workflows/handoff-v074-validation.yml .github/workflows/handoff-v074-validation-runner.yml
-      - name: Enforce no leaked temporary scaffolding
+      - name: Enforce confirmed final patch inventory
         shell: bash
         run: |
           set -euo pipefail
-          test -z "$(git status --porcelain | grep -E '(\.air-validation|handoff-v074-validation)' || true)"
+          python3 - <<'PY2'
+          import subprocess
+          allowed=set(['catalog/AIR_RUNTIME_ROUTE_MAP.json', 'catalog/AIR_SPECIALIST_PACKAGE_INDEX.json', 'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json', 'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json', 'profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json', 'profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json', 'profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json', 'profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json', 'profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json', 'profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json', 'profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json', 'profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json', 'profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json', 'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json', 'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json', 'profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json', 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json', 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json', 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json', 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json', 'profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json', 'prompts/AIR_CONTROL_SURFACE.md', 'prompts/AIR_CORE_RUNTIME.md', 'prompts/AIR_DEFAULT_STARTER_PROFILE.json', 'prompts/AIR_HANDOFF_CARD_TEMPLATE.json', 'tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V2.json', 'tests/AIR_CAPABILITY_ECOLOGY_ARCHITECT_SET008_BEHAVIORAL_EVIDENCE_V2.json', 'tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V2.json', 'tests/AIR_HANDOFF_V074_RUNTIME_BEHAVIORAL_EVIDENCE_V1.json', 'tests/AIR_PUBLIC_SURFACE_COPYWRITING_SET008_BEHAVIORAL_EVIDENCE_V2.json', 'tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V2.json', 'tests/air_contract_fixtures.json', 'tests/deterministic_contract_inventory.json', 'tools/test_air_behavioral_contract_mutations.py', 'tools/test_air_control_plane_mutations.py', 'tools/test_air_handoff_runtime_contract_mutations.py', 'tools/test_air_r3_mutations.py', 'tools/test_air_r7_mutations.py', 'tools/test_air_v074_release_seal_mutations.py', 'tools/validate_air_behavioral_contracts.py', 'tools/validate_air_boot.py', 'tools/validate_air_control_plane.py', 'tools/validate_air_handoff_runtime_contract.py', 'tools/validate_air_r1_remediation.py', 'tools/validate_air_r3_remediation.py', 'tools/validate_air_r7_remediation.py', 'tools/validate_air_suite.py', 'tools/validate_air_v074_release_seal.py'])
+          base='f456fc579bed739aebcfaa55c175c2c14617d58d'
+          tracked=set(subprocess.check_output(['git','diff','--name-only',base,'--'],text=True).splitlines())
+          untracked=set(subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines())
+          changed=tracked|untracked
+          extra=sorted(changed-allowed)
+          if extra: raise SystemExit('out-of-scope final delta '+repr(extra))
+          temp=sorted(x for x in changed if x.startswith('.air-validation/') or x.startswith('.github/workflows/handoff-v074-validation'))
+          if temp: raise SystemExit('temporary scaffolding leaked '+repr(temp))
+          print('confirmed final patch inventory PASS',len(changed))
+          PY2
       - name: Canonical AIR candidate validation suite
         run: python3 tools/validate_air_suite.py --candidate
       - name: Canonical AIR exact-release validation suite
