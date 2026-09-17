@@ -45,6 +45,10 @@ def main():
     cases.append(('R3-N21-HANDOFF-MODE-CARRIER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD'].pop('handoff_mode_state'))))
     cases.append(('R3-N22-REV19-TO-REV20-MIGRATION-ORDER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['revision_migration_contracts']['REV19_TO_REV20'].__setitem__('apply_before_current_required_carrier_check',False))))
     cases.append(('R3-N23-HANDOFF-MODE-AUTHORITY', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['handoff_mode_state'].__setitem__('positive_execution_authority','ALLOW'))))
+    cases.append(('R3-N24-HANDOFF-GENERATION-EVALUATION-REQUIRED', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD']['schema_manifest']['required_fields'].remove('evaluation_basis'))))
+    cases.append(('R3-N25-HANDOFF-DUPLICATE-GENERATION-CARRIER', mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json', lambda o:o['AIR_HANDOFF_CARD'].__setitem__('handoff_generation_evaluation',{}))))
+    cases.append(('R3-N26-HANDOFF-ROUTE-LIVE-OWNER', mutate_json('catalog/AIR_RUNTIME_ROUTE_MAP.json', lambda o:o['handoff_runtime_contract_registry'].__setitem__('live_session_owner_path','AIR_HANDOFF_CARD.handoff_mode_state'))))
+    cases.append(('R3-N27-HANDOFF-DELIVERY-RECEIPT-FORMAL', mutate_json('catalog/AIR_RUNTIME_ROUTE_MAP.json', lambda o:o['handoff_runtime_contract_registry']['receipt_contract'].__setitem__('formal_air_object',True))))
     if run_validator(ROOT)!=0: raise SystemExit('R3-MUTATION-BASELINE failed')
     print('R3-MUTATION-BASELINE: PASS')
     killed=0

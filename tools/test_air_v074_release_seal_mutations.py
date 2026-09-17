@@ -78,6 +78,13 @@ def main() -> None:
     def inline_handoff_enabled(d: Path):
         p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); r=next(x for x in o['routes'] if x['route_id']=='RT.HANDOFF_CREATE'); r['handoff_file_delivery']['inline_payload']='ALLOWED'; dump(p,o)
     add('V074-N12-HANDOFF-INLINE-PAYLOAD', inline_handoff_enabled)
+    def handoff_live_owner_drift(d: Path):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); o['handoff_runtime_contract_registry']['live_session_owner_path']='AIR_HANDOFF_CARD.handoff_mode_state'; dump(p,o)
+    add('V074-N13-HANDOFF-LIVE-OWNER-DRIFT', handoff_live_owner_drift)
+
+    def handoff_runtime_evidence_drift(d: Path):
+        p=d/'tests/AIR_HANDOFF_V074_RUNTIME_BEHAVIORAL_EVIDENCE_V1.json'; o=load(p); o['pass_count']=29; dump(p,o)
+    add('V074-N14-HANDOFF-RUNTIME-EVIDENCE-DRIFT', handoff_runtime_evidence_drift)
 
     killed = 0
     with tempfile.TemporaryDirectory(prefix='air-v074-release-mutations-') as td:

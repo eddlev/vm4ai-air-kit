@@ -1044,6 +1044,16 @@
               "operator": "STATE_EQUALS",
               "path": "HANDOFF_MODE_SELECTION_STATE",
               "expected": "RESOLVED_FOR_REQUEST"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "HANDOFF_GENERATION_EVALUATION_STATE",
+              "expected": "SATISFIED"
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "HANDOFF_SELECTED_MODE_DEPENDENCY_STATE",
+              "expected": "SATISFIED"
             }
           ],
           "guard_join": "ALL",
@@ -1255,7 +1265,31 @@
       "post_freeze_objects": "EXCLUDED_BY_DESIGN_DECLARED_IN_CARD",
       "full_ledger_snapshot_revalidation_required": "STRICT_PROVENANCE_ONLY",
       "handoff_mode_selection_required": true,
-      "portable_state_history_behavior": "NOT_CLAIMED_PORTABLE_STATE_EMPTY_HISTORICAL_SNAPSHOT_AND_FAILURE_RECORD_SETS"
+      "portable_state_history_behavior": "NOT_CLAIMED_PORTABLE_STATE_EMPTY_HISTORICAL_SNAPSHOT_AND_FAILURE_RECORD_SETS",
+      "receipt_contract": {
+        "record_name": "AIR_FILE_DELIVERY_RECEIPT",
+        "record_kind": "TYPED_NON_FORMAL_TRANSPORT_RECEIPT",
+        "formal_air_object": false,
+        "surfaced_object_ledger_entry": false,
+        "required_fields": [
+          "filename",
+          "canonical_role",
+          "linked_path_or_file_ref",
+          "sha256",
+          "byte_count",
+          "text_line_count",
+          "designation",
+          "version_or_schema_identity",
+          "strict_parse_state",
+          "duplicate_key_state",
+          "schema_validation_state",
+          "provenance_validation_state",
+          "validation_record_ref",
+          "delivery_state"
+        ],
+        "success_state": "VALIDATED_READY_FOR_DOWNLOAD",
+        "positive_execution_authority": "NONE"
+      }
     },
     "handoff_chat_delivery_rule": "Handoff creation uses normal governed chat emission plus a validated downloadable AIR_HANDOFF_CARD.json file; there is no raw-inline Handoff exception.",
     "new_task_binding_transaction": {
@@ -1344,7 +1378,11 @@
       "bounded_growth_rule": "ONE_CANONICAL_SNAPSHOT_PER_COMMITTED_EMISSION_IDENTITY_PLUS_FIXED_METADATA_NO_CUMULATIVE_HISTORY_EMBEDDING",
       "content_deduplication": "PERMITTED_ONLY_WITH_EXACT_LEDGER_REF_TO_SNAPSHOT_MAPPING",
       "unavailable_behavior": "SURFACE_EARLY_STRICT_HANDOFF_UNAVAILABLE; ORDINARY_SAFE_WORK_MAY_CONTINUE; GENERIC_HANDOFF_MAY_SELECT_PORTABLE_STATE; EXPLICIT_STRICT_REMAINS_INELIGIBLE",
-      "missing_snapshot_behavior": "FAIL_CLOSED_NO_TRANSCRIPT_EXPORT_OR_PASTE_RECOVERY"
+      "missing_snapshot_behavior": "FAIL_CLOSED_NO_TRANSCRIPT_EXPORT_OR_PASTE_RECOVERY",
+      "canonical_live_owner_path": "AIR_SESSION.handoff_durability_state",
+      "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+      "strict_eligibility_source": "AIR_SESSION.handoff_durability_state.strict_handoff_eligibility",
+      "late_provider_rule": "NO_RETROACTIVE_NATIVE_STRICT_HISTORY"
     },
     "handoff_mode_selection": {
       "required": true,
@@ -1386,7 +1424,44 @@
       "failed_integrity_behavior": "BLOCK_REVIEW",
       "portable_history_claim": "NOT_CLAIMED_PORTABLE_STATE",
       "portable_historical_authority_reconstruction": "PROHIBITED",
-      "restore_effect": "NONAUTHORIZING_REQUIRES_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING"
+      "restore_effect": "NONAUTHORIZING_REQUIRES_CURRENT_HANDOFF_RESTORE_ALIGNMENT_AND_ARTIFACT_REBINDING",
+      "live_durability_owner_path": "AIR_SESSION.handoff_durability_state",
+      "generation_evaluation_dependency": "DEP.HANDOFF_GENERATION_EVALUATION",
+      "portable_state_predicate": "DEP.PORTABLE_HANDOFF_STATE_VALID",
+      "strict_complete_predicate": "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE"
+    },
+    "handoff_runtime_durability_and_generation": {
+      "required": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "core_patch_marker": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
+      "session_live_owner_path": "AIR_SESSION.handoff_durability_state",
+      "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+      "provider_adapter_state_class": "DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE",
+      "provider_adapter_state_is_formal_air_object": false,
+      "provider_probe_required_by": "NO_LATER_THAN_FIRST_POST_ACTIVATION_CANONICAL_FORMAL_OBJECT_EMISSION",
+      "provider_change_requires_reprobe": true,
+      "allowed_durability_states": [
+        "AVAILABLE_VERIFIED",
+        "UNAVAILABLE",
+        "DEGRADED_INCOMPLETE",
+        "FAILED_INTEGRITY"
+      ],
+      "strict_eligibility_transition_table": {
+        "PROVIDER_ABSENT": "UNAVAILABLE|INELIGIBLE_UNAVAILABLE",
+        "PROVIDER_PRESENT_UNVERIFIED_OR_INCOMPLETE_COVERAGE": "DEGRADED_INCOMPLETE|INELIGIBLE_INCOMPLETE",
+        "PROVIDER_VERIFIED_AND_COMPLETE_COVERAGE": "AVAILABLE_VERIFIED|ELIGIBLE",
+        "PROVIDER_OR_PROVENANCE_INTEGRITY_CONTRADICTION": "FAILED_INTEGRITY|BLOCKED_FAILED_INTEGRITY"
+      },
+      "late_provider_rule": "NO_RETROACTIVE_NATIVE_STRICT_HISTORY; UNCOVERED_COMMITTED_HISTORY_REMAINS_INELIGIBLE_INCOMPLETE",
+      "dependency_producers": {
+        "DEP.HANDOFF_GENERATION_EVALUATION": "CURRENT_RT_HANDOFF_CREATE_EVALUATION_TO_AIR_HANDOFF_CARD_EVALUATION_BASIS",
+        "DEP.HANDOFF_MODE_RESOLVED": "AIR_HANDOFF_MODE_SELECTION_V1_FROM_REQUEST_PLUS_LIVE_SESSION_STRICT_ELIGIBILITY",
+        "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE": "STRICT_SELECTED_AND_AVAILABLE_VERIFIED_ELIGIBLE_AND_COMPLETE_TO_FROZEN_CUTOFF",
+        "DEP.PORTABLE_HANDOFF_STATE_VALID": "PORTABLE_SELECTED_AND_NOT_FAILED_INTEGRITY_AND_EMPTY_NOT_CLAIMED_HISTORY_AND_NO_RECONSTRUCTED_AUTHORITY_AND_CURRENT_GENERATION_EVALUATION"
+      },
+      "generation_evaluation_serialized_carrier": "AIR_HANDOFF_CARD.evaluation_basis",
+      "root_handoff_generation_evaluation_field": "PROHIBITED",
+      "restore_provider_state_rule": "TARGET_SESSION_RENEGOTIATES_PROVIDER; SOURCE_CARD_DURABILITY_IS_NONAUTHORIZING_TRANSFER_PROVENANCE"
     }
   },
   "bootstrap_contract": {
@@ -2873,9 +2948,9 @@
       "prose_authority": "NON_OPERATIVE_DESCRIPTION",
       "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
       "coverage_contract": {
-        "declared_check_count": 90,
-        "implemented_check_count_required": 90,
-        "executed_check_count_required": 90,
+        "declared_check_count": 102,
+        "implemented_check_count_required": 102,
+        "executed_check_count_required": 102,
         "unimplemented_allowed": 0,
         "unexecuted_allowed": 0,
         "duplicate_check_ids_allowed": 0,
@@ -3653,6 +3728,119 @@
             "path": "$.compiler_contract.durable_surfaced_object_provenance.required_for_strict_handoff"
           },
           "expected": true
+        },
+        {
+          "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "expected": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1"
+        },
+        {
+          "check_id": "DC-CONTROL-HANDOFF-RUNTIME-DURABILITY-RENDERER",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "file": "prompts/AIR_CONTROL_SURFACE.md",
+          "expected": "AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1"
+        },
+        {
+          "check_id": "DC-STARTER-HANDOFF-LIVE-SESSION-OWNER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.handoff_runtime_durability_and_generation.session_live_owner_path"
+          },
+          "expected": "AIR_SESSION.handoff_durability_state"
+        },
+        {
+          "check_id": "DC-STARTER-HANDOFF-PROVIDER-ADAPTER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.handoff_runtime_durability_and_generation.provider_adapter_contract"
+          },
+          "expected": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1"
+        },
+        {
+          "check_id": "DC-HANDOFF-NO-DUPLICATE-GENERATION-EVALUATION-ROOT",
+          "operator": "JSON_PATH_ABSENT",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.handoff_generation_evaluation"
+          }
+        },
+        {
+          "check_id": "DC-HANDOFF-EVALUATION-BASIS-REQUIRED",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+          },
+          "expected": "evaluation_basis"
+        },
+        {
+          "check_id": "DC-HANDOFF-GENERATION-EVALUATION-OPERATOR",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.validation_registry.allowed_operators"
+          },
+          "expected": "HANDOFF_GENERATION_EVALUATION_VALID"
+        },
+        {
+          "check_id": "DC-HANDOFF-PORTABLE-STATE-OPERATOR",
+          "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+            "path": "$.AIR_HANDOFF_CARD.schema_manifest.validation_registry.allowed_operators"
+          },
+          "expected": "PORTABLE_HANDOFF_STATE_VALID"
+        },
+        {
+          "check_id": "DC-ROUTE-HANDOFF-LIVE-SESSION-OWNER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+            "path": "$.handoff_runtime_contract_registry.live_session_owner_path"
+          },
+          "expected": "AIR_SESSION.handoff_durability_state"
+        },
+        {
+          "check_id": "DC-ROUTE-HANDOFF-GENERATION-CARRIER",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+            "path": "$.handoff_runtime_contract_registry.generation_evaluation_serialized_carrier"
+          },
+          "expected": "AIR_HANDOFF_CARD.evaluation_basis"
+        },
+        {
+          "check_id": "DC-STARTER-FILE-DELIVERY-RECEIPT-NONFORMAL",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+            "path": "$.compiler_contract.handoff_file_delivery.receipt_contract.formal_air_object"
+          },
+          "expected": false
+        },
+        {
+          "check_id": "DC-ROUTE-FILE-DELIVERY-RECEIPT-NONFORMAL",
+          "operator": "JSON_EQUALS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+            "path": "$.handoff_runtime_contract_registry.receipt_contract.formal_air_object"
+          },
+          "expected": false
         }
       ],
       "foundation_prompt_version_contract": {

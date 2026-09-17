@@ -106,6 +106,12 @@ def main():
     def m29(d):
         p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['compiler_contract']['handoff_mode_selection']['selection_table']['GENERIC|BLOCKED_FAILED_INTEGRITY']='PORTABLE_STATE'; save(p,o)
     cases.append(('failed integrity auto portable downgrade',m29))
+    def m30(d):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); o['handoff_runtime_contract_registry']['live_session_owner_path']='AIR_HANDOFF_CARD.handoff_mode_state'; save(p,o)
+    cases.append(('handoff live durability owner moved out of Session',m30))
+    def m31(d):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); o['handoff_runtime_contract_registry']['receipt_contract']['formal_air_object']=True; save(p,o)
+    cases.append(('handoff file delivery receipt promoted to formal object',m31))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()

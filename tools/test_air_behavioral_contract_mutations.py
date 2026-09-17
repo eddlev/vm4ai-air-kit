@@ -99,6 +99,9 @@ def mutate_handoff_failed_integrity(root: Path):
 def mutate_portable_history_authority(root: Path):
     p=root/'prompts/AIR_HANDOFF_CARD_TEMPLATE.json'; x=load(p); x['AIR_HANDOFF_CARD']['handoff_mode_state']['positive_execution_authority']='ALLOW'; dump(p,x)
 
+def mutate_handoff_runtime_marker(root: Path):
+    p=root/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('Patch marker: AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1','Patch marker: REMOVED_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT',1); p.write_text(x,encoding='utf-8')
+
 
 MUTATIONS = [
     ('core_marker', mutate_remove_core_marker),
@@ -117,6 +120,7 @@ MUTATIONS = [
     ('handoff_generic_portable_fallback', mutate_handoff_generic_fallback),
     ('handoff_failed_integrity_block', mutate_handoff_failed_integrity),
     ('portable_history_nonauthority', mutate_portable_history_authority),
+    ('handoff_runtime_contract_marker', mutate_handoff_runtime_marker),
 ]
 
 

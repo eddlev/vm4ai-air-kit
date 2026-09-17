@@ -15,9 +15,9 @@ def main():
     rmap=load('catalog/AIR_RUNTIME_ROUTE_MAP.json')
     index=load('catalog/AIR_SPECIALIST_PACKAGE_INDEX.json')
     fixtures=load('tests/air_contract_fixtures.json')
-    for m in ['AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1','AIR_APPROVAL_RESPONSE_RESOLUTION_V1','AIR_SURFACED_OBJECT_LEDGER_V1','AIR_FAILURE_MODE_REGISTRY_V1','AIR_HANDOFF_FILE_DELIVERY_V1','AIR_HANDOFF_MODE_SELECTION_V1']:
+    for m in ['AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1','AIR_APPROVAL_RESPONSE_RESOLUTION_V1','AIR_SURFACED_OBJECT_LEDGER_V1','AIR_FAILURE_MODE_REGISTRY_V1','AIR_HANDOFF_FILE_DELIVERY_V1','AIR_HANDOFF_MODE_SELECTION_V1','AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1']:
         req(('Patch marker: '+m) in core, 'missing Core marker '+m)
-    for m in ['AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1','AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1','AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1','AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1','AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1']:
+    for m in ['AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1','AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1','AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1','AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1','AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1','AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1','AIR_CONTROL_HANDOFF_GENERATION_EVALUATION_RENDERER_V1']:
         req(('Patch marker: '+m) in control, 'missing Control marker '+m)
     req('AIR_GOVERNANCE_DETERMINISTIC_APPROVAL_RESPONSE_V1' in gov, 'missing Governance approval deterministic rule')
     req('AIR_GOVERNANCE_FAILURE_MODE_LEARNING_V1' in gov, 'missing Governance failure learning rule')
@@ -89,6 +89,7 @@ def main():
     req(hm.get('selection_table',{}).get('GENERIC|BLOCKED_FAILED_INTEGRITY')=='BLOCK_REVIEW','failed-integrity generic fallback not blocked')
     he=events['RT.HANDOFF_CREATE']; req(any(g.get('path')=='HANDOFF_MODE_SELECTION_STATE' and g.get('expected')=='RESOLVED_FOR_REQUEST' for g in he.get('guards',[])),'Handoff control event lacks resolved mode guard')
     hr=routes['RT.HANDOFF_CREATE']; req('DEP.HANDOFF_MODE_RESOLVED' in hr.get('requires',[]) and 'DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE' not in hr.get('requires',[]),'Handoff route retains unconditional durable dependency')
+    hreg=rmap.get('handoff_runtime_contract_registry',{}); req(hreg.get('live_session_owner_path')=='AIR_SESSION.handoff_durability_state','Handoff root live Session owner missing'); req(hreg.get('generation_evaluation_serialized_carrier')=='AIR_HANDOFF_CARD.evaluation_basis','Handoff root generation evaluation carrier mismatch'); req(hreg.get('receipt_contract',{}).get('formal_air_object') is False,'Handoff file delivery receipt became formal AIR object')
     sls=handoff['surfaced_object_ledger_state']; req(sls['positive_execution_authority']=='NONE_HISTORY_ONLY','handoff surfaced history gained authority'); req(sls['entry_requirements']['mutation_rule']=='EXACT_CANONICAL_OBJECT_COPY_NO_SEMANTIC_MUTATION','handoff snapshot mutation boundary missing')
     creg=sm['condition_registry']; preds=creg['predicates']; allowedc=set(creg['allowed_operators'])
     for rule in sm['conditional_rules']:

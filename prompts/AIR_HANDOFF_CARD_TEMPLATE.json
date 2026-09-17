@@ -1212,7 +1212,8 @@
         "Explicit STRICT_PROVENANCE silently downgraded to PORTABLE_STATE",
         "PORTABLE_STATE claims COMPLETE_PRE_FILE_CAPTURE or complete historical failure-mode provenance",
         "PORTABLE_STATE reconstructs historical AIR_GATE, AIR_ACTION_AUTHORIZATION, AIR_ACTION_RECEIPT, approval, binding, or effect authority",
-        "FAILED_INTEGRITY automatically downgraded to PORTABLE_STATE"
+        "FAILED_INTEGRITY automatically downgraded to PORTABLE_STATE",
+        "Current generated card contains root handoff_generation_evaluation in addition to evaluation_basis"
       ],
       "validation_sequence": [
         "strict JSON and duplicate-key check",
@@ -1313,7 +1314,31 @@
         "historical_chat_retrieval_dependency": "PROHIBITED",
         "transcript_recovery_fallback": "PROHIBITED",
         "handoff_mode_ref": "AIR_HANDOFF_CARD.handoff_mode_state",
-        "failed_integrity_behavior": "BLOCK_REVIEW_NO_AUTOMATIC_PORTABLE_DOWNGRADE"
+        "failed_integrity_behavior": "BLOCK_REVIEW_NO_AUTOMATIC_PORTABLE_DOWNGRADE",
+        "receipt_contract": {
+          "record_name": "AIR_FILE_DELIVERY_RECEIPT",
+          "record_kind": "TYPED_NON_FORMAL_TRANSPORT_RECEIPT",
+          "formal_air_object": false,
+          "surfaced_object_ledger_entry": false,
+          "required_fields": [
+            "filename",
+            "canonical_role",
+            "linked_path_or_file_ref",
+            "sha256",
+            "byte_count",
+            "text_line_count",
+            "designation",
+            "version_or_schema_identity",
+            "strict_parse_state",
+            "duplicate_key_state",
+            "schema_validation_state",
+            "provenance_validation_state",
+            "validation_record_ref",
+            "delivery_state"
+          ],
+          "success_state": "VALIDATED_READY_FOR_DOWNLOAD",
+          "positive_execution_authority": "NONE"
+        }
       },
       "condition_registry": {
         "registry_version": "1.0.0",
@@ -1661,7 +1686,9 @@
           "AMRS_STEP_OPTIMALITY_COMPLETION_VALID",
           "METHOD_EVIDENCE_WAIVER_REFS_VALID",
           "APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID",
-          "HANDOFF_MODE_PROVENANCE_VALID"
+          "HANDOFF_MODE_PROVENANCE_VALID",
+          "HANDOFF_GENERATION_EVALUATION_VALID",
+          "PORTABLE_HANDOFF_STATE_VALID"
         ],
         "operator_semantics": {
           "APPROVAL_SCOPE_CANONICAL_TOKEN_PAIR": "For non-null material open scope, require approval_response_mode=EXACT_CANONICAL_SCOPE_TOKEN_PAIR and operational_response_tokens set equality with exactly AIR_APPROVE::<approval_scope_id> and AIR_REJECT::<approval_scope_id>. Produce OPEN_APPROVAL_SCOPE_TOKEN_VALIDATION_STATE=VALIDATED_CANONICAL_SCOPE_TOKEN_PAIR only on success.",
@@ -1673,7 +1700,9 @@
           "AMRS_STEP_OPTIMALITY_COMPLETION_VALID": "When the completion trigger is true, path_validation_state must be COMPLETE_FOR_ACTIVE_STEP and step_optimality_state must be PASS with preserved basis/stopping evidence as applicable.",
           "METHOD_EVIDENCE_WAIVER_REFS_VALID": "If active Method Pack method_specific_state declares step_evidence_waiver_refs, each non-null ref must resolve to a surfaced canonical AIR_METHOD_EVIDENCE_WAIVER snapshot whose method/version/step/waived_requirement/artifact scope match the serialized method state and whose validity_state is ACTIVE_CURRENT or APPLIED_RECORDED. Empty refs are allowed when no waiver was used. Unresolved, free-text, mismatched, revoked, expired, or synthesized refs route REVIEW.",
           "APPROVAL_SCOPE_IDENTITY_FINGERPRINT_VALID": "For a non-null material open scope, recompute SHA-256 canonical JSON over the Core-owned fingerprint field set; require equality with approval_scope_fingerprint; require the approval_scope_id not be associated with a different prior lifecycle fingerprint; revision suffixes are optional. Produce OPEN_APPROVAL_SCOPE_IDENTITY_VALIDATION_STATE=VALIDATED_CURRENT_UNIQUE_SCOPE_FINGERPRINT only on success.",
-          "HANDOFF_MODE_PROVENANCE_VALID": "Validate AIR_HANDOFF_MODE_SELECTION_V1 deterministically. STRICT_PROVENANCE requires AVAILABLE_VERIFIED durability, ELIGIBLE strict state, complete ledger-backed snapshots and ledger-backed failure history. PORTABLE_STATE requires no FAILED_INTEGRITY, no complete-history claim, empty surfaced-object snapshot entries, empty failure-mode records, no reconstructed historical action authority, and positive_execution_authority = NONE. Explicit strict never downgrades."
+          "HANDOFF_MODE_PROVENANCE_VALID": "Validate AIR_HANDOFF_MODE_SELECTION_V1 deterministically. STRICT_PROVENANCE requires AVAILABLE_VERIFIED durability, ELIGIBLE strict state, complete ledger-backed snapshots and ledger-backed failure history. PORTABLE_STATE requires no FAILED_INTEGRITY, no complete-history claim, empty surfaced-object snapshot entries, empty failure-mode records, no reconstructed historical action authority, and positive_execution_authority = NONE. Explicit strict never downgrades.",
+          "HANDOFF_GENERATION_EVALUATION_VALID": "Require AIR_HANDOFF_CARD.evaluation_basis to be the sole root generation-evaluation carrier and to identify the current HANDOFF_CREATE evaluation with current state_epoch, alignment_check_ref, validation_report_ref, and dependency_state=SATISFIED. Reject missing, template, stale, prior-session, non-HANDOFF_CREATE, or duplicate-root generation evaluation.",
+          "PORTABLE_HANDOFF_STATE_VALID": "If selected_mode is not PORTABLE_STATE, return NOT_APPLICABLE_PASS. If PORTABLE_STATE, require live durability projection not FAILED_INTEGRITY, empty surfaced_object_ledger_state.entries, completeness_state=NOT_CLAIMED_PORTABLE_STATE, empty failure_mode_state.records, history_completeness_state=NOT_CLAIMED_PORTABLE_STATE, no reconstructed historical action authority, positive_execution_authority=NONE, and valid current generation evaluation."
         },
         "rules": {
           "HC-VALIDATE-APPROVAL": {
@@ -1868,8 +1897,21 @@
             "path": "$.source_state.source_rights_state"
           },
           "HC-VALIDATE-HANDOFF-MODE-PROVENANCE": {
-            "operator": "HANDOFF_MODE_PROVENANCE_VALID",
-            "path": "$"
+            "operator": "ALL",
+            "predicates": [
+              {
+                "operator": "HANDOFF_GENERATION_EVALUATION_VALID",
+                "path": "$.evaluation_basis"
+              },
+              {
+                "operator": "HANDOFF_MODE_PROVENANCE_VALID",
+                "path": "$"
+              },
+              {
+                "operator": "PORTABLE_HANDOFF_STATE_VALID",
+                "path": "$"
+              }
+            ]
           }
         }
       },
@@ -2116,6 +2158,11 @@
             "ARTIFACT_REBINDING"
           ]
         }
+      },
+      "root_generation_evaluation_contract": {
+        "sole_carrier": "evaluation_basis",
+        "dependency_name": "DEP.HANDOFF_GENERATION_EVALUATION",
+        "handoff_generation_evaluation_root_field": "PROHIBITED"
       }
     },
     "extensions": {
@@ -2383,7 +2430,10 @@
         "transcript_export_or_paste_fallback": "PROHIBITED",
         "positive_execution_authority": "NONE",
         "handoff_mode_ref": "AIR_HANDOFF_CARD.handoff_mode_state",
-        "portable_handoff_eligibility": "UNVALIDATED_TEMPLATE"
+        "portable_handoff_eligibility": "UNVALIDATED_TEMPLATE",
+        "live_session_owner_path": "AIR_SESSION.handoff_durability_state",
+        "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+        "source_card_durability_authority_on_restore": "NONE_TRANSFER_PROVENANCE_ONLY"
       }
     },
     "handoff_mode_state": {
@@ -2398,7 +2448,13 @@
       "historical_provenance_claim": "NOT_EVALUATED",
       "portable_history_policy": "NO_COMPLETE_HISTORY_CLAIM_NO_HISTORICAL_SNAPSHOT_OR_FAILURE_RECORD_RECONSTRUCTION",
       "positive_execution_authority": "NONE",
-      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT"
+      "restoration_state": "UNVALIDATED_BOOTSTRAP_INPUT",
+      "live_session_durability_owner_path": "AIR_SESSION.handoff_durability_state",
+      "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+      "generation_evaluation_dependency": "DEP.HANDOFF_GENERATION_EVALUATION",
+      "generation_evaluation_serialized_carrier": "AIR_HANDOFF_CARD.evaluation_basis",
+      "duplicate_generation_evaluation_root_carrier": "PROHIBITED",
+      "portable_state_validation_dependency": "DEP.PORTABLE_HANDOFF_STATE_VALID"
     }
   }
 }

@@ -1,0 +1,282 @@
+{
+  "evidence_id": "AIR_HANDOFF_V074_RUNTIME_CONTRACT_EVIDENCE_V1",
+  "evidence_class": "REPRODUCIBLE_EXECUTABLE_HANDOFF_RUNTIME_CONTRACT_EVIDENCE",
+  "repository": "eddlev/vm4ai-air-kit",
+  "source_baseline_commit": "f456fc579bed739aebcfaa55c175c2c14617d58d",
+  "candidate_environment": "ISOLATED_LOCAL_CANDIDATE_FROM_CONFIRMED_SOURCE_SET",
+  "generated_at_utc": "2026-09-17T15:57:38.083908+00:00",
+  "contract": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
+  "static_check_count": 29,
+  "executable_case_count": 30,
+  "pass_count": 30,
+  "fail_count": 0,
+  "cases": [
+    {
+      "id": "HD-01-NO-PROVIDER",
+      "actual": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ],
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "HD-02-PRESENT-UNVERIFIED",
+      "actual": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ],
+      "expected": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "HD-03-VERIFIED-COMPLETE",
+      "actual": [
+        "AVAILABLE_VERIFIED",
+        "ELIGIBLE"
+      ],
+      "expected": [
+        "AVAILABLE_VERIFIED",
+        "ELIGIBLE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "HD-04-INTEGRITY-CONTRADICTION",
+      "actual": [
+        "FAILED_INTEGRITY",
+        "BLOCKED_FAILED_INTEGRITY"
+      ],
+      "expected": [
+        "FAILED_INTEGRITY",
+        "BLOCKED_FAILED_INTEGRITY"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "HD-05-LATE-PROVIDER-GAP",
+      "actual": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ],
+      "expected": [
+        "DEGRADED_INCOMPLETE",
+        "INELIGIBLE_INCOMPLETE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "HM-01-GENERIC-AVAILABLE-STRICT",
+      "actual": "STRICT_PROVENANCE",
+      "expected": "STRICT_PROVENANCE",
+      "result": "PASS"
+    },
+    {
+      "id": "HM-02-GENERIC-UNAVAILABLE-PORTABLE",
+      "actual": "PORTABLE_STATE",
+      "expected": "PORTABLE_STATE",
+      "result": "PASS"
+    },
+    {
+      "id": "HM-03-GENERIC-INCOMPLETE-PORTABLE",
+      "actual": "PORTABLE_STATE",
+      "expected": "PORTABLE_STATE",
+      "result": "PASS"
+    },
+    {
+      "id": "HM-04-GENERIC-FAILED-INTEGRITY-BLOCK",
+      "actual": "BLOCK_REVIEW",
+      "expected": "BLOCK_REVIEW",
+      "result": "PASS"
+    },
+    {
+      "id": "HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL",
+      "actual": "FAIL_CLOSED",
+      "expected": "FAIL_CLOSED",
+      "result": "PASS"
+    },
+    {
+      "id": "HM-06-EXPLICIT-PORTABLE-UNAVAILABLE",
+      "actual": "PORTABLE_STATE",
+      "expected": "PORTABLE_STATE",
+      "result": "PASS"
+    },
+    {
+      "id": "HE-01-CURRENT-GENERATION-EVAL",
+      "actual": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "id": "HE-02-STALE-GENERATION-EVAL",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HE-03-DUPLICATE-ROOT-CARRIER",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HP-01-PORTABLE-VALID",
+      "actual": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "id": "HP-02-PORTABLE-HISTORY-REJECT",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HP-03-PORTABLE-FAILED-INTEGRITY-REJECT",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HP-04-PORTABLE-AUTHORITY-RECONSTRUCTION-REJECT",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HS-01-STRICT-VALID",
+      "actual": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "id": "HS-02-STRICT-HASH-MISMATCH",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "HR-01-RECEIPT-AFTER-VALIDATION",
+      "actual": true,
+      "expected": true,
+      "result": "PASS"
+    },
+    {
+      "id": "HR-02-NO-SUCCESS-RECEIPT-ON-POSTWRITE-FAIL",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "REST-01-TARGET-RENEGOTIATES-PROVIDER",
+      "actual": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ],
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "REST-02-SOURCE-AVAILABLE-DOES-NOT-UPGRADE-TARGET",
+      "actual": false,
+      "expected": false,
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-01-STRICT-CREATE-WRITE-REOPEN-RECEIPT",
+      "actual": [
+        true,
+        true,
+        false
+      ],
+      "expected": [
+        true,
+        true,
+        false
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-02-PORTABLE-CREATE-WRITE-REOPEN-RECEIPT",
+      "actual": [
+        true,
+        true
+      ],
+      "expected": [
+        true,
+        true
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-03-EXPLICIT-STRICT-UNAVAILABLE-NO-DOWNGRADE-NO-RECEIPT",
+      "actual": [
+        "FAIL_CLOSED",
+        null
+      ],
+      "expected": [
+        "FAIL_CLOSED",
+        null
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-04-POSTWRITE-TAMPER-BLOCKS-SUCCESS-RECEIPT",
+      "actual": [
+        false,
+        false,
+        null
+      ],
+      "expected": [
+        false,
+        false,
+        null
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-05-STRICT-RESTORE-TARGET-RENEGOTIATES",
+      "actual": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE",
+        true
+      ],
+      "expected": [
+        "UNAVAILABLE",
+        "INELIGIBLE_UNAVAILABLE",
+        true
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "E2E-06-RESTORED-SPECIALIST-METHOD-NONAUTHORITY",
+      "actual": [
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "NONE_BOOTSTRAP_INPUT_ONLY",
+        true
+      ],
+      "expected": [
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "AVAILABLE_UNBOUND_REVALIDATION_REQUIRED",
+        "NONE_BOOTSTRAP_INPUT_ONLY",
+        true
+      ],
+      "result": "PASS"
+    }
+  ],
+  "claim_boundary": [
+    "Proves deterministic contract logic and current candidate file integration in this local execution environment.",
+    "Does not prove a real host durable-provenance provider exists; strict positive uses a deterministic qualifying provider fixture/test double.",
+    "Does not create execution authority or replace full repository release validation."
+  ]
+}
