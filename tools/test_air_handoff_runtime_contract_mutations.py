@@ -35,7 +35,10 @@ CASES=[
  ('HC-MUT-13-CONTROL-DURABILITY-RENDERER',mutate_text('prompts/AIR_CONTROL_SURFACE.md','Patch marker: AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1','Patch marker: REMOVED_CONTROL_DURABILITY_RENDERER')),
  ('HC-MUT-14-REGISTRY-COVERAGE',mutate_json('prompts/AIR_DEFAULT_STARTER_PROFILE.json',lambda o:o['validation_contract']['deterministic_contract_registry']['coverage_contract'].__setitem__('declared_check_count',999))),
  ('HC-MUT-15-ROUTE-ROOT-LIVE-OWNER',mutate_json('catalog/AIR_RUNTIME_ROUTE_MAP.json',lambda o:o['handoff_runtime_contract_registry'].__setitem__('live_session_owner_path','AIR_HANDOFF_CARD.handoff_mode_state'))),
- ('HC-MUT-16-ROUTE-ROOT-RECEIPT-FORMAL',mutate_json('catalog/AIR_RUNTIME_ROUTE_MAP.json',lambda o:o['handoff_runtime_contract_registry']['receipt_contract'].__setitem__('formal_air_object',True)))
+ ('HC-MUT-16-ROUTE-ROOT-RECEIPT-FORMAL',mutate_json('catalog/AIR_RUNTIME_ROUTE_MAP.json',lambda o:o['handoff_runtime_contract_registry']['receipt_contract'].__setitem__('formal_air_object',True))),
+ ('HC-MUT-17-TEMPLATE-PROVIDER-IDENTITY',mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json',lambda o:o['AIR_HANDOFF_CARD']['surfaced_object_ledger_state']['provenance_capture'].pop('provider_identity'))),
+ ('HC-MUT-18-TEMPLATE-PROVIDER-ADAPTER',mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json',lambda o:o['AIR_HANDOFF_CARD']['surfaced_object_ledger_state']['provenance_capture'].__setitem__('provider_adapter_contract','INFER_PROVIDER'))),
+ ('HC-MUT-19-CREDENTIAL-SERIALIZATION',mutate_json('prompts/AIR_HANDOFF_CARD_TEMPLATE.json',lambda o:o['AIR_HANDOFF_CARD']['surfaced_object_ledger_state']['provenance_capture'].__setitem__('credentials_serialized',True)))
 ]
 
 def main():
