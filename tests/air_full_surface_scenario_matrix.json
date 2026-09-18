@@ -1,0 +1,476 @@
+{
+  "scenario_matrix_identity": "AIR_FULL_SURFACE_SCENARIO_MATRIX_V1",
+  "version": "1.0.0",
+  "scenario_count": 26,
+  "release_state": "CANDIDATE_ONLY_NOT_RELEASE",
+  "scenarios": [
+    {
+      "scenario_id": "FS-S01",
+      "surface": "boot_entry",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NO_ARTIFACT_UNTIL_TASK_BOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S02",
+      "surface": "onboarding_q1",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NO_ARTIFACT_UNTIL_TASK_BOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S03",
+      "surface": "onboarding_q2",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NO_ARTIFACT_UNTIL_TASK_BOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S04",
+      "surface": "onboarding_q3",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NO_ARTIFACT_UNTIL_TASK_BOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S05",
+      "surface": "onboarding_q4",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NO_ARTIFACT_UNTIL_TASK_BOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S06",
+      "surface": "onboarding_q5",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "ARTIFACT_REQUIRED_ON_TASK_BINDING",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S07",
+      "surface": "onboarding_q6",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "ARTIFACT_REQUIRED_ON_TASK_BINDING",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S08",
+      "surface": "first_activation",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S09",
+      "surface": "ordinary_post_activation",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_RETAINED",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S10",
+      "surface": "new_task_request",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NEW_ARTIFACT_SAME_TRANSITION",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S11",
+      "surface": "task_switch",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "NEW_ARTIFACT_SAME_TRANSITION",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S12",
+      "surface": "task_resume",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "REBOUND_ARTIFACT_SAME_TRANSITION",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S13",
+      "surface": "artifact_amendment",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "REVISED_ARTIFACT_SAME_TRANSITION",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S14",
+      "surface": "approval_request",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S15",
+      "surface": "approval_resolution",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S16",
+      "surface": "material_pre_effect",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE_BEFORE_EFFECT",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S17",
+      "surface": "material_post_effect",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "RECONCILED_ARTIFACT_WHEN_CHANGED",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S18",
+      "surface": "recovery",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "RECOVERY_ARTIFACT_WHEN_TASK_REBOUND",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S19",
+      "surface": "evidence_required",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S20",
+      "surface": "handoff_create",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S21",
+      "surface": "handoff_delivery",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "CURRENT_ARTIFACT_VISIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S22",
+      "surface": "handoff_restore",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "FRESH_ARTIFACT_AFTER_VALIDATION",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S23",
+      "surface": "q1_recovery_without_handoff",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "FRESH_NONRESTORED_ARTIFACT_REQUIRED",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S24",
+      "surface": "object_visibility_minimum",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE_UNSUPPRESSIBLE",
+      "expected_artifact_behavior": "ARTIFACT_UNSUPPRESSIBLE_ON_TASK_BINDING",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S25",
+      "surface": "durability_provider_absent",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "ORDINARY_AIR_ALLOWED_STRICT_INELIGIBLE",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    },
+    {
+      "scenario_id": "FS-S26",
+      "surface": "durability_integrity_failure",
+      "expected_visible_objects": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "expected_visibility_behavior": "ALIGNMENT_VALIDATION_VISIBLE",
+      "expected_artifact_behavior": "FAIL_CLOSED_STRICT_AND_NO_SILENT_PORTABLE_FALLBACK",
+      "expected_decision": "PASS",
+      "hard_invariants": [
+        "AIR-FLOOR-029",
+        "AIR-FLOOR-030"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ]
+    }
+  ]
+}
