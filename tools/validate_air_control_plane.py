@@ -24,6 +24,10 @@ def main():
     req('RT.DURABILITY_NEGOTIATE' in core, 'durability negotiation route missing from Core')
     req(len(scenarios.get('scenarios', [])) >= 20, 'full-surface public-user scenario matrix below 20 scenarios')
     req(full_surface.get('discovered_file_count') == len(full_surface.get('files', [])), 'full-surface manifest count mismatch')
+    route_by_id={r['route_id']:r for r in rmap['routes']}
+    req('RT.DURABILITY_NEGOTIATE' in route_by_id, 'durability negotiation route missing from route map')
+    req('DEP.DURABILITY_NEGOTIATION_RESOLVED' in route_by_id['RT.ACTIVATE'].get('requires', []), 'RT.ACTIVATE missing durability negotiation dependency')
+    req(starter.get('onboarding_contract',{}).get('q1_routes',{}).get('E')=='AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF', 'Q1-E recovery mapping missing from Starter')
     for m in ['AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1','AIR_APPROVAL_RESPONSE_RESOLUTION_V1','AIR_SURFACED_OBJECT_LEDGER_V1','AIR_FAILURE_MODE_REGISTRY_V1','AIR_HANDOFF_FILE_DELIVERY_V1','AIR_HANDOFF_MODE_SELECTION_V1','AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1']:
         req(('Patch marker: '+m) in core, 'missing Core marker '+m)
     for m in ['AIR_CONTROL_APPROVAL_RESPONSE_RENDERER_V1','AIR_CONTROL_SURFACED_OBJECT_LEDGER_RENDERER_V1','AIR_CONTROL_FAILURE_MODE_LEARNING_RENDERER_V1','AIR_CONTROL_HANDOFF_FILE_DELIVERY_RENDERER_V1','AIR_CONTROL_HANDOFF_MODE_SELECTION_RENDERER_V1','AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1','AIR_CONTROL_HANDOFF_GENERATION_EVALUATION_RENDERER_V1']:
