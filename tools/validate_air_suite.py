@@ -23,10 +23,12 @@ def main() -> None:
     args = parser.parse_args()
     py = sys.executable
     run_stage('deterministic_contract_registry', [py, 'tools/validate_air_contract_registry.py'])
+    run_stage('full_surface_inventory_schema_reference_audit', [py, 'tools/validate_air_full_surface_integrity.py'] + (['--candidate'] if args.candidate else []))
     run_stage('r1_foundation_deterministic_spine', [py, 'tools/validate_air_r1_remediation.py'])
     run_stage('r2_formal_object_gate_authorization_failure_ledger', [py, 'tools/validate_air_r2_remediation.py'])
     run_stage('r3_handoff_approval_restoration_closure', [py, 'tools/validate_air_r3_remediation.py'])
     run_stage('handoff_runtime_durability_generation_e2e', [py, 'tools/validate_air_handoff_runtime_contract.py'])
+    run_stage('durable_provenance_provider_adapters', [py, 'tools/validate_air_durable_provenance_provider.py'])
     run_stage('r4_shared_package_schema_normalization', [py, 'tools/validate_air_r4_remediation.py'])
     run_stage('r5_capability_ecology_constructor_chain', [py, 'tools/validate_air_r5_remediation.py'])
     run_stage('r6_package_local_behavioral_contradictions', [py, 'tools/validate_air_r6_remediation.py'])
@@ -43,6 +45,8 @@ def main() -> None:
     run_stage('behavioral_transaction_contracts', [py, 'tools/validate_air_behavioral_contracts.py'])
     run_stage('failure_mode_learning_e2e', [py, 'tools/test_air_failure_mode_learning_e2e.py'])
     if not args.without_mutations:
+        run_stage('full_surface_integrity_mutations', [py, 'tools/test_air_full_surface_integrity_mutations.py'])
+        run_stage('durable_provenance_provider_mutations', [py, 'tools/test_air_durable_provenance_provider_mutations.py'])
         run_stage('validator_mutations', [py, 'tools/test_air_validator_mutations.py'] + (['--candidate'] if args.candidate else []))
         run_stage('deterministic_contract_mutations', [py, 'tools/test_air_contract_registry_mutations.py'])
         run_stage('r1_foundation_deterministic_spine_mutations', [py, 'tools/test_air_r1_mutations.py'])
