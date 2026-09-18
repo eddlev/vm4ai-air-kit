@@ -223,6 +223,10 @@ def main() -> None:
         require('further_search_justified is false' in joined and 'proportional_stopping_basis_recorded is true' in joined, f'CW06 stopping evidence incomplete in {coll}')
     require(cw.get('authority_boundary', {}).get('positive_material_execution_authority_source') == 'SOLE_BOUND_ORBIT_0_AIR_ARTIFACT', 'Copywriting authority boundary changed')
 
+    require('Patch marker: AIR_MANDATORY_VISIBLE_ALIGNMENT_VALIDATION_V1' in core,'missing mandatory visible alignment/validation hardening')
+    require('Patch marker: AIR_NEW_TASK_ARTIFACT_VISIBLE_V1' in core,'missing new-task Artifact visibility hardening')
+    require('AIR_CONTROL_MANDATORY_ALIGNMENT_VALIDATION_RENDERER_V1' in control,'Control missing mandatory alignment renderer')
+    require('AIR_CONTROL_NEW_TASK_ARTIFACT_RENDERER_V1' in control,'Control missing mandatory Artifact renderer')
     print('AIR behavioral transaction contract validation: PASS')
     print('Orbit transition atomic bundle: PASS')
     print('Material action deterministic transaction: PASS')
