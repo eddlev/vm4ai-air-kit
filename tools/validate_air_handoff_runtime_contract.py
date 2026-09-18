@@ -4,6 +4,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+ROOT_IMPORT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT_IMPORT))
+from adapters.durable_provenance import (
+    FilesystemDurableProvenanceProvider,
+    RECORD_PREPARED,
+    STATE_AVAILABLE_VERIFIED,
+    canonical_sha256,
+)
+
 class ValidationError(Exception): pass
 
 def req(cond: bool, msg: str) -> None:
@@ -328,6 +337,62 @@ def run_file_flow_cases(template: dict[str,Any]) -> list[dict[str,Any]]:
         # Restore always renegotiates target provider; source strict state does not transfer authority.
         restored=restore_bootstrap(strict,{'discovery_state':'PROVIDER_ABSENT'})
         case('E2E-05-STRICT-RESTORE-TARGET-RENEGOTIATES',(restored['target_handoff_durability_state'],restored['target_strict_eligibility'],restored['fresh_artifact_rebind_required']),('UNAVAILABLE','INELIGIBLE_UNAVAILABLE',True))
+        # Real provider-backed strict flow: exact canonical persistence is exercised,
+        # not merely a qualifying-provider test double.
+        provider_root=d/'real-provider'
+        provider=FilesystemDurableProvenanceProvider(provider_root)
+        desc=provider.describe_provider()
+        probe=provider.probe_write_readback()
+        pns=provider.open_project_namespace('AIR handoff provider E2E project')
+        psnap={'AIR_ALIGNMENT_CHECK':{'check_id':'provider-backed-e2e'}}
+        pref='AIR_SURFACED_OBJECT_LEDGER_ENTRY::provider-e2e::1'
+        pidentity='provider-e2e-object'
+        prec={
+          'provenance_store_id':'provider-e2e-store',
+          'ledger_entry_ref':pref,
+          'canonical_object_sha256':canonical_sha256(psnap),
+          'canonical_object_snapshot':psnap,
+          'record_state':RECORD_PREPARED,
+          'source_message_count':1,
+          'source_state_epoch':7,
+          'object_name':'AIR_ALIGNMENT_CHECK',
+          'object_identity':pidentity,
+          'persistence_provider_class':desc.provider_class,
+          'write_readback_state':'PENDING'
+        }
+        provider.prepare_snapshot(pns,prec)
+        provider.commit_visible(pns,pref)
+        coverage=provider.verify_coverage(pns,[{'ledger_entry_ref':pref,'canonical_object_sha256':canonical_sha256(psnap),'object_identity':pidentity}])
+        reopened_provider=FilesystemDurableProvenanceProvider(provider_root)
+        stable=reopened_provider.stable_retrieve(reopened_provider.open_project_namespace('AIR handoff provider E2E project'),pref)
+        pstrict=generated_base(template,'STRICT_PROVENANCE')
+        pstrict['surfaced_object_ledger_state']['completeness_state']='COMPLETE_PRE_FILE_CAPTURE'
+        pstrict['surfaced_object_ledger_state']['entries']=[{'ledger_entry_ref':pref,'object_identity':pidentity,'canonical_object_snapshot':psnap,'canonical_object_sha256':canonical_sha256(psnap)}]
+        pcap=pstrict['surfaced_object_ledger_state']['provenance_capture']
+        pcap.update({
+          'provenance_store_id':'provider-e2e-store',
+          'persistence_provider_class':desc.provider_class,
+          'durability_state':'AVAILABLE_VERIFIED',
+          'write_readback_state':'EXACT',
+          'last_persisted_emission_sequence':1,
+          'last_committed_emission_sequence':1,
+          'coverage_through_capture_cutoff':'COMPLETE',
+          'strict_handoff_eligibility':'ELIGIBLE',
+          'provider_identity':desc.provider_identity,
+          'provider_generation':desc.provider_generation,
+          'provider_instance_id':desc.provider_instance,
+          'provider_namespace_id':pns.namespace_id,
+          'provider_namespace_fingerprint':pns.namespace_fingerprint,
+          'storage_location_class':desc.storage_class,
+          'provider_authorization_state_at_capture':desc.authorization_state,
+          'retention_policy':'TEST_SCOPE_TEMPORARY',
+          'deletion_policy':'TEST_SCOPE_CLEANUP',
+          'credentials_serialized':False
+        })
+        ok,receipt,detail=write_reopen_validate(pstrict,'AVAILABLE_VERIFIED','ELIGIBLE',7,d/'provider-strict.json')
+        case('E2E-07-REAL-FILESYSTEM-PROVIDER-STRICT',
+             (probe['state'],coverage.state,stable['canonical_object_sha256']==canonical_sha256(psnap),ok,detail['receipt_success']),
+             (STATE_AVAILABLE_VERIFIED,STATE_AVAILABLE_VERIFIED,True,True,True))
         # Serialized Specialist/Method continuity is availability only and cannot auto-bind on restore.
         cont=copy.deepcopy(portable); cont['specialist_binding_state']['active_specialist']={'id':'AIR_GROUNDING_SPECIALIST_V2'}; cont['execution_state']['method_handoff_state']['method_identity']='AIR_METHOD_GROUNDING_REVIEW_AND_EXECUTION_V2'
         restored=restore_bootstrap(cont,{'discovery_state':'PROVIDER_ABSENT'})
