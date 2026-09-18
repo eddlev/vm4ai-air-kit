@@ -8,7 +8,7 @@
   "artifact_class": "AIR_EXECUTOR_LAYER",
   "package_version": "2.5.0",
   "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_EXECUTOR",
-  "STATUS": "DRAFT",
+  "STATUS": "VALIDATED_AVAILABLE",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -570,5 +570,7 @@
     "package_local_allowed_operations_role": "VARIANTS_UNDER_CANONICAL_OPERATION",
     "variant_selection_rule": "SELECT_EXACTLY_ONE_ALLOWED_OPERATION_PER_INVOCATION",
     "package_local_fields_must_not_override_core_interface": true
-  }
+  },
+  "executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND",
+  "package_component_status": "VALIDATED_INTEGRAL_PACKAGE_COMPONENT_NON_AGENT_NO_INDEPENDENT_AUTHORITY"
 }

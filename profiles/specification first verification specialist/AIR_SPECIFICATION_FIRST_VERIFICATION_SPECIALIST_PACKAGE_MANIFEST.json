@@ -9,7 +9,7 @@
   "package_class": "NON_AGENT_SPECIALIST_PACKAGE",
   "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
   "generated_at": "2026-09-15T06:03:46Z",
   "source_baseline": {
     "source_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK(4).json",
@@ -87,12 +87,12 @@
       "version": "2.5.0",
       "artifact_class": "AIR_EXECUTOR_LAYER",
       "profile_kind": "EXECUTOR_CONTRACT",
-      "status": "DRAFT",
-      "sha256": "bfbccd785a6441b8328de99bdb64a361315dc6bfecb437c2b371dc31c9a487b9",
-      "size_bytes": 30892,
-      "line_count": 574,
+      "status": "VALIDATED_AVAILABLE",
+      "sha256": "2b0ad3d6ac755e9fcf7562a6b3e02f5c6308a7d34317f88f63b53e7842528c63",
+      "size_bytes": 31073,
+      "line_count": 576,
       "required": true,
-      "availability_state": "AVAILABLE_UNVALIDATED"
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     }
   ],
   "component_dependency_edges": [
@@ -298,10 +298,10 @@
     }
   },
   "package_validation_state": {
-    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
     "component_count": 4,
     "manifest_count": 1,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
     "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
     "cross_file": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
@@ -312,8 +312,8 @@
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
-    "executor_validation_state": "DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS",
-    "release_catalog_registration": "INCLUDED_IN_SET_008_V074_RELEASE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE"
+    "executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND_INCLUDED_IN_BEHAVIORAL_PASS",
+    "release_catalog_registration": "INCLUDED_IN_SET_008_V074_RELEASE_CATALOG_WITH_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,
@@ -604,14 +604,11 @@
     "validated_components": [
       "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
       "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
-      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json"
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json"
     ],
-    "excluded_component": {
-      "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
-      "state": "DRAFT_AVAILABLE_UNVALIDATED",
-      "reason": "This behavioral pass validates SFV Domain/Method/Specialist observable behavior and the boundary that prevents use or promotion of the draft Executor. It does not validate Executor operations."
-    },
-    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_EXPLICITLY_DRAFT_UNAVAILABLE_UNVALIDATED"
+    "excluded_component": null,
+    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_VALIDATED_AVAILABLE_UNBOUND_NON_AGENT"
   },
   "behavioral_evidence_receipt": {
     "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260917_V2",
