@@ -411,7 +411,7 @@ def main():
           'evidence_id':'AIR_HANDOFF_V074_RUNTIME_CONTRACT_EVIDENCE_V1',
           'evidence_class':'REPRODUCIBLE_EXECUTABLE_HANDOFF_RUNTIME_CONTRACT_EVIDENCE',
           'repository':'eddlev/vm4ai-air-kit',
-          'source_baseline_commit':'f456fc579bed739aebcfaa55c175c2c14617d58d',
+          'source_baseline_commit':'93518ae1c2ae19364b0b27281024701fa2d29081',
           'candidate_environment':'ISOLATED_LOCAL_CANDIDATE_FROM_CONFIRMED_SOURCE_SET',
           'generated_at_utc':datetime.now(timezone.utc).isoformat(),
           'contract':'AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1',
@@ -422,7 +422,7 @@ def main():
           'cases':cases,
           'claim_boundary':[
             'Proves deterministic contract logic and current candidate file integration in this local execution environment.',
-            'Does not prove a real host durable-provenance provider exists; strict positive uses a deterministic qualifying provider fixture/test double.',
+            'Includes a real filesystem durable-provenance adapter E2E in the candidate checkout; this does not prove any specific chat host has a configured durable provider.',
             'Does not create execution authority or replace full repository release validation.'
           ]
         }
