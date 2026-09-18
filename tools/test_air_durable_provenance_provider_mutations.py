@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import sqlite3
 import tempfile
+import sys
 from pathlib import Path
 
 from adapters.durable_provenance import (
@@ -15,6 +16,9 @@ from adapters.durable_provenance import (
     STATE_FAILED_INTEGRITY,
     canonical_sha256,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 MUTATION_SUITE_IDENTITY = "AIR_DURABLE_PROVENANCE_PROVIDER_MUTATION_SUITE_V1"
 
