@@ -971,7 +971,7 @@ trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-ONBOARD
 requires=DEP.ENTRY_PATH_SELECTED;DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED
 produces=ONBOARDING_STATE;CANONICAL_INTENT_INPUTS;WORKING_AGREEMENT_INPUTS
-allowed_next=RT.ACTIVATE
+allowed_next=RT.DURABILITY_NEGOTIATE
 invalidates=none
 does_not_bypass=AIR-FLOOR-011;RT.UNCERTAINTY_RESOLVE;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.UNCERTAINTY_RESOLVE
@@ -989,7 +989,7 @@ trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-HANDOFF_RESTORE
 requires=DEP.LOAD_INTEGRITY;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_EXPLICIT_STATE_ONLY
 produces=RESTORED_CANDIDATE_STATE
-allowed_next=RT.ACTIVATE
+allowed_next=RT.DURABILITY_NEGOTIATE
 invalidates=SERIALIZED_EXECUTION_AUTHORITY;SERIALIZED_ALIGNMENT_CURRENCY
 does_not_bypass=DEP.REVALIDATION;DEP.ARTIFACT_REBIND;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 alignment_interlock=RT.ALIGN
@@ -997,12 +997,30 @@ alignment_profile=HANDOFF_RESTORE
 alignment_interlock_point=POST_RESTORE_PRE_NEXT
 failure_route=RT.RECOVERY
 [AIR_ROUTE]
+id=RT.DURABILITY_NEGOTIATE
+semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
+trigger=onboarding resolved or handoff candidate state restored before activation
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-DURABILITY-NEGOTIATE
+requires=DEP.CANONICAL_CURRENT_STATE
+produces=DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE;DEP.DURABILITY_NEGOTIATION_RESOLVED
+allowed_next=RT.ACTIVATE
+invalidates=STALE_DURABILITY_PROVIDER_STATE
+does_not_bypass=AIR-FLOOR-018;AIR-FLOOR-021;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.ACTIVATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=onboarding resolved or handoff candidate state restored
 trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-ACTIVATE
-requires=DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS
+requires=DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS;DEP.DURABILITY_NEGOTIATION_RESOLVED
 produces=ARTIFACT_BOUND_EXECUTION;AIR_RUNTIME_BRIDGE;AIR_SESSION;AIR_ARTIFACT;AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION;AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION
 allowed_next=RT.TURN
 invalidates=BOOTSTRAP_NO_ARTIFACT
@@ -1937,10 +1955,15 @@ ONBOARDING INTERPRETATION LAW
 ==================================================
 
 Map Q1:
-- A -> FIRST_PASS_STRUCTURING
-- B -> GUIDED_REFINEMENT
-- C -> CONTINUE_FROM_HANDOFF
+- A -> NEW_PROJECT_BOOTSTRAP
+- B -> IMPORT_NON_AIR_PROJECT_BOOTSTRAP
+- C -> HANDOFF_CONTINUATION_BOOTSTRAP
 - D -> INSTRUCTIONAL_ONLY
+- E -> AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF
+
+FIRST_PASS_STRUCTURING and GUIDED_REFINEMENT are workflow-style concepts only, not Q1 route identities.
+
+Q1=E starts fresh current-session authority. Existing AIR files/history are source input only; no historical approval, Gate/Authorization, Artifact binding, surfaced-ledger authority, or strict-provenance completeness is restored without a valid Handoff.
 
 Map Q2:
 - A -> LOW
@@ -7977,3 +8000,34 @@ Handoff provenance rules:
 6. File-only one-root serialization remains required; these provenance checks execute before AIR_HANDOFF_CARD.json is written and are rechecked against the exact reopened file before delivery.
 
 AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2
+
+
+==================================================
+STRICT DURABILITY + FULL-SURFACE RELEASE HARDENING CANDIDATE
+==================================================
+Patch marker: AIR_DURABILITY_NEGOTIATION_ROUTE_V1
+Patch marker: AIR_PROVIDER_ADAPTER_EXECUTION_LAYER_V1
+Patch marker: AIR_BOOTSTRAP_DURABILITY_PROBE_EXCEPTION_V1
+Patch marker: AIR_PROVIDER_STATE_IDENTITY_V1
+Patch marker: AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1
+Patch marker: AIR_PUBLIC_RELEASE_GATE_V1
+Patch marker: AIR_Q1_INTAKE_RECOVERY_ROUTE_V2
+Patch marker: AIR_EXECUTOR_INTEGRAL_PACKAGE_COMPONENT_V1
+Patch marker: AIR_MANDATORY_VISIBLE_ALIGNMENT_VALIDATION_V1
+Patch marker: AIR_NEW_TASK_ARTIFACT_VISIBLE_V1
+Floor invariant: AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION
+Floor invariant: AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION
+
+RT.DURABILITY_NEGOTIATE is mandatory between RT.ONBOARD/RT.HANDOFF_RESTORE and RT.ACTIVATE. Provider absence may permit ordinary AIR activation but makes native STRICT_PROVENANCE ineligible.
+
+Provider-neutral operations: describe_provider, probe_write_readback, stable_retrieve, open_project_namespace, prepare_snapshot, read_snapshot, commit_visible, mark_orphaned, retrieve_committed_range, verify_coverage, optional cleanup. Persistence has positive_execution_authority=NONE.
+
+Bootstrap durability probes may write only isolated non-project probe bytes and grant no project execution authority. Third-party provider use requires explicit authorization. Provider state carries stable identity/class/generation/instance, authorization/storage state, opaque namespace identity/fingerprint, capabilities, integrity/coverage evidence, and never credentials.
+
+Canonical snapshots are UTF-8/no BOM, sorted object keys, array order preserved, minified, no NaN/Infinity, no provider-specific Unicode normalization, SHA-256 exact bytes. Provider/generation change requires re-probe; late providers cannot retroactively repair native provenance gaps.
+
+From AIR entry/bootstrap through explicit deactivation every governed response visibly emits AIR_ALIGNMENT_CHECK then AIR_VALIDATION_REPORT. Visibility modes cannot suppress them. Every newly bound/rebound/resumed/promoted Orbit 0 task must visibly emit its controlling AIR_ARTIFACT before governed work continues.
+
+AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1 dynamically discovers prompts/, catalog/, profiles/. Public release blocks on NOT_TESTED, UNKNOWN, PARTIAL, STALE, UNCLASSIFIED, FAILED, or WAIVED_FOR_HARD_INVARIANT and requires reproducible coverage, scenarios, mutation tests, reference/authority closure, and both hard visibility invariants.
+
+A package-declared required Executor is an integral component. Public release may not label it DRAFT, AVAILABLE_UNVALIDATED, EXECUTOR_DRAFT_UNVALIDATED, or equivalent. VALIDATED_AVAILABLE_UNBOUND never grants independent execution authority or bypasses Artifact/Gate/Authorization/scope/lease/Receipt controls.
