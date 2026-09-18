@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from validate_air_cross_file_contract_graph import build_graph
 from validate_air_durable_provenance_provider import run_validation as validate_provider
 from validate_air_full_surface_integrity import validate as validate_full_surface
 from validate_air_v074_release_seal import main as validate_v074
@@ -21,6 +22,9 @@ def main() -> None:
     )
     if report.get('decision') != 'PASS':
         raise SystemExit('AIR release validation FAILED: full-surface integrity')
+    graph = build_graph(ROOT)
+    if graph.get('decision') != 'PASS':
+        raise SystemExit('AIR release validation FAILED: cross-file contract graph')
     provider = validate_provider()
     if provider.get('decision') != 'PASS':
         raise SystemExit('AIR release validation FAILED: durable provenance provider validation')
