@@ -34,6 +34,10 @@ def main() -> None:
     require('AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF' in core, 'Q1-E recovery behavioral route missing')
     require(len(scenarios.get('scenarios', [])) >= 20, 'public-user scenario matrix below 20 scenarios')
     require(full_surface.get('release_gate_state') == 'CANDIDATE_ONLY_NOT_RELEASE', 'candidate full-surface manifest must not claim release readiness')
+    route_by_id={r['route_id']:r for r in route_map['routes']}
+    require('RT.DURABILITY_NEGOTIATE' in route_by_id, 'durability negotiation route missing from route map')
+    require('DEP.DURABILITY_NEGOTIATION_RESOLVED' in route_by_id['RT.ACTIVATE'].get('requires', []), 'RT.ACTIVATE missing durability negotiation dependency')
+    require(starter.get('onboarding_contract',{}).get('q1_routes',{}).get('E')=='AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF', 'Q1-E recovery mapping missing from Starter')
 
     core_markers = [
         'AIR_TRANSITION_EMISSION_TRANSACTION_V1',
