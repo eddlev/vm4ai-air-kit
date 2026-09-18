@@ -641,6 +641,21 @@
           "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
         },
         {
+          "event_id": "CE-RT-DURABILITY-NEGOTIATE",
+          "route_id": "RT.DURABILITY_NEGOTIATE",
+          "event_source": "RUNTIME_STATE_EVENT",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "CANONICAL_CURRENT_STATE"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
           "event_id": "CE-RT-ACTIVATE",
           "route_id": "RT.ACTIVATE",
           "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
@@ -1551,7 +1566,15 @@
       "handoff_rule": "If purpose remains materially unresolved, preserve that state explicitly rather than serializing the activity or deliverable as an invented purpose.",
       "smallest_sufficient_input_rule": "Do not ask for information AIR can reliably derive or obtain from already available authorized evidence; request only the smallest input that resolves the material uncertainty."
     },
-    "entry_path_q1_separation_rule": "Selecting FIRST_ACTIVATION_FLOW from wording such as Start a new AIR project selects only the entry path. Q1 remains UNRESOLVED until an allowed Core answer source resolves it."
+    "entry_path_q1_separation_rule": "Selecting FIRST_ACTIVATION_FLOW from wording such as Start a new AIR project selects only the entry path. Q1 remains UNRESOLVED until an allowed Core answer source resolves it.",
+    "q1_route_mapping": {
+      "A": "NEW_PROJECT_BOOTSTRAP",
+      "B": "IMPORT_NON_AIR_PROJECT_BOOTSTRAP",
+      "C": "HANDOFF_CONTINUATION_BOOTSTRAP",
+      "D": "INSTRUCTIONAL_ONLY",
+      "E": "AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF"
+    },
+    "q1_recovery_authority_boundary": "FRESH_CURRENT_AUTHORITY_NO_HISTORICAL_APPROVAL_GATE_AUTHORIZATION_ARTIFACT_LEDGER_OR_STRICT_PROVENANCE_RESTORE_WITHOUT_VALID_HANDOFF"
   },
   "capability_posture": {
     "vector_family_preferences": {
@@ -2425,7 +2448,30 @@
     "receiver_delivery_rule": "Receiver delivery follows Core RT.DELIVER only after output review, benchmark judgment, semantic fidelity reconciliation, epistemic sufficiency, and the applicable closure/delivery AIR_GATE.",
     "no_narrative_substitution": true,
     "test_evidence_delivery_rule": "Evidence presentation may be standard or expanded, but presentation never changes evidence acquisition, preservation, classification, reproducibility, approval, or closure obligations. Expanded presentation surfaces additional available evidence identities and records.",
-    "default_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION"
+    "default_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "mandatory_visible_alignment_validation": {
+      "invariant": "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+      "from": "AIR_ENTRY_BOOTSTRAP",
+      "until": "EXPLICIT_DEACTIVATION",
+      "order": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "suppressible_by_object_visibility": false
+    },
+    "mandatory_new_task_artifact": {
+      "invariant": "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION",
+      "transitions": [
+        "INITIAL_BIND",
+        "NEW_TASK_BOUNDARY",
+        "TASK_REPLACEMENT",
+        "ORBIT_PROMOTION",
+        "PAUSED_TASK_RESUME",
+        "MATERIAL_TASK_CENTER_PIVOT",
+        "AUTOMATIC_ROADMAP_TASK_BOUNDARY"
+      ],
+      "suppressible_by_object_visibility": false
+    }
   },
   "handoff_contract": {
     "template_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",
@@ -2948,7 +2994,7 @@
       "prose_authority": "NON_OPERATIVE_DESCRIPTION",
       "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
       "coverage_contract": {
-        "declared_check_count": 102,
+        "declared_check_count": 108,
         "implemented_check_count_required": 102,
         "executed_check_count_required": 102,
         "unimplemented_allowed": 0,
@@ -3841,6 +3887,60 @@
             "path": "$.handoff_runtime_contract_registry.receipt_contract.formal_air_object"
           },
           "expected": false
+        },
+        {
+          "check_id": "DC-Q5B-CORE-DURABILITY-ROUTE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_CORE_RUNTIME.md"
+          },
+          "expected": "Patch marker: AIR_DURABILITY_NEGOTIATION_ROUTE_V1"
+        },
+        {
+          "check_id": "DC-Q5B-CORE-FULL-SURFACE",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_CORE_RUNTIME.md"
+          },
+          "expected": "Patch marker: AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+        },
+        {
+          "check_id": "DC-Q5B-CORE-FLOOR029",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_CORE_RUNTIME.md"
+          },
+          "expected": "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION"
+        },
+        {
+          "check_id": "DC-Q5B-CORE-FLOOR030",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_CORE_RUNTIME.md"
+          },
+          "expected": "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+        },
+        {
+          "check_id": "DC-Q5B-CONTROL-Q1E",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_CONTROL_SURFACE.md"
+          },
+          "expected": "E. Recover or continue an existing AIR project without a valid Handoff"
+        },
+        {
+          "check_id": "DC-Q5B-GOV-PROVIDER",
+          "operator": "TEXT_CONTAINS_LITERAL",
+          "on_failure": "FAIL_CLOSED",
+          "left": {
+            "file": "prompts/AIR_GOV.md"
+          },
+          "expected": "Patch marker: AIR_GOV_DURABLE_PROVENANCE_PROVIDER_AUTHORIZATION_V1"
         }
       ],
       "foundation_prompt_version_contract": {
@@ -3849,6 +3949,29 @@
         "CONTROL": "2.6.3",
         "GOVERNANCE": "2.3.2"
       }
+    },
+    "full_surface_release_gate": {
+      "contract_id": "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1",
+      "roots": [
+        "prompts",
+        "catalog",
+        "profiles"
+      ],
+      "dynamic_discovery_required": true,
+      "terminal_states": [
+        "PASS",
+        "NOT_APPLICABLE_WITH_EVIDENCE"
+      ],
+      "blocking_states": [
+        "NOT_TESTED",
+        "UNKNOWN",
+        "PARTIAL",
+        "STALE",
+        "UNCLASSIFIED",
+        "FAILED",
+        "WAIVED_FOR_HARD_INVARIANT"
+      ],
+      "public_release_gate": "AIR_PUBLIC_RELEASE_GATE_V1"
     }
   },
   "routing_contracts": {
@@ -3946,6 +4069,18 @@
       "capability_route_dependency": "DEP.COMPLETION_ENVELOPE_RESOLVED + DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL",
       "cognitive_route_dependency": "DEP.COMPLETION_ENVELOPE_RESOLVED + DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL",
       "amrs_close_dependency": "DEP.TASK_SUFFICIENCY_COMPLETE + DEP.STEP_OPTIMALITY_PASS_WHEN_AMRS_MATURITY_BEARING"
+    },
+    "durability_negotiation": {
+      "route_id": "RT.DURABILITY_NEGOTIATE",
+      "required_pre_activation": true,
+      "predecessors": [
+        "RT.ONBOARD",
+        "RT.HANDOFF_RESTORE"
+      ],
+      "successor": "RT.ACTIVATE",
+      "produces_dependency": "DEP.DURABILITY_NEGOTIATION_RESOLVED",
+      "provider_absent_ordinary_air_effect": "ALLOW_ORDINARY_ACTIVATION_STRICT_PROVENANCE_INELIGIBLE",
+      "positive_execution_authority": "NONE"
     }
   },
   "action_governance_contract": {
@@ -3988,6 +4123,12 @@
       "state_change_invalidates_prior_basis_when_state_dependent": true,
       "prompt_only_enforcement_claimed": true,
       "backend_enforcement_claimed": false
+    },
+    "durable_provenance_bootstrap_probe": {
+      "isolated_non_project_probe_only": true,
+      "project_execution_authority": "NONE",
+      "third_party_provider_authorization_required": true,
+      "credential_serialization": "PROHIBITED"
     }
   }
 }
