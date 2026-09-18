@@ -117,6 +117,16 @@ def main() -> int:
         root = Path(td) / "m7"; shutil.copytree(base, root); m = json.loads((root / "tests/air_full_surface_coverage_manifest.json").read_text()); m["files"][0]["referenced_files"] = ["prompts/DOES_NOT_EXIST.md"]; write(root / "tests/air_full_surface_coverage_manifest.json", json.dumps(m, indent=2))
         must_fail(root, root / "tests/air_full_surface_coverage_manifest.json", root / "tests/air_full_surface_scenario_matrix.json", "dangling reference"); killed.append("dangling_reference")
 
+        root = Path(td) / "m8"; shutil.copytree(base, root); route = root / "catalog/AIR_RUNTIME_ROUTE_MAP.json"; write(route, '{"dup":1,"dup":2}')
+        m = json.loads((root / "tests/air_full_surface_coverage_manifest.json").read_text())
+        for rec in m["files"]:
+            if rec["canonical_path"] == "catalog/AIR_RUNTIME_ROUTE_MAP.json": rec["sha256"] = sha(route)
+        write(root / "tests/air_full_surface_coverage_manifest.json", json.dumps(m, indent=2))
+        must_fail(root, root / "tests/air_full_surface_coverage_manifest.json", root / "tests/air_full_surface_scenario_matrix.json", "duplicate json key"); killed.append("duplicate_json_key")
+
+        root = Path(td) / "m9"; shutil.copytree(base, root); (root / "profiles/test/unexpected.bin").parent.mkdir(parents=True, exist_ok=True); (root / "profiles/test/unexpected.bin").write_bytes(b"binary")
+        must_fail(root, root / "tests/air_full_surface_coverage_manifest.json", root / "tests/air_full_surface_scenario_matrix.json", "unexpected governed file"); killed.append("unexpected_governed_file")
+
     print(json.dumps({"suite": SUITE_IDENTITY, "decision": "PASS", "killed_mutations": killed}, sort_keys=True))
     return 0
 
