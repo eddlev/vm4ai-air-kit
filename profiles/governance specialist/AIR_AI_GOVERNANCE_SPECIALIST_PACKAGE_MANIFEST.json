@@ -9,7 +9,7 @@
   "canonical_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
   "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
   "package_name": "AIR AI Governance Specialist Package",
-  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "component_count": 5,
   "components": [
@@ -66,12 +66,12 @@
       "filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
       "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V2",
       "version": "2.5.0",
-      "state": "DRAFT_AVAILABLE_UNVALIDATED",
-      "availability_state": "AVAILABLE_UNVALIDATED",
-      "sha256": "f0e9542e9525ad64c94b55f177bcb74b2a290dbd16cecb9346d4134d3ce63479",
-      "size_bytes": 40942,
-      "line_count": 784,
-      "status": "DRAFT"
+      "state": "VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "4c5da22781ce12a53a2ed5d7820002f1188cb9fa753509e5c4b99b2b4ca3bdd1",
+      "size_bytes": 40919,
+      "line_count": 779,
+      "status": "VALIDATED_AVAILABLE"
     }
   ],
   "component_load_order": [
@@ -410,14 +410,14 @@
     "evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "evidence_preservation_independent_of_presentation": true,
     "backend_validation_claimed": false,
-    "cross_file_regression": "OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+    "cross_file_regression": "OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
     "source_validation_report_current_authority": "SUPERSEDED_AUDIT_SOURCE_ONLY",
     "prior_behavioral_evidence_inheritance": "NOT_VALIDATION_OF_CHANGED_2_4_0_T10_BYTES",
     "specialist_internal_dependency_closure": "PASS",
     "operative_lifecycle_coherence": "PASS_R7_CURRENT_COMPONENT_STATUS_MIRROR",
     "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE"
   },
-  "release_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_NOT_SELECTED_NOT_BOUND_NOT_RELEASE_APPROVED_EXECUTOR_DRAFT_UNVALIDATED",
+  "release_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_NOT_SELECTED_NOT_BOUND_NOT_RELEASE_APPROVED_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
   "integration_refresh": {
     "refresh_version": "2.5.0",
     "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
@@ -741,10 +741,10 @@
     "source_files_immutable": true
   },
   "package_validation_state": {
-    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
     "component_count": 5,
     "manifest_count": 1,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
     "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
     "cross_file": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
@@ -755,7 +755,7 @@
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
-    "executor_validation_state": "DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS"
+    "executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND_INCLUDED_IN_BEHAVIORAL_PASS"
   },
   "generated_at": "2026-09-15T07:45:10Z",
   "failure_mode_integration_contract": {
@@ -788,14 +788,11 @@
       "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
       "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
       "AIR_AI_GOVERNANCE_SPECIALIST.json",
-      "AIR_AI_GOVERNANCE_METHOD_PACK.json"
+      "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "AIR_AI_GOVERNANCE_EXECUTOR.json"
     ],
-    "excluded_component": {
-      "filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
-      "state": "DRAFT_AVAILABLE_UNVALIDATED",
-      "reason": "This behavioral pass validates Governance Domain/Overlay/Specialist/Method observable behavior and the boundary that prevents use or promotion of the draft Executor. It does not validate Executor operations."
-    },
-    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_EXPLICITLY_DRAFT_UNAVAILABLE_UNVALIDATED"
+    "excluded_component": null,
+    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_WITH_EXECUTOR_COMPONENT_VALIDATED_AVAILABLE_UNBOUND_NON_AGENT"
   },
   "behavioral_evidence_receipt": {
     "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260917_V2",
