@@ -102,6 +102,21 @@ def mutate_portable_history_authority(root: Path):
 def mutate_handoff_runtime_marker(root: Path):
     p=root/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('Patch marker: AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1','Patch marker: REMOVED_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT',1); p.write_text(x,encoding='utf-8')
 
+def mutate_floor029(root: Path):
+    p=root/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION','AIR-FLOOR-029-REMOVED',1); p.write_text(x,encoding='utf-8')
+
+def mutate_floor030(root: Path):
+    p=root/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION','AIR-FLOOR-030-REMOVED',1); p.write_text(x,encoding='utf-8')
+
+def mutate_durability_route(root: Path):
+    p=root/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; x=load(p); x['routes']=[r for r in x['routes'] if r['route_id']!='RT.DURABILITY_NEGOTIATE']; dump(p,x)
+
+def mutate_activation_durability_dependency(root: Path):
+    p=root/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; x=load(p); r=next(r for r in x['routes'] if r['route_id']=='RT.ACTIVATE'); r['requires']=[v for v in r.get('requires',[]) if v!='DEP.DURABILITY_NEGOTIATION_RESOLVED']; dump(p,x)
+
+def mutate_q1_recovery_to_handoff(root: Path):
+    p=root/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; x=load(p); x['onboarding_contract']['q1_routes']['E']='HANDOFF_CONTINUATION_BOOTSTRAP'; dump(p,x)
+
 
 MUTATIONS = [
     ('core_marker', mutate_remove_core_marker),
@@ -121,6 +136,11 @@ MUTATIONS = [
     ('handoff_failed_integrity_block', mutate_handoff_failed_integrity),
     ('portable_history_nonauthority', mutate_portable_history_authority),
     ('handoff_runtime_contract_marker', mutate_handoff_runtime_marker),
+    ('floor029_visible_alignment_validation', mutate_floor029),
+    ('floor030_new_task_artifact', mutate_floor030),
+    ('durability_negotiation_route', mutate_durability_route),
+    ('activation_durability_dependency', mutate_activation_durability_dependency),
+    ('q1_recovery_boundary', mutate_q1_recovery_to_handoff),
 ]
 
 
