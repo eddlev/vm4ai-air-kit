@@ -176,7 +176,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "51762266eeba19cbdc328e20e9f48122541e12a1e2f49b3e197827b8c3434a51",
+      "manifest_sha256": "e438cf7c166cc87fc7947edf3c498e5703ee07fec06f8a59884b960184590a9c",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -212,9 +212,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260915_V1",
         "filename": "tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -223,7 +223,7 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": true
       }
     },
     {
@@ -281,7 +281,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "a3e437881dbdf69d52e87af78f9809bf87de4130050a8e9c187f919f2fbe48d8",
+      "manifest_sha256": "c83cccaf83a73ec646606c9eb16f317f27486f932a822085d414d558c06d2702",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -315,9 +315,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
         "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -326,7 +326,7 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": true
       }
     },
     {
@@ -383,7 +383,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "915710a1dcd6364c1f5e5f1c886b432a9a828afeb52f4542c57e5ef694a45534",
+      "manifest_sha256": "5f27b7bae5748c912a9688c68487bcf3086b342407a84b9cdc17fd5e00af7ede",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -415,9 +415,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1",
         "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -426,7 +426,7 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": true
       }
     }
   ],

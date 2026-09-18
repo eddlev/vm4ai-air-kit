@@ -15,7 +15,7 @@
     "filename": "AIR_CORE_RUNTIME.md",
     "system_designation": "AIR_CORE_RUNTIME_V2",
     "prompt_version": "2.6.3",
-    "sha256": "8e8b6aa53eee26506e97cbb3cc0b7ec0a2c296427a026448bc5d542acdf0475d",
+    "sha256": "ac0ebe5dfc51c28fee414167262777aa74169e056323b4afa86f689ed8c47b6d",
     "route_kernel_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1"
   },
   "rules": [
@@ -37,7 +37,7 @@
     "cognitive_scope_authority_isolation mirrors Core AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1; cognition is scope-bounded candidate production only, has no direct control authority, and validated contributions enter task/Artifact state only through an explicit declared ingestion boundary.",
     "Strict Handoff provenance mirrors Core AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1: current native history requires committed ledger-matched durable exact snapshots; prior chat-turn retrieval and transcript-resupply fallback are not Handoff dependencies."
   ],
-  "route_count": 22,
+  "route_count": 23,
   "routes": [
     {
       "route_id": "RT.BOOT",
@@ -63,7 +63,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 943
+        "line": 981
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -88,7 +88,7 @@
         "WORKING_AGREEMENT_INPUTS"
       ],
       "allowed_next_routes": [
-        "RT.ACTIVATE"
+        "RT.DURABILITY_NEGOTIATE"
       ],
       "invalidates": [],
       "does_not_bypass": [
@@ -101,7 +101,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 961
+        "line": 999
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -125,7 +125,7 @@
         "RESTORED_CANDIDATE_STATE"
       ],
       "allowed_next_routes": [
-        "RT.ACTIVATE"
+        "RT.DURABILITY_NEGOTIATE"
       ],
       "invalidates": [
         "SERIALIZED_EXECUTION_AUTHORITY",
@@ -141,7 +141,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 979
+        "line": 1017
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "HANDOFF_RESTORE",
@@ -163,10 +163,69 @@
       }
     },
     {
+      "route_id": "RT.DURABILITY_NEGOTIATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "fresh onboarding resolved or Handoff candidate state restored before activation",
+      "requires": [
+        "DEP.ENTRY_PATH_SELECTED",
+        "DEP.DURABILITY_PROVIDER_CONFIGURATION_RESOLVED"
+      ],
+      "produces": [
+        "DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE",
+        "DURABILITY_NEGOTIATION_STATE",
+        "DEP.DURABILITY_NEGOTIATION_RESOLVED"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTIVATE"
+      ],
+      "invalidates": [
+        "STALE_PROVIDER_PROBE_STATE"
+      ],
+      "does_not_bypass": [
+        "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 1038
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-DURABILITY-NEGOTIATE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "provider_adapter_contract": {
+        "contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+        "provider_operations": [
+          "describe_provider",
+          "probe_write",
+          "probe_readback",
+          "stable_retrieve",
+          "open_project_namespace",
+          "prepare_snapshot",
+          "read_snapshot",
+          "commit_visible",
+          "mark_orphaned",
+          "retrieve_committed_range",
+          "verify_coverage",
+          "cleanup_probe"
+        ],
+        "bootstrap_probe_scope": "ISOLATED_NON_PROJECT_PROBE_BYTES_ONLY",
+        "positive_execution_authority": "NONE"
+      }
+    },
+    {
       "route_id": "RT.ACTIVATE",
       "semantic_owner": "AIR_CORE_RUNTIME",
       "trigger": "onboarding resolved or handoff candidate state restored",
       "requires": [
+        "DEP.DURABILITY_NEGOTIATION_RESOLVED",
         "DEP.CANONICAL_INTENT_SUFFICIENT",
         "DEP.BENCHMARK_PRECHECK",
         "DEP.EXACTLY_ONE_BINDABLE_ARTIFACT",
@@ -195,7 +254,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1000
+        "line": 1056
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "ACTIVATION",
@@ -227,7 +286,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1015
+        "line": 1071
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -266,7 +325,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1033
+        "line": 1089
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -302,7 +361,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1051
+        "line": 1107
       },
       "control_event_ref": "CE-RT-INPUT_TRANSLATE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -337,7 +396,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1063
+        "line": 1119
       },
       "control_event_ref": "CE-RT-CLASSIFY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -368,7 +427,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1075
+        "line": 1131
       },
       "control_event_ref": "CE-RT-COMPATIBLE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -407,7 +466,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1087
+        "line": 1143
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "STATE_TRANSITION",
@@ -457,7 +516,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1102
+        "line": 1158
       },
       "transition_emission_bundle": {
         "bundle_id": "ORBIT_TRANSITION_ATOMIC_BUNDLE",
@@ -524,7 +583,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1126
+        "line": 1182
       },
       "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -567,7 +626,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1138
+        "line": 1194
       },
       "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
@@ -609,7 +668,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1155
+        "line": 1211
       },
       "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -641,7 +700,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1167
+        "line": 1223
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "UNCERTAINTY_RESOLUTION",
@@ -692,7 +751,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1182
+        "line": 1238
       }
     },
     {
@@ -733,7 +792,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1205
+        "line": 1261
       },
       "alignment_interlock": "RT.ALIGN",
       "alignment_profile": "POST_MATERIAL_EFFECT",
@@ -796,7 +855,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1238
+        "line": 1294
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -842,7 +901,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1262
+        "line": 1318
       },
       "control_event_ref": "CE-RT-DELIVER",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -876,7 +935,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1274
+        "line": 1330
       },
       "control_event_ref": "CE-RT-CLOSE",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -912,7 +971,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1286
+        "line": 1342
       },
       "execution_semantics": "DETERMINISTIC_PIPELINE",
       "inference_policy": "PROHIBITED",
@@ -1003,7 +1062,7 @@
       "source_anchor": {
         "filename": "AIR_CORE_RUNTIME.md",
         "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
-        "line": 1317
+        "line": 1373
       },
       "control_event_ref": "CE-RT-RECOVERY",
       "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
@@ -1066,7 +1125,13 @@
         "TASK_BINDING_CHANGED"
       ],
       "failure_behavior": "FAIL_CLOSED"
-    }
+    },
+    "air_active_response_head": [
+      "AIR_ALIGNMENT_CHECK",
+      "AIR_VALIDATION_REPORT"
+    ],
+    "air_active_response_head_applies_from": "AIR_ENTRY_BOOTSTRAP",
+    "minimum_mode_can_suppress_air_active_head": false
   },
   "deterministic_pipeline_contract": {
     "core_patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
@@ -1084,13 +1149,14 @@
       "RT.BOOT",
       "RT.HANDOFF_CREATE",
       "RT.HANDOFF_RESTORE",
+      "RT.DURABILITY_NEGOTIATE",
       "RT.ONBOARD",
       "RT.RECEIPT",
       "RT.TASK_SWITCH",
       "RT.TURN"
     ],
     "rule": "Do not infer. Follow the declared deterministic pipeline. This metadata mirrors Core and has no independent semantic authority.",
-    "route_count": 10
+    "route_count": 11
   },
   "material_action_transaction": {
     "semantic_owner": "AIR_CORE_RUNTIME_V2",
@@ -1151,6 +1217,27 @@
       "formal_air_object": false,
       "positive_execution_authority": "NONE"
     },
-    "restore_target_provider_renegotiation_required": true
+    "restore_target_provider_renegotiation_required": true,
+    "negotiation_route": "RT.DURABILITY_NEGOTIATE",
+    "activation_dependency": "DEP.DURABILITY_NEGOTIATION_RESOLVED",
+    "reference_adapters": [
+      "adapters/durable_provenance/filesystem.py",
+      "adapters/durable_provenance/sqlite.py"
+    ]
+  },
+  "full_surface_integrity_audit": {
+    "contract": "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1",
+    "authority": "DISCOVERY_METADATA_ONLY",
+    "roots": [
+      "prompts",
+      "catalog",
+      "profiles"
+    ],
+    "coverage_manifest": "tests/air_full_surface_coverage_manifest.json",
+    "scenario_matrix": "tests/air_full_surface_scenario_matrix.json",
+    "hard_floor_invariants": [
+      "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+      "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+    ]
   }
 }
