@@ -20,7 +20,7 @@
       "version": "2.5.0",
       "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+      "sha256": "94732024a56586bb6d0bde55352d1e10dca4c2c0a84f32d7e2b56c85500cc7d0",
       "size_bytes": 55481,
       "line_count": 1061,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
@@ -32,7 +32,7 @@
       "version": "2.5.0",
       "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+      "sha256": "b32e11c6ac7a3e2139317e3019e048677e2d4127320229a15c9a3c296846e5ec",
       "size_bytes": 38986,
       "line_count": 747,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
@@ -44,8 +44,8 @@
       "version": "2.5.0",
       "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
-      "size_bytes": 54189,
+      "sha256": "5035c4d3dcbe85962c983cc881947afea4168f12c78fdbc66a6e5c7f4a7951c9",
+      "size_bytes": 54187,
       "line_count": 1050,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
     },
@@ -56,7 +56,7 @@
       "version": "2.5.0",
       "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+      "sha256": "22c93466871470a57c55b6927bb0a207d5d1243df879cadd83e0564f59487d1a",
       "size_bytes": 96315,
       "line_count": 1764,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
@@ -68,7 +68,7 @@
       "version": "2.5.0",
       "state": "DRAFT_AVAILABLE_UNVALIDATED",
       "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
-      "sha256": "dbfafd372bddf028ac5baf5f70bdfc7618acfa9f48a52c93d246142f132f6e30",
+      "sha256": "96b282e5101d6899a6133dc4e5036d0edeb883da08bf65f887d1c3748cb3b912",
       "size_bytes": 41550,
       "line_count": 797,
       "status": "V2_5_0_OBJECT_CONTRACT_SET_008_STATIC_VALIDATED_AVAILABLE_UNBOUND"
@@ -116,45 +116,45 @@
         "designation": "AIR_CORE_RUNTIME_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "8e8b6aa53eee26506e97cbb3cc0b7ec0a2c296427a026448bc5d542acdf0475d",
-        "size_bytes": 426654,
-        "line_count": 7979
+        "sha256": "3c7fc870715aa3f84a4a592bbff6f6ca7e361759da7603dec9c1b8a238474f40",
+        "size_bytes": 430824,
+        "line_count": 8033
       },
       {
         "filename": "AIR_CONTROL_SURFACE.md",
         "designation": "AIR_CONTROL_SURFACE_V2",
         "version": "2.6.3",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "2ae5a45755852780fa9b360d751cdedb8c01bf208a2db1ab7ffe55519bf6a8c5",
-        "size_bytes": 173959,
-        "line_count": 3342
+        "sha256": "21014db0dcdd9a51f588d4ff7270fa3c651f7d1b434cb669808ff0fb70833779",
+        "size_bytes": 175357,
+        "line_count": 3360
       },
       {
         "filename": "AIR_GOV.md",
         "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
         "version": "2.3.2",
         "class": "FOUNDATION_PROMPT",
-        "sha256": "80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842",
-        "size_bytes": 31075,
-        "line_count": 564
+        "sha256": "7be97352fdc288787c3b4a964691c9c1b712bb0732b7cc229226f0c3e865404a",
+        "size_bytes": 32196,
+        "line_count": 578
       },
       {
         "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
         "designation": "AIR_DEFAULT_STARTER_V2",
         "version": "2.6.3",
         "class": "TASK_COMPOSITE",
-        "sha256": "b7263abb81a7db252ba4bee2b7207f3699872ed275bb19d569820f576c86aac3",
-        "size_bytes": 188993,
-        "line_count": 3993
+        "sha256": "e49ac20fc7135af0d4fcc62b9b03aae34a7d8b5af55e4e2eaa26163b81dc1a71",
+        "size_bytes": 193902,
+        "line_count": 4134
       },
       {
         "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
         "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
         "version": "2.3.0",
         "class": "TEMPLATE",
-        "sha256": "13b2c0367375ba79d31ed94d7dcbf239a011afce28c0d8fcf194f7ad3a74b205",
-        "size_bytes": 136052,
-        "line_count": 2460,
+        "sha256": "c0da8c394f7debcd819c32a8b2f5ff572544a23521a2238d92b33fdb5be7856f",
+        "size_bytes": 136564,
+        "line_count": 2472,
         "template_revision": 20,
         "revision_fields": [
           "template_revision",
