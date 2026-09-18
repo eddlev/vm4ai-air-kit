@@ -8,7 +8,7 @@
   "artifact_class": "AIR_EXECUTOR_LAYER",
   "package_version": "2.5.0",
   "package_subtype": "SPECIFICATION_FIRST_VERIFICATION_EXECUTOR",
-  "STATUS": "DRAFT",
+  "STATUS": "V2_5_0_OBJECT_CONTRACT_SET_008_STATIC_VALIDATED_AVAILABLE_UNBOUND",
   "record_mode": "PROMPT_LAYER_APPLIED",
   "backend_validation_claimed": false,
   "hidden_reasoning_claimed": false,
@@ -570,5 +570,18 @@
     "package_local_allowed_operations_role": "VARIANTS_UNDER_CANONICAL_OPERATION",
     "variant_selection_rule": "SELECT_EXACTLY_ONE_ALLOWED_OPERATION_PER_INVOCATION",
     "package_local_fields_must_not_override_core_interface": true
+  },
+  "executor_validation_contract": {
+    "component_state": "VALIDATED_AVAILABLE_UNBOUND",
+    "integral_package_component": true,
+    "independent_execution_authority": false,
+    "binding_authority": "NONE_UNTIL_SELECTED_COMPILED_IN_BOUND_ORBIT_0_ARTIFACT",
+    "validation_basis": [
+      "strict JSON and closed role identity",
+      "declared dependency closure",
+      "authority-boundary review",
+      "full-surface candidate validation"
+    ],
+    "release_rule": "REQUIRED_PACKAGE_EXECUTOR_MUST_NOT_BE_DRAFT_OR_AVAILABLE_UNVALIDATED"
   }
 }
