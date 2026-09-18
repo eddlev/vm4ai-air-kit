@@ -1,0 +1,1236 @@
+{
+  "contract_id": "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1",
+  "roots": [
+    "prompts",
+    "catalog",
+    "profiles"
+  ],
+  "discovery_authoritative": true,
+  "baseline_governed_file_count": 31,
+  "allowed_terminal_states": [
+    "PASS",
+    "NOT_APPLICABLE_WITH_EVIDENCE"
+  ],
+  "blocking_states": [
+    "NOT_TESTED",
+    "UNKNOWN",
+    "PARTIAL",
+    "STALE",
+    "UNCLASSIFIED",
+    "FAILED",
+    "WAIVED_FOR_HARD_INVARIANT"
+  ],
+  "files": [
+    {
+      "canonical_path": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "designation_class": "PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "prompts/AIR_CORE_RUNTIME.md",
+      "designation_class": "PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "prompts/AIR_GOV.md",
+      "designation_class": "PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    },
+    {
+      "canonical_path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "designation_class": "JSON_CONTRACT",
+      "expected_status": "CURRENT_CANDIDATE",
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [],
+      "applicable_audit_dimensions": [
+        "PHYSICAL_PARSE",
+        "IDENTITY_LIFECYCLE",
+        "CLOSED_WORLD_SCHEMA",
+        "SEMANTIC_OWNERSHIP",
+        "PRODUCER_CONSUMER",
+        "CROSS_FILE_REFERENCE",
+        "AUTHORITY_BOUNDARY",
+        "VISIBILITY_EMISSION",
+        "ROUTE_STATE_MACHINE",
+        "FAILURE_MODE",
+        "BEHAVIORAL_CONTRACT",
+        "MUTATION_TEST",
+        "MIGRATION_BACKWARD_COMPAT",
+        "SECURITY_PRIVACY_DATA_BOUNDARY",
+        "RELEASE_REPRODUCIBILITY"
+      ],
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-GENERIC-PARSE-REFERENCE-AUTHORITY"
+      ],
+      "mutation_refs": [
+        "MUT-DYNAMIC-COVERAGE"
+      ],
+      "migration_refs": [
+        "CURRENT_HANDOFF_MIGRATION"
+      ],
+      "release_seal_refs": [
+        "CANDIDATE_TREE"
+      ],
+      "current_result": "PASS"
+    }
+  ]
+}
