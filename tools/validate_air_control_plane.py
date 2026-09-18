@@ -106,6 +106,12 @@ def main():
     for e in index['entries']: req(e.get('failure_mode_integration_required') is True,'Specialist index entry missing failure integration '+e.get('package_identity','?'))
     ids={x['id'] for x in fixtures['failure_mode_learning_cases']}; req({'FM-01-RETRY-EXACT-MATCH','FM-05-SPECIALIST-PACKAGE','FM-06-HANDOFF-PERSISTENCE'}<=ids,'failure learning fixtures incomplete')
     mids={x['id'] for x in fixtures.get('handoff_mode_cases',[])}; req({'HM-01-GENERIC-AVAILABLE-STRICT','HM-02-GENERIC-UNAVAILABLE-PORTABLE','HM-04-GENERIC-FAILED-INTEGRITY-BLOCK','HM-05-EXPLICIT-STRICT-UNAVAILABLE-FAIL','HM-07-PORTABLE-HISTORY-AUTHORITY-REJECT'}<=mids,'Handoff mode control fixtures incomplete')
+    req('Patch marker: AIR_DURABILITY_NEGOTIATION_ROUTE_V1' in core,'missing durability negotiation patch')
+    req('Patch marker: AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1' in core,'missing full-surface audit patch')
+    rr={r['route_id']:r for r in rmap['routes']}
+    req(rr['RT.ONBOARD']['allowed_next_routes']==['RT.DURABILITY_NEGOTIATE'],'ONBOARD must negotiate durability')
+    req(rr['RT.HANDOFF_RESTORE']['allowed_next_routes']==['RT.DURABILITY_NEGOTIATE'],'restore must negotiate durability')
+    req('DEP.DURABILITY_NEGOTIATION_RESOLVED' in rr['RT.ACTIVATE']['requires'],'ACTIVATE missing durability dependency')
     print('AIR semantic-loophole/control-plane validation: PASS')
     print('Typed runtime control events:',len(routes))
     print('Specialist failure-mode integration packages:',len(manifests))
