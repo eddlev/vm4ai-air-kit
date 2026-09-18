@@ -26,6 +26,14 @@ def main() -> None:
     handoff = load('prompts/AIR_HANDOFF_CARD_TEMPLATE.json')['AIR_HANDOFF_CARD']
     route_map = load('catalog/AIR_RUNTIME_ROUTE_MAP.json')
     fixtures = load('tests/air_contract_fixtures.json')
+    full_surface = load('tests/air_full_surface_coverage_manifest.json')
+    scenarios = load('tests/air_full_surface_scenario_matrix.json')
+    require('AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION' in core, 'Floor 029 behavioral invariant missing')
+    require('AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION' in core, 'Floor 030 behavioral invariant missing')
+    require('RT.DURABILITY_NEGOTIATE' in core, 'durability negotiation behavioral route missing')
+    require('AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF' in core, 'Q1-E recovery behavioral route missing')
+    require(len(scenarios.get('scenarios', [])) >= 20, 'public-user scenario matrix below 20 scenarios')
+    require(full_surface.get('release_gate_state') == 'CANDIDATE_ONLY_NOT_RELEASE', 'candidate full-surface manifest must not claim release readiness')
 
     core_markers = [
         'AIR_TRANSITION_EMISSION_TRANSACTION_V1',
