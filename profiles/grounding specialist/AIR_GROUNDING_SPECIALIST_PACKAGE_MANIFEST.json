@@ -9,7 +9,7 @@
   "package_class": "NON_AGENT_SPECIALIST_PACKAGE",
   "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
   "canonical_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
-  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
   "generated_at": "2026-09-15T11:01:55Z",
   "source_baseline": {
     "source_filename": "AIR SPECIALIST PACKAGE MANIFEST(18).json",
@@ -126,12 +126,12 @@
       "artifact_class": "AIR_EXECUTOR_LAYER",
       "profile_kind": "EXECUTOR_CONTRACT",
       "profile_function_class": "EXECUTOR_NON_AGENT_LAYER",
-      "status": "DRAFT",
-      "sha256": "831203aaf6d71952feed8101452cdc56ac86092722d3a2108d0a2744ec7aa6c4",
-      "size_bytes": 33518,
-      "line_count": 664,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_STATIC_VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "4acb9568755d4053da0b629d72b1d506fe90d901df92355fbf52b9173b0ea9b1",
+      "size_bytes": 34126,
+      "line_count": 677,
       "required": true,
-      "availability_state": "AVAILABLE_UNVALIDATED"
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND"
     }
   ],
   "component_dependency_edges": [
@@ -346,10 +346,10 @@
     }
   },
   "package_validation_state": {
-    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "decision": "REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
     "component_count": 4,
     "manifest_count": 1,
-    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_DRAFT_UNVALIDATED",
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
     "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
     "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
     "cross_file": "PASS_AIR_FOUNDATION_2_6_2_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
@@ -360,8 +360,8 @@
     "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
     "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
     "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
-    "executor_validation_state": "DRAFT_AVAILABLE_UNVALIDATED_EXCLUDED_FROM_BEHAVIORAL_PASS",
-    "release_catalog_registration": "INCLUDED_IN_SET_008_V074_RELEASE_CATALOG_WITH_EXECUTOR_DRAFT_UNAVAILABLE"
+    "executor_validation_state": "STATIC_VALIDATED_AVAILABLE_UNBOUND_INCLUDED_IN_PACKAGE_VALIDATION",
+    "release_catalog_registration": "CANDIDATE_RECONCILIATION_REQUIRED_BEFORE_PUBLIC_RELEASE"
   },
   "claim_boundary": {
     "backend_validation_claimed": false,
@@ -664,5 +664,11 @@
     "evidence_class": "REPLAYABLE_MODEL_HOST_BEHAVIORAL_REVALIDATION",
     "source_baseline_commit": "f456fc579bed739aebcfaa55c175c2c14617d58d",
     "candidate_foundation_runtime_fingerprint": "060bb6b415affa57d93b9672c62f54b823f23d026a82ab60032c861591439d07"
+  },
+  "executor_component_contract": {
+    "required_integral_component": true,
+    "validated_availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+    "independent_execution_authority": false,
+    "public_release_draft_label_prohibited": true
   }
 }
