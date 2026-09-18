@@ -1,3 +1,5 @@
+# AIR_Q5B_PROVIDER_PROVENANCE_MIGRATION_V1
+# Legacy migration never fabricates provider identity/generation/instance/namespace/storage/authorization/retention/deletion facts.
 from __future__ import annotations
 
 import argparse
@@ -145,6 +147,10 @@ def _normalize_legacy_history(card: dict[str, Any], tmpl: dict[str, Any], source
             sl["provenance_capture"]["strict_handoff_eligibility"] = "CURRENT_SESSION_CAPTURE_REQUIRED"
             sl["provenance_capture"]["historical_chat_turn_retrieval_required"] = False
             sl["provenance_capture"]["transcript_export_or_paste_fallback"] = "PROHIBITED"
+            for _k in ("provider_identity","provider_class","provider_generation","provider_instance_id","project_namespace_id","project_namespace_fingerprint","storage_location_class","retention_policy","deletion_policy"):
+                sl["provenance_capture"][_k] = None
+            sl["provenance_capture"]["authorization_state_at_capture"] = "LEGACY_UNRECORDED"
+            sl["provenance_capture"]["credentials_serialized"] = False
         card["surfaced_object_ledger_state"] = sl
 
 
