@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -62,9 +63,18 @@ def discover(root: Path) -> list[str]:
         if not base.exists():
             continue
         for path in base.rglob("*"):
-            if path.is_file() and path.suffix.lower() in {".json", ".md"}:
+            if path.is_file():
                 result.append(path.relative_to(root).as_posix())
     return sorted(result)
+
+
+def reject_duplicate_keys(pairs):
+    out = {}
+    for key, value in pairs:
+        if key in out:
+            raise ValueError(f"duplicate JSON key: {key}")
+        out[key] = value
+    return out
 
 
 def parse_file(path: Path) -> None:
@@ -72,8 +82,11 @@ def parse_file(path: Path) -> None:
     if data.startswith(b"ï»¿"):
         raise ValueError("UTF-8 BOM prohibited")
     text = data.decode("utf-8")
-    if path.suffix.lower() == ".json":
-        json.loads(text)
+    suffix = path.suffix.lower()
+    if suffix == ".json":
+        json.loads(text, object_pairs_hook=reject_duplicate_keys)
+    elif suffix != ".md":
+        raise ValueError(f"unexpected governed-surface file type: {suffix or '<none>'}")
 
 
 def load_json(path: Path) -> Any:
@@ -94,6 +107,13 @@ def validate(root: Path, manifest_path: Path, scenario_path: Path) -> dict[str, 
             errors.append(f"MANIFEST_NOT_DISCOVERED:{item}")
 
     record_by_path = {item.get("canonical_path"): item for item in records}
+    normalized_names = {}
+    for rel in discovered:
+        normalized = unicodedata.normalize("NFC", rel).casefold()
+        prior = normalized_names.get(normalized)
+        if prior is not None and prior != rel:
+            errors.append(f"NORMALIZED_FILENAME_COLLISION:{prior}:{rel}")
+        normalized_names[normalized] = rel
     for rel in discovered:
         path = root / rel
         try:
@@ -107,6 +127,14 @@ def validate(root: Path, manifest_path: Path, scenario_path: Path) -> dict[str, 
         expected_sha = rec.get("sha256")
         if expected_sha and expected_sha != sha256_file(path):
             errors.append(f"STALE_RECEIPT:{rel}")
+        expected_bytes = rec.get("byte_count")
+        if expected_bytes is not None and expected_bytes != len(path.read_bytes()):
+            errors.append(f"BYTE_COUNT_MISMATCH:{rel}")
+        expected_lines = rec.get("line_count")
+        if expected_lines is not None:
+            actual_lines = len(path.read_text(encoding="utf-8").splitlines())
+            if expected_lines != actual_lines:
+                errors.append(f"LINE_COUNT_MISMATCH:{rel}")
         dims = rec.get("audit_dimensions", {})
         missing_dims = REQUIRED_DIMENSIONS - set(dims)
         if missing_dims:
