@@ -1,0 +1,1955 @@
+{
+  "manifest_identity": "AIR_FULL_SURFACE_COVERAGE_MANIFEST_V1",
+  "manifest_version": "1.0.0",
+  "source_branch": "air/strict-durability-q5b-candidate-fresh-20260918",
+  "source_surface_commit": "619dc45c4ff3badbc6d0fcc46de77170979a70d8",
+  "discovery_roots": [
+    "prompts",
+    "catalog",
+    "profiles"
+  ],
+  "discovered_file_count": 31,
+  "audit_dimension_registry": [
+    "PHYSICAL_PARSE",
+    "IDENTITY_LIFECYCLE",
+    "CLOSED_WORLD_SCHEMA",
+    "SEMANTIC_OWNERSHIP",
+    "PRODUCER_CONSUMER",
+    "CROSS_FILE_REFERENCE",
+    "AUTHORITY_BOUNDARY",
+    "VISIBILITY_EMISSION",
+    "ROUTE_STATE_MACHINE",
+    "FAILURE_MODE",
+    "BEHAVIORAL_CONTRACT",
+    "MUTATION_TEST",
+    "MIGRATION_BACKWARD_COMPAT",
+    "SECURITY_PRIVACY_DATA_BOUNDARY",
+    "RELEASE_REPRODUCIBILITY"
+  ],
+  "terminal_results": [
+    "PASS",
+    "NOT_APPLICABLE_WITH_EVIDENCE"
+  ],
+  "blocking_results": [
+    "NOT_TESTED",
+    "UNKNOWN",
+    "PARTIAL",
+    "STALE",
+    "UNCLASSIFIED",
+    "FAILED",
+    "WAIVED_FOR_HARD_INVARIANT"
+  ],
+  "release_gate_state": "CANDIDATE_ONLY_NOT_RELEASE",
+  "release_claim_boundary": "NO_KNOWN_OR_UNTESTED_GAP_WITHIN_DECLARED_AIR_PUBLIC_RELEASE_CONTRACT_SURFACE",
+  "files": [
+    {
+      "canonical_path": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+      "designation_class": "CATALOG_JSON",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_RUNTIME_ROUTE_MAP.json"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "prompts/AIR_CORE_RUNTIME.md"
+      ],
+      "referring_files": [
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "4aa8cb362d50fc1b7fede5f6b4b3af07f889a121b4fa50d552ff2e0b62e1ad48",
+      "byte_count": 46085,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json",
+      "designation_class": "CATALOG_JSON",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "referring_files": [
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "b247d5c6bc78f17e8a08683eed30db48996825ec8819cf6b51fafa6b4010630c",
+      "byte_count": 24763,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "designation_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "capability ecology architect"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "1d17b5a251a35d1e875a0b05f3bd49cdac5b5c26d5050197aacbd9496cdee895",
+      "byte_count": 106872,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "designation_class": "SPECIALIST_PACKAGE_MANIFEST",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "capability ecology architect"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+        "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+        "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json"
+      ],
+      "referring_files": [
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "806d3563440cc88dc50bce2ccba9fa1e8d3959253683ad5e97ad4df47eb9300b",
+      "byte_count": 30121,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "designation_class": "METHOD_PACK",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "capability ecology architect"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "d3d4509e691bfdf9ee208a58df6ba8ee3103d6c500544b61099014db20f1aaf7",
+      "byte_count": 77313,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "designation_class": "CAPABILITY_REGISTRY",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "capability ecology architect"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "a1a1ae3b335e7e231ec93196aee25a04c328fc4acdb356cbbce284525f4c7843",
+      "byte_count": 265260,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/capability ecology architect/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "designation_class": "CAPABILITY_TRANSLATOR",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "capability ecology architect"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/capability ecology architect/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "0a472f869b7eddea4857bbb71dd3302bfb54a7c6b50cb9261271a16bcb1deaa1",
+      "byte_count": 77608,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "designation_class": "AGENTIC_OVERLAY",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+      "byte_count": 38986,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "designation_class": "DOMAIN_PACKAGE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+      "byte_count": 55481,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "designation_class": "EXECUTOR_LAYER",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "4c5da22781ce12a53a2ed5d7820002f1188cb9fa753509e5c4b99b2b4ca3bdd1",
+      "byte_count": 40919,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "designation_class": "METHOD_PACK",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+      "byte_count": 96315,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "designation_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+      "byte_count": 54189,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "SPECIALIST_PACKAGE_MANIFEST",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "governance specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_SPECIALIST.json",
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+        "profiles/governance specialist/AIR_AI_GOVERNANCE_EXECUTOR.json"
+      ],
+      "referring_files": [
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "e438cf7c166cc87fc7947edf3c498e5703ee07fec06f8a59884b960184590a9c",
+      "byte_count": 41474,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "designation_class": "DOMAIN_PACKAGE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "grounding specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "6a3c9ad4ab080f5542c9e0b6335ddc12628624764c154df0546adbdedbfb93c7",
+      "byte_count": 69117,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json",
+      "designation_class": "EXECUTOR_LAYER",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "grounding specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "ae7367e89084458de024e65b8ce157e33ed83430f0257a4804900e42dce3e2e1",
+      "byte_count": 33699,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+      "designation_class": "METHOD_PACK",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "grounding specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "62928d8b52fea64177c68a0811fb2c6e93d8f906644179561733124f9496274f",
+      "byte_count": 82903,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+      "designation_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "grounding specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "599ce91b3891df003af3fbac5fb1cd4e03fa854a2f1acbe17faf3987d7180b8d",
+      "byte_count": 80181,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "SPECIALIST_PACKAGE_MANIFEST",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "grounding specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/grounding specialist/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "profiles/grounding specialist/AIR_GROUNDING_METHOD_PACK.json",
+        "profiles/grounding specialist/AIR_GROUNDING_SPECIALIST.json",
+        "profiles/grounding specialist/AIR_GROUNDING_EXECUTOR.json"
+      ],
+      "referring_files": [
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "c83cccaf83a73ec646606c9eb16f317f27486f932a822085d414d558c06d2702",
+      "byte_count": 33195,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
+      "designation_class": "METHOD_PACK",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "public surface copywriting specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "a692eaef2840e04af84e183dd62e40e09c0a6551e3cbe0296283236d25348d3a",
+      "byte_count": 27779,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
+      "designation_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "public surface copywriting specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "d59123679fdab549c9fc316cbc447b4132ee80a5f6cefc828a5a16ba0b622553",
+      "byte_count": 28010,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "SPECIALIST_PACKAGE_MANIFEST",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "public surface copywriting specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
+        "profiles/public surface copywriting specialist/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json"
+      ],
+      "referring_files": [
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "b4ab5cb5785a09a9a7ce0374ca7c8bd1f816e33de5daf9a28e17e74585e7877c",
+      "byte_count": 13857,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "designation_class": "DOMAIN_PACKAGE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "specification first verification specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "c5e9424a42f3b8b299eaa5557b33be20fb8b4d0aba8238581eaa11026da438fc",
+      "byte_count": 35004,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "designation_class": "EXECUTOR_LAYER",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "specification first verification specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "2b0ad3d6ac755e9fcf7562a6b3e02f5c6308a7d34317f88f63b53e7842528c63",
+      "byte_count": 31073,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "designation_class": "METHOD_PACK",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "specification first verification specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "9ef64785be4090e06f54c0b39be2b6275e19b224602379cbc76e3ce5969ae862",
+      "byte_count": 54318,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "designation_class": "SPECIALIST_CAPABILITY_PROFILE",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "specification first verification specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "f448369521fe2973de85fdfc05ec8ee6459bef44b9a93b666289bc1a03cee32a",
+      "byte_count": 34282,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
+      "designation_class": "SPECIALIST_PACKAGE_MANIFEST",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "specification first verification specialist"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+        "profiles/specification first verification specialist/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json"
+      ],
+      "referring_files": [
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "5f27b7bae5748c912a9688c68487bcf3086b342407a84b9cdc17fd5e00af7ede",
+      "byte_count": 31963,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "designation_class": "FOUNDATION_PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_CONTROL_SURFACE"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "prompts/AIR_CORE_RUNTIME.md"
+      ],
+      "referring_files": [
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "dcab4a0507ddf8cd9c068b2795b5e00073e6c101e5e0708d7716baea700db8b7",
+      "byte_count": 176011,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "prompts/AIR_CORE_RUNTIME.md",
+      "designation_class": "FOUNDATION_PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_CORE_RUNTIME"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [],
+      "referring_files": [
+        "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+        "prompts/AIR_CONTROL_SURFACE.md",
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "prompts/AIR_GOV.md",
+        "prompts/AIR_HANDOFF_CARD_TEMPLATE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "ac0ebe5dfc51c28fee414167262777aa74169e056323b4afa86f689ed8c47b6d",
+      "byte_count": 433558,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "designation_class": "FOUNDATION_PROMPT_JSON",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_DEFAULT_STARTER_PROFILE"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "prompts/AIR_CORE_RUNTIME.md",
+        "prompts/AIR_CONTROL_SURFACE.md",
+        "prompts/AIR_GOV.md",
+        "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+        "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+      ],
+      "referring_files": [],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "3afe1eed8985ab5515a72eee1df563641007d5b8ab99c2106bd46b87ab8b393d",
+      "byte_count": 194343,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "prompts/AIR_GOV.md",
+      "designation_class": "FOUNDATION_PROMPT_MARKDOWN",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_GOV"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "prompts/AIR_CORE_RUNTIME.md"
+      ],
+      "referring_files": [
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [],
+      "release_seal_refs": [],
+      "sha256": "5f33169bc458f3b72d9a77960a484c29556867c265836886296448911fabf935",
+      "byte_count": 32812,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    },
+    {
+      "canonical_path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "designation_class": "FOUNDATION_PROMPT_JSON",
+      "expected_status": "CURRENT_CANDIDATE_VALIDATED_SURFACE",
+      "semantic_owners": [
+        "AIR_HANDOFF_CARD_TEMPLATE"
+      ],
+      "owned_concepts": [],
+      "referenced_files": [
+        "prompts/AIR_CORE_RUNTIME.md"
+      ],
+      "referring_files": [
+        "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      ],
+      "audit_dimensions": {
+        "PHYSICAL_PARSE": "PASS",
+        "IDENTITY_LIFECYCLE": "PASS",
+        "CLOSED_WORLD_SCHEMA": "PASS",
+        "SEMANTIC_OWNERSHIP": "PASS",
+        "PRODUCER_CONSUMER": "PASS",
+        "CROSS_FILE_REFERENCE": "PASS",
+        "AUTHORITY_BOUNDARY": "PASS",
+        "VISIBILITY_EMISSION": "PASS",
+        "ROUTE_STATE_MACHINE": "PASS",
+        "FAILURE_MODE": "PASS",
+        "BEHAVIORAL_CONTRACT": "PASS",
+        "MUTATION_TEST": "PASS",
+        "MIGRATION_BACKWARD_COMPAT": "PASS",
+        "SECURITY_PRIVACY_DATA_BOUNDARY": "PASS",
+        "RELEASE_REPRODUCIBILITY": "PASS"
+      },
+      "audit_evidence": {
+        "deterministic": [
+          "tools/validate_air_contract_registry.py",
+          "tools/validate_air_control_plane.py"
+        ],
+        "behavioral": [
+          "tools/validate_air_behavioral_contracts.py"
+        ],
+        "full_surface": [
+          "tools/validate_air_full_surface_integrity.py",
+          "tools/test_air_full_surface_integrity_mutations.py"
+        ],
+        "release_state": "CANDIDATE_ONLY_NOT_RELEASE"
+      },
+      "deterministic_check_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_VALIDATOR_V1"
+      ],
+      "behavioral_scenario_refs": [
+        "FS-S01",
+        "FS-S02",
+        "FS-S03"
+      ],
+      "mutation_refs": [
+        "AIR_FULL_SURFACE_INTEGRITY_MUTATION_SUITE_V1"
+      ],
+      "migration_refs": [
+        "tools/migrate_air_handoff.py"
+      ],
+      "release_seal_refs": [],
+      "sha256": "aae8499f9d7c2fcde191021cb7f1e7be06377ed8fcdb1b9827a4c1fd40add404",
+      "byte_count": 136643,
+      "current_result": "PASS_CANDIDATE_STATIC_COVERAGE"
+    }
+  ]
+}
