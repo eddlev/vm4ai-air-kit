@@ -112,6 +112,21 @@ def main():
     def m31(d):
         p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); o['handoff_runtime_contract_registry']['receipt_contract']['formal_air_object']=True; save(p,o)
     cases.append(('handoff file delivery receipt promoted to formal object',m31))
+    def m32(d):
+        p=d/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION','AIR-FLOOR-029-REMOVED',1); p.write_text(x,encoding='utf-8')
+    cases.append(('Floor 029 removed',m32))
+    def m33(d):
+        p=d/'prompts/AIR_CORE_RUNTIME.md'; x=p.read_text(encoding='utf-8').replace('AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION','AIR-FLOOR-030-REMOVED',1); p.write_text(x,encoding='utf-8')
+    cases.append(('Floor 030 removed',m33))
+    def m34(d):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); o['routes']=[r for r in o['routes'] if r['route_id']!='RT.DURABILITY_NEGOTIATE']; save(p,o)
+    cases.append(('durability negotiation route removed',m34))
+    def m35(d):
+        p=d/'catalog/AIR_RUNTIME_ROUTE_MAP.json'; o=load(p); r=next(x for x in o['routes'] if x['route_id']=='RT.ACTIVATE'); r['requires']=[x for x in r.get('requires',[]) if x!='DEP.DURABILITY_NEGOTIATION_RESOLVED']; save(p,o)
+    cases.append(('activation durability dependency removed',m35))
+    def m36(d):
+        p=d/'prompts/AIR_DEFAULT_STARTER_PROFILE.json'; o=load(p); o['onboarding_contract']['q1_routes']['E']='HANDOFF_CONTINUATION_BOOTSTRAP'; save(p,o)
+    cases.append(('Q1-E recovery authority boundary collapsed into Handoff',m36))
     for n,f in cases: run_mut(n,f)
     print('AIR semantic-loophole mutation suite: PASS',len(cases),'/',len(cases))
 if __name__=='__main__': main()
