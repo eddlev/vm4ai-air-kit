@@ -71,6 +71,7 @@ def portable_state_valid(card: dict[str,Any], live_durability: str, current_epoc
     if card.get('handoff_mode_state',{}).get('selected_mode')!='PORTABLE_STATE': return True
     if live_durability=='FAILED_INTEGRITY': return False
     if not generation_eval_valid(card,current_epoch): return False
+    if not strict_provider_capture_valid(card): return False
     led=card.get('surfaced_object_ledger_state',{})
     fm=card.get('failure_mode_state',{})
     hm=card.get('handoff_mode_state',{})
@@ -82,6 +83,19 @@ def portable_state_valid(card: dict[str,Any], live_durability: str, current_epoc
         hm.get('positive_execution_authority')=='NONE' and
         card.get('_reconstructed_historical_authority',False) is False
     )
+
+def strict_provider_capture_valid(card: dict[str,Any]) -> bool:
+    capture=card.get('surfaced_object_ledger_state',{}).get('provenance_capture',{})
+    required_nonempty=[
+      'provenance_store_id','persistence_provider_class','provider_identity',
+      'provider_generation','provider_instance_id','provider_namespace_id',
+      'provider_namespace_fingerprint','storage_location_class',
+      'provider_authorization_state_at_capture'
+    ]
+    if capture.get('provider_adapter_contract')!='AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1': return False
+    if capture.get('credentials_serialized') is not False: return False
+    if capture.get('canonicalization_contract')!='UTF8_NO_BOM_SORTED_OBJECT_KEYS_ARRAY_ORDER_PRESERVED_MINIFIED_ALLOW_NAN_FALSE_NO_PROVIDER_UNICODE_NORMALIZATION_SHA256_EXACT_BYTES': return False
+    return all(capture.get(k) not in (None,'','UNVALIDATED_TEMPLATE') for k in required_nonempty)
 
 def strict_state_valid(card: dict[str,Any], live_durability: str, eligibility: str, current_epoch: int) -> bool:
     if card.get('handoff_mode_state',{}).get('selected_mode')!='STRICT_PROVENANCE': return True
@@ -113,6 +127,26 @@ def generated_base(template: dict[str,Any], mode: str, epoch: int=7) -> dict[str
     c['handoff_mode_state']['selected_mode']=mode
     c['handoff_mode_state']['selection_state']='RESOLVED_FOR_REQUEST'
     c['handoff_mode_state']['positive_execution_authority']='NONE'
+    if mode=='STRICT_PROVENANCE':
+        capture=c['surfaced_object_ledger_state']['provenance_capture']
+        capture.update({
+          'provenance_store_id':'validator-store',
+          'persistence_provider_class':'FILESYSTEM',
+          'durability_state':'AVAILABLE_VERIFIED',
+          'write_readback_state':'EXACT',
+          'coverage_through_capture_cutoff':'COMPLETE',
+          'strict_handoff_eligibility':'ELIGIBLE',
+          'provider_identity':'filesystem:validator',
+          'provider_generation':'validator-provider-generation',
+          'provider_instance_id':'validator-provider-instance',
+          'provider_namespace_id':'air-project-validator',
+          'provider_namespace_fingerprint':'validator-namespace-fingerprint',
+          'storage_location_class':'LOCAL_DURABLE_FILESYSTEM',
+          'provider_authorization_state_at_capture':'AUTHORIZED_LOCAL',
+          'retention_policy':'TEST_RETENTION',
+          'deletion_policy':'TEST_DELETION',
+          'credentials_serialized':False
+        })
     return c
 
 def validate_static(root: Path) -> list[str]:
@@ -145,6 +179,11 @@ def validate_static(root: Path) -> list[str]:
     rops=[p.get('operator') for p in rule.get('predicates',[])]
     ok(rule.get('operator')=='ALL' and rops==['HANDOFF_GENERATION_EVALUATION_VALID','HANDOFF_MODE_PROVENANCE_VALID','PORTABLE_HANDOFF_STATE_VALID'],'Template composite Handoff validator')
     ok(handoff['handoff_mode_state']['live_session_durability_owner_path']=='AIR_SESSION.handoff_durability_state','Template serialized durability owner reference')
+    capture=handoff['surfaced_object_ledger_state']['provenance_capture']
+    provider_fields=['provider_identity','provider_generation','provider_instance_id','provider_namespace_id','provider_namespace_fingerprint','storage_location_class','provider_authorization_state_at_capture','retention_policy','deletion_policy','credentials_serialized']
+    ok(all(k in capture for k in provider_fields),'Template durable provider capture fields')
+    ok(capture['provider_adapter_contract']=='AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1','Template provider adapter identity')
+    ok(capture['credentials_serialized'] is False,'Template prohibits credential serialization')
     ok(handoff['schema_manifest']['handoff_delivery_contract']['receipt_contract']['formal_air_object'] is False,'Template receipt non-formal')
     routes={r['route_id']:r for r in rmap['routes']}; hr=routes['RT.HANDOFF_CREATE']; rr=routes['RT.HANDOFF_RESTORE']
     reg=rmap['handoff_runtime_contract_registry']
@@ -205,6 +244,10 @@ def run_cases(template: dict[str,Any]) -> list[dict[str,Any]]:
     case('HS-01-STRICT-VALID',strict_state_valid(s,'AVAILABLE_VERIFIED','ELIGIBLE',7),True)
     bads=copy.deepcopy(s); bads['surfaced_object_ledger_state']['entries'][0]['canonical_object_sha256']='0'*64
     case('HS-02-STRICT-HASH-MISMATCH',strict_state_valid(bads,'AVAILABLE_VERIFIED','ELIGIBLE',7),False)
+    missing_provider=copy.deepcopy(s); missing_provider['surfaced_object_ledger_state']['provenance_capture']['provider_generation']=None
+    case('HS-03-STRICT-PROVIDER-METADATA-MISSING',strict_state_valid(missing_provider,'AVAILABLE_VERIFIED','ELIGIBLE',7),False)
+    leaked_credentials=copy.deepcopy(s); leaked_credentials['surfaced_object_ledger_state']['provenance_capture']['credentials_serialized']=True
+    case('HS-04-STRICT-CREDENTIAL-SERIALIZATION-REJECT',strict_state_valid(leaked_credentials,'AVAILABLE_VERIFIED','ELIGIBLE',7),False)
     receipt={'filename':'AIR_HANDOFF_CARD.json','canonical_role':'HANDOFF_TRANSFER_FILE','linked_path_or_file_ref':'/tmp/card','sha256':'a'*64,'byte_count':100,'text_line_count':10,'designation':'AIR_HANDOFF_CARD_TEMPLATE_V2','version_or_schema_identity':'2.3.0/rev20','strict_parse_state':'PASS','duplicate_key_state':'PASS','schema_validation_state':'PASS','provenance_validation_state':'PASS','validation_record_ref':'V1'}
     case('HR-01-RECEIPT-AFTER-VALIDATION',receipt_success(receipt),True)
     badr={**receipt,'schema_validation_state':'FAIL'}
