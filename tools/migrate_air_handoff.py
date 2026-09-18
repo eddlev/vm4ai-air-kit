@@ -148,6 +148,55 @@ def _normalize_legacy_history(card: dict[str, Any], tmpl: dict[str, Any], source
         card["surfaced_object_ledger_state"] = sl
 
 
+def _normalize_legacy_provider_capture(card: dict[str, Any], tmpl: dict[str, Any]) -> None:
+    """Bring legacy capture state to the current shape without inventing history."""
+    sl = card.get("surfaced_object_ledger_state")
+    if not isinstance(sl, dict):
+        return
+    template_capture = tmpl.get("surfaced_object_ledger_state", {}).get("provenance_capture", {})
+    capture = sl.get("provenance_capture")
+    if not isinstance(capture, dict):
+        capture = copy.deepcopy(template_capture)
+        sl["provenance_capture"] = capture
+
+    historical_identity_fields = [
+        "provenance_store_id",
+        "persistence_provider_class",
+        "provider_identity",
+        "provider_generation",
+        "provider_instance_id",
+        "provider_namespace_id",
+        "provider_namespace_fingerprint",
+        "storage_location_class",
+        "retention_policy",
+        "deletion_policy",
+    ]
+    for key in historical_identity_fields:
+        capture.setdefault(key, None)
+
+    capture.setdefault("provider_adapter_contract", "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1")
+    capture.setdefault("canonicalization_contract", "UTF8_NO_BOM_SORTED_OBJECT_KEYS_ARRAY_ORDER_PRESERVED_MINIFIED_ALLOW_NAN_FALSE_NO_PROVIDER_UNICODE_NORMALIZATION_SHA256_EXACT_BYTES")
+    capture.setdefault("source_card_durability_authority_on_restore", "NONE_TRANSFER_PROVENANCE_ONLY")
+    capture.setdefault("historical_chat_turn_retrieval_required", False)
+    capture.setdefault("transcript_export_or_paste_fallback", "PROHIBITED")
+    capture.setdefault("positive_execution_authority", "NONE")
+    capture.setdefault("credentials_serialized", False)
+
+    # Historical authorization/provider identity that was not serialized by the
+    # source generation remains unknown. Migration must never backfill it from
+    # the receiving host, current provider, repository, or semantic inference.
+    capture.setdefault("provider_authorization_state_at_capture", "LEGACY_UNRECORDED")
+
+    if capture.get("provider_identity") is None:
+        capture["provider_generation"] = None
+        capture["provider_instance_id"] = None
+        capture["provider_namespace_id"] = None
+        capture["provider_namespace_fingerprint"] = None
+        capture["storage_location_class"] = None
+        if capture.get("provider_authorization_state_at_capture") == "UNVALIDATED_TEMPLATE":
+            capture["provider_authorization_state_at_capture"] = "LEGACY_UNRECORDED"
+
+
 def _finalize_current_card(
     source_doc: dict[str, Any],
     current_template_doc: dict[str, Any],
@@ -186,6 +235,7 @@ def _finalize_current_card(
         card["profile_posture_acceptance_state"] = pa
 
     _normalize_legacy_history(card, tmpl, source_template_revision)
+    _normalize_legacy_provider_capture(card, tmpl)
     _normalize_non_authority_boundaries(card, tmpl)
     _copy_missing_required_root_carriers(card, tmpl)
     mode = card.get("handoff_mode_state")
@@ -235,6 +285,13 @@ def _finalize_current_card(
         raise MigrationError("rev20 revision/mode state not normalized")
     if card.get("surfaced_object_ledger_state", {}).get("positive_execution_authority") != "NONE_HISTORY_ONLY":
         raise MigrationError("migrated surfaced-object history gained authority")
+    capture = card.get("surfaced_object_ledger_state", {}).get("provenance_capture", {})
+    source_capture = src.get("surfaced_object_ledger_state", {}).get("provenance_capture", {}) if isinstance(src.get("surfaced_object_ledger_state"), dict) else {}
+    for key in ("provider_identity","provider_generation","provider_instance_id","provider_namespace_id","provider_namespace_fingerprint","storage_location_class"):
+        if source_capture.get(key) in (None, "") and capture.get(key) not in (None, ""):
+            raise MigrationError(f"migrated legacy provider identity was fabricated: {key}")
+    if capture.get("credentials_serialized") is not False:
+        raise MigrationError("migrated card may not serialize provider credentials")
     return out
 
 
