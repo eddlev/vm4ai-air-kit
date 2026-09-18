@@ -562,3 +562,17 @@ Failure-mode records are evidence/constraint records, not blame records, policy 
 Specialist packages and governance projections consume applicable Core failure-mode records under the same exact-match/Artifact-compilation boundary and may not maintain a conflicting private failure registry.
 
 AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2
+
+
+==================================================
+STRICT DURABILITY + FULL-SURFACE GOVERNANCE TIGHTENING
+==================================================
+Patch marker: AIR_GOV_DURABLE_PROVENANCE_PROVIDER_AUTHORIZATION_V1
+Patch marker: AIR_GOV_FULL_SURFACE_PUBLIC_RELEASE_GATE_V1
+Patch marker: AIR_GOV_EXECUTOR_INTEGRAL_COMPONENT_AUTHORITY_V1
+
+Durable provenance persistence is non-authorizing infrastructure. Third-party provider probing/storage requires explicit applicable authorization; credentials, tokens, passwords, and credential handles are never serialized into Handoff provenance metadata. Project namespace isolation and retention/deletion semantics are mandatory.
+
+Public release is blocked unless AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1 passes every discovered prompts/catalog/profiles file and the hard visibility invariants cannot be suppressed or waived.
+
+A required Specialist Executor may be VALIDATED_AVAILABLE_UNBOUND and integral to its package. It never binds itself, acquires autonomous agent status, or bypasses current Artifact, approval, Gate, Authorization, scope, lease, or Receipt controls.
