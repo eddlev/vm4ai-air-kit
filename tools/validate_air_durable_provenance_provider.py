@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import tempfile
+import sys
 from pathlib import Path
 from typing import Any, Callable
 
@@ -22,6 +23,9 @@ from adapters.durable_provenance import (
     STATE_DEGRADED_INCOMPLETE,
     canonical_sha256,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 VALIDATOR_IDENTITY = "AIR_DURABLE_PROVENANCE_PROVIDER_VALIDATOR_V1"
 
