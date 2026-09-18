@@ -37,7 +37,7 @@
     "cognitive_scope_authority_isolation mirrors Core AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1; cognition is scope-bounded candidate production only, has no direct control authority, and validated contributions enter task/Artifact state only through an explicit declared ingestion boundary.",
     "Strict Handoff provenance mirrors Core AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1: current native history requires committed ledger-matched durable exact snapshots; prior chat-turn retrieval and transcript-resupply fallback are not Handoff dependencies."
   ],
-  "route_count": 22,
+  "route_count": 23,
   "routes": [
     {
       "route_id": "RT.BOOT",
@@ -88,7 +88,7 @@
         "WORKING_AGREEMENT_INPUTS"
       ],
       "allowed_next_routes": [
-        "RT.ACTIVATE"
+        "RT.DURABILITY_NEGOTIATE"
       ],
       "invalidates": [],
       "does_not_bypass": [
@@ -125,7 +125,7 @@
         "RESTORED_CANDIDATE_STATE"
       ],
       "allowed_next_routes": [
-        "RT.ACTIVATE"
+        "RT.DURABILITY_NEGOTIATE"
       ],
       "invalidates": [
         "SERIALIZED_EXECUTION_AUTHORITY",
@@ -163,6 +163,43 @@
       }
     },
     {
+      "route_id": "RT.DURABILITY_NEGOTIATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "trigger": "onboarding resolved or handoff candidate state restored before activation",
+      "requires": [
+        "DEP.CANONICAL_CURRENT_STATE"
+      ],
+      "produces": [
+        "DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE",
+        "DEP.DURABILITY_NEGOTIATION_RESOLVED"
+      ],
+      "allowed_next_routes": [
+        "RT.ACTIVATE"
+      ],
+      "invalidates": [
+        "STALE_DURABILITY_PROVIDER_STATE"
+      ],
+      "does_not_bypass": [
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-021",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "failure_route": "RT.RECOVERY",
+      "source_anchor": {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "line": 0
+      },
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "inference_policy": "PROHIBITED",
+      "step_order": "STRICT",
+      "missing_input_behavior": "FAIL_CLOSED",
+      "unknown_condition_behavior": "FAIL_CLOSED",
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-DURABILITY-NEGOTIATE",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION"
+    },
+    {
       "route_id": "RT.ACTIVATE",
       "semantic_owner": "AIR_CORE_RUNTIME",
       "trigger": "onboarding resolved or handoff candidate state restored",
@@ -170,7 +207,8 @@
         "DEP.CANONICAL_INTENT_SUFFICIENT",
         "DEP.BENCHMARK_PRECHECK",
         "DEP.EXACTLY_ONE_BINDABLE_ARTIFACT",
-        "DEP.CURRENT_EVALUATION_BASIS"
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.DURABILITY_NEGOTIATION_RESOLVED"
       ],
       "produces": [
         "ARTIFACT_BOUND_EXECUTION",
@@ -1151,6 +1189,16 @@
       "formal_air_object": false,
       "positive_execution_authority": "NONE"
     },
-    "restore_target_provider_renegotiation_required": true
+    "restore_target_provider_renegotiation_required": true,
+    "durability_negotiation_route": "RT.DURABILITY_NEGOTIATE",
+    "activation_dependency": "DEP.DURABILITY_NEGOTIATION_RESOLVED"
+  },
+  "full_surface_release_hardening": {
+    "contract": "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1",
+    "hard_invariants": [
+      "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+      "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+    ],
+    "q1_recovery_route": "AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF"
   }
 }
