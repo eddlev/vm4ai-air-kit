@@ -290,6 +290,10 @@ def _finalize_current_card(
     for key in ("provider_identity","provider_generation","provider_instance_id","provider_namespace_id","provider_namespace_fingerprint","storage_location_class"):
         if source_capture.get(key) in (None, "") and capture.get(key) not in (None, ""):
             raise MigrationError(f"migrated legacy provider identity was fabricated: {key}")
+    if capture.get("provider_adapter_contract") != "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1":
+        raise MigrationError("migrated provider adapter contract mismatch")
+    if capture.get("canonicalization_contract") != "UTF8_NO_BOM_SORTED_OBJECT_KEYS_ARRAY_ORDER_PRESERVED_MINIFIED_ALLOW_NAN_FALSE_NO_PROVIDER_UNICODE_NORMALIZATION_SHA256_EXACT_BYTES":
+        raise MigrationError("migrated provider canonicalization contract mismatch")
     if capture.get("credentials_serialized") is not False:
         raise MigrationError("migrated card may not serialize provider credentials")
     return out
