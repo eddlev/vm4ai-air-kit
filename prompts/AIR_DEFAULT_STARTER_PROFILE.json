@@ -64,7 +64,9 @@
       "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
       "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
       "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
-      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+      "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+      "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
     ]
   },
   "profile_scope": {
@@ -406,7 +408,13 @@
       "transition_bundle_trigger": [
         "ORBIT_STATE_CHANGED",
         "TASK_BINDING_CHANGED"
-      ]
+      ],
+      "air_active_response_head": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "air_active_response_head_applies_from": "AIR_ENTRY_BOOTSTRAP",
+      "air_active_response_head_applies_until": "EXPLICIT_AIR_DEACTIVATION"
     },
     "deterministic_pipeline_non_inference": {
       "required": true,
@@ -588,7 +596,7 @@
         "CAPABILITY_AVAILABLE",
         "APPROVAL_PRECONDITION_SATISFIED"
       ],
-      "route_count": 22,
+      "route_count": 23,
       "events": [
         {
           "event_id": "CE-RT-BOOT",
@@ -641,6 +649,21 @@
           "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
         },
         {
+          "event_id": "CE-RT-DURABILITY-NEGOTIATE",
+          "route_id": "RT.DURABILITY_NEGOTIATE",
+          "event_source": "RUNTIME_STATE_EVENT",
+          "semantic_proposal_authority": "NONE",
+          "guards": [
+            {
+              "operator": "STATE_PRESENT",
+              "path": "DURABILITY_PROVIDER_CONFIGURATION_STATE"
+            }
+          ],
+          "guard_join": "ALL",
+          "unknown_guard_behavior": "FAIL_CLOSED",
+          "failed_guard_behavior": "NO_CONTROL_STATE_TRANSITION"
+        },
+        {
           "event_id": "CE-RT-ACTIVATE",
           "route_id": "RT.ACTIVATE",
           "event_source": "SEMANTIC_PROPOSAL_PLUS_TYPED_GUARDS",
@@ -654,6 +677,11 @@
               "operator": "STATE_EQUALS",
               "path": "BINDABLE_ARTIFACT_CANDIDATE_COUNT",
               "expected": 1
+            },
+            {
+              "operator": "STATE_EQUALS",
+              "path": "DURABILITY_NEGOTIATION_STATE",
+              "expected": "RESOLVED"
             }
           ],
           "guard_join": "ALL",
@@ -1350,7 +1378,7 @@
         "DEGRADED_INCOMPLETE",
         "FAILED_INTEGRITY"
       ],
-      "availability_resolution_deadline": "NO_LATER_THAN_FIRST_POST_ACTIVATION_CANONICAL_FORMAL_OBJECT_EMISSION",
+      "availability_resolution_deadline": "BEFORE_RT_ACTIVATE_VIA_RT_DURABILITY_NEGOTIATE",
       "qualifying_provider_rule": "RUNTIME_CONTROLLED_WRITE_PLUS_EXACT_READBACK_PLUS_LATER_STABLE_RETRIEVAL_INDEPENDENT_OF_MODEL_CONTEXT_WINDOW",
       "non_qualifying_sources": [
         "CURRENT_CONTEXT_WINDOW",
@@ -1438,7 +1466,7 @@
       "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
       "provider_adapter_state_class": "DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE",
       "provider_adapter_state_is_formal_air_object": false,
-      "provider_probe_required_by": "NO_LATER_THAN_FIRST_POST_ACTIVATION_CANONICAL_FORMAL_OBJECT_EMISSION",
+      "provider_probe_required_by": "BEFORE_RT_ACTIVATE_VIA_RT_DURABILITY_NEGOTIATE",
       "provider_change_requires_reprobe": true,
       "allowed_durability_states": [
         "AVAILABLE_VERIFIED",
@@ -1461,7 +1489,101 @@
       },
       "generation_evaluation_serialized_carrier": "AIR_HANDOFF_CARD.evaluation_basis",
       "root_handoff_generation_evaluation_field": "PROHIBITED",
-      "restore_provider_state_rule": "TARGET_SESSION_RENEGOTIATES_PROVIDER; SOURCE_CARD_DURABILITY_IS_NONAUTHORIZING_TRANSFER_PROVENANCE"
+      "restore_provider_state_rule": "TARGET_SESSION_RENEGOTIATES_PROVIDER; SOURCE_CARD_DURABILITY_IS_NONAUTHORIZING_TRANSFER_PROVENANCE",
+      "negotiation_route": "RT.DURABILITY_NEGOTIATE",
+      "activation_dependency": "DEP.DURABILITY_NEGOTIATION_RESOLVED"
+    },
+    "always_visible_alignment_validation": {
+      "required": true,
+      "floor_invariant": "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+      "applies_from": "AIR_ENTRY_BOOTSTRAP",
+      "applies_until": "EXPLICIT_AIR_DEACTIVATION",
+      "required_pair": [
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT"
+      ],
+      "bootstrap_profile": "BOOTSTRAP",
+      "onboarding_profile": "ONBOARDING",
+      "minimum_object_mode_can_suppress": false,
+      "failure_behavior": "FAIL_CLOSED_BEFORE_ORDINARY_GOVERNED_CONTINUATION"
+    },
+    "new_task_artifact_visibility": {
+      "required": true,
+      "floor_invariant": "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION",
+      "triggers": [
+        "INITIAL_TASK_BINDING",
+        "NEW_TASK_BOUNDARY",
+        "TASK_IDENTITY_REPLACEMENT",
+        "ORBIT_PROMOTION_TO_0",
+        "PAUSED_TASK_RESUME",
+        "ROADMAP_TASK_PROGRESSION"
+      ],
+      "required_object": "AIR_ARTIFACT",
+      "same_transition_response": true,
+      "before_task_work": true,
+      "minimum_object_mode_can_suppress": false
+    },
+    "durable_provenance_provider_adapter_execution": {
+      "required": true,
+      "contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+      "core_patch_marker": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_EXECUTION_V1",
+      "negotiation_route": "RT.DURABILITY_NEGOTIATE",
+      "activation_dependency": "DEP.DURABILITY_NEGOTIATION_RESOLVED",
+      "provider_operations": [
+        "describe_provider",
+        "probe_write",
+        "probe_readback",
+        "stable_retrieve",
+        "open_project_namespace",
+        "prepare_snapshot",
+        "read_snapshot",
+        "commit_visible",
+        "mark_orphaned",
+        "retrieve_committed_range",
+        "verify_coverage",
+        "cleanup_probe"
+      ],
+      "reference_adapters": [
+        "adapters/durable_provenance/filesystem.py",
+        "adapters/durable_provenance/sqlite.py"
+      ],
+      "bootstrap_probe_scope": "ISOLATED_NON_PROJECT_PROBE_BYTES_ONLY",
+      "bootstrap_probe_execution_authority": "NONE",
+      "third_party_provider_authorization": "EXPLICIT_REQUIRED",
+      "canonical_json_contract": "UTF8_NO_BOM_SORTED_OBJECT_KEYS_ARRAY_ORDER_PRESERVED_MINIFIED_ALLOW_NAN_FALSE_NO_PROVIDER_UNICODE_NORMALIZATION_SHA256_EXACT_BYTES",
+      "namespace_isolation": "OPAQUE_PROJECT_NAMESPACE_REQUIRED",
+      "late_provider_rule": "NO_RETROACTIVE_NATIVE_STRICT_HISTORY"
+    },
+    "full_surface_integrity_audit": {
+      "required_for_candidate_and_public_release": true,
+      "contract": "AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1",
+      "public_release_gate": "AIR_PUBLIC_RELEASE_GATE_V1",
+      "roots": [
+        "prompts",
+        "catalog",
+        "profiles"
+      ],
+      "coverage_manifest": "tests/air_full_surface_coverage_manifest.json",
+      "scenario_matrix": "tests/air_full_surface_scenario_matrix.json",
+      "allowed_terminal_states": [
+        "PASS",
+        "NOT_APPLICABLE_WITH_EVIDENCE"
+      ],
+      "blocking_states": [
+        "NOT_TESTED",
+        "UNKNOWN",
+        "PARTIAL",
+        "STALE",
+        "UNCLASSIFIED",
+        "FAILED",
+        "WAIVED_FOR_HARD_INVARIANT"
+      ],
+      "hard_floor_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ],
+      "executor_release_rule": "REQUIRED_PACKAGE_EXECUTOR_VALIDATED_NON_DRAFT_INTEGRAL_COMPONENT",
+      "release_claim_boundary": "NO_KNOWN_OR_UNTESTED_GAP_WITHIN_DECLARED_AIR_PUBLIC_RELEASE_CONTRACT_SURFACE"
     }
   },
   "bootstrap_contract": {
@@ -1551,7 +1673,15 @@
       "handoff_rule": "If purpose remains materially unresolved, preserve that state explicitly rather than serializing the activity or deliverable as an invented purpose.",
       "smallest_sufficient_input_rule": "Do not ask for information AIR can reliably derive or obtain from already available authorized evidence; request only the smallest input that resolves the material uncertainty."
     },
-    "entry_path_q1_separation_rule": "Selecting FIRST_ACTIVATION_FLOW from wording such as Start a new AIR project selects only the entry path. Q1 remains UNRESOLVED until an allowed Core answer source resolves it."
+    "entry_path_q1_separation_rule": "Selecting FIRST_ACTIVATION_FLOW from wording such as Start a new AIR project selects only the entry path. Q1 remains UNRESOLVED until an allowed Core answer source resolves it.",
+    "q1_routes": {
+      "A": "NEW_PROJECT_BOOTSTRAP",
+      "B": "IMPORT_NON_AIR_PROJECT_BOOTSTRAP",
+      "C": "HANDOFF_CONTINUATION_BOOTSTRAP",
+      "D": "INSTRUCTIONAL_ONLY",
+      "E": "AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF"
+    },
+    "q1_e_authority_boundary": "FRESH_CURRENT_AUTHORITY_NO_HISTORICAL_APPROVAL_GATE_AUTHORIZATION_ARTIFACT_BINDING_LEDGER_OR_STRICT_PROVENANCE_RESTORE"
   },
   "capability_posture": {
     "vector_family_preferences": {
@@ -1785,6 +1915,7 @@
       ],
       "alignment_evaluation_profile": [
         "BOOTSTRAP",
+        "ONBOARDING",
         "ACTIVATION",
         "TURN_ENTRY",
         "STATE_TRANSITION",
@@ -2425,7 +2556,12 @@
     "receiver_delivery_rule": "Receiver delivery follows Core RT.DELIVER only after output review, benchmark judgment, semantic fidelity reconciliation, epistemic sufficiency, and the applicable closure/delivery AIR_GATE.",
     "no_narrative_substitution": true,
     "test_evidence_delivery_rule": "Evidence presentation may be standard or expanded, but presentation never changes evidence acquisition, preservation, classification, reproducibility, approval, or closure obligations. Expanded presentation surfaces additional available evidence identities and records.",
-    "default_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION"
+    "default_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "mandatory_air_active_response_head": [
+      "AIR_ALIGNMENT_CHECK",
+      "AIR_VALIDATION_REPORT"
+    ],
+    "mandatory_air_active_response_head_suppressible": false
   },
   "handoff_contract": {
     "template_owner": "AIR_HANDOFF_CARD_TEMPLATE_V2",

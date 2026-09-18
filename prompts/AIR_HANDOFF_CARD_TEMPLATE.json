@@ -2433,7 +2433,18 @@
         "portable_handoff_eligibility": "UNVALIDATED_TEMPLATE",
         "live_session_owner_path": "AIR_SESSION.handoff_durability_state",
         "provider_adapter_contract": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
-        "source_card_durability_authority_on_restore": "NONE_TRANSFER_PROVENANCE_ONLY"
+        "source_card_durability_authority_on_restore": "NONE_TRANSFER_PROVENANCE_ONLY",
+        "canonicalization_contract": "UTF8_NO_BOM_SORTED_OBJECT_KEYS_ARRAY_ORDER_PRESERVED_MINIFIED_ALLOW_NAN_FALSE_NO_PROVIDER_UNICODE_NORMALIZATION_SHA256_EXACT_BYTES",
+        "provider_identity": null,
+        "provider_generation": null,
+        "provider_instance_id": null,
+        "provider_namespace_id": null,
+        "provider_namespace_fingerprint": null,
+        "storage_location_class": null,
+        "provider_authorization_state_at_capture": "UNVALIDATED_TEMPLATE",
+        "retention_policy": null,
+        "deletion_policy": null,
+        "credentials_serialized": false
       }
     },
     "handoff_mode_state": {

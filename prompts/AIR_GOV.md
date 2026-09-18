@@ -562,3 +562,18 @@ Failure-mode records are evidence/constraint records, not blame records, policy 
 Specialist packages and governance projections consume applicable Core failure-mode records under the same exact-match/Artifact-compilation boundary and may not maintain a conflicting private failure registry.
 
 AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2
+
+
+==================================================
+DURABLE PROVIDER AUTHORIZATION GOVERNANCE
+==================================================
+Patch marker: AIR_GOVERNANCE_DURABILITY_PROVIDER_AUTHORIZATION_V1
+
+A local filesystem or SQLite durability provider may use provider_authorization_state = NOT_REQUIRED_LOCAL. Any third-party durability provider requires explicit current authorization before probe_write or project persistence. AIR may not infer authorization from a connected account, remembered preference, provider availability, or prior session. Credentials, tokens, passwords, secret keys, and credential handles are never serialized into AIR Session, Handoff, provenance, ledger, validation, or release evidence. Revocation invalidates future writes and requires re-negotiation; persistence still grants no execution authority.
+
+==================================================
+SPECIALIST EXECUTOR RELEASE INTEGRITY GOVERNANCE
+==================================================
+Patch marker: AIR_GOVERNANCE_SPECIALIST_EXECUTOR_RELEASE_INTEGRITY_V1
+
+A package-declared required AIR_EXECUTOR is an integral Specialist package component. For a public/released Specialist package it must be individually validated and represented in a validated non-draft availability state. A released package may not carry DRAFT, AVAILABLE_UNVALIDATED, EXECUTOR_DRAFT_UNVALIDATED, or equivalent wording for that required Executor. Promotion requires component identity/integrity validation plus applicable static, behavioral, authority-boundary, mutation, and package-closure evidence. Executor validation does not create agenthood and never grants Orbit 0, approval, Gate, Artifact binding, or material-action authority independently.

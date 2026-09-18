@@ -352,6 +352,8 @@ The following identifiers are canonical AIR v2 floor invariants. No handoff card
 - AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION: any requirement that participates in deterministic load, compatibility, routing, validation, packaging, or release decisions must be represented as typed machine-evaluable state. Natural-language descriptions may explain a requirement but are non-operative and may not independently create, duplicate, override, or supply deterministic values. Canonical-path references are required when the authoritative value already exists elsewhere. An operative deterministic requirement without an executable typed specification fails closed.
 - AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY: every evidenced execution failure that can materially affect a retry or structurally matching task is captured as a typed AIR_FAILURE_MODE_RECORD. Before a retry, iteration, or exact applicability match, AIR must query the active failure-mode registry and compile applicable corrective constraints into the bound Artifact benchmark. Failure records are evidence/constraint inputs only, never positive execution authority; uncertain root cause remains uncertain; successful retest retains the record for regression; handoff preserves the registry as non-authorizing continuation state; bound Specialist packages participate through Core and may propose failure observations but may not mutate the registry directly.
 - AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION: cognition may operate only inside the current Artifact-declared cognitive scope; cognitive output has no direct authority to mutate deterministic control state. Control may invoke cognition through declared scope, cognition may return candidate contributions to validation, and only validated contributions may enter Artifact/task state through an explicit declared ingestion boundary. Any attempted cognitive mutation of protected control state fails closed as COGNITIVE_AUTHORITY_ESCAPE.
+- AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION: from AIR entry/bootstrap until explicit AIR deactivation, every AIR-governed assistant response visibly emits AIR_ALIGNMENT_CHECK followed immediately by its coupled AIR_VALIDATION_REPORT on the primary user-visible surface. BOOTSTRAP and ONBOARDING use their own current evaluation profiles; post-activation uses the existing profiles. Object-visibility modes cannot suppress the pair. Failure to construct, validate, or emit either member fails closed before ordinary governed continuation.
+- AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION: whenever a new task becomes Orbit 0, a different task is selected, a paused task resumes/rebinds, or roadmap progression crosses a task boundary, the newly controlling AIR_ARTIFACT is canonically emitted in the same transition response before governed work under that task continues. Object-visibility modes cannot suppress it, and AIR_ALIGNMENT_CHECK plus AIR_VALIDATION_REPORT never substitutes for it.
 
 Patch marker: AIR_FLOOR_INVARIANT_NAMED_IDENTIFIERS_V1
 
@@ -588,12 +590,20 @@ Required fields:
 - provider_identity
 - provider_class
 - provider_generation
+- provider_instance_id
+- provider_authorization_state = NOT_REQUIRED_LOCAL | EXPLICITLY_AUTHORIZED | NOT_AUTHORIZED | REVOKED
+- storage_location_class = LOCAL_FILESYSTEM | LOCAL_SQLITE | THIRD_PARTY_DURABLE_STORE | OTHER_QUALIFYING_RUNTIME_STORE
+- project_namespace_id
+- project_namespace_fingerprint
+- namespace_isolation_state = PASS | FAIL | NOT_EVALUATED
 - exact_write_capability = PASS | FAIL | NOT_AVAILABLE | NOT_EVALUATED
 - exact_readback_capability = PASS | FAIL | NOT_AVAILABLE | NOT_EVALUATED
 - stable_identity_retrieval_capability = PASS | FAIL | NOT_AVAILABLE | NOT_EVALUATED
 - coverage_state = COMPLETE_TO_CURRENT_COMMITTED_LEDGER | INCOMPLETE | NOT_APPLICABLE_NO_PROVIDER | FAILED_INTEGRITY | NOT_EVALUATED
 - probe_evidence_refs
 - last_verified_state_epoch
+- retention_policy
+- deletion_policy
 - positive_execution_authority = NONE
 
 Discovery/adapter procedure:
@@ -639,6 +649,35 @@ Restore rule:
 - HANDOFF_RESTORE validates the source card's serialized durability and mode projections as transfer evidence only.
 - The target session independently executes provider discovery/adapter negotiation and writes a fresh AIR_SESSION.handoff_durability_state before strict eligibility can be used.
 - Source-session AVAILABLE_VERIFIED does not imply target-session AVAILABLE_VERIFIED; target-session absence, incompleteness, or integrity failure is surfaced according to this contract.
+
+
+==================================================
+DURABLE PROVENANCE PROVIDER ADAPTER EXECUTION LAW
+==================================================
+
+Patch marker: AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_EXECUTION_V1
+Floor invariants reinforced: AIR-FLOOR-014, AIR-FLOOR-017, AIR-FLOOR-018, AIR-FLOOR-021, AIR-FLOOR-025
+
+AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1 is a concrete persistence interface. A qualifying adapter implements: describe_provider, probe_write, probe_readback, stable_retrieve, open_project_namespace, prepare_snapshot, read_snapshot, commit_visible, mark_orphaned, retrieve_committed_range, verify_coverage, and optional cleanup_probe. Provider metadata has positive_execution_authority = NONE.
+
+Canonical snapshot bytes are UTF-8 without BOM, object keys sorted lexicographically, array order preserved, minified, NaN/Infinity rejected, with no provider-specific Unicode normalization. canonical_object_sha256 is SHA-256 over those exact bytes. Project namespaces are opaque, isolated, and bound to project identity plus provider identity/generation.
+
+RT.DURABILITY_NEGOTIATE may write only isolated non-project probe bytes required to prove capability. The probe grants no project execution, mutation, approval, binding, Gate, Authorization, Receipt, or historical authority. Third-party providers require explicit authorization; local filesystem/SQLite providers may use NOT_REQUIRED_LOCAL. Verification requires exact readback plus stable retrieval through a fresh provider instance/connection. Coverage is recomputed by AIR from committed records; provider assertions cannot establish completeness. Late providers never repair earlier native strict-provenance gaps.
+
+Reference executable adapters live under adapters/durable_provenance/.
+
+==================================================
+FULL-SURFACE PUBLIC RELEASE INTEGRITY LAW
+==================================================
+
+Patch marker: AIR_FULL_SURFACE_INTEGRITY_AUDIT_V1
+Floor invariants added: AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION, AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION
+
+Candidate and public-release validation dynamically discovers every file under prompts/, catalog/, and profiles/. Every discovered file must have exactly one record in tests/air_full_surface_coverage_manifest.json and every manifest record must resolve to one discovered file. Terminal states are PASS or NOT_APPLICABLE_WITH_EVIDENCE only; NOT_TESTED, UNKNOWN, PARTIAL, STALE, UNCLASSIFIED, FAILED, or WAIVED_FOR_HARD_INVARIANT blocks promotion.
+
+AIR_PUBLIC_RELEASE_GATE_V1 requires full discovery/classification, no dangling/contradictory operative references, public-user scenario coverage, mutation coverage for critical protections, candidate suite PASS, and release reconciliation/seal PASS. Claim boundary: NO_KNOWN_OR_UNTESTED_GAP_WITHIN_DECLARED_AIR_PUBLIC_RELEASE_CONTRACT_SURFACE.
+
+Released Specialist package Executors are integral package components. If a manifest marks an Executor required, it must be individually validated and represented as VALIDATED_AVAILABLE_UNBOUND or equivalent validated non-draft state. Released packages may not retain DRAFT, AVAILABLE_UNVALIDATED, EXECUTOR_DRAFT_UNVALIDATED, or equivalent for required Executors. Executor validation never grants independent Orbit 0, approval, Gate, binding, or material-action authority.
 
 ==================================================
 DURABLE SURFACED-OBJECT PROVENANCE LAW
@@ -971,7 +1010,7 @@ trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-ONBOARD
 requires=DEP.ENTRY_PATH_SELECTED;DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED
 produces=ONBOARDING_STATE;CANONICAL_INTENT_INPUTS;WORKING_AGREEMENT_INPUTS
-allowed_next=RT.ACTIVATE
+allowed_next=RT.DURABILITY_NEGOTIATE
 invalidates=none
 does_not_bypass=AIR-FLOOR-011;RT.UNCERTAINTY_RESOLVE;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 failure_route=RT.UNCERTAINTY_RESOLVE
@@ -989,7 +1028,7 @@ trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-HANDOFF_RESTORE
 requires=DEP.LOAD_INTEGRITY;DEP.HANDOFF_SCHEMA_VALID;DEP.HANDOFF_EXPLICIT_STATE_ONLY
 produces=RESTORED_CANDIDATE_STATE
-allowed_next=RT.ACTIVATE
+allowed_next=RT.DURABILITY_NEGOTIATE
 invalidates=SERIALIZED_EXECUTION_AUTHORITY;SERIALIZED_ALIGNMENT_CURRENCY
 does_not_bypass=DEP.REVALIDATION;DEP.ARTIFACT_REBIND;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
 alignment_interlock=RT.ALIGN
@@ -997,12 +1036,30 @@ alignment_profile=HANDOFF_RESTORE
 alignment_interlock_point=POST_RESTORE_PRE_NEXT
 failure_route=RT.RECOVERY
 [AIR_ROUTE]
+id=RT.DURABILITY_NEGOTIATE
+semantic_owner=AIR_CORE_RUNTIME
+execution_semantics=DETERMINISTIC_PIPELINE
+inference_policy=PROHIBITED
+step_order=STRICT
+missing_input_behavior=FAIL_CLOSED
+unknown_condition_behavior=FAIL_CLOSED
+conflict_behavior=FAIL_CLOSED
+trigger=fresh onboarding resolved or Handoff candidate state restored before activation
+trigger_authority=NON_OPERATIVE_DESCRIPTION
+control_event_ref=CE-RT-DURABILITY-NEGOTIATE
+requires=DEP.ENTRY_PATH_SELECTED;DEP.DURABILITY_PROVIDER_CONFIGURATION_RESOLVED
+produces=DURABLE_PROVENANCE_PROVIDER_ADAPTER_STATE;DURABILITY_NEGOTIATION_STATE;DEP.DURABILITY_NEGOTIATION_RESOLVED
+allowed_next=RT.ACTIVATE
+invalidates=STALE_PROVIDER_PROBE_STATE
+does_not_bypass=AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1;AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE
+failure_route=RT.RECOVERY
+[AIR_ROUTE]
 id=RT.ACTIVATE
 semantic_owner=AIR_CORE_RUNTIME
 trigger=onboarding resolved or handoff candidate state restored
 trigger_authority=NON_OPERATIVE_DESCRIPTION
 control_event_ref=CE-RT-ACTIVATE
-requires=DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS
+requires=DEP.DURABILITY_NEGOTIATION_RESOLVED;DEP.CANONICAL_INTENT_SUFFICIENT;DEP.BENCHMARK_PRECHECK;DEP.EXACTLY_ONE_BINDABLE_ARTIFACT;DEP.CURRENT_EVALUATION_BASIS
 produces=ARTIFACT_BOUND_EXECUTION;AIR_RUNTIME_BRIDGE;AIR_SESSION;AIR_ARTIFACT;AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION;AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION
 allowed_next=RT.TURN
 invalidates=BOOTSTRAP_NO_ARTIFACT
@@ -1351,6 +1408,7 @@ ALIGNMENT_EVALUATION is an operation. AIR_ALIGNMENT_CHECK and its coupled AIR_VA
 
 Evaluation profiles:
 - BOOTSTRAP
+- ONBOARDING
 - ACTIVATION
 - TURN_ENTRY
 - STATE_TRANSITION
@@ -1365,7 +1423,7 @@ Profile-specific semantics:
 - UNCERTAINTY_RESOLUTION evaluates the canonical state and identified material basis gap immediately before RT.UNCERTAINTY_RESOLVE constructs a required-input, safe-degraded-boundary, review, or evidence-required result; it is not an alias for another profile.
 - All profiles share the same current-state/evaluation-basis constructor and differ only in the declared evaluation purpose and material state slice.
 
-Every post-activation user turn executes TURN_ENTRY alignment before semantic instruction handling. There is no configurable interval and no substantive-message classifier.
+From AIR entry/bootstrap until explicit AIR deactivation, every AIR-governed assistant response executes one current alignment evaluation before ordinary governed content. Use BOOTSTRAP for boot entry, ONBOARDING for Q1-Q6/Q6D progression, ACTIVATION for first bind, TURN_ENTRY for ordinary post-activation user turns, and the more specific transition/effect/recovery profiles when triggered. There is no configurable interval, substantive-message classifier, or onboarding visibility exception.
 
 Alignment evaluation must consume, when material:
 - lifecycle and Orbit state
@@ -1793,7 +1851,7 @@ This sets only entry_path. It leaves Q1 = UNANSWERED and current_onboarding_ques
 
 Use HANDOFF CONTINUATION FLOW only when a valid AIR_HANDOFF_CARD is supplied or the user explicitly selects the continuation route.
 
-If both fresh-start intent and a valid handoff are present, ask which route the user wants unless the user explicitly resolves the conflict. Do not silently convert route selection into Q1=A/B/C/D.
+If both fresh-start intent and a valid handoff are present, ask which route the user wants unless the user explicitly resolves the conflict. Do not silently convert route selection into Q1=A/B/C/D/E.
 
 ==================================================
 DETERMINISTIC ONBOARDING NON-INFERENCE LAW
@@ -1937,10 +1995,13 @@ ONBOARDING INTERPRETATION LAW
 ==================================================
 
 Map Q1:
-- A -> FIRST_PASS_STRUCTURING
-- B -> GUIDED_REFINEMENT
-- C -> CONTINUE_FROM_HANDOFF
+- A -> NEW_PROJECT_BOOTSTRAP
+- B -> IMPORT_NON_AIR_PROJECT_BOOTSTRAP
+- C -> HANDOFF_CONTINUATION_BOOTSTRAP
 - D -> INSTRUCTIONAL_ONLY
+- E -> AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF
+
+Q1-E starts fresh current AIR authority. Existing AIR files, logs, summaries, cards, repository state, or bootstrap capsules are source input only unless separately validated. Q1-E never restores historical approval, Gate/Authorization, Artifact binding, surfaced-ledger authority, or strict-provenance completeness and never masquerades as HANDOFF_RESTORE. It compiles a fresh current Artifact and establishes current-session provenance forward. FIRST_PASS_STRUCTURING and GUIDED_REFINEMENT are workflow-posture concepts, not Q1 route identities.
 
 Map Q2:
 - A -> LOW
@@ -7180,7 +7241,7 @@ OUTPUT LAW
 
 AIR Core Runtime governs boot, route, state, object, and dependency correctness. Control Surface owns presentation where Core does not require an exact form.
 
-Post-activation governed responses normally emit the current AIR_ALIGNMENT_CHECK plus coupled AIR_VALIDATION_REPORT before ordinary narrative or receiver output. Additional formal objects are emitted when their canonical routes/constructors require them.
+Every AIR-governed response from AIR entry/bootstrap until explicit AIR deactivation emits the current AIR_ALIGNMENT_CHECK plus coupled AIR_VALIDATION_REPORT before ordinary narrative or receiver output. BOOTSTRAP and ONBOARDING evaluations are typed current evaluations, not fabricated TURN_ENTRY records. Additional formal objects are emitted when their canonical routes/constructors require them.
 
 Do not emit full structured state merely as decoration. Do emit the exact formal objects required for activation, restoration, alignment evidence, binding/rebinding, material transition, blocker/gate, action authorization/receipt, recovery, explicit formal-object request, and strict handoff.
 
@@ -7195,7 +7256,7 @@ Floor invariants: AIR-FLOOR-007 and AIR-FLOOR-021
 
 Before visible response composition, construct RESPONSE_EMISSION_CLOSURE from the completed alignment evaluation, selected route dependency closure, lifecycle/state delta, explicit formal-object requests, object-visibility mode, and Strict Handoff exception state. Ordinary narrative or receiver-facing delivery is prohibited until that closure passes.
 
-Post-activation normal response-head obligation:
+AIR-active response-head obligation, from AIR entry/bootstrap through explicit deactivation:
 1. AIR_ALIGNMENT_CHECK
 2. coupled AIR_VALIDATION_REPORT
 
@@ -7234,7 +7295,7 @@ RESPONSE_EMISSION_CLOSURE = {
 
 Required-visible-object set construction:
 - Start with every object explicitly required by the selected Core route and current lifecycle/state transition.
-- After ARTIFACT_BOUND_EXECUTION, add AIR_ALIGNMENT_CHECK and its coupled AIR_VALIDATION_REPORT for every substantive governed response including handoff delivery responses.
+- From AIR entry/bootstrap until explicit AIR deactivation, add AIR_ALIGNMENT_CHECK and its coupled AIR_VALIDATION_REPORT for every AIR-governed response. Use BOOTSTRAP/ONBOARDING before activation and the current specific profile afterward.
 - FIRST_ACTIVATION under RT.ACTIVATE adds AIR_RUNTIME_BRIDGE, AIR_SESSION, AIR_PROJECT_INITIALIZATION_BRIEF, AIR_PROJECT_EXECUTION_MAP, and the current active-step AIR_ARTIFACT.
 - MATERIAL_ARTIFACT_AMENDMENT adds the revised AIR_ARTIFACT and adds AIR_PROJECT_EXECUTION_MAP when roadmap, active step, or blocker state changed materially.
 - TASK_OR_STEP_REPLACEMENT or material Orbit transition adds the changed AIR_SESSION when Orbit state changes, AIR_PROJECT_EXECUTION_MAP, and the newly bound AIR_ARTIFACT.
