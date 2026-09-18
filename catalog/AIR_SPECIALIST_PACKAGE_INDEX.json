@@ -212,9 +212,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260915_V1",
         "filename": "tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -223,7 +223,8 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": false,
+        "executor_validation_basis": "STATIC_PACKAGE_COMPONENT_VALIDATION; EXECUTOR-SPECIFIC BEHAVIORAL PASS REQUIRED BEFORE ANY EXECUTION CLAIM"
       }
     },
     {
@@ -315,9 +316,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
         "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -326,7 +327,8 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": false,
+        "executor_validation_basis": "STATIC_PACKAGE_COMPONENT_VALIDATION; EXECUTOR-SPECIFIC BEHAVIORAL PASS REQUIRED BEFORE ANY EXECUTION CLAIM"
       }
     },
     {
@@ -415,9 +417,9 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_STATIC_VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND",
       "behavioral_evidence_ref": {
         "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1",
         "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json",
@@ -426,7 +428,8 @@
         "scenario_count": 6,
         "pass_count": 6,
         "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
+        "executor_included_in_behavioral_pass": false,
+        "executor_validation_basis": "STATIC_PACKAGE_COMPONENT_VALIDATION; EXECUTOR-SPECIFIC BEHAVIORAL PASS REQUIRED BEFORE ANY EXECUTION CLAIM"
       }
     }
   ],
@@ -454,5 +457,12 @@
     "released_state": "RELEASE_CATALOG_ENTRY",
     "candidate_states_are_release_sealed": false,
     "authority_effect": "DISCOVERY_METADATA_ONLY_NO_SELECTION_APPROVAL_BINDING_OR_EXECUTION_AUTHORITY"
+  },
+  "executor_component_policy": {
+    "required_executor_integral_to_declaring_package": true,
+    "current_candidate_required_state": "VALIDATED_AVAILABLE_UNBOUND",
+    "draft_or_unvalidated_release_label_prohibited": true,
+    "independent_execution_authority": false,
+    "package_binding_authority": "NONE"
   }
 }
