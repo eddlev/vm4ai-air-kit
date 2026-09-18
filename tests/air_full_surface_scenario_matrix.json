@@ -1,0 +1,186 @@
+{
+  "contract_id": "AIR_PUBLIC_RELEASE_GATE_V1",
+  "scenario_count": 20,
+  "scenarios": [
+    {
+      "scenario_id": "FS-01",
+      "name": "fresh user -> Q1-A -> onboarding -> activation",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-02",
+      "name": "existing non-AIR project -> Q1-B",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-03",
+      "name": "valid Handoff -> Q1-C restore",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-04",
+      "name": "explain-first -> Q1-D -> return Q1",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-05",
+      "name": "existing AIR project without Handoff -> Q1-E fresh authority",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-06",
+      "name": "proceed crosses task boundary; new Artifact visible",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-07",
+      "name": "explicit switch task A to B; transition bundle complete",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-08",
+      "name": "resume paused task; Artifact re-emitted/rebound",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-09",
+      "name": "air -o -min cannot suppress alignment/validation or transition Artifact",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-10",
+      "name": "ordinary governed turn visibly emits alignment/validation",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-11",
+      "name": "approval turn visibly emits alignment/validation",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-12",
+      "name": "failed validation/recovery has no default-host fallback",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-13",
+      "name": "strict Handoff create with verified durable provenance",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-14",
+      "name": "portable Handoff create when strict unavailable",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-15",
+      "name": "Handoff restore negotiates target-session provider",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-16",
+      "name": "Specialist bind plus task change",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-17",
+      "name": "Method Pack active plus Handoff",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-18",
+      "name": "required Executor is integral validated-unbound package component",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-19",
+      "name": "route/catalog/profile corruption mutation fails full audit",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    },
+    {
+      "scenario_id": "FS-20",
+      "name": "new unmanifested governed file fails full audit",
+      "expected": "PASS",
+      "required_invariants": [
+        "AIR-FLOOR-029-MANDATORY-VISIBLE-ALIGNMENT-AND-VALIDATION",
+        "AIR-FLOOR-030-NEW-TASK-ARTIFACT-VISIBLE-BEFORE-CONTINUATION"
+      ]
+    }
+  ]
+}
