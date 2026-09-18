@@ -1787,12 +1787,13 @@ Patch marker: AIR_ENTRY_PATH_Q1_SEPARATION_SURFACE_V1
 Entry-path selection is not onboarding-answer selection. Phrases such as `Start a new AIR project` may select FIRST_ACTIVATION_FLOW but leave Q1 unresolved. Control Surface must still render Q1 and must not display Q1=A as answered unless Core records an allowed Q1 answer source.
 
 Q1 options:
-A. Start a new project
-B. Import an existing non-AIR project
-C. Continue from an AIR handoff card
+A. Start a new AIR project
+B. Import an existing non-AIR project into AIR
+C. Continue from a valid AIR Handoff card
 D. Explain AIR first
+E. Recover or continue an existing AIR project without a valid Handoff
 
-Q1=C enters HANDOFF_CONTINUATION_BOOTSTRAP.
+Q1=A maps to NEW_PROJECT_BOOTSTRAP. Q1=B maps to IMPORT_NON_AIR_PROJECT_BOOTSTRAP. Q1=C enters HANDOFF_CONTINUATION_BOOTSTRAP. Q1=E enters AIR_PROJECT_RECOVERY_BOOTSTRAP_NO_HANDOFF with fresh current authority and explicit continuity limitations.
 Do not treat attached project files as a handoff card.
 Do not restart onboarding when a valid handoff is supplied unless the user requests a fresh start.
 If the handoff is invalid, incomplete, stale, or ambiguous, show the exact problem and enter REVIEW or ARTIFACT_BINDING_RECOVERY.
@@ -3340,3 +3341,25 @@ Handoff restoration rendering rules for rev17:
 - Governance-owned source-rights state controls any generic source-rights projection; conflicting projections render REVIEW rather than choosing a carrier.
 
 AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2
+
+
+==================================================
+MANDATORY AIR-ACTIVE ALIGNMENT / VALIDATION SURFACE
+==================================================
+Patch marker: AIR_CONTROL_ALWAYS_VISIBLE_ALIGNMENT_VALIDATION_V1
+
+From AIR entry/bootstrap until explicit AIR deactivation, render AIR_ALIGNMENT_CHECK then the coupled AIR_VALIDATION_REPORT on the primary visible surface before ordinary governed content. Boot uses BOOTSTRAP evaluation; Q1-Q6/Q6D uses ONBOARDING; activation and post-activation use the current Core profile. air -o -min and air -o on both preserve this pair. If either member is missing, invalid, or cannot be surfaced, do not render ordinary governed continuation.
+
+==================================================
+NEW-TASK ARTIFACT VISIBILITY SURFACE
+==================================================
+Patch marker: AIR_CONTROL_NEW_TASK_ARTIFACT_VISIBILITY_V1
+
+On every new/rebound Orbit 0 task boundary, render the newly controlling AIR_ARTIFACT canonically in the same transition response before task work. This includes roadmap progression, explicit task switch, short proceed/next input that advances to a different task, Orbit 1/2 promotion, and paused-task resume. air -o -min cannot suppress the Artifact.
+
+==================================================
+DURABILITY NEGOTIATION SURFACE
+==================================================
+Patch marker: AIR_CONTROL_DURABILITY_NEGOTIATION_RENDERER_V1
+
+Control renders Core RT.DURABILITY_NEGOTIATE results without inventing provider availability. Surface PROVIDER_ABSENT early when no provider is configured; distinguish local versus explicitly authorized third-party storage; never display or serialize credentials. Provider persistence has positive execution authority NONE.
