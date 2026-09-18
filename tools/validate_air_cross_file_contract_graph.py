@@ -114,6 +114,8 @@ def build_graph(root: Path) -> dict[str, Any]:
             continue
         rn = node(f"ROUTE::{rid}", "ROUTE", route_id=rid, semantic_owner=route.get("semantic_owner"))
         route_nodes[rid] = rn
+        if route.get("semantic_owner") != "AIR_CORE_RUNTIME":
+            errors.append(f"ROUTE_SEMANTIC_OWNER_MISMATCH:{rid}:{route.get('semantic_owner')}")
         if core_file:
             edge(core_file, rn, "OWNS")
         if route_file:
@@ -179,6 +181,7 @@ def build_graph(root: Path) -> dict[str, Any]:
 
     manifest_paths = [p for p in file_paths if p.startswith("profiles/") and p.endswith("PACKAGE_MANIFEST.json")]
     manifest_nodes = {}
+    manifest_executor_states = {}
     for path in manifest_paths:
         mn = node(f"MANIFEST::{path}", "MANIFEST", canonical_path=path)
         manifest_nodes[path] = mn
@@ -194,6 +197,13 @@ def build_graph(root: Path) -> dict[str, Any]:
             cn = node(f"PROFILE_PACKAGE_COMPONENT::{cp}", "PROFILE_PACKAGE_COMPONENT", canonical_path=cp, status=comp.get("status"), availability_state=comp.get("availability_state"))
             edge(mn, cn, "PACKAGES")
             edge(cn, file_nodes[cp], "SERIALIZES")
+            if filename.endswith("_EXECUTOR.json"):
+                state = comp.get("availability_state")
+                manifest_executor_states[path] = state
+                if comp.get("status") in {"DRAFT", "AVAILABLE_UNVALIDATED", "EXECUTOR_DRAFT_UNVALIDATED"} or state in {"DRAFT", "AVAILABLE_UNVALIDATED", "EXECUTOR_DRAFT_UNVALIDATED"}:
+                    errors.append(f"MANIFEST_EXECUTOR_STALE_DRAFT:{path}:{filename}")
+                if state != "VALIDATED_AVAILABLE_UNBOUND":
+                    errors.append(f"MANIFEST_EXECUTOR_STATE_INVALID:{path}:{filename}:{state}")
 
     # Specialist index must resolve exactly to on-disk manifests.
     indexed_manifest_paths = set()
@@ -210,8 +220,12 @@ def build_graph(root: Path) -> dict[str, Any]:
         mp = matches[0]
         indexed_manifest_paths.add(mp)
         edge(en, manifest_nodes.get(mp) or node(f"MANIFEST::{mp}", "MANIFEST", canonical_path=mp), "INDEXES")
-        if entry.get("executor_component_state") in {"DRAFT", "AVAILABLE_UNVALIDATED", "EXECUTOR_DRAFT_UNVALIDATED"}:
+        catalog_executor_state = entry.get("executor_component_state")
+        if catalog_executor_state in {"DRAFT", "AVAILABLE_UNVALIDATED", "EXECUTOR_DRAFT_UNVALIDATED"}:
             errors.append(f"CATALOG_EXECUTOR_STALE_DRAFT:{pid}")
+        manifest_executor_state = manifest_executor_states.get(mp)
+        if manifest_executor_state is not None and catalog_executor_state != manifest_executor_state:
+            errors.append(f"CATALOG_MANIFEST_EXECUTOR_STATE_MISMATCH:{pid}:{catalog_executor_state}:{manifest_executor_state}")
     for mp in manifest_paths:
         if mp not in indexed_manifest_paths:
             errors.append(f"ON_DISK_MANIFEST_NOT_INDEXED:{mp}")
