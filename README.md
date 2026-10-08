@@ -41,24 +41,28 @@ It helps AI and humans:
 - carry recorded project state between sessions and compatible AI platforms;
 - add focused Specialist capabilities when a task needs them.
 
-## Current release — AIR Kit v0.7.4
+## Current release — AIR Kit v0.8.0
 
-The release-sealed source for **AIR Kit v0.7.4** is maintained on validated `main`. Tag and GitHub Release publication are separate external repository effects and do not change AIR runtime authority.
+AIR Kit v0.8.0 is the promoted **AMRS-6 Production Approved** R23 release. The exact promoted client artifact is `AIR_P_COMPLETE_CLIENT_RELEASE_20261008_R23_BOOT_PROFILE_CANDIDATE_V5.zip` with SHA-256 `c7b11af137d4fb284afba11ef23c41c0d3812f49cffcfd8a7a51aa24e6042d64`.
 
 It includes:
 
-- AIR Foundation **2.6.3 / Object Contract SET_008**
-- Handoff schema **2.3.0**, template revision **20** with independent `user_revision`
-- deterministic Handoff modes **STRICT_PROVENANCE** and **PORTABLE_STATE**
-- Specialist packages **2.5.0**
-- Runtime Route Map **1.2.2**
-- Specialist Package Index **1.3.13** (all five Specialist packages SET_008 static-valid and replayable behavioral-pass; draft Executors remain explicitly unvalidated where applicable)
+- AIR Core Runtime **2.9.0**
+- AIR Control Surface **2.7.0**
+- AIR Governance Supplement **2.4.0**
+- Default Starter **2.7.0**
+- Handoff schema **2.3.0**, template revision **26**
+- Runtime Route Map **1.2.5**
+- Specialist Package Index **1.3.15**
+- four explicit boot profiles: routine Tier0, navigation Tier1, targeted-source Tier2 and deep-audit Tier3
+- package-enabled law-source ownership with Router83
+- the full five-Specialist client distribution
 
-v0.7.4 preserves strict Handoff integrity while adding a portable continuation path when durable surfaced-object provenance is unavailable or incomplete. Explicit strict requests still fail closed without strict provenance, `FAILED_INTEGRITY` never auto-downgrades, and portable cards carry current continuation state only as non-authorizing bootstrap input that must be re-aligned, revalidated, and rebound on restore. Both modes remain file-delivered rather than inline transcript reconstruction.
+Acceptance completed with a deterministic static release PASS, **5/5 fresh-session functional acceptance**, and boot-performance acceptance at **121 seconds** against the **300-second** limit.
 
-All five catalogued Specialist packages retain SET_008 static validation and replayable single-host behavioral evidence. That evidence is observable-output evidence on its recorded host; it does not establish cross-host equivalence, and draft Executor components remain outside the behavioral pass.
+AMRS-6 also hardens canonical-state/lifecycle handling, bounded governance transactions, response sufficiency and termination, proportional retrieval, compatibility/migration and release integrity.
 
-The v0.7.4 release also makes validator-mutation execution candidate-aware: pull-request and candidate validation use reseal integrity where exact release-seal hashes are intentionally inapplicable, while pushes to `main` use exact-release validation. Historical release tags remain immutable.
+See [AMRS-6 patch notes](RELEASE_NOTES_AMRS6_R23.md) and [Contributors](CONTRIBUTORS.md).
 
 ### Best practices
 
