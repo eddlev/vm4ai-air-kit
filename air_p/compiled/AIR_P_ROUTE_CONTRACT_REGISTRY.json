@@ -1,0 +1,1021 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_ROUTE_CONTRACT_REGISTRY_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_REGISTRY",
+  "route_count": 22,
+  "route_fixture_sha256": "c322f8d3ebd68594a506101d4fe0c783a4712b26c1f51ef20de8d5b8733d5817",
+  "routes": [
+    {
+      "allowed_next": [
+        "RT.ONBOARD|RT.HANDOFF_RESTORE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-BOOT",
+      "does_not_bypass": [
+        "DEP.LOAD_INTEGRITY",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {},
+      "produces": [
+        "ENTRY_PATH_STATE"
+      ],
+      "requires": [
+        "DEP.LOAD_INTEGRITY"
+      ],
+      "route_id": "RT.BOOT",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 28,
+        "sha256": "8fec276d6bde760f2cb93e805f613d01776115d29dde25811d2a8e89228efc0a",
+        "start_line": 11
+      },
+      "step_order": "STRICT",
+      "trigger": "fresh AIR entry or validated continuation entry",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.ACTIVATE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-ONBOARD",
+      "does_not_bypass": [
+        "AIR-FLOOR-011",
+        "RT.UNCERTAINTY_RESOLVE",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {},
+      "produces": [
+        "ONBOARDING_STATE",
+        "CANONICAL_INTENT_INPUTS",
+        "WORKING_AGREEMENT_INPUTS"
+      ],
+      "requires": [
+        "DEP.ENTRY_PATH_SELECTED",
+        "DEP.Q1_UNRESOLVED_UNLESS_EXPLICITLY_ANSWERED"
+      ],
+      "route_id": "RT.ONBOARD",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 46,
+        "sha256": "40e4bfd61537dd2a70aca01fcfd260a84e1c5f7d410771992731e54295df1ec4",
+        "start_line": 29
+      },
+      "step_order": "STRICT",
+      "trigger": "fresh/import entry after RT.BOOT",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.ACTIVATE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-HANDOFF_RESTORE",
+      "does_not_bypass": [
+        "DEP.REVALIDATION",
+        "DEP.ARTIFACT_REBIND",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "SERIALIZED_EXECUTION_AUTHORITY",
+        "SERIALIZED_ALIGNMENT_CURRENCY"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "alignment_interlock": "RT.ALIGN",
+        "alignment_interlock_point": "POST_RESTORE_PRE_NEXT",
+        "alignment_profile": "HANDOFF_RESTORE"
+      },
+      "produces": [
+        "RESTORED_CANDIDATE_STATE"
+      ],
+      "requires": [
+        "DEP.LOAD_INTEGRITY",
+        "DEP.HANDOFF_SCHEMA_VALID",
+        "DEP.HANDOFF_EXPLICIT_STATE_ONLY"
+      ],
+      "route_id": "RT.HANDOFF_RESTORE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 67,
+        "sha256": "6017257445cffd93c56f29c4808f339c574e65ab0ee66ed71976be87d3d0874c",
+        "start_line": 47
+      },
+      "step_order": "STRICT",
+      "trigger": "validated handoff continuation entry",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.TURN"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-ACTIVATE",
+      "does_not_bypass": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-022",
+        "AIR-FLOOR-023"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": null,
+      "invalidates": [
+        "BOOTSTRAP_NO_ARTIFACT"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "alignment_interlock": "RT.ALIGN",
+        "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS",
+        "alignment_profile": "ACTIVATION"
+      },
+      "produces": [
+        "ARTIFACT_BOUND_EXECUTION",
+        "AIR_RUNTIME_BRIDGE",
+        "AIR_SESSION",
+        "AIR_ARTIFACT",
+        "AIR_PROJECT_INITIALIZATION_BRIEF_WHEN_FIRST_ACTIVATION",
+        "AIR_PROJECT_EXECUTION_MAP_WHEN_FIRST_ACTIVATION"
+      ],
+      "requires": [
+        "DEP.CANONICAL_INTENT_SUFFICIENT",
+        "DEP.BENCHMARK_PRECHECK",
+        "DEP.EXACTLY_ONE_BINDABLE_ARTIFACT",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "route_id": "RT.ACTIVATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 82,
+        "sha256": "ba3ae2f780494999d1a02c6a42f47af8e798ca34364def13ff6ef0c29f988a06",
+        "start_line": 68
+      },
+      "step_order": null,
+      "trigger": "onboarding resolved or handoff candidate state restored",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.ALIGN"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-TURN",
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "preentry_mode_predicate_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.rt_turn.preentry_mode_predicates",
+        "turn_mode_effect_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.rt_turn.mode_effects",
+        "turn_modes": "POSTACTIVATION_NORMAL|PREACTIVATION_RECOVERY_DIAGNOSTIC_INGRESS|PREACTIVATION_RECOVERY_STOP_RESTART_PROBE|PREACTIVATION_RECOVERY_REESTABLISHMENT_PROBE",
+        "unconditional_user_turn_count_increment": "PROHIBITED"
+      },
+      "produces": [
+        "TURN_CONTEXT"
+      ],
+      "requires": [
+        "DEP.ARTIFACT_BOUND_OR_RECOVERY_STATE"
+      ],
+      "route_id": "RT.TURN",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 104,
+        "sha256": "4f49e4ce4e9a33dcb43ee96103e822dbb8f8958547f83b4625d036a42b2438a8",
+        "start_line": 83
+      },
+      "step_order": "STRICT",
+      "trigger": "post-activation user turn or PATCH025 preactivation recovery diagnostic/restart/reestablishment ingress",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.INPUT_TRANSLATE|RT.RECOVERY|RT.UNCERTAINTY_RESOLVE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-ALIGN",
+      "does_not_bypass": [
+        "AIR-FLOOR-021",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "PRIOR_EVALUATION_BASIS_WHEN_STATE_CHANGED"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "patch025_conditional_successor_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.routing.RT.ALIGN.conditional_successors",
+        "patch025_mode_profile_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.routing.RT.ALIGN.mode_profiles"
+      },
+      "produces": [
+        "ALIGNMENT_EVALUATION",
+        "MODEL_DRIFT_EVALUATION",
+        "NONMODEL_RECONCILIATION_STATE",
+        "AIR_ALIGNMENT_CHECK",
+        "AIR_VALIDATION_REPORT",
+        "EVALUATION_BASIS"
+      ],
+      "requires": [
+        "DEP.CANONICAL_CURRENT_STATE"
+      ],
+      "route_id": "RT.ALIGN",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 124,
+        "sha256": "b144d2c0a969a0d46e4bdda8b80c72fdacd41ada6d3f0c7b4692552d0a896984",
+        "start_line": 105
+      },
+      "step_order": "STRICT",
+      "trigger": "RT.TURN and required transition/effect/recovery profiles",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.CLASSIFY"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-INPUT_TRANSLATE",
+      "does_not_bypass": [
+        "AIR-FLOOR-022",
+        "RT.UNCERTAINTY_RESOLVE"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": null,
+      "invalidates": [],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "CANONICAL_INTENT_CANDIDATE",
+        "ACTIVE_CONTEXT_REF",
+        "SEMANTIC_LOSS_STATE"
+      ],
+      "requires": [
+        "DEP.RAW_INPUT_REF",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "route_id": "RT.INPUT_TRANSLATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 136,
+        "sha256": "a95962519b3a79dde029845287067a76b77b1c1971f4025819903545d2cb24f3",
+        "start_line": 125
+      },
+      "step_order": null,
+      "trigger": "current user input after RT.ALIGN",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.COMPATIBLE|RT.AMEND|RT.TASK_SWITCH|RT.UNCERTAINTY_RESOLVE|RT.APPROVAL_RESOLVE|RT.ACTION|RT.DELIVER|RT.RECOVERY|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-CLASSIFY",
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "AIR-FLOOR-019"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": null,
+      "invalidates": [],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "end_response_condition": "TURN_MODE_PREACTIVATION_RECOVERY_STOP_RESTART_PROBE_AND_RECOVERY_RESTART_NOT_REQUESTED",
+        "patch025_recovery_action_class_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.action_semantics.canonical_action_classes",
+        "patch025_stop_restart_classification_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1.routing.RT.CLASSIFY"
+      },
+      "produces": [
+        "INSTRUCTION_EFFECT_CLASS"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.CANONICAL_INTENT_CANDIDATE"
+      ],
+      "route_id": "RT.CLASSIFY",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 151,
+        "sha256": "7e588d11cbe1cc46ea5dce3fb73419f912a454d37a0719d9c9897ebc9e59ed3c",
+        "start_line": 137
+      },
+      "step_order": null,
+      "trigger": "translated current input",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.COGNITIVE_RESOLVE|RT.DELIVER|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-COMPATIBLE",
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "DEP.COGNITIVE_RESOLUTION_WHEN_MATERIAL",
+        "DEP.DELIVERY_ROUTE_WHEN_DELIVERY"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": null,
+      "invalidates": [],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "NO_TASK_STATE_REFRESH"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.ARTIFACT_COMPATIBLE"
+      ],
+      "route_id": "RT.COMPATIBLE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 163,
+        "sha256": "4a6d13bdde4819a40e85d1b49f2e1ea08f6512d82d1b8415d6c6d5d3bec4d551",
+        "start_line": 152
+      },
+      "step_order": null,
+      "trigger": "ARTIFACT_COMPATIBLE_RUNTIME_INPUT",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND|RT.ACTION|RT.DELIVER"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-AMEND",
+      "does_not_bypass": [
+        "DEP.ARTIFACT_PRECHECK",
+        "AIR-FLOOR-007",
+        "AIR-FLOOR-013"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": null,
+      "invalidates": [
+        "PRIOR_ARTIFACT_REVISION",
+        "PRIOR_EVALUATION_BASIS",
+        "LEASE_WHEN_MATERIAL"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "alignment_interlock": "RT.ALIGN",
+        "alignment_interlock_point": "POST_TRANSITION_PRE_NEXT",
+        "alignment_profile": "STATE_TRANSITION",
+        "transition_emission_bundle": "EFFECTIVE_SCOPE_TRANSITION_ATOMIC_BUNDLE",
+        "transition_emission_bundle_atomic": "true",
+        "transition_emission_bundle_condition": "EFFECTIVE_SCOPE_TRANSITION",
+        "transition_emission_bundle_members": "AIR_SESSION;AIR_PROJECT_EXECUTION_MAP;AIR_ARTIFACT"
+      },
+      "produces": [
+        "NEW_ARTIFACT_REVISION",
+        "STATE_TRANSITION",
+        "AIR_SESSION_WHEN_EFFECTIVE_SCOPE_TRANSITION",
+        "AIR_PROJECT_EXECUTION_MAP_WHEN_ROADMAP_STEP_BLOCKER_OR_SCOPE_CHANGED",
+        "AIR_ARTIFACT"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.SAME_TASK_IDENTITY"
+      ],
+      "route_id": "RT.AMEND",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 182,
+        "sha256": "5a95c0bd386f7259568d1ebde0cef3b29ed4d1d0d0d9dff12edda5acceeb6be4",
+        "start_line": 164
+      },
+      "step_order": null,
+      "trigger": "MATERIAL_ARTIFACT_AMENDMENT",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.CAPABILITY_RESOLVE|RT.COGNITIVE_RESOLVE|RT.MORPHOLOGY_BIND"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-TASK_SWITCH",
+      "does_not_bypass": [
+        "DEP.NEW_TASK_ARTIFACT",
+        "DEP.ARTIFACT_PRECHECK",
+        "DEP.NEW_TASK_ARTIFACT_VISIBLE_ACCOUNTED",
+        "AIR-FLOOR-007",
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "PRIOR_TASK_EXECUTION_BINDING_AFTER_ATOMIC_REPLACEMENT"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "new_task_artifact_identity_rule": "DISTINCT_ARTIFACT_IDENTITY_REQUIRED_NO_PRIOR_TASK_ARTIFACT_ID_REUSE",
+        "new_task_inception_state": "UNBOUND_DRAFT;NOT_ISSUED_PREBIND;POSITIVE_EXECUTION_AUTHORITY_NONE",
+        "transaction_contract": "AIR_NEW_TASK_BINDING_TRANSACTION_V3",
+        "transaction_sequence": "NEW_TASK_BOUNDARY_LATCHED;NEW_TASK_IDENTITY_RESOLVED;COMPILE_EXACT_TASK_ARTIFACT_AS_UNBOUND_DRAFT;PRIMARY_USER_VISIBLE_ARTIFACT_INCEPTION_EMISSION;ARTIFACT_INCEPTION_SURFACED_LEDGER_ACCOUNTING;DERIVE_TASK_BENCHMARK;ARTIFACT_PRECHECK_ADMISSIBLE;BINDING_READY;ATOMIC_BIND_ORBIT_0;EMIT_UPDATED_AIR_SESSION;EMIT_UPDATED_AIR_PROJECT_EXECUTION_MAP;EMIT_BOUND_AIR_ARTIFACT;BOUND_ARTIFACT_SURFACED_LEDGER_ACCOUNTING;NEW_TASK_EXECUTION_ELIGIBLE",
+        "transition_emission_bundle": "NEW_TASK_TRANSITION_ATOMIC_BUNDLE",
+        "transition_emission_bundle_atomic": "true",
+        "transition_emission_bundle_condition": "NEW_TASK_INCEPTION_OR_TASK_BINDING_CHANGED",
+        "transition_emission_bundle_members": "AIR_SESSION;AIR_PROJECT_EXECUTION_MAP;AIR_ARTIFACT"
+      },
+      "produces": [
+        "NEW_TASK_ARTIFACT_CANDIDATE",
+        "NEW_TASK_INCEPTION_VISIBLE_ACCOUNTING_STATE",
+        "NEW_TASK_BINDING_TRANSACTION_STATE",
+        "ORBIT_TRANSITION",
+        "AIR_SESSION",
+        "AIR_PROJECT_EXECUTION_MAP",
+        "AIR_ARTIFACT"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.NEW_TASK_BOUNDARY_LATCHED",
+        "DEP.NEW_TASK_IDENTITY_RESOLVED"
+      ],
+      "route_id": "RT.TASK_SWITCH",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 208,
+        "sha256": "eeec16bb7a34fccbde1602bd323ea52d051e5503f6725440a3053fefa209d633",
+        "start_line": 183
+      },
+      "step_order": "STRICT",
+      "trigger": "TASK_OR_STEP_REPLACEMENT classified as new independent task",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.COGNITIVE_RESOLVE|RT.UNCERTAINTY_RESOLVE|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
+      "does_not_bypass": [
+        "AIR-FLOOR-009",
+        "AIR-FLOOR-016",
+        "AIR-FLOOR-024"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": null,
+      "invalidates": [],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "TASK_LOCAL_CAPABILITY|EXISTING_SPECIALIST_ROUTE|REUSABLE_SPECIALIST_CONSTRUCTION_ROUTE|CAPABILITY_BLOCKER"
+      ],
+      "requires": [
+        "DEP.CAPABILITY_NEED_IDENTIFIED",
+        "DEP.COMPLETION_ENVELOPE_RESOLVED",
+        "DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL"
+      ],
+      "route_id": "RT.CAPABILITY_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 220,
+        "sha256": "e1b2a89611df859b29e1aac3cec487880b496000b33091d2861e38a45e30a11b",
+        "start_line": 209
+      },
+      "step_order": null,
+      "trigger": "material capability/specialization need",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.MORPHOLOGY_BIND|RT.UNCERTAINTY_RESOLVE|RT.ACTION|RT.DELIVER"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
+      "does_not_bypass": [
+        "AIR-FLOOR-015",
+        "AIR-FLOOR-022",
+        "AIR-FLOOR-023",
+        "AIR-FLOOR-024",
+        "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": null,
+      "invalidates": [
+        "PRIOR_COGNITIVE_COVERAGE_WHEN_INPUT_OR_TASK_OR_SCOPE_CHANGED"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "cognition_to_control": "PROHIBITED",
+        "cognition_to_validation": "CANDIDATE_CONTRIBUTION_ONLY",
+        "cognitive_scope_contract": "AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1",
+        "cognitive_scope_owner": "AIR_ARTIFACT.execution_benchmark_profile.cognitive_scope",
+        "validated_ingestion": "EXPLICIT_DECLARED_INGESTION_ONLY"
+      },
+      "produces": [
+        "MII_COGNITIVE_ROUTE_SET",
+        "MII_CONTRIBUTIONS",
+        "MII_FUSION_STATE",
+        "COGNITIVE_SCOPE_CANDIDATE_CONTRIBUTIONS"
+      ],
+      "requires": [
+        "DEP.CANONICAL_INTENT",
+        "DEP.ACTIVE_CONTEXT",
+        "DEP.SOURCE_EVIDENCE_STATE",
+        "DEP.COMPLETION_ENVELOPE_RESOLVED",
+        "DEP.TARGET_READINESS_RESOLVED_WHEN_MATERIAL",
+        "DEP.COGNITIVE_SCOPE_DECLARED"
+      ],
+      "route_id": "RT.COGNITIVE_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 237,
+        "sha256": "a3b639d15b9d59dac3d7c2782cece1ef7a462fbf87fda317138bbcecbbc07795",
+        "start_line": 221
+      },
+      "step_order": null,
+      "trigger": "task/input requires cognitive processing for benchmark execution",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.ACTION|RT.DELIVER|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
+      "does_not_bypass": [
+        "DEP.COGNITIVE_REQUIREMENTS",
+        "DEP.GEOMETRY_CLAIM_BOUNDARY"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.UNCERTAINTY_RESOLVE",
+      "inference_policy": null,
+      "invalidates": [
+        "PRIOR_MORPHOLOGY_WHEN_FIT_CHANGED"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "TASK_MORPHOLOGY_BINDING",
+        "NODE_MORPHOLOGY_BINDINGS"
+      ],
+      "requires": [
+        "DEP.COGNITIVE_REQUIREMENTS_KNOWN",
+        "DEP.BENCHMARK_REQUIREMENTS_KNOWN"
+      ],
+      "route_id": "RT.MORPHOLOGY_BIND",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 249,
+        "sha256": "4d2641d0d2364a4bf167009a3c9d8c9d6181c743fa1d7894c1f3d1780609ba8e",
+        "start_line": 238
+      },
+      "step_order": null,
+      "trigger": "task/node morphology is material after cognitive requirements are known",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-UNCERTAINTY_RESOLVE",
+      "does_not_bypass": [
+        "AIR-FLOOR-019",
+        "AIR-FLOOR-023"
+      ],
+      "execution_semantics": null,
+      "failure_route": "END_RESPONSE",
+      "inference_policy": null,
+      "invalidates": [
+        "NONE_UNTIL_RESOLVING_INPUT_ARRIVES"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "alignment_interlock": "RT.ALIGN",
+        "alignment_interlock_point": "PRE_ENTRY_IF_NO_CURRENT_BASIS",
+        "alignment_profile": "UNCERTAINTY_RESOLUTION"
+      },
+      "produces": [
+        "AIR_REQUIRED_INPUT_REQUEST|SAFE_DEGRADED_BOUNDARY|REVIEW_OR_EVIDENCE_REQUIRED"
+      ],
+      "requires": [
+        "DEP.BASIS_GAP_IDENTIFIED",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "route_id": "RT.UNCERTAINTY_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 264,
+        "sha256": "9003f5df346df29b2ebf6e57de697fab79204fb25d7241b7f1b05c2bb84f3798",
+        "start_line": 250
+      },
+      "step_order": null,
+      "trigger": "insufficient material basis",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.ACTION|END_RESPONSE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-APPROVAL_RESOLVE",
+      "does_not_bypass": [
+        "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+        "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+        "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "PRIOR_REVIEW_GATE_WHEN_RESOLVED"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "allow_next_condition": "APPROVED_AND_GATE_ALLOW_EMITTED_TO_LEDGER",
+        "approval_token_template": "AIR_APPROVE::<approval_scope_id>",
+        "non_exact_response_behavior": "REVIEW_AND_REQUEST_EXACT_DECLARED_TOKEN",
+        "reject_next_condition": "REJECTED_OR_REVIEW_END_RESPONSE_NO_EFFECT",
+        "rejection_token_template": "AIR_REJECT::<approval_scope_id>"
+      },
+      "produces": [
+        "APPROVAL_RESOLUTION_STATE",
+        "AIR_GATE",
+        "AIR_SURFACED_OBJECT_LEDGER"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.OPEN_APPROVAL_SCOPE",
+        "DEP.EXACT_DECLARED_APPROVAL_OR_REJECTION_TOKEN",
+        "DEP.APPROVAL_TOKEN_PAIR_VISIBLE_CURRENT"
+      ],
+      "route_id": "RT.APPROVAL_RESOLVE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 287,
+        "sha256": "aecd31f50ba9003ba8b78a21c5342ecaf7d6bae1b0c4a0f9656f2ad2007b61ee",
+        "start_line": 265
+      },
+      "step_order": "STRICT",
+      "trigger": "reply to an open AIR human-approval request",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.RECEIPT"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-ACTION",
+      "does_not_bypass": [
+        "AIR_GATE",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-022",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "PRE_EFFECT_EVALUATION_BASIS",
+        "LEASE_OR_SOURCE_STATE_WHEN_EFFECT_CHANGES_IT"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "alignment_interlock": "RT.ALIGN",
+        "alignment_interlock_point": "POST_EFFECT_PRE_NEXT",
+        "alignment_profile": "POST_MATERIAL_EFFECT",
+        "approval_precondition_dependency": "DEP.APPROVAL_PRECONDITION_SATISFIED",
+        "approval_precondition_satisfiers": "APPROVAL_NOT_REQUIRED|APPROVAL_REQUIRED_AND_CURRENT_APPROVAL_WITH_ALLOW_RESOLUTION_EMITTED",
+        "approval_precondition_unknown_behavior": "FAIL_CLOSED",
+        "approval_resolution_route": "RT.APPROVAL_RESOLVE",
+        "authority_emission_barrier": "AIR_SURFACED_OBJECT_LEDGER_V1",
+        "authorization_visibility": "USER_VISIBLE_BEFORE_EFFECT",
+        "effect_attempt_requires_authorization_ledger_entry": "true",
+        "effect_attempt_requires_predecessors": "ALL_SATISFIED",
+        "post_effect_alignment_profile": "POST_MATERIAL_EFFECT",
+        "pre_effect_sequence": "TURN_ENTRY_ALIGNMENT;CURRENT_ARTIFACT;CURRENT_TASK_ARTIFACT_EXACT_MATCH;CURRENT_ARTIFACT_BENCHMARK_ADMISSIBLE;CURRENT_ARTIFACT_PRECHECK_ADMISSIBLE;CURRENT_ARTIFACT_PRIMARY_VISIBLE_AND_ACCOUNTED;ACTIVE_LEASE;NON_NULL_RESOURCE_SCOPE_PIN;CURRENT_INTENT_EXECUTION_ALIGNMENT_PASS;CURRENT_APPROVAL_WHEN_REQUIRED;AIR_GATE_ALLOW;AIR_ACTION_AUTHORIZATION_EMITTED;AUTHORITY_OBJECTS_LEDGER_COMMITTED",
+        "receipt_authorization_match": "EXACT",
+        "transaction_contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1"
+      },
+      "produces": [
+        "AIR_ACTION_AUTHORIZATION",
+        "ONE_MATERIAL_EFFECT_ATTEMPT"
+      ],
+      "requires": [
+        "DEP.CURRENT_EVALUATION_BASIS",
+        "DEP.ARTIFACT_BOUND",
+        "DEP.CURRENT_TASK_ARTIFACT_EXACT_MATCH",
+        "DEP.CURRENT_ARTIFACT_BENCHMARK_ADMISSIBLE",
+        "DEP.CURRENT_ARTIFACT_PRECHECK_ADMISSIBLE",
+        "DEP.CURRENT_ARTIFACT_VISIBLE_ACCOUNTED",
+        "DEP.LEASE_ACTIVE",
+        "DEP.SCOPE_MATCH",
+        "DEP.INTENT_EXECUTION_ALIGNMENT_CURRENT",
+        "DEP.APPROVAL_PRECONDITION_SATISFIED",
+        "DEP.CURRENT_APPROVAL_TOKEN_MATCH_PROVENANCE",
+        "DEP.NO_CURRENT_USER_EFFECT_BLOCK",
+        "DEP.GATE_ALLOW",
+        "DEP.AUTHORITY_LEDGER_COMMITTED"
+      ],
+      "route_id": "RT.ACTION",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 320,
+        "sha256": "6e5a0ce6ce7a23d370014e0bfa5e6e6ee09b6a0b1439985a33ba00a5c63aa939",
+        "start_line": 288
+      },
+      "step_order": "STRICT",
+      "trigger": "material external/tool/operator effect proposed",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.DELIVER|RT.CLOSE|END_RESPONSE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-RECEIPT",
+      "does_not_bypass": [
+        "DEP.POST_MATERIAL_EFFECT_ALIGNMENT",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [
+        "PRE_EFFECT_STATE_ASSUMPTIONS"
+      ],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "formal_object_constructor_validation": "REQUIRED",
+        "receipt_authorization_match": "EXACT_CONSUMED_AUTHORIZATION",
+        "receipt_constructor_schema": "AIR_ACTION_RECEIPT",
+        "receipt_record_class": "ACTION_RECEIPT_RECORD",
+        "required_alignment_profile": "POST_MATERIAL_EFFECT",
+        "transaction_contract": "AIR_MATERIAL_ACTION_TRANSACTION_V1"
+      },
+      "produces": [
+        "POST_EFFECT_RECONCILIATION",
+        "AIR_ACTION_RECEIPT"
+      ],
+      "requires": [
+        "DEP.MATCHING_AUTHORIZATION",
+        "DEP.OBSERVED_EFFECT_EVIDENCE",
+        "DEP.CURRENT_EVALUATION_BASIS"
+      ],
+      "route_id": "RT.RECEIPT",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 344,
+        "sha256": "696bdeca7c2fc73bb53dfe0501603c07f3448cbd27506cfa4ba122945aedb7c9",
+        "start_line": 321
+      },
+      "step_order": "STRICT",
+      "trigger": "material action attempted",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "RT.CLOSE|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-DELIVER",
+      "does_not_bypass": [
+        "AIR_GATE",
+        "BENCHMARK_JUDGE",
+        "AIR-FLOOR-022"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": null,
+      "invalidates": [],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "APPROVED_OUTPUT|REVIEW_GATE|REJECT_REPORT"
+      ],
+      "requires": [
+        "DEP.OUTPUT_REVIEW",
+        "DEP.SEMANTIC_FIDELITY_RECONCILED",
+        "DEP.INTENT_EXECUTION_ALIGNMENT_CURRENT",
+        "DEP.EPISTEMIC_SUFFICIENCY",
+        "DEP.CLOSURE_DELIVERY_GATE",
+        "DEP.NEXT_RECOMMENDED_TASK_RESOLVED"
+      ],
+      "route_id": "RT.DELIVER",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 356,
+        "sha256": "5daea922f5677183ad0a8a0a30c0a5cf8877d47f85a057e1ee5e6b8946948fc4",
+        "start_line": 345
+      },
+      "step_order": null,
+      "trigger": "receiver-facing material output candidate exists",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "RT.HANDOFF_CREATE|END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-CLOSE",
+      "does_not_bypass": [
+        "DEP.RECEIPT_WHEN_ACTION_OCCURRED",
+        "DEP.SEMANTIC_FIDELITY"
+      ],
+      "execution_semantics": null,
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": null,
+      "invalidates": [
+        "ACTIVE_BINDING_ELIGIBILITY_WHEN_TERMINAL"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {},
+      "produces": [
+        "COMPLETION_STATE"
+      ],
+      "requires": [
+        "DEP.DELIVERY_STATE",
+        "DEP.COMPLETION_EVIDENCE",
+        "DEP.NO_UNRESOLVED_BLOCKER",
+        "DEP.TASK_SUFFICIENCY_COMPLETE",
+        "DEP.STEP_OPTIMALITY_PASS_WHEN_AMRS_MATURITY_BEARING"
+      ],
+      "route_id": "RT.CLOSE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 368,
+        "sha256": "c415c7442ece24ad076596ddbc6e4dc740a515efd7b4de22cefe125fd93cc263",
+        "start_line": 357
+      },
+      "step_order": null,
+      "trigger": "task/step closure requested or terminality evaluated",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    },
+    {
+      "allowed_next": [
+        "END_RESPONSE"
+      ],
+      "conflict_behavior": "FAIL_CLOSED",
+      "control_event_ref": "CE-RT-HANDOFF_CREATE",
+      "does_not_bypass": [
+        "RT.ALIGN",
+        "DEP.HANDOFF_VALIDATION",
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+      ],
+      "execution_semantics": "DETERMINISTIC_PIPELINE",
+      "failure_route": "RT.RECOVERY",
+      "inference_policy": "PROHIBITED",
+      "invalidates": [],
+      "missing_input_behavior": "FAIL_CLOSED",
+      "optional_fields": {
+        "canonical_delivery_filename": "AIR_HANDOFF_CARD.json",
+        "explicit_strict_downgrade": "PROHIBITED",
+        "failed_integrity_behavior": "BLOCK_REVIEW",
+        "handoff_mode_contract": "AIR_HANDOFF_MODE_SELECTION_V1",
+        "handoff_provenance_policy": "MODE_DEPENDENT_STRICT_DURABLE_OR_PORTABLE_NONAUTHORITATIVE",
+        "inline_handoff_payload": "PROHIBITED",
+        "missing_historical_authorization_behavior": "PRIOR_EFFECT_WITH_MISSING_OR_UNKNOWN_AUTHORIZATION_STATE",
+        "portable_mode_requires": "DEP.PORTABLE_HANDOFF_STATE_VALID",
+        "post_write_reopen_parse": "REQUIRED",
+        "post_write_schema_validation": "REQUIRED",
+        "reconstruction_of_unsurfaced_authorization": "PROHIBITED",
+        "strict_mode_requires": "DEP.DURABLE_SURFACED_PROVENANCE_COMPLETE",
+        "strict_serialization": "DOWNLOADABLE_JSON_FILE_ONLY"
+      },
+      "produces": [
+        "AIR_HANDOFF_CARD_FILE",
+        "AIR_FILE_DELIVERY_RECEIPT"
+      ],
+      "requires": [
+        "DEP.CURRENT_STATE_RECONCILED",
+        "DEP.HANDOFF_SCHEMA_VALID",
+        "DEP.HANDOFF_GENERATION_EVALUATION",
+        "DEP.HANDOFF_MODE_RESOLVED"
+      ],
+      "route_id": "RT.HANDOFF_CREATE",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 399,
+        "sha256": "0d6e9c8d3fac8d12262d8cc39ba69937b2b2d223a57096caeef54b7a767abdf7",
+        "start_line": 369
+      },
+      "step_order": "STRICT",
+      "trigger": "handoff requested",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": "FAIL_CLOSED"
+    },
+    {
+      "allowed_next": [
+        "END_RESPONSE"
+      ],
+      "conflict_behavior": null,
+      "control_event_ref": "CE-RT-RECOVERY",
+      "does_not_bypass": [
+        "AIR-FLOOR-013",
+        "AIR-FLOOR-018",
+        "AIR-FLOOR-021"
+      ],
+      "execution_semantics": null,
+      "failure_route": "END_RESPONSE",
+      "inference_policy": null,
+      "invalidates": [
+        "AFFECTED_STALE_AUTHORITY"
+      ],
+      "missing_input_behavior": null,
+      "optional_fields": {
+        "air_error_emission_rule": "AIR_ERROR_CLASSIFICATION_STATE.AIR_ERROR_DETECTED_REQUIRES_AIR_ERROR",
+        "non_error_recovery_rule": "RECOVERY_ROUTE_ENTRY_ALONE_DOES_NOT_CREATE_AIR_ERROR",
+        "patch025_law_resolution_fingerprint": "null",
+        "patch025_output_classification": "NON_MATERIAL_RECOVERY_OUTPUT",
+        "patch025_recovery_contract": "AIR_PATCH025_BOOTSTRAP_RECOVERY_CONTRACT_V1",
+        "patch025_rt_action": "PROHIBITED"
+      },
+      "produces": [
+        "RECOVERY_STATE",
+        "FAILURE_CAPTURE_EVALUATION",
+        "AIR_ERROR_CLASSIFICATION_STATE",
+        "AIR_ERROR_WHEN_CLASSIFIED",
+        "NON_ERROR_RECOVERY_RECORD_WHEN_APPLICABLE",
+        "AIR_FAILURE_MODE_RECORD_WHEN_REUSABLE",
+        "SAFE_NEXT_ACTION"
+      ],
+      "requires": [
+        "DEP.FAILURE_EVIDENCE"
+      ],
+      "route_id": "RT.RECOVERY",
+      "semantic_owner": "AIR_CORE_RUNTIME",
+      "source_anchor": {
+        "canonical_role": "CORE_RUNTIME",
+        "end_line": 417,
+        "sha256": "9d001e38ed733c9146c4f1f130c201c5c58bbed02e846a4550d4aca0a9883aa1",
+        "start_line": 400
+      },
+      "step_order": null,
+      "trigger": "model-drift/binding/source/prior-effect/dependency/state failure or governed recovery condition",
+      "trigger_authority": "NON_OPERATIVE_DESCRIPTION",
+      "unknown_condition_behavior": null
+    }
+  ],
+  "semantic_owner": "AIR_CORE_RUNTIME_V2",
+  "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+}

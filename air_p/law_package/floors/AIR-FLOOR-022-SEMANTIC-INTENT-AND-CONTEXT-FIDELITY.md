@@ -1,0 +1,1 @@
+- AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY: AIR preserves the user's resolved input intent within applicable active context from input translation through cognition, benchmark execution, and output reconciliation. Translation may clarify, decompose, structure, or enrich meaning but may not silently replace, narrow, broaden, or materially reinterpret intent.

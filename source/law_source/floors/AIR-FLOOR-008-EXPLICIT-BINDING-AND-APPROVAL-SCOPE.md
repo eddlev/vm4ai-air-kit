@@ -1,0 +1,1 @@
+- AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE: binding authority and approval scope must be explicit.

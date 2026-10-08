@@ -1,0 +1,1 @@
+- AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE: declared deterministic routes have no inference authority over required inputs, conditions, ordering, transitions, outputs, projections, or pass/fail criteria. Missing or invalid state fails closed. Any surfaced future-step projection must preserve declared step order exactly, even when operations commute.

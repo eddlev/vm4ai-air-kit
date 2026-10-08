@@ -9,15 +9,9 @@ permissions:
   contents: read
 
 jobs:
-  deterministic-release-contract:
+  v081-source-and-runtime-integrity:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Canonical AIR candidate validation suite
-        if: github.event_name == 'pull_request'
-        run: python3 tools/validate_air_suite.py --candidate
-
-      - name: Canonical AIR exact-release validation suite
-        if: github.event_name == 'push'
+      - name: AIR v0.8.1 canonical validation suite
         run: python3 tools/validate_air_suite.py

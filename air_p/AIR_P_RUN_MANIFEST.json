@@ -1,0 +1,62 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_RUN_MANIFEST_V1",
+  "air_k_authority_granted": false,
+  "compiled_cardinality": {
+    "components": 113,
+    "control_events": 22,
+    "deterministic_checks": 137,
+    "formal_objects": 21,
+    "laws": 83,
+    "routes": 22
+  },
+  "decision": "PASS_DETERMINISTIC_COMPILATION_EXTERNAL_RELEASE_GRADE_REPROOF_SEPARATE",
+  "foundation_mutated": false,
+  "foundation_promoted": false,
+  "package_designation": "AIR_P_COMPLETE_COMPILATION_V1",
+  "package_version": "1.0.0",
+  "passes": [
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8",
+    "P9",
+    "P10",
+    "P11"
+  ],
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "source_hashes": {
+    "COMPONENT_METADATA_OVERLAY": "553aec8171ae09272e2b133f1ff688c074068dd8007435384453f756fcb3dc03",
+    "CONTROL_SURFACE": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28",
+    "CORE_RUNTIME": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+    "DEFAULT_STARTER_PROFILE": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18",
+    "GOVERNANCE_SUPPLEMENT": "24c5201961c419dece9035f112d5aa3e3b49460cc770656dfde44f7f3d705fd6",
+    "HANDOFF_CARD_TEMPLATE": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122",
+    "LAW_APPLICABILITY_ROUTER": "ece1fb608ff43def479c2fa1633cf0b158276dc1b1c2b6ace800a2f88e69677a",
+    "LAW_SOURCE_FLOOR_INVARIANT_INDEX": "f9c84ef97386fa49506ebe2712dd41cb48a07443c218062690f592a80a53b009",
+    "LAW_SOURCE_LAW_BODY_INDEX": "d0aedaa34cf7b47bc9e4d620d04df1bf8adc4c13021d6aad7cfea4089b1ae296",
+    "LAW_SOURCE_LAW_ID_REGISTRY": "03935a1fafc72d7c406f0995644afe820e2118f787c97702fe6f4ffc74d23d24",
+    "LAW_SOURCE_PACKAGE_SCHEMA": "ef582abfa7433fdce0411b38d3ddbed0ca233124c0f80ad52abac0e39cca745f",
+    "PACKAGE_SCHEMA": "6c019b38ce3108657a2a11948f9fa68e52f171279da5496925c6ae4eb2bbd75e",
+    "RUNTIME_ROUTE_MAP": "c322f8d3ebd68594a506101d4fe0c783a4712b26c1f51ef20de8d5b8733d5817"
+  },
+  "validation": {
+    "component_registry": "PASS_113_OF_113_REBASED_TO_CURRENT_CORE_PLUS_LAW_SOURCE_PACKAGE_BY_COMPONENT",
+    "deterministic_mutation_coverage": "PASS_137_OF_137",
+    "deterministic_registry": "PASS_137_OF_137",
+    "formal_object_contracts": "PASS_21_OF_21_CORE_MACHINE_REGISTRY",
+    "in_memory_reproducibility": "PASS",
+    "independent_process_reproducibility": "EXTERNAL_RELEASE_GRADE_REPROOF_REQUIRED_SEPARATELY",
+    "law_source_package_manifest_and_pin": "PASS_DETERMINISTIC_ACTIVE_PACKAGE_ENABLED",
+    "mutation_suite": "PASS",
+    "route_control_event_bijection": "PASS_22_OF_22",
+    "route_registry": "PASS_22_OF_22",
+    "runtime_reference_index": "PASS_DIRECT_REFERENCE_DEPTH_1",
+    "semantic_equivalence": "PASS",
+    "turn_governance_kernel": "PASS_DIRECT_ANCHORS_COMPLETE"
+  }
+}

@@ -1,0 +1,1 @@
+- AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE: entry-path selection is not onboarding-answer selection. Q1, Q2, Q3, Q4, Q4D, Q5, Q5-R, Q6, and Q6D are not silently inferred from activation wording, filenames, attached AIR files, or model assumptions.

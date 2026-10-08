@@ -1,0 +1,144 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_SOURCE_MANIFEST_V1",
+  "authority_precedence": [
+    "AIR_CORE_RUNTIME_V2",
+    "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+    "AIR_CONTROL_SURFACE_V2",
+    "AIR_DEFAULT_STARTER_V2"
+  ],
+  "canonicalization": "SHA256_CANONICAL_JSON_V1",
+  "component_metadata_overlay": {
+    "authority_class": "DERIVED_NONAUTHORITATIVE_METADATA_OVERLAY",
+    "binding_target_role": "CORE_RUNTIME_PLUS_LAW_SOURCE_PACKAGE_BY_COMPONENT",
+    "input_sha256": "553aec8171ae09272e2b133f1ff688c074068dd8007435384453f756fcb3dc03",
+    "positive_execution_authority": "NONE",
+    "rebased_candidate_sha256": "4af0474dfc8666c38370372f60de8d98efa388858dbecfe8047410eda962242c",
+    "semantic_authority": "NONE"
+  },
+  "files": [
+    {
+      "canonical_filename": "AIR_CORE_RUNTIME.md",
+      "canonical_path": "prompts/AIR_CORE_RUNTIME.md",
+      "canonical_role": "CORE_RUNTIME",
+      "designation": "AIR_CORE_RUNTIME_V2",
+      "sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+      "version": "2.9.0"
+    },
+    {
+      "canonical_filename": "AIR_GOV.md",
+      "canonical_path": "prompts/AIR_GOV.md",
+      "canonical_role": "GOVERNANCE_SUPPLEMENT",
+      "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+      "sha256": "24c5201961c419dece9035f112d5aa3e3b49460cc770656dfde44f7f3d705fd6",
+      "version": "2.4.0"
+    },
+    {
+      "canonical_filename": "AIR_CONTROL_SURFACE.md",
+      "canonical_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "canonical_role": "CONTROL_SURFACE",
+      "designation": "AIR_CONTROL_SURFACE_V2",
+      "sha256": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28",
+      "version": "2.7.0"
+    },
+    {
+      "canonical_filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+      "canonical_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "canonical_role": "DEFAULT_STARTER_PROFILE",
+      "designation": "AIR_DEFAULT_STARTER_V2",
+      "sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18",
+      "version": "2.7.0"
+    },
+    {
+      "canonical_filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+      "canonical_path": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+      "canonical_role": "HANDOFF_CARD_TEMPLATE",
+      "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+      "sha256": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122",
+      "version": "2.3.0"
+    },
+    {
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "canonical_path": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+      "canonical_role": "RUNTIME_ROUTE_MAP",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "sha256": "c322f8d3ebd68594a506101d4fe0c783a4712b26c1f51ef20de8d5b8733d5817",
+      "version": null
+    },
+    {
+      "canonical_filename": "AIR_P_PACKAGE_SCHEMA.json",
+      "canonical_path": "air_p/schema/AIR_P_PACKAGE_SCHEMA.json",
+      "canonical_role": "PACKAGE_SCHEMA",
+      "designation": "urn:air:air-p:package-schema:1.1.0",
+      "sha256": "6c019b38ce3108657a2a11948f9fa68e52f171279da5496925c6ae4eb2bbd75e",
+      "version": "1.1.0"
+    },
+    {
+      "canonical_filename": "AIR_P_COMPONENT_METADATA_OVERLAY.json",
+      "canonical_path": "air_p/source/AIR_P_COMPONENT_METADATA_OVERLAY.json",
+      "canonical_role": "COMPONENT_METADATA_OVERLAY",
+      "designation": "AIR_P_COMPONENT_METADATA_OVERLAY_V2",
+      "sha256": "553aec8171ae09272e2b133f1ff688c074068dd8007435384453f756fcb3dc03",
+      "version": "2"
+    },
+    {
+      "canonical_filename": "AIR_LAW_APPLICABILITY_ROUTER.json",
+      "canonical_path": "catalog/AIR_LAW_APPLICABILITY_ROUTER.json",
+      "canonical_role": "LAW_APPLICABILITY_ROUTER",
+      "designation": "AIR_LAW_APPLICABILITY_ROUTER_V1",
+      "sha256": "ece1fb608ff43def479c2fa1633cf0b158276dc1b1c2b6ace800a2f88e69677a",
+      "version": "1.0.0-R23-POSTCUTOVER-CANDIDATE"
+    },
+    {
+      "canonical_filename": "AIR_LAW_SOURCE_PACKAGE_SCHEMA.json",
+      "canonical_path": "law_source/AIR_LAW_SOURCE_PACKAGE_SCHEMA.json",
+      "canonical_role": "LAW_SOURCE_PACKAGE_SCHEMA",
+      "designation": "AIR_LAW_SOURCE_PACKAGE_SCHEMA_V1",
+      "sha256": "ef582abfa7433fdce0411b38d3ddbed0ca233124c0f80ad52abac0e39cca745f",
+      "version": null
+    },
+    {
+      "canonical_filename": "AIR_LAW_ID_REGISTRY.json",
+      "canonical_path": "law_source/AIR_LAW_ID_REGISTRY.json",
+      "canonical_role": "LAW_SOURCE_LAW_ID_REGISTRY",
+      "designation": "AIR_LAW_ID_REGISTRY_V1",
+      "sha256": "03935a1fafc72d7c406f0995644afe820e2118f787c97702fe6f4ffc74d23d24",
+      "version": null
+    },
+    {
+      "canonical_filename": "AIR_LAW_BODY_INDEX.json",
+      "canonical_path": "law_source/AIR_LAW_BODY_INDEX.json",
+      "canonical_role": "LAW_SOURCE_LAW_BODY_INDEX",
+      "designation": "AIR_LAW_BODY_INDEX_V1",
+      "sha256": "d0aedaa34cf7b47bc9e4d620d04df1bf8adc4c13021d6aad7cfea4089b1ae296",
+      "version": null
+    },
+    {
+      "canonical_filename": "AIR_FLOOR_INVARIANT_INDEX.json",
+      "canonical_path": "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+      "canonical_role": "LAW_SOURCE_FLOOR_INVARIANT_INDEX",
+      "designation": "AIR_FLOOR_INVARIANT_INDEX_V1",
+      "sha256": "f9c84ef97386fa49506ebe2712dd41cb48a07443c218062690f592a80a53b009",
+      "version": null
+    }
+  ],
+  "law_applicability_router": {
+    "authority_class": "DERIVED_NONAUTHORITATIVE_MACHINE_ROUTER_FROM_STANDALONE_SOURCE",
+    "positive_execution_authority": "NONE",
+    "prior_input_sha256": "ece1fb608ff43def479c2fa1633cf0b158276dc1b1c2b6ace800a2f88e69677a",
+    "regenerated_candidate_sha256": "37e317c853e5674030ebdd92471970532fa40c77cbe6f37cd40985de2274b11e",
+    "semantic_authority": "NONE"
+  },
+  "law_source_family": {
+    "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
+    "package_pin_output_ref": "AIR_LAW_SOURCE_PACKAGE_PIN.json",
+    "positive_execution_authority": "NONE",
+    "provider_identity_semantic_authority": "NONE",
+    "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1",
+    "state": "PACKAGE_ENABLED_SEMANTIC_OWNER_ACTIVE"
+  },
+  "package_designation": "AIR_P_COMPLETE_COMPILATION_V1",
+  "package_schema_authority": "CANONICAL_RUNTIME_BUNDLE_VALIDATION_SCHEMA",
+  "path_serialization_policy": "CANONICAL_REPOSITORY_RELATIVE_PATHS_ONLY",
+  "route_map_authority": "NONAUTHORITATIVE_VALIDATION_FIXTURE_ONLY",
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER"
+}

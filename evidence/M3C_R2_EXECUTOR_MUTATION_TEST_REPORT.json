@@ -1,0 +1,187 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_M3C_R2_EXECUTOR_MUTATION_TEST_REPORT_V1",
+  "scope_id": "M3C_R2_EXECUTOR_LIFECYCLE_METADATA_AND_EVIDENCE_RECONCILIATION_V1",
+  "mutation_count": 15,
+  "pass_count": 15,
+  "fail_count": 0,
+  "result": "PASS",
+  "tests": [
+    {
+      "mutation_id": "AI_GOV_EXECUTOR_STATUS_TO_DRAFT",
+      "expected_detection": "ai_governance::EXECUTOR_STATUS_VALIDATED",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "ai_governance::MANIFEST_RECEIPT::AIR_AI_GOVERNANCE_EXECUTOR.json",
+        "ai_governance::LOCAL_RECEIPT::AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json::components.4::AIR_AI_GOVERNANCE_EXECUTOR.json",
+        "ai_governance::EXECUTOR_STATUS_VALIDATED",
+        "ai_governance::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "GROUNDING_INDEPENDENT_AUTHORITY_TRUE",
+      "expected_detection": "grounding::AUTHORITY_FALSE::independent_execution_authority",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "grounding::MANIFEST_RECEIPT::AIR_GROUNDING_EXECUTOR.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json::components.3::AIR_GROUNDING_EXECUTOR.json",
+        "grounding::AUTHORITY_FALSE::independent_execution_authority",
+        "grounding::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "SFV_SELF_BINDING_TRUE",
+      "expected_detection": "sfv::AUTHORITY_FALSE::self_binding",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "sfv::MANIFEST_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "sfv::LOCAL_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json::components.3::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "sfv::AUTHORITY_FALSE::self_binding",
+        "sfv::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "GROUNDING_ORBIT0_TRUE",
+      "expected_detection": "grounding::AUTHORITY_FALSE::may_occupy_orbit_0_as_layer",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "grounding::MANIFEST_RECEIPT::AIR_GROUNDING_EXECUTOR.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json::components.3::AIR_GROUNDING_EXECUTOR.json",
+        "grounding::AUTHORITY_FALSE::may_occupy_orbit_0_as_layer",
+        "grounding::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "SFV_AUTHORITY_SOURCE_SELF",
+      "expected_detection": "sfv::AUTHORITY_SOURCE",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "sfv::MANIFEST_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "sfv::LOCAL_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json::components.3::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "sfv::AUTHORITY_SOURCE",
+        "sfv::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "GROUNDING_REMOVE_EXECUTOR_FROM_MANIFEST",
+      "expected_detection": "grounding::EXECUTOR_MANIFEST_MEMBER",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "grounding::EXECUTOR_MANIFEST_MEMBER",
+        "INDEX_MANIFEST_HASH::grounding"
+      ]
+    },
+    {
+      "mutation_id": "SFV_CORRUPT_EXECUTOR_HASH",
+      "expected_detection": "sfv::MANIFEST_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "sfv::MANIFEST_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "sfv::LOCAL_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json::components.3::AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+        "INDEX_MANIFEST_HASH::sfv"
+      ]
+    },
+    {
+      "mutation_id": "GROUNDING_REINTRODUCE_STALE_PACKAGE_STATE",
+      "expected_detection": "NO_STALE_EXECUTOR_LIFECYCLE_WORDING",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "NO_STALE_EXECUTOR_LIFECYCLE_WORDING",
+        "grounding::MANIFEST_RECEIPT::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_EXECUTOR.json::dependencies.0::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_METHOD_PACK.json::dependencies.0::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_SPECIALIST.json::dependencies.0::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "grounding::LOCAL_RECEIPT::AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json::components.0::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "grounding::EVIDENCE_COMPONENT_HASHES"
+      ]
+    },
+    {
+      "mutation_id": "AI_GOV_REINTRODUCE_EXCLUDED_DRAFT_EXECUTOR",
+      "expected_detection": "NO_STALE_EXECUTOR_LIFECYCLE_WORDING",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "NO_STALE_EXECUTOR_LIFECYCLE_WORDING",
+        "ai_governance::NO_EXCLUDED_COMPONENT",
+        "INDEX_MANIFEST_HASH::ai_governance"
+      ]
+    },
+    {
+      "mutation_id": "INDEX_OLD_SEPARATE_EXECUTOR_STATE",
+      "expected_detection": "INDEX_EXECUTOR_STATE::ai_governance",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "INDEX_EXECUTOR_STATE::ai_governance"
+      ]
+    },
+    {
+      "mutation_id": "INDEX_CORRUPT_GROUNDING_MANIFEST_HASH",
+      "expected_detection": "INDEX_MANIFEST_HASH::grounding",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "INDEX_MANIFEST_HASH::grounding"
+      ]
+    },
+    {
+      "mutation_id": "CAPABILITY_ECOLOGY_BYTE_DRIFT",
+      "expected_detection": "UNCHANGED_BYTES::capability_ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "UNCHANGED_BYTES::capability_ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json"
+      ]
+    },
+    {
+      "mutation_id": "PUBLIC_COPY_BYTE_DRIFT",
+      "expected_detection": "UNCHANGED_BYTES::public_surface_copywriting/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "UNCHANGED_BYTES::public_surface_copywriting/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json"
+      ]
+    },
+    {
+      "mutation_id": "GROUNDING_EVIDENCE_BYTE_DRIFT",
+      "expected_detection": "grounding::EVIDENCE_RECEIPT",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "grounding::EVIDENCE_RECEIPT",
+        "INDEX_EVIDENCE_REF::grounding"
+      ]
+    },
+    {
+      "mutation_id": "INDEX_EXECUTION_AUTHORITY_EXPANSION",
+      "expected_detection": "INDEX_AUTHORITY_NONE",
+      "validator_decision": "FAIL",
+      "specific_detection": true,
+      "failure_ids": [
+        "STRICT_JSON_AND_DUPLICATE_KEYS",
+        "INDEX_AUTHORITY_NONE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_RUNTIME_BUNDLE_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_MACHINE_REPRESENTATION",
+  "backend_enforcement_claimed": false,
+  "conformance_profile_ref": "AIR_P_CONFORMANCE_PROFILE.json",
+  "contract_refs": {
+    "canonical_machine_state": "AIR_P_CANONICAL_MACHINE_STATE_CONTRACT.json",
+    "control_governance_projections": "AIR_P_CONTROL_GOVERNANCE_PROJECTIONS.json",
+    "handoff_checkpoint_delta": "AIR_P_HANDOFF_CHECKPOINT_DELTA_CONTRACT.json",
+    "semantic_binding": "AIR_P_SEMANTIC_BINDING_REGISTRY.json"
+  },
+  "law_source_package_pin_ref": "AIR_LAW_SOURCE_PACKAGE_PIN.json",
+  "package_designation": "AIR_P_COMPLETE_COMPILATION_V1",
+  "package_version": "1.0.0",
+  "registry_refs": {
+    "authority_precedence": "AIR_P_AUTHORITY_PRECEDENCE_REGISTRY.json",
+    "components": "AIR_P_COMPONENT_REGISTRY.json",
+    "control_events": "AIR_P_CONTROL_EVENT_REGISTRY.json",
+    "deterministic_validation": "AIR_P_DETERMINISTIC_VALIDATION_REGISTRY.json",
+    "formal_objects": "AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json",
+    "routes": "AIR_P_ROUTE_CONTRACT_REGISTRY.json"
+  },
+  "semantic_owner": "AIR_CORE_RUNTIME_V2",
+  "source_manifest_ref": "AIR_P_SOURCE_MANIFEST.json"
+}

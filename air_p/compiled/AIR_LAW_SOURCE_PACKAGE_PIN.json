@@ -1,0 +1,20 @@
+{
+  "activation_state": "ACTIVE_PACKAGE_ENABLED_RELEASE_AMRS4F_SEMANTIC_OWNER_CUTOVER_COMPLETE",
+  "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
+  "content_fingerprint_sha256": "a99fe6c9fc40f6d2aa99dc3221c599bcbd948ab007fee7790ff221512d1ae3c1",
+  "contract_id": "AIR_LAW_SOURCE_PACKAGE_PIN_V1",
+  "contract_version": "1.0.0",
+  "expected_law_count": 83,
+  "floor_registry_fingerprint_sha256": "373451fb4952df32b49b24d902e4631c9c7a66b112fa87668ab5e1136ac88622",
+  "law_registry_fingerprint_sha256": "915f3f3f03b23106de450b5f5a6480d2122114a21d58c7da32ab769df0cf4686",
+  "manifest_sha256": "6618da3c251024eacfebb94ee1a17df70e1c98df9acd719cf003982770174763",
+  "package_id": "AIR_LAW_SOURCE_PACKAGE_V1",
+  "package_version": "1.0.0-AMRS4F-OPERATIVE",
+  "positive_execution_authority": "NONE",
+  "router_fingerprint_sha256": "a7d45d8a1392107ad8ebcd2c989ada9b109cd508e2986d08e87f945fed3a1960",
+  "runtime_compatibility": {
+    "runtime_family": "AIR_CORE_RUNTIME_V2",
+    "semantic_owner_cutover_required_for_package_mode": true,
+    "target_amrs": 6
+  }
+}

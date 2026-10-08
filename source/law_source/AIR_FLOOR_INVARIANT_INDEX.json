@@ -1,0 +1,237 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_FLOOR_INVARIANT_INDEX_V1",
+  "contract_version": "1.0.0",
+  "entries": [
+    {
+      "body_sha256": "9b9babe79dbba99b5e951f945ded67ebfde08f10ace5b69e4f94936ce1ea7819",
+      "canonical_path": "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
+      "floor_id": "AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 399,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE"
+    },
+    {
+      "body_sha256": "7f5dd69dd9bcea940ed4446b6f199ef5a4f7527cf9983ed45c407693aeb1f913",
+      "canonical_path": "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
+      "floor_id": "AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 126,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY"
+    },
+    {
+      "body_sha256": "4d60b6d76a6663a9e1fce58e4a4fa8493dedfbc993a9b6b84b9ee99b3497863b",
+      "canonical_path": "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
+      "floor_id": "AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 132,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED"
+    },
+    {
+      "body_sha256": "c13c092340b95437eb67f16081045a8b4ebb9b3ebf8c4ac10422ec45f408f622",
+      "canonical_path": "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
+      "floor_id": "AIR-FLOOR-004-LOAD-INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 70,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-004-LOAD-INTEGRITY"
+    },
+    {
+      "body_sha256": "e44e1fb916ebe51d9fa38637186c63d6759e797b27f54565905f6d945bea9992",
+      "canonical_path": "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
+      "floor_id": "AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 131,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY"
+    },
+    {
+      "body_sha256": "7cfa14824dd4f030028e52f789ae73b7ab41ee0376a809f222f9f513502d67f5",
+      "canonical_path": "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
+      "floor_id": "AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 180,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING"
+    },
+    {
+      "body_sha256": "76fc7152d85e1e278c80676beaa11648c452bf09c7e0eb17723b8eaa330ea0a7",
+      "canonical_path": "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
+      "floor_id": "AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 839,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY"
+    },
+    {
+      "body_sha256": "36b2585f8345af7335dc6be88283e5e7e0738507238d9d2b04ee94b1787dad3a",
+      "canonical_path": "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
+      "floor_id": "AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 108,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE"
+    },
+    {
+      "body_sha256": "0fdc741acb0ecaf1018b5e2c21336c238da46fbc67de98e042d2790e0ee1c12a",
+      "canonical_path": "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
+      "floor_id": "AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 144,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING"
+    },
+    {
+      "body_sha256": "9d0d361e27f047d9c380f27dd05335aab95001ee293aed572ad7771e58f921cf",
+      "canonical_path": "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
+      "floor_id": "AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 136,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE"
+    },
+    {
+      "body_sha256": "3ba728b029ecc69dc1932e9e9e53eb5384384e715a2c1176517d567329440a04",
+      "canonical_path": "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
+      "floor_id": "AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 252,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE"
+    },
+    {
+      "body_sha256": "1a2b2acfa8a6f4029a76e9c7c56d87e4a382754a78d2a098c1405b5cc56de8bc",
+      "canonical_path": "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
+      "floor_id": "AIR-FLOOR-012-LEGACY-V1-NON-BINDING",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 91,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-012-LEGACY-V1-NON-BINDING"
+    },
+    {
+      "body_sha256": "034c5e671b0f808cab74cc8de5a0149a51a3550dcaecb9b2ec492ffd218e80a0",
+      "canonical_path": "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
+      "floor_id": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 380,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING"
+    },
+    {
+      "body_sha256": "8812c5135f7671a78714ef97cb5f483b5855e5a1c1031801c397c49be07d5964",
+      "canonical_path": "law_source/floors/AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY.md",
+      "floor_id": "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 277,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY"
+    },
+    {
+      "body_sha256": "5388e375684c479a40ade4f0b49920c29415e424c86d425d9db34d61483e5704",
+      "canonical_path": "law_source/floors/AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH.md",
+      "floor_id": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 355,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH"
+    },
+    {
+      "body_sha256": "5ab71fd4f8af26f7f51942459c94d1bb0764676e15b17312d869f01ede2bd917",
+      "canonical_path": "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
+      "floor_id": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 351,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION"
+    },
+    {
+      "body_sha256": "2587b35b0da91f644d6c299e74361a0679389335fc088b6bf24826baeb87d11b",
+      "canonical_path": "law_source/floors/AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY.md",
+      "floor_id": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 490,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY"
+    },
+    {
+      "body_sha256": "a134bdee7d7d0c23e2099d4f273913ad49433d15b1e26e539ef7bb3942306791",
+      "canonical_path": "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
+      "floor_id": "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 611,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT"
+    },
+    {
+      "body_sha256": "21d88095902933c24714ed6dc7868441f80dec75a365c989145cf28e93c44e16",
+      "canonical_path": "law_source/floors/AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY.md",
+      "floor_id": "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 431,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY"
+    },
+    {
+      "body_sha256": "24a739479b7c1374e6eff2d43f78fc334ffb893758867d19f737f94c171c0805",
+      "canonical_path": "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
+      "floor_id": "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 336,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION"
+    },
+    {
+      "body_sha256": "f0170b756caad5a11e37206f47bbf91e2cbf9c575689c38f6c983b07f3ff9ec4",
+      "canonical_path": "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
+      "floor_id": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 363,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY"
+    },
+    {
+      "body_sha256": "a593472e960aca03e6d493733b0e2276fac1d53d05324e167828b85347c8e189",
+      "canonical_path": "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
+      "floor_id": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 370,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY"
+    },
+    {
+      "body_sha256": "2f4c8ac0946f86b0e00c363548eac80168a27d83b4dca191b0132bc1c6d6af00",
+      "canonical_path": "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
+      "floor_id": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 356,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION"
+    },
+    {
+      "body_sha256": "ff0512e58fd441f5af9ed4cb3bf280d460a9689beb2c359e01f4491af7ef5534",
+      "canonical_path": "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
+      "floor_id": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 396,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION"
+    },
+    {
+      "body_sha256": "743b8167a483ad88a246ca0f1a4207cfbdf1a48ed50863dec0a4a079957141db",
+      "canonical_path": "law_source/floors/AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE.md",
+      "floor_id": "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 362,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE"
+    },
+    {
+      "body_sha256": "0041492c8878cabbacc697c1ce98a0cdae99228232059e96c666a1501fec3d10",
+      "canonical_path": "law_source/floors/AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION.md",
+      "floor_id": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 596,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+    },
+    {
+      "body_sha256": "09322b3649a967e716d413055a692ef7debaae0e1290cbb305bb40709e3c0717",
+      "canonical_path": "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
+      "floor_id": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 764,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY"
+    },
+    {
+      "body_sha256": "73a419868757d320b360c88035ea52d6f6c282ae78e30c0c1077a1dd26482357",
+      "canonical_path": "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
+      "floor_id": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+      "lifecycle_state": "ACTIVE",
+      "size_bytes": 543,
+      "source_anchor_ref": "AIR_FLOOR_INVARIANT_REGISTRY_V2#AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+    }
+  ],
+  "floor_count": 28,
+  "floor_registry_fingerprint_sha256": "373451fb4952df32b49b24d902e4631c9c7a66b112fa87668ab5e1136ac88622",
+  "package_id": "AIR_LAW_SOURCE_PACKAGE_V1",
+  "package_version": "1.0.0-AMRS4A2-R2-CANDIDATE",
+  "positive_execution_authority": "NONE",
+  "registry_version": "2.3.0",
+  "semantic_owner": "AIR_CORE_RUNTIME_V2_BOOTSTRAP_TRUST_KERNEL"
+}

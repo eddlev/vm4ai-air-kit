@@ -1,14 +1,14 @@
 {
   "SYSTEM_DESIGNATION": "AIR_SPECIALIST_PACKAGE_INDEX_V1",
   "PROMPT_VERSION": "2.2.0",
-  "INDEX_VERSION": "1.3.13",
+  "INDEX_VERSION": "1.3.15",
   "SCHEMA_FAMILY": "AIR_V2",
   "title": "AIR Specialist Package Index v1",
   "role": "COMPACT_RELEASE_LEVEL_SPECIALIST_DISCOVERY_METADATA_ONLY",
   "artifact_class": "RELEASE_SPECIALIST_DISCOVERY_INDEX",
-  "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_V074_RELEASE_SEALED_REPLAYABLE_BEHAVIORAL_VALIDATED",
+  "status": "AIR_2_6_3_OBJECT_CONTRACT_SET_008_FIVE_PACKAGE_INDEX_EXECUTOR_INCLUSIVE_RELEASE_VALIDATION_RECONCILED",
   "canonical_filename": "AIR_SPECIALIST_PACKAGE_INDEX.json",
-  "generated_at": "2026-09-15T11:45:12Z",
+  "generated_at": "2026-09-20T20:19:00Z",
   "catalog_scope": {
     "entry_order": "PACKAGE_IDENTITY_ASC",
     "specialist_package_count": 5,
@@ -131,10 +131,10 @@
     "operative_rule": "An index entry establishes release-catalog identity and expected manifest identity only. Actual package bytes must be available and validated for exact identity, Foundation compatibility, task fit, and required approval before compilation into or reference by the sole bound Orbit 0 AIR_ARTIFACT."
   },
   "validation_state": {
-    "decision": "PASS_ALL_FIVE_SET008_REPLAYABLE_BEHAVIORAL_REVALIDATION",
+    "decision": "PASS_EXECUTOR_INCLUSIVE_RELEASE_VALIDATION_RECONCILIATION_THREE_PACKAGES",
     "entry_count": 5,
     "core_minimum_entry_contract": "PASS_TYPED_CANDIDATE_TO_RELEASE_LIFECYCLE",
-    "manifest_hash_closure": "PASS_ALL_FIVE_SPECIALIST_PACKAGES_SET_008_EXACT_MANIFEST_RECEIPTS_ALL_BEHAVIORAL_PASS",
+    "manifest_hash_closure": "PASS_THREE_RESEALED_PACKAGE_MANIFEST_RECEIPTS_TWO_UNCHANGED_PACKAGE_MANIFESTS",
     "foundation_identity_closure": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
     "route_map_identity_closure": "PASS_PATCH2_EXACT_RESEAL",
     "authority_boundary": "PASS_NO_AUTHORITY_EXPANSION",
@@ -142,10 +142,10 @@
     "mii_discovery_boundary": "PASS_DISCOVERY_ONLY",
     "target_readiness_step_optimality_boundary": "PASS_NONAUTHORIZING",
     "static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
-    "behavioral_revalidation": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "behavioral_revalidation": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
     "release_publication_state": "EXTERNAL_RELEASE_STATE_NOT_RUNTIME_AUTHORITY",
-    "operative_lifecycle_coherence": "PASS_ALL_FIVE_SET008_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED",
-    "component_internal_foundation_compatibility": "PASS_ALL_FIVE_PACKAGES_SET_008_EXACT_RECEIPTS",
+    "operative_lifecycle_coherence": "PASS_ALL_FIVE_SET008_VALIDATED_THREE_EXECUTORS_INTEGRAL_RELEASE_COMPONENTS",
+    "component_internal_foundation_compatibility": "PASS_THREE_PATCHED_PACKAGES_SET_008_EXACT_RECEIPTS_TWO_UNCHANGED_CATALOG_ENTRIES",
     "release_publication_rule": "Verify tag/release/publication through the current external repository/release surface at release time. Release-sealed catalog bytes do not assert completed publication as runtime truth.",
     "set008_static_revalidation_progress": {
       "passed_package_identities": [
@@ -168,7 +168,8 @@
       ],
       "behavioral_revalidation_passed_count": 5
     },
-    "handoff_rev20_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED"
+    "handoff_rev20_catalog_compatibility": "PASS_DISCOVERY_PROVENANCE_ONLY_PACKAGE_REVALIDATION_STILL_REQUIRED",
+    "executor_validation_reconciliation": "PASS_NEW_EXECUTOR_INCLUSIVE_EVIDENCE_AND_MUTATION_COVERAGE_THREE_PACKAGES"
   },
   "entries": [
     {
@@ -176,7 +177,7 @@
       "specialist_designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
       "manifest_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "51762266eeba19cbdc328e20e9f48122541e12a1e2f49b3e197827b8c3434a51",
+      "manifest_sha256": "ae47b1062b3403b153ed3f00cd626db9ce5ac9885a565eda61e83c8e6edf22d3",
       "canonical_component_filenames": [
         "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
         "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
@@ -212,19 +213,22 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
-      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_ALL_REQUIRED_COMPONENTS_VALIDATED_EXECUTOR_INTEGRAL",
+      "behavioral_revalidation_state": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
       "behavioral_evidence_ref": {
-        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260915_V1",
-        "filename": "tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V1.json",
-        "sha256": "7b568dfd9ea04e247b4b4b425af34e616765af0ad86c70a716e96c9629ebd3e9",
-        "model_host": "ChatGPT / GPT-5.6 Sol",
-        "scenario_count": 6,
-        "pass_count": 6,
-        "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
-      }
+        "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_SET008_20260920_V1",
+        "filename": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_VALIDATION.json",
+        "sha256": "dba7b1862954a9545f3d9c50572a0e7ce6879ce17b074ceec833e3a365606458",
+        "size_bytes": 7700,
+        "line_count": 196,
+        "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+        "executor_included_in_current_release_validation": true,
+        "historical_model_host_executor_included": false,
+        "cross_host_equivalence_claimed": false
+      },
+      "executor_validation_patch_record": "M3C_R2_EXECUTOR_LIFECYCLE_RECONCILIATION_2026-09-20",
+      "executor_validation_basis": "NEW_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_AND_MUTATION_VALIDATION_WITH_HISTORICAL_MODEL_HOST_EVIDENCE_PRESERVED"
     },
     {
       "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
@@ -281,7 +285,7 @@
       "specialist_designation": "AIR_GROUNDING_SPECIALIST_V2",
       "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "a3e437881dbdf69d52e87af78f9809bf87de4130050a8e9c187f919f2fbe48d8",
+      "manifest_sha256": "e304561784caf1bfea1f6ef1593be9bcd6a88e0ae74a0876f6ed1e98256dd73f",
       "canonical_component_filenames": [
         "AIR_GROUNDING_DOMAIN_PACKAGE.json",
         "AIR_GROUNDING_METHOD_PACK.json",
@@ -315,19 +319,22 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
-      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_ALL_REQUIRED_COMPONENTS_VALIDATED_EXECUTOR_INTEGRAL",
+      "behavioral_revalidation_state": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
       "behavioral_evidence_ref": {
-        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260915_V1",
-        "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V1.json",
-        "sha256": "77fd1409d8fde79c3e8169f9823cd5b3fdd0a97fc8eea5e9f7ca303f3add2c92",
-        "model_host": "ChatGPT / GPT-5.6 Sol",
-        "scenario_count": 6,
-        "pass_count": 6,
-        "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
-      }
+        "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_GROUNDING_SET008_20260920_V1",
+        "filename": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_GROUNDING_VALIDATION.json",
+        "sha256": "ec22c1dce886831c106ce6ef805a31fd318a6000eed06bbf8fd4fc83a5cf76b0",
+        "size_bytes": 6723,
+        "line_count": 175,
+        "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+        "executor_included_in_current_release_validation": true,
+        "historical_model_host_executor_included": false,
+        "cross_host_equivalence_claimed": false
+      },
+      "executor_validation_patch_record": "M3C_R2_EXECUTOR_LIFECYCLE_RECONCILIATION_2026-09-20",
+      "executor_validation_basis": "NEW_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_AND_MUTATION_VALIDATION_WITH_HISTORICAL_MODEL_HOST_EVIDENCE_PRESERVED"
     },
     {
       "package_identity": "AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_V2",
@@ -383,7 +390,7 @@
       "specialist_designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
       "manifest_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
       "package_version": "2.5.0",
-      "manifest_sha256": "915710a1dcd6364c1f5e5f1c886b432a9a828afeb52f4542c57e5ef694a45534",
+      "manifest_sha256": "07d5d9aaf371c48d2b9baecde09009ac13ee8e7f2acb1a1aa1ac3e1715ab21a7",
       "canonical_component_filenames": [
         "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
         "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
@@ -415,19 +422,22 @@
       "failure_mode_integration_required": true,
       "failure_mode_registry_owner": "AIR_CORE_RUNTIME_V2",
       "current_foundation_compatibility_target": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
-      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_EXECUTOR_DRAFT_UNVALIDATED",
-      "behavioral_revalidation_state": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
-      "executor_component_state": "DRAFT_AVAILABLE_UNVALIDATED",
+      "current_foundation_compatibility_state": "STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_ALL_REQUIRED_COMPONENTS_VALIDATED_EXECUTOR_INTEGRAL",
+      "behavioral_revalidation_state": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+      "executor_component_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
       "behavioral_evidence_ref": {
-        "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260915_V1",
-        "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V1.json",
-        "sha256": "831a048946574a10f7dd5a1adb8cd6b4125e4a39030f9414f9de2d464f1b5649",
-        "model_host": "ChatGPT / GPT-5.6 Sol",
-        "scenario_count": 6,
-        "pass_count": 6,
-        "cross_host_equivalence_claimed": false,
-        "executor_included_in_behavioral_pass": false
-      }
+        "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_SFV_SET008_20260920_V1",
+        "filename": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_SFV_VALIDATION.json",
+        "sha256": "9e115c0386bc68b8afddc03ddd4582ae60baaff4cdd6e591f5864026b1a6fbec",
+        "size_bytes": 7304,
+        "line_count": 178,
+        "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+        "executor_included_in_current_release_validation": true,
+        "historical_model_host_executor_included": false,
+        "cross_host_equivalence_claimed": false
+      },
+      "executor_validation_patch_record": "M3C_R2_EXECUTOR_LIFECYCLE_RECONCILIATION_2026-09-20",
+      "executor_validation_basis": "NEW_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_AND_MUTATION_VALIDATION_WITH_HISTORICAL_MODEL_HOST_EVIDENCE_PRESERVED"
     }
   ],
   "backend_validation_claimed": false,
@@ -454,5 +464,19 @@
     "released_state": "RELEASE_CATALOG_ENTRY",
     "candidate_states_are_release_sealed": false,
     "authority_effect": "DISCOVERY_METADATA_ONLY_NO_SELECTION_APPROVAL_BINDING_OR_EXECUTION_AUTHORITY"
+  },
+  "executor_validation_reconciliation": {
+    "scope_id": "M3C_R2_EXECUTOR_LIFECYCLE_METADATA_AND_EVIDENCE_RECONCILIATION_V1",
+    "package_identities": [
+      "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+      "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+      "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2"
+    ],
+    "historical_model_host_evidence_preserved": true,
+    "current_release_validation_includes_executor": true,
+    "new_validation_evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+    "mutation_coverage_ref": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json",
+    "authority_expansion": false,
+    "scope": "EXECUTOR_LIFECYCLE_METADATA_EVIDENCE_AND_DEPENDENCY_RESEAL_ONLY"
   }
 }

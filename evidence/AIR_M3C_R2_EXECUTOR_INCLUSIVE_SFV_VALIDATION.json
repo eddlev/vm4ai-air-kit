@@ -1,0 +1,178 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_M3C_R2_SFV_EXECUTOR_INCLUSIVE_RELEASE_VALIDATION_V1",
+  "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_SFV_SET008_20260920_V1",
+  "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+  "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+  "foundation_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+  "generated_at": "2026-09-20T20:19:00Z",
+  "historical_model_host_behavioral_evidence": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_SPECIFICATION_FIRST_VERIFICATION_SET008_20260917_V2",
+    "filename": "tests/AIR_SPECIFICATION_FIRST_VERIFICATION_SET008_BEHAVIORAL_EVIDENCE_V2.json",
+    "sha256": "3d511ba200e6f017c97141e7c1316959cd52e38bf19b8887c97a0a3bd4ccf5ec",
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "executor_included_in_historical_model_host_pass": false,
+    "preservation_state": "PRESERVED_AS_HISTORICAL_NON_EXECUTOR_MODEL_HOST_EVIDENCE"
+  },
+  "current_component_receipts": {
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json": {
+      "sha256": "4b5d8e8a4c8ea0ec5f27733d946e0bf392fb21c546278bd13d08833abcdebcfd",
+      "size_bytes": 35015,
+      "line_count": 662
+    },
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json": {
+      "sha256": "1728fade7bbaaf486ff5da0f07bcd1bfb237f488ef380fc1b9907f695887b790",
+      "size_bytes": 31387,
+      "line_count": 581
+    },
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json": {
+      "sha256": "47e5a6071ecd664c74c15790e04dab76f062866d3d5facfdeea416579aa74928",
+      "size_bytes": 54329,
+      "line_count": 1085
+    },
+    "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json": {
+      "sha256": "309e041009680e0b9f93592218c1a3f122df236e491bf5064bed60792a982040",
+      "size_bytes": 34293,
+      "line_count": 705
+    }
+  },
+  "executor_contract_validation": {
+    "executor_filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+    "check_count": 14,
+    "pass_count": 14,
+    "checks": [
+      {
+        "check_id": "EXECUTOR_STATUS_VALIDATED",
+        "state": "PASS",
+        "observed": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      {
+        "check_id": "EXECUTOR_LAYER_NON_AGENT",
+        "state": "PASS",
+        "observed": "NON_AGENT_EXECUTOR_LAYER"
+      },
+      {
+        "check_id": "NO_INDEPENDENT_EXECUTION_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ACTIVE_BINDING_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ORBIT0_OCCUPANCY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_APPROVAL",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_BINDING",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "POSITIVE_AUTHORITY_REMAINS_ORBIT0_ARTIFACT",
+        "state": "PASS",
+        "observed": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT"
+      },
+      {
+        "check_id": "MANUAL_INVOCATION_DECLARED",
+        "state": "PASS",
+        "observed": "air sfv execute"
+      },
+      {
+        "check_id": "BOUNDED_OPERATION_DECLARED",
+        "state": "PASS",
+        "observed": "EXECUTE_ONE_TASK_SCOPED_SPECIFICATION_FIRST_VERIFICATION_OPERATION"
+      },
+      {
+        "check_id": "EXECUTOR_REQUIRED_PACKAGE_MEMBER",
+        "state": "PASS",
+        "observed": [
+          "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+          "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+          "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+          "AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json"
+        ]
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE_V2",
+            "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+            "sha256": "4b5d8e8a4c8ea0ec5f27733d946e0bf392fb21c546278bd13d08833abcdebcfd",
+            "size_bytes": 35015,
+            "line_count": 662,
+            "required": true,
+            "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "4b5d8e8a4c8ea0ec5f27733d946e0bf392fb21c546278bd13d08833abcdebcfd",
+            "size_bytes": 35015,
+            "line_count": 662
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_V2",
+            "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+            "sha256": "47e5a6071ecd664c74c15790e04dab76f062866d3d5facfdeea416579aa74928",
+            "size_bytes": 54329,
+            "line_count": 1085,
+            "required": true,
+            "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "47e5a6071ecd664c74c15790e04dab76f062866d3d5facfdeea416579aa74928",
+            "size_bytes": 54329,
+            "line_count": 1085
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_V2",
+            "filename": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+            "sha256": "309e041009680e0b9f93592218c1a3f122df236e491bf5064bed60792a982040",
+            "size_bytes": 34293,
+            "line_count": 705,
+            "required": true,
+            "availability_state": "SUPPLIED_STATIC_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "309e041009680e0b9f93592218c1a3f122df236e491bf5064bed60792a982040",
+            "size_bytes": 34293,
+            "line_count": 705
+          }
+        }
+      }
+    ],
+    "result": "PASS"
+  },
+  "current_release_validation": {
+    "executor_included": true,
+    "executor_lifecycle_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "integral_package_component": true,
+    "authority_expansion": false,
+    "validation_composition": "HISTORICAL_MODEL_HOST_BEHAVIOR_FOR_NON_EXECUTOR_COMPONENTS_PLUS_CURRENT_DETERMINISTIC_EXECUTOR_CONTRACT_AND_MUTATION_VALIDATION",
+    "mutation_coverage_ref": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json"
+  },
+  "claim_boundary": "This evidence validates released package/component identity, Executor contract gates, dependency receipts and non-agent/no-independent-authority boundaries. It does not claim backend enforcement, live external effects, legal/compliance certification, or cross-host behavioral equivalence.",
+  "backend_validation_claimed": false,
+  "cross_host_equivalence_claimed": false,
+  "result": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION"
+}

@@ -1,0 +1,33 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_AUTHORITY_PRECEDENCE_REGISTRY_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_PROJECTION",
+  "compiled_package_self_authority": "NONE",
+  "conflict_rule": "Core Runtime is the sole semantic owner of canonical routes, object classes, lifecycle, alignment evaluation, MII contribution authority, artifact binding, action, delivery, and closure semantics. Governance may tighten applicable requirements. Control Surface renders. This profile supplies defaults and task-composite inputs only and may not redefine Core routes.",
+  "decision_trace_contracts": {
+    "closure": "AIR_DECISION_BASIS_CLOSURE_V1",
+    "fingerprint": "AIR_DECISION_TRACE_FINGERPRINT_V1",
+    "forced_walk": "AIR_DECISION_TRACE_FORCED_WALK_V1",
+    "object": "AIR_DECISION_TRACE",
+    "positive_execution_authority": "NONE"
+  },
+  "law_router": {
+    "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
+    "core_registry_fingerprint_sha256": "915f3f3f03b23106de450b5f5a6480d2122114a21d58c7da32ab769df0cf4686",
+    "decision_trace_law_state": "PRESENT_GLOBAL_NONAUTHORIZING_PACKAGE_SOURCE",
+    "law_count": 83,
+    "metadata_fingerprint_sha256": "ede96d077ccdf2234f48f7214e50f3dbf7fced04652e708356e9537eaae0731f",
+    "router_version": "2.0.0-AMRS4F-PACKAGE-ENABLED"
+  },
+  "precedence": [
+    "AIR_CORE_RUNTIME_V2",
+    "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+    "AIR_CONTROL_SURFACE_V2",
+    "AIR_DEFAULT_STARTER_V2"
+  ],
+  "route_map": {
+    "authority": "NONAUTHORITATIVE_VALIDATION_FIXTURE_ONLY",
+    "declared_route_count": 22,
+    "source_sha256": "c322f8d3ebd68594a506101d4fe0c783a4712b26c1f51ef20de8d5b8733d5817"
+  },
+  "source_manifest_ref": "AIR_P_SOURCE_MANIFEST.json"
+}

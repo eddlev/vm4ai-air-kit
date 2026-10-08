@@ -1,0 +1,379 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_RUNTIME_REFERENCE_INDEX_V1",
+  "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
+  "anchor_count": 17,
+  "anchors": [
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
+      "locator": {
+        "end_line": 62,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "GOVERNED_ROUTE",
+        "FORMAL_OBJECT_OBLIGATION"
+      ],
+      "section_digest": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+      "source_sha256": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY.md",
+      "locator": {
+        "end_line": 28,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1"
+      ],
+      "retrieval_trigger": [
+        "NONROOT_FORMAL_OBJECT_CONSTRUCTION"
+      ],
+      "section_digest": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+      "source_sha256": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md",
+      "locator": {
+        "end_line": 27,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1"
+      ],
+      "retrieval_trigger": [
+        "PRE_RESPONSE_FORMAL_OBJECT_PREFLIGHT"
+      ],
+      "section_digest": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+      "source_sha256": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE.md",
+      "locator": {
+        "end_line": 52,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+      "required_dependencies": [
+        "AIR_REQUIRED_EMISSION_PREFLIGHT_V2"
+      ],
+      "retrieval_trigger": [
+        "RESPONSE_EMISSION_CLOSURE"
+      ],
+      "section_digest": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+      "source_sha256": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
+      "locator": {
+        "end_line": 63,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "MATERIAL_ACTION_REQUEST"
+      ],
+      "section_digest": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+      "source_sha256": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 6877,
+        "start_line": 6254,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "APPROVAL_GATE_RESPONSE"
+      ],
+      "section_digest": "26dffd2dea51fbf6daaebff510e357f21f44e4904a2d80eeccdacc6975cffe34",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+      "locator": {
+        "end_line": 79,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "MATERIAL_REQUIRED_INPUT_MISSING"
+      ],
+      "section_digest": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+      "source_sha256": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+      "locator": {
+        "end_line": 26,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "UNRESOLVED_ONBOARDING_STATE"
+      ],
+      "section_digest": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+      "source_sha256": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY.md",
+      "locator": {
+        "end_line": 73,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "BOOT",
+        "TARGETED_REVALIDATION"
+      ],
+      "section_digest": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+      "source_sha256": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 157,
+        "start_line": 39,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1",
+      "required_dependencies": [
+        "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2"
+      ],
+      "retrieval_trigger": [
+        "BOOT",
+        "TARGETED_RUNTIME_RETRIEVAL"
+      ],
+      "section_digest": "6e5b7761b8a1d1a504f471cc327c14c1bc3943319e145d64ecc69d6cd76cb6fd",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 3334,
+        "start_line": 3283,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+        "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+        "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+        "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+        "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+        "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "GOVERNED_ROUTE",
+        "FORMAL_OBJECT_OBLIGATION",
+        "MATERIAL_ACTION_REQUEST"
+      ],
+      "section_digest": "32ea366d82b04ce732baef24f53e9703f71c09d170e6a77d39d16bdd4f37d183",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "locator": {
+        "end_line": 3338,
+        "start_line": 3310,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_CONTROL_UNRESOLVED_OPTION_SEMANTIC_QUALIFIER_V1",
+      "required_dependencies": [
+        "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3"
+      ],
+      "retrieval_trigger": [
+        "UNRESOLVED_ONBOARDING_RENDER"
+      ],
+      "section_digest": "346371047fb848750644509163f62b7a5eb8b16cc252654f4646935e125a4e2e",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_CONTROL_UNRESOLVED_OPTION_SEMANTIC_QUALIFIER_V1",
+      "source_sha256": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "locator": {
+        "end_line": 3423,
+        "start_line": 3397,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_CONTROL_TURN_KERNEL_PROGRESSIVE_RUNTIME_RENDERER_V1",
+      "required_dependencies": [
+        "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "TURN_KERNEL_RESULT_RENDERING",
+        "PROGRESSIVE_RUNTIME_PRESENTATION"
+      ],
+      "section_digest": "2f3d950f84e4402fdc4a32df1e31ae78fa4f7f9ca72745490f400b5414180e1e",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_CONTROL_TURN_KERNEL_PROGRESSIVE_RUNTIME_RENDERER_V1",
+      "source_sha256": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "locator": {
+        "json_path": "$.compiler_contract.progressive_runtime_retrieval_mirror",
+        "type": "JSON_PATH"
+      },
+      "patch_marker": "progressive_runtime_retrieval_mirror",
+      "required_dependencies": [
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "ROUTINE_BOOT_DEFAULT_SELECTION"
+      ],
+      "section_digest": "3069faff2a58835bda2137677b1bb891434e38093cf622cde91c8e8b4db0c378",
+      "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "semantic_id": "AIR_STARTER_PROGRESSIVE_RUNTIME_RETRIEVAL_MIRROR",
+      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "locator": {
+        "json_path": "$.compiler_contract.turn_governance_kernel_mirror",
+        "type": "JSON_PATH"
+      },
+      "patch_marker": "turn_governance_kernel_mirror",
+      "required_dependencies": [
+        "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "BOOT_TURN_KERNEL_LOAD"
+      ],
+      "section_digest": "20e15f179e9796c20a1ffda71d34e1c97715638a03a5d64a1d6ebd5e923684a8",
+      "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "semantic_id": "AIR_STARTER_TURN_GOVERNANCE_KERNEL_MIRROR",
+      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "locator": {
+        "json_path": "$.compiler_contract.boot_runtime_telemetry_defaults",
+        "type": "JSON_PATH"
+      },
+      "patch_marker": "boot_runtime_telemetry_defaults",
+      "required_dependencies": [
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "BOOT_TELEMETRY"
+      ],
+      "section_digest": "9ac0c4420548dd3a9ca789cf5558e5be0c8ad8f2bf62a7574aab5860e162dd07",
+      "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "semantic_id": "AIR_STARTER_BOOT_RUNTIME_TELEMETRY_DEFAULTS",
+      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "locator": {
+        "json_path": "$.validation_contract.core_runtime_transition_identity_contract",
+        "type": "JSON_PATH"
+      },
+      "patch_marker": "core_runtime_transition_identity_contract",
+      "required_dependencies": [
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "PIN_VALIDATION",
+        "RUNTIME_TRANSITION_IDENTITY"
+      ],
+      "section_digest": "ce85457d0b97a9542ce44b0a1c9e079bb0f36fd2d4248fd4e77a349614bcf3f3",
+      "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "semantic_id": "AIR_STARTER_CORE_RUNTIME_TRANSITION_IDENTITY_V10",
+      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+    }
+  ],
+  "authority_class": "DERIVED_NONAUTHORITATIVE_NAVIGATION_TO_CANONICAL_SOURCE",
+  "backend_enforcement_claimed": false,
+  "canonical_source_authority": "PRESERVED",
+  "compiled_navigation_refs": {
+    "deterministic_validation": "air_p/compiled/AIR_P_DETERMINISTIC_VALIDATION_REGISTRY.json",
+    "formal_objects": "air_p/compiled/AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json",
+    "law_applicability": "law_package/index/AIR_LAW_APPLICABILITY_ROUTER.json",
+    "routes": "air_p/compiled/AIR_P_ROUTE_CONTRACT_REGISTRY.json",
+    "specialist_discovery": "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json"
+  },
+  "direct_reference_depth": 1,
+  "nested_only_discovery": "PROHIBITED",
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "semantic_owner": "AIR_CORE_RUNTIME_V2_BOOTSTRAP_TRUST_KERNEL",
+  "source_hashes": {
+    "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed",
+    "law_source/laws/CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY.md": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311",
+    "law_source/laws/CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE.md": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f",
+    "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768",
+    "law_source/laws/CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY.md": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406",
+    "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
+    "law_source/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
+    "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
+    "prompts/AIR_CONTROL_SURFACE.md": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28",
+    "prompts/AIR_CORE_RUNTIME.md": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+  },
+  "stale_anchor_behavior": "TARGETED_REVALIDATION_OR_FULL_RELEASE_INTEGRITY_AUDIT_NO_INFERENCE_FALLBACK"
+}

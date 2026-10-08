@@ -1,0 +1,1930 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_LAW_ID_REGISTRY_V1",
+  "applicability_metadata_authority": "AIR_LAW_APPLICABILITY_ROUTER_V1 derived router; registry entries do not independently infer task applicability",
+  "authority_class": "CORE_RUNTIME_OPERATIVE_STABLE_IDENTITY_REGISTRY",
+  "entries": [
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "RUNTIME LOAD INTEGRITY LAW",
+      "law_id": "CORE.LAW.RUNTIME_LOAD_INTEGRITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_LOAD_INTEGRITY_V2",
+        "section_heading": "RUNTIME LOAD INTEGRITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.RUNTIME_LOAD_INTEGRITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "BOOT VALIDATION PROPORTIONALITY LAW",
+      "law_id": "CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+        "section_heading": "BOOT VALIDATION PROPORTIONALITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "OPERATIVE COMPATIBILITY AUTHORITY LAW",
+      "law_id": "CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_OPERATIVE_COMPATIBILITY_AUTHORITY_V2",
+        "section_heading": "OPERATIVE COMPATIBILITY AUTHORITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CANONICAL FILE IDENTITY AND DELIVERY INTEGRITY LAW",
+      "law_id": "CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY_V2",
+        "section_heading": "CANONICAL FILE IDENTITY AND DELIVERY INTEGRITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "FLOOR INVARIANT LAW",
+      "law_id": "CORE.REGISTRY.FLOOR_INVARIANT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_FLOOR_INVARIANT_REGISTRY_V2",
+        "section_heading": "FLOOR INVARIANT LAW"
+      },
+      "source_component_ref": "CORE.REGISTRY.FLOOR_INVARIANT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "NON-INFERENCE UNDER UNRESOLVED MATERIAL AMBIGUITY LAW",
+      "law_id": "CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_NON_INFERENCE_MATERIAL_AMBIGUITY_H1",
+        "section_heading": "NON-INFERENCE UNDER UNRESOLVED MATERIAL AMBIGUITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CONTROL-PLANE SEMANTIC NON-AUTHORITY LAW",
+      "law_id": "CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1",
+        "section_heading": "CONTROL-PLANE SEMANTIC NON-AUTHORITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "HANDOFF MODE SELECTION LAW",
+      "law_id": "CORE.LAW.HANDOFF_MODE_SELECTION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_MODE_SELECTION_V1",
+        "section_heading": "HANDOFF MODE SELECTION LAW"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_MODE_SELECTION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "HANDOFF RUNTIME DURABILITY AND GENERATION CONTRACT",
+      "law_id": "CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
+        "section_heading": "HANDOFF RUNTIME DURABILITY AND GENERATION CONTRACT"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DURABLE SURFACED-OBJECT PROVENANCE LAW",
+      "law_id": "CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
+        "section_heading": "DURABLE SURFACED-OBJECT PROVENANCE LAW"
+      },
+      "source_component_ref": "CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "HANDOFF JSON FILE OUTPUT LAW",
+      "law_id": "CORE.LAW.HANDOFF_FILE_DELIVERY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_FILE_DELIVERY_V1",
+        "section_heading": "HANDOFF JSON FILE OUTPUT LAW"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_FILE_DELIVERY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "COGNITIVE SCOPE AUTHORITY ISOLATION LAW",
+      "law_id": "CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1",
+        "section_heading": "COGNITIVE SCOPE AUTHORITY ISOLATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DETERMINISTIC PIPELINE NON-INFERENCE LAW",
+      "law_id": "CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
+        "section_heading": "DETERMINISTIC PIPELINE NON-INFERENCE LAW"
+      },
+      "source_component_ref": "CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DETERMINISTIC CONTRACT MACHINE REPRESENTATION LAW",
+      "law_id": "CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1",
+        "section_heading": "DETERMINISTIC CONTRACT MACHINE REPRESENTATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ACTIVE-STATE RECONCILIATION LAW",
+      "law_id": "CORE.LAW.ACTIVE_STATE_RECONCILIATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ACTIVE_STATE_RECONCILIATION_H2",
+        "section_heading": "ACTIVE-STATE RECONCILIATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.ACTIVE_STATE_RECONCILIATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR ROUTE AND DEPENDENCY KERNEL",
+      "law_id": "CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "section_heading": "AIR ROUTE AND DEPENDENCY KERNEL"
+      },
+      "source_component_ref": "CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ALIGNMENT EVALUATION DEPENDENCY LAW",
+      "law_id": "CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "section_heading": "ALIGNMENT EVALUATION DEPENDENCY LAW"
+      },
+      "source_component_ref": "CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "FORMAL OBJECT CONSTRUCTOR DEPENDENCY LAW",
+      "law_id": "CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "section_heading": "FORMAL OBJECT CONSTRUCTOR DEPENDENCY LAW"
+      },
+      "source_component_ref": "CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR MII COGNITIVE ARCHITECTURE LAW",
+      "law_id": "CORE.LAW.MII_COGNITIVE_ARCHITECTURE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+        "section_heading": "AIR MII COGNITIVE ARCHITECTURE LAW"
+      },
+      "source_component_ref": "CORE.LAW.MII_COGNITIVE_ARCHITECTURE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MII SEMANTIC TRANSLATION AND FIDELITY LAW",
+      "law_id": "CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MII_SEMANTIC_TRANSLATION_KERNEL_V1",
+        "section_heading": "MII SEMANTIC TRANSLATION AND FIDELITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MII EPISTEMIC SUFFICIENCY AND CLARIFICATION LAW",
+      "law_id": "CORE.LAW.MII_EPISTEMIC_SUFFICIENCY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MII_EPISTEMIC_SUFFICIENCY_V1",
+        "section_heading": "MII EPISTEMIC SUFFICIENCY AND CLARIFICATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.MII_EPISTEMIC_SUFFICIENCY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MII MORPHOLOGY BINDING LAW",
+      "law_id": "CORE.LAW.MII_MORPHOLOGY_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MII_MORPHOLOGY_BINDING_V1",
+        "section_heading": "MII MORPHOLOGY BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.MII_MORPHOLOGY_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MII RISK PROPAGATION LAW",
+      "law_id": "CORE.LAW.MII_RISK_PROPAGATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MII_RISK_PROPAGATION_V1",
+        "section_heading": "MII RISK PROPAGATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.MII_RISK_PROPAGATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "INBOUND CARD VALIDATION GATE LAW",
+      "law_id": "CORE.LAW.HANDOFF_INBOUND_VALIDATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_INBOUND_VALIDATION_V3",
+        "section_heading": "INBOUND CARD VALIDATION GATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_INBOUND_VALIDATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ENTRY LAW",
+      "law_id": "CORE.LAW.ENTRY_PATH_Q1_SEPARATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ENTRY_PATH_Q1_SEPARATION_V1",
+        "section_heading": "ENTRY LAW"
+      },
+      "source_component_ref": "CORE.LAW.ENTRY_PATH_Q1_SEPARATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DETERMINISTIC ONBOARDING NON-INFERENCE LAW",
+      "law_id": "CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+        "section_heading": "DETERMINISTIC ONBOARDING NON-INFERENCE LAW"
+      },
+      "source_component_ref": "CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CANONICAL INTENT RESOLUTION GATE LAW",
+      "law_id": "CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_INTENT_RESOLUTION_GATE_V1",
+        "section_heading": "CANONICAL INTENT RESOLUTION GATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ONBOARDING GEOMETRY ROUTING MATRIX LAW",
+      "law_id": "CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ONBOARDING_GEOMETRY_ROUTING_V3",
+        "section_heading": "ONBOARDING GEOMETRY ROUTING MATRIX LAW"
+      },
+      "source_component_ref": "CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ROUTER LAW",
+      "law_id": "CORE.LAW.ROUTER_COMPATIBILITY_SURFACE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ROUTER_V3",
+        "section_heading": "ROUTER LAW"
+      },
+      "source_component_ref": "CORE.LAW.ROUTER_COMPATIBILITY_SURFACE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CREATIVE CONTINUITY EXTENSION LAW",
+      "law_id": "CORE.LAW.CREATIVE_CONTINUITY_EXTENSION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_CREATIVE_CONTINUITY_EXTENSION_V2",
+        "section_heading": "CREATIVE CONTINUITY EXTENSION LAW"
+      },
+      "source_component_ref": "CORE.LAW.CREATIVE_CONTINUITY_EXTENSION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CANONICAL AIR OBJECT CONTRACT LAW",
+      "law_id": "CORE.LAW.CANONICAL_OBJECT_CONTRACT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_CANONICAL_OBJECT_CONTRACTS_V4",
+        "section_heading": "CANONICAL AIR OBJECT CONTRACT LAW"
+      },
+      "source_component_ref": "CORE.LAW.CANONICAL_OBJECT_CONTRACT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "HANDOFF CONTINUATION FLOW",
+      "law_id": "CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_CONTINUATION_BOOTSTRAP_V2",
+        "section_heading": "HANDOFF CONTINUATION FLOW"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "HANDOFF JSON FILE OUTPUT LAW",
+      "law_id": "CORE.LAW.HANDOFF_JSON_FILE_OUTPUT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_HANDOFF_STRICT_JSON_OUTPUT_V3",
+        "section_heading": "HANDOFF JSON FILE OUTPUT LAW"
+      },
+      "source_component_ref": "CORE.LAW.HANDOFF_JSON_FILE_OUTPUT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ORBIT 0 PROMPT-SIDE ANCHORING LAW",
+      "law_id": "CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ORBIT0_PROMPT_SIDE_ANCHORING_V1",
+        "section_heading": "ORBIT 0 PROMPT-SIDE ANCHORING LAW"
+      },
+      "source_component_ref": "CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "BENCHMARK SYNTHETIC ROLE LAW",
+      "law_id": "CORE.LAW.BENCHMARK_SYNTHETIC_ROLE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_BENCHMARK_SYNTHETIC_ROLE_V3",
+        "section_heading": "BENCHMARK SYNTHETIC ROLE LAW"
+      },
+      "source_component_ref": "CORE.LAW.BENCHMARK_SYNTHETIC_ROLE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MACHINE-NATIVE CAPABILITY TRANSLATION KERNEL",
+      "law_id": "CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL_V2",
+        "section_heading": "MACHINE-NATIVE CAPABILITY TRANSLATION KERNEL"
+      },
+      "source_component_ref": "CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "KNOWLEDGE-TO-EXECUTION TRANSFORMATION PATH LAW",
+      "law_id": "CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_KNOWLEDGE_TO_EXECUTION_PATH_V3",
+        "section_heading": "KNOWLEDGE-TO-EXECUTION TRANSFORMATION PATH LAW"
+      },
+      "source_component_ref": "CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "PATCH SOURCE UPLOAD GATE LAW",
+      "law_id": "CORE.LAW.PATCH_SOURCE_UPLOAD_GATE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+        "section_heading": "PATCH SOURCE UPLOAD GATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.PATCH_SOURCE_UPLOAD_GATE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR OBJECT VISIBILITY AND BOOT EVIDENCE LAW",
+      "law_id": "CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_OBJECT_VISIBILITY_BOOT_EVIDENCE_V2",
+        "section_heading": "AIR OBJECT VISIBILITY AND BOOT EVIDENCE LAW"
+      },
+      "source_component_ref": "CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR SYSTEM MODIFIER LAW",
+      "law_id": "CORE.LAW.SYSTEM_MODIFIERS",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MINIMAL_SYSTEM_MODIFIERS_V2",
+        "section_heading": "AIR SYSTEM MODIFIER LAW"
+      },
+      "source_component_ref": "CORE.LAW.SYSTEM_MODIFIERS",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR OBJECT DEFAULT PRECEDENCE AND ONBOARDING LOCK LAW",
+      "law_id": "CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_OBJECT_DEFAULT_PRECEDENCE_ONBOARDING_LOCK_V2",
+        "section_heading": "AIR OBJECT DEFAULT PRECEDENCE AND ONBOARDING LOCK LAW"
+      },
+      "source_component_ref": "CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "SPECIALIST PROFILE ROUTING LAW",
+      "law_id": "CORE.LAW.SPECIALIST_PROFILE_ROUTING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_SPECIALIST_ROUTING_V2",
+        "section_heading": "SPECIALIST PROFILE ROUTING LAW"
+      },
+      "source_component_ref": "CORE.LAW.SPECIALIST_PROFILE_ROUTING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "PROFILE STACK ROUTING LAW",
+      "law_id": "CORE.LAW.PROFILE_STACK_ROUTING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING_V2",
+        "section_heading": "PROFILE STACK ROUTING LAW"
+      },
+      "source_component_ref": "CORE.LAW.PROFILE_STACK_ROUTING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CAPABILITY LAYER NEED DETECTION LAW",
+      "law_id": "CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_CAPABILITY_LAYER_NEED_DETECTION_V1",
+        "section_heading": "CAPABILITY LAYER NEED DETECTION LAW"
+      },
+      "source_component_ref": "CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "SPECIALIST CAPABILITY RESOLUTION ROUTER",
+      "law_id": "CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_SPECIALIST_CAPABILITY_RESOLUTION_ROUTER_V1",
+        "section_heading": "SPECIALIST CAPABILITY RESOLUTION ROUTER"
+      },
+      "source_component_ref": "CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR SPECIALIST PACKAGE INDEX DISCOVERY CONTRACT",
+      "law_id": "CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_SPECIALIST_PACKAGE_INDEX_DISCOVERY_V1",
+        "section_heading": "AIR SPECIALIST PACKAGE INDEX DISCOVERY CONTRACT"
+      },
+      "source_component_ref": "CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "REQUIRED INPUT AND ARTIFACT ACQUISITION LAW",
+      "law_id": "CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+        "section_heading": "REQUIRED INPUT AND ARTIFACT ACQUISITION LAW"
+      },
+      "source_component_ref": "CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "RESPONSIVE BINDING APPROVAL LAW",
+      "law_id": "CORE.LAW.RESPONSIVE_BINDING_APPROVAL",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_RESPONSIVE_BINDING_APPROVAL_M1",
+        "section_heading": "RESPONSIVE BINDING APPROVAL LAW"
+      },
+      "source_component_ref": "CORE.LAW.RESPONSIVE_BINDING_APPROVAL",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR METHOD LAYER LAW",
+      "law_id": "CORE.LAW.METHOD_LAYER",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_METHOD_LAYER_V2",
+        "section_heading": "AIR METHOD LAYER LAW"
+      },
+      "source_component_ref": "CORE.LAW.METHOD_LAYER",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "SPECIALIST DOMAIN PACKAGE BINDING LAW",
+      "law_id": "CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_SPECIALIST_PACKAGE_BINDING_V2",
+        "section_heading": "SPECIALIST DOMAIN PACKAGE BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ORBIT TASK MANAGEMENT LAW",
+      "law_id": "CORE.LAW.ORBIT_TASK_MANAGEMENT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ORBIT_TASK_MANAGEMENT_V2",
+        "section_heading": "ORBIT TASK MANAGEMENT LAW"
+      },
+      "source_component_ref": "CORE.LAW.ORBIT_TASK_MANAGEMENT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "PROMPT RUNTIME ACTIVATION PERSISTENCE LAW",
+      "law_id": "CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_PROMPT_RUNTIME_PERSISTENCE_H1",
+        "section_heading": "PROMPT RUNTIME ACTIVATION PERSISTENCE LAW"
+      },
+      "source_component_ref": "CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "SOLE AIR_ARTIFACT EXECUTION BINDING LAW",
+      "law_id": "CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ARTIFACT_SOLE_EXECUTION_BINDING_V2",
+        "section_heading": "SOLE AIR_ARTIFACT EXECUTION BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "NEW TASK EXECUTION BINDING BARRIER LAW",
+      "law_id": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_NEW_TASK_BINDING_BARRIER_V1",
+        "section_heading": "NEW TASK EXECUTION BINDING BARRIER LAW"
+      },
+      "source_component_ref": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR GATE LAW",
+      "law_id": "CORE.LAW.GATE_DECISION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_GATE_V3",
+        "section_heading": "AIR GATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.GATE_DECISION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "GEOMETRY EFFECT BINDING LAW",
+      "law_id": "CORE.LAW.GEOMETRY_EFFECT_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_GEOMETRY_EFFECT_BINDING_V3",
+        "section_heading": "GEOMETRY EFFECT BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.GEOMETRY_EFFECT_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "LAMBDA PRESSURE BINDING LAW",
+      "law_id": "CORE.LAW.LAMBDA_PRESSURE_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_LAMBDA_PRESSURE_BINDING_V3",
+        "section_heading": "LAMBDA PRESSURE BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.LAMBDA_PRESSURE_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "GEOMETRY FORCE VS FIT LAW",
+      "law_id": "CORE.LAW.GEOMETRY_FORCE_VS_FIT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING_V1",
+        "section_heading": "GEOMETRY FORCE VS FIT LAW"
+      },
+      "source_component_ref": "CORE.LAW.GEOMETRY_FORCE_VS_FIT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ACTIVE TASK GEOMETRY REBINDING LAW",
+      "law_id": "CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ACTIVE_TASK_GEOMETRY_REBINDING_V2",
+        "section_heading": "ACTIVE TASK GEOMETRY REBINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DUAL GEOMETRY BINDING LAW",
+      "law_id": "CORE.LAW.DUAL_GEOMETRY_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "Q4D_DUAL_GEOMETRY_FAMILIAR_ARTIFACT_V1",
+        "section_heading": "DUAL GEOMETRY BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.DUAL_GEOMETRY_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "NATIVE AXIS SCAN LAW",
+      "law_id": "CORE.LAW.NATIVE_AXIS_SCAN",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_NATIVE_AXIS_SCAN_V3",
+        "section_heading": "NATIVE AXIS SCAN LAW"
+      },
+      "source_component_ref": "CORE.LAW.NATIVE_AXIS_SCAN",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "NATIVE MEANING ALIGNMENT LITE LAW",
+      "law_id": "CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_NATIVE_MEANING_ALIGNMENT_LITE_V3",
+        "section_heading": "NATIVE MEANING ALIGNMENT LITE LAW"
+      },
+      "source_component_ref": "CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "BENCHMARK JUDGE LAW",
+      "law_id": "CORE.LAW.BENCHMARK_JUDGE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_BENCHMARK_JUDGE_V3",
+        "section_heading": "BENCHMARK JUDGE LAW"
+      },
+      "source_component_ref": "CORE.LAW.BENCHMARK_JUDGE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AMBIGUITY TRIAGE GATE LAW",
+      "law_id": "CORE.LAW.AMBIGUITY_TRIAGE_GATE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_AMBIGUITY_TRIAGE_GATE_V3",
+        "section_heading": "AMBIGUITY TRIAGE GATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.AMBIGUITY_TRIAGE_GATE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AMRS STAGE COMPLETION AND STEP-OPTIMALITY LAW",
+      "law_id": "CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
+        "section_heading": "AMRS STAGE COMPLETION AND STEP-OPTIMALITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "VISIBLE ARTIFACT BINDING LAW",
+      "law_id": "CORE.LAW.VISIBLE_ARTIFACT_BINDING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_VISIBLE_ARTIFACT_BINDING_V2",
+        "section_heading": "VISIBLE ARTIFACT BINDING LAW"
+      },
+      "source_component_ref": "CORE.LAW.VISIBLE_ARTIFACT_BINDING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "MATERIAL ACTION INTERLOCK LAW",
+      "law_id": "CORE.LAW.MATERIAL_ACTION_INTERLOCK",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+        "section_heading": "MATERIAL ACTION INTERLOCK LAW"
+      },
+      "source_component_ref": "CORE.LAW.MATERIAL_ACTION_INTERLOCK",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ARTIFACT LEASE AND INVALIDATION LAW",
+      "law_id": "CORE.LAW.ARTIFACT_LEASE_INVALIDATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ARTIFACT_LEASE_V2",
+        "section_heading": "ARTIFACT LEASE AND INVALIDATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.ARTIFACT_LEASE_INVALIDATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "RESOURCE SCOPE PIN LAW",
+      "law_id": "CORE.LAW.RESOURCE_SCOPE_PIN",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_RESOURCE_SCOPE_PIN_V2",
+        "section_heading": "RESOURCE SCOPE PIN LAW"
+      },
+      "source_component_ref": "CORE.LAW.RESOURCE_SCOPE_PIN",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "ACTION RECEIPT AND RECONCILIATION LAW",
+      "law_id": "CORE.LAW.ACTION_RECEIPT_RECONCILIATION",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_ACTION_RECEIPT_RECONCILIATION_V4",
+        "section_heading": "ACTION RECEIPT AND RECONCILIATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.ACTION_RECEIPT_RECONCILIATION",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "UNBOUND PRIOR EFFECT RECOVERY LAW",
+      "law_id": "CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_UNBOUND_PRIOR_EFFECT_RECOVERY_V3",
+        "section_heading": "UNBOUND PRIOR EFFECT RECOVERY LAW"
+      },
+      "source_component_ref": "CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "RUNTIME ALIGNMENT STATE LAW",
+      "law_id": "CORE.LAW.RUNTIME_ALIGNMENT_STATE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_RUNTIME_ALIGNMENT_STATE_V1",
+        "section_heading": "RUNTIME ALIGNMENT STATE LAW"
+      },
+      "source_component_ref": "CORE.LAW.RUNTIME_ALIGNMENT_STATE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "TOOL GATEWAY ENFORCEMENT BOUNDARY LAW",
+      "law_id": "CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_TOOL_GATEWAY_ENFORCEMENT_BOUNDARY_V2",
+        "section_heading": "TOOL GATEWAY ENFORCEMENT BOUNDARY LAW"
+      },
+      "source_component_ref": "CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "REQUIRED FORMAL OBJECT EMISSION PREFLIGHT LAW",
+      "law_id": "CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+        "section_heading": "REQUIRED FORMAL OBJECT EMISSION PREFLIGHT LAW"
+      },
+      "source_component_ref": "CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "CLOSED-WORLD FORMAL OBJECT EMISSION CLOSURE LAW",
+      "law_id": "CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+        "section_heading": "CLOSED-WORLD FORMAL OBJECT EMISSION CLOSURE LAW"
+      },
+      "source_component_ref": "CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "FORMAL OBJECT COMPLETENESS PREFLIGHT LAW",
+      "law_id": "CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_FORMAL_OBJECT_COMPLETENESS_PREFLIGHT_V2",
+        "section_heading": "FORMAL OBJECT COMPLETENESS PREFLIGHT LAW"
+      },
+      "source_component_ref": "CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "VISIBLE CHANNEL EMISSION INTEGRITY LAW",
+      "law_id": "CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_VISIBLE_CHANNEL_EMISSION_INTEGRITY_V1",
+        "section_heading": "VISIBLE CHANNEL EMISSION INTEGRITY LAW"
+      },
+      "source_component_ref": "CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR GROUNDING DOCTRINE AND Q5 SPECIALIST NEED CHECK LAW",
+      "law_id": "CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_GROUNDING_Q5_SPECIALIST_NEED_CHECK_V1",
+        "section_heading": "AIR GROUNDING DOCTRINE AND Q5 SPECIALIST NEED CHECK LAW"
+      },
+      "source_component_ref": "CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AIR AI GOVERNANCE SPECIALIST PACKAGE AND REGULATORY EVIDENCE ROUTING LAW",
+      "law_id": "CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_AI_GOVERNANCE_PACKAGE_ROUTING_V2",
+        "section_heading": "AIR AI GOVERNANCE SPECIALIST PACKAGE AND REGULATORY EVIDENCE ROUTING LAW"
+      },
+      "source_component_ref": "CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "ROUTABLE_IDENTITY_DERIVED_ROUTER_METADATA_REQUIRED",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "SET_005 BEHAVIORAL TRANSACTION HARDENING",
+      "law_id": "CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_TRANSITION_EMISSION_TRANSACTION_V1",
+        "section_heading": "SET_005 BEHAVIORAL TRANSACTION HARDENING"
+      },
+      "source_component_ref": "CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "DERIVED_ROUTER_OWNED_NOT_CORE_REGISTRY"
+      }
+    },
+    {
+      "applicability_class": "CORE_INFRASTRUCTURE_GLOBAL",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "Core Stable Law Identity Registry",
+      "law_id": "CORE.REGISTRY.LAW_ID",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_LAW_ID_REGISTRY_V1",
+        "section_heading": "AMRS-6 CORE 2.8 SEMANTIC ACTIVATION LAW"
+      },
+      "source_component_ref": "CORE.REGISTRY.LAW_ID",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "GLOBAL_INFRASTRUCTURE"
+      }
+    },
+    {
+      "applicability_class": "CORE_INFRASTRUCTURE_GLOBAL",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "AMRS-Aware Law Applicability Router Law",
+      "law_id": "CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_LAW_APPLICABILITY_ROUTER_V1",
+        "section_heading": "AMRS-6 CORE 2.8 SEMANTIC ACTIVATION LAW"
+      },
+      "source_component_ref": "CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "GLOBAL_INFRASTRUCTURE"
+      }
+    },
+    {
+      "applicability_class": "CORE_INFRASTRUCTURE_GLOBAL",
+      "control_event_refs": [],
+      "dependency_law_refs": [],
+      "display_name": "DECISION TRACE JUSTIFICATION AND CLOSURE LAW",
+      "law_id": "CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE",
+      "legacy_aliases": [],
+      "lifecycle_state": "ACTIVE",
+      "mandatory_floor_refs": [
+        "AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY",
+        "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+        "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+        "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+        "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION"
+      ],
+      "runtime_dependency_refs": [],
+      "runtime_route_refs": [],
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "source_anchor": {
+        "patch_marker": "AIR_DECISION_TRACE_JUSTIFICATION_CLOSURE_V1",
+        "section_heading": "DECISION TRACE JUSTIFICATION AND CLOSURE LAW"
+      },
+      "source_component_ref": "CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE",
+      "supersedes": null,
+      "task_class_predicates": [],
+      "task_target_amrs_predicate": {
+        "state": "GLOBAL_INFRASTRUCTURE"
+      }
+    }
+  ],
+  "entry_count": 83,
+  "entry_fingerprint_sha256": "915f3f3f03b23106de450b5f5a6480d2122114a21d58c7da32ab769df0cf4686",
+  "identity_source": "80 exact routable AIR_P_COMPONENT_METADATA_OVERLAY_V2 IDs + 3 Core identities including Decision Trace",
+  "registry_version": "1.0.0",
+  "semantic_owner": "AIR_CORE_RUNTIME_V2",
+  "status": "CORE_2_8_OPERATIVE_STABLE_IDENTITY_REGISTRY",
+  "unknown_law_id_behavior": "FAIL_CLOSED"
+}

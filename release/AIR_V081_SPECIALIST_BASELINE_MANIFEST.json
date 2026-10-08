@@ -1,0 +1,152 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_V081_SPECIALIST_CARRY_FORWARD_BASELINE",
+  "source_release": "v0.8.0 V5 exact carry-forward",
+  "file_count": 29,
+  "files": [
+    {
+      "path": "catalog/AIR_SPECIALIST_PACKAGE_INDEX.json",
+      "sha256": "ee82e5bc619c29cd1bc4db76bac2e39051eeff089d9310283853f88cada6a06d",
+      "size_bytes": 27195
+    },
+    {
+      "path": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_VALIDATION.json",
+      "sha256": "dba7b1862954a9545f3d9c50572a0e7ce6879ce17b074ceec833e3a365606458",
+      "size_bytes": 7700
+    },
+    {
+      "path": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_GROUNDING_VALIDATION.json",
+      "sha256": "ec22c1dce886831c106ce6ef805a31fd318a6000eed06bbf8fd4fc83a5cf76b0",
+      "size_bytes": 6723
+    },
+    {
+      "path": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_SFV_VALIDATION.json",
+      "sha256": "9e115c0386bc68b8afddc03ddd4582ae60baaff4cdd6e591f5864026b1a6fbec",
+      "size_bytes": 7304
+    },
+    {
+      "path": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json",
+      "sha256": "3a13d21c4a84cb55cfdb0a768a26834bf22f48465fc4f664e255c97b26d91be7",
+      "size_bytes": 7736
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+      "size_bytes": 38986
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+      "size_bytes": 55481
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "sha256": "8fbe5d87b693f950ad4ff95e7ff3775412ec761f305c1172fb8b0b476e840e37",
+      "size_bytes": 41437
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+      "size_bytes": 96315
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+      "size_bytes": 54189
+    },
+    {
+      "path": "specialists/ai_governance/AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+      "sha256": "ae47b1062b3403b153ed3f00cd626db9ce5ac9885a565eda61e83c8e6edf22d3",
+      "size_bytes": 43841
+    },
+    {
+      "path": "specialists/capability_ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT.json",
+      "sha256": "1d17b5a251a35d1e875a0b05f3bd49cdac5b5c26d5050197aacbd9496cdee895",
+      "size_bytes": 106872
+    },
+    {
+      "path": "specialists/capability_ecology/AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "sha256": "806d3563440cc88dc50bce2ccba9fa1e8d3959253683ad5e97ad4df47eb9300b",
+      "size_bytes": 30121
+    },
+    {
+      "path": "specialists/capability_ecology/AIR_CAPABILITY_ECOLOGY_METHOD_PACK.json",
+      "sha256": "d3d4509e691bfdf9ee208a58df6ba8ee3103d6c500544b61099014db20f1aaf7",
+      "size_bytes": 77313
+    },
+    {
+      "path": "specialists/capability_ecology/AIR_DOMAIN_CAPABILITY_REGISTRY.json",
+      "sha256": "a1a1ae3b335e7e231ec93196aee25a04c328fc4acdb356cbbce284525f4c7843",
+      "size_bytes": 265260
+    },
+    {
+      "path": "specialists/capability_ecology/AIR_HUMAN_TO_MACHINE_CAPABILITY_TRANSLATOR.json",
+      "sha256": "0a472f869b7eddea4857bbb71dd3302bfb54a7c6b50cb9261271a16bcb1deaa1",
+      "size_bytes": 77608
+    },
+    {
+      "path": "specialists/grounding/AIR_GROUNDING_DOMAIN_PACKAGE.json",
+      "sha256": "0161981e9460d342ba74e4398cd20aaaafaf8152eebabe919249d175ffe0c569",
+      "size_bytes": 69128
+    },
+    {
+      "path": "specialists/grounding/AIR_GROUNDING_EXECUTOR.json",
+      "sha256": "6db97009abfd74508ac5030d03bfefd225c0c34f8c031ffdc4f401ca170a4a31",
+      "size_bytes": 34013
+    },
+    {
+      "path": "specialists/grounding/AIR_GROUNDING_METHOD_PACK.json",
+      "sha256": "48ae89861458a66ed953d3adf88d942fe351a48d7de32237836e76595034f2d5",
+      "size_bytes": 82914
+    },
+    {
+      "path": "specialists/grounding/AIR_GROUNDING_SPECIALIST.json",
+      "sha256": "f2191936479438ec1dc872ab606da6a2ed132b42e2568c6abed69943b49811fd",
+      "size_bytes": 80192
+    },
+    {
+      "path": "specialists/grounding/AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "sha256": "e304561784caf1bfea1f6ef1593be9bcd6a88e0ae74a0876f6ed1e98256dd73f",
+      "size_bytes": 35344
+    },
+    {
+      "path": "specialists/public_surface_copywriting/AIR_PUBLIC_SURFACE_COPYWRITING_METHOD_PACK.json",
+      "sha256": "a692eaef2840e04af84e183dd62e40e09c0a6551e3cbe0296283236d25348d3a",
+      "size_bytes": 27779
+    },
+    {
+      "path": "specialists/public_surface_copywriting/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST.json",
+      "sha256": "d59123679fdab549c9fc316cbc447b4132ee80a5f6cefc828a5a16ba0b622553",
+      "size_bytes": 28010
+    },
+    {
+      "path": "specialists/public_surface_copywriting/AIR_PUBLIC_SURFACE_COPYWRITING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "sha256": "b4ab5cb5785a09a9a7ce0374ca7c8bd1f816e33de5daf9a28e17e74585e7877c",
+      "size_bytes": 13857
+    },
+    {
+      "path": "specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_DOMAIN_PACKAGE.json",
+      "sha256": "4b5d8e8a4c8ea0ec5f27733d946e0bf392fb21c546278bd13d08833abcdebcfd",
+      "size_bytes": 35015
+    },
+    {
+      "path": "specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_EXECUTOR.json",
+      "sha256": "1728fade7bbaaf486ff5da0f07bcd1bfb237f488ef380fc1b9907f695887b790",
+      "size_bytes": 31387
+    },
+    {
+      "path": "specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_METHOD_PACK.json",
+      "sha256": "47e5a6071ecd664c74c15790e04dab76f062866d3d5facfdeea416579aa74928",
+      "size_bytes": 54329
+    },
+    {
+      "path": "specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST.json",
+      "sha256": "309e041009680e0b9f93592218c1a3f122df236e491bf5064bed60792a982040",
+      "size_bytes": 34293
+    },
+    {
+      "path": "specialists/sfv/AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_MANIFEST.json",
+      "sha256": "07d5d9aaf371c48d2b9baecde09009ac13ee8e7f2acb1a1aa1ac3e1715ab21a7",
+      "size_bytes": 34117
+    }
+  ]
+}

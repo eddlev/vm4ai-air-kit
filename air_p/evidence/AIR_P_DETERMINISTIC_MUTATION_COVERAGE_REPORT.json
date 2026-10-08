@@ -1,0 +1,1639 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_DETERMINISTIC_MUTATION_COVERAGE_REPORT_V1",
+  "coverage": [
+    {
+      "check_id": "DC-FILE-CORE",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unmapped deterministic source path: prompts/__AIR_MUTATION_MISSING_FILE__.json"
+      },
+      "mutation_rejected": true,
+      "operator": "FILE_EXISTS"
+    },
+    {
+      "check_id": "DC-FILE-CONTROL",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unmapped deterministic source path: prompts/__AIR_MUTATION_MISSING_FILE__.json"
+      },
+      "mutation_rejected": true,
+      "operator": "FILE_EXISTS"
+    },
+    {
+      "check_id": "DC-FILE-GOV",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unmapped deterministic source path: prompts/__AIR_MUTATION_MISSING_FILE__.json"
+      },
+      "mutation_rejected": true,
+      "operator": "FILE_EXISTS"
+    },
+    {
+      "check_id": "DC-FILE-STARTER",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unmapped deterministic source path: prompts/__AIR_MUTATION_MISSING_FILE__.json"
+      },
+      "mutation_rejected": true,
+      "operator": "FILE_EXISTS"
+    },
+    {
+      "check_id": "DC-FILE-HANDOFF",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unmapped deterministic source path: prompts/__AIR_MUTATION_MISSING_FILE__.json"
+      },
+      "mutation_rejected": true,
+      "operator": "FILE_EXISTS"
+    },
+    {
+      "check_id": "DC-ID-CORE",
+      "evidence": {
+        "check_id": "DC-ID-CORE",
+        "observed": "AIR_CORE_RUNTIME_V2",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ID-CONTROL",
+      "evidence": {
+        "check_id": "DC-ID-CONTROL",
+        "observed": "AIR_CONTROL_SURFACE_V2",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ID-GOV",
+      "evidence": {
+        "check_id": "DC-ID-GOV",
+        "observed": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ID-STARTER",
+      "evidence": {
+        "check_id": "DC-ID-STARTER",
+        "observed": "AIR_DEFAULT_STARTER_V2",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ROLE-STARTER",
+      "evidence": {
+        "check_id": "DC-ROLE-STARTER",
+        "observed": "DEFAULT_STARTER_PROFILE",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ID-HANDOFF",
+      "evidence": {
+        "check_id": "DC-ID-HANDOFF",
+        "observed": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ID-HANDOFF-ALIAS",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_PATH__'"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_REFERENCE"
+    },
+    {
+      "check_id": "DC-SCHEMA-HANDOFF-CORE",
+      "evidence": {
+        "check_id": "DC-SCHEMA-HANDOFF-CORE",
+        "observed": {
+          "left": "2.3.0",
+          "right": null
+        },
+        "operator": "JSON_EQUALS_MARKDOWN_HEADER",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_MARKDOWN_HEADER"
+    },
+    {
+      "check_id": "DC-SCHEMA-HANDOFF-ALIAS",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_PATH__'"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_REFERENCE"
+    },
+    {
+      "check_id": "DC-HANDOFF-STARTER-ID",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_PATH__'"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_REFERENCE"
+    },
+    {
+      "check_id": "DC-HANDOFF-STARTER-VERSION",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_PATH__'"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_REFERENCE"
+    },
+    {
+      "check_id": "DC-SENTINEL-CORE",
+      "evidence": {
+        "check_id": "DC-SENTINEL-CORE",
+        "observed": "AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-SENTINEL-CONTROL",
+      "evidence": {
+        "check_id": "DC-SENTINEL-CONTROL",
+        "observed": "AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-SENTINEL-GOV",
+      "evidence": {
+        "check_id": "DC-SENTINEL-GOV",
+        "observed": "AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-ROOT-MANIFEST-CLOSURE",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_ROOT__'"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ROOT_KEYS_DECLARED_BY_MANIFEST"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-025",
+      "evidence": {
+        "check_id": "DC-STARTER-FLOOR-025",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-026",
+      "evidence": {
+        "check_id": "DC-STARTER-FLOOR-026",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-026",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-026",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-GOV-FLOOR-026",
+      "evidence": {
+        "check_id": "DC-GOV-FLOOR-026",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-REGISTRY-SURFACE",
+      "evidence": {
+        "check_id": "DC-CONTROL-REGISTRY-SURFACE",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-PIPELINE-SEMANTICS",
+      "evidence": {
+        "check_id": "DC-STARTER-PIPELINE-SEMANTICS",
+        "observed": "DETERMINISTIC_PIPELINE",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-PIPELINE-INFERENCE",
+      "evidence": {
+        "check_id": "DC-STARTER-PIPELINE-INFERENCE",
+        "observed": "PROHIBITED",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-NO-STARTER-REQUIRED-VERSION-LITERAL",
+      "evidence": {
+        "check_id": "DC-NO-STARTER-REQUIRED-VERSION-LITERAL",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-NO-STARTER-REQUIRED-DESIGNATION-LITERAL",
+      "evidence": {
+        "check_id": "DC-NO-STARTER-REQUIRED-DESIGNATION-LITERAL",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-NO-OPERATIVE-PROSE-CROSSFILE-ARRAY",
+      "evidence": {
+        "check_id": "DC-NO-OPERATIVE-PROSE-CROSSFILE-ARRAY",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-NO-HANDOFF-STARTER-VERSION-DUPLICATE",
+      "evidence": {
+        "check_id": "DC-NO-HANDOFF-STARTER-VERSION-DUPLICATE",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-NO-HANDOFF-SCHEMA-VERSION-DUPLICATE",
+      "evidence": {
+        "check_id": "DC-NO-HANDOFF-SCHEMA-VERSION-DUPLICATE",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-NO-CONTROL-SCHEMA-LITERAL-DUPLICATE",
+      "evidence": {
+        "check_id": "DC-NO-CONTROL-SCHEMA-LITERAL-DUPLICATE",
+        "observed": false,
+        "operator": "TEXT_NOT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_NOT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-NO-STARTER-STALE-2-5-COMPATIBILITY-PROSE",
+      "evidence": {
+        "check_id": "DC-NO-STARTER-STALE-2-5-COMPATIBILITY-PROSE",
+        "observed": false,
+        "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
+      "evidence": {
+        "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-REGISTRY-SEMANTICS",
+      "evidence": {
+        "check_id": "DC-STARTER-REGISTRY-SEMANTICS",
+        "observed": "DETERMINISTIC_PIPELINE",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-REGISTRY-INFERENCE",
+      "evidence": {
+        "check_id": "DC-STARTER-REGISTRY-INFERENCE",
+        "observed": "PROHIBITED",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-ROUTINE",
+      "evidence": {
+        "check_id": "DC-CORE-BOOT-ROUTINE",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-TARGETED",
+      "evidence": {
+        "check_id": "DC-CORE-BOOT-TARGETED",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-FULL",
+      "evidence": {
+        "check_id": "DC-CORE-BOOT-FULL",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-ROUTINE",
+      "evidence": {
+        "check_id": "DC-CONTROL-BOOT-ROUTINE",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-TARGETED",
+      "evidence": {
+        "check_id": "DC-CONTROL-BOOT-TARGETED",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-FULL",
+      "evidence": {
+        "check_id": "DC-CONTROL-BOOT-FULL",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-027",
+      "evidence": {
+        "check_id": "DC-STARTER-FLOOR-027",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-027",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-027",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-GOV-FLOOR-027",
+      "evidence": {
+        "check_id": "DC-GOV-FLOOR-027",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-RUNTIME-TRANSITION-IDENTITY",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unknown deterministic operator UNKNOWN_OPERATOR_FOR_MUTATION_TEST"
+      },
+      "mutation_rejected": true,
+      "operator": "CORE_RUNTIME_TRANSITION_IDENTITY_VALID"
+    },
+    {
+      "check_id": "DC-VERSION-CONTROL",
+      "evidence": {
+        "check_id": "DC-VERSION-CONTROL",
+        "observed": {
+          "header": null,
+          "registry": "2.7.0"
+        },
+        "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE"
+    },
+    {
+      "check_id": "DC-VERSION-GOV",
+      "evidence": {
+        "check_id": "DC-VERSION-GOV",
+        "observed": {
+          "header": null,
+          "registry": "2.4.0"
+        },
+        "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE"
+    },
+    {
+      "check_id": "DC-KIND-STARTER",
+      "evidence": {
+        "check_id": "DC-KIND-STARTER",
+        "observed": "TASK_COMPOSITE",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-FUNCTION-CLASS-STARTER",
+      "evidence": {
+        "check_id": "DC-FUNCTION-CLASS-STARTER",
+        "observed": "DEFAULT_STARTER_PROFILE",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-FILENAME-STARTER",
+      "evidence": {
+        "check_id": "DC-FILENAME-STARTER",
+        "observed": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STRICT-JSON-STARTER",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unknown deterministic operator UNKNOWN_OPERATOR_FOR_MUTATION_TEST"
+      },
+      "mutation_rejected": true,
+      "operator": "STRICT_JSON_PARSE_NO_DUPLICATES"
+    },
+    {
+      "check_id": "DC-STRICT-JSON-HANDOFF",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unknown deterministic operator UNKNOWN_OPERATOR_FOR_MUTATION_TEST"
+      },
+      "mutation_rejected": true,
+      "operator": "STRICT_JSON_PARSE_NO_DUPLICATES"
+    },
+    {
+      "check_id": "DC-FOUNDATION-NORMALIZED-COLLISION",
+      "evidence": {
+        "check_id": "DC-FOUNDATION-NORMALIZED-COLLISION",
+        "observed": [
+          "air_core_runtime.md",
+          "air_control_surface.md",
+          "air_gov.md",
+          "air_default_starter_profile.json",
+          "air_handoff_card_template.json"
+        ],
+        "operator": "FOUNDATION_FILENAME_COLLISION_FREE",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "FOUNDATION_FILENAME_COLLISION_FREE"
+    },
+    {
+      "check_id": "DC-FOUNDATION-MANIFEST-EXACT",
+      "evidence": {
+        "exception": "KeyError",
+        "message": "'$.__AIR_MUTATION_MISSING_MANIFEST__'"
+      },
+      "mutation_rejected": true,
+      "operator": "FOUNDATION_MANIFEST_EXACT"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-001",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-001",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-002",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-002",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-003",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-003",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-004",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-004",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-005",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-005",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-006",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-006",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-007",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-007",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-008",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-008",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-009",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-009",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-010",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-010",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-011",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-011",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-012",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-012",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-013",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-013",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-014",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-014",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-015",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-015",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-016",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-016",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-017",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-017",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-018",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-018",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-019",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-019",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-020",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-020",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-021",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-021",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-022",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-022",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-023",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-023",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-024",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-024",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-028",
+      "evidence": {
+        "check_id": "DC-STARTER-FLOOR-028",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-028",
+      "evidence": {
+        "check_id": "DC-CORE-FLOOR-028",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-TEMPLATE-REVISION",
+      "evidence": {
+        "exception": "CompileError",
+        "message": "unknown deterministic operator UNKNOWN_OPERATOR_FOR_MUTATION_TEST"
+      },
+      "mutation_rejected": true,
+      "operator": "HANDOFF_TEMPLATE_TRANSITION_IDENTITY_VALID"
+    },
+    {
+      "check_id": "DC-HANDOFF-NO-CURRENT-CARD-REVISION",
+      "evidence": {
+        "check_id": "DC-HANDOFF-NO-CURRENT-CARD-REVISION",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-HANDOFF-REQUIRED-TEMPLATE-REVISION",
+      "evidence": {
+        "check_id": "DC-HANDOFF-REQUIRED-TEMPLATE-REVISION",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-REQUIRED-USER-REVISION",
+      "evidence": {
+        "check_id": "DC-HANDOFF-REQUIRED-USER-REVISION",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION",
+      "evidence": {
+        "check_id": "DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION",
+        "observed": false,
+        "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
+      "evidence": {
+        "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE",
+      "evidence": {
+        "check_id": "DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-DURABLE-PROVENANCE-CONTRACT",
+      "evidence": {
+        "check_id": "DC-STARTER-DURABLE-PROVENANCE-CONTRACT",
+        "observed": true,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
+      "evidence": {
+        "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-CONTROL-HANDOFF-RUNTIME-DURABILITY-RENDERER",
+      "evidence": {
+        "check_id": "DC-CONTROL-HANDOFF-RUNTIME-DURABILITY-RENDERER",
+        "observed": false,
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-HANDOFF-LIVE-SESSION-OWNER",
+      "evidence": {
+        "check_id": "DC-STARTER-HANDOFF-LIVE-SESSION-OWNER",
+        "observed": "AIR_SESSION.handoff_durability_state",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-HANDOFF-PROVIDER-ADAPTER",
+      "evidence": {
+        "check_id": "DC-STARTER-HANDOFF-PROVIDER-ADAPTER",
+        "observed": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-NO-DUPLICATE-GENERATION-EVALUATION-ROOT",
+      "evidence": {
+        "check_id": "DC-HANDOFF-NO-DUPLICATE-GENERATION-EVALUATION-ROOT",
+        "observed": "PRESENT",
+        "operator": "JSON_PATH_ABSENT",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_PATH_ABSENT"
+    },
+    {
+      "check_id": "DC-HANDOFF-EVALUATION-BASIS-REQUIRED",
+      "evidence": {
+        "check_id": "DC-HANDOFF-EVALUATION-BASIS-REQUIRED",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-GENERATION-EVALUATION-OPERATOR",
+      "evidence": {
+        "check_id": "DC-HANDOFF-GENERATION-EVALUATION-OPERATOR",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-HANDOFF-PORTABLE-STATE-OPERATOR",
+      "evidence": {
+        "check_id": "DC-HANDOFF-PORTABLE-STATE-OPERATOR",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-ROUTE-HANDOFF-LIVE-SESSION-OWNER",
+      "evidence": {
+        "check_id": "DC-ROUTE-HANDOFF-LIVE-SESSION-OWNER",
+        "observed": "AIR_SESSION.handoff_durability_state",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ROUTE-HANDOFF-GENERATION-CARRIER",
+      "evidence": {
+        "check_id": "DC-ROUTE-HANDOFF-GENERATION-CARRIER",
+        "observed": "AIR_HANDOFF_CARD.evaluation_basis",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FILE-DELIVERY-RECEIPT-NONFORMAL",
+      "evidence": {
+        "check_id": "DC-STARTER-FILE-DELIVERY-RECEIPT-NONFORMAL",
+        "observed": false,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-ROUTE-FILE-DELIVERY-RECEIPT-NONFORMAL",
+      "evidence": {
+        "check_id": "DC-ROUTE-FILE-DELIVERY-RECEIPT-NONFORMAL",
+        "observed": false,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-VERSION-270",
+      "evidence": {
+        "check_id": "DC-STARTER-VERSION-270",
+        "observed": "2.7.0",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-TRANSITION-MODE",
+      "evidence": {
+        "check_id": "DC-STARTER-CORE-TRANSITION-MODE",
+        "observed": "EXACT_R23_AMRS4D3_REV25_TO_REV26_THREE_STATE_HANDOFF_CUTOVER",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FOUNDATION-CONTROL-270",
+      "evidence": {
+        "check_id": "DC-STARTER-FOUNDATION-CONTROL-270",
+        "observed": "2.7.0",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FOUNDATION-GOV-240",
+      "evidence": {
+        "check_id": "DC-STARTER-FOUNDATION-GOV-240",
+        "observed": "2.4.0",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-RUNTIME-SYSTEM-IDENTITY",
+      "evidence": {
+        "check_id": "DC-STARTER-RUNTIME-SYSTEM-IDENTITY",
+        "observed": "AIR",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-RUNTIME-GENERATION",
+      "evidence": {
+        "check_id": "DC-STARTER-RUNTIME-GENERATION",
+        "observed": "AIR_P",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-Q5R-NO-SILENT-AMRS6",
+      "evidence": {
+        "check_id": "DC-STARTER-Q5R-NO-SILENT-AMRS6",
+        "observed": "PROHIBITED",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-EXECUTION-STEERING-REQUIRED",
+      "evidence": {
+        "check_id": "DC-STARTER-EXECUTION-STEERING-REQUIRED",
+        "observed": true,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-BOUNDED-EFFECT-LATER",
+      "evidence": {
+        "check_id": "DC-STARTER-BOUNDED-EFFECT-LATER",
+        "observed": true,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-PREBIND-LEASE-STATE",
+      "evidence": {
+        "check_id": "DC-STARTER-PREBIND-LEASE-STATE",
+        "observed": "NOT_ISSUED_PREBIND",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-GATE-CONTEXT-ACTIVE",
+      "evidence": {
+        "check_id": "DC-STARTER-GATE-CONTEXT-ACTIVE",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-GATE-CONTEXT-CANDIDATE",
+      "evidence": {
+        "check_id": "DC-STARTER-GATE-CONTEXT-CANDIDATE",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-SPECIALIST-LIFECYCLE-BOUND",
+      "evidence": {
+        "check_id": "DC-STARTER-SPECIALIST-LIFECYCLE-BOUND",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-PUBLIC-RELEASE-SEPARATE-PUBLISH",
+      "evidence": {
+        "check_id": "DC-STARTER-PUBLIC-RELEASE-SEPARATE-PUBLISH",
+        "observed": "SEPARATE_EXPLICIT_HUMAN_REQUIRED",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-COMPATIBILITY-UNRESOLVED-BLOCKING",
+      "evidence": {
+        "check_id": "DC-STARTER-COMPATIBILITY-UNRESOLVED-BLOCKING",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-VALIDATION-STALE-STATE",
+      "evidence": {
+        "check_id": "DC-STARTER-VALIDATION-STALE-STATE",
+        "observed": "STALE_PENDING_REVALIDATION",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-CORE-R18-2-9-CONTRACT-PRESENT",
+      "evidence": {
+        "check_id": "DC-CORE-R18-2-9-CONTRACT-PRESENT",
+        "observed": {
+          "matches": [],
+          "present": false,
+          "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        },
+        "operator": "TEXT_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "TEXT_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-TARGET-290",
+      "evidence": {
+        "check_id": "DC-STARTER-CORE-TARGET-290",
+        "observed": "2.9.0",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-SHA-290",
+      "evidence": {
+        "check_id": "DC-STARTER-CORE-SHA-290",
+        "observed": "a32e09a4392bd437196daf8ecc7331011209af525675db7b5ac7c60ec3977ff9",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-ALIGNMENT-RECONCILIATION-STATE",
+      "evidence": {
+        "check_id": "DC-STARTER-ALIGNMENT-RECONCILIATION-STATE",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FORMAL-OBJECT-EVIDENCE-SOURCE-MANIFEST",
+      "evidence": {
+        "check_id": "DC-STARTER-FORMAL-OBJECT-EVIDENCE-SOURCE-MANIFEST",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-FORMAL-OBJECT-DEPENDENCY-RECORD",
+      "evidence": {
+        "check_id": "DC-STARTER-FORMAL-OBJECT-DEPENDENCY-RECORD",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-EFFECTIVE-SCOPE-CLOSED-WORLD-TRIGGER",
+      "evidence": {
+        "check_id": "DC-STARTER-EFFECTIVE-SCOPE-CLOSED-WORLD-TRIGGER",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-EFFECTIVE-SCOPE-TRANSITION-TRIGGER",
+      "evidence": {
+        "check_id": "DC-STARTER-EFFECTIVE-SCOPE-TRANSITION-TRIGGER",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-INCEPTION-EMISSION",
+      "evidence": {
+        "check_id": "DC-STARTER-NEW-TASK-INCEPTION-EMISSION",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-AIR-ERROR-CLASSIFICATION-STATE",
+      "evidence": {
+        "check_id": "DC-STARTER-AIR-ERROR-CLASSIFICATION-STATE",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-DRIFT-DETECTED-TYPE-BOOLEAN",
+      "evidence": {
+        "check_id": "DC-STARTER-DRIFT-DETECTED-TYPE-BOOLEAN",
+        "observed": "BOOLEAN",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-DRIFT-DETECTED-MODEL-ONLY",
+      "evidence": {
+        "check_id": "DC-STARTER-DRIFT-DETECTED-MODEL-ONLY",
+        "observed": "MODEL_RUNTIME_EXECUTION_DRIFT_ONLY",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-APPROVAL-CONSUMPTION-IDEMPOTENT",
+      "evidence": {
+        "check_id": "DC-STARTER-APPROVAL-CONSUMPTION-IDEMPOTENT",
+        "observed": "NO_STATE_CHANGE_ALREADY_CONSUMED",
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-LEASE-PROVENANCE-REQUIRED",
+      "evidence": {
+        "check_id": "DC-STARTER-LEASE-PROVENANCE-REQUIRED",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-SPECIALIST-DECISION-STATE",
+      "evidence": {
+        "check_id": "DC-STARTER-SPECIALIST-DECISION-STATE",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-EVIDENCE-MANIFEST-CONTRACT",
+      "evidence": {
+        "check_id": "DC-STARTER-EVIDENCE-MANIFEST-CONTRACT",
+        "observed": true,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-DISTINCT-ARTIFACT",
+      "evidence": {
+        "check_id": "DC-STARTER-NEW-TASK-DISTINCT-ARTIFACT",
+        "observed": true,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-NONERROR-RECOVERY-NO-AIR-ERROR",
+      "evidence": {
+        "check_id": "DC-STARTER-NONERROR-RECOVERY-NO-AIR-ERROR",
+        "observed": false,
+        "operator": "JSON_EQUALS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_EQUALS_LITERAL"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-INCEPTION-STATE-ENUM",
+      "evidence": {
+        "check_id": "DC-STARTER-NEW-TASK-INCEPTION-STATE-ENUM",
+        "observed": false,
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+        "state": "FAIL"
+      },
+      "mutation_rejected": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+    }
+  ],
+  "covered_check_count": 137,
+  "decision": "PASS",
+  "declared_check_count": 137,
+  "overall_state": "PASS",
+  "rejected_mutation_count": 137,
+  "uncovered_or_unrejected_count": 0
+}

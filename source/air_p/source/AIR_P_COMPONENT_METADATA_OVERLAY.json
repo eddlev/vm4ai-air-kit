@@ -1,0 +1,2758 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_COMPONENT_METADATA_OVERLAY_V2",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_METADATA_OVERLAY",
+  "binding_target": {
+    "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+    "canonical_path": "prompts/AIR_CORE_RUNTIME.md",
+    "component_metadata_present_in_source": false,
+    "designation": "AIR_CORE_RUNTIME_V2",
+    "prompt_version": "2.9.0",
+    "semantic_authority": true,
+    "sha256": "e4fb9fc9ac5b50d7d2d043a9489a086b398f543c41eefdc2762e92fb5e06b835"
+  },
+  "component_count": 113,
+  "components": [
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_LOAD_INTEGRITY_V2",
+        "section_heading": "RUNTIME LOAD INTEGRITY LAW",
+        "target_core_heading_line": 40,
+        "target_core_patch_marker_line": 43,
+        "target_core_section_sha256": "76665b589e4d769387b843486e9c57edd3a5ae4359f31aedd0fb76d142b2ffcb"
+      },
+      "component_id": "CORE.LAW.RUNTIME_LOAD_INTEGRITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5742686b93bd3ecf7a5e405d7a6995d8c29aa0270e5a57398ceef17a84300ecf",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 49,
+        "source_component_block_sha256": "b23c0c1b19c2862e4428e0c6e99b881df28b6447d4cbaf299baaf94326258a74",
+        "source_component_block_start_line": 43
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+        "section_heading": "BOOT VALIDATION PROPORTIONALITY LAW",
+        "target_core_heading_line": 90,
+        "target_core_patch_marker_line": 93,
+        "target_core_section_sha256": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311"
+      },
+      "component_id": "CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "442210c8a4ec5d09370fb1679f2da4262bad3a9130a12b7d0d88e584777fd84f",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 108,
+        "source_component_block_sha256": "ceac63a3c4370d76f18c81186782034379e0af0ca6c4d77352be484ad9ac8684",
+        "source_component_block_start_line": 102
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_OPERATIVE_COMPATIBILITY_AUTHORITY_V2",
+        "section_heading": "OPERATIVE COMPATIBILITY AUTHORITY LAW",
+        "target_core_heading_line": 282,
+        "target_core_patch_marker_line": 285,
+        "target_core_section_sha256": "3ceba6c0cb2f542915f2883589bb997969bedf3fe4b30e633ccf4da646d916d0"
+      },
+      "component_id": "CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "7ffbfcac059a7b1936d3996cae9831214755b683744779b58789cbec241e2747",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 190,
+        "source_component_block_sha256": "3075a24d71c54cffcb66bd9a9f130c4e81c4b4c30a91dc311a5e8ef5efb871a5",
+        "source_component_block_start_line": 184
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY_V2",
+        "section_heading": "CANONICAL FILE IDENTITY AND DELIVERY INTEGRITY LAW",
+        "target_core_heading_line": 323,
+        "target_core_patch_marker_line": 326,
+        "target_core_section_sha256": "6a80462c8d49ec900ef9115c564cb9739bd8b715de01ed03a29525bf6ffda643"
+      },
+      "component_id": "CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "f62c96fda7ed695bf2c25e55299c50c1cb60d61b366e601741b75a7f90f6d56e",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 240,
+        "source_component_block_sha256": "c6434e741b75d581250a50c78bd523147484023b7f5a53272a3c4822e6f9a8ae",
+        "source_component_block_start_line": 234
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_FLOOR_INVARIANT_REGISTRY_V2",
+        "section_heading": "FLOOR INVARIANT LAW",
+        "target_core_heading_line": 440,
+        "target_core_patch_marker_line": 443,
+        "target_core_section_sha256": "4428ca25e6c85420975e53e2db79874663f7977b482fce8566c1b8ac0e7d914d"
+      },
+      "component_id": "CORE.REGISTRY.FLOOR_INVARIANT",
+      "component_revision": 1,
+      "component_type": "REGISTRY",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e9b438dd03f0ebf566eef5cda15fa522a0ef22f515a30c932d82bf5dc5c16d52",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 366,
+        "source_component_block_sha256": "6ad2a2f6bc398697d91cc2207e8f60237184da1b8dbd5a803ed100b2809da934",
+        "source_component_block_start_line": 360
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_NON_INFERENCE_MATERIAL_AMBIGUITY_H1",
+        "section_heading": "NON-INFERENCE UNDER UNRESOLVED MATERIAL AMBIGUITY LAW",
+        "target_core_heading_line": 525,
+        "target_core_patch_marker_line": 528,
+        "target_core_section_sha256": "3f9ec3d24742d6cab3aee08d55e6d72eb16eec3312c238ebca2f5fb7c8455d38"
+      },
+      "component_id": "CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "c3d38211e95d615ab92c56626caa4a22f7ad8728f3570a547f3276eeb553b26a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 460,
+        "source_component_block_sha256": "3a4402030eb8cae33fd477e1d60e31a9506246a132b24ca8cd5c5c25dd953ff8",
+        "source_component_block_start_line": 454
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_RUNTIME_CONTROL_EVENT_REGISTRY_V1",
+        "section_heading": "CONTROL-PLANE SEMANTIC NON-AUTHORITY LAW",
+        "target_core_heading_line": 555,
+        "target_core_patch_marker_line": 558,
+        "target_core_section_sha256": "293f9dd20e9f0e1ed87763454d68ce97ff89bcb810e50d4ae0c252394067dbd6"
+      },
+      "component_id": "CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "19efa150e0a20eab718d7c64bba1fc4f849f270f3ea06de0535c55f4edc1bf95",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 499,
+        "source_component_block_sha256": "f331724755dc9a6057e8ba44104b5decaa68dca29d094b4eed1828dd9ee4f648",
+        "source_component_block_start_line": 493
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_MODE_SELECTION_V1",
+        "section_heading": "HANDOFF MODE SELECTION LAW",
+        "target_core_heading_line": 650,
+        "target_core_patch_marker_line": 653,
+        "target_core_section_sha256": "1e45fe9884e7349533555a3a1e4b0ce620e49275daffa8bca21f91b30f249886"
+      },
+      "component_id": "CORE.LAW.HANDOFF_MODE_SELECTION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "81db31a03cdf0cd2b3f48a6829adf71a503aadc1a767688b64be7c56ed2e4a2a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 594,
+        "source_component_block_sha256": "0dc4629631dc752240c74463a4d28fe764a7f4bfe5cb1cb571b000ebe4bed950",
+        "source_component_block_start_line": 588
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
+        "section_heading": "HANDOFF RUNTIME DURABILITY AND GENERATION CONTRACT",
+        "target_core_heading_line": 699,
+        "target_core_patch_marker_line": 702,
+        "target_core_section_sha256": "bc496eac22500c00a8079d45b5513bcdddf0477da0937ddca0d67cfabcb9da79"
+      },
+      "component_id": "CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "47b3a2d434558b2ccca3874ad89dc1933f92c32468683d3a5850dd5fb7f7a077",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 652,
+        "source_component_block_sha256": "1d2e14a0e501a3fbc68ae36a7f0cddf785ebe057ac995768c5a8d57990fd224a",
+        "source_component_block_start_line": 646
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
+        "section_heading": "DURABLE SURFACED-OBJECT PROVENANCE LAW",
+        "target_core_heading_line": 774,
+        "target_core_patch_marker_line": 777,
+        "target_core_section_sha256": "20e86c4f464dac637a24914a7afd5db88e88d4907259c7f5cbf224a5e3e3ca78"
+      },
+      "component_id": "CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e43c03668762b43f7a90f6bf29f8e9137ab081291561c1394cfca5957a7c510a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 736,
+        "source_component_block_sha256": "e0e9f33b33c5f4d0d80587c4b7e9138d66659c6eafbc7a91c890f598e2ddcc66",
+        "source_component_block_start_line": 730
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_FILE_DELIVERY_V1",
+        "section_heading": "HANDOFF JSON FILE OUTPUT LAW",
+        "target_core_heading_line": 2813,
+        "target_core_patch_marker_line": 2817,
+        "target_core_section_sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb"
+      },
+      "component_id": "CORE.LAW.HANDOFF_FILE_DELIVERY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "4602f3bc65e5522c94ec434f51b2112527af48566f2b2df0581737f291db4a74",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 865,
+        "source_component_block_sha256": "bf203f1bc8cc043246b3144ad9acd9b82cbfff080682ae8347074e6fadec3175",
+        "source_component_block_start_line": 859
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_COGNITIVE_SCOPE_AUTHORITY_ISOLATION_V1",
+        "section_heading": "COGNITIVE SCOPE AUTHORITY ISOLATION LAW",
+        "target_core_heading_line": 913,
+        "target_core_patch_marker_line": 916,
+        "target_core_section_sha256": "d316343b7691643e9d00737b5ebc36f452d097e37ca7f17b4a5334469993f251"
+      },
+      "component_id": "CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "32a376836f843dccfe2df69aa86a59a350b147031953abb938c1b7a39d075641",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 893,
+        "source_component_block_sha256": "29be3900024d54956e8dd20ab12199f854517c24851918c10b00a82d01fe8b8b",
+        "source_component_block_start_line": 887
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_DETERMINISTIC_PIPELINE_NON_INFERENCE_V1",
+        "section_heading": "DETERMINISTIC PIPELINE NON-INFERENCE LAW",
+        "target_core_heading_line": 969,
+        "target_core_patch_marker_line": 972,
+        "target_core_section_sha256": "5440cd3c5655e8116c50442bea8f1c46b153ec63cdd987ae28d3766caddd1fb7"
+      },
+      "component_id": "CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "47211974b96cef02328fdb982af11dabb922e64732d1bfecdb34a691c6d2228f",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 958,
+        "source_component_block_sha256": "d68cf5303def91d55bdfda8d299d64756ff366b85ac792839d889dd8f59b84ba",
+        "source_component_block_start_line": 952
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION_V1",
+        "section_heading": "DETERMINISTIC CONTRACT MACHINE REPRESENTATION LAW",
+        "target_core_heading_line": 1004,
+        "target_core_patch_marker_line": 1007,
+        "target_core_section_sha256": "a98ae9d34dcc8a1df1b2aaf8a871c548e440c638225f059c632e4f3df00e69f2"
+      },
+      "component_id": "CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "ed4c659cc27dbc710fe40d2fa522c9365214cff340fe3164df854ba03c226d3f",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1002,
+        "source_component_block_sha256": "f8ca73dc9fb9dd9996f4634e69aa67fb684c68f2097d5712bb54e8f296af6a26",
+        "source_component_block_start_line": 996
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ACTIVE_STATE_RECONCILIATION_H2",
+        "section_heading": "ACTIVE-STATE RECONCILIATION LAW",
+        "target_core_heading_line": 1027,
+        "target_core_patch_marker_line": 1030,
+        "target_core_section_sha256": "b1a898024a06892a89cce8d0ad2742a9194345ecf177027acae84474dafa84fa"
+      },
+      "component_id": "CORE.LAW.ACTIVE_STATE_RECONCILIATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "0f0a26f7635dca3c0e0575a8ee8b29d92c2f3d38de27a3a41629ca15da509798",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1034,
+        "source_component_block_sha256": "417bb9a32cfffbbda043aa26dbcfe99c64925b2572bc77f1c585b68c492a8562",
+        "source_component_block_start_line": 1028
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ROUTE_DEPENDENCY_KERNEL_V1",
+        "section_heading": "AIR ROUTE AND DEPENDENCY KERNEL",
+        "target_core_heading_line": 1070,
+        "target_core_patch_marker_line": 1073,
+        "target_core_section_sha256": "42851649a6295a6b70867121681aafdee3ab55155ef232813d6fe9c29ba7c295"
+      },
+      "component_id": "CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL",
+      "component_revision": 1,
+      "component_type": "REGISTRY",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "66097360a03b6cc340962d2f3b16e4b4bc29c1dbefa6ce59942d42402ca3cb09",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1079,
+        "source_component_block_sha256": "a87c5b701fc6b670a5e83ca90713341e63b6b2bd2d94ca3327c1d8e0c74fd1cb",
+        "source_component_block_start_line": 1073
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "section_heading": "ALIGNMENT EVALUATION DEPENDENCY LAW",
+        "target_core_heading_line": 1502,
+        "target_core_patch_marker_line": 1505,
+        "target_core_section_sha256": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed"
+      },
+      "component_id": "CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "9bc9e4a3b2b722ae1bb4462efdc3d29045c9925b920a498da990766b785b1938",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1499,
+        "source_component_block_sha256": "e8e46a9036a7773fddce1d991f190216b79b735b6b23953ad97d186a5ea2b6e8",
+        "source_component_block_start_line": 1493
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "section_heading": "FORMAL OBJECT CONSTRUCTOR DEPENDENCY LAW",
+        "target_core_heading_line": 1564,
+        "target_core_patch_marker_line": 1567,
+        "target_core_section_sha256": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406"
+      },
+      "component_id": "CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d45af76afad66b069393bfec7a9388b0c09970dac1faf963b0d3c19e58062493",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1560,
+        "source_component_block_sha256": "bc41e637ec2b955a412cab8b2cf34d9d8d284f52bf139f01e51d1318dc2182b2",
+        "source_component_block_start_line": 1554
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+        "section_heading": "AIR MII COGNITIVE ARCHITECTURE LAW",
+        "target_core_heading_line": 1592,
+        "target_core_patch_marker_line": 1595,
+        "target_core_section_sha256": "f8f7241e448b8b9dab6e4141dac078d6c208e9b1ae1850b340317d0d9b2089a9"
+      },
+      "component_id": "CORE.LAW.MII_COGNITIVE_ARCHITECTURE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "48aa0d4e1b25a899bb56b3f2fb598bf38ce9fd13b04832b4405a4ec70209346c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1588,
+        "source_component_block_sha256": "d0fe49e9c6e4d4b5946dbce0e467f0a5914b0bd8321bc66fd57fb359035093a2",
+        "source_component_block_start_line": 1582
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_SEMANTIC_TRANSLATION_KERNEL_V1",
+        "section_heading": "MII SEMANTIC TRANSLATION AND FIDELITY LAW",
+        "target_core_heading_line": 1651,
+        "target_core_patch_marker_line": 1654,
+        "target_core_section_sha256": "8662ed6ba7127a6449ede29882c66711dd578ce8a3eea31a78604bffbecab106"
+      },
+      "component_id": "CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "fbb1b4529b9bb6a949230e95c1d6a7c21bf76470748f17f7088d2fb7a77601b2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1656,
+        "source_component_block_sha256": "4b6856fab72ac90ca53b66269d349a06c2980c8d43769feb8eabe4754e05a305",
+        "source_component_block_start_line": 1650
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_REFLECTIVE_PROCESSING_POSTURE_V1",
+        "section_heading": "MII REFLECTIVE PROCESSING POSTURE LAW",
+        "target_core_heading_line": 1693,
+        "target_core_patch_marker_line": 1696,
+        "target_core_section_sha256": "6cea8732d05d544a8b9f2ad9b7354730575770c65577638591a275ec939ce74c"
+      },
+      "component_id": "CORE.LAW.MII_REFLECTIVE_PROCESSING_POSTURE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "2967979a94aab522cdfafa9967091593258236367d3cb9419ee6eb8431f2b143",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1697,
+        "source_component_block_sha256": "cf841cf140ba88239855542a110ee11eb99c0cbd9a3a6b3498d009b0b712b578",
+        "source_component_block_start_line": 1691
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_EPISTEMIC_SUFFICIENCY_V1",
+        "section_heading": "MII EPISTEMIC SUFFICIENCY AND CLARIFICATION LAW",
+        "target_core_heading_line": 1708,
+        "target_core_patch_marker_line": 1711,
+        "target_core_section_sha256": "a270383fa275a9431fd356bcc8b263c371c35c21e6de652734e853bd1a25c020"
+      },
+      "component_id": "CORE.LAW.MII_EPISTEMIC_SUFFICIENCY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "3c71c986d06f9c40df29efe67244458054be087f1397f6d5a1996135983cbac6",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1721,
+        "source_component_block_sha256": "24fc53a44fdc80f16f727d7f602060936f60234396f1292a16a0461af9b39019",
+        "source_component_block_start_line": 1715
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_MORPHOLOGY_BINDING_V1",
+        "section_heading": "MII MORPHOLOGY BINDING LAW",
+        "target_core_heading_line": 1737,
+        "target_core_patch_marker_line": 1740,
+        "target_core_section_sha256": "469785651779ec2cb54e23d5009005c6549e5062943242d1356760cc5717572e"
+      },
+      "component_id": "CORE.LAW.MII_MORPHOLOGY_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "ef6b2e8d3bf5f2519ff02ed954c74bc7f478644a449b16e922364b6067135be7",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1759,
+        "source_component_block_sha256": "144a32755224f844dca859d70eb5375b3d8b87366f77bd277039ab9335984fc6",
+        "source_component_block_start_line": 1753
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MII_RISK_PROPAGATION_V1",
+        "section_heading": "MII RISK PROPAGATION LAW",
+        "target_core_heading_line": 1758,
+        "target_core_patch_marker_line": 1761,
+        "target_core_section_sha256": "922647a036ecb2a56c96ff20e610267aaebe047fa7132fb0c95429c16c88d59c"
+      },
+      "component_id": "CORE.LAW.MII_RISK_PROPAGATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "6f45e120e34fa36f9f46acc327ef3664a78fc8b8702a5b27438b3b30a5125aa0",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1789,
+        "source_component_block_sha256": "3ac931bf5f86683aa3a53e937c4ef7b19520300ed3b136af3d03d55466c7ed34",
+        "source_component_block_start_line": 1783
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_TEST_EVIDENCE_REPRODUCIBILITY_V3",
+        "section_heading": "TEST EVIDENCE AND REPRODUCIBILITY LAW",
+        "target_core_heading_line": 1787,
+        "target_core_patch_marker_line": 1790,
+        "target_core_section_sha256": "2d3aa409084fa9988089d0f6e21c53edf50aee84286d7cca40958fee75d973b6"
+      },
+      "component_id": "CORE.LAW.TEST_EVIDENCE_REPRODUCIBILITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5939fd33295a5c59df7f517cb6cc77d4527bd97b546a07e7077878cca065f7d4",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1827,
+        "source_component_block_sha256": "81a8cbff46bace4da748d78547217a344a5ffaddf3b07cf9449410a622501999",
+        "source_component_block_start_line": 1821
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_INBOUND_VALIDATION_V3",
+        "section_heading": "INBOUND CARD VALIDATION GATE LAW",
+        "target_core_heading_line": 1829,
+        "target_core_patch_marker_line": 1832,
+        "target_core_section_sha256": "3ca24df43eb92717ee6e4bfb948e5127f66556df015978326609563401c0c137"
+      },
+      "component_id": "CORE.LAW.HANDOFF_INBOUND_VALIDATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e56e9339d605ad6eda95ebb990daf590f6707a2418adaddf0b189820f800aba0",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1878,
+        "source_component_block_sha256": "31808062bc7240c831329cc5e96b286efd09f664692daecb6acf1ed747ad6428",
+        "source_component_block_start_line": 1872
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_INBOUND_TRUST_V1",
+        "section_heading": "PROFILE STRICTNESS FLOOR LAW",
+        "target_core_heading_line": 1935,
+        "target_core_patch_marker_line": 1937,
+        "target_core_section_sha256": "a686b53145e4fee1c8d47c7813182587f7a4f5369b8179d1a798f2b8a213fdb1"
+      },
+      "component_id": "CORE.LAW.PROFILE_STRICTNESS_FLOOR",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "76d4cac970af4e19bc1653387164c908f261b3abcc26376277213c1556c09d75",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 1992,
+        "source_component_block_sha256": "1d80e9ed2c2440eb9c433ca7f0377d555c1634c1651e5fb86f12677b94fb553f",
+        "source_component_block_start_line": 1986
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_INBOUND_TRUST_V1",
+        "section_heading": "EMBEDDED CONTENT DATA BOUNDARY LAW",
+        "target_core_heading_line": 1951,
+        "target_core_patch_marker_line": 1953,
+        "target_core_section_sha256": "740a569354f3bedd927556bfc8eaa210041a1d4a567cc9de2c118b5cf829875f"
+      },
+      "component_id": "CORE.LAW.EMBEDDED_CONTENT_DATA_BOUNDARY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "30c31ef9385cc5e35e3f43359ce8b559baf54cf757d3c6df3f8f5fb49ec7244b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2017,
+        "source_component_block_sha256": "0f29019675b640973d70c44270b258f5520d18f9919f0262b4cee1a59c5cc3d5",
+        "source_component_block_start_line": 2011
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ENTRY_PATH_Q1_SEPARATION_V1",
+        "section_heading": "ENTRY LAW",
+        "target_core_heading_line": 1964,
+        "target_core_patch_marker_line": 1967,
+        "target_core_section_sha256": "43b0d0b741cea8d6bb7208a289e62e32e32eb189501f8b2a39c83c99ab4a7a0f"
+      },
+      "component_id": "CORE.LAW.ENTRY_PATH_Q1_SEPARATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "67d621f5158d5762ad209bba535c9f8b3b26a7640768ab5fe3b02c3bba9213d2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2040,
+        "source_component_block_sha256": "a3ab93dabaad473db32eaab5ffdd64c39ab3f727c56093ebcea7874bc40c09fd",
+        "source_component_block_start_line": 2034
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+        "section_heading": "DETERMINISTIC ONBOARDING NON-INFERENCE LAW",
+        "target_core_heading_line": 1986,
+        "target_core_patch_marker_line": 1989,
+        "target_core_section_sha256": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768"
+      },
+      "component_id": "CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "fcd26e40c01ac2a7ac8acd08188663032d725bb9671f4927ce4dbb5aa9b0561a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2071,
+        "source_component_block_sha256": "53939188f470beb7111d9c6a75f2f1a160fc3c7bb9e862ce2dd31ab821b581a2",
+        "source_component_block_start_line": 2065
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_BOOT_BRAND_MARK_M2",
+        "section_heading": "AIR BOOT BRAND MARK LAW",
+        "target_core_heading_line": 2026,
+        "target_core_patch_marker_line": 2029,
+        "target_core_section_sha256": "79c0e07e548a629deedaa8b53b89cadcb58881e323358f2c4ea28389a97ff7e3"
+      },
+      "component_id": "CORE.LAW.BOOT_BRAND_MARK",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e85b99e6a8a9ead6db9d00f90412b07a5b0b0ae0e27f7b8a19fd4685ff91a581",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2120,
+        "source_component_block_sha256": "14a8c8040861370070fec60d4767ed5842c789b9d71f585ee172d619e50fb450",
+        "source_component_block_start_line": 2114
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_INTENT_RESOLUTION_GATE_V1",
+        "section_heading": "CANONICAL INTENT RESOLUTION GATE LAW",
+        "target_core_heading_line": 2050,
+        "target_core_patch_marker_line": 2053,
+        "target_core_section_sha256": "17db3e9a4d029bc93fd7c3b488114c9d3baef47ac94fc7b176447446e65e5ccd"
+      },
+      "component_id": "CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d985ac4b7d4d5b71ed44e311e559aaf009a04102f7ee082f3e4ee59e586c5bc2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2153,
+        "source_component_block_sha256": "e66ea0aa758ba048a899546dfc6387353d5ff80b44bff89d65406cb53fb17cd7",
+        "source_component_block_start_line": 2147
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ONBOARDING_GEOMETRY_ROUTING_V3",
+        "section_heading": "ONBOARDING GEOMETRY ROUTING MATRIX LAW",
+        "target_core_heading_line": 2201,
+        "target_core_patch_marker_line": 2204,
+        "target_core_section_sha256": "5c2f0fe73c1eb4505a05d3e294dc5c68e994c61859564f33dd2e671602ec6cdc"
+      },
+      "component_id": "CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "559ad97294f9830464de0c36304c7323ef401cf9c0a705599f8b3d572ec724d0",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2294,
+        "source_component_block_sha256": "4d30865d5799cbf489ae4563367d5149cf91e6d8af1695639947a7a97d0e586e",
+        "source_component_block_start_line": 2288
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ROUTER_V3",
+        "section_heading": "ROUTER LAW",
+        "target_core_heading_line": 2219,
+        "target_core_patch_marker_line": 2222,
+        "target_core_section_sha256": "fdeef1e9b8534837e08de8c971c63c14522f6ddf3fb125d1e127edf15364656c"
+      },
+      "component_id": "CORE.LAW.ROUTER_COMPATIBILITY_SURFACE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "8c1b745cf774711b85487f0acb0b5fa7e25504fb7455f953daae5962e48c7811",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2321,
+        "source_component_block_sha256": "ed38c22d2ca73286a95bac3ef59789593c9cdf44a04e8f9167ba4d60fdbcbe63",
+        "source_component_block_start_line": 2315
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CREATIVE_CONTINUITY_EXTENSION_V2",
+        "section_heading": "CREATIVE CONTINUITY EXTENSION LAW",
+        "target_core_heading_line": 2266,
+        "target_core_patch_marker_line": 2269,
+        "target_core_section_sha256": "1882a1e7398465dce160a0a41e198a0f95f21d0506a0c2352d62687660e833f5"
+      },
+      "component_id": "CORE.LAW.CREATIVE_CONTINUITY_EXTENSION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "bca1e7ae615229f597f71ed7b6a9033731c91ba7772c0873c4707526d3721694",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2377,
+        "source_component_block_sha256": "e116716695c4ff3f6c077e391d659650fbfc8e5185c0d994ebd99a82cba70c2f",
+        "source_component_block_start_line": 2371
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CANONICAL_OBJECT_CONTRACTS_V4",
+        "section_heading": "CANONICAL AIR OBJECT CONTRACT LAW",
+        "target_core_heading_line": 2304,
+        "target_core_patch_marker_line": 2307,
+        "target_core_section_sha256": "7e6a17c697819c1e4fe04cf1595a947a13c9b26be5c2bfbca5d7574b3aed839d"
+      },
+      "component_id": "CORE.LAW.CANONICAL_OBJECT_CONTRACT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "9129441a0acafa3eec7c81141aae562f64d61f049b46cb128b77b3af36a6236c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2424,
+        "source_component_block_sha256": "94a2005d652b28db1361f4e4961a980cfe7d7b9f225fb56ab81698eae253f441",
+        "source_component_block_start_line": 2418
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_CONTINUATION_BOOTSTRAP_V2",
+        "section_heading": "HANDOFF CONTINUATION FLOW",
+        "target_core_heading_line": 2752,
+        "target_core_patch_marker_line": 2754,
+        "target_core_section_sha256": "f3ef4bf906417571e47d30de887da327c8dd247def26f499764e49f02afe48f0"
+      },
+      "component_id": "CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "aa391fba5d5bf7c6e47b849ce5a429799e52c02b944a598b3316ae8489520d28",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2856,
+        "source_component_block_sha256": "c72bc31fa67ea2f7101f833f4b382c4d19235deef8a4a8966af2109dc1ba115f",
+        "source_component_block_start_line": 2850
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_HANDOFF_STRICT_JSON_OUTPUT_V3",
+        "section_heading": "HANDOFF JSON FILE OUTPUT LAW",
+        "target_core_heading_line": 2813,
+        "target_core_patch_marker_line": 2816,
+        "target_core_section_sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb"
+      },
+      "component_id": "CORE.LAW.HANDOFF_JSON_FILE_OUTPUT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "686bcd812d9e70f9158fa4b959c45a0a50dc9bce138626317d7efa0a0a2f6e81",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2928,
+        "source_component_block_sha256": "ecbdfb61e3a7a2a6a29ad761fbbd7c8c90e4942ee12bf2c32abe074bb2977154",
+        "source_component_block_start_line": 2922
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ORBIT0_PROMPT_SIDE_ANCHORING_V1",
+        "section_heading": "ORBIT 0 PROMPT-SIDE ANCHORING LAW",
+        "target_core_heading_line": 2833,
+        "target_core_patch_marker_line": 2835,
+        "target_core_section_sha256": "b28179021446b129d7f6174191682727c1791e20530f50d4c75302a69be290ea"
+      },
+      "component_id": "CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "240e505ee8b7b94b89de15c5e839c47f5292d4ce150724b5fc2b2cc9eee59195",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2955,
+        "source_component_block_sha256": "7203c1157db759794af1622894328febdf36cf6e176ebc74bea580894861003b",
+        "source_component_block_start_line": 2949
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_BENCHMARK_SYNTHETIC_ROLE_V3",
+        "section_heading": "BENCHMARK SYNTHETIC ROLE LAW",
+        "target_core_heading_line": 2863,
+        "target_core_patch_marker_line": 2866,
+        "target_core_section_sha256": "f3de527f99141cdccf20b8cd76dd5c564f6ed99dc6a644929f3f578cd90c7eaa"
+      },
+      "component_id": "CORE.LAW.BENCHMARK_SYNTHETIC_ROLE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "00323cb5d99dfb2c39e451e44c73586da6a824b4fec061f3672ce9d600fe5933",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 2995,
+        "source_component_block_sha256": "aa5fbb32f002ebcd53ac1e0e5d23f6f46c2636169d8ea9d80be2090543dfd477",
+        "source_component_block_start_line": 2989
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL_V2",
+        "section_heading": "MACHINE-NATIVE CAPABILITY TRANSLATION KERNEL",
+        "target_core_heading_line": 2883,
+        "target_core_patch_marker_line": 2886,
+        "target_core_section_sha256": "cfc6dee06e81039c52b0677ba6bf880932c1329077b83c743b234de58ce1d976"
+      },
+      "component_id": "CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5153e55c9ea7d8d28d3da297b08a747d4c7fad04a14552d88844445aa8469d4b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3024,
+        "source_component_block_sha256": "9acbfb1949b0ab5e8ecca50e59d01d17ff3a02d7a4b15d72006630044c1dd8f5",
+        "source_component_block_start_line": 3018
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_KNOWLEDGE_TO_EXECUTION_PATH_V3",
+        "section_heading": "KNOWLEDGE-TO-EXECUTION TRANSFORMATION PATH LAW",
+        "target_core_heading_line": 2910,
+        "target_core_patch_marker_line": 2913,
+        "target_core_section_sha256": "d08510c0e8090279d39b9b65c4dad4ffdb474b8db700e463c014f0b2c398d725"
+      },
+      "component_id": "CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "cdd7251c24a1c89a6dde7acb9ead484b8c2c45ab89bcef3a9b401aa35d50728e",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3060,
+        "source_component_block_sha256": "cc57fd92b23e980477a6966b1e2998854a45d603adbc05ee27da4eaff7e86660",
+        "source_component_block_start_line": 3054
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_VISIONARY_GROUNDING_QUESTION_LOOP_V1",
+        "section_heading": "VISIONARY GROUNDING QUESTION LOOP LAW",
+        "target_core_heading_line": 2973,
+        "target_core_patch_marker_line": 2975,
+        "target_core_section_sha256": "1723a7edc89c326086e6cdf6953d74fde1fb2278bd009b36f11b90a8a36a58f2"
+      },
+      "component_id": "CORE.LAW.VISIONARY_GROUNDING_QUESTION_LOOP",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "539e5b5039a727c88c583b355ee52fa5d31331bb8c99d04e0ebfbf61bd88ce9c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3131,
+        "source_component_block_sha256": "c48329ca4ed19bed5cafa5c06a5e80b93d45f961403877553a6364482ce1b951",
+        "source_component_block_start_line": 3125
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_REGULATORY_PRESSURE_DISCOVERY_GATE_V1",
+        "section_heading": "REGULATORY PRESSURE DISCOVERY GATE LAW",
+        "target_core_heading_line": 3015,
+        "target_core_patch_marker_line": 3017,
+        "target_core_section_sha256": "9be3eb497824c04839372af4dbabacc090cdc026d6ecaeb99431ec0446ac5f84"
+      },
+      "component_id": "CORE.LAW.REGULATORY_PRESSURE_DISCOVERY_GATE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "11b64d77b0c9754ee9b6738c52d14cec9d06b3f7ccb7091dfe32fc3f8fa528f6",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3181,
+        "source_component_block_sha256": "b6d8fa2b72e1efc888d420834b41fd95f002e342473edf091cc99e232a4e0f15",
+        "source_component_block_start_line": 3175
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_SOURCE_DEPENDENCY_V1",
+        "section_heading": "DISCOVERY EXECUTOR AND UNKNOWN-UNKNOWN DISCOVERY LAW",
+        "target_core_heading_line": 3063,
+        "target_core_patch_marker_line": 3065,
+        "target_core_section_sha256": "08b6279ebbf74186ddc600169aa8385598b507a8905642cb18eeaad8bcbca14e"
+      },
+      "component_id": "CORE.LAW.DISCOVERY_EXECUTOR_UNKNOWN_UNKNOWN_DISCOVERY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "f692203c1c252d88f8d8bb7c215f6f571dab6f22916a9887798418f24063ef72",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3237,
+        "source_component_block_sha256": "ea8a5930e1c6bf0a8c763d8d6fa90bd15fc9e7483d2225e3e5a5779daf258160",
+        "source_component_block_start_line": 3231
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PATCH_SOURCE_UPLOAD_GATE_V1",
+        "section_heading": "PATCH SOURCE UPLOAD GATE LAW",
+        "target_core_heading_line": 3122,
+        "target_core_patch_marker_line": 3124,
+        "target_core_section_sha256": "a46fbbf703cee23e84cd7d3c8baa8dc7b954ea693152892963bf1d1e1ad033b4"
+      },
+      "component_id": "CORE.LAW.PATCH_SOURCE_UPLOAD_GATE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e1510309449d61a5fb20e2b530673e71da82fb42e9feceafd3d7084f65a7483d",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3304,
+        "source_component_block_sha256": "e18a1b2369489f4a82652d98a2978cf5ccaf56f9678dac9e3fd3e2932806152d",
+        "source_component_block_start_line": 3298
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_GENERAL_OBJECTS_CONTROL_HELP_SOURCE_REFS_V1",
+        "section_heading": "TASK SOURCE REFERENCE SUPPORT LAW",
+        "target_core_heading_line": 3191,
+        "target_core_patch_marker_line": 3193,
+        "target_core_section_sha256": "bd840fadff8714a9a4abc14ec5427dfe80bf8bf0036fbc4551afa73513e71364"
+      },
+      "component_id": "CORE.LAW.TASK_SOURCE_REFERENCE_SUPPORT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "64ffd31f9af89fcab30ba8d558a29fd7d291917f6b7f6ba303e737e82f04f11f",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3381,
+        "source_component_block_sha256": "d2ff1433cf01d425a8937f7e335f43fdceef1cde5c9081f5bbc95a535200808b",
+        "source_component_block_start_line": 3375
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_OBJECT_VISIBILITY_BOOT_EVIDENCE_V2",
+        "section_heading": "AIR OBJECT VISIBILITY AND BOOT EVIDENCE LAW",
+        "target_core_heading_line": 3223,
+        "target_core_patch_marker_line": 3226,
+        "target_core_section_sha256": "b976c0bd59d0f436d4cace87e503372c3636dbabae7a1ce794b466ee72d644a4"
+      },
+      "component_id": "CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "b2b64ed0085516e251b8d4491fd27a05b273a3dc3ff66f151382aaaf4d0a6190",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3423,
+        "source_component_block_sha256": "f5cdd82c26eb7930e92a4f5cd85eca30f84a9f6df87fd78e5101da4fa21ea449",
+        "source_component_block_start_line": 3417
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1",
+        "section_heading": "ONBOARDING OBJECT NOISE REDUCTION LAW",
+        "target_core_heading_line": 3266,
+        "target_core_patch_marker_line": 3268,
+        "target_core_section_sha256": "30d469e860fb2da535a101c1bfa0f4f2a211c9d02e59c58618871e827b51dcb3"
+      },
+      "component_id": "CORE.LAW.ONBOARDING_OBJECT_NOISE_REDUCTION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "91841c1e1d7c77c68ddaf34c4dd4ef4db5d4dccde8be4765ae54da31c3230e88",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3474,
+        "source_component_block_sha256": "4de1c4f8c279be83e87c2a85ae265203ab332c93e15c517be16df3681afac10d",
+        "source_component_block_start_line": 3468
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_OBJECT_DEFAULT_SURFACE_V2",
+        "section_heading": "AIR OBJECTS DEFAULT SURFACE LAW",
+        "target_core_heading_line": 3294,
+        "target_core_patch_marker_line": 3297,
+        "target_core_section_sha256": "8f92886a3750d245da08d24346020974aba3a19a8cda5ccd08b66cb2ee9d1769"
+      },
+      "component_id": "CORE.LAW.OBJECTS_DEFAULT_SURFACE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5b7b3756d86dc9e2063e06c98350737b7dfde1fdea3d89a8bcc2b0a8b0e58737",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3512,
+        "source_component_block_sha256": "847e5a0363f7b05f2dcbff2ffe58c7446110a30a15b2340c682ec7bf07906b1a",
+        "source_component_block_start_line": 3506
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MINIMAL_SYSTEM_MODIFIERS_V2",
+        "section_heading": "AIR SYSTEM MODIFIER LAW",
+        "target_core_heading_line": 3306,
+        "target_core_patch_marker_line": 3309,
+        "target_core_section_sha256": "36f786b40bc6424e7d375bebf486ae76d589dac42a9e49a26152e9d8d76d2714"
+      },
+      "component_id": "CORE.LAW.SYSTEM_MODIFIERS",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "a04da84d510b1ebede4a37797ca1bf0095cafb28c86d2af5a2f831d834663103",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3533,
+        "source_component_block_sha256": "713466a8d6b6e9b92eb0fa30e4a6157fede11914ea585ad2dfe9ffef033eb4a6",
+        "source_component_block_start_line": 3527
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_OBJECT_DEFAULT_PRECEDENCE_ONBOARDING_LOCK_V2",
+        "section_heading": "AIR OBJECT DEFAULT PRECEDENCE AND ONBOARDING LOCK LAW",
+        "target_core_heading_line": 3348,
+        "target_core_patch_marker_line": 3351,
+        "target_core_section_sha256": "66456444eac5d72f0fb2843400a01a7cf31ed5d53034ea9b8b98544d636dbaa0"
+      },
+      "component_id": "CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "f586d20765811cfc77b35c8503b249677b4af44a17900d1d469fbb571badd18c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3584,
+        "source_component_block_sha256": "4dc2a55a461dee8d1d0a2cf5e4df2da5ca4ca0fb6c94d7dee7a116e7d4bceab6",
+        "source_component_block_start_line": 3578
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SURFACED_GOVERNANCE_RECORD_EVIDENCE_V2",
+        "section_heading": "SURFACED GOVERNANCE RECORD EVIDENCE BOUNDARY LAW",
+        "target_core_heading_line": 3368,
+        "target_core_patch_marker_line": 3371,
+        "target_core_section_sha256": "02bd710bbcfa9a9c2fecd52f814bec6d5a3f156d90256f74806f3ff531b1995c"
+      },
+      "component_id": "CORE.LAW.SURFACED_GOVERNANCE_RECORD_EVIDENCE_BOUNDARY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "a29e14cc3df50e37d384d490be5067cfd028bc97e7df49c53118e9735bfa74a0",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3613,
+        "source_component_block_sha256": "9a7b72fc869111827e6fc20b4b497c6780605e0b7d6290c8e14efc16f286458a",
+        "source_component_block_start_line": 3607
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SPECIALIST_ROUTING_V2",
+        "section_heading": "SPECIALIST PROFILE ROUTING LAW",
+        "target_core_heading_line": 3440,
+        "target_core_patch_marker_line": 3443,
+        "target_core_section_sha256": "a73e01425326c4e0339c87425308cb4499c6c1da5e80849f70cd03413fcfe755"
+      },
+      "component_id": "CORE.LAW.SPECIALIST_PROFILE_ROUTING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "028eee15a157eae18c59e72bbe5414c87284ccc2ab287ad772576bd1f7fc623b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3694,
+        "source_component_block_sha256": "a24692d5c860afb427eda7817041ffa439dc4baa4a821c9dfcd93d992d1e6ada",
+        "source_component_block_start_line": 3688
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING_V2",
+        "section_heading": "PROFILE STACK ROUTING LAW",
+        "target_core_heading_line": 3514,
+        "target_core_patch_marker_line": 3517,
+        "target_core_section_sha256": "b5c9a338750d7edab780f588f49e0715843cc5ea77aace5c95bb9f1110a0202b"
+      },
+      "component_id": "CORE.LAW.PROFILE_STACK_ROUTING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "85407ff7839e15d1c8b76f8a260e4873eec9c3bab76c464622118e8b4914f99f",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3777,
+        "source_component_block_sha256": "2657912af8ed50048718a24058b936a4d217d15e455a6d230f129261969a0f26",
+        "source_component_block_start_line": 3771
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CAPABILITY_LAYER_NEED_DETECTION_V1",
+        "section_heading": "CAPABILITY LAYER NEED DETECTION LAW",
+        "target_core_heading_line": 3547,
+        "target_core_patch_marker_line": 3549,
+        "target_core_section_sha256": "bf8c70154f43d0524c93c317e85653c8346fa7ec0f7d212845e61b5071f046d5"
+      },
+      "component_id": "CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "db43f19268b7cdd1d1d792c53a01a0a648ec571f81f88367216552e6b2c6996d",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3818,
+        "source_component_block_sha256": "448e34273fbef624635de2e8d87d82411377f72e5557d59cfd7d622cebf32b81",
+        "source_component_block_start_line": 3812
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SPECIALIST_CAPABILITY_RESOLUTION_ROUTER_V1",
+        "section_heading": "SPECIALIST CAPABILITY RESOLUTION ROUTER",
+        "target_core_heading_line": 3646,
+        "target_core_patch_marker_line": 3648,
+        "target_core_section_sha256": "54cb1a99d88a8f5962e450a13eb2e00d0ce5e844de393110d696cc5404952515"
+      },
+      "component_id": "CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "cbf89c70eb5e2b786049cf85482ede61b7306c7aab5fe041f89563b72beb08eb",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3926,
+        "source_component_block_sha256": "dbb79bde6b32444b77af3d4efae16a3df5dae1b4b4395ae1170d783df4b14763",
+        "source_component_block_start_line": 3920
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SPECIALIST_PACKAGE_INDEX_DISCOVERY_V1",
+        "section_heading": "AIR SPECIALIST PACKAGE INDEX DISCOVERY CONTRACT",
+        "target_core_heading_line": 3702,
+        "target_core_patch_marker_line": 3704,
+        "target_core_section_sha256": "a0d7a89dc961c5cbf2a3836cd3de0febbef93325176513a62ff49d5a2f84a9c9"
+      },
+      "component_id": "CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY",
+      "component_revision": 1,
+      "component_type": "REGISTRY",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "7ec21510df0989f64d1d168eb7cf5a465b1b2caf036b3cb63c8a620688849cb6",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 3991,
+        "source_component_block_sha256": "6ed58329e0e479328b0fed7b198d089002f91cacf9db4659f5f317dfd7b346f2",
+        "source_component_block_start_line": 3985
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+        "section_heading": "REQUIRED INPUT AND ARTIFACT ACQUISITION LAW",
+        "target_core_heading_line": 3746,
+        "target_core_patch_marker_line": 3749,
+        "target_core_section_sha256": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386"
+      },
+      "component_id": "CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "c26d3da0b7a28c0dbd30742de67d83d98a69944bcbc60294318489a45dfb9437",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4045,
+        "source_component_block_sha256": "7946f43057cc1094905d892563c1d519e14ba7bfa946903472d6d9bf3b5bde40",
+        "source_component_block_start_line": 4039
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_RESPONSIVE_BINDING_APPROVAL_M1",
+        "section_heading": "RESPONSIVE BINDING APPROVAL LAW",
+        "target_core_heading_line": 3825,
+        "target_core_patch_marker_line": 3828,
+        "target_core_section_sha256": "5c06c55e09542c2efe38acb41aefc5cdada1e17dfe2169bda2d349f138449867"
+      },
+      "component_id": "CORE.LAW.RESPONSIVE_BINDING_APPROVAL",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e65fa85888e51302d684e5b5370a79b6075f04e97281679b19d1990b3b296456",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4133,
+        "source_component_block_sha256": "3cda04ae53f232705376f94763d507554ac53cdad575a484f0b1149c1188fca9",
+        "source_component_block_start_line": 4127
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1",
+        "section_heading": "AIR NON-AGENT LAYER ONTOLOGY LAW",
+        "target_core_heading_line": 3977,
+        "target_core_patch_marker_line": 3979,
+        "target_core_section_sha256": "db648f08ebb5d723426c4b023a479c7a8222dbd4a5ef4efc1c11896d09803c8c"
+      },
+      "component_id": "CORE.LAW.NON_AGENT_LAYER_ONTOLOGY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "7479a43e65503437f40d86482db12c8c15104b515cdd1ef0268929975e568949",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4293,
+        "source_component_block_sha256": "9afabf960391b4f2e8d368590a244b665d97de678e2ba6d6007194b83ac853d9",
+        "source_component_block_start_line": 4287
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1",
+        "section_heading": "AIR EXECUTOR LAYER LAW",
+        "target_core_heading_line": 4033,
+        "target_core_patch_marker_line": 4035,
+        "target_core_section_sha256": "b458b103e0652637f4207b042c702e3bd76c04a20be80090d9363e2980082156"
+      },
+      "component_id": "CORE.LAW.EXECUTOR_LAYER",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "88c70972458846203cbbdefff00ddabcbcd36d673d9f14a3c679029a89c265bb",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4358,
+        "source_component_block_sha256": "8ed03f1048b2bd87351a48e1190005ea04d3dec060d8046404ac17cda893ffa2",
+        "source_component_block_start_line": 4352
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_EXECUTOR_NON_AGENT_LAYER_BOUNDARY_CLAIM_TRANSFER_V1",
+        "section_heading": "AIR CLAIM TRANSFER EVIDENCE LAW",
+        "target_core_heading_line": 4115,
+        "target_core_patch_marker_line": 4117,
+        "target_core_section_sha256": "84e6a3158c9969938fe2077c0e9da2a657bc124ff70de27febc50aa083be9f2d"
+      },
+      "component_id": "CORE.LAW.CLAIM_TRANSFER_EVIDENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "b3c1b570ba34bcb67d0b1d6a1a115629e30c530bb77d01accac2cea25b43d4bc",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4449,
+        "source_component_block_sha256": "d226cc46ae62c4e335c1b544886330c629ba853234540bd2965fa86745aa5fa6",
+        "source_component_block_start_line": 4443
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_METHOD_LAYER_V2",
+        "section_heading": "AIR METHOD LAYER LAW",
+        "target_core_heading_line": 4148,
+        "target_core_patch_marker_line": 4151,
+        "target_core_section_sha256": "2577ea4edddaf6c8e36412a15774fae16de02bbe2f11c76b6e8996536a8bb003"
+      },
+      "component_id": "CORE.LAW.METHOD_LAYER",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "2a8d06edf8db5a3ff15b032d395f38ae3e1708a29c67978fc0673d4745017646",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4492,
+        "source_component_block_sha256": "1f646944a7b4f6f914029a7d742924acf29d661e51b2b1163a45897891fd64c3",
+        "source_component_block_start_line": 4486
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SPECIALIST_PACKAGE_BINDING_V2",
+        "section_heading": "SPECIALIST DOMAIN PACKAGE BINDING LAW",
+        "target_core_heading_line": 4249,
+        "target_core_patch_marker_line": 4252,
+        "target_core_section_sha256": "b982133e5dbe144d1d46addafb33f3e39c599691a1257f4897b9da1a62fbaa27"
+      },
+      "component_id": "CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "c4acff1204beb26ad491d6885b1ea84f8abbff0a5ef903b8f9af7dc348a68e41",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4602,
+        "source_component_block_sha256": "0cbd2ea784f66cb03c195bd3fbb6e3665c7bbe18cbd88bee8538aa8f943f8069",
+        "source_component_block_start_line": 4596
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ORBIT_TASK_MANAGEMENT_V2",
+        "section_heading": "ORBIT TASK MANAGEMENT LAW",
+        "target_core_heading_line": 4281,
+        "target_core_patch_marker_line": 4283,
+        "target_core_section_sha256": "c95dd205a275f21f85858ba0d0f0a69add93a5d13c69344daeff2f304b5ffe8c"
+      },
+      "component_id": "CORE.LAW.ORBIT_TASK_MANAGEMENT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "4c85c406d4977937b8bab21fe8b89863b4c892e2d678b565feb3610fbf104521",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4642,
+        "source_component_block_sha256": "83d9004f1ff5db5a672ff4bbab0a5480f474b5870d5e847c2430d84adbd0dc8f",
+        "source_component_block_start_line": 4636
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PROMPT_RUNTIME_PERSISTENCE_H1",
+        "section_heading": "PROMPT RUNTIME ACTIVATION PERSISTENCE LAW",
+        "target_core_heading_line": 4359,
+        "target_core_patch_marker_line": 4362,
+        "target_core_section_sha256": "728879641203c9ef353f507091a70243124d300e26e84f14958013f693fbba37"
+      },
+      "component_id": "CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "7c66a5582735bc4e74a8e9148a38b001424c7db356a97c6fc0aa9a2d4d8db78b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4730,
+        "source_component_block_sha256": "a98168d7be04ffa097b1ebf21675b56d4a46621abff0912aac65b4b12961dc05",
+        "source_component_block_start_line": 4724
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ARTIFACT_SOLE_EXECUTION_BINDING_V2",
+        "section_heading": "SOLE AIR_ARTIFACT EXECUTION BINDING LAW",
+        "target_core_heading_line": 4445,
+        "target_core_patch_marker_line": 4447,
+        "target_core_section_sha256": "bfb9627b884876c6c33f3c3798162c647260d88c1adf9068ce6b514bc720cd17"
+      },
+      "component_id": "CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d2ce03fcb0e4e1c174c7a9b36170a86c0a7198fd87b10ff6c9f6ff7f005064d9",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4824,
+        "source_component_block_sha256": "6adfa2ed87e0332b183f0b917b7184456e3629425ae86fa951ca7281bc2926d9",
+        "source_component_block_start_line": 4818
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_NEW_TASK_EXECUTION_BINDING_BARRIER_V3",
+        "section_heading": "NEW TASK EXECUTION BINDING BARRIER LAW",
+        "target_core_heading_line": 4586,
+        "target_core_patch_marker_line": 4589,
+        "target_core_section_sha256": "00112f190279db3740a12e94370cff524a391a86bfe53c147ad738e7ded31562"
+      },
+      "component_id": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e62fab9747a1bac0a0ab8fbce428518295cf57eb2d59257f3028d2d84a88e1a3",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 4975,
+        "source_component_block_sha256": "f5226d27a454b7d9b1e9f2016e1183b4945709fdff38f7a2cefdaa5b98d1e4ba",
+        "source_component_block_start_line": 4969
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V2",
+        "section_heading": "PROMPT-ENFORCED ACTIVE CONTRACT LAW",
+        "target_core_heading_line": 4623,
+        "target_core_patch_marker_line": 4625,
+        "target_core_section_sha256": "db24610ddae91fd7105f508e4e1cfda9e222f5d2d894da58ecaca75c9cb87ed8"
+      },
+      "component_id": "CORE.LAW.PROMPT_ACTIVE_CONTRACT_ENFORCEMENT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "9273722743404edce243cb96b186bbe62697a19c7dd2e38f1b6e963bd1502a0a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5071,
+        "source_component_block_sha256": "425fece9ee16859211a39120d73cbd48cd6e66811c4b39399703235c585afb8a",
+        "source_component_block_start_line": 5065
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_GATE_V3",
+        "section_heading": "AIR GATE LAW",
+        "target_core_heading_line": 4665,
+        "target_core_patch_marker_line": 4668,
+        "target_core_section_sha256": "24fc14daaedb8ff73b85fca3aca4d1ed79461dcb28bd7f174d67738e5d55b624"
+      },
+      "component_id": "CORE.LAW.GATE_DECISION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "79a9148bfb48da98f3fe5dd8382cc3e3fb6c0dd8c2cadfbf40b7fdcdbc464650",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5123,
+        "source_component_block_sha256": "454c2487d2c16c8d8c93aaf596507f32693dadddd8762647b2f3ae3fe7a9aca7",
+        "source_component_block_start_line": 5117
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+        "section_heading": "STEP CLOSURE EVIDENCE LAW",
+        "target_core_heading_line": 4726,
+        "target_core_patch_marker_line": 4728,
+        "target_core_section_sha256": "0ce3d4856abc83c052c18b7fa65794689e524828b781987f412be16071c185ea"
+      },
+      "component_id": "CORE.LAW.STEP_CLOSURE_EVIDENCE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "3a0e103025b3b6128dbdeb3af4afc11728d712a801c034a7e99e60aa132ac9cc",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5188,
+        "source_component_block_sha256": "4c274d77db3d0915b8df6be39b2eef8c4cda60b8c3c48cb29e0d01afaeba35a7",
+        "source_component_block_start_line": 5182
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PROMPT_ACTIVE_CONTRACT_ENFORCEMENT_V1",
+        "section_heading": "RESCOPE PROTOCOL LAW",
+        "target_core_heading_line": 4757,
+        "target_core_patch_marker_line": 4759,
+        "target_core_section_sha256": "a7c6c569c455881f3f9acbd28ce78641706024c153019221253dd1c8454a1274"
+      },
+      "component_id": "CORE.LAW.RESCOPE_PROTOCOL",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e5a7f0b6273cca0265257db1f6e23fc94a6ef03b68a8d658cd89ffc430212de7",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5228,
+        "source_component_block_sha256": "a79de6862da9bd9f9428eead796dc41e65b29d9c1dfc45a9f1dbc62e70967561",
+        "source_component_block_start_line": 5222
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PROMPT_LAYER_CONTROL_V3",
+        "section_heading": "PROMPT-LAYER CONTROL AND QUALITATIVE CHECK LAW",
+        "target_core_heading_line": 4863,
+        "target_core_patch_marker_line": 4866,
+        "target_core_section_sha256": "096a85f518d2579c3dd2702bfc452318d7497cf03bbb6a2c307417a4230dad8c"
+      },
+      "component_id": "CORE.LAW.PROMPT_LAYER_CONTROL_AND_QUALITATIVE_CHECK",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "bc2d2520b3a27e192065918d1778a88eef9ba28b3cf557e77b4a1f2b0ad176f2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5337,
+        "source_component_block_sha256": "bff4a70be4b63e5e46e9e290f88d415284d385790e41da499f8d41425737c22e",
+        "source_component_block_start_line": 5331
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_GEOMETRY_EFFECT_BINDING_V3",
+        "section_heading": "GEOMETRY EFFECT BINDING LAW",
+        "target_core_heading_line": 4879,
+        "target_core_patch_marker_line": 4882,
+        "target_core_section_sha256": "a5e9ccf57b42b0eea25457a70bb5f2ff9212a6295026b94a73d6232673a54a2b"
+      },
+      "component_id": "CORE.LAW.GEOMETRY_EFFECT_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5b86c8337ab0a94d02dc7cbb008553076977bbf6aca452f3279c1ed13448a133",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5361,
+        "source_component_block_sha256": "44b567e33102e53968f3f44babb76992610708ecbe03e8667a1426803071e282",
+        "source_component_block_start_line": 5355
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_LAMBDA_PRESSURE_BINDING_V3",
+        "section_heading": "LAMBDA PRESSURE BINDING LAW",
+        "target_core_heading_line": 5122,
+        "target_core_patch_marker_line": 5125,
+        "target_core_section_sha256": "f03f7609b01d536bb2161f298696a2492dac8dba5e8767491a7079807e1285ba"
+      },
+      "component_id": "CORE.LAW.LAMBDA_PRESSURE_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "cad690d84c422fa8afeb8776ff92ca078d39a4a8cb65c5f0ee83c4951e2fd93e",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5612,
+        "source_component_block_sha256": "58b37b72fc49f2ef05fa68ac5df12732282aa352960e262cae957a63513ba9c7",
+        "source_component_block_start_line": 5606
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "ACTIVE_TASK_GEOMETRY_FLUX_SPECIALIST_ROUTING_V1",
+        "section_heading": "GEOMETRY FORCE VS FIT LAW",
+        "target_core_heading_line": 5243,
+        "target_core_patch_marker_line": 5245,
+        "target_core_section_sha256": "83a0e336f1ede1e6bf0362146ef4de9a8de88e4a1d5c99cc90d1640851bf692c"
+      },
+      "component_id": "CORE.LAW.GEOMETRY_FORCE_VS_FIT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "446d9d03e9546dfdf66890052268881be11e08b33207587ccda8f9c8ce651bf5",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5740,
+        "source_component_block_sha256": "3514f9543c910f864966e0bccbc5604bd649b9baaf53f436ca4d3c750b9d0d97",
+        "source_component_block_start_line": 5734
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ACTIVE_TASK_GEOMETRY_REBINDING_V2",
+        "section_heading": "ACTIVE TASK GEOMETRY REBINDING LAW",
+        "target_core_heading_line": 5299,
+        "target_core_patch_marker_line": 5302,
+        "target_core_section_sha256": "fb4933b264ab9a859664e2fc49bb58f13793160f915d7669e5d1a84de78b0a47"
+      },
+      "component_id": "CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "0d433901c0f64324994a9e6212d104f43617e45c338c9c3b72e3530b02be3fa5",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5805,
+        "source_component_block_sha256": "5dac84b00348adc34b64f5ed43a959bc15b23bb5aee6c2feb9f192758c497ad0",
+        "source_component_block_start_line": 5799
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "Q4D_DUAL_GEOMETRY_FAMILIAR_ARTIFACT_V1",
+        "section_heading": "DUAL GEOMETRY BINDING LAW",
+        "target_core_heading_line": 5413,
+        "target_core_patch_marker_line": 5415,
+        "target_core_section_sha256": "90078cc62537c7a098f079aa14b8987c79bbe4cc51e2ef1b137fa6921ba0e677"
+      },
+      "component_id": "CORE.LAW.DUAL_GEOMETRY_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "3e5c278bcef3fc78792b0efcd0488f93cb1f8063f7f073c041e891a3916bd1ac",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 5926,
+        "source_component_block_sha256": "fd2e5c0b17dc4639ba8706caf06f998afc6f0f34792126121bbdfc625780804b",
+        "source_component_block_start_line": 5920
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_Q4D_NEURODIVERGENT_DELIVERY_MODIFIER_V2",
+        "section_heading": "Q4-D NEURODIVERGENT DELIVERY MODIFIER LAW",
+        "target_core_heading_line": 5507,
+        "target_core_patch_marker_line": 5510,
+        "target_core_section_sha256": "41039896eb98517cfebd46219495b07cd5bf4c1db5fd4c01777129aa51fd8b9a"
+      },
+      "component_id": "CORE.LAW.Q4D_NEURODIVERGENT_DELIVERY_MODIFIER",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "31848db81d13fb0ae49e03a8dce471a077e9adbcb8c87483593c16f9ba40d271",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6029,
+        "source_component_block_sha256": "4b6f1c2da12f0897fdc3d29077372328cf49be122af39af2be2b119e705a9e11",
+        "source_component_block_start_line": 6023
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_FAMILIAR_ARTIFACT_PRESERVATION_V2",
+        "section_heading": "FAMILIAR ARTIFACT PRESERVATION LAW",
+        "target_core_heading_line": 5541,
+        "target_core_patch_marker_line": 5544,
+        "target_core_section_sha256": "7ec640cfc208ecf70c9b52aefb85007c26e65f40123b3c4e19a343d927f18469"
+      },
+      "component_id": "CORE.LAW.FAMILIAR_ARTIFACT_PRESERVATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d80580b97eac68d15f08f929015da5e9c68e77a5c3d939343d4c1b9337f77a7a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6071,
+        "source_component_block_sha256": "4135241b9b9bdaa5b8bc616d17aec88f7f628cc0a8f8f3a037f7d2e0ede26bc7",
+        "source_component_block_start_line": 6065
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_SMALL_STEP_SURFACE_V2",
+        "section_heading": "SMALL STEP SURFACE LAW",
+        "target_core_heading_line": 5556,
+        "target_core_patch_marker_line": 5559,
+        "target_core_section_sha256": "cd792d771e13341272d8c52df46e106efa006f24153738b7b684a9796d0dab8d"
+      },
+      "component_id": "CORE.LAW.SMALL_STEP_SURFACE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "0c23b87aab7a900cd9c0bef11134ffc1d73177506c6999b039068dd861719101",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6094,
+        "source_component_block_sha256": "b8a2fdd979ca5da5d2b65b7e92997105567902bf280c130d3550935041e4ea85",
+        "source_component_block_start_line": 6088
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_NATIVE_AXIS_SCAN_V3",
+        "section_heading": "NATIVE AXIS SCAN LAW",
+        "target_core_heading_line": 5572,
+        "target_core_patch_marker_line": 5575,
+        "target_core_section_sha256": "d0f0493897dcafa7f63f87eb7dd50d8c6a3194341c08b12f41c9aafa8a225ad9"
+      },
+      "component_id": "CORE.LAW.NATIVE_AXIS_SCAN",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "4b547d990baddd799b1bf56631406a719972c174fa8a48e06752847810c58f96",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6118,
+        "source_component_block_sha256": "9cdf61969d7f2322975f2daa06086291735110511f5d8e172f7e3dd6708bb07b",
+        "source_component_block_start_line": 6112
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_NATIVE_MEANING_ALIGNMENT_LITE_V3",
+        "section_heading": "NATIVE MEANING ALIGNMENT LITE LAW",
+        "target_core_heading_line": 5596,
+        "target_core_patch_marker_line": 5599,
+        "target_core_section_sha256": "ad48e8a4a672d7ab5b65414bb112f1cb7a86d05cf58dcf67c0e3327fe41da883"
+      },
+      "component_id": "CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "2f26820a200652404a48931f7caf697e03b6848624b3bd3068880f2f870e36f3",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6150,
+        "source_component_block_sha256": "adab46cf48be14a236e4615dce1245e93eeb459ba6c819171185d07ed3e5beab",
+        "source_component_block_start_line": 6144
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_BENCHMARK_JUDGE_V3",
+        "section_heading": "BENCHMARK JUDGE LAW",
+        "target_core_heading_line": 5815,
+        "target_core_patch_marker_line": 5818,
+        "target_core_section_sha256": "0a17a6ef7b3bef5472e349c3b0c766462b9a899407a384fce743773e4b1811d9"
+      },
+      "component_id": "CORE.LAW.BENCHMARK_JUDGE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "6055ff911de0f50e8f881480f5ad6af95b27021d2de9cea59ada675e7edcef5c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6377,
+        "source_component_block_sha256": "9ca6a7388c9902735c2ddeb10704a356e183f378f5bb9ed058fd1e0e22e12cdb",
+        "source_component_block_start_line": 6371
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_AMBIGUITY_TRIAGE_GATE_V3",
+        "section_heading": "AMBIGUITY TRIAGE GATE LAW",
+        "target_core_heading_line": 5959,
+        "target_core_patch_marker_line": 5962,
+        "target_core_section_sha256": "0d810422c1697db70c559fe66487562114765e0886d0ae9160caff91ea2b2713"
+      },
+      "component_id": "CORE.LAW.AMBIGUITY_TRIAGE_GATE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d5168fa0e8e314802fa7fe5ce1c91af1952d22b15266a1f7025a96b83f968588",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6529,
+        "source_component_block_sha256": "85dd992848835ee9ac549a349af7f938bd0f79dfb7a8ad213e97a40d99e7d2cf",
+        "source_component_block_start_line": 6523
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_GOVERNANCE_OVERHEAD_V2",
+        "section_heading": "GOVERNANCE OVERHEAD LAW",
+        "target_core_heading_line": 6044,
+        "target_core_patch_marker_line": 6047,
+        "target_core_section_sha256": "7a6aa43b04b3b039701c385a04b28b782e725236a1ae92b047718c3325180dc7"
+      },
+      "component_id": "CORE.LAW.GOVERNANCE_OVERHEAD",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "afd18fe3fe8c9f1ed2c20af6c5b1dbbf568d13078d52bcf0deda7496a5a869d2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6622,
+        "source_component_block_sha256": "6a51550fae75dcad20be8dcad8581e65b5d74381ebe69ba733ad7d0b52d17d90",
+        "source_component_block_start_line": 6616
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_AMRS_TARGET_READINESS_STEP_OPTIMALITY_V1",
+        "section_heading": "AMRS STAGE COMPLETION AND STEP-OPTIMALITY LAW",
+        "target_core_heading_line": 6321,
+        "target_core_patch_marker_line": 6324,
+        "target_core_section_sha256": "a67029688593b9cd9751955537abb4c428cc699422d36b28ec3e8e65a4491345"
+      },
+      "component_id": "CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "546c1b7e59384ff93869faa2d609965cb4bd91315aa0c367c61e2e0430862e46",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 6903,
+        "source_component_block_sha256": "74867f58592d5e9a8aff0b32c493fe9a51f5020fa90fbe40d8838f480543464a",
+        "source_component_block_start_line": 6897
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_VISIBLE_ARTIFACT_BINDING_V2",
+        "section_heading": "VISIBLE ARTIFACT BINDING LAW",
+        "target_core_heading_line": 6426,
+        "target_core_patch_marker_line": 6428,
+        "target_core_section_sha256": "616d1af3e6685a974983cfce9596b375499db92dfd87e62b585ec2bd3741b967"
+      },
+      "component_id": "CORE.LAW.VISIBLE_ARTIFACT_BINDING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "fbd640b383daa7cef047daa400a91e852b29a2050bda9a7bc2094a678f859513",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7015,
+        "source_component_block_sha256": "9fa825f2515ed12e07bbfa37a419895984ddab12c0df316e2cdd77fa17e5237b",
+        "source_component_block_start_line": 7009
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+        "section_heading": "MATERIAL ACTION INTERLOCK LAW",
+        "target_core_heading_line": 6449,
+        "target_core_patch_marker_line": 6452,
+        "target_core_section_sha256": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3"
+      },
+      "component_id": "CORE.LAW.MATERIAL_ACTION_INTERLOCK",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "468af1833851d307f18c78ca93a61e0c91cf995b0ae0a15c61deae70fd1ea6fc",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7048,
+        "source_component_block_sha256": "d6d885c06085d19baf97f6b6d0b5d754088cb6a493883bec3ac1a1290009bb9b",
+        "source_component_block_start_line": 7042
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ARTIFACT_LEASE_V2",
+        "section_heading": "ARTIFACT LEASE AND INVALIDATION LAW",
+        "target_core_heading_line": 6512,
+        "target_core_patch_marker_line": 6515,
+        "target_core_section_sha256": "d6907afe98c6434db1e3c20083ef08757baf0796a0dbbc9bc0467f01ef3b0077"
+      },
+      "component_id": "CORE.LAW.ARTIFACT_LEASE_INVALIDATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "cd5506e95725a2573e6ec9161747000257ed0598a71213ece558f67ae20c5574",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7119,
+        "source_component_block_sha256": "a4a997f7b28bbf124c195ae8d69f54d8e30c8ff1378cb33d6f64718e0f96e505",
+        "source_component_block_start_line": 7113
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_RESOURCE_SCOPE_PIN_V2",
+        "section_heading": "RESOURCE SCOPE PIN LAW",
+        "target_core_heading_line": 6556,
+        "target_core_patch_marker_line": 6559,
+        "target_core_section_sha256": "9bb5c6cba5b640617d2a615266c80534ba8e901534567830346095439498b1d0"
+      },
+      "component_id": "CORE.LAW.RESOURCE_SCOPE_PIN",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "07b47a9f373eecb82794b3714ece6014019bba8663c061b8641df152c3088354",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7162,
+        "source_component_block_sha256": "a71f519b05785e582e86a94fde809c798bc571426392e3c532ca3e24bf9088cd",
+        "source_component_block_start_line": 7156
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_ACTION_RECEIPT_RECONCILIATION_V4",
+        "section_heading": "ACTION RECEIPT AND RECONCILIATION LAW",
+        "target_core_heading_line": 6581,
+        "target_core_patch_marker_line": 6584,
+        "target_core_section_sha256": "76f9e96faa178a7c74a9badddebd6ec767b02640ea4fac5712ba6d98ca9ad1aa"
+      },
+      "component_id": "CORE.LAW.ACTION_RECEIPT_RECONCILIATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "34727ba0ee238066dd199800f88d642a7063fe3d59a0deac6c810d89e2a6582b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7196,
+        "source_component_block_sha256": "f1915e606d1db1fb2e3e979d1819df7af84af87fe241e8ba1a8f25357ba28dda",
+        "source_component_block_start_line": 7190
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_UNBOUND_PRIOR_EFFECT_RECOVERY_V3",
+        "section_heading": "UNBOUND PRIOR EFFECT RECOVERY LAW",
+        "target_core_heading_line": 6628,
+        "target_core_patch_marker_line": 6631,
+        "target_core_section_sha256": "5d91190402eeadef42e26fe8764a467255cf70e09188165c46160bae3b40f27a"
+      },
+      "component_id": "CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "22fc9e668698f9b89550727659c50d749b3802b683fab989e71dba1f1693eaa7",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7252,
+        "source_component_block_sha256": "509f8ef755f4b0aae39845f7145f903621944e6ed8326cd029bda1b4ff3ebbf8",
+        "source_component_block_start_line": 7246
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_RUNTIME_ALIGNMENT_STATE_V1",
+        "section_heading": "RUNTIME ALIGNMENT STATE LAW",
+        "target_core_heading_line": 6669,
+        "target_core_patch_marker_line": 6672,
+        "target_core_section_sha256": "7aa766c572262ccb047d22bb118d0730572e9ae4dfd9ccc94bd4c96172e3e879"
+      },
+      "component_id": "CORE.LAW.RUNTIME_ALIGNMENT_STATE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e590492ce6b4c747cd94abc58310c01e7cf0e115a97475d8fde0c35256015b84",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7302,
+        "source_component_block_sha256": "dd80caeb5d12da70bab0a271553b50b0798f5bdfeb0918c8453dbc9d4e6b22bf",
+        "source_component_block_start_line": 7296
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_TOOL_GATEWAY_ENFORCEMENT_BOUNDARY_V2",
+        "section_heading": "TOOL GATEWAY ENFORCEMENT BOUNDARY LAW",
+        "target_core_heading_line": 7473,
+        "target_core_patch_marker_line": 7476,
+        "target_core_section_sha256": "dbeb1a43978009609a57098d09055445cab821fdd1b004a93e705a93b0fa78e2"
+      },
+      "component_id": "CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "b864f0bebf197a8b3dfb1139eb635b8bd5d4369bca526d15595bb754c298b77e",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7354,
+        "source_component_block_sha256": "999b748f743194d7d49b3928069485adac1db5c7e8add5027c28a996d48d0131",
+        "source_component_block_start_line": 7348
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_TRANSPARENCY_UNCONDITIONAL_STATE_TRIPLE_V2",
+        "section_heading": "UNCONDITIONAL DELIVERY STATE TRIPLE LAW",
+        "target_core_heading_line": 7649,
+        "target_core_patch_marker_line": 7652,
+        "target_core_section_sha256": "361f697f3732210b8b555a21da461ac229354dd3299dc7127cf42ef0358f01f9"
+      },
+      "component_id": "CORE.LAW.UNCONDITIONAL_DELIVERY_STATE_TRIPLE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "6f09f100618e66ec6004c6eaa439a5bda3319d46bd6c4f20dd1726778b912593",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7534,
+        "source_component_block_sha256": "609571946efe93805d9576e0c533c88c9165c324b6c1a1c3e5914812fffe7b58",
+        "source_component_block_start_line": 7528
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_PRESENTATION_SEMANTIC_TOKENS_M1",
+        "section_heading": "PRESENTATION SEMANTIC TOKEN LAW",
+        "target_core_heading_line": 7853,
+        "target_core_patch_marker_line": 7856,
+        "target_core_section_sha256": "4c67c3e06b9111ca6c132af9f65bd370849d0a2046b80dc101db78c65b5cb484"
+      },
+      "component_id": "CORE.LAW.PRESENTATION_SEMANTIC_TOKENS",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "a9b4a6cc98ec9ea983fae7ed1f7055b54a28e77629df316140552e1424283459",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7746,
+        "source_component_block_sha256": "a71b679913e7d30f0d302cec78a3297590e64a02a5f4b15dbb67323c053cb8f3",
+        "source_component_block_start_line": 7740
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_UNIVERSAL_SFV_M2",
+        "section_heading": "UNIVERSAL SPECIFICATION-FIRST VERIFICATION LAW",
+        "target_core_heading_line": 7910,
+        "target_core_patch_marker_line": 7913,
+        "target_core_section_sha256": "fedad3948f5885f6aff87254f6dd55a1f574137ff598073a16f0ba20ae2543f8"
+      },
+      "component_id": "CORE.LAW.UNIVERSAL_SPECIFICATION_FIRST_VERIFICATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "588385b7bcf0f7b36fd6ec406d05a17f268139347ad721b7bd7cccb72917778a",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7811,
+        "source_component_block_sha256": "b95902f1cfd162ae6ad8a3286b2556838c69cd5cd7e9bc06aad7d32e1c8b8788",
+        "source_component_block_start_line": 7805
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CODING_PERIPHERAL_VISION_RENDERING_HELP_PATCH_V1",
+        "section_heading": "AIR CODING PERIPHERAL VISION LAW",
+        "target_core_heading_line": 8070,
+        "target_core_patch_marker_line": 8072,
+        "target_core_section_sha256": "49c81d8f0f8a7852b1d18133ecbb943b4fb89ec9c9e561ed7f7242f1906d2b19"
+      },
+      "component_id": "CORE.LAW.CODING_PERIPHERAL_VISION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "96a37c1abbf058e53e3baf52aeed5bcd95133dddd88a9b6b8852d2463f57adf4",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 7978,
+        "source_component_block_sha256": "45b4c9b186b404444caaf209dc19f4d89595e2e7dbbcb728cc85f0734f2479bf",
+        "source_component_block_start_line": 7972
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+        "section_heading": "REQUIRED FORMAL OBJECT EMISSION PREFLIGHT LAW",
+        "target_core_heading_line": 8213,
+        "target_core_patch_marker_line": 8216,
+        "target_core_section_sha256": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f"
+      },
+      "component_id": "CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "8c254e1cc31128fb53de59b1575c39442c802a9f68f1a4bb0635f8199354fe26",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8079,
+        "source_component_block_sha256": "028ca3be432d3a218cb236973e8304097127b6f190e71137cebf1a68d6274bc3",
+        "source_component_block_start_line": 8073
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+        "section_heading": "CLOSED-WORLD FORMAL OBJECT EMISSION CLOSURE LAW",
+        "target_core_heading_line": 8240,
+        "target_core_patch_marker_line": 8243,
+        "target_core_section_sha256": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f"
+      },
+      "component_id": "CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "1234323c83015861a6702a254cd565e5a153978f487cd50271a6009f427c1aa8",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8111,
+        "source_component_block_sha256": "1b36d5e4283368ec20368804d02117badc4c60aead8d2e47bd665fc6ef9723de",
+        "source_component_block_start_line": 8105
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_FORMAL_OBJECT_COMPLETENESS_PREFLIGHT_V2",
+        "section_heading": "FORMAL OBJECT COMPLETENESS PREFLIGHT LAW",
+        "target_core_heading_line": 8292,
+        "target_core_patch_marker_line": 8295,
+        "target_core_section_sha256": "7bbbc49048fa595b4c36030617216c6adff9a05f7099c3fb51a68599629373ff"
+      },
+      "component_id": "CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "f71c184678fed18c060b2d932bac959b4d7656c415c9a563509ba290b3801e9c",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8172,
+        "source_component_block_sha256": "57d616782ba259e20580ae591fc120a84c1b73ac745d7b5bf59d0599c1f5ef4d",
+        "source_component_block_start_line": 8166
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "FORMAL_LABEL_RESERVATION_AND_Q4D_TEST_SURFACE_V1",
+        "section_heading": "FORMAL LABEL RESERVATION LAW",
+        "target_core_heading_line": 8328,
+        "target_core_patch_marker_line": 8330,
+        "target_core_section_sha256": "5823653a9e717e5e46742eff132a8782a14b6ffb6885ace5c9aff1e7c8ea1b59"
+      },
+      "component_id": "CORE.LAW.FORMAL_LABEL_RESERVATION",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "e944991f31af145640e3b8d55d8e3077cb678404bdbd229dd512b22a5d1ec288",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8216,
+        "source_component_block_sha256": "ccdb98d372794096539dc2c6ff047c2575c0d238ddc9ab4c7d4cfd15fbc8afe6",
+        "source_component_block_start_line": 8210
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_Q4D_STATUS_SURFACE_V2",
+        "section_heading": "Q4D DELIVERY MODIFIER STATUS LAW",
+        "target_core_heading_line": 8390,
+        "target_core_patch_marker_line": 8393,
+        "target_core_section_sha256": "701d1076a903daded9f21bd7299cf0dedec4c46e212669be56df1402b43703f5"
+      },
+      "component_id": "CORE.LAW.Q4D_DELIVERY_MODIFIER_STATUS",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "a3041904b625f4571932148f57c417987052c769b033c9a9f9e8db12d67d25c2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8287,
+        "source_component_block_sha256": "db2766350e0849392dae23d521a86e329844a221fbbf4c65968f863d026dbcc6",
+        "source_component_block_start_line": 8281
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_VISIBLE_CHANNEL_EMISSION_INTEGRITY_V1",
+        "section_heading": "VISIBLE CHANNEL EMISSION INTEGRITY LAW",
+        "target_core_heading_line": 8498,
+        "target_core_patch_marker_line": 8501,
+        "target_core_section_sha256": "5d38948470af48b6ab01e231788f27af799f2416e7680a37ae136078a49d41b9"
+      },
+      "component_id": "CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "4a68ca23f3695f36062db347225de7ffb3c1416dae5ac3d3f1d0523d4ec18686",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8403,
+        "source_component_block_sha256": "e802e435ed18b1f129986d2ea46233e63f83e4f8c2a04800586d06fd4c7e6f52",
+        "source_component_block_start_line": 8397
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_GROUNDING_Q5_SPECIALIST_NEED_CHECK_V1",
+        "section_heading": "AIR GROUNDING DOCTRINE AND Q5 SPECIALIST NEED CHECK LAW",
+        "target_core_heading_line": 11097,
+        "target_core_patch_marker_line": 11099,
+        "target_core_section_sha256": "f79bcafb86963d60d15ad376c9fcb4ae35c14f53c7e2dbfefca873b3cbf4b232"
+      },
+      "component_id": "CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5f0d966e8d9104abba9479ea63e0809f6fe4d1e4067c4092199ba190906463a2",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8510,
+        "source_component_block_sha256": "720b493204054bf2ebfe5bc251374c5a1ffebd5520145b1421821c7f6df967e0",
+        "source_component_block_start_line": 8504
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_BEGINNER_WORKFLOW_PORTABILITY_HANDOFF_V2",
+        "section_heading": "AIR BEGINNER, WORKFLOW, PORTABILITY, AND HANDOFF DOCTRINE",
+        "target_core_heading_line": 11219,
+        "target_core_patch_marker_line": 11222,
+        "target_core_section_sha256": "addbe39a0a2e1e9858911053a753cf2b1c0135e008d6d228ecaa6ac19f79df4e"
+      },
+      "component_id": "CORE.LAW.BEGINNER_WORKFLOW_PORTABILITY_HANDOFF_DOCTRINE",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "491220abaef3407c62d2c8fc2789159326cdc0f45f9ce6f260ae0daa66570453",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8641,
+        "source_component_block_sha256": "6a6c9545ae031a8c62c2c36450ce19030c7de91f2b0d8913c74ef49124afa63b",
+        "source_component_block_start_line": 8635
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_USER_ALIGNMENT_Q6D_EXECUTION_WORKFLOW_V2",
+        "section_heading": "AIR USER ALIGNMENT, Q6D, AND EXECUTION WORKFLOW LAW",
+        "target_core_heading_line": 11233,
+        "target_core_patch_marker_line": 11236,
+        "target_core_section_sha256": "9116f242776482330e697d92fc78461b6ee7333543df57b4af58963c905509ae"
+      },
+      "component_id": "CORE.LAW.USER_ALIGNMENT_Q6D_EXECUTION_WORKFLOW",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "a3d4cd5c5aa218e0f118a8a0f523530bbe6cbccfd1c05dc04dd55490db8002e7",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8663,
+        "source_component_block_sha256": "f0f5f240ad5f34415748ae9bddc40f4b31fd5baa0cd5afb1a795c5f90fec0bce",
+        "source_component_block_start_line": 8657
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_AI_GOVERNANCE_PACKAGE_ROUTING_V2",
+        "section_heading": "AIR AI GOVERNANCE SPECIALIST PACKAGE AND REGULATORY EVIDENCE ROUTING LAW",
+        "target_core_heading_line": 11295,
+        "target_core_patch_marker_line": 11297,
+        "target_core_section_sha256": "8b0c7f46c1a26b520d3cd3362ff64b7ac0074498d13b2f12d09024bad6cfb33d"
+      },
+      "component_id": "CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "351e69b8a7fa827fdcd41b366e300b1371c2e5de1504fba4b71d6576d4201e30",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8732,
+        "source_component_block_sha256": "078143a26a254bd079fa9cb928a7c2f4a4c99b1691ecb3f9dc0153a6c3216dbc",
+        "source_component_block_start_line": 8726
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_TRANSITION_EMISSION_TRANSACTION_V1",
+        "section_heading": "SET_005 BEHAVIORAL TRANSACTION HARDENING",
+        "target_core_heading_line": 11372,
+        "target_core_patch_marker_line": 11375,
+        "target_core_section_sha256": "7aa487b789c55bc437d577362c3fab5083343b81cb58240720b3416686bd3bb2"
+      },
+      "component_id": "CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "d4f3f80b08bcd7517e21fc438b3b48c35c5d3eb26ad2a56625b31b5330df0e66",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "M2Q_DERIVED_NON_RELEASE_COMPONENT_ID_EXPANSION_CANDIDATE",
+        "source_component_block_end_line": 8818,
+        "source_component_block_sha256": "17dd1ada21b01cb660ef36551fc1bb42c4936fd1723ac57a2074b38072869edb",
+        "source_component_block_start_line": 8812
+      },
+      "routable": true,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_LAW_ID_REGISTRY_V1",
+        "section_heading": "AMRS-6 CORE 2.8 SEMANTIC ACTIVATION LAW",
+        "target_core_heading_line": 11571,
+        "target_core_patch_marker_line": 11969,
+        "target_core_section_sha256": "9d1c717317cbf8f3295bf735e08574b607635211f18f04c73fd6624914463af8"
+      },
+      "component_id": "CORE.REGISTRY.LAW_ID",
+      "component_revision": 1,
+      "component_type": "REGISTRY",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "b1b56edaf9dcb058d0757f9e036fd95d59209599268d7f7b705f69b9e573cdd7",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "CORE_2_8_FINAL_ACTIVATION_R3_STABLE_IDENTITY_SOURCE",
+        "source_component_block_end_line": 10250,
+        "source_component_block_sha256": "11ede3967421cb8d7a95b80de0e7d85748943ef39cd6ddb58a797dd99bad7857",
+        "source_component_block_start_line": 10250
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    },
+    {
+      "anchor": {
+        "binding_method": "EXACT_SECTION_HEADING_PLUS_PATCH_MARKER",
+        "patch_marker": "AIR_LAW_APPLICABILITY_ROUTER_V1",
+        "section_heading": "AMRS-6 CORE 2.8 SEMANTIC ACTIVATION LAW",
+        "target_core_heading_line": 11571,
+        "target_core_patch_marker_line": 13913,
+        "target_core_section_sha256": "9d1c717317cbf8f3295bf735e08574b607635211f18f04c73fd6624914463af8"
+      },
+      "component_id": "CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY",
+      "component_revision": 1,
+      "component_type": "LAW",
+      "metadata_provenance": {
+        "metadata_payload_sha256": "5e369aa81364cd5d0c983428aacc7cb5a9b12fbec975f996e34d8193a5a8478b",
+        "positive_execution_authority": "NONE",
+        "semantic_authority": "NONE",
+        "source_class": "CORE_2_8_FINAL_ACTIVATION_R3_STABLE_IDENTITY_SOURCE",
+        "source_component_block_end_line": 12164,
+        "source_component_block_sha256": "e85ab827f4983fbcd4f9cf49ff3c527b47dec7d7a1cbda2ae0fc6be8e5ac75ee",
+        "source_component_block_start_line": 12164
+      },
+      "routable": false,
+      "semantic_owner": "AIR_CORE_RUNTIME_V2"
+    }
+  ],
+  "historical_identity_source": {
+    "approval_scope_id": "M2Q_FINAL_DOCTRINE_SPECIALIST_ROUTING_COMPONENT_ID_EXPANSION_V1",
+    "component_count": 111,
+    "designation": "AIR_CORE_RUNTIME_V2_M2Q_COMPONENT_ID_EXPANSION_CANDIDATE",
+    "operative_binding_authority": "NONE",
+    "release_authority": "NONE",
+    "role": "HISTORICAL_COMPONENT_IDENTITY_PROVENANCE_ONLY",
+    "sha256": "7580c00a2ae2bef3950543919282209dacd46ab9d58a0be53be2de57fe07d1d9"
+  },
+  "positive_execution_authority": "NONE",
+  "regeneration_provenance": {
+    "candidate_policy": "PRESERVE_EXACT_113_CANONICAL_COMPONENT_IDENTITIES_REANCHOR_R124_CORE_NO_NEW_COMPONENT_IDS",
+    "current_core_sha256": "e4fb9fc9ac5b50d7d2d043a9489a086b398f543c41eefdc2762e92fb5e06b835",
+    "marker_migration_count": 1,
+    "marker_migrations": [
+      {
+        "component_id": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+        "current_patch_marker": "AIR_NEW_TASK_EXECUTION_BINDING_BARRIER_V3",
+        "migration_rule": "UNIQUE_SECTION_HEADING_SINGLE_PATCH_MARKER",
+        "prior_patch_marker": "AIR_NEW_TASK_BINDING_BARRIER_V1",
+        "section_heading": "NEW TASK EXECUTION BINDING BARRIER LAW"
+      }
+    ],
+    "new_componentization": "NO_NEW_COMPONENT_IDS",
+    "prior_overlay_sha256": "ee50733ca5714fe0915f2e0fde5c12762070fe697407f8128946beeed818ff97",
+    "regeneration_contract_id": "AMRS4E_COMPONENT_METADATA_OVERLAY_REBASE_V1",
+    "selector_contract": "CANONICAL_COMPONENT_ID_PLUS_SECTION_HEADING_PLUS_EXACT_OR_DETERMINISTIC_SINGLE_MARKER_MIGRATION",
+    "semantic_authority": "NONE"
+  },
+  "semantic_authority": "NONE"
+}

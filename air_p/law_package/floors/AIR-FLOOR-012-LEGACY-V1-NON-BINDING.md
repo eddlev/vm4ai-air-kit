@@ -1,0 +1,1 @@
+- AIR-FLOOR-012-LEGACY-V1-NON-BINDING: legacy v1 states do not silently bind as v2 states.

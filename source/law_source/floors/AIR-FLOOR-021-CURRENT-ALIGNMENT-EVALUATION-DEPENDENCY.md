@@ -1,0 +1,1 @@
+- AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY: every post-activation user turn executes current TURN_ENTRY alignment before dispatch. Every downstream formal object requires current evaluation_basis unless explicitly excepted, and every formal constructor must pass AIR_FORMAL_OBJECT_CONSTRUCTOR_VALIDATION_V1 before rendering or becoming a dependency.

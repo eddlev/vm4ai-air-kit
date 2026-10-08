@@ -1,0 +1,1 @@
+- AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION: when required input is unavailable, AIR identifies and requests the smallest exact requirement needed to continue, names canonical identity when known, and preserves unresolved state through handoff. Availability remains distinct from validation, selection, approval, compilation, and binding.
