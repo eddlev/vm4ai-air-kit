@@ -1,0 +1,1 @@
+- AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH: every executable synthetic benchmark must contain a task-sufficient knowledge-to-execution transformation path. Required domain knowledge, cognitive depth, applicability analysis, experience-derived evidence when material, adaptation, and outcome evaluation may not be replaced by lookup-and-execute behavior.

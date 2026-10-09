@@ -1,0 +1,2359 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_REGISTRY",
+  "closed_world": true,
+  "common_contract": {
+    "common_allowed_fields": [
+      "object_version",
+      "record_class",
+      "runtime_origin",
+      "backend_validation_claimed",
+      "hidden_reasoning_claimed",
+      "evidence_class",
+      "evaluation_basis"
+    ],
+    "common_required_fields": [
+      "object_version",
+      "record_class",
+      "runtime_origin",
+      "backend_validation_claimed",
+      "hidden_reasoning_claimed"
+    ],
+    "evaluation_basis_dependency_state_required_value": "SATISFIED",
+    "evaluation_basis_shape": [
+      "evaluation_id",
+      "evaluation_profile",
+      "state_epoch",
+      "alignment_check_ref",
+      "validation_report_ref",
+      "dependency_state"
+    ],
+    "evidence_class_policy": "ALLOWED_FOR_ALL; REQUIRED_ONLY_WHERE_OBJECT_OR_CONTEXT_SCHEMA_REQUIRES"
+  },
+  "condition_context": {
+    "declared_flags": [
+      "session_response_transaction_active_or_resumable",
+      "creative_continuity_material",
+      "q4d_material",
+      "q6d_material",
+      "project_readiness_material",
+      "milestone_readiness_material",
+      "project_target_amrs_5_or_6",
+      "staged_validation_material",
+      "artifact_supersedes_prior",
+      "artifact_queued_or_active",
+      "artifact_queued_or_paused",
+      "task_executable",
+      "vector_compilation_material",
+      "execution_materially_degraded",
+      "execution_dependencies_material",
+      "vector_family_state_material",
+      "coding_implementation_formation_material",
+      "method_execution_material",
+      "method_handoff_material",
+      "verification_specification_material",
+      "specification_adequacy_material",
+      "material_action_possible",
+      "coding_material",
+      "coding_or_readiness_material",
+      "behavior_bearing_implementation_material",
+      "morphology_geometry_material",
+      "lambda_pressure_material",
+      "specialist_domain_routing_material",
+      "familiar_artifact_preservation_material",
+      "small_step_surface_material",
+      "consequential_vtt_ambiguity",
+      "source_dependency_material",
+      "file_mutation_material",
+      "governance_material",
+      "testing_evidence_material",
+      "prompt_layer_qualitative_trace_required",
+      "gate_active_artifact_action",
+      "gate_candidate_binding_transition",
+      "approval_material",
+      "active_contract_material",
+      "validation_file_or_package_identity",
+      "validation_coupled_rt_align",
+      "validation_test_or_audit_target",
+      "error_caused_by_alignment_evaluation_failure",
+      "ledger_has_previous_delta"
+    ],
+    "operator": "CONTEXT_FLAG_TRUE",
+    "unknown_flag_behavior": "FAIL_CLOSED"
+  },
+  "object_count": 21,
+  "objects": [
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "bridge_version",
+        "entry_path",
+        "onboarding_answers",
+        "answer_sources",
+        "canonical_intent_state",
+        "active_context_state",
+        "base_continuity_mode",
+        "neurodivergent_delivery_modifier",
+        "user_alignment_state",
+        "source_state",
+        "specialist_selection_state",
+        "blockers"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "STATE_TRANSITION_RECORD"
+      },
+      "object_id": "AIR_RUNTIME_BRIDGE",
+      "record_class": "STATE_TRANSITION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "bridge_version",
+        "entry_path",
+        "onboarding_answers",
+        "answer_sources",
+        "canonical_intent_state",
+        "active_context_state",
+        "base_continuity_mode",
+        "neurodivergent_delivery_modifier",
+        "user_alignment_state",
+        "source_state",
+        "specialist_selection_state",
+        "blockers"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "session_runtime_frame",
+        "system_identity",
+        "runtime_generation",
+        "response_transaction_state",
+        "state_plane_registry",
+        "persistent_state_lifecycle_registry",
+        "contract_activation",
+        "orbit_state",
+        "task_binding",
+        "compiler_contract",
+        "artifact_presence",
+        "object_visibility_mode",
+        "object_visibility_authority_state",
+        "profile_posture_acceptance_state",
+        "load_integrity",
+        "floor_invariant_registry",
+        "onboarding_state",
+        "governance_state",
+        "specialist_binding_state",
+        "runtime_alignment_state",
+        "handoff_durability_state",
+        "semantic_fidelity_state",
+        "epistemic_sufficiency_state",
+        "unbound_prior_effect_state",
+        "creative_continuity_state",
+        "q4d_delivery_state",
+        "q6d_working_agreement"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "SESSION_RESPONSE_TRANSACTION",
+          "required_fields": [
+            "response_transaction_state"
+          ],
+          "when": {
+            "flag": "session_response_transaction_active_or_resumable",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "SESSION_CREATIVE_CONTINUITY",
+          "required_fields": [
+            "creative_continuity_state"
+          ],
+          "when": {
+            "flag": "creative_continuity_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "SESSION_Q4D",
+          "required_fields": [
+            "q4d_delivery_state"
+          ],
+          "when": {
+            "flag": "q4d_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "SESSION_Q6D",
+          "required_fields": [
+            "q6d_working_agreement"
+          ],
+          "when": {
+            "flag": "q6d_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {
+        "object_visibility_mode": [
+          "MINIMUM_REQUIRED_OBJECTS",
+          "ALL_OBJECTS"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "SESSION_STATE_RECORD"
+      },
+      "object_id": "AIR_SESSION",
+      "record_class": "SESSION_STATE_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "session_runtime_frame",
+        "system_identity",
+        "runtime_generation",
+        "contract_activation",
+        "orbit_state",
+        "task_binding",
+        "compiler_contract",
+        "artifact_presence",
+        "object_visibility_mode",
+        "load_integrity",
+        "floor_invariant_registry",
+        "onboarding_state",
+        "governance_state",
+        "specialist_binding_state",
+        "runtime_alignment_state",
+        "handoff_durability_state",
+        "semantic_fidelity_state",
+        "epistemic_sufficiency_state",
+        "unbound_prior_effect_state"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "brief_id",
+        "project_started",
+        "project_phase",
+        "runtime_mode",
+        "artifact_first_reason",
+        "expected_artifact_classes",
+        "next_active_step",
+        "next_task_state",
+        "evidence_posture"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "PROJECT_STATE_RECORD"
+      },
+      "object_id": "AIR_PROJECT_INITIALIZATION_BRIEF",
+      "record_class": "PROJECT_STATE_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "brief_id",
+        "project_started",
+        "project_phase",
+        "runtime_mode",
+        "artifact_first_reason",
+        "expected_artifact_classes",
+        "next_active_step",
+        "next_task_state",
+        "evidence_posture"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "map_id",
+        "project_phase",
+        "project_status",
+        "artifact_presence",
+        "current_active_step",
+        "current_active_step_artifact_ref",
+        "critical_path",
+        "completed_steps",
+        "upcoming_steps",
+        "project_blockers",
+        "next_task_state",
+        "recommended_attachments",
+        "evidence_milestones",
+        "next_best_step",
+        "completion_definition",
+        "readiness",
+        "milestone_readiness",
+        "public_release_state",
+        "validation_architecture_state"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "PROJECT_READINESS",
+          "required_fields": [
+            "readiness"
+          ],
+          "when": {
+            "flag": "project_readiness_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "MILESTONE_READINESS",
+          "required_fields": [
+            "milestone_readiness"
+          ],
+          "when": {
+            "flag": "milestone_readiness_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "PUBLIC_RELEASE_STATE",
+          "required_fields": [
+            "public_release_state"
+          ],
+          "when": {
+            "flag": "project_target_amrs_5_or_6",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "VALIDATION_ARCHITECTURE_STATE",
+          "required_fields": [
+            "validation_architecture_state"
+          ],
+          "when": {
+            "flag": "staged_validation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "PROJECT_STATE_RECORD"
+      },
+      "object_id": "AIR_PROJECT_EXECUTION_MAP",
+      "record_class": "PROJECT_STATE_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "map_id",
+        "project_phase",
+        "project_status",
+        "artifact_presence",
+        "current_active_step",
+        "current_active_step_artifact_ref",
+        "critical_path",
+        "completed_steps",
+        "upcoming_steps",
+        "project_blockers",
+        "next_task_state",
+        "recommended_attachments",
+        "evidence_milestones",
+        "next_best_step",
+        "completion_definition"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "artifact_id",
+        "artifact_revision",
+        "artifact_binding_state",
+        "artifact_lease",
+        "action_governance_state",
+        "supersedes_artifact_id",
+        "orbit_level",
+        "queue_state",
+        "task_key",
+        "task_center",
+        "active_step",
+        "execution_contract",
+        "execution_steering",
+        "source_contract_refs",
+        "governing_floor_invariants",
+        "semantic_fidelity_contract",
+        "law_resolution_state",
+        "epistemic_sufficiency_state",
+        "mii_cognitive_lattice",
+        "mii_fusion_state",
+        "morphology_binding",
+        "execution_benchmark_profile",
+        "capability_clusters",
+        "missing_vectors",
+        "degraded_execution_mode",
+        "dependency_edges",
+        "vector_family_state_summary",
+        "objective",
+        "selected_vectors",
+        "obligations",
+        "blockers",
+        "assumptions_made",
+        "uncertainty_or_degraded",
+        "method",
+        "method_execution_state",
+        "method_handoff_state",
+        "verification_specification",
+        "specification_adequacy_state",
+        "source_state",
+        "active_contract_ref",
+        "receiver_delivery_state",
+        "resource_scope_pin",
+        "implementation_notes_for_executor",
+        "architectural_invariants",
+        "security_checks",
+        "test_requirements",
+        "review_obligations",
+        "rejection_conditions",
+        "readiness_stage",
+        "target_readiness_stage",
+        "target_readiness_basis",
+        "readiness_gap",
+        "completion_readiness_state",
+        "readiness_reason",
+        "stage_constraints",
+        "promotion_requirements",
+        "blocked_capabilities",
+        "decision_state",
+        "behavior_specification",
+        "active_task_geometry",
+        "geometry_effect_state",
+        "geometry_effect_trace",
+        "active_task_lambda_pressure",
+        "lambda_pressure_binding",
+        "profile_stack",
+        "specialist_integrity_check",
+        "specialist_recommendation",
+        "domain_package_recommendation",
+        "creative_continuity_state",
+        "q4d_delivery_state",
+        "q6d_working_agreement",
+        "familiar_artifact_preservation",
+        "small_step_surface",
+        "voice_to_text_ambiguity_check",
+        "task_source_references",
+        "source_evidence_boundary",
+        "claim_classification",
+        "patch_source_inventory",
+        "source_hashes",
+        "replacement_policy",
+        "mutation_scope",
+        "validation_plan",
+        "delivery_receipt_refs",
+        "governance_state",
+        "source_rights_state",
+        "framework_projection_state",
+        "test_evidence_requirements",
+        "prompt_layer_qualitative_trace",
+        "evidence_source_manifest_ref",
+        "dependency_record_refs"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "ARTIFACT_SUPERSEDES",
+          "required_fields": [
+            "supersedes_artifact_id"
+          ],
+          "when": {
+            "flag": "artifact_supersedes_prior",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_ORBIT",
+          "required_fields": [
+            "orbit_level"
+          ],
+          "when": {
+            "flag": "artifact_queued_or_active",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_QUEUE",
+          "required_fields": [
+            "queue_state"
+          ],
+          "when": {
+            "flag": "artifact_queued_or_paused",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_EXECUTION_STEERING",
+          "required_fields": [
+            "execution_steering"
+          ],
+          "when": {
+            "flag": "task_executable",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_VECTOR_COMPILATION",
+          "required_fields": [
+            "capability_clusters",
+            "missing_vectors"
+          ],
+          "when": {
+            "flag": "vector_compilation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_DEGRADED_EXECUTION",
+          "required_fields": [
+            "degraded_execution_mode"
+          ],
+          "when": {
+            "flag": "execution_materially_degraded",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_DEPENDENCY_EDGES",
+          "required_fields": [
+            "dependency_edges"
+          ],
+          "when": {
+            "flag": "execution_dependencies_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_VECTOR_FAMILY_STATE",
+          "required_fields": [
+            "vector_family_state_summary"
+          ],
+          "when": {
+            "flag": "vector_family_state_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_IMPLEMENTATION_OBJECTIVE",
+          "required_fields": [
+            "objective"
+          ],
+          "when": {
+            "flag": "coding_implementation_formation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_METHOD_EXECUTION",
+          "required_fields": [
+            "method_execution_state"
+          ],
+          "when": {
+            "flag": "method_execution_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_METHOD_HANDOFF",
+          "required_fields": [
+            "method_handoff_state"
+          ],
+          "when": {
+            "flag": "method_handoff_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_VERIFICATION_SPEC",
+          "required_fields": [
+            "verification_specification"
+          ],
+          "when": {
+            "flag": "verification_specification_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_SPEC_ADEQUACY",
+          "required_fields": [
+            "specification_adequacy_state"
+          ],
+          "when": {
+            "flag": "specification_adequacy_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_RESOURCE_SCOPE",
+          "required_fields": [
+            "resource_scope_pin"
+          ],
+          "when": {
+            "flag": "material_action_possible",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_CODING",
+          "required_fields": [
+            "implementation_notes_for_executor",
+            "architectural_invariants",
+            "security_checks",
+            "test_requirements",
+            "review_obligations",
+            "rejection_conditions",
+            "decision_state"
+          ],
+          "when": {
+            "flag": "coding_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_READINESS",
+          "required_fields": [
+            "readiness_stage",
+            "target_readiness_stage",
+            "target_readiness_basis",
+            "readiness_gap",
+            "completion_readiness_state",
+            "readiness_reason",
+            "stage_constraints",
+            "promotion_requirements",
+            "blocked_capabilities"
+          ],
+          "when": {
+            "flag": "coding_or_readiness_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_BEHAVIOR",
+          "required_fields": [
+            "behavior_specification",
+            "verification_specification",
+            "specification_adequacy_state"
+          ],
+          "when": {
+            "flag": "behavior_bearing_implementation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_GEOMETRY",
+          "required_fields": [
+            "active_task_geometry",
+            "geometry_effect_state",
+            "geometry_effect_trace"
+          ],
+          "when": {
+            "flag": "morphology_geometry_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_LAMBDA",
+          "required_fields": [
+            "active_task_lambda_pressure",
+            "lambda_pressure_binding"
+          ],
+          "when": {
+            "flag": "lambda_pressure_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_SPECIALIST",
+          "required_fields": [
+            "profile_stack",
+            "specialist_integrity_check",
+            "specialist_recommendation",
+            "domain_package_recommendation"
+          ],
+          "when": {
+            "flag": "specialist_domain_routing_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_CREATIVE",
+          "required_fields": [
+            "creative_continuity_state"
+          ],
+          "when": {
+            "flag": "creative_continuity_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_Q4D",
+          "required_fields": [
+            "q4d_delivery_state"
+          ],
+          "when": {
+            "flag": "q4d_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_Q6D",
+          "required_fields": [
+            "q6d_working_agreement"
+          ],
+          "when": {
+            "flag": "q6d_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_FAMILIAR_PRESERVATION",
+          "required_fields": [
+            "familiar_artifact_preservation"
+          ],
+          "when": {
+            "flag": "familiar_artifact_preservation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_SMALL_STEP",
+          "required_fields": [
+            "small_step_surface"
+          ],
+          "when": {
+            "flag": "small_step_surface_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_VTT",
+          "required_fields": [
+            "voice_to_text_ambiguity_check"
+          ],
+          "when": {
+            "flag": "consequential_vtt_ambiguity",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_SOURCE_DEPENDENCY",
+          "required_fields": [
+            "task_source_references",
+            "source_evidence_boundary",
+            "claim_classification"
+          ],
+          "when": {
+            "flag": "source_dependency_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_FILE_MUTATION",
+          "required_fields": [
+            "patch_source_inventory",
+            "source_hashes",
+            "replacement_policy",
+            "mutation_scope",
+            "validation_plan",
+            "delivery_receipt_refs"
+          ],
+          "when": {
+            "flag": "file_mutation_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_GOVERNANCE",
+          "required_fields": [
+            "governance_state",
+            "source_rights_state",
+            "framework_projection_state"
+          ],
+          "when": {
+            "flag": "governance_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_TEST_EVIDENCE",
+          "required_fields": [
+            "test_evidence_requirements"
+          ],
+          "when": {
+            "flag": "testing_evidence_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "ARTIFACT_PROMPT_QUAL_TRACE",
+          "required_fields": [
+            "prompt_layer_qualitative_trace"
+          ],
+          "when": {
+            "flag": "prompt_layer_qualitative_trace_required",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "ACTIVE_EXECUTION_RECORD"
+      },
+      "object_id": "AIR_ARTIFACT",
+      "record_class": "ACTIVE_EXECUTION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "artifact_id",
+        "artifact_revision",
+        "artifact_binding_state",
+        "artifact_lease",
+        "action_governance_state",
+        "task_key",
+        "task_center",
+        "active_step",
+        "execution_contract",
+        "source_contract_refs",
+        "governing_floor_invariants",
+        "semantic_fidelity_contract",
+        "law_resolution_state",
+        "epistemic_sufficiency_state",
+        "mii_cognitive_lattice",
+        "mii_fusion_state",
+        "morphology_binding",
+        "execution_benchmark_profile",
+        "selected_vectors",
+        "obligations",
+        "blockers",
+        "assumptions_made",
+        "uncertainty_or_degraded",
+        "method",
+        "source_state",
+        "active_contract_ref",
+        "receiver_delivery_state"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "contract_id",
+        "contract_version",
+        "authority_level",
+        "task_center",
+        "goal",
+        "scope",
+        "out_of_scope",
+        "allowed_actions",
+        "excluded_actions",
+        "stop_conditions",
+        "required_evidence_to_close",
+        "rescope_protocol",
+        "approval_scope",
+        "decision_state",
+        "receiver_delivery_state",
+        "source_set",
+        "compilation_state"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "EXECUTION_CONTRACT"
+      },
+      "object_id": "AIR_ACTIVE_CONTRACT",
+      "record_class": "EXECUTION_CONTRACT",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "contract_id",
+        "contract_version",
+        "authority_level",
+        "task_center",
+        "goal",
+        "scope",
+        "out_of_scope",
+        "allowed_actions",
+        "excluded_actions",
+        "stop_conditions",
+        "required_evidence_to_close",
+        "rescope_protocol",
+        "approval_scope",
+        "decision_state",
+        "receiver_delivery_state",
+        "source_set",
+        "compilation_state"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "gate_id",
+        "exact_gate_question",
+        "requested_action",
+        "gate_context",
+        "active_artifact_ref",
+        "candidate_artifact_ref",
+        "approval_scope_ref",
+        "active_contract_ref",
+        "evaluation_checks",
+        "required_evidence",
+        "blocking_conditions",
+        "decision",
+        "reason",
+        "safe_next_action",
+        "decision_package_ref",
+        "decision_package_sha256"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "GATE_ACTIVE_ARTIFACT",
+          "forbidden_fields": [
+            "candidate_artifact_ref"
+          ],
+          "required_fields": [
+            "active_artifact_ref"
+          ],
+          "when": {
+            "flag": "gate_active_artifact_action",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "GATE_CANDIDATE_BINDING",
+          "forbidden_fields": [
+            "active_artifact_ref"
+          ],
+          "required_fields": [
+            "candidate_artifact_ref"
+          ],
+          "when": {
+            "flag": "gate_candidate_binding_transition",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "GATE_APPROVAL_SCOPE",
+          "required_fields": [
+            "approval_scope_ref",
+            "decision_package_ref",
+            "decision_package_sha256"
+          ],
+          "when": {
+            "flag": "approval_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "GATE_ACTIVE_CONTRACT",
+          "required_fields": [
+            "active_contract_ref"
+          ],
+          "when": {
+            "flag": "active_contract_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {
+        "decision": [
+          "ALLOW",
+          "REVIEW",
+          "REJECT",
+          "RESCOPE_REQUIRED",
+          "EVIDENCE_REQUIRED"
+        ],
+        "gate_context": [
+          "ACTIVE_ARTIFACT_ACTION",
+          "CANDIDATE_BINDING_TRANSITION"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "DECISION_RECORD"
+      },
+      "object_id": "AIR_GATE",
+      "record_class": "DECISION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "gate_id",
+        "exact_gate_question",
+        "requested_action",
+        "gate_context",
+        "evaluation_checks",
+        "required_evidence",
+        "blocking_conditions",
+        "decision",
+        "reason",
+        "safe_next_action"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "report_id",
+        "validated_target",
+        "validation_basis",
+        "checks",
+        "decision",
+        "limitations",
+        "source_or_tool_evidence",
+        "observed_identity",
+        "evaluation_id",
+        "evaluation_profile",
+        "state_epoch",
+        "evaluated_dimensions",
+        "test_evidence_observations"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "VALIDATION_IDENTITY",
+          "required_fields": [
+            "observed_identity"
+          ],
+          "when": {
+            "flag": "validation_file_or_package_identity",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "VALIDATION_ALIGN_COUPLED",
+          "required_fields": [
+            "evaluation_id",
+            "evaluation_profile",
+            "state_epoch",
+            "evaluated_dimensions"
+          ],
+          "when": {
+            "flag": "validation_coupled_rt_align",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        },
+        {
+          "bundle_id": "VALIDATION_TEST_EVIDENCE",
+          "required_fields": [
+            "test_evidence_observations"
+          ],
+          "when": {
+            "flag": "validation_test_or_audit_target",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "CONDITIONAL",
+        "required_unless": {
+          "flag": "validation_coupled_rt_align",
+          "op": "CONTEXT_FLAG_TRUE"
+        },
+        "when_exception": "OMIT_EVALUATION_BASIS"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "VALIDATION_RECORD"
+      },
+      "object_id": "AIR_VALIDATION_REPORT",
+      "record_class": "VALIDATION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "report_id",
+        "validated_target",
+        "validation_basis",
+        "checks",
+        "decision",
+        "limitations",
+        "source_or_tool_evidence"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "check_id",
+        "evaluation_id",
+        "evaluation_profile",
+        "state_epoch",
+        "post_activation_user_message_count",
+        "evaluated_state_refs",
+        "drift_detected",
+        "alignment_state",
+        "recovery_state",
+        "validation_report_ref"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "alignment_state": [
+          "ALIGNED",
+          "RECONCILIATION_REQUIRED",
+          "DRIFT_DETECTED"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "FORBIDDEN",
+        "reason": "alignment projection cannot depend on its own evaluation_basis"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "ALIGNMENT_EVALUATION_RECORD"
+      },
+      "object_id": "AIR_ALIGNMENT_CHECK",
+      "record_class": "ALIGNMENT_EVALUATION_RECORD",
+      "relational_constraints": [
+        {
+          "constraint_id": "ALIGNMENT_MODEL_DRIFT_TRUE",
+          "evidence_predicate": "CURRENT_MODEL_DRIFT_EVIDENCE_ESTABLISHED",
+          "requires": {
+            "equals": "DRIFT_DETECTED",
+            "field": "alignment_state"
+          },
+          "when": {
+            "equals": true,
+            "field": "drift_detected"
+          }
+        },
+        {
+          "constraint_id": "ALIGNMENT_MODEL_DRIFT_FALSE_DRIFT_STATE_PROHIBITED",
+          "forbids": {
+            "equals": "DRIFT_DETECTED",
+            "field": "alignment_state"
+          },
+          "when": {
+            "equals": false,
+            "field": "drift_detected"
+          }
+        },
+        {
+          "constraint_id": "ALIGNMENT_RECONCILIATION_REQUIRED_NONMODEL",
+          "requires": {
+            "equals": false,
+            "field": "drift_detected"
+          },
+          "when": {
+            "equals": "RECONCILIATION_REQUIRED",
+            "field": "alignment_state"
+          }
+        }
+      ],
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "check_id",
+        "evaluation_id",
+        "evaluation_profile",
+        "state_epoch",
+        "post_activation_user_message_count",
+        "evaluated_state_refs",
+        "drift_detected",
+        "alignment_state",
+        "recovery_state",
+        "validation_report_ref"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "type_constraints": {
+        "drift_detected": "JSON_BOOLEAN"
+      },
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "error_id",
+        "error_class",
+        "affected_object_or_file",
+        "blocking",
+        "reason",
+        "safe_next_action",
+        "recoverable"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "CONDITIONAL",
+        "required_unless": {
+          "flag": "error_caused_by_alignment_evaluation_failure",
+          "op": "CONTEXT_FLAG_TRUE"
+        },
+        "when_exception": "OMIT_EVALUATION_BASIS"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "ERROR_RECORD"
+      },
+      "object_id": "AIR_ERROR",
+      "record_class": "ERROR_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "error_id",
+        "error_class",
+        "affected_object_or_file",
+        "blocking",
+        "reason",
+        "safe_next_action",
+        "recoverable"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "authorization_id",
+        "action_id",
+        "action_class",
+        "requested_action",
+        "controlling_artifact_ref",
+        "target",
+        "gate_ref",
+        "approval_basis_or_ref",
+        "resource_scope_pin_ref",
+        "expected_effect",
+        "receipt_evidence_required",
+        "authorization_invalidators",
+        "single_use",
+        "consumption_state",
+        "decision",
+        "approval_scope_ref",
+        "approval_scope_fingerprint",
+        "decision_package_sha256",
+        "consumption_key_sha256"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "AUTHORIZATION_APPROVAL_BOUND",
+          "required_fields": [
+            "approval_scope_ref",
+            "approval_scope_fingerprint",
+            "decision_package_sha256",
+            "consumption_key_sha256"
+          ],
+          "when": {
+            "flag": "authorization_approval_material",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {
+        "consumption_state": [
+          "UNCONSUMED",
+          "CONSUMED",
+          "INVALIDATED"
+        ],
+        "decision": [
+          "ALLOW"
+        ],
+        "single_use": [
+          true
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "ACTION_AUTHORIZATION_RECORD"
+      },
+      "object_id": "AIR_ACTION_AUTHORIZATION",
+      "record_class": "ACTION_AUTHORIZATION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "authorization_id",
+        "action_id",
+        "action_class",
+        "requested_action",
+        "controlling_artifact_ref",
+        "target",
+        "gate_ref",
+        "approval_basis_or_ref",
+        "resource_scope_pin_ref",
+        "expected_effect",
+        "receipt_evidence_required",
+        "authorization_invalidators",
+        "single_use",
+        "consumption_state",
+        "decision"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "receipt_id",
+        "authorization_ref",
+        "action_id",
+        "intended_target",
+        "actual_target",
+        "execution_evidence",
+        "result",
+        "effect_ids",
+        "state_comparison",
+        "unexpected_side_effects",
+        "validation_result",
+        "artifact_lease_effect",
+        "required_state_updates",
+        "recovery_required"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "artifact_lease_effect": [
+          "UNCHANGED",
+          "SUSPENDED_REVIEW",
+          "EXPIRED_REBIND_REQUIRED",
+          "CLOSED"
+        ],
+        "recovery_required": [
+          true,
+          false
+        ],
+        "result": [
+          "SUCCESS",
+          "PARTIAL",
+          "FAILED",
+          "UNKNOWN"
+        ],
+        "validation_result": [
+          "PASS",
+          "REVIEW",
+          "FAIL",
+          "UNVERIFIED"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "ACTION_RECEIPT_RECORD"
+      },
+      "object_id": "AIR_ACTION_RECEIPT",
+      "record_class": "ACTION_RECEIPT_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "receipt_id",
+        "authorization_ref",
+        "action_id",
+        "intended_target",
+        "actual_target",
+        "execution_evidence",
+        "result",
+        "effect_ids",
+        "state_comparison",
+        "unexpected_side_effects",
+        "validation_result",
+        "artifact_lease_effect",
+        "required_state_updates",
+        "recovery_required"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "ledger_id",
+        "previous_ledger_hash",
+        "response_message_count",
+        "state_epoch",
+        "entries",
+        "ledger_hash"
+      ],
+      "conditional_bundles": [
+        {
+          "bundle_id": "LEDGER_PREVIOUS_HASH",
+          "required_fields": [
+            "previous_ledger_hash"
+          ],
+          "when": {
+            "flag": "ledger_has_previous_delta",
+            "op": "CONTEXT_FLAG_TRUE"
+          }
+        }
+      ],
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "SURFACED_OBJECT_LEDGER_RECORD"
+      },
+      "object_id": "AIR_SURFACED_OBJECT_LEDGER",
+      "record_class": "SURFACED_OBJECT_LEDGER_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "ledger_id",
+        "response_message_count",
+        "state_epoch",
+        "entries",
+        "ledger_hash"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "failure_mode_id",
+        "originating_task_ref",
+        "originating_attempt_id",
+        "failure_class",
+        "failed_step_or_route",
+        "expected_behavior",
+        "observed_behavior",
+        "trigger_conditions",
+        "root_cause_state",
+        "root_cause_basis",
+        "invalidated_assumption_or_strategy",
+        "prohibited_retry_pattern",
+        "corrective_constraint",
+        "applicability_signature",
+        "applicability_signature_hash",
+        "applicability_state",
+        "affected_task_classes",
+        "specialist_or_method_refs",
+        "retest_requirement",
+        "retest_state",
+        "lifecycle_state",
+        "recurrence_count",
+        "superseded_by",
+        "evidence_refs",
+        "source_ledger_entry_ref"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "lifecycle_state": [
+          "OBSERVED",
+          "ACTIVE_CORRECTIVE_CONSTRAINT",
+          "RETEST_PENDING",
+          "MITIGATED_RETAIN_FOR_REGRESSION",
+          "RECURRENT",
+          "SUPERSEDED",
+          "INVALIDATED"
+        ],
+        "root_cause_state": [
+          "ESTABLISHED",
+          "PARTIAL",
+          "UNRESOLVED"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "FAILURE_MODE_RECORD"
+      },
+      "object_id": "AIR_FAILURE_MODE_RECORD",
+      "record_class": "FAILURE_MODE_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "failure_mode_id",
+        "originating_task_ref",
+        "originating_attempt_id",
+        "failure_class",
+        "failed_step_or_route",
+        "expected_behavior",
+        "observed_behavior",
+        "trigger_conditions",
+        "root_cause_state",
+        "root_cause_basis",
+        "invalidated_assumption_or_strategy",
+        "prohibited_retry_pattern",
+        "corrective_constraint",
+        "applicability_signature",
+        "applicability_signature_hash",
+        "applicability_state",
+        "affected_task_classes",
+        "specialist_or_method_refs",
+        "retest_requirement",
+        "retest_state",
+        "lifecycle_state",
+        "recurrence_count",
+        "superseded_by",
+        "evidence_refs",
+        "source_ledger_entry_ref"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "waiver_id",
+        "method_identity",
+        "method_version",
+        "step_id",
+        "waived_requirement",
+        "waiver_scope",
+        "artifact_scope_ref",
+        "permission_basis_type",
+        "permission_basis_ref",
+        "reason",
+        "issued_state_epoch",
+        "validity_state",
+        "applied_state",
+        "evidence_refs",
+        "claim_boundary"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "validity_state": [
+          "ACTIVE_CURRENT",
+          "APPLIED_RECORDED",
+          "REVOKED",
+          "EXPIRED"
+        ],
+        "waiver_scope": [
+          "METHOD_STEP_EVIDENCE_TO_ADVANCE_ONLY"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "METHOD_EVIDENCE_WAIVER_RECORD"
+      },
+      "object_id": "AIR_METHOD_EVIDENCE_WAIVER",
+      "record_class": "METHOD_EVIDENCE_WAIVER_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "waiver_id",
+        "method_identity",
+        "method_version",
+        "step_id",
+        "waived_requirement",
+        "waiver_scope",
+        "artifact_scope_ref",
+        "permission_basis_type",
+        "permission_basis_ref",
+        "reason",
+        "issued_state_epoch",
+        "validity_state",
+        "applied_state",
+        "evidence_refs",
+        "claim_boundary"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "prior_effect_id",
+        "discovered_effect",
+        "observed_target",
+        "effect_evidence",
+        "authorization_state_at_effect",
+        "scope_match_state_at_effect",
+        "lease_state_at_effect",
+        "affected_artifact_ref",
+        "risk_state",
+        "rollback_feasibility",
+        "reconciliation_state",
+        "human_review_requirement",
+        "safe_next_action",
+        "retroactive_authorization_forbidden"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "authorization_state_at_effect": [
+          "VALID",
+          "MISSING",
+          "STALE",
+          "INVALID",
+          "UNKNOWN"
+        ],
+        "lease_state_at_effect": [
+          "ACTIVE",
+          "SUSPENDED_REVIEW",
+          "EXPIRED_REBIND_REQUIRED",
+          "CLOSED",
+          "MISSING",
+          "UNKNOWN"
+        ],
+        "reconciliation_state": [
+          "RETAIN_PENDING_RECONCILIATION",
+          "REVERT_RECOMMENDED",
+          "REPLACE_RECOMMENDED",
+          "HUMAN_REVIEW_REQUIRED",
+          "OUT_OF_SCOPE_EFFECT",
+          "RESOLVED_WITH_EVIDENCE"
+        ],
+        "retroactive_authorization_forbidden": [
+          true
+        ],
+        "risk_state": [
+          "LOW",
+          "MEDIUM",
+          "HIGH",
+          "UNKNOWN"
+        ],
+        "rollback_feasibility": [
+          "AVAILABLE",
+          "PARTIAL",
+          "UNAVAILABLE",
+          "UNKNOWN"
+        ],
+        "scope_match_state_at_effect": [
+          "MATCH",
+          "MISMATCH",
+          "UNKNOWN"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "RECOVERY_RECORD"
+      },
+      "object_id": "AIR_PRIOR_EFFECT_RECORD",
+      "record_class": "RECOVERY_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "prior_effect_id",
+        "discovered_effect",
+        "observed_target",
+        "effect_evidence",
+        "authorization_state_at_effect",
+        "scope_match_state_at_effect",
+        "lease_state_at_effect",
+        "affected_artifact_ref",
+        "risk_state",
+        "rollback_feasibility",
+        "reconciliation_state",
+        "human_review_requirement",
+        "safe_next_action",
+        "retroactive_authorization_forbidden"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "request_id",
+        "need_state",
+        "input_class",
+        "canonical_package",
+        "canonical_role",
+        "exact_files_requested",
+        "exact_action_requested",
+        "reason_required",
+        "controlled_route_or_action",
+        "current_effect",
+        "acceptable_alternatives",
+        "safe_fallback",
+        "validation_after_receipt",
+        "already_checked_locations_or_states",
+        "satisfaction_state"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "current_effect": [
+          "BLOCKED",
+          "DEGRADED",
+          "NONE"
+        ],
+        "satisfaction_state": [
+          "UNSATISFIED",
+          "RECEIVED_PENDING_VALIDATION",
+          "SATISFIED"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "REQUIRED_INPUT_REQUEST_RECORD"
+      },
+      "object_id": "AIR_REQUIRED_INPUT_REQUEST",
+      "record_class": "REQUIRED_INPUT_REQUEST_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "request_id",
+        "need_state",
+        "input_class",
+        "canonical_package",
+        "canonical_role",
+        "exact_files_requested",
+        "exact_action_requested",
+        "reason_required",
+        "controlled_route_or_action",
+        "current_effect",
+        "acceptable_alternatives",
+        "safe_fallback",
+        "validation_after_receipt",
+        "already_checked_locations_or_states",
+        "satisfaction_state"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "trace_id",
+        "trace_contract_ref",
+        "trace_contract_version",
+        "controlling_artifact_ref",
+        "task_identity_ref",
+        "decision_subject_ref",
+        "decision_class",
+        "trace_requirement_basis",
+        "decision_statement",
+        "decision_outcome",
+        "decision_basis_summary",
+        "material_claim_refs",
+        "evidence_refs",
+        "rule_refs",
+        "law_resolution_fingerprint",
+        "authority_state_refs",
+        "uncertainty_state",
+        "uncertainty_refs",
+        "provenance_closure_state",
+        "rule_closure_state",
+        "authority_closure_state",
+        "claim_source_consistency_state",
+        "forced_walk_state",
+        "decision_trace_fingerprint",
+        "trace_state",
+        "positive_execution_authority"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "authority_closure_state": [
+          "PASS",
+          "REVIEW",
+          "REJECT",
+          "UNRESOLVED"
+        ],
+        "claim_source_consistency_state": [
+          "PASS",
+          "REVIEW",
+          "REJECT",
+          "UNRESOLVED"
+        ],
+        "decision_class": [
+          "MATERIAL_INTERPRETIVE_JUDGMENT",
+          "MATERIAL_MODEL_EVALUATION",
+          "MATERIAL_SYNTHETIC_JUDGE_RESULT",
+          "MATERIAL_RECOMMENDATION_OR_SELECTION",
+          "MATERIAL_EXCEPTION_OR_RESOLUTION"
+        ],
+        "positive_execution_authority": [
+          "NONE"
+        ],
+        "provenance_closure_state": [
+          "PASS",
+          "REVIEW",
+          "REJECT",
+          "UNRESOLVED"
+        ],
+        "rule_closure_state": [
+          "PASS",
+          "REVIEW",
+          "REJECT",
+          "UNRESOLVED"
+        ],
+        "trace_state": [
+          "CURRENT_VERIFIED",
+          "REVIEW_REQUIRED",
+          "REJECTED",
+          "STALE_PENDING_REVALIDATION",
+          "NONOPERATIVE_HISTORY"
+        ],
+        "uncertainty_state": [
+          "NONE_MATERIAL",
+          "DISCLOSED",
+          "UNRESOLVED_MATERIAL"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "positive_execution_authority": "NONE",
+        "record_class": "DECISION_JUSTIFICATION_RECORD"
+      },
+      "forbidden_top_level_fields": [
+        "chain_of_thought",
+        "reasoning_steps",
+        "internal_thoughts",
+        "latent_state",
+        "hidden_reasoning",
+        "private_scratchpad"
+      ],
+      "object_id": "AIR_DECISION_TRACE",
+      "record_class": "DECISION_JUSTIFICATION_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evidence_class",
+        "evaluation_basis",
+        "trace_id",
+        "trace_contract_ref",
+        "trace_contract_version",
+        "controlling_artifact_ref",
+        "task_identity_ref",
+        "decision_subject_ref",
+        "decision_class",
+        "trace_requirement_basis",
+        "decision_statement",
+        "decision_outcome",
+        "decision_basis_summary",
+        "material_claim_refs",
+        "evidence_refs",
+        "rule_refs",
+        "law_resolution_fingerprint",
+        "authority_state_refs",
+        "uncertainty_state",
+        "uncertainty_refs",
+        "provenance_closure_state",
+        "rule_closure_state",
+        "authority_closure_state",
+        "claim_source_consistency_state",
+        "forced_walk_state",
+        "decision_trace_fingerprint",
+        "trace_state",
+        "positive_execution_authority"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "TEMPLATE_DESIGNATION",
+        "SCHEMA_VERSION",
+        "template_designation",
+        "schema_version",
+        "card_id",
+        "template_revision",
+        "user_revision",
+        "object_version",
+        "record_class",
+        "evaluation_basis",
+        "card_created_at",
+        "card_created_by",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "project_state",
+        "platform_state",
+        "active_artifact",
+        "active_contract",
+        "task_binding",
+        "completed_steps",
+        "current_in_progress_step",
+        "next_recommended_step",
+        "blockers",
+        "required_input_state",
+        "object_visibility_mode",
+        "object_visibility_authority_state",
+        "profile_posture_acceptance_state",
+        "onboarding_state",
+        "working_agreement",
+        "governance_state",
+        "open_approval_scope",
+        "specialist_binding_state",
+        "profile_stack",
+        "orbit_state",
+        "source_state",
+        "evidence_state",
+        "test_evidence_state",
+        "execution_state",
+        "receiver_delivery_state",
+        "continuation_bootstrap",
+        "migration_state",
+        "load_integrity",
+        "file_identity_and_delivery_state",
+        "schema_manifest",
+        "extensions",
+        "transfer_ownership_contract",
+        "action_governance_state",
+        "runtime_drift_hardening_schema_extension",
+        "runtime_alignment_state",
+        "decision_trace_state",
+        "semantic_fidelity_state",
+        "mii_state",
+        "morphology_state",
+        "epistemic_sufficiency_state",
+        "failure_mode_state",
+        "surfaced_object_ledger_state",
+        "handoff_mode_state"
+      ],
+      "conditional_bundles": [],
+      "delegated_schema": {
+        "condition_registry_ref": "schema_manifest.condition_registry",
+        "optional_fields_ref": "schema_manifest.optional_fields",
+        "required_fields_ref": "schema_manifest.required_fields",
+        "schema_version": "2.3.0",
+        "template_designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "template_revision": 26,
+        "template_sha256": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122",
+        "validation_registry_ref": "schema_manifest.validation_registry"
+      },
+      "enum_constraints": {},
+      "evaluation_basis_policy": {
+        "mode": "DELEGATED_TEMPLATE_REQUIRED",
+        "schema_ref": "AIR_HANDOFF_CARD_TEMPLATE_V2.schema_manifest"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "TRANSFER_RECORD"
+      },
+      "object_id": "AIR_HANDOFF_CARD",
+      "record_class": "TRANSFER_RECORD",
+      "required_top_level_fields": [
+        "TEMPLATE_DESIGNATION",
+        "SCHEMA_VERSION",
+        "template_designation",
+        "schema_version",
+        "card_id",
+        "template_revision",
+        "user_revision",
+        "record_class",
+        "evaluation_basis",
+        "object_version",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "project_state",
+        "active_artifact",
+        "active_contract",
+        "task_binding",
+        "completed_steps",
+        "current_in_progress_step",
+        "next_recommended_step",
+        "blockers",
+        "required_input_state",
+        "object_visibility_mode",
+        "object_visibility_authority_state",
+        "profile_posture_acceptance_state",
+        "onboarding_state",
+        "working_agreement",
+        "governance_state",
+        "open_approval_scope",
+        "specialist_binding_state",
+        "profile_stack",
+        "orbit_state",
+        "source_state",
+        "evidence_state",
+        "test_evidence_state",
+        "execution_state",
+        "receiver_delivery_state",
+        "continuation_bootstrap",
+        "migration_state",
+        "load_integrity",
+        "file_identity_and_delivery_state",
+        "schema_manifest",
+        "runtime_alignment_state",
+        "decision_trace_state",
+        "semantic_fidelity_state",
+        "mii_state",
+        "morphology_state",
+        "epistemic_sufficiency_state",
+        "failure_mode_state",
+        "surfaced_object_ledger_state",
+        "handoff_mode_state"
+      ],
+      "schema_mode": "DELEGATED_TEMPLATE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "manifest_id",
+        "manifest_scope",
+        "controlling_artifact_ref",
+        "evidence_presentation_mode",
+        "source_entries",
+        "evidence_or_claim_refs",
+        "construction_profile",
+        "validation_state",
+        "digest_contract_ref",
+        "manifest_payload_sha256",
+        "positive_execution_authority"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "evidence_presentation_mode": [
+          "STANDARD_EVIDENCE_PRESENTATION",
+          "EXPANDED_EVIDENCE_PRESENTATION"
+        ],
+        "positive_execution_authority": [
+          "NONE"
+        ],
+        "validation_state": [
+          "CURRENT_VALIDATED",
+          "STALE_PENDING_REVALIDATION",
+          "INVALID"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "EVIDENCE_SOURCE_MANIFEST_RECORD"
+      },
+      "object_id": "AIR_EVIDENCE_SOURCE_MANIFEST",
+      "record_class": "EVIDENCE_SOURCE_MANIFEST_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "manifest_id",
+        "manifest_scope",
+        "controlling_artifact_ref",
+        "evidence_presentation_mode",
+        "source_entries",
+        "evidence_or_claim_refs",
+        "construction_profile",
+        "validation_state",
+        "digest_contract_ref",
+        "manifest_payload_sha256",
+        "positive_execution_authority"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    },
+    {
+      "allowed_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "dependency_id",
+        "dependency_class",
+        "owning_scope_ref",
+        "required_for_refs",
+        "required_identity",
+        "observed_identity",
+        "satisfaction_state",
+        "blocking",
+        "evidence_refs",
+        "validation_ref",
+        "invalidation_triggers",
+        "resume_condition",
+        "lifecycle_state",
+        "positive_execution_authority"
+      ],
+      "conditional_bundles": [],
+      "enum_constraints": {
+        "dependency_class": [
+          "SOURCE_CONTRACT",
+          "CROSS_PROJECT",
+          "ARTIFACT",
+          "EXTERNAL_CAPABILITY",
+          "TOOL",
+          "PLATFORM",
+          "PERMISSION",
+          "LINKED_BOOTSTRAP",
+          "OTHER_TYPED"
+        ],
+        "lifecycle_state": [
+          "CURRENT",
+          "SUPERSEDED",
+          "CLOSED"
+        ],
+        "positive_execution_authority": [
+          "NONE"
+        ],
+        "satisfaction_state": [
+          "SATISFIED",
+          "UNSATISFIED",
+          "STALE_PENDING_REVALIDATION",
+          "BLOCKED",
+          "NOT_APPLICABLE"
+        ]
+      },
+      "evaluation_basis_policy": {
+        "mode": "REQUIRED"
+      },
+      "fixed_constraints": {
+        "object_version": "2.0.0",
+        "record_class": "DEPENDENCY_RECORD"
+      },
+      "object_id": "AIR_DEPENDENCY_RECORD",
+      "record_class": "DEPENDENCY_RECORD",
+      "required_top_level_fields": [
+        "object_version",
+        "record_class",
+        "runtime_origin",
+        "backend_validation_claimed",
+        "hidden_reasoning_claimed",
+        "evaluation_basis",
+        "evidence_class",
+        "dependency_id",
+        "dependency_class",
+        "owning_scope_ref",
+        "required_for_refs",
+        "required_identity",
+        "observed_identity",
+        "satisfaction_state",
+        "blocking",
+        "evidence_refs",
+        "validation_ref",
+        "invalidation_triggers",
+        "resume_condition",
+        "lifecycle_state",
+        "positive_execution_authority"
+      ],
+      "schema_mode": "CORE_MACHINE_CLOSED_WORLD",
+      "unknown_field_behavior": "INVALID_UNEMITTABLE"
+    }
+  ],
+  "semantic_owner": "AIR_CORE_RUNTIME_V2",
+  "source_core_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+  "source_registry_designation": "AIR_FORMAL_OBJECT_SCHEMA_REGISTRY_V1",
+  "source_registry_version": "2.9.0"
+}

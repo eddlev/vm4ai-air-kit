@@ -1,0 +1,1 @@
+- AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY: canonical file identity, normalized collision rejection, active-folder isolation, exact linked-file validation, validation freshness, and delivery receipts remain mandatory for material AIR file use and delivery.

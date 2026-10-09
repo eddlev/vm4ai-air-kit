@@ -1,0 +1,196 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_M3C_R2_AI_GOVERNANCE_EXECUTOR_INCLUSIVE_RELEASE_VALIDATION_V1",
+  "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_SET008_20260920_V1",
+  "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+  "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+  "foundation_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+  "generated_at": "2026-09-20T20:19:00Z",
+  "historical_model_host_behavioral_evidence": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260917_V2",
+    "filename": "tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V2.json",
+    "sha256": "75e8a18cb45418b5421871580b91c4ef7e4b6aa273f89f892a9d615178ce726b",
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "executor_included_in_historical_model_host_pass": false,
+    "preservation_state": "PRESERVED_AS_HISTORICAL_NON_EXECUTOR_MODEL_HOST_EVIDENCE"
+  },
+  "current_component_receipts": {
+    "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json": {
+      "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+      "size_bytes": 38986,
+      "line_count": 747
+    },
+    "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json": {
+      "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+      "size_bytes": 55481,
+      "line_count": 1061
+    },
+    "AIR_AI_GOVERNANCE_EXECUTOR.json": {
+      "sha256": "8fbe5d87b693f950ad4ff95e7ff3775412ec761f305c1172fb8b0b476e840e37",
+      "size_bytes": 41437,
+      "line_count": 791
+    },
+    "AIR_AI_GOVERNANCE_METHOD_PACK.json": {
+      "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+      "size_bytes": 96315,
+      "line_count": 1764
+    },
+    "AIR_AI_GOVERNANCE_SPECIALIST.json": {
+      "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+      "size_bytes": 54189,
+      "line_count": 1050
+    }
+  },
+  "executor_contract_validation": {
+    "executor_filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
+    "check_count": 15,
+    "pass_count": 15,
+    "checks": [
+      {
+        "check_id": "EXECUTOR_STATUS_VALIDATED",
+        "state": "PASS",
+        "observed": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      {
+        "check_id": "EXECUTOR_LAYER_NON_AGENT",
+        "state": "PASS",
+        "observed": "NON_AGENT_EXECUTOR_LAYER"
+      },
+      {
+        "check_id": "NO_INDEPENDENT_EXECUTION_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ACTIVE_BINDING_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ORBIT0_OCCUPANCY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_APPROVAL",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_BINDING",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "POSITIVE_AUTHORITY_REMAINS_ORBIT0_ARTIFACT",
+        "state": "PASS",
+        "observed": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT"
+      },
+      {
+        "check_id": "MANUAL_INVOCATION_DECLARED",
+        "state": "PASS",
+        "observed": "air ai-governance compile"
+      },
+      {
+        "check_id": "BOUNDED_OPERATION_DECLARED",
+        "state": "PASS",
+        "observed": "COMPILE_TASK_SCOPED_AI_GOVERNANCE_REVIEW_PACKET"
+      },
+      {
+        "check_id": "EXECUTOR_REQUIRED_PACKAGE_MEMBER",
+        "state": "PASS",
+        "observed": [
+          "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+          "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+          "AIR_AI_GOVERNANCE_SPECIALIST.json",
+          "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+          "AIR_AI_GOVERNANCE_EXECUTOR.json"
+        ]
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+            "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+            "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+            "required": true,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+            "size_bytes": 55481,
+            "line_count": 1061
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+            "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+            "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+            "required": "CONDITIONAL_WHEN_DELEGATED_ACTION_TRIGGERED",
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+            "size_bytes": 38986,
+            "line_count": 747
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_AI_GOVERNANCE_SPECIALIST.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+            "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
+            "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+            "required": true,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+            "size_bytes": 54189,
+            "line_count": 1050
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_AI_GOVERNANCE_METHOD_PACK.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
+            "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+            "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+            "required": true,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+            "size_bytes": 96315,
+            "line_count": 1764
+          }
+        }
+      }
+    ],
+    "result": "PASS"
+  },
+  "current_release_validation": {
+    "executor_included": true,
+    "executor_lifecycle_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "integral_package_component": true,
+    "authority_expansion": false,
+    "validation_composition": "HISTORICAL_MODEL_HOST_BEHAVIOR_FOR_NON_EXECUTOR_COMPONENTS_PLUS_CURRENT_DETERMINISTIC_EXECUTOR_CONTRACT_AND_MUTATION_VALIDATION",
+    "mutation_coverage_ref": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json"
+  },
+  "claim_boundary": "This evidence validates released package/component identity, Executor contract gates, dependency receipts and non-agent/no-independent-authority boundaries. It does not claim backend enforcement, live external effects, legal/compliance certification, or cross-host behavioral equivalence.",
+  "backend_validation_claimed": false,
+  "cross_host_equivalence_claimed": false,
+  "result": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION"
+}

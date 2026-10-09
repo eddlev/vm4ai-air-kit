@@ -1,0 +1,844 @@
+{
+  "title": "AIR AI Governance Specialist Package Manifest v2",
+  "PACKAGE_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V2",
+  "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V2",
+  "PACKAGE_VERSION": "2.5.0",
+  "SCHEMA_FAMILY": "AIR_V2",
+  "artifact_class": "SPECIALIST_PACKAGE_MANIFEST",
+  "canonical_role": "AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST",
+  "canonical_filename": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json",
+  "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+  "package_name": "AIR AI Governance Specialist Package",
+  "status": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+  "record_mode": "PROMPT_LAYER_APPLIED",
+  "component_count": 5,
+  "components": [
+    {
+      "role": "DOMAIN_PACKAGE",
+      "filename": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+      "version": "2.5.0",
+      "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "0f58234f87745b0082295fea3d5742ca2749d512039ffb12a1b7aa50dcfbd7fd",
+      "size_bytes": 55481,
+      "line_count": 1061,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "role": "CONDITIONAL_AGENTIC_OVERLAY",
+      "filename": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+      "version": "2.5.0",
+      "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "0b7360d73aa95fc3ff620922b159f9694399a39e0e949163c6645b4c5b27eb5e",
+      "size_bytes": 38986,
+      "line_count": 747,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "role": "SPECIALIST_PROFILE",
+      "filename": "AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+      "version": "2.5.0",
+      "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "6698f243705983ec6f7b3adc6f4d610129cadbe685c568df0b135aaa42c50f8f",
+      "size_bytes": 54189,
+      "line_count": 1050,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "role": "METHOD_PACK",
+      "filename": "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
+      "version": "2.5.0",
+      "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "01a67482dde39749bbec30b6774c5576e59225e2971a6c914ca3f8eff74002aa",
+      "size_bytes": 96315,
+      "line_count": 1764,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+    },
+    {
+      "role": "EXECUTOR_CONTRACT",
+      "filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_EXECUTOR_V2",
+      "version": "2.5.0",
+      "state": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+      "availability_state": "VALIDATED_AVAILABLE_UNBOUND",
+      "sha256": "8fbe5d87b693f950ad4ff95e7ff3775412ec761f305c1172fb8b0b476e840e37",
+      "size_bytes": 41437,
+      "line_count": 791,
+      "status": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+    }
+  ],
+  "component_load_order": [
+    "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+    "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+    "AIR_AI_GOVERNANCE_SPECIALIST.json",
+    "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+    "AIR_AI_GOVERNANCE_EXECUTOR.json",
+    "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+  ],
+  "dependency_graph": [
+    {
+      "from": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+      "to": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+      "to": "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE_V2",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+      "to": "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2",
+      "relation": "CONDITIONAL_WHEN_TRIGGERED"
+    },
+    {
+      "from": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
+      "to": "AIR_AI_GOVERNANCE_SPECIALIST_V2",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "AIR_AI_GOVERNANCE_EXECUTOR_V2",
+      "to": "AIR_AI_GOVERNANCE_METHOD_PACK_V2",
+      "relation": "REQUIRES"
+    }
+  ],
+  "foundation_compatibility": {
+    "required_files": [
+      {
+        "filename": "AIR_CORE_RUNTIME.md",
+        "designation": "AIR_CORE_RUNTIME_V2",
+        "version": "2.6.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "8e8b6aa53eee26506e97cbb3cc0b7ec0a2c296427a026448bc5d542acdf0475d",
+        "size_bytes": 426654,
+        "line_count": 7979
+      },
+      {
+        "filename": "AIR_CONTROL_SURFACE.md",
+        "designation": "AIR_CONTROL_SURFACE_V2",
+        "version": "2.6.3",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "2ae5a45755852780fa9b360d751cdedb8c01bf208a2db1ab7ffe55519bf6a8c5",
+        "size_bytes": 173959,
+        "line_count": 3342
+      },
+      {
+        "filename": "AIR_GOV.md",
+        "designation": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "version": "2.3.2",
+        "class": "FOUNDATION_PROMPT",
+        "sha256": "80f037b38b69d75436ddf2ec7b1dc757e84ab65d17aaeaf450cb963af44b4842",
+        "size_bytes": 31075,
+        "line_count": 564
+      },
+      {
+        "filename": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "designation": "AIR_DEFAULT_STARTER_V2",
+        "version": "2.6.3",
+        "class": "TASK_COMPOSITE",
+        "sha256": "b7263abb81a7db252ba4bee2b7207f3699872ed275bb19d569820f576c86aac3",
+        "size_bytes": 188993,
+        "line_count": 3993
+      },
+      {
+        "filename": "AIR_HANDOFF_CARD_TEMPLATE.json",
+        "designation": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "version": "2.3.0",
+        "class": "TEMPLATE",
+        "sha256": "13b2c0367375ba79d31ed94d7dcbf239a011afce28c0d8fcf194f7ad3a74b205",
+        "size_bytes": 136052,
+        "line_count": 2460,
+        "template_revision": 20,
+        "revision_fields": [
+          "template_revision",
+          "user_revision"
+        ]
+      }
+    ],
+    "required_floor_invariants": [
+      "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+      "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+      "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+      "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+      "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+      "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+      "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+      "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+      "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+      "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+      "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+      "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION"
+    ],
+    "compatibility_state": "ALIGNED_TO_AIR_2_6_3_OBJECT_CONTRACT_SET_008",
+    "target_foundation_versions": {
+      "core": "2.6.3",
+      "control": "2.6.3",
+      "governance": "2.3.2",
+      "starter": "2.6.3",
+      "handoff_schema": "2.3.0"
+    },
+    "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+    "route_map_discovery_input": {
+      "filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "version": "1.2.2",
+      "class": "FOUNDATION_ADJACENT_BOOTSTRAP_ROUTE_CATALOG",
+      "sha256": "a1127fbcea7b7d8403cd1a3cfbb9cde8bbc9726f777ee5ce04ab214159d8a423",
+      "size_bytes": 42930,
+      "line_count": 1156
+    },
+    "cognitive_scope_authority_ref": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+    "target_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008"
+  },
+  "compatible_packages": [
+    {
+      "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+      "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+      "effect": "OPTIONAL_COMPATIBLE_UNBOUND",
+      "manifest_hash_pinned": false,
+      "selection_time_exact_identity_validation_required": true,
+      "candidate_version_interface_reconciled": "2.5.0",
+      "observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+    },
+    {
+      "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+      "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+      "effect": "OPTIONAL_COMPATIBLE_UNBOUND",
+      "manifest_hash_pinned": false,
+      "selection_time_exact_identity_validation_required": true,
+      "candidate_version_interface_reconciled": "2.5.0",
+      "observed_hash_effect": "VALIDATION_EVIDENCE_ONLY_NOT_RUNTIME_PIN"
+    }
+  ],
+  "source_baseline": {
+    "source_manifest": {
+      "filename": "AIR AI GOVERNANCE PACKAGE MANIFEST(2).json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST_V1",
+      "sha256": "77e2a6b7c488f9049542a20dd1f5981cbb8f9cab1b1acd85c76b55cabc1223a7",
+      "size_bytes": 3537,
+      "line_count": 90,
+      "source_immutable": true
+    },
+    "source_validation_report": {
+      "filename": "AIR AI GOVERNANCE VALIDATION REPORT(2).json",
+      "SYSTEM_DESIGNATION": "AIR_AI_GOVERNANCE_PACKAGE_VALIDATION_REPORT_V1",
+      "sha256": "587c19c0e18499db24c4ca6490c98f1568a1439d982187fcd60b4ecbbf07c590",
+      "size_bytes": 2673,
+      "line_count": 104,
+      "source_immutable": true,
+      "current_authority": "SUPERSEDED_AUDIT_SOURCE_ONLY"
+    },
+    "all_source_files": {
+      "AIR AI GOVERNANCE AGENTIC OVERLAY(4).json": {
+        "sha256": "70e80159e3faaac14786d8fd8c9fedf3cad7502a5f7d2f4f49e8f274896df4c2",
+        "size_bytes": 6071,
+        "line_count": 131
+      },
+      "AIR AI GOVERNANCE DOMAIN PACK(3).json": {
+        "sha256": "8ae137e02a7053009a0a64c73814fd718d3cbb923b6cb5581a1ac8741dd80bcf",
+        "size_bytes": 22150,
+        "line_count": 434
+      },
+      "AIR AI GOVERNANCE EXECUTOR(3).json": {
+        "sha256": "b0b7a4d3c5feb5f9792cc3e361520b93b64b8c1287bad49637b6181c3f7cc9fc",
+        "size_bytes": 6462,
+        "line_count": 144
+      },
+      "AIR AI GOVERNANCE METHOD PACK(4).json": {
+        "sha256": "521c48b2e1dcc68ecca7b96b5e3f3a318985990d5054417d8496a66ca1be27fb",
+        "size_bytes": 14133,
+        "line_count": 245
+      },
+      "AIR AI GOVERNANCE PACKAGE MANIFEST(2).json": {
+        "sha256": "77e2a6b7c488f9049542a20dd1f5981cbb8f9cab1b1acd85c76b55cabc1223a7",
+        "size_bytes": 3537,
+        "line_count": 90
+      },
+      "AIR AI GOVERNANCE SPECIALIST(4).json": {
+        "sha256": "65db9c15ee08f958382f8e38180a14424e405973cfc9bc6300cd9c4401bc7b59",
+        "size_bytes": 18252,
+        "line_count": 364
+      },
+      "AIR AI GOVERNANCE VALIDATION REPORT(2).json": {
+        "sha256": "587c19c0e18499db24c4ca6490c98f1568a1439d982187fcd60b4ecbbf07c590",
+        "size_bytes": 2673,
+        "line_count": 104
+      }
+    },
+    "source_defects_corrected": [
+      {
+        "defect": "MISSING_MANIFEST_COMPONENT",
+        "detail": "The source manifest referenced ../../mo/gov-fw.json, but no such component was supplied. V2 does not fabricate it and does not include it in the sealed package component count."
+      },
+      {
+        "defect": "UNSUPPORTED_SOURCE_VALIDATION_CLAIM",
+        "detail": "The source manifest recorded framework adapter structural PASS and semantic REVIEWED although the adapter was absent from the supplied package. Those states are not carried forward."
+      },
+      {
+        "defect": "UNRESOLVED_DEPENDENCY_DESIGNATION",
+        "detail": "The source Method referenced AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V1_WHEN_TRIGGERED, which did not match the supplied overlay designation. V2 uses AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2 and a separate trigger state."
+      },
+      {
+        "defect": "CIRCULAR_METHOD_EXECUTOR_DEPENDENCY",
+        "detail": "V2 defines the Method independently and makes the Executor consume it."
+      },
+      {
+        "defect": "SPACE_CONTAINING_AND_NONCANONICAL_FILENAMES",
+        "detail": "V2 uses underscore-safe canonical filenames and exact delivery identities."
+      },
+      {
+        "defect": "UNSUPPORTED_SOURCE_VALIDATION_REPORT_PASS_CLAIMS",
+        "detail": "The source validation report marked dependencies_resolve and manifest_digests_match PASS although the supplied set had a missing framework adapter, an unresolved overlay dependency designation, and a source manifest with no component digests. The v1 report is superseded and not current package evidence."
+      }
+    ]
+  },
+  "external_dependency_state": {
+    "framework_adapter": {
+      "designation": "AIR_GOVERNANCE_FRAMEWORK_ADAPTER_V1",
+      "legacy_file_reference": "../../mo/gov-fw.json",
+      "legacy_repository_path": "profiles/mo/gov-fw.json",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "package_membership": false,
+      "operational_effect": "NONE"
+    },
+    "shared_framework_registry": {
+      "legacy_reference": "runtime/gov/fw.json",
+      "availability_state": "NOT_SUPPLIED_REFERENTIAL_ONLY",
+      "package_membership": false,
+      "operational_effect": "NONE"
+    },
+    "non_fabrication_rule": "Do not fabricate adapter bytes, framework clauses, registry content, mappings, execution, validation or evidence."
+  },
+  "source_access_policy": {
+    "licensed_material_required_for_general_operation": false,
+    "default_without_paid_material": "PUBLIC_SOURCE_ONLY",
+    "clause_level_mapping_without_normative_text": "BLOCKED",
+    "paid_access_is_ai_processing_permission": false,
+    "restricted_source_public_commit": "PROHIBITED",
+    "normative_source_is_compliance_evidence": false,
+    "purchase_pressure": "PROHIBITED",
+    "limitation_tagging_required": true,
+    "current_source_retrieval_required_at_task_time": true
+  },
+  "framework_projection_interface": {
+    "external_adapter_required_to_claim_adapter_execution": true,
+    "base_artifact_immutable": true,
+    "projection_reversible": true,
+    "provenance_per_adjustment": true,
+    "modes": [
+      "APPLICABILITY",
+      "TARGET_ALIGNMENT",
+      "AUDIT_PREPARATION",
+      "CROSSWALK"
+    ],
+    "certification_claim_without_evidence": "BLOCKED",
+    "conformity_claim_without_evidence": "BLOCKED"
+  },
+  "required_input_behavior": {
+    "floor_invariant": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+    "complete_package_files": [
+      "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "AIR_AI_GOVERNANCE_EXECUTOR.json",
+      "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_MANIFEST.json"
+    ],
+    "component_only_rule": "Request one component only when independently sufficient and its dependencies are validated available.",
+    "complete_package_rule": "Request all six files for coupled operation, restoration, compatibility review or manifest validation."
+  },
+  "test_evidence_contract": {
+    "floor_reference": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+    "default_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "canonical_commands": {
+      "expanded_presentation": "air -t on",
+      "standard_presentation": "air -t off"
+    },
+    "presentation_only_rule": "The -t modifier controls evidence presentation and packaging only. It does not reduce source acquisition, evidence preservation, governance analysis, cognitive work, testing obligations, audit evidence requirements, benchmark rigor, review gates, acceptance criteria or closure requirements.",
+    "standard_presentation_rule": "Show decision, evidence classes, material failures/gaps, regulatory evidence requirement state, limitations and sufficient evidence references without omitting evidence needed to justify the governance conclusion.",
+    "expanded_presentation_rule": "Surface available reviewable test/evaluation/audit artifacts and references when those artifacts exist and may be disclosed.",
+    "evidence_classes": [
+      "REPRODUCIBLE_EXECUTABLE",
+      "REPLAYABLE_EVALUATION",
+      "MANUAL_REVIEW_REQUIRED"
+    ],
+    "retroactivity_rule": "Presentation mode may reveal already preserved evidence but must not fabricate missing historical evidence. A new authorized run or source acquisition is required when evidence itself is missing for an applicable acceptance, regulatory, audit or reproducibility obligation.",
+    "regulatory_rule": "Required regulatory/test/audit evidence must exist regardless of presentation mode; missing qualifying evidence remains REVIEW or EVIDENCE_REQUIRED.",
+    "rights_and_reasoning_boundary": "Do not expose hidden reasoning, private chain of thought, secrets, credentials, restricted source text or unavailable backend logs.",
+    "contract_kind": "EVIDENCE_PRESENTATION_AND_PRESERVATION_SEPARATION"
+  },
+  "authority_boundary": {
+    "package_is_non_agent": true,
+    "independent_execution_authority": false,
+    "active_execution_binding_authority": false,
+    "orbit_0_occupancy_as_package": false,
+    "attachment_effect": "AVAILABILITY_ONLY",
+    "operative_use_rule": "Validate, select for task fit, obtain required approval, and compile applicable requirements into or explicitly reference them from the sole bound Orbit 0 AIR_ARTIFACT."
+  },
+  "claim_boundary": {
+    "backend_validation_claimed": false,
+    "hidden_reasoning_claimed": false,
+    "runtime_enforcement_claimed": false,
+    "legal_compliance_claimed": false,
+    "regulatory_conformity_claimed": false,
+    "certification_claimed": false,
+    "professional_authority_claimed": false,
+    "organizational_risk_acceptance_claimed": false,
+    "deployment_approval_claimed": false,
+    "current_external_sources_verified_during_remediation": false,
+    "future_task_correctness_claimed": false
+  },
+  "validation_state": {
+    "strict_json": "PASS",
+    "duplicate_keys": "PASS",
+    "component_identity": "PASS",
+    "dependency_hashes": "PASS_COORDINATED_RESEAL_EXACT_INTERNAL_COMPONENT_DEPENDENCY_CLOSURE",
+    "source_preservation": "PASS_SOURCE_UPLOADS_PRESERVED_COORDINATED_RESEAL_COMPONENT_BYTES",
+    "missing_adapter_boundary": "PASS_PRESERVED_NOT_SUPPLIED_REFERENTIAL_ONLY",
+    "source_validation_report_superseded": true,
+    "evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "evidence_preservation_independent_of_presentation": true,
+    "backend_validation_claimed": false,
+    "cross_file_regression": "OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_ALL_REQUIRED_COMPONENTS_VALIDATED",
+    "source_validation_report_current_authority": "SUPERSEDED_AUDIT_SOURCE_ONLY",
+    "prior_behavioral_evidence_inheritance": "NOT_VALIDATION_OF_CHANGED_2_4_0_T10_BYTES",
+    "specialist_internal_dependency_closure": "PASS",
+    "operative_lifecycle_coherence": "PASS_EXECUTOR_VALIDATED_INTEGRAL_PACKAGE_COMPONENT",
+    "behavioral_revalidation": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+    "executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT"
+  },
+  "release_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_AND_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND_NOT_SELECTED_NOT_BOUND_NOT_RELEASE_APPROVED",
+  "integration_refresh": {
+    "refresh_version": "2.5.0",
+    "foundation_identity_state": "OPERATIVE_COMPATIBILITY_AUTHORITY_EXACT_HASH_SET_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+    "package_identity": "AIR_AI_GOVERNANCE_SPECIALIST_PACKAGE_V2",
+    "optional_cross_package_compatibility": [
+      {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "manifest_filename": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true,
+        "candidate_version_interface_reconciled": "2.5.0"
+      },
+      {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "manifest_filename": "AIR_GROUNDING_SPECIALIST_PACKAGE_MANIFEST.json",
+        "relationship": "OPTIONAL_COMPATIBLE_UNBOUND",
+        "manifest_hash_pinned": false,
+        "selection_time_exact_identity_validation_required": true,
+        "candidate_version_interface_reconciled": "2.5.0"
+      }
+    ],
+    "optional_hash_policy": "Do not pin optional peer-package manifest hashes inside mutually compatible package bytes. Validate exact manifest identity, hash, version, dependencies and task fit at selection time to avoid cyclic hash invalidation.",
+    "authority_effect": "NONE_UNTIL_SELECTED_VALIDATED_APPROVED_WHEN_REQUIRED_AND_COMPILED_INTO_BOUND_ORBIT_0_AIR_ARTIFACT",
+    "mainline_release_binding": {
+      "release_identity": "AIR_AI_GOVERNANCE_MII_INTEGRATION_CANDIDATE_V2_5_0",
+      "integration_version": "2.4.0",
+      "foundation_candidate_set_identity": "AIR_FOUNDATION_2_6_0_OBJECT_CONTRACT_SET_005",
+      "foundation_versions": {
+        "core": "2.5.0",
+        "control": "2.5.0",
+        "governance": "2.3.0",
+        "starter": "2.5.0",
+        "handoff_schema": "2.3.0"
+      },
+      "runtime_route_map_version": "1.1.0",
+      "capability_ecology_candidate_version_reconciled": "2.5.0",
+      "grounding_candidate_version_reconciled": "2.5.0",
+      "sfv_candidate_version_cross_checked": "2.4.0",
+      "historical_release_metadata_effect": "EXTERNAL_AUDIT_ONLY_NON_OPERATIVE",
+      "functional_component_change": true,
+      "validation_state": "OBJECT_CONTRACT_SET_005_RESEAL_STATIC_VALIDATED_FRESH_PROMPT_RUNTIME_BEHAVIORAL_REVALIDATION_PENDING"
+    }
+  },
+  "task_boundary_and_router_compatibility": {
+    "core_new_task_boundary_authority": "AIR_NEW_TASK_BINDING_BARRIER_V1",
+    "new_task_boundary_requires_revalidation": true,
+    "new_task_state_transfer_rule": "After Core NEW_TASK_BOUNDARY, Orbit 0 task-identity replacement, or binding of a different task AIR_ARTIFACT, prior task-operative Governance selection, source-access state, jurisdiction/role/classification state, Method state, Specialist judgment state, Agentic Overlay trigger and delegated-authority state, benchmark contribution, authorization, and execution evidence are historical or candidate input only until applicability is revalidated under the newly bound task artifact.",
+    "specialist_resolution_router_owner": "RT.CAPABILITY_RESOLVE",
+    "specialist_matching_relationship": "AI Governance activation criteria provide matching evidence to Core; package discovery/acquisition remains Core-owned and this package does not create a parallel specialist router.",
+    "agentic_overlay_activation_owner": "AI_GOVERNANCE_PACKAGE_INTERNAL_CONDITIONAL_TRIGGER",
+    "agentic_overlay_rule": "Once the AI Governance package is selected and available, AIR_AI_GOVERNANCE_AGENTIC_OVERLAY_V2 trigger evaluation remains package-internal and must be re-evaluated for each new task when delegated action, tool use, multi-step external execution, or external-state effect may be present.",
+    "core_runtime_owner": "AIR_CORE_RUNTIME_V2"
+  },
+  "PROMPT_VERSION": "2.1.0",
+  "foundation_routing_compatibility": {
+    "core_route_ownership": {
+      "owner": "AIR_CORE_RUNTIME_V2",
+      "routes": {
+        "alignment_evaluation": "RT.ALIGN",
+        "input_translation": "RT.INPUT_TRANSLATE",
+        "cognitive_resolution": "RT.COGNITIVE_RESOLVE",
+        "morphology_binding": "RT.MORPHOLOGY_BIND",
+        "uncertainty_resolution": "RT.UNCERTAINTY_RESOLVE",
+        "capability_resolution": "RT.CAPABILITY_RESOLVE",
+        "action": "RT.ACTION",
+        "receipt": "RT.RECEIPT",
+        "delivery": "RT.DELIVER",
+        "closure": "RT.CLOSE"
+      },
+      "ai_governance_effect": "AI Governance supplies candidate governance interpretations, cognitive contributions, risk/control/evidence requirements, human-authority gates and required-input proposals. It does not create parallel Core routes or positive execution authority."
+    },
+    "alignment_evaluation_dependency": {
+      "floor_reference": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+      "relationship": "Any formal AIR object that incorporates AI Governance output must satisfy the current Core evaluation-basis constructor dependency. Governance candidate records are not a bypass.",
+      "independent_formal_object_authority": "NONE"
+    },
+    "semantic_fidelity": {
+      "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+      "relationship": "GOVERNANCE_INTERPRETS_AND_CONSTRAINS_WITHOUT_SILENTLY_REPLACING_RESOLVED_INTENT",
+      "rescope_rule": "When governance findings materially change admissible scope, intended purpose, acceptance criteria or execution path, surface the conflict and route through Core review/rescope rather than silently replacing canonical intent."
+    },
+    "epistemic_sufficiency": {
+      "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+      "route_owner": "RT.UNCERTAINTY_RESOLVE",
+      "relationship": "AI_GOVERNANCE_IDENTIFIES_MISSING_BASIS_AND_PROPOSES_SMALLEST_SUFFICIENT_INPUT",
+      "required_input_object": "AIR_REQUIRED_INPUT_REQUEST",
+      "required_input_record_class": "REQUIRED_INPUT_REQUEST_RECORD"
+    },
+    "mii_contribution_authority": {
+      "floor_reference": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+      "relationship": "CANDIDATE_CONTRIBUTION_ONLY",
+      "operative_rule": "AI Governance package outputs have no independent execution, selection, approval, binding, delivery or closure authority. They become operative only after validation and compilation into or explicit reference by the sole bound Orbit 0 AIR_ARTIFACT.execution_benchmark_profile."
+    },
+    "action_governance_boundary": {
+      "core_route_owner": "RT.ACTION",
+      "gate_owner": "AIR_GATE",
+      "rule": "AI Governance may define candidate permission, policy, human-approval, containment, rollback, monitoring and accountability requirements. It cannot issue material-action permission. Core RT.ACTION and AIR_GATE remain authoritative, followed by AIR_ACTION_AUTHORIZATION, exactly one authorized effect, post-effect alignment/reconciliation and RT.RECEIPT."
+    },
+    "runtime_route_map": {
+      "designation": "AIR_RUNTIME_ROUTE_MAP_V1",
+      "canonical_filename": "AIR_RUNTIME_ROUTE_MAP.json",
+      "version": "1.2.2",
+      "sha256": "a1127fbcea7b7d8403cd1a3cfbb9cde8bbc9726f777ee5ce04ab214159d8a423",
+      "relationship": "OPTIONAL_DISCOVERY_AND_SALIENCE_INPUT",
+      "semantic_authority": "NONE",
+      "execution_authority": "NONE",
+      "binding_authority": "NONE",
+      "absence_effect": "NO_AI_GOVERNANCE_SEMANTIC_FAILURE; CORE_REMAINS_AUTHORITATIVE",
+      "size_bytes": 42930,
+      "line_count": 1156
+    },
+    "peer_validation_context": {
+      "capability_ecology": {
+        "package_identity": "AIR_CAPABILITY_ECOLOGY_ARCHITECT_PACKAGE_V2",
+        "candidate_version_tested": "2.4.0",
+        "manifest_sha256_observed_for_t10_interface_reconciliation": "0ae08e67d40e716be811d962747b79211ccb901f107efdb3d149c528b300cf16",
+        "runtime_hash_pin": false
+      },
+      "grounding": {
+        "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+        "candidate_version_tested": "2.4.0",
+        "manifest_sha256_observed_for_t10_interface_reconciliation": "a979b97fd9da92e4703a7a2ece5f2f93d2e36cd77ef48ac8f0adef9e899eef80",
+        "runtime_hash_pin": false
+      },
+      "sfv": {
+        "package_identity": "AIR_SPECIFICATION_FIRST_VERIFICATION_SPECIALIST_PACKAGE_V2",
+        "candidate_version_tested": "2.4.0",
+        "manifest_sha256_observed_for_t10_interface_reconciliation": "222bb26f01d27a2e0f7201d5ab221e871ebcbc7119a5aaa23aaf487cf8eb862f",
+        "runtime_hash_pin": false,
+        "relationship": "VALIDATION_CONTEXT_ONLY_NOT_DECLARED_RUNTIME_PACKAGE_DEPENDENCY"
+      }
+    }
+  },
+  "mii_ai_governance_contribution_contract": {
+    "architecture": "AIR_MII_COGNITIVE_ARCHITECTURE_V1",
+    "core_route_owner": "RT.COGNITIVE_RESOLVE",
+    "ai_governance_role": "CANDIDATE_AI_GOVERNANCE_COGNITIVE_CONTRIBUTOR",
+    "primary_candidate_routes": [
+      "COG.MULTI_LENS",
+      "COG.RISK_PROPAGATION",
+      "COG.DECISION_TRADEOFF",
+      "COG.EVIDENCE_TRIANGULATION",
+      "COG.TEMPORAL_SYSTEM_DYNAMICS"
+    ],
+    "conditional_candidate_routes": [
+      "COG.ADVERSARIAL_DISCONFIRMATION",
+      "COG.CAUSAL_COUNTERFACTUAL",
+      "COG.UNCERTAINTY_FUSION",
+      "COG.INFORMATION_GAIN",
+      "COG.KNOWLEDGE_TO_EXECUTION"
+    ],
+    "multi_lens_candidate_dimensions": [
+      "technical",
+      "legal_and_regulatory",
+      "organizational",
+      "human_impact",
+      "privacy_and_data",
+      "security_and_misuse",
+      "assurance_and_evidence",
+      "third_party_and_supply_chain",
+      "operations_and_monitoring",
+      "authority_and_accountability"
+    ],
+    "multi_lens_rule": "Select only task-relevant lenses. Analyze material lenses independently enough to preserve disagreements before fusion; do not force a fixed human-framework lens set.",
+    "contribution_envelope": {
+      "record_kind": "ARTIFACT_CONTAINED_COGNITIVE_CONTRIBUTION_NOT_FORMAL_AIR_OBJECT",
+      "fields": [
+        "contribution_id",
+        "input_refs",
+        "intent_context_ref",
+        "cognitive_route_ids",
+        "route_objective",
+        "required_cognitive_depth",
+        "morphology_binding",
+        "supported_findings",
+        "interpretations",
+        "alternatives",
+        "risks",
+        "exceptions",
+        "uncertainties",
+        "evidence_refs",
+        "source_limitations",
+        "conflicts_with",
+        "proposed_benchmark_effect",
+        "validation_state"
+      ],
+      "governance_specific_fields": [
+        "jurisdiction_and_role_state",
+        "applicability_candidates",
+        "control_requirements",
+        "human_authority_gates",
+        "regulatory_evidence_requirements",
+        "agentic_action_constraints",
+        "monitoring_and_change_requirements",
+        "claim_boundaries"
+      ],
+      "validation_states": [
+        "ACCEPT",
+        "HOLD",
+        "REJECT"
+      ]
+    },
+    "fusion_boundary": "AI Governance may expose support/conflict edges and unresolved governance conflicts, but Core MII owns contribution fusion and the AIR_ARTIFACT benchmark owns operative consumption.",
+    "authority_boundary": "No governance cognitive contribution, risk classification, control map, legal/regulatory interpretation candidate, agentic-action constraint or readiness recommendation independently authorizes execution, action, delivery, closure, approval, binding or Orbit 0 occupancy.",
+    "morphology_field_projection": {
+      "canonical_field": "morphology_binding",
+      "package_recommendation_source": "morphology_contribution_contract",
+      "unbound_representation": "RECOMMENDATION_PENDING_CORE_RT_MORPHOLOGY_BIND",
+      "binding_authority": "CORE_RT.MORPHOLOGY_BIND_ONLY",
+      "package_recommendation_does_not_bind": true
+    }
+  },
+  "semantic_fidelity_contract": {
+    "floor_reference": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+    "protected_states": [
+      "RAW_INPUT",
+      "CANONICAL_INTENT",
+      "ACTIVE_CONTEXT",
+      "OUTPUT_INTERPRETATION"
+    ],
+    "governance_rule": "Governance evaluates the task against applicable constraints, roles, sources, human authority and risk without silently changing what the user asked for. If an intended path is inadmissible, unsupported or requires a different scope, preserve the original intent and surface the constraint, alternative or rescope requirement explicitly.",
+    "intended_purpose_rule": "Regulatory intended-purpose analysis may refine or challenge the system/use-case description only from evidence and explicit context; it must not silently substitute a materially different use case.",
+    "output_rule": "Receiver-facing governance conclusions must reconcile to canonical intent, active context, current source state, declared authority limits and current acceptance criteria before delivery/closure.",
+    "raw_input_boundary": "A governance interpretation, role classification, framework projection or translated requirement never supersedes raw user input as evidence of what the user actually said."
+  },
+  "epistemic_sufficiency_contract": {
+    "floor_reference": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+    "route_owner": "RT.UNCERTAINTY_RESOLVE",
+    "invariant": "Uncertainty creates an information-acquisition obligation, not an inference license.",
+    "governance_behavior": "When material jurisdiction, sector, intended purpose, system boundary, organization role, source authority, framework text, evidence, human decision authority, environment state or delegated permission is unresolved, identify the exact missing basis and propose the smallest sufficient clarification, source, evidence, approval or operator action.",
+    "request_object": {
+      "name": "AIR_REQUIRED_INPUT_REQUEST",
+      "record_class": "REQUIRED_INPUT_REQUEST_RECORD"
+    },
+    "self_service_rule": "Do not ask the user for information AIR can reliably obtain from already available evidence or authorized tools.",
+    "non_material_rule": "A reversible non-material assumption may be used only when alternative interpretations cannot materially change correctness, scope, authority, evidence obligations, safety, regulatory applicability or acceptance criteria; label it explicitly."
+  },
+  "risk_propagation_contract": {
+    "cognitive_route": "COG.RISK_PROPAGATION",
+    "purpose": "Represent governance and delegated-action blast radius as a propagation graph instead of a flat checklist when downstream effects are material.",
+    "graph_path": [
+      "originating_action_or_decision",
+      "direct_effect",
+      "affected_asset_or_dependency",
+      "secondary_effect",
+      "cascade_or_containment"
+    ],
+    "node_factors": [
+      "impact",
+      "affected_scope",
+      "exposure",
+      "reversibility",
+      "detectability",
+      "propagation_depth",
+      "dependency_criticality",
+      "control_strength",
+      "evidence_quality",
+      "residual_risk"
+    ],
+    "likelihood_rule": "Use likelihood only with an evidence basis. Otherwise set likelihood to UNKNOWN; never invent probabilities.",
+    "governance_extensions": [
+      "affected_people",
+      "organizational_role",
+      "jurisdiction",
+      "legal_or_policy_constraint",
+      "third_party_dependency",
+      "human_authority_gate",
+      "monitoring_trigger",
+      "incident_or_rollback_path"
+    ],
+    "authority_boundary": "Risk propagation is decision input only. Residual-risk acceptance, legal applicability, deployment approval and material-action permission remain outside package authority."
+  },
+  "morphology_contribution_contract": {
+    "core_route_owner": "RT.MORPHOLOGY_BIND",
+    "ai_governance_authority": "RECOMMENDATION_ONLY",
+    "typical_recommendations": {
+      "COG.MULTI_LENS": {
+        "geometry": "POLYTOPE_CORE_OR_FLUX_ADAPTIVE",
+        "lambda": "MODERATE_TO_HIGH"
+      },
+      "COG.RISK_PROPAGATION": {
+        "geometry": "GRID_LATTICE_OR_POLYTOPE_CORE",
+        "lambda": "HIGH"
+      },
+      "COG.DECISION_TRADEOFF": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "MODERATE_TO_HIGH"
+      },
+      "COG.EVIDENCE_TRIANGULATION": {
+        "geometry": "GRID_LATTICE",
+        "lambda": "HIGH"
+      },
+      "COG.TEMPORAL_SYSTEM_DYNAMICS": {
+        "geometry": "FLUX_ADAPTIVE",
+        "lambda": "MODERATE"
+      },
+      "COG.ADVERSARIAL_DISCONFIRMATION": {
+        "geometry": "POLYTOPE_CORE",
+        "lambda": "HIGH"
+      }
+    },
+    "observable_effect_requirement": "Every morphology recommendation must state the governance/cognitive objective and observable effect on decomposition, constraints, branch pruning, evidence review or temporal analysis. Labels without observable effect are UNBOUND_DECORATIVE.",
+    "claim_boundary": "AI Governance may not claim direct latent-space control, measured internal model effect, or BACKEND_BOUND morphology without evidence."
+  },
+  "air_2_5_0_mii_patch_state": {
+    "patch_id": "AIR_T10_AI_GOVERNANCE_MII_RECONCILIATION_001",
+    "package_version": "2.5.0",
+    "manifest_prompt_version": "2.1.0",
+    "applied_at": "2026-08-28T21:20:00+02:00",
+    "semantic_diff_class": "MINOR_PACKAGE_EXPANSION_NO_AUTHORITY_EXPANSION",
+    "source_package_version": "2.3.8",
+    "runtime_authority_change": "NONE",
+    "validation_state": "SUPERSEDED_BY_T12D_FOUNDATION_RESEAL_STATIC_VALIDATION"
+  },
+  "package_integrity_contract": {
+    "canonical_filenames_only": true,
+    "exact_hash_size_line_designation_validation_required": true,
+    "manifest_generated_last": true,
+    "active_directory_contains_only_authoritative_package_files": true,
+    "source_files_immutable": true
+  },
+  "package_validation_state": {
+    "decision": "EXECUTOR_INCLUSIVE_RELEASE_VALIDATED_AVAILABLE_UNBOUND",
+    "component_count": 5,
+    "manifest_count": 1,
+    "package_state": "PACKAGE_COMPLETE_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND",
+    "test_evidence_presentation_mode": "STANDARD_EVIDENCE_PRESENTATION",
+    "validation_record": "AIR-VAL-AIR250-COORDINATED-RESEAL-20260902-001",
+    "cross_file": "PASS_AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008_AND_EXACT_SPECIALIST_INTERNAL_DEPENDENCY_CLOSURE",
+    "regression": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+    "prior_behavioral_evidence_inheritance": "SUPERSEDED_BY_CURRENT_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "t12c_specialist_closure_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
+    "t12d_foundation_reseal_validation": "SUPERSEDED_BY_COORDINATED_RESEAL_STATIC_VALIDATION",
+    "coordinated_reseal_static_validation": "PASS_R7_DETERMINISTIC_STATIC_SUITE",
+    "behavioral_revalidation": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+    "component_internal_foundation_compatibility": "PASS_SET_008_EXACT_RECEIPTS",
+    "executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "executor_validation_patch_record": "M3C_R2_EXECUTOR_LIFECYCLE_RECONCILIATION_2026-09-20",
+    "executor_validation_basis": "NEW_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_AND_MUTATION_VALIDATION_WITH_HISTORICAL_MODEL_HOST_EVIDENCE_PRESERVED",
+    "executor_integral_package_component": true
+  },
+  "generated_at": "2026-09-20T20:19:00Z",
+  "failure_mode_integration_contract": {
+    "required": true,
+    "core_contract": "AIR_FAILURE_MODE_REGISTRY_V1",
+    "floor_invariant": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+    "registry_owner": "AIR_CORE_RUNTIME_V2",
+    "package_scope": "ALL_PACKAGE_COMPONENTS",
+    "component_roles_observed": [
+      "DOMAIN_PACKAGE",
+      "CONDITIONAL_AGENTIC_OVERLAY",
+      "SPECIALIST_PROFILE",
+      "METHOD_PACK",
+      "EXECUTOR_CONTRACT"
+    ],
+    "pre_execution_query_required": true,
+    "automatic_applicability": "EXACT_MATCH_ONLY",
+    "compatible_match_effect": "REVIEW_OR_COGNITIVE_INPUT_ONLY_UNTIL_ARTIFACT_COMPILATION",
+    "corrective_constraint_effect": "ONLY_AFTER_COMPILED_INTO_OR_REFERENCED_BY_CURRENT_ORBIT_0_AIR_ARTIFACT",
+    "component_failure_observation_route": "PROPOSE_TO_CORE_FOR_VALIDATION",
+    "package_or_component_registry_mutation_authority": "NONE",
+    "private_conflicting_failure_registry": "PROHIBITED",
+    "handoff_persistence_path": "AIR_HANDOFF_CARD.failure_mode_state",
+    "exact_match_rule": "CURRENT_CANONICAL_APPLICABILITY_SIGNATURE_HASH_EQUALS_RECORDED_HASH",
+    "failure_record_source": "CORE_LEDGER_BACKED_AIR_FAILURE_MODE_RECORD_ONLY",
+    "semantic_similarity_activation": "PROHIBITED"
+  },
+  "behavioral_validation_scope": {
+    "validated_components": [
+      "AIR_AI_GOVERNANCE_DOMAIN_PACKAGE.json",
+      "AIR_AI_GOVERNANCE_AGENTIC_OVERLAY.json",
+      "AIR_AI_GOVERNANCE_SPECIALIST.json",
+      "AIR_AI_GOVERNANCE_METHOD_PACK.json",
+      "AIR_AI_GOVERNANCE_EXECUTOR.json"
+    ],
+    "validation_composition": "PRESERVED_HISTORICAL_MODEL_HOST_BEHAVIORAL_EVIDENCE_PLUS_NEW_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+    "package_catalog_semantics": "RELEASE_CATALOG_ENTRY_ALL_REQUIRED_COMPONENTS_VALIDATED_AVAILABLE_UNBOUND_EXECUTOR_INTEGRAL",
+    "current_executor_validation_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "current_release_validation_includes_executor": true,
+    "historical_model_host_executor_included": false,
+    "historical_behavioral_pass_scope_preserved": true
+  },
+  "behavioral_evidence_receipt": {
+    "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_SET008_20260920_V1",
+    "filename": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_VALIDATION.json",
+    "sha256": "dba7b1862954a9545f3d9c50572a0e7ce6879ce17b074ceec833e3a365606458",
+    "size_bytes": 7700,
+    "line_count": 196,
+    "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+    "executor_included_in_current_release_validation": true,
+    "historical_model_host_executor_included": false,
+    "result": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION",
+    "cross_host_equivalence_claimed": false
+  },
+  "historical_behavioral_evidence_receipt": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_AI_GOVERNANCE_SET008_20260917_V2",
+    "filename": "tests/AIR_AI_GOVERNANCE_SET008_BEHAVIORAL_EVIDENCE_V2.json",
+    "sha256": "75e8a18cb45418b5421871580b91c4ef7e4b6aa273f89f892a9d615178ce726b",
+    "size_bytes": 4231,
+    "line_count": 82,
+    "evidence_class": "REPLAYABLE_MODEL_HOST_BEHAVIORAL_REVALIDATION",
+    "model_host": "ChatGPT / GPT-5.6 Sol",
+    "scenario_count": 6,
+    "pass_count": 6,
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "cross_host_equivalence_claimed": false,
+    "executor_included_in_behavioral_pass": false,
+    "source_baseline_commit": "f456fc579bed739aebcfaa55c175c2c14617d58d",
+    "candidate_foundation_runtime_fingerprint": "060bb6b415affa57d93b9672c62f54b823f23d026a82ab60032c861591439d07"
+  },
+  "executor_lifecycle_reconciliation": {
+    "scope_id": "M3C_R2_EXECUTOR_LIFECYCLE_METADATA_AND_EVIDENCE_RECONCILIATION_V1",
+    "executor_filename": "AIR_AI_GOVERNANCE_EXECUTOR.json",
+    "lifecycle_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "integral_package_component": true,
+    "new_executor_inclusive_evidence_ref": "evidence/AIR_M3C_R2_EXECUTOR_INCLUSIVE_AI_GOVERNANCE_VALIDATION.json",
+    "historical_model_host_evidence_preserved": true,
+    "non_agent_boundary_preserved": true,
+    "independent_positive_execution_authority": false,
+    "mutation_coverage_ref": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json"
+  }
+}

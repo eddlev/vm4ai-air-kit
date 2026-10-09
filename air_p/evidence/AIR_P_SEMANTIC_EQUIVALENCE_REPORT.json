@@ -1,0 +1,39 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_SEMANTIC_EQUIVALENCE_REPORT_V1",
+  "authority_gain": "NONE",
+  "component_overlay_semantic_authority": "NONE",
+  "components": {
+    "compiled_count": 113,
+    "semantic_additions": 0,
+    "semantic_source_count": 113,
+    "unique": true
+  },
+  "core_source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+  "decision": "PASS",
+  "deterministic_checks": {
+    "compiled": 137,
+    "executed": 137,
+    "starter_declared": 137
+  },
+  "formal_objects": {
+    "closed_world": true,
+    "compiled": 21,
+    "core_declared": 21
+  },
+  "handoff_unsurfaced_history_reconstruction": "PROHIBITED",
+  "law_router_semantic_authority": "NONE",
+  "law_source_package_mode": "ACTIVE_PACKAGE_ENABLED_V2_SEMANTIC_OWNER",
+  "route_control_event_bijection": "22/22 PASS",
+  "routes": {
+    "compiled_count": 22,
+    "semantic_additions": 0,
+    "source_count": 22
+  },
+  "runtime_navigation": {
+    "runtime_reference_index": "DERIVED_NONAUTHORITATIVE_DIRECT_DEPTH_1",
+    "semantic_additions": 0,
+    "turn_governance_kernel": "DERIVED_NONAUTHORITATIVE"
+  },
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "semantic_proposal_positive_control_authority": "NONE"
+}

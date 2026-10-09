@@ -1,0 +1,18 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_CANONICAL_MACHINE_STATE_CONTRACT_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_MACHINE_CONTRACT",
+  "authority_gain_from_representation": "PROHIBITED",
+  "cognitive_to_control": "PROHIBITED_WITHOUT_EXPLICIT_VALIDATED_INGESTION",
+  "control_event_registry_ref": "AIR_P_CONTROL_EVENT_REGISTRY.json",
+  "formal_object_registry_ref": "AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json",
+  "route_registry_ref": "AIR_P_ROUTE_CONTRACT_REGISTRY.json",
+  "runtime_reference_index_ref": "AIR_P_RUNTIME_REFERENCE_INDEX.json",
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "semantic_owner": "AIR_CORE_RUNTIME_V2",
+  "source_provenance": "HASH_PINNED",
+  "stale_source": "FAIL_CLOSED",
+  "state_mutation": "ONLY_THROUGH_COMPILED_ROUTE_OR_VALIDATED_TRANSACTION_CONTRACT",
+  "turn_governance_kernel_ref": "AIR_P_TURN_GOVERNANCE_KERNEL.json",
+  "unknown_operator": "FAIL_CLOSED",
+  "unknown_reference": "FAIL_CLOSED"
+}

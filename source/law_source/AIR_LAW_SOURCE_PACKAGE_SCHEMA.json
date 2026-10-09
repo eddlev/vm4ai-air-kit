@@ -1,0 +1,56 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_LAW_SOURCE_PACKAGE_SCHEMA_V1",
+  "canonicalization_profile": {
+    "json": "UTF8_NO_BOM_SORTED_KEYS_INDENT_2_TRAILING_LF",
+    "text_bodies": "UTF8_NO_BOM_LF_EXACT_BYTES"
+  },
+  "contract_version": "1.0.0",
+  "counts": {
+    "floor_body_count": 28,
+    "law_identity_count": 83,
+    "physical_law_body_count": 82,
+    "source_family_file_count": 114
+  },
+  "index_contracts": {
+    "floor_index": "AIR_FLOOR_INVARIANT_INDEX_V1",
+    "law_body_index": "AIR_LAW_BODY_INDEX_V1",
+    "law_id_registry": "AIR_LAW_ID_REGISTRY_V1"
+  },
+  "package_contract": "AIR_LAW_SOURCE_PACKAGE_V1",
+  "package_id": "AIR_LAW_SOURCE_PACKAGE_V1",
+  "package_version": "1.0.0-AMRS4A2-R2-CANDIDATE",
+  "path_contract": {
+    "floor_body_glob": "law_source/floors/<CANONICAL_FLOOR_ID>.md",
+    "law_body_glob": "law_source/laws/<BODY_ID>.md",
+    "path_traversal_prohibited": true,
+    "portable_relative_paths_only": true
+  },
+  "positive_execution_authority": "NONE",
+  "provider_identity_semantic_authority": "NONE",
+  "required_root_resources": [
+    "law_source/AIR_LAW_ID_REGISTRY.json",
+    "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+    "law_source/AIR_LAW_BODY_INDEX.json",
+    "law_source/AIR_LAW_SOURCE_PACKAGE_SCHEMA.json"
+  ],
+  "retrieval_classes": {
+    "AIR_FLOOR_INVARIANT_INDEX": "TIER1_COMPACT_NAVIGATION",
+    "AIR_LAW_BODY_INDEX": "TIER1_COMPACT_NAVIGATION",
+    "AIR_LAW_ID_REGISTRY": "TIER1_COMPACT_NAVIGATION",
+    "AIR_LAW_SOURCE_PACKAGE_SCHEMA": "TIER1_COMPACT_IDENTITY",
+    "FLOOR_BODY": "TIER2_EXACT_TARGETED_BODY",
+    "LAW_BODY": "TIER2_EXACT_TARGETED_BODY"
+  },
+  "semantic_owner": "AIR_CORE_RUNTIME_V2_BOOTSTRAP_TRUST_KERNEL",
+  "validation_rules": [
+    "EXACTLY_114_SOURCE_FAMILY_FILES",
+    "EXACTLY_83_STABLE_LAW_IDENTITIES",
+    "EXACTLY_82_PHYSICAL_LAW_BODIES",
+    "EXACTLY_28_FLOOR_BODIES",
+    "EVERY_INDEXED_BODY_PATH_HASH_AND_SIZE_MATCH_EXACT_BYTES",
+    "NO_DUPLICATE_OR_UNINDEXED_LAW_BODY_PATH",
+    "SHARED_BODY_MAPPING_ONLY_WHEN_DECLARED_BY_AIR_LAW_BODY_INDEX_V1",
+    "PROVIDER_IDENTITY_NEVER_CHANGES_SEMANTIC_PACKAGE_IDENTITY",
+    "UNKNOWN_MISSING_OR_MISMATCHED_RESOURCE_FAILS_CLOSED"
+  ]
+}

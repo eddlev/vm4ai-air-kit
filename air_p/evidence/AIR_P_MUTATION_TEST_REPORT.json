@@ -1,0 +1,81 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_MUTATION_TEST_REPORT_V1",
+  "decision": "PASS",
+  "tests": [
+    {
+      "evidence": "duplicate detected",
+      "mutation": "DUPLICATE_COMPONENT_ID",
+      "state": "PASS"
+    },
+    {
+      "evidence": "broken anchor rejected",
+      "mutation": "COMPONENT_METADATA_ANCHOR_BREAK",
+      "state": "PASS"
+    },
+    {
+      "evidence": "overlay authority escalation rejected",
+      "mutation": "COMPONENT_METADATA_AUTHORITY_ESCALATION",
+      "state": "PASS"
+    },
+    {
+      "evidence": "exact package schema pin preserved",
+      "mutation": "PACKAGE_SCHEMA_PIN_DRIFT",
+      "state": "PASS"
+    },
+    {
+      "evidence": "21-object machine registry exact",
+      "mutation": "FORMAL_OBJECT_MACHINE_REGISTRY_DRIFT",
+      "state": "PASS"
+    },
+    {
+      "evidence": "unknown operator rejected",
+      "mutation": "UNKNOWN_DETERMINISTIC_OPERATOR",
+      "state": "PASS"
+    },
+    {
+      "evidence": "mismatch detected",
+      "mutation": "ROUTE_CONTROL_EVENT_MISMATCH",
+      "state": "PASS"
+    },
+    {
+      "evidence": "hash drift detected",
+      "mutation": "PINNED_SOURCE_DRIFT",
+      "state": "PASS"
+    },
+    {
+      "evidence": "extra field rejected",
+      "mutation": "RUNTIME_BUNDLE_SCHEMA_DRIFT",
+      "state": "PASS"
+    },
+    {
+      "evidence": "authority const violation rejected",
+      "mutation": "COMPILED_AUTHORITY_ESCALATION",
+      "state": "PASS"
+    },
+    {
+      "evidence": "stale direct source anchor rejected",
+      "mutation": "RUNTIME_REFERENCE_INDEX_STALE_SOURCE_ANCHOR",
+      "state": "PASS"
+    },
+    {
+      "evidence": "missing required kernel anchor rejected",
+      "mutation": "TURN_GOVERNANCE_KERNEL_REQUIRED_ANCHOR_REMOVAL",
+      "state": "PASS"
+    },
+    {
+      "evidence": "current tuple is exact rev26 TARGET_CURRENT",
+      "mutation": "RUNTIME_TRANSITION_TUPLE_CROSS_MIX",
+      "state": "PASS"
+    },
+    {
+      "evidence": "authority mutation detected",
+      "mutation": "LAW_SOURCE_PACKAGE_PIN_AUTHORITY_ESCALATION",
+      "state": "PASS"
+    },
+    {
+      "evidence": "manifest content fingerprint drift detected",
+      "mutation": "LAW_SOURCE_PACKAGE_MANIFEST_FILE_HASH_DRIFT",
+      "state": "PASS"
+    }
+  ]
+}

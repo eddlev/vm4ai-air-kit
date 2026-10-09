@@ -8,44 +8,50 @@
 # AIR by VM4AI
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-C9A227?labelColor=1A1613)](LICENSE)
-[![Foundation](https://img.shields.io/badge/foundation-2.6.3-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
-![Channel](https://img.shields.io/badge/channel-release-56B581?labelColor=1A1613)
+[![AIR Kit](https://img.shields.io/badge/AIR%20Kit-0.8.1--candidate-C9A227?labelColor=1A1613)](VERSION)
+[![Core](https://img.shields.io/badge/Core-2.9.0-C9A227?labelColor=1A1613)](prompts/AIR_CORE_RUNTIME.md)
 
 **AI work, carried forward.**
 
-AIR (**AI Resource**) is a prompt-based framework for sustained work with AI.
+AIR (**AI Resource**) is a prompt-based framework for sustained work with AI. It gives a project an explicit working structure: what is active, what evidence matters, what requires approval, and what should carry forward between sessions.
 
-Instead of treating every chat as an isolated conversation, AIR gives the AI an explicit project structure: what you are trying to accomplish, what is active now, what evidence matters, what requires your approval, and what needs to carry forward.
+This branch is the **AIR Kit v0.8.1 source-synchronization candidate**. It aligns the public repository with the R23 AMRS-6 runtime that was promoted in v0.8.0, fixes release/CI drift, reconciles stale current Handoff metadata, and makes the supported boot commands explicit. It is not a published v0.8.1 release until the candidate completes acceptance and release governance.
 
-You talk to AIR normally. AIR handles the structure.
+## Start AIR-P
 
-AIR is not a separate application or service stack. Its baseline runtime needs a compatible AI platform and the AIR Foundation. Additional tools, sources, services or specialist capabilities are determined by the work you ask AIR to do.
+For normal use, load the AIR client/repository files required by your AI platform and send one short first message.
 
-[Get started](https://vm4ai.com/get-started.html) · [How AIR works](https://vm4ai.com/how-it-works.html) · [Documentation](https://vm4ai.com/air-docs.html) · [Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) · [Issues](https://github.com/eddlev/vm4ai-air-kit/issues)
+Default routine boot:
 
-## Why AIR?
+```text
+Start a new AIR-P project.
+```
 
-Long or complex AI work tends to drift.
+Explicit boot profiles:
 
-Goals change inside long conversations. Earlier decisions become difficult to find. Assumptions can quietly turn into facts. A new session may need to reconstruct the project before useful work can continue.
+```text
+Start a new AIR-P project. Tier0 boot.
+Start a new AIR-P project. Tier1 boot.
+Start a new AIR-P project. Tier2 boot.
+Start a new AIR-P project. Tier3 boot.
+```
 
-AIR adds a visible working frame around that process.
+The default command resolves to **Tier0 routine boot**. Tier0 is the normal starting point and should retrieve only the minimum dependency closure needed to establish valid boot state and reach Q1.
 
-It helps AI and humans:
+- **Tier0** — routine boot; minimum sufficient retrieval.
+- **Tier1** — adds compact navigation/index material.
+- **Tier2** — retrieves exact authoritative source for an explicit target. If no target is available, AIR asks for the smallest missing target instead of widening retrieval.
+- **Tier3** — full release-integrity/deep-audit path.
 
-- keep one material task clearly active at a time;
-- preserve project purpose, scope, constraints and decisions;
-- distinguish assumptions, sources and evidence;
-- surface blockers instead of silently working around them;
-- require explicit human approval for material actions when appropriate;
-- carry recorded project state between sessions and compatible AI platforms;
-- add focused Specialist capabilities when a task needs them.
+Selecting the new-project entry path does **not** answer Q1. AIR still surfaces Q1 and waits for an allowed onboarding answer source.
 
-## Current release — AIR Kit v0.8.0
+## Retrieval boundary
 
-AIR Kit v0.8.0 is the promoted **AMRS-6 Production Approved** R23 release. The exact promoted client artifact is `AIR_P_COMPLETE_CLIENT_RELEASE_20261008_R23_BOOT_PROFILE_CANDIDATE_V5.zip` with SHA-256 `c7b11af137d4fb284afba11ef23c41c0d3812f49cffcfd8a7a51aa24e6042d64`.
+Tier0, Tier1 and Tier2 use a closed retrieval plan. Exact section or JSON-subtree boundaries are hard limits for model-visible reads. If a host or retrieval tool returns adjacent context outside the allowed boundary, that context must be discarded before model-visible ingestion; if exact filtering cannot be established, the affected profile/case fails closed rather than silently widening retrieval.
 
-It includes:
+## Current runtime identity
+
+The v0.8.1 candidate retains the promoted R23 runtime identities unless explicitly changed by the candidate source delta:
 
 - AIR Core Runtime **2.9.0**
 - AIR Control Surface **2.7.0**
@@ -54,152 +60,48 @@ It includes:
 - Handoff schema **2.3.0**, template revision **26**
 - Runtime Route Map **1.2.5**
 - Specialist Package Index **1.3.15**
-- four explicit boot profiles: routine Tier0, navigation Tier1, targeted-source Tier2 and deep-audit Tier3
-- package-enabled law-source ownership with Router83
-- the full five-Specialist client distribution
+- **83** stable law identities and **28** floor invariants
+- five Specialist package distributions
 
-Acceptance completed with a deterministic static release PASS, **5/5 fresh-session functional acceptance**, and boot-performance acceptance at **121 seconds** against the **300-second** limit.
-
-AMRS-6 also hardens canonical-state/lifecycle handling, bounded governance transactions, response sufficiency and termination, proportional retrieval, compatibility/migration and release integrity.
-
-See [AMRS-6 patch notes](RELEASE_NOTES_AMRS6_R23.md) and [Contributors](CONTRIBUTORS.md).
-
-### Best practices
-
-**Cognitive scope authority isolation.** AIR v0.7.4 keeps adaptive reasoning inside the current task Artifact's declared cognitive scope. Cognitive findings are candidate contributions, not control state: they cannot directly change task/Artifact identity, deterministic routing, approval, Gate/Authorization/Receipt state, lease/scope pin, Handoff authority, or failure-registry authority. A contribution becomes operative only after the declared validation and ingestion boundary accepts it. This is an authority boundary, not a request for or exposure of private chain of thought.
-
-**Thinking Effort.** AIR does not currently require a specific ChatGPT Thinking Effort setting. For day-to-day AIR use, **High** is a reasonable starting point. **Extra High** may be useful for unusually difficult analysis or architecture work, but there is not currently evidence that Thinking Effort causes or prevents AIR runtime drift. Treat cross-effort observations as empirical host-behavior evidence, not AIR execution authority.
-
-**Known ChatGPT presentation issue.** AIR formal records have occasionally been observed inside ChatGPT's collapsed **`Worked for ...`** section rather than in the main response. Expanding that section reveals the records. This has so far only been observed on ChatGPT; the cause has not been isolated between AIR response-surface behavior and host UI routing. AIR formal records are structured governance records, not hidden reasoning or chain of thought. If expected records appear missing in ChatGPT, check that section and include the behavior in any bug report.
-
-## Start AIR
-
-Load the five required AIR Foundation files from [`prompts/`](prompts/):
-
-```text
-AIR_CORE_RUNTIME.md
-AIR_CONTROL_SURFACE.md
-AIR_GOV.md
-AIR_DEFAULT_STARTER_PROFILE.json
-AIR_HANDOFF_CARD_TEMPLATE.json
-```
-
-For normal use, also load the two recommended bootstrap catalogs from [`catalog/`](catalog/):
-
-```text
-AIR_RUNTIME_ROUTE_MAP.json
-AIR_SPECIALIST_PACKAGE_INDEX.json
-```
-
-The five Foundation files govern AIR. The catalogs improve route and Specialist discovery but do not gain execution authority.
-
-Then send:
-
-```text
-Start a new AIR project.
-```
-
-AIR validates the loaded Foundation and starts onboarding.
-
-No special command syntax or prior AIR knowledge is required for normal project conversation.
-
-## Human approval and material actions
-
-AIR separates conversational agreement from material authorization.
-
-When a material action requires your approval—such as binding a capability or changing an external resource—AIR opens a specific approval scope and provides exact response tokens:
-
-```text
-AIR_APPROVE::<approval-scope>
-AIR_REJECT::<approval-scope>
-```
-
-The exact approval token authorizes only the scope AIR described. A version suffix such as `_V1` is optional; AIR must issue a new distinct scope ID if the material scope changes, so old tokens cannot silently authorize a different action.
-
-A casual response such as “looks good” or “go ahead” does not silently become material authorization when exact approval is required.
-
-Approval and execution are also separate: approving an action does not prove that the action succeeded. AIR records and evaluates the resulting effect separately.
-
-This keeps **direction**, **approval**, and **execution evidence** distinct.
-
-## Continue or import a project
-
-### Continue with Handoff
-
-AIR uses a Handoff Card to carry recorded project state into another session or compatible platform.
-
-Load the current AIR Foundation with the populated `AIR_HANDOFF_CARD.json` and choose the continuation route during onboarding.
-
-Handoff can preserve project scope, the active task, decisions, blockers, working agreements, Specialist state and approval boundaries.
-
-It transfers **recorded AIR state**. It does not transfer hidden model memory, hidden reasoning or previously granted execution authority. The receiving session validates and rebinds the project before material execution resumes.
-
-Strict Handoff requires qualifying durable provenance to have been available while the relevant AIR history was created. Adding a durable provider later cannot reconstruct missing strict provenance. When strict provenance is unavailable or incomplete, AIR can use `PORTABLE_STATE` if the current continuation state is otherwise valid.
-
-A Handoff file-delivery receipt proves the delivered file's observed transport and integrity state only. It carries no execution authority and cannot authorize, bind, approve, or restore authority in the receiving session.
-
-### Import existing work
-
-AIR can also structure a project that did not begin in AIR.
-
-Start AIR, choose the import route, and provide the existing project material. AIR builds an explicit project frame from the sources you provide rather than pretending previous AIR state existed.
-
-## Specialists
-
-AIR Kit includes optional Specialist packages for work that benefits from more focused capability or review:
-
-- AI Governance Specialist
-- Capability Ecology Architect
-- Grounding Specialist
-- Public Surface Copywriting Specialist
-- Specification-First Verification Specialist
-
-Specialists are not autonomous agents.
-
-A Specialist being present in the repository does not make it active. AIR evaluates task fit, validates the package, obtains any required approval, and binds the relevant capability to the active task.
-
-## AIR's operating boundary
-
-AIR operates at the prompt/project-runtime layer.
-
-It can structure work, surface project state, preserve boundaries, manage approval flow, request evidence and carry recorded project context forward.
-
-It does **not** by itself prove that:
-
-- an external tool action succeeded;
-- an external source is correct;
-- a backend enforced an AIR rule;
-- model inference is deterministic;
-- every AI model or platform behaves identically;
-- hidden model state moved between sessions.
-
-Those claims require their own evidence.
-
-Compatibility is therefore empirical and configuration-dependent. Model/provider versions, context limits, attachment handling, available tools and platform behavior can affect AIR.
+The current v0.8.1 source candidate is derived from the exact R130 source tuple and changes only the bounded source files recorded in `release/SOURCE_DELTA_R130_TO_R131_V081_CANDIDATE.json`.
 
 ## Repository structure
 
 ```text
-prompts/   the five-file AIR Foundation
-catalog/   route and Specialist discovery metadata
-profiles/  optional Specialist capability packages
-tools/     deterministic validation and release tooling
-tests/     replayable contract, mutation and regression fixtures
+prompts/       current user-facing AIR Foundation prompt surfaces
+catalog/       current route, law and Specialist discovery metadata
+air_p/         checked-in non-executable client/runtime build
+specialists/   five Specialist package distributions
+evidence/      retained package validation evidence
+source/        exact canonical source, compiler, tests and law-source bodies
+release/       current source/repository candidate manifests
+tools/         current validation plus retained historical release tooling
+tests/         retained historical public validation evidence and fixtures
 ```
 
-## Community and bugs
+The old `profiles/` layout is superseded by `specialists/` for the v0.8.1 source candidate.
 
-Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible defects.
+## Validation
 
-Use [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions, integrations, portability observations, design discussion and feature ideas.
+The active v0.8.1 CI contract does not reuse the v0.7.4 release seal. It validates the current canonical source tuple, runs the canonical compiler tests, performs three deterministic compiler builds, compares the checked-in runtime against the generated build, verifies the Specialist carry-forward baseline, and runs mutation tests against the current repository contract.
 
-When reporting behavioral issues, include the AIR Kit release, AIR Foundation version, AI model/provider, platform, reproduction steps, expected behavior and observed behavior where possible.
+Historical v0.7.x validators remain repository history/tooling only and are not current release authority.
+
+## Human approval and material actions
+
+AIR separates conversational agreement from material authorization. When an exact approval token is required, it authorizes only the stated scope. Approval does not prove execution; AIR separately reconciles the resulting effect and receipt evidence.
+
+## Contributors
+
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for bounded public contribution attribution, including external behavioral QA contributions to the R23 hardening cycle.
+
+## Community
+
+Use [GitHub Issues](https://github.com/eddlev/vm4ai-air-kit/issues) for reproducible defects and [GitHub Discussions](https://github.com/eddlev/vm4ai-air-kit/discussions) for questions and design discussion.
 
 ## License and brand
 
-AIR's code and prompt materials are licensed under **Apache-2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
-
-AIR and VM4AI names and brand marks are separate from the code license. Reusable brand assets are maintained in [eddlev/air-brand](https://github.com/eddlev/air-brand).
+AIR's code and prompt materials are licensed under **Apache-2.0**. See [LICENSE](LICENSE) and [NOTICE](NOTICE). AIR and VM4AI names and brand marks are separate from the code license.
 
 ---
 

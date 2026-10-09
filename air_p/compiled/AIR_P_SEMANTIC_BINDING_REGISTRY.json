@@ -1,0 +1,112 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_SEMANTIC_BINDING_REGISTRY_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_PROJECTION",
+  "egress_contract": {
+    "authority_gain": "PROHIBITED",
+    "material_semantic_loss": "PROHIBITED",
+    "source": "CANONICAL_MACHINE_STATE",
+    "targets": [
+      "CANONICAL_AIR_OBJECT",
+      "RECEIVER_SURFACE_PROJECTION"
+    ]
+  },
+  "event_count": 22,
+  "ingress_contract": {
+    "allowed_effect": "PROPOSE_TYPED_EVENT_OR_VALUE_ONLY",
+    "control_transition_requirement": "MATCHED_COMPILED_ROUTE_PLUS_TYPED_GUARDS",
+    "semantic_proposal_authority": "NONE",
+    "unknown_or_failed_guard": "FAIL_CLOSED_NO_CONTROL_STATE_TRANSITION"
+  },
+  "positive_control_authority": "NONE",
+  "roundtrip_contract": "NO_MATERIAL_SEMANTIC_LOSS_OR_AUTHORITY_GAIN",
+  "route_event_bindings": [
+    {
+      "control_event_ref": "CE-RT-BOOT",
+      "route_id": "RT.BOOT"
+    },
+    {
+      "control_event_ref": "CE-RT-ONBOARD",
+      "route_id": "RT.ONBOARD"
+    },
+    {
+      "control_event_ref": "CE-RT-HANDOFF_RESTORE",
+      "route_id": "RT.HANDOFF_RESTORE"
+    },
+    {
+      "control_event_ref": "CE-RT-ACTIVATE",
+      "route_id": "RT.ACTIVATE"
+    },
+    {
+      "control_event_ref": "CE-RT-TURN",
+      "route_id": "RT.TURN"
+    },
+    {
+      "control_event_ref": "CE-RT-ALIGN",
+      "route_id": "RT.ALIGN"
+    },
+    {
+      "control_event_ref": "CE-RT-INPUT_TRANSLATE",
+      "route_id": "RT.INPUT_TRANSLATE"
+    },
+    {
+      "control_event_ref": "CE-RT-CLASSIFY",
+      "route_id": "RT.CLASSIFY"
+    },
+    {
+      "control_event_ref": "CE-RT-COMPATIBLE",
+      "route_id": "RT.COMPATIBLE"
+    },
+    {
+      "control_event_ref": "CE-RT-AMEND",
+      "route_id": "RT.AMEND"
+    },
+    {
+      "control_event_ref": "CE-RT-TASK_SWITCH",
+      "route_id": "RT.TASK_SWITCH"
+    },
+    {
+      "control_event_ref": "CE-RT-CAPABILITY_RESOLVE",
+      "route_id": "RT.CAPABILITY_RESOLVE"
+    },
+    {
+      "control_event_ref": "CE-RT-COGNITIVE_RESOLVE",
+      "route_id": "RT.COGNITIVE_RESOLVE"
+    },
+    {
+      "control_event_ref": "CE-RT-MORPHOLOGY_BIND",
+      "route_id": "RT.MORPHOLOGY_BIND"
+    },
+    {
+      "control_event_ref": "CE-RT-UNCERTAINTY_RESOLVE",
+      "route_id": "RT.UNCERTAINTY_RESOLVE"
+    },
+    {
+      "control_event_ref": "CE-RT-APPROVAL_RESOLVE",
+      "route_id": "RT.APPROVAL_RESOLVE"
+    },
+    {
+      "control_event_ref": "CE-RT-ACTION",
+      "route_id": "RT.ACTION"
+    },
+    {
+      "control_event_ref": "CE-RT-RECEIPT",
+      "route_id": "RT.RECEIPT"
+    },
+    {
+      "control_event_ref": "CE-RT-DELIVER",
+      "route_id": "RT.DELIVER"
+    },
+    {
+      "control_event_ref": "CE-RT-CLOSE",
+      "route_id": "RT.CLOSE"
+    },
+    {
+      "control_event_ref": "CE-RT-HANDOFF_CREATE",
+      "route_id": "RT.HANDOFF_CREATE"
+    },
+    {
+      "control_event_ref": "CE-RT-RECOVERY",
+      "route_id": "RT.RECOVERY"
+    }
+  ]
+}

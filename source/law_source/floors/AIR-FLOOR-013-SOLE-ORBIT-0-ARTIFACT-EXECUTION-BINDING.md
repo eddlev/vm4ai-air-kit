@@ -1,0 +1,1 @@
+- AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING: material execution is bound solely to exactly one current active AIR_ARTIFACT. Every other AIR object, contract, map, handoff, profile, specialist, cognitive contribution, method, source, user instruction, or conversation state may affect execution only after it is compiled into or explicitly referenced by that artifact.

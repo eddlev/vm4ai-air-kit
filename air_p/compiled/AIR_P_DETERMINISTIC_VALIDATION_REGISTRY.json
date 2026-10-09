@@ -1,0 +1,2545 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_DETERMINISTIC_VALIDATION_REGISTRY_V1",
+  "authority_class": "DERIVED_MACHINE_REPRESENTATION",
+  "current_execution_results": [
+    {
+      "check_id": "DC-FILE-CORE",
+      "observed": true,
+      "operator": "FILE_EXISTS",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FILE-CONTROL",
+      "observed": true,
+      "operator": "FILE_EXISTS",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FILE-GOV",
+      "observed": true,
+      "operator": "FILE_EXISTS",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FILE-STARTER",
+      "observed": true,
+      "operator": "FILE_EXISTS",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FILE-HANDOFF",
+      "observed": true,
+      "operator": "FILE_EXISTS",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-CORE",
+      "observed": "AIR_CORE_RUNTIME_V2",
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-CONTROL",
+      "observed": "AIR_CONTROL_SURFACE_V2",
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-GOV",
+      "observed": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+      "operator": "MARKDOWN_HEADER_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-STARTER",
+      "observed": "AIR_DEFAULT_STARTER_V2",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ROLE-STARTER",
+      "observed": "DEFAULT_STARTER_PROFILE",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-HANDOFF",
+      "observed": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ID-HANDOFF-ALIAS",
+      "observed": {
+        "left": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "right": "AIR_HANDOFF_CARD_TEMPLATE_V2"
+      },
+      "operator": "JSON_EQUALS_REFERENCE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-SCHEMA-HANDOFF-CORE",
+      "observed": {
+        "left": "2.3.0",
+        "right": "2.3.0"
+      },
+      "operator": "JSON_EQUALS_MARKDOWN_HEADER",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-SCHEMA-HANDOFF-ALIAS",
+      "observed": {
+        "left": "2.3.0",
+        "right": "2.3.0"
+      },
+      "operator": "JSON_EQUALS_REFERENCE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-STARTER-ID",
+      "observed": {
+        "left": "AIR_DEFAULT_STARTER_V2",
+        "right": "AIR_DEFAULT_STARTER_V2"
+      },
+      "operator": "JSON_EQUALS_REFERENCE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-STARTER-VERSION",
+      "observed": {
+        "left": "2.7.0",
+        "right": "2.7.0"
+      },
+      "operator": "JSON_EQUALS_REFERENCE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-SENTINEL-CORE",
+      "observed": "AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-SENTINEL-CONTROL",
+      "observed": "AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-SENTINEL-GOV",
+      "observed": "AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+      "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-ROOT-MANIFEST-CLOSURE",
+      "observed": {
+        "actual": [
+          "SCHEMA_VERSION",
+          "TEMPLATE_DESIGNATION",
+          "action_governance_state",
+          "active_artifact",
+          "active_contract",
+          "backend_validation_claimed",
+          "blockers",
+          "card_created_at",
+          "card_created_by",
+          "card_id",
+          "checkpoint_lineage_state",
+          "completed_steps",
+          "continuation_bootstrap",
+          "current_in_progress_step",
+          "decision_trace_state",
+          "durable_dependency_state",
+          "epistemic_sufficiency_state",
+          "evaluation_basis",
+          "evidence_state",
+          "execution_state",
+          "extensions",
+          "failure_mode_state",
+          "file_identity_and_delivery_state",
+          "governance_state",
+          "handoff_mode_state",
+          "hidden_reasoning_claimed",
+          "load_integrity",
+          "migration_state",
+          "mii_state",
+          "morphology_state",
+          "next_recommended_step",
+          "object_version",
+          "object_visibility_authority_state",
+          "object_visibility_mode",
+          "onboarding_state",
+          "open_approval_scope",
+          "orbit_state",
+          "platform_state",
+          "profile_posture_acceptance_state",
+          "profile_stack",
+          "project_state",
+          "receiver_delivery_state",
+          "record_class",
+          "required_input_state",
+          "runtime_alignment_state",
+          "runtime_drift_hardening_schema_extension",
+          "runtime_origin",
+          "schema_manifest",
+          "schema_version",
+          "semantic_fidelity_state",
+          "source_state",
+          "specialist_binding_state",
+          "state_epoch_provenance_state",
+          "surfaced_object_ledger_state",
+          "task_binding",
+          "template_designation",
+          "template_revision",
+          "test_evidence_state",
+          "transfer_ownership_contract",
+          "user_revision",
+          "working_agreement"
+        ],
+        "declared": [
+          "SCHEMA_VERSION",
+          "TEMPLATE_DESIGNATION",
+          "action_governance_state",
+          "active_artifact",
+          "active_contract",
+          "backend_validation_claimed",
+          "blockers",
+          "card_created_at",
+          "card_created_by",
+          "card_id",
+          "checkpoint_lineage_state",
+          "completed_steps",
+          "continuation_bootstrap",
+          "current_in_progress_step",
+          "decision_trace_state",
+          "durable_dependency_state",
+          "epistemic_sufficiency_state",
+          "evaluation_basis",
+          "evidence_state",
+          "execution_state",
+          "extensions",
+          "failure_mode_state",
+          "file_identity_and_delivery_state",
+          "governance_state",
+          "handoff_mode_state",
+          "hidden_reasoning_claimed",
+          "load_integrity",
+          "migration_state",
+          "mii_state",
+          "morphology_state",
+          "next_recommended_step",
+          "object_version",
+          "object_visibility_authority_state",
+          "object_visibility_mode",
+          "onboarding_state",
+          "open_approval_scope",
+          "orbit_state",
+          "platform_state",
+          "profile_posture_acceptance_state",
+          "profile_stack",
+          "project_state",
+          "receiver_delivery_state",
+          "record_class",
+          "required_input_state",
+          "runtime_alignment_state",
+          "runtime_drift_hardening_schema_extension",
+          "runtime_origin",
+          "schema_manifest",
+          "schema_version",
+          "semantic_fidelity_state",
+          "source_state",
+          "specialist_binding_state",
+          "state_epoch_provenance_state",
+          "surfaced_object_ledger_state",
+          "task_binding",
+          "template_designation",
+          "template_revision",
+          "test_evidence_state",
+          "transfer_ownership_contract",
+          "user_revision",
+          "working_agreement"
+        ]
+      },
+      "operator": "JSON_ROOT_KEYS_DECLARED_BY_MANIFEST",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-025",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-026",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-026",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-GOV-FLOOR-026",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-REGISTRY-SURFACE",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-PIPELINE-SEMANTICS",
+      "observed": "DETERMINISTIC_PIPELINE",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-PIPELINE-INFERENCE",
+      "observed": "PROHIBITED",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-STARTER-REQUIRED-VERSION-LITERAL",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-STARTER-REQUIRED-DESIGNATION-LITERAL",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-OPERATIVE-PROSE-CROSSFILE-ARRAY",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-HANDOFF-STARTER-VERSION-DUPLICATE",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-HANDOFF-SCHEMA-VERSION-DUPLICATE",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-CONTROL-SCHEMA-LITERAL-DUPLICATE",
+      "observed": true,
+      "operator": "TEXT_NOT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-NO-STARTER-STALE-2-5-COMPATIBILITY-PROSE",
+      "observed": true,
+      "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
+      "observed": {
+        "matches": [
+          "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-REGISTRY-SEMANTICS",
+      "observed": "DETERMINISTIC_PIPELINE",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-REGISTRY-INFERENCE",
+      "observed": "PROHIBITED",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-ROUTINE",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-TARGETED",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-BOOT-FULL",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-ROUTINE",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-TARGETED",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-BOOT-FULL",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-027",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-027",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
+          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-GOV-FLOOR-027",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-RUNTIME-TRANSITION-IDENTITY",
+      "observed": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+      "operator": "CORE_RUNTIME_TRANSITION_IDENTITY_VALID",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-VERSION-CONTROL",
+      "observed": {
+        "header": "2.7.0",
+        "registry": "2.7.0"
+      },
+      "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-VERSION-GOV",
+      "observed": {
+        "header": "2.4.0",
+        "registry": "2.4.0"
+      },
+      "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-KIND-STARTER",
+      "observed": "TASK_COMPOSITE",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FUNCTION-CLASS-STARTER",
+      "observed": "DEFAULT_STARTER_PROFILE",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FILENAME-STARTER",
+      "observed": "AIR_DEFAULT_STARTER_PROFILE.json",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STRICT-JSON-STARTER",
+      "observed": "STRICT_PARSE_PASS",
+      "operator": "STRICT_JSON_PARSE_NO_DUPLICATES",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STRICT-JSON-HANDOFF",
+      "observed": "STRICT_PARSE_PASS",
+      "operator": "STRICT_JSON_PARSE_NO_DUPLICATES",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FOUNDATION-NORMALIZED-COLLISION",
+      "observed": [
+        "air_core_runtime.md",
+        "air_control_surface.md",
+        "air_gov.md",
+        "air_default_starter_profile.json",
+        "air_handoff_card_template.json"
+      ],
+      "operator": "FOUNDATION_FILENAME_COLLISION_FREE",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-FOUNDATION-MANIFEST-EXACT",
+      "observed": {
+        "manifest": [
+          "AIR_CONTROL_SURFACE.md",
+          "AIR_CORE_RUNTIME.md",
+          "AIR_DEFAULT_STARTER_PROFILE.json",
+          "AIR_GOV.md",
+          "AIR_HANDOFF_CARD_TEMPLATE.json"
+        ],
+        "mapped": [
+          "AIR_CONTROL_SURFACE.md",
+          "AIR_CORE_RUNTIME.md",
+          "AIR_DEFAULT_STARTER_PROFILE.json",
+          "AIR_GOV.md",
+          "AIR_HANDOFF_CARD_TEMPLATE.json"
+        ]
+      },
+      "operator": "FOUNDATION_MANIFEST_EXACT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-001",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
+          "law_source/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-002",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-003",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-004",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-005",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-006",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-007",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
+          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+          "law_source/laws/CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-008",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-009",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-010",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-011",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
+          "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-012",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-013",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
+          "law_source/laws/CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-014",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-015",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-016",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
+          "law_source/laws/CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING.md",
+          "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+          "law_source/laws/CORE.LAW.RESPONSIVE_BINDING_APPROVAL.md",
+          "law_source/laws/CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-017",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-018",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
+          "law_source/laws/CORE.LAW.ACTION_RECEIPT_RECONCILIATION.md",
+          "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-019",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-020",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
+          "law_source/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
+          "law_source/laws/CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING.md",
+          "law_source/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-021",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
+          "law_source/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
+          "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
+          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+          "law_source/laws/CORE.LAW.RUNTIME_ALIGNMENT_STATE.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md",
+          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-022",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
+          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+          "law_source/laws/CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-023",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
+          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+          "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+          "law_source/laws/CORE.LAW.MII_EPISTEMIC_SUFFICIENCY.md",
+          "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-024",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FLOOR-028",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-FLOOR-028",
+      "observed": {
+        "matches": [
+          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
+          "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
+          "law_source/laws/CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION.md",
+          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-TEMPLATE-REVISION",
+      "observed": {
+        "role": "TARGET_CURRENT",
+        "schema_version": "2.3.0",
+        "template_revision": 26,
+        "template_sha256": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122"
+      },
+      "operator": "HANDOFF_TEMPLATE_TRANSITION_IDENTITY_VALID",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-NO-CURRENT-CARD-REVISION",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-REQUIRED-TEMPLATE-REVISION",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-REQUIRED-USER-REVISION",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION",
+      "observed": true,
+      "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
+      "observed": {
+        "matches": [
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/laws/CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005.md",
+          "law_source/laws/CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY.md",
+          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-DURABLE-PROVENANCE-CONTRACT",
+      "observed": true,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
+      "observed": {
+        "matches": [
+          "law_source/AIR_LAW_ID_REGISTRY.json",
+          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+          "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
+          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
+        ],
+        "present": true,
+        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CONTROL-HANDOFF-RUNTIME-DURABILITY-RENDERER",
+      "observed": true,
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-HANDOFF-LIVE-SESSION-OWNER",
+      "observed": "AIR_SESSION.handoff_durability_state",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-HANDOFF-PROVIDER-ADAPTER",
+      "observed": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-NO-DUPLICATE-GENERATION-EVALUATION-ROOT",
+      "observed": "ABSENT",
+      "operator": "JSON_PATH_ABSENT",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-EVALUATION-BASIS-REQUIRED",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-GENERATION-EVALUATION-OPERATOR",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-HANDOFF-PORTABLE-STATE-OPERATOR",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ROUTE-HANDOFF-LIVE-SESSION-OWNER",
+      "observed": "AIR_SESSION.handoff_durability_state",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ROUTE-HANDOFF-GENERATION-CARRIER",
+      "observed": "AIR_HANDOFF_CARD.evaluation_basis",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FILE-DELIVERY-RECEIPT-NONFORMAL",
+      "observed": false,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-ROUTE-FILE-DELIVERY-RECEIPT-NONFORMAL",
+      "observed": false,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-VERSION-270",
+      "observed": "2.7.0",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-TRANSITION-MODE",
+      "observed": "EXACT_R23_AMRS4D3_REV25_TO_REV26_THREE_STATE_HANDOFF_CUTOVER",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FOUNDATION-CONTROL-270",
+      "observed": "2.7.0",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FOUNDATION-GOV-240",
+      "observed": "2.4.0",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-RUNTIME-SYSTEM-IDENTITY",
+      "observed": "AIR",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-RUNTIME-GENERATION",
+      "observed": "AIR_P",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-Q5R-NO-SILENT-AMRS6",
+      "observed": "PROHIBITED",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-EXECUTION-STEERING-REQUIRED",
+      "observed": true,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-BOUNDED-EFFECT-LATER",
+      "observed": true,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-PREBIND-LEASE-STATE",
+      "observed": "NOT_ISSUED_PREBIND",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-GATE-CONTEXT-ACTIVE",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-GATE-CONTEXT-CANDIDATE",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-SPECIALIST-LIFECYCLE-BOUND",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-PUBLIC-RELEASE-SEPARATE-PUBLISH",
+      "observed": "SEPARATE_EXPLICIT_HUMAN_REQUIRED",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-COMPATIBILITY-UNRESOLVED-BLOCKING",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-VALIDATION-STALE-STATE",
+      "observed": "STALE_PENDING_REVALIDATION",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-CORE-R18-2-9-CONTRACT-PRESENT",
+      "observed": {
+        "present": true,
+        "source": "prompts/AIR_CORE_RUNTIME.md"
+      },
+      "operator": "TEXT_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-TARGET-290",
+      "observed": "2.9.0",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-CORE-SHA-290",
+      "observed": "a32e09a4392bd437196daf8ecc7331011209af525675db7b5ac7c60ec3977ff9",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-ALIGNMENT-RECONCILIATION-STATE",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FORMAL-OBJECT-EVIDENCE-SOURCE-MANIFEST",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-FORMAL-OBJECT-DEPENDENCY-RECORD",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-EFFECTIVE-SCOPE-CLOSED-WORLD-TRIGGER",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-EFFECTIVE-SCOPE-TRANSITION-TRIGGER",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-INCEPTION-EMISSION",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-AIR-ERROR-CLASSIFICATION-STATE",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-DRIFT-DETECTED-TYPE-BOOLEAN",
+      "observed": "BOOLEAN",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-DRIFT-DETECTED-MODEL-ONLY",
+      "observed": "MODEL_RUNTIME_EXECUTION_DRIFT_ONLY",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-APPROVAL-CONSUMPTION-IDEMPOTENT",
+      "observed": "NO_STATE_CHANGE_ALREADY_CONSUMED",
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-LEASE-PROVENANCE-REQUIRED",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-SPECIALIST-DECISION-STATE",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-EVIDENCE-MANIFEST-CONTRACT",
+      "observed": true,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-DISTINCT-ARTIFACT",
+      "observed": true,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-NONERROR-RECOVERY-NO-AIR-ERROR",
+      "observed": false,
+      "operator": "JSON_EQUALS_LITERAL",
+      "state": "PASS"
+    },
+    {
+      "check_id": "DC-STARTER-NEW-TASK-INCEPTION-STATE-ENUM",
+      "observed": true,
+      "operator": "JSON_ARRAY_CONTAINS_LITERAL",
+      "state": "PASS"
+    }
+  ],
+  "current_execution_summary": {
+    "declared_check_count": 137,
+    "executed_check_count": 137,
+    "fail_count": 0,
+    "implemented_check_count": 137,
+    "overall_state": "PASS",
+    "pass_count": 137
+  },
+  "registry": {
+    "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT",
+    "canonical_value_rule": "REFERENCE_CANONICAL_PATH_WHEN_AVAILABLE",
+    "checks": [
+      {
+        "check_id": "DC-FILE-CORE",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FILE_EXISTS"
+      },
+      {
+        "check_id": "DC-FILE-CONTROL",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FILE_EXISTS"
+      },
+      {
+        "check_id": "DC-FILE-GOV",
+        "file": "prompts/AIR_GOV.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FILE_EXISTS"
+      },
+      {
+        "check_id": "DC-FILE-STARTER",
+        "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FILE_EXISTS"
+      },
+      {
+        "check_id": "DC-FILE-HANDOFF",
+        "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FILE_EXISTS"
+      },
+      {
+        "check_id": "DC-ID-CORE",
+        "expected": "AIR_CORE_RUNTIME_V2",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "header": "SYSTEM_DESIGNATION",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ID-CONTROL",
+        "expected": "AIR_CONTROL_SURFACE_V2",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "header": "SYSTEM_DESIGNATION",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ID-GOV",
+        "expected": "AIR_HR_GOVERNANCE_SUPPLEMENT_V2",
+        "file": "prompts/AIR_GOV.md",
+        "header": "SYSTEM_DESIGNATION",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_HEADER_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ID-STARTER",
+        "expected": "AIR_DEFAULT_STARTER_V2",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.SYSTEM_DESIGNATION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ROLE-STARTER",
+        "expected": "DEFAULT_STARTER_PROFILE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.canonical_role"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ID-HANDOFF",
+        "expected": "AIR_HANDOFF_CARD_TEMPLATE_V2",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.TEMPLATE_DESIGNATION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ID-HANDOFF-ALIAS",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.template_designation"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_REFERENCE",
+        "right": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.TEMPLATE_DESIGNATION"
+        }
+      },
+      {
+        "check_id": "DC-SCHEMA-HANDOFF-CORE",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.SCHEMA_VERSION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_MARKDOWN_HEADER",
+        "right": {
+          "file": "prompts/AIR_CORE_RUNTIME.md",
+          "header": "CANONICAL_HANDOFF_SCHEMA_VERSION"
+        }
+      },
+      {
+        "check_id": "DC-SCHEMA-HANDOFF-ALIAS",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_version"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_REFERENCE",
+        "right": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.SCHEMA_VERSION"
+        }
+      },
+      {
+        "check_id": "DC-HANDOFF-STARTER-ID",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.profile_stack.starter_profile.SYSTEM_DESIGNATION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_REFERENCE",
+        "right": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.SYSTEM_DESIGNATION"
+        }
+      },
+      {
+        "check_id": "DC-HANDOFF-STARTER-VERSION",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.profile_stack.starter_profile.PROMPT_VERSION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_REFERENCE",
+        "right": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.PROMPT_VERSION"
+        }
+      },
+      {
+        "check_id": "DC-SENTINEL-CORE",
+        "expected": "AIR_LOAD_SENTINEL :: AIR_CORE_RUNTIME :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-SENTINEL-CONTROL",
+        "expected": "AIR_LOAD_SENTINEL :: AIR_CONTROL_SURFACE :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-SENTINEL-GOV",
+        "expected": "AIR_LOAD_SENTINEL :: AIR_HR_GOVERNANCE_SUPPLEMENT :: END_OF_FILE :: LOAD_INTEGRITY_V2",
+        "file": "prompts/AIR_GOV.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_FINAL_LINE_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-ROOT-MANIFEST-CLOSURE",
+        "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ROOT_KEYS_DECLARED_BY_MANIFEST",
+        "optional_path": "$.AIR_HANDOFF_CARD.schema_manifest.optional_fields",
+        "required_path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields",
+        "root_path": "$.AIR_HANDOFF_CARD"
+      },
+      {
+        "check_id": "DC-STARTER-FLOOR-025",
+        "expected": "AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.authority_contract.floor_invariants_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FLOOR-026",
+        "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.authority_contract.floor_invariants_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-026",
+        "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-GOV-FLOOR-026",
+        "expected": "AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION",
+        "file": "prompts/AIR_GOV.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-REGISTRY-SURFACE",
+        "expected": "validation_contract.deterministic_contract_registry",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-PIPELINE-SEMANTICS",
+        "expected": "DETERMINISTIC_PIPELINE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.deterministic_pipeline_non_inference.execution_semantics"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-PIPELINE-INFERENCE",
+        "expected": "PROHIBITED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.deterministic_pipeline_non_inference.inference_policy"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-NO-STARTER-REQUIRED-VERSION-LITERAL",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.required_version"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-NO-STARTER-REQUIRED-DESIGNATION-LITERAL",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.required_designation"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-NO-OPERATIVE-PROSE-CROSSFILE-ARRAY",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.required_cross_file_checks"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-NO-HANDOFF-STARTER-VERSION-DUPLICATE",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.starter_identity_version_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-NO-HANDOFF-SCHEMA-VERSION-DUPLICATE",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.schema_compatibility_contract.canonical_schema_version"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-NO-CONTROL-SCHEMA-LITERAL-DUPLICATE",
+        "expected": "all three values to equal 2.3.0",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_NOT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-NO-STARTER-STALE-2-5-COMPATIBILITY-PROSE",
+        "expected": "restored starter profile version equals 2.5.0",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.validation_expectations"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
+        "expected": "validation_contract.deterministic_contract_registry typed checks",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-REGISTRY-SEMANTICS",
+        "expected": "DETERMINISTIC_PIPELINE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.execution_semantics"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-REGISTRY-INFERENCE",
+        "expected": "PROHIBITED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.inference_policy"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-BOOT-ROUTINE",
+        "expected": "ROUTINE_BOOT_MINIMUM_SUFFICIENT",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-BOOT-TARGETED",
+        "expected": "TARGETED_REVALIDATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-BOOT-FULL",
+        "expected": "FULL_RELEASE_INTEGRITY_AUDIT",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-BOOT-ROUTINE",
+        "expected": "ROUTINE_BOOT_MINIMUM_SUFFICIENT",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-BOOT-TARGETED",
+        "expected": "TARGETED_REVALIDATION",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-BOOT-FULL",
+        "expected": "FULL_RELEASE_INTEGRITY_AUDIT",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FLOOR-027",
+        "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+        "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.authority_contract.floor_invariants_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-027",
+        "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-GOV-FLOOR-027",
+        "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
+        "file": "prompts/AIR_GOV.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-RUNTIME-TRANSITION-IDENTITY",
+        "contract_path": "$.validation_contract.core_runtime_transition_identity_contract",
+        "core_file": "prompts/AIR_CORE_RUNTIME.md",
+        "handoff_file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "CORE_RUNTIME_TRANSITION_IDENTITY_VALID",
+        "starter_file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json"
+      },
+      {
+        "check_id": "DC-VERSION-CONTROL",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "header": "PROMPT_VERSION",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+        "registry_value_path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CONTROL"
+      },
+      {
+        "check_id": "DC-VERSION-GOV",
+        "file": "prompts/AIR_GOV.md",
+        "header": "PROMPT_VERSION",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "MARKDOWN_HEADER_EQUALS_REGISTRY_VALUE",
+        "registry_value_path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.GOVERNANCE"
+      },
+      {
+        "check_id": "DC-KIND-STARTER",
+        "expected": "TASK_COMPOSITE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.PROFILE_KIND"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-FUNCTION-CLASS-STARTER",
+        "expected": "DEFAULT_STARTER_PROFILE",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.profile_function_class"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-FILENAME-STARTER",
+        "expected": "AIR_DEFAULT_STARTER_PROFILE.json",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.canonical_filename"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STRICT-JSON-STARTER",
+        "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "STRICT_JSON_PARSE_NO_DUPLICATES"
+      },
+      {
+        "check_id": "DC-STRICT-JSON-HANDOFF",
+        "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "STRICT_JSON_PARSE_NO_DUPLICATES"
+      },
+      {
+        "check_id": "DC-FOUNDATION-NORMALIZED-COLLISION",
+        "manifest_file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "manifest_path": "$.authority_contract.required_files",
+        "normalization_steps": [
+          "PERCENT_DECODE",
+          "UNICODE_NFKC",
+          "CASEFOLD",
+          "TRIM_TRAILING_SPACE_OR_PERIOD"
+        ],
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FOUNDATION_FILENAME_COLLISION_FREE",
+        "portable_reserved_basename_stems": [
+          "CON",
+          "PRN",
+          "AUX",
+          "NUL",
+          "COM1",
+          "COM2",
+          "COM3",
+          "COM4",
+          "COM5",
+          "COM6",
+          "COM7",
+          "COM8",
+          "COM9",
+          "LPT1",
+          "LPT2",
+          "LPT3",
+          "LPT4",
+          "LPT5",
+          "LPT6",
+          "LPT7",
+          "LPT8",
+          "LPT9"
+        ],
+        "target_platform_normalization_profile": "AIR_TARGET_PLATFORM_NORMALIZATION_PORTABLE_V1",
+        "unicode_normalization_form": "NFKC",
+        "unknown_target_platform_behavior": "APPLY_PORTABLE_PROFILE_FAIL_CLOSED_ON_UNAVAILABLE_STRICTER_TARGET_RULE"
+      },
+      {
+        "check_id": "DC-FOUNDATION-MANIFEST-EXACT",
+        "foundation_directory": "prompts",
+        "manifest_file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "manifest_path": "$.authority_contract.required_files",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "FOUNDATION_MANIFEST_EXACT"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-001",
+        "expected": "AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-002",
+        "expected": "AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-003",
+        "expected": "AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-004",
+        "expected": "AIR-FLOOR-004-LOAD-INTEGRITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-005",
+        "expected": "AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-006",
+        "expected": "AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-007",
+        "expected": "AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-008",
+        "expected": "AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-009",
+        "expected": "AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-010",
+        "expected": "AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-011",
+        "expected": "AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-012",
+        "expected": "AIR-FLOOR-012-LEGACY-V1-NON-BINDING",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-013",
+        "expected": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-014",
+        "expected": "AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-015",
+        "expected": "AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-016",
+        "expected": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-017",
+        "expected": "AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-018",
+        "expected": "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-019",
+        "expected": "AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-020",
+        "expected": "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-021",
+        "expected": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-022",
+        "expected": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-023",
+        "expected": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-024",
+        "expected": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FLOOR-028",
+        "expected": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+        "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.authority_contract.floor_invariants_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-FLOOR-028",
+        "expected": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-TEMPLATE-REVISION",
+        "core_file": "prompts/AIR_CORE_RUNTIME.md",
+        "fallback_core_revision_header": "CANONICAL_HANDOFF_TEMPLATE_REVISION",
+        "handoff_file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "HANDOFF_TEMPLATE_TRANSITION_IDENTITY_VALID",
+        "rule": "WITHOUT_TRANSITION_REGISTRY_REQUIRE_EXACT_HANDOFF_TEMPLATE_REVISION_EQUALS_CORE_HEADER; WITH_REGISTRY_REQUIRE_EXACT_SCHEMA_REVISION_SHA256_TUPLE_MATCH",
+        "transition_registry_designation": "AIR_HANDOFF_TEMPLATE_TRANSITION_COMPATIBILITY_V1"
+      },
+      {
+        "check_id": "DC-HANDOFF-NO-CURRENT-CARD-REVISION",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.card_revision"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-HANDOFF-REQUIRED-TEMPLATE-REVISION",
+        "expected": "template_revision",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-REQUIRED-USER-REVISION",
+        "expected": "user_revision",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-CURRENT-PREDICATES-NO-CARD-REVISION",
+        "expected": "$.card_revision",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.condition_registry.predicates"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_SUBTREE_TEXT_NOT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
+        "expected": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-STRICT-HANDOFF-DURABILITY-SURFACE",
+        "expected": "Strict-Handoff durability surface:",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-DURABLE-PROVENANCE-CONTRACT",
+        "expected": true,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.durable_surfaced_object_provenance.required_for_strict_handoff"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
+        "expected": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-CONTROL-HANDOFF-RUNTIME-DURABILITY-RENDERER",
+        "expected": "AIR_CONTROL_HANDOFF_RUNTIME_DURABILITY_RENDERER_V1",
+        "file": "prompts/AIR_CONTROL_SURFACE.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-HANDOFF-LIVE-SESSION-OWNER",
+        "expected": "AIR_SESSION.handoff_durability_state",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.handoff_runtime_durability_and_generation.session_live_owner_path"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-HANDOFF-PROVIDER-ADAPTER",
+        "expected": "AIR_DURABLE_PROVENANCE_PROVIDER_ADAPTER_V1",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.handoff_runtime_durability_and_generation.provider_adapter_contract"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-NO-DUPLICATE-GENERATION-EVALUATION-ROOT",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.handoff_generation_evaluation"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_PATH_ABSENT"
+      },
+      {
+        "check_id": "DC-HANDOFF-EVALUATION-BASIS-REQUIRED",
+        "expected": "evaluation_basis",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.required_fields"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-GENERATION-EVALUATION-OPERATOR",
+        "expected": "HANDOFF_GENERATION_EVALUATION_VALID",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.validation_registry.allowed_operators"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-HANDOFF-PORTABLE-STATE-OPERATOR",
+        "expected": "PORTABLE_HANDOFF_STATE_VALID",
+        "left": {
+          "file": "prompts/AIR_HANDOFF_CARD_TEMPLATE.json",
+          "path": "$.AIR_HANDOFF_CARD.schema_manifest.validation_registry.allowed_operators"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-ROUTE-HANDOFF-LIVE-SESSION-OWNER",
+        "expected": "AIR_SESSION.handoff_durability_state",
+        "left": {
+          "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+          "path": "$.handoff_runtime_contract_registry.live_session_owner_path"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ROUTE-HANDOFF-GENERATION-CARRIER",
+        "expected": "AIR_HANDOFF_CARD.evaluation_basis",
+        "left": {
+          "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+          "path": "$.handoff_runtime_contract_registry.generation_evaluation_serialized_carrier"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FILE-DELIVERY-RECEIPT-NONFORMAL",
+        "expected": false,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.handoff_file_delivery.receipt_contract.formal_air_object"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-ROUTE-FILE-DELIVERY-RECEIPT-NONFORMAL",
+        "expected": false,
+        "left": {
+          "file": "catalog/AIR_RUNTIME_ROUTE_MAP.json",
+          "path": "$.handoff_runtime_contract_registry.receipt_contract.formal_air_object"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-VERSION-270",
+        "expected": "2.7.0",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.PROMPT_VERSION"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-CORE-TRANSITION-MODE",
+        "expected": "EXACT_R23_AMRS4D3_REV25_TO_REV26_THREE_STATE_HANDOFF_CUTOVER",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CORE_COMPATIBILITY_MODE"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FOUNDATION-CONTROL-270",
+        "expected": "2.7.0",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CONTROL"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FOUNDATION-GOV-240",
+        "expected": "2.4.0",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.GOVERNANCE"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-RUNTIME-SYSTEM-IDENTITY",
+        "expected": "AIR",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.runtime_identity_contract.system_identity"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-RUNTIME-GENERATION",
+        "expected": "AIR_P",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.runtime_identity_contract.runtime_generation_when_air_p_active"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-Q5R-NO-SILENT-AMRS6",
+        "expected": "PROHIBITED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.onboarding_contract.q5r_project_target_readiness_contract.silent_amrs6_default"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-EXECUTION-STEERING-REQUIRED",
+        "expected": true,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.execution_steering_consumer_contract.required_for_executable_artifact"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-BOUNDED-EFFECT-LATER",
+        "expected": true,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.bounded_response_transaction_contract.material_effect_must_be_later_transition"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-PREBIND-LEASE-STATE",
+        "expected": "NOT_ISSUED_PREBIND",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.action_governance_contract.artifact_lease_lifecycle_contract.unbound_draft_required_lease_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-GATE-CONTEXT-ACTIVE",
+        "expected": "ACTIVE_ARTIFACT_ACTION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.action_governance_contract.gate_context_and_approval_scope_contract.gate_contexts"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-GATE-CONTEXT-CANDIDATE",
+        "expected": "CANDIDATE_BINDING_TRANSITION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.action_governance_contract.gate_context_and_approval_scope_contract.gate_contexts"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-SPECIALIST-LIFECYCLE-BOUND",
+        "expected": "BOUND",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.capability_posture.specialist_lifecycle_contract.states"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-PUBLIC-RELEASE-SEPARATE-PUBLISH",
+        "expected": "SEPARATE_EXPLICIT_HUMAN_REQUIRED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.public_release_state_consumer_contract.final_publication_approval"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-COMPATIBILITY-UNRESOLVED-BLOCKING",
+        "expected": "UNRESOLVED_BLOCKING",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.legacy_compatibility_and_migration_contract.compatibility_decisions"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-VALIDATION-STALE-STATE",
+        "expected": "STALE_PENDING_REVALIDATION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.validation_architecture_state_contract.invalidated_pass_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-CORE-R18-2-9-CONTRACT-PRESENT",
+        "expected": "AIR_CORE_R18_FIELD_REMEDIATION_2_9_0_V1",
+        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "on_failure": "FAIL_CLOSED",
+        "operator": "TEXT_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-CORE-TARGET-290",
+        "expected": "2.9.0",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CORE_TARGET"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-CORE-SHA-290",
+        "expected": "a32e09a4392bd437196daf8ecc7331011209af525675db7b5ac7c60ec3977ff9",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.validation_contract.deterministic_contract_registry.foundation_prompt_version_contract.CORE_CURRENT_BRIDGE_SHA256"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-ALIGNMENT-RECONCILIATION-STATE",
+        "expected": "RECONCILIATION_REQUIRED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.runtime_states.alignment_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FORMAL-OBJECT-EVIDENCE-SOURCE-MANIFEST",
+        "expected": "AIR_EVIDENCE_SOURCE_MANIFEST",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.formal_objects.object_ids"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-FORMAL-OBJECT-DEPENDENCY-RECORD",
+        "expected": "AIR_DEPENDENCY_RECORD",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.formal_objects.object_ids"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-EFFECTIVE-SCOPE-CLOSED-WORLD-TRIGGER",
+        "expected": "EFFECTIVE_SCOPE_TRANSITION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.closed_world_emission_closure.transition_bundle_trigger"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-EFFECTIVE-SCOPE-TRANSITION-TRIGGER",
+        "expected": "EFFECTIVE_SCOPE_TRANSITION",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.transition_emission_transaction.bundle_trigger"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-NEW-TASK-INCEPTION-EMISSION",
+        "expected": "NEW_TASK_ARTIFACT_INCEPTION_EMITTED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.new_task_binding_transaction.ordered_states"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-AIR-ERROR-CLASSIFICATION-STATE",
+        "expected": "AIR_ERROR_DETECTED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.runtime_states.air_error_classification_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-DRIFT-DETECTED-TYPE-BOOLEAN",
+        "expected": "BOOLEAN",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.alignment_reconciliation_consumer_contract.drift_detected_json_type"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-DRIFT-DETECTED-MODEL-ONLY",
+        "expected": "MODEL_RUNTIME_EXECUTION_DRIFT_ONLY",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.alignment_reconciliation_consumer_contract.drift_detected_semantic_scope"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-APPROVAL-CONSUMPTION-IDEMPOTENT",
+        "expected": "NO_STATE_CHANGE_ALREADY_CONSUMED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.approval_response_resolution.exact_replay_after_consumption"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-LEASE-PROVENANCE-REQUIRED",
+        "expected": "source_provenance_refs",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.action_governance_contract.artifact_lease_lifecycle_contract.active_lease_required_provenance_fields"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-SPECIALIST-DECISION-STATE",
+        "expected": "SPECIALIST_REQUIRED_BLOCKED",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.runtime_states.specialist_decision_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-EVIDENCE-MANIFEST-CONTRACT",
+        "expected": true,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.evidence_source_manifest_contract.required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-NEW-TASK-DISTINCT-ARTIFACT",
+        "expected": true,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.new_task_binding_transaction.distinct_artifact_identity_required"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-NONERROR-RECOVERY-NO-AIR-ERROR",
+        "expected": false,
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.compiler_contract.air_error_classification_consumer_contract.recovery_route_alone_implies_error"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_EQUALS_LITERAL"
+      },
+      {
+        "check_id": "DC-STARTER-NEW-TASK-INCEPTION-STATE-ENUM",
+        "expected": "USER_VISIBLE_EMITTED_UNBOUND_DRAFT",
+        "left": {
+          "file": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+          "path": "$.typed_registries.runtime_states.new_task_artifact_inception_emission_state"
+        },
+        "on_failure": "FAIL_CLOSED",
+        "operator": "JSON_ARRAY_CONTAINS_LITERAL"
+      }
+    ],
+    "coverage_contract": {
+      "declared_check_count": 137,
+      "duplicate_check_ids_allowed": 0,
+      "executed_check_count_required": 137,
+      "implemented_check_count_required": 137,
+      "unexecuted_allowed": 0,
+      "unimplemented_allowed": 0,
+      "unknown_operators_allowed": 0
+    },
+    "execution_semantics": "DETERMINISTIC_PIPELINE",
+    "foundation_prompt_version_contract": {
+      "CONTROL": "2.7.0",
+      "CORE": "2.9.0",
+      "CORE_AMRS4D1_R120_CURRENT_SHA256": "3c90dcd7fd84249d26eb7e37c3c4fea75031c98d970e7f69fa1fc4a0121200a1",
+      "CORE_AMRS4D3B_REV26_BRIDGE_TARGET_SHA256": "e4fb9fc9ac5b50d7d2d043a9489a086b398f543c41eefdc2762e92fb5e06b835",
+      "CORE_BASELINE_SEMANTICS": "CURRENT_INSTALLED_CORE_2_9_R18_FIELD_REMEDIATION_POST_CUTOVER_R23_DECISION_TRACE_STAGED_TRANSITION",
+      "CORE_COMPATIBILITY_MODE": "EXACT_R23_AMRS4D3_REV25_TO_REV26_THREE_STATE_HANDOFF_CUTOVER",
+      "CORE_CURRENT_BRIDGE_SHA256": "a32e09a4392bd437196daf8ecc7331011209af525675db7b5ac7c60ec3977ff9",
+      "CORE_DECISION_TRACE_TRANSITION_TARGET_SHA256": "e6c39df91a5de2a0f2189d959d94c7bb5d89778f634298b487df1c7eb0121ac2",
+      "CORE_REV24_TRANSITION_TARGET_SHA256": "a32e09a4392bd437196daf8ecc7331011209af525675db7b5ac7c60ec3977ff9",
+      "CORE_TARGET": "2.9.0",
+      "CORE_TARGET_ACTIVATION_DESIGNATION": "AIR_DECISION_TRACE_OBJECT_CONTRACT_V1",
+      "GOVERNANCE": "2.4.0",
+      "HANDOFF_AMRS4D3C_REV26_TARGET_SHA256": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122",
+      "HANDOFF_AMRS4D3_PRE_CUTOVER_REV25_SHA256": "9befb541c47a6d4ff187e335824de63c2849156eb1c5e3dab7f86bba467c1c88",
+      "HANDOFF_CURRENT_REV24_SHA256": "ca4faac0f423ffd60f2a79df83b2933aa51d3a60f4b284a930af6e3b1b0301a6",
+      "HANDOFF_DECISION_TRACE_REV25_TARGET_SHA256": "9befb541c47a6d4ff187e335824de63c2849156eb1c5e3dab7f86bba467c1c88",
+      "authority_class": "RUNTIME_OPERATIVE_TYPED_CONTRACT"
+    },
+    "inference_policy": "PROHIBITED",
+    "prose_authority": "NON_OPERATIVE_DESCRIPTION",
+    "registry_version": "1.4.0",
+    "scope": "FIVE_FILE_FOUNDATION_LOAD_AND_CROSS_FILE_COMPATIBILITY"
+  },
+  "source_owner": "AIR_DEFAULT_STARTER_V2.validation_contract.deterministic_contract_registry"
+}

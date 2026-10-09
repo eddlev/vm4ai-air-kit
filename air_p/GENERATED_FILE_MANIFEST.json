@@ -1,0 +1,717 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_GENERATED_FILE_MANIFEST_V1",
+  "file_count_excluding_self": 141,
+  "files": [
+    {
+      "path": "AIR_P_RUN_MANIFEST.json",
+      "sha256": "6782c7ffb32c9ed5d92f3753d98d383123db1712ad612faa34cbb1d6c18e6e3b",
+      "size_bytes": 2823
+    },
+    {
+      "path": "compiled/AIR_LAW_SOURCE_PACKAGE_PIN.json",
+      "sha256": "268e671b61779179d6a0f4f2c5dc55dcbeb34fb6e029089b97a0ed781abe22fc",
+      "size_bytes": 1083
+    },
+    {
+      "path": "compiled/AIR_P_AUTHORITY_PRECEDENCE_REGISTRY.json",
+      "sha256": "8c3a50500274c546aad4088e6affbf3e6dd99848471d5234cb7d99cd50d6628e",
+      "size_bytes": 1714
+    },
+    {
+      "path": "compiled/AIR_P_CANONICAL_MACHINE_STATE_CONTRACT.json",
+      "sha256": "a7f289f50f649c2bb659709d2f5a31ea9486260f730ad6e3ed44b51aa1cae4f9",
+      "size_bytes": 964
+    },
+    {
+      "path": "compiled/AIR_P_COMPONENT_REGISTRY.json",
+      "sha256": "b88fb104953a03757cd718b9b4d3dd2b5b229a3443cf9b6a9a79cf7411f5d891",
+      "size_bytes": 110370
+    },
+    {
+      "path": "compiled/AIR_P_CONFORMANCE_PROFILE.json",
+      "sha256": "8f2d456d1eeadc71167bafcd163e7af63ac150ca8e94350e238fe3799cebee7d",
+      "size_bytes": 2736
+    },
+    {
+      "path": "compiled/AIR_P_CONTROL_EVENT_REGISTRY.json",
+      "sha256": "37ec6edd570a2ffbba1098889788de886449942356074a693d01d44cdee325d2",
+      "size_bytes": 15714
+    },
+    {
+      "path": "compiled/AIR_P_CONTROL_GOVERNANCE_PROJECTIONS.json",
+      "sha256": "c749957c677e8bdf177d378914ec35a233ff6efd34f83a03c1061068d688cda0",
+      "size_bytes": 2516
+    },
+    {
+      "path": "compiled/AIR_P_DETERMINISTIC_VALIDATION_REGISTRY.json",
+      "sha256": "1923c36b22a0cf22540536f6ec236d339b5d2c762c22a1e938a398e221466225",
+      "size_bytes": 87686
+    },
+    {
+      "path": "compiled/AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json",
+      "sha256": "e3f7d364a91afc0e5805ff7bb34d489de6fcd3487210032447f3dd89a458a43e",
+      "size_bytes": 67707
+    },
+    {
+      "path": "compiled/AIR_P_HANDOFF_CHECKPOINT_DELTA_CONTRACT.json",
+      "sha256": "a47ead8578ced6129e5fbc1e9f9609c0049a7e16d9ce2335396717b459e14acb",
+      "size_bytes": 8111
+    },
+    {
+      "path": "compiled/AIR_P_ROUTE_CONTRACT_REGISTRY.json",
+      "sha256": "170de626b260e1d583016a2b8099d5a7292a8367855aaf85bc98347f9b5c97e4",
+      "size_bytes": 37479
+    },
+    {
+      "path": "compiled/AIR_P_RUNTIME_BUNDLE.json",
+      "sha256": "10a774d727d46c425fa23057a4da1cccd528ee5e2a85a32efe1ffcaafc4e403a",
+      "size_bytes": 1219
+    },
+    {
+      "path": "compiled/AIR_P_RUNTIME_REFERENCE_INDEX.json",
+      "sha256": "436d7596a5122a17ad9c9b5001221b482ae1639d7283b75a03feb1cd0ce92a0a",
+      "size_bytes": 16731
+    },
+    {
+      "path": "compiled/AIR_P_SEMANTIC_BINDING_REGISTRY.json",
+      "sha256": "421e7e1ca90ab60f9e3f11398fa0f5671bece676eafd62d291579ce880b1eda8",
+      "size_bytes": 2889
+    },
+    {
+      "path": "compiled/AIR_P_SOURCE_MANIFEST.json",
+      "sha256": "d7bbb839a84fffa3046b31263d5257d5f632d99d25e8aaa564a9decff44b60f1",
+      "size_bytes": 6368
+    },
+    {
+      "path": "compiled/AIR_P_TURN_GOVERNANCE_KERNEL.json",
+      "sha256": "d548e2b986eb2cd17f5a78372ffa8b59d404a608d1e03f2234afe3aa25d763b9",
+      "size_bytes": 21915
+    },
+    {
+      "path": "evidence/AIR_P_COMPILATION_REPORT.json",
+      "sha256": "655d70680021cc075457f4590e6679f60e1ed7df44d57dcd2264ac2a9d220769",
+      "size_bytes": 4113
+    },
+    {
+      "path": "evidence/AIR_P_DETERMINISTIC_MUTATION_COVERAGE_REPORT.json",
+      "sha256": "0a2256594061f1256503e3f896ec3cadf3d26927af33e5507d25a6f5b59463f5",
+      "size_bytes": 48495
+    },
+    {
+      "path": "evidence/AIR_P_MUTATION_TEST_REPORT.json",
+      "sha256": "47d03f0811a51df3b9ca5154f8877f8df9cd2145e045b80c77ef6c9dad498329",
+      "size_bytes": 2223
+    },
+    {
+      "path": "evidence/AIR_P_REPRODUCIBILITY_REPORT.json",
+      "sha256": "9263d8f2b51e8e46c82ae465d374a096b1fbc4a576be10890861451cb77ecfc3",
+      "size_bytes": 9171
+    },
+    {
+      "path": "evidence/AIR_P_SEMANTIC_EQUIVALENCE_REPORT.json",
+      "sha256": "99d98740a665057121241e5ff2707d7a87ec5ac89d0c5c6e213d7d38faf4b7b3",
+      "size_bytes": 1235
+    },
+    {
+      "path": "law_package/AIR_LAW_SOURCE_PACKAGE_MANIFEST.json",
+      "sha256": "6618da3c251024eacfebb94ee1a17df70e1c98df9acd719cf003982770174763",
+      "size_bytes": 32013
+    },
+    {
+      "path": "law_package/evidence/AIR_LAW_ROUTER_DERIVATION.json",
+      "sha256": "41bc10685be3c21fe5ccf290b017410627c3d2e8eb19794b25f66094ad73a941",
+      "size_bytes": 783
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
+      "sha256": "9b9babe79dbba99b5e951f945ded67ebfde08f10ace5b69e4f94936ce1ea7819",
+      "size_bytes": 399
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
+      "sha256": "7f5dd69dd9bcea940ed4446b6f199ef5a4f7527cf9983ed45c407693aeb1f913",
+      "size_bytes": 126
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
+      "sha256": "4d60b6d76a6663a9e1fce58e4a4fa8493dedfbc993a9b6b84b9ee99b3497863b",
+      "size_bytes": 132
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
+      "sha256": "c13c092340b95437eb67f16081045a8b4ebb9b3ebf8c4ac10422ec45f408f622",
+      "size_bytes": 70
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
+      "sha256": "e44e1fb916ebe51d9fa38637186c63d6759e797b27f54565905f6d945bea9992",
+      "size_bytes": 131
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
+      "sha256": "7cfa14824dd4f030028e52f789ae73b7ab41ee0376a809f222f9f513502d67f5",
+      "size_bytes": 180
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
+      "sha256": "76fc7152d85e1e278c80676beaa11648c452bf09c7e0eb17723b8eaa330ea0a7",
+      "size_bytes": 839
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
+      "sha256": "36b2585f8345af7335dc6be88283e5e7e0738507238d9d2b04ee94b1787dad3a",
+      "size_bytes": 108
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
+      "sha256": "0fdc741acb0ecaf1018b5e2c21336c238da46fbc67de98e042d2790e0ee1c12a",
+      "size_bytes": 144
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
+      "sha256": "9d0d361e27f047d9c380f27dd05335aab95001ee293aed572ad7771e58f921cf",
+      "size_bytes": 136
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
+      "sha256": "3ba728b029ecc69dc1932e9e9e53eb5384384e715a2c1176517d567329440a04",
+      "size_bytes": 252
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
+      "sha256": "1a2b2acfa8a6f4029a76e9c7c56d87e4a382754a78d2a098c1405b5cc56de8bc",
+      "size_bytes": 91
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
+      "sha256": "034c5e671b0f808cab74cc8de5a0149a51a3550dcaecb9b2ec492ffd218e80a0",
+      "size_bytes": 380
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-014-CANONICAL-FILE-IDENTITY-AND-DELIVERY-INTEGRITY.md",
+      "sha256": "8812c5135f7671a78714ef97cb5f483b5855e5a1c1031801c397c49be07d5964",
+      "size_bytes": 277
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-015-KNOWLEDGE-TO-EXECUTION-PATH.md",
+      "sha256": "5388e375684c479a40ade4f0b49920c29415e424c86d425d9db34d61483e5704",
+      "size_bytes": 355
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
+      "sha256": "5ab71fd4f8af26f7f51942459c94d1bb0764676e15b17312d869f01ede2bd917",
+      "size_bytes": 351
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-017-TEST-EVIDENCE-AND-REPRODUCIBILITY.md",
+      "sha256": "2587b35b0da91f644d6c299e74361a0679389335fc088b6bf24826baeb87d11b",
+      "size_bytes": 490
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
+      "sha256": "a134bdee7d7d0c23e2099d4f273913ad49433d15b1e26e539ef7bb3942306791",
+      "size_bytes": 611
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-019-NON-INFERENCE-UNDER-MATERIAL-AMBIGUITY.md",
+      "sha256": "21d88095902933c24714ed6dc7868441f80dec75a365c989145cf28e93c44e16",
+      "size_bytes": 431
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
+      "sha256": "24a739479b7c1374e6eff2d43f78fc334ffb893758867d19f737f94c171c0805",
+      "size_bytes": 336
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
+      "sha256": "f0170b756caad5a11e37206f47bbf91e2cbf9c575689c38f6c983b07f3ff9ec4",
+      "size_bytes": 363
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
+      "sha256": "a593472e960aca03e6d493733b0e2276fac1d53d05324e167828b85347c8e189",
+      "size_bytes": 370
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
+      "sha256": "2f4c8ac0946f86b0e00c363548eac80168a27d83b4dca191b0132bc1c6d6af00",
+      "size_bytes": 356
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
+      "sha256": "ff0512e58fd441f5af9ed4cb3bf280d460a9689beb2c359e01f4491af7ef5534",
+      "size_bytes": 396
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-025-DETERMINISTIC-PIPELINE-NON-INFERENCE.md",
+      "sha256": "743b8167a483ad88a246ca0f1a4207cfbdf1a48ed50863dec0a4a079957141db",
+      "size_bytes": 362
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-026-DETERMINISTIC-CONTRACT-MACHINE-REPRESENTATION.md",
+      "sha256": "0041492c8878cabbacc697c1ce98a0cdae99228232059e96c666a1501fec3d10",
+      "size_bytes": 596
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
+      "sha256": "09322b3649a967e716d413055a692ef7debaae0e1290cbb305bb40709e3c0717",
+      "size_bytes": 764
+    },
+    {
+      "path": "law_package/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
+      "sha256": "73a419868757d320b360c88035ea52d6f6c282ae78e30c0c1077a1dd26482357",
+      "size_bytes": 543
+    },
+    {
+      "path": "law_package/index/AIR_FLOOR_INVARIANT_INDEX.json",
+      "sha256": "f9c84ef97386fa49506ebe2712dd41cb48a07443c218062690f592a80a53b009",
+      "size_bytes": 12906
+    },
+    {
+      "path": "law_package/index/AIR_LAW_APPLICABILITY_ROUTER.json",
+      "sha256": "a7d45d8a1392107ad8ebcd2c989ada9b109cd508e2986d08e87f945fed3a1960",
+      "size_bytes": 450427
+    },
+    {
+      "path": "law_package/index/AIR_LAW_ID_REGISTRY.json",
+      "sha256": "03935a1fafc72d7c406f0995644afe820e2118f787c97702fe6f4ffc74d23d24",
+      "size_bytes": 75032
+    },
+    {
+      "path": "law_package/laws/AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1.md",
+      "sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb",
+      "size_bytes": 1662
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ACTION_RECEIPT_RECONCILIATION.md",
+      "sha256": "76f9e96faa178a7c74a9badddebd6ec767b02640ea4fac5712ba6d98ca9ad1aa",
+      "size_bytes": 1993
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
+      "sha256": "b1a898024a06892a89cce8d0ad2742a9194345ecf177027acae84474dafa84fa",
+      "size_bytes": 3330
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING.md",
+      "sha256": "fb4933b264ab9a859664e2fc49bb58f13793160f915d7669e5d1a84de78b0a47",
+      "size_bytes": 676
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING.md",
+      "sha256": "8b0c7f46c1a26b520d3cd3362ff64b7ac0074498d13b2f12d09024bad6cfb33d",
+      "size_bytes": 7043
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
+      "sha256": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed",
+      "size_bytes": 3464
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.AMBIGUITY_TRIAGE_GATE.md",
+      "sha256": "0d810422c1697db70c559fe66487562114765e0886d0ae9160caff91ea2b2713",
+      "size_bytes": 781
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY.md",
+      "sha256": "fd5b89da85312cb769df02c7bf759ef6394e431f50d1609a362fae377d298f53",
+      "size_bytes": 4000
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY.md",
+      "sha256": "a67029688593b9cd9751955537abb4c428cc699422d36b28ec3e8e65a4491345",
+      "size_bytes": 3254
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ARTIFACT_LEASE_INVALIDATION.md",
+      "sha256": "d6907afe98c6434db1e3c20083ef08757baf0796a0dbbc9bc0467f01ef3b0077",
+      "size_bytes": 2269
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING.md",
+      "sha256": "bfb9627b884876c6c33f3c3798162c647260d88c1adf9068ce6b514bc720cd17",
+      "size_bytes": 10468
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005.md",
+      "sha256": "7aa487b789c55bc437d577362c3fab5083343b81cb58240720b3416686bd3bb2",
+      "size_bytes": 10084
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.BENCHMARK_JUDGE.md",
+      "sha256": "0a17a6ef7b3bef5472e349c3b0c766462b9a899407a384fce743773e4b1811d9",
+      "size_bytes": 1237
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.BENCHMARK_SYNTHETIC_ROLE.md",
+      "sha256": "f3de527f99141cdccf20b8cd76dd5c564f6ed99dc6a644929f3f578cd90c7eaa",
+      "size_bytes": 1035
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY.md",
+      "sha256": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311",
+      "size_bytes": 4895
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY.md",
+      "sha256": "6a80462c8d49ec900ef9115c564cb9739bd8b715de01ed03a29525bf6ffda643",
+      "size_bytes": 5322
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE.md",
+      "sha256": "17db3e9a4d029bc93fd7c3b488114c9d3baef47ac94fc7b176447446e65e5ccd",
+      "size_bytes": 6439
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CANONICAL_OBJECT_CONTRACT.md",
+      "sha256": "7e6a17c697819c1e4fe04cf1595a947a13c9b26be5c2bfbca5d7574b3aed839d",
+      "size_bytes": 20739
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION.md",
+      "sha256": "bf8c70154f43d0524c93c317e85653c8346fa7ec0f7d212845e61b5071f046d5",
+      "size_bytes": 4895
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE.md",
+      "sha256": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f",
+      "size_bytes": 4211
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION.md",
+      "sha256": "d316343b7691643e9d00737b5ebc36f452d097e37ca7f17b4a5334469993f251",
+      "size_bytes": 3444
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY.md",
+      "sha256": "293f9dd20e9f0e1ed87763454d68ce97ff89bcb810e50d4ae0c252394067dbd6",
+      "size_bytes": 11030
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.CREATIVE_CONTINUITY_EXTENSION.md",
+      "sha256": "1882a1e7398465dce160a0a41e198a0f95f21d0506a0c2352d62687660e833f5",
+      "size_bytes": 1334
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+      "sha256": "3c4ce48f2a0e5be5b58b5aaac5ec6cd0b60a75602c6e217fdf71806d91d91151",
+      "size_bytes": 11081
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION.md",
+      "sha256": "a98ae9d34dcc8a1df1b2aaf8a871c548e440c638225f059c632e4f3df00e69f2",
+      "size_bytes": 2114
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+      "sha256": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768",
+      "size_bytes": 1361
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE.md",
+      "sha256": "5440cd3c5655e8116c50442bea8f1c46b153ec63cdd987ae28d3766caddd1fb7",
+      "size_bytes": 2428
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DUAL_GEOMETRY_BINDING.md",
+      "sha256": "90078cc62537c7a098f079aa14b8987c79bbe4cc51e2ef1b137fa6921ba0e677",
+      "size_bytes": 1963
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+      "sha256": "20e86c4f464dac637a24914a7afd5db88e88d4907259c7f5cbf224a5e3e3ca78",
+      "size_bytes": 12639
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ENTRY_PATH_Q1_SEPARATION.md",
+      "sha256": "43b0d0b741cea8d6bb7208a289e62e32e32eb189501f8b2a39c83c99ab4a7a0f",
+      "size_bytes": 864
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT.md",
+      "sha256": "7bbbc49048fa595b4c36030617216c6adff9a05f7099c3fb51a68599629373ff",
+      "size_bytes": 905
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY.md",
+      "sha256": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406",
+      "size_bytes": 2174
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.GATE_DECISION.md",
+      "sha256": "24fc14daaedb8ff73b85fca3aca4d1ed79461dcb28bd7f174d67738e5d55b624",
+      "size_bytes": 3645
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.GEOMETRY_EFFECT_BINDING.md",
+      "sha256": "a5e9ccf57b42b0eea25457a70bb5f2ff9212a6295026b94a73d6232673a54a2b",
+      "size_bytes": 736
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.GEOMETRY_FORCE_VS_FIT.md",
+      "sha256": "83a0e336f1ede1e6bf0362146ef4de9a8de88e4a1d5c99cc90d1640851bf692c",
+      "size_bytes": 2177
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK.md",
+      "sha256": "f79bcafb86963d60d15ad376c9fcb4ae35c14f53c7e2dbfefca873b3cbf4b232",
+      "size_bytes": 8217
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP.md",
+      "sha256": "f3ef4bf906417571e47d30de887da327c8dd247def26f499764e49f02afe48f0",
+      "size_bytes": 3471
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.HANDOFF_INBOUND_VALIDATION.md",
+      "sha256": "3ca24df43eb92717ee6e4bfb948e5127f66556df015978326609563401c0c137",
+      "size_bytes": 8817
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.HANDOFF_MODE_SELECTION.md",
+      "sha256": "1e45fe9884e7349533555a3a1e4b0ce620e49275daffa8bca21f91b30f249886",
+      "size_bytes": 3422
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
+      "sha256": "bc496eac22500c00a8079d45b5513bcdddf0477da0937ddca0d67cfabcb9da79",
+      "size_bytes": 7178
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH.md",
+      "sha256": "d08510c0e8090279d39b9b65c4dad4ffdb474b8db700e463c014f0b2c398d725",
+      "size_bytes": 2299
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.LAMBDA_PRESSURE_BINDING.md",
+      "sha256": "f03f7609b01d536bb2161f298696a2492dac8dba5e8767491a7079807e1285ba",
+      "size_bytes": 836
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL.md",
+      "sha256": "cfc6dee06e81039c52b0677ba6bf880932c1329077b83c743b234de58ce1d976",
+      "size_bytes": 1977
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
+      "sha256": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
+      "size_bytes": 2637
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.METHOD_LAYER.md",
+      "sha256": "2577ea4edddaf6c8e36412a15774fae16de02bbe2f11c76b6e8996536a8bb003",
+      "size_bytes": 3831
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MII_COGNITIVE_ARCHITECTURE.md",
+      "sha256": "f8f7241e448b8b9dab6e4141dac078d6c208e9b1ae1850b340317d0d9b2089a9",
+      "size_bytes": 2449
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MII_EPISTEMIC_SUFFICIENCY.md",
+      "sha256": "a270383fa275a9431fd356bcc8b263c371c35c21e6de652734e853bd1a25c020",
+      "size_bytes": 1240
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MII_MORPHOLOGY_BINDING.md",
+      "sha256": "469785651779ec2cb54e23d5009005c6549e5062943242d1356760cc5717572e",
+      "size_bytes": 1376
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MII_RISK_PROPAGATION.md",
+      "sha256": "922647a036ecb2a56c96ff20e610267aaebe047fa7132fb0c95429c16c88d59c",
+      "size_bytes": 842
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY.md",
+      "sha256": "8662ed6ba7127a6449ede29882c66711dd578ce8a3eea31a78604bffbecab106",
+      "size_bytes": 4182
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.NATIVE_AXIS_SCAN.md",
+      "sha256": "d0f0493897dcafa7f63f87eb7dd50d8c6a3194341c08b12f41c9aafa8a225ad9",
+      "size_bytes": 653
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE.md",
+      "sha256": "ad48e8a4a672d7ab5b65414bb112f1cb7a86d05cf58dcf67c0e3327fe41da883",
+      "size_bytes": 952
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER.md",
+      "sha256": "00112f190279db3740a12e94370cff524a391a86bfe53c147ad738e7ded31562",
+      "size_bytes": 2334
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY.md",
+      "sha256": "3f9ec3d24742d6cab3aee08d55e6d72eb16eec3312c238ebca2f5fb7c8455d38",
+      "size_bytes": 2109
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK.md",
+      "sha256": "66456444eac5d72f0fb2843400a01a7cf31ed5d53034ea9b8b98544d636dbaa0",
+      "size_bytes": 1039
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE.md",
+      "sha256": "b976c0bd59d0f436d4cace87e503372c3636dbabae7a1ce794b466ee72d644a4",
+      "size_bytes": 3008
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX.md",
+      "sha256": "5c2f0fe73c1eb4505a05d3e294dc5c68e994c61859564f33dd2e671602ec6cdc",
+      "size_bytes": 1123
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md",
+      "sha256": "3ceba6c0cb2f542915f2883589bb997969bedf3fe4b30e633ccf4da646d916d0",
+      "size_bytes": 2744
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING.md",
+      "sha256": "b28179021446b129d7f6174191682727c1791e20530f50d4c75302a69be290ea",
+      "size_bytes": 1765
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ORBIT_TASK_MANAGEMENT.md",
+      "sha256": "c95dd205a275f21f85858ba0d0f0a69add93a5d13c69344daeff2f304b5ffe8c",
+      "size_bytes": 2504
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.PATCH_SOURCE_UPLOAD_GATE.md",
+      "sha256": "a46fbbf703cee23e84cd7d3c8baa8dc7b954ea693152892963bf1d1e1ad033b4",
+      "size_bytes": 3301
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.PROFILE_STACK_ROUTING.md",
+      "sha256": "b5c9a338750d7edab780f588f49e0715843cc5ea77aace5c95bb9f1110a0202b",
+      "size_bytes": 1489
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
+      "sha256": "728879641203c9ef353f507091a70243124d300e26e84f14958013f693fbba37",
+      "size_bytes": 1901
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md",
+      "sha256": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
+      "size_bytes": 2136
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+      "sha256": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
+      "size_bytes": 3199
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.RESOURCE_SCOPE_PIN.md",
+      "sha256": "9bb5c6cba5b640617d2a615266c80534ba8e901534567830346095439498b1d0",
+      "size_bytes": 996
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.RESPONSIVE_BINDING_APPROVAL.md",
+      "sha256": "5c06c55e09542c2efe38acb41aefc5cdada1e17dfe2169bda2d349f138449867",
+      "size_bytes": 1867
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.ROUTER_COMPATIBILITY_SURFACE.md",
+      "sha256": "fdeef1e9b8534837e08de8c971c63c14522f6ddf3fb125d1e127edf15364656c",
+      "size_bytes": 856
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.RUNTIME_ALIGNMENT_STATE.md",
+      "sha256": "7aa766c572262ccb047d22bb118d0730572e9ae4dfd9ccc94bd4c96172e3e879",
+      "size_bytes": 36750
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.RUNTIME_LOAD_INTEGRITY.md",
+      "sha256": "76665b589e4d769387b843486e9c57edd3a5ae4359f31aedd0fb76d142b2ffcb",
+      "size_bytes": 3115
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION.md",
+      "sha256": "54cb1a99d88a8f5962e450a13eb2e00d0ce5e844de393110d696cc5404952515",
+      "size_bytes": 4568
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING.md",
+      "sha256": "b982133e5dbe144d1d46addafb33f3e39c599691a1257f4897b9da1a62fbaa27",
+      "size_bytes": 1139
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.SPECIALIST_PROFILE_ROUTING.md",
+      "sha256": "a73e01425326c4e0339c87425308cb4499c6c1da5e80849f70cd03413fcfe755",
+      "size_bytes": 904
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.SYSTEM_MODIFIERS.md",
+      "sha256": "36f786b40bc6424e7d375bebf486ae76d589dac42a9e49a26152e9d8d76d2714",
+      "size_bytes": 1473
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY.md",
+      "sha256": "dbeb1a43978009609a57098d09055445cab821fdd1b004a93e705a93b0fa78e2",
+      "size_bytes": 945
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY.md",
+      "sha256": "5d91190402eeadef42e26fe8764a467255cf70e09188165c46160bae3b40f27a",
+      "size_bytes": 2222
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.VISIBLE_ARTIFACT_BINDING.md",
+      "sha256": "616d1af3e6685a974983cfce9596b375499db92dfd87e62b585ec2bd3741b967",
+      "size_bytes": 1010
+    },
+    {
+      "path": "law_package/laws/CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY.md",
+      "sha256": "5d38948470af48b6ab01e231788f27af799f2416e7680a37ae136078a49d41b9",
+      "size_bytes": 2292
+    },
+    {
+      "path": "law_package/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+      "sha256": "4428ca25e6c85420975e53e2db79874663f7977b482fce8566c1b8ac0e7d914d",
+      "size_bytes": 12975
+    },
+    {
+      "path": "law_package/laws/CORE.REGISTRY.LAW_ID.md",
+      "sha256": "82dc310eaa91a67aea18cc2106f8c2699960a1465975dd6c970f99f7e07d56f3",
+      "size_bytes": 75605
+    },
+    {
+      "path": "law_package/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md",
+      "sha256": "42851649a6295a6b70867121681aafdee3ab55155ef232813d6fe9c29ba7c295",
+      "size_bytes": 23777
+    },
+    {
+      "path": "law_package/laws/CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY.md",
+      "sha256": "a0d7a89dc961c5cbf2a3836cd3de0febbef93325176513a62ff49d5a2f84a9c9",
+      "size_bytes": 3181
+    },
+    {
+      "path": "schema/AIR_P_PACKAGE_SCHEMA.json",
+      "sha256": "6c019b38ce3108657a2a11948f9fa68e52f171279da5496925c6ae4eb2bbd75e",
+      "size_bytes": 2869
+    },
+    {
+      "path": "source/AIR_LAW_APPLICABILITY_ROUTER.json",
+      "sha256": "a7d45d8a1392107ad8ebcd2c989ada9b109cd508e2986d08e87f945fed3a1960",
+      "size_bytes": 450427
+    },
+    {
+      "path": "source/AIR_P_COMPONENT_METADATA_OVERLAY.json",
+      "sha256": "ec8bf1b4ca7d9f6799985ce9dc5ffd128a9abd7a1130c70a5e6b4b363b9cec4b",
+      "size_bytes": 152023
+    },
+    {
+      "path": "tests/test_air_p_compiler.py",
+      "sha256": "babfcabc98996e64e2b6267d40bbf9835849f721ef41b81b6d3f86e6292b0605",
+      "size_bytes": 60816
+    }
+  ],
+  "package_designation": "AIR_P_COMPLETE_COMPILATION_V1",
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "transient_exclusion_policy": [
+    "**/__pycache__/**",
+    "**/*.pyc"
+  ]
+}

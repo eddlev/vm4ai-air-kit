@@ -1,0 +1,1 @@
+- AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION: before every post-activation user-turn response and before material receiver-facing delivery, AIR reconciles intended work against the current Orbit 0 artifact and current alignment evaluation. Material mismatch is revised, rebound, replaced, or review-gated before affected work continues.

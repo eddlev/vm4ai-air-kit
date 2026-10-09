@@ -1,0 +1,105 @@
+{
+  "$id": "urn:air:air-p:package-schema:1.1.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "SYSTEM_DESIGNATION": {
+      "const": "AIR_P_RUNTIME_BUNDLE_V1"
+    },
+    "authority_class": {
+      "const": "DERIVED_NONAUTHORITATIVE_MACHINE_REPRESENTATION"
+    },
+    "backend_enforcement_claimed": {
+      "const": false
+    },
+    "conformance_profile_ref": {
+      "const": "AIR_P_CONFORMANCE_PROFILE.json"
+    },
+    "contract_refs": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_machine_state": {
+          "const": "AIR_P_CANONICAL_MACHINE_STATE_CONTRACT.json"
+        },
+        "control_governance_projections": {
+          "const": "AIR_P_CONTROL_GOVERNANCE_PROJECTIONS.json"
+        },
+        "handoff_checkpoint_delta": {
+          "const": "AIR_P_HANDOFF_CHECKPOINT_DELTA_CONTRACT.json"
+        },
+        "semantic_binding": {
+          "const": "AIR_P_SEMANTIC_BINDING_REGISTRY.json"
+        }
+      },
+      "required": [
+        "canonical_machine_state",
+        "control_governance_projections",
+        "handoff_checkpoint_delta",
+        "semantic_binding"
+      ],
+      "type": "object"
+    },
+    "law_source_package_pin_ref": {
+      "const": "AIR_LAW_SOURCE_PACKAGE_PIN.json"
+    },
+    "package_designation": {
+      "const": "AIR_P_COMPLETE_COMPILATION_V1"
+    },
+    "package_version": {
+      "const": "1.0.0"
+    },
+    "registry_refs": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_precedence": {
+          "const": "AIR_P_AUTHORITY_PRECEDENCE_REGISTRY.json"
+        },
+        "components": {
+          "const": "AIR_P_COMPONENT_REGISTRY.json"
+        },
+        "control_events": {
+          "const": "AIR_P_CONTROL_EVENT_REGISTRY.json"
+        },
+        "deterministic_validation": {
+          "const": "AIR_P_DETERMINISTIC_VALIDATION_REGISTRY.json"
+        },
+        "formal_objects": {
+          "const": "AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json"
+        },
+        "routes": {
+          "const": "AIR_P_ROUTE_CONTRACT_REGISTRY.json"
+        }
+      },
+      "required": [
+        "authority_precedence",
+        "components",
+        "control_events",
+        "deterministic_validation",
+        "formal_objects",
+        "routes"
+      ],
+      "type": "object"
+    },
+    "semantic_owner": {
+      "const": "AIR_CORE_RUNTIME_V2"
+    },
+    "source_manifest_ref": {
+      "const": "AIR_P_SOURCE_MANIFEST.json"
+    }
+  },
+  "required": [
+    "SYSTEM_DESIGNATION",
+    "package_designation",
+    "package_version",
+    "authority_class",
+    "semantic_owner",
+    "source_manifest_ref",
+    "registry_refs",
+    "contract_refs",
+    "conformance_profile_ref",
+    "law_source_package_pin_ref",
+    "backend_enforcement_claimed"
+  ],
+  "title": "AIR-P Runtime Bundle",
+  "type": "object"
+}

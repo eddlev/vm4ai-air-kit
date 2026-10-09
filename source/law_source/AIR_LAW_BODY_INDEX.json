@@ -1,0 +1,856 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_LAW_BODY_INDEX_V1",
+  "body_index_fingerprint_sha256": "ef6f054fb463d61cab3cfdadbb9562a58166010337ba248fbc5587ac967c856a",
+  "contract_version": "1.0.0",
+  "entries": [
+    {
+      "body_id": "CORE.LAW.ACTION_RECEIPT_RECONCILIATION",
+      "body_sha256": "76f9e96faa178a7c74a9badddebd6ec767b02640ea4fac5712ba6d98ca9ad1aa",
+      "canonical_path": "law_source/laws/CORE.LAW.ACTION_RECEIPT_RECONCILIATION.md",
+      "law_id": "CORE.LAW.ACTION_RECEIPT_RECONCILIATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1993,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ACTION_RECEIPT_RECONCILIATION"
+    },
+    {
+      "body_id": "CORE.LAW.ACTIVE_STATE_RECONCILIATION",
+      "body_sha256": "b1a898024a06892a89cce8d0ad2742a9194345ecf177027acae84474dafa84fa",
+      "canonical_path": "law_source/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
+      "law_id": "CORE.LAW.ACTIVE_STATE_RECONCILIATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3330,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ACTIVE_STATE_RECONCILIATION"
+    },
+    {
+      "body_id": "CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING",
+      "body_sha256": "fb4933b264ab9a859664e2fc49bb58f13793160f915d7669e5d1a84de78b0a47",
+      "canonical_path": "law_source/laws/CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING.md",
+      "law_id": "CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 676,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ACTIVE_TASK_GEOMETRY_REBINDING"
+    },
+    {
+      "body_id": "CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING",
+      "body_sha256": "8b0c7f46c1a26b520d3cd3362ff64b7ac0074498d13b2f12d09024bad6cfb33d",
+      "canonical_path": "law_source/laws/CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING.md",
+      "law_id": "CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 7043,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING"
+    },
+    {
+      "body_id": "CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY",
+      "body_sha256": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed",
+      "canonical_path": "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
+      "law_id": "CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3464,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY"
+    },
+    {
+      "body_id": "CORE.LAW.AMBIGUITY_TRIAGE_GATE",
+      "body_sha256": "0d810422c1697db70c559fe66487562114765e0886d0ae9160caff91ea2b2713",
+      "canonical_path": "law_source/laws/CORE.LAW.AMBIGUITY_TRIAGE_GATE.md",
+      "law_id": "CORE.LAW.AMBIGUITY_TRIAGE_GATE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 781,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.AMBIGUITY_TRIAGE_GATE"
+    },
+    {
+      "body_id": "CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY",
+      "body_sha256": "fd5b89da85312cb769df02c7bf759ef6394e431f50d1609a362fae377d298f53",
+      "canonical_path": "law_source/laws/CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY.md",
+      "law_id": "CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4000,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.AMRS_AWARE_LAW_APPLICABILITY"
+    },
+    {
+      "body_id": "CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY",
+      "body_sha256": "a67029688593b9cd9751955537abb4c428cc699422d36b28ec3e8e65a4491345",
+      "canonical_path": "law_source/laws/CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY.md",
+      "law_id": "CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3254,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.AMRS_STAGE_COMPLETION_STEP_OPTIMALITY"
+    },
+    {
+      "body_id": "CORE.LAW.ARTIFACT_LEASE_INVALIDATION",
+      "body_sha256": "d6907afe98c6434db1e3c20083ef08757baf0796a0dbbc9bc0467f01ef3b0077",
+      "canonical_path": "law_source/laws/CORE.LAW.ARTIFACT_LEASE_INVALIDATION.md",
+      "law_id": "CORE.LAW.ARTIFACT_LEASE_INVALIDATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2269,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ARTIFACT_LEASE_INVALIDATION"
+    },
+    {
+      "body_id": "CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING",
+      "body_sha256": "bfb9627b884876c6c33f3c3798162c647260d88c1adf9068ce6b514bc720cd17",
+      "canonical_path": "law_source/laws/CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING.md",
+      "law_id": "CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 10468,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005",
+      "body_sha256": "7aa487b789c55bc437d577362c3fab5083343b81cb58240720b3416686bd3bb2",
+      "canonical_path": "law_source/laws/CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005.md",
+      "law_id": "CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 10084,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005"
+    },
+    {
+      "body_id": "CORE.LAW.BENCHMARK_JUDGE",
+      "body_sha256": "0a17a6ef7b3bef5472e349c3b0c766462b9a899407a384fce743773e4b1811d9",
+      "canonical_path": "law_source/laws/CORE.LAW.BENCHMARK_JUDGE.md",
+      "law_id": "CORE.LAW.BENCHMARK_JUDGE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1237,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.BENCHMARK_JUDGE"
+    },
+    {
+      "body_id": "CORE.LAW.BENCHMARK_SYNTHETIC_ROLE",
+      "body_sha256": "f3de527f99141cdccf20b8cd76dd5c564f6ed99dc6a644929f3f578cd90c7eaa",
+      "canonical_path": "law_source/laws/CORE.LAW.BENCHMARK_SYNTHETIC_ROLE.md",
+      "law_id": "CORE.LAW.BENCHMARK_SYNTHETIC_ROLE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1035,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.BENCHMARK_SYNTHETIC_ROLE"
+    },
+    {
+      "body_id": "CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY",
+      "body_sha256": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311",
+      "canonical_path": "law_source/laws/CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY.md",
+      "law_id": "CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4895,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY"
+    },
+    {
+      "body_id": "CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY",
+      "body_sha256": "6a80462c8d49ec900ef9115c564cb9739bd8b715de01ed03a29525bf6ffda643",
+      "canonical_path": "law_source/laws/CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY.md",
+      "law_id": "CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 5322,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CANONICAL_FILE_IDENTITY_DELIVERY_INTEGRITY"
+    },
+    {
+      "body_id": "CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE",
+      "body_sha256": "17db3e9a4d029bc93fd7c3b488114c9d3baef47ac94fc7b176447446e65e5ccd",
+      "canonical_path": "law_source/laws/CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE.md",
+      "law_id": "CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 6439,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CANONICAL_INTENT_RESOLUTION_GATE"
+    },
+    {
+      "body_id": "CORE.LAW.CANONICAL_OBJECT_CONTRACT",
+      "body_sha256": "7e6a17c697819c1e4fe04cf1595a947a13c9b26be5c2bfbca5d7574b3aed839d",
+      "canonical_path": "law_source/laws/CORE.LAW.CANONICAL_OBJECT_CONTRACT.md",
+      "law_id": "CORE.LAW.CANONICAL_OBJECT_CONTRACT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 20739,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CANONICAL_OBJECT_CONTRACT"
+    },
+    {
+      "body_id": "CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION",
+      "body_sha256": "bf8c70154f43d0524c93c317e85653c8346fa7ec0f7d212845e61b5071f046d5",
+      "canonical_path": "law_source/laws/CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION.md",
+      "law_id": "CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4895,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CAPABILITY_LAYER_NEED_DETECTION"
+    },
+    {
+      "body_id": "CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE",
+      "body_sha256": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f",
+      "canonical_path": "law_source/laws/CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE.md",
+      "law_id": "CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4211,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE"
+    },
+    {
+      "body_id": "CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION",
+      "body_sha256": "d316343b7691643e9d00737b5ebc36f452d097e37ca7f17b4a5334469993f251",
+      "canonical_path": "law_source/laws/CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION.md",
+      "law_id": "CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3444,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION"
+    },
+    {
+      "body_id": "CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY",
+      "body_sha256": "293f9dd20e9f0e1ed87763454d68ce97ff89bcb810e50d4ae0c252394067dbd6",
+      "canonical_path": "law_source/laws/CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY.md",
+      "law_id": "CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 11030,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY"
+    },
+    {
+      "body_id": "CORE.LAW.CREATIVE_CONTINUITY_EXTENSION",
+      "body_sha256": "1882a1e7398465dce160a0a41e198a0f95f21d0506a0c2352d62687660e833f5",
+      "canonical_path": "law_source/laws/CORE.LAW.CREATIVE_CONTINUITY_EXTENSION.md",
+      "law_id": "CORE.LAW.CREATIVE_CONTINUITY_EXTENSION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1334,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.CREATIVE_CONTINUITY_EXTENSION"
+    },
+    {
+      "body_id": "CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE",
+      "body_sha256": "3c4ce48f2a0e5be5b58b5aaac5ec6cd0b60a75602c6e217fdf71806d91d91151",
+      "canonical_path": "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
+      "law_id": "CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 11081,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE"
+    },
+    {
+      "body_id": "CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION",
+      "body_sha256": "a98ae9d34dcc8a1df1b2aaf8a871c548e440c638225f059c632e4f3df00e69f2",
+      "canonical_path": "law_source/laws/CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION.md",
+      "law_id": "CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2114,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DETERMINISTIC_CONTRACT_MACHINE_REPRESENTATION"
+    },
+    {
+      "body_id": "CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE",
+      "body_sha256": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768",
+      "canonical_path": "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+      "law_id": "CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1361,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE"
+    },
+    {
+      "body_id": "CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE",
+      "body_sha256": "5440cd3c5655e8116c50442bea8f1c46b153ec63cdd987ae28d3766caddd1fb7",
+      "canonical_path": "law_source/laws/CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE.md",
+      "law_id": "CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2428,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DETERMINISTIC_PIPELINE_NON_INFERENCE"
+    },
+    {
+      "body_id": "CORE.LAW.DUAL_GEOMETRY_BINDING",
+      "body_sha256": "90078cc62537c7a098f079aa14b8987c79bbe4cc51e2ef1b137fa6921ba0e677",
+      "canonical_path": "law_source/laws/CORE.LAW.DUAL_GEOMETRY_BINDING.md",
+      "law_id": "CORE.LAW.DUAL_GEOMETRY_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1963,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DUAL_GEOMETRY_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE",
+      "body_sha256": "20e86c4f464dac637a24914a7afd5db88e88d4907259c7f5cbf224a5e3e3ca78",
+      "canonical_path": "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+      "law_id": "CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 12639,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE"
+    },
+    {
+      "body_id": "CORE.LAW.ENTRY_PATH_Q1_SEPARATION",
+      "body_sha256": "43b0d0b741cea8d6bb7208a289e62e32e32eb189501f8b2a39c83c99ab4a7a0f",
+      "canonical_path": "law_source/laws/CORE.LAW.ENTRY_PATH_Q1_SEPARATION.md",
+      "law_id": "CORE.LAW.ENTRY_PATH_Q1_SEPARATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 864,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ENTRY_PATH_Q1_SEPARATION"
+    },
+    {
+      "body_id": "CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT",
+      "body_sha256": "7bbbc49048fa595b4c36030617216c6adff9a05f7099c3fb51a68599629373ff",
+      "canonical_path": "law_source/laws/CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT.md",
+      "law_id": "CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 905,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.FORMAL_OBJECT_COMPLETENESS_PREFLIGHT"
+    },
+    {
+      "body_id": "CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY",
+      "body_sha256": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406",
+      "canonical_path": "law_source/laws/CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY.md",
+      "law_id": "CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2174,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY"
+    },
+    {
+      "body_id": "CORE.LAW.GATE_DECISION",
+      "body_sha256": "24fc14daaedb8ff73b85fca3aca4d1ed79461dcb28bd7f174d67738e5d55b624",
+      "canonical_path": "law_source/laws/CORE.LAW.GATE_DECISION.md",
+      "law_id": "CORE.LAW.GATE_DECISION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3645,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.GATE_DECISION"
+    },
+    {
+      "body_id": "CORE.LAW.GEOMETRY_EFFECT_BINDING",
+      "body_sha256": "a5e9ccf57b42b0eea25457a70bb5f2ff9212a6295026b94a73d6232673a54a2b",
+      "canonical_path": "law_source/laws/CORE.LAW.GEOMETRY_EFFECT_BINDING.md",
+      "law_id": "CORE.LAW.GEOMETRY_EFFECT_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 736,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.GEOMETRY_EFFECT_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.GEOMETRY_FORCE_VS_FIT",
+      "body_sha256": "83a0e336f1ede1e6bf0362146ef4de9a8de88e4a1d5c99cc90d1640851bf692c",
+      "canonical_path": "law_source/laws/CORE.LAW.GEOMETRY_FORCE_VS_FIT.md",
+      "law_id": "CORE.LAW.GEOMETRY_FORCE_VS_FIT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2177,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.GEOMETRY_FORCE_VS_FIT"
+    },
+    {
+      "body_id": "CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK",
+      "body_sha256": "f79bcafb86963d60d15ad376c9fcb4ae35c14f53c7e2dbfefca873b3cbf4b232",
+      "canonical_path": "law_source/laws/CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK.md",
+      "law_id": "CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 8217,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.GROUNDING_Q5_SPECIALIST_NEED_CHECK"
+    },
+    {
+      "body_id": "CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP",
+      "body_sha256": "f3ef4bf906417571e47d30de887da327c8dd247def26f499764e49f02afe48f0",
+      "canonical_path": "law_source/laws/CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP.md",
+      "law_id": "CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3471,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_CONTINUATION_BOOTSTRAP"
+    },
+    {
+      "body_id": "AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1",
+      "body_sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb",
+      "canonical_path": "law_source/laws/AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1.md",
+      "law_id": "CORE.LAW.HANDOFF_FILE_DELIVERY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "EXPLICIT_SHARED_BODY",
+      "size_bytes": 1662,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_FILE_DELIVERY"
+    },
+    {
+      "body_id": "CORE.LAW.HANDOFF_INBOUND_VALIDATION",
+      "body_sha256": "3ca24df43eb92717ee6e4bfb948e5127f66556df015978326609563401c0c137",
+      "canonical_path": "law_source/laws/CORE.LAW.HANDOFF_INBOUND_VALIDATION.md",
+      "law_id": "CORE.LAW.HANDOFF_INBOUND_VALIDATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 8817,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_INBOUND_VALIDATION"
+    },
+    {
+      "body_id": "AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1",
+      "body_sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb",
+      "canonical_path": "law_source/laws/AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1.md",
+      "law_id": "CORE.LAW.HANDOFF_JSON_FILE_OUTPUT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "EXPLICIT_SHARED_BODY",
+      "size_bytes": 1662,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_JSON_FILE_OUTPUT"
+    },
+    {
+      "body_id": "CORE.LAW.HANDOFF_MODE_SELECTION",
+      "body_sha256": "1e45fe9884e7349533555a3a1e4b0ce620e49275daffa8bca21f91b30f249886",
+      "canonical_path": "law_source/laws/CORE.LAW.HANDOFF_MODE_SELECTION.md",
+      "law_id": "CORE.LAW.HANDOFF_MODE_SELECTION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3422,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_MODE_SELECTION"
+    },
+    {
+      "body_id": "CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION",
+      "body_sha256": "bc496eac22500c00a8079d45b5513bcdddf0477da0937ddca0d67cfabcb9da79",
+      "canonical_path": "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
+      "law_id": "CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 7178,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION"
+    },
+    {
+      "body_id": "CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH",
+      "body_sha256": "d08510c0e8090279d39b9b65c4dad4ffdb474b8db700e463c014f0b2c398d725",
+      "canonical_path": "law_source/laws/CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH.md",
+      "law_id": "CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2299,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.KNOWLEDGE_TO_EXECUTION_TRANSFORMATION_PATH"
+    },
+    {
+      "body_id": "CORE.LAW.LAMBDA_PRESSURE_BINDING",
+      "body_sha256": "f03f7609b01d536bb2161f298696a2492dac8dba5e8767491a7079807e1285ba",
+      "canonical_path": "law_source/laws/CORE.LAW.LAMBDA_PRESSURE_BINDING.md",
+      "law_id": "CORE.LAW.LAMBDA_PRESSURE_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 836,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.LAMBDA_PRESSURE_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL",
+      "body_sha256": "cfc6dee06e81039c52b0677ba6bf880932c1329077b83c743b234de58ce1d976",
+      "canonical_path": "law_source/laws/CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL.md",
+      "law_id": "CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1977,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MACHINE_NATIVE_CAPABILITY_TRANSLATION_KERNEL"
+    },
+    {
+      "body_id": "CORE.LAW.MATERIAL_ACTION_INTERLOCK",
+      "body_sha256": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
+      "canonical_path": "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
+      "law_id": "CORE.LAW.MATERIAL_ACTION_INTERLOCK",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2637,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MATERIAL_ACTION_INTERLOCK"
+    },
+    {
+      "body_id": "CORE.LAW.METHOD_LAYER",
+      "body_sha256": "2577ea4edddaf6c8e36412a15774fae16de02bbe2f11c76b6e8996536a8bb003",
+      "canonical_path": "law_source/laws/CORE.LAW.METHOD_LAYER.md",
+      "law_id": "CORE.LAW.METHOD_LAYER",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3831,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.METHOD_LAYER"
+    },
+    {
+      "body_id": "CORE.LAW.MII_COGNITIVE_ARCHITECTURE",
+      "body_sha256": "f8f7241e448b8b9dab6e4141dac078d6c208e9b1ae1850b340317d0d9b2089a9",
+      "canonical_path": "law_source/laws/CORE.LAW.MII_COGNITIVE_ARCHITECTURE.md",
+      "law_id": "CORE.LAW.MII_COGNITIVE_ARCHITECTURE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2449,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MII_COGNITIVE_ARCHITECTURE"
+    },
+    {
+      "body_id": "CORE.LAW.MII_EPISTEMIC_SUFFICIENCY",
+      "body_sha256": "a270383fa275a9431fd356bcc8b263c371c35c21e6de652734e853bd1a25c020",
+      "canonical_path": "law_source/laws/CORE.LAW.MII_EPISTEMIC_SUFFICIENCY.md",
+      "law_id": "CORE.LAW.MII_EPISTEMIC_SUFFICIENCY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1240,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MII_EPISTEMIC_SUFFICIENCY"
+    },
+    {
+      "body_id": "CORE.LAW.MII_MORPHOLOGY_BINDING",
+      "body_sha256": "469785651779ec2cb54e23d5009005c6549e5062943242d1356760cc5717572e",
+      "canonical_path": "law_source/laws/CORE.LAW.MII_MORPHOLOGY_BINDING.md",
+      "law_id": "CORE.LAW.MII_MORPHOLOGY_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1376,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MII_MORPHOLOGY_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.MII_RISK_PROPAGATION",
+      "body_sha256": "922647a036ecb2a56c96ff20e610267aaebe047fa7132fb0c95429c16c88d59c",
+      "canonical_path": "law_source/laws/CORE.LAW.MII_RISK_PROPAGATION.md",
+      "law_id": "CORE.LAW.MII_RISK_PROPAGATION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 842,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MII_RISK_PROPAGATION"
+    },
+    {
+      "body_id": "CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY",
+      "body_sha256": "8662ed6ba7127a6449ede29882c66711dd578ce8a3eea31a78604bffbecab106",
+      "canonical_path": "law_source/laws/CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY.md",
+      "law_id": "CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4182,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY"
+    },
+    {
+      "body_id": "CORE.LAW.NATIVE_AXIS_SCAN",
+      "body_sha256": "d0f0493897dcafa7f63f87eb7dd50d8c6a3194341c08b12f41c9aafa8a225ad9",
+      "canonical_path": "law_source/laws/CORE.LAW.NATIVE_AXIS_SCAN.md",
+      "law_id": "CORE.LAW.NATIVE_AXIS_SCAN",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 653,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.NATIVE_AXIS_SCAN"
+    },
+    {
+      "body_id": "CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE",
+      "body_sha256": "ad48e8a4a672d7ab5b65414bb112f1cb7a86d05cf58dcf67c0e3327fe41da883",
+      "canonical_path": "law_source/laws/CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE.md",
+      "law_id": "CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 952,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.NATIVE_MEANING_ALIGNMENT_LITE"
+    },
+    {
+      "body_id": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+      "body_sha256": "00112f190279db3740a12e94370cff524a391a86bfe53c147ad738e7ded31562",
+      "canonical_path": "law_source/laws/CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER.md",
+      "law_id": "CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2334,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.NEW_TASK_EXECUTION_BINDING_BARRIER"
+    },
+    {
+      "body_id": "CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY",
+      "body_sha256": "3f9ec3d24742d6cab3aee08d55e6d72eb16eec3312c238ebca2f5fb7c8455d38",
+      "canonical_path": "law_source/laws/CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY.md",
+      "law_id": "CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2109,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.NON_INFERENCE_MATERIAL_AMBIGUITY"
+    },
+    {
+      "body_id": "CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK",
+      "body_sha256": "66456444eac5d72f0fb2843400a01a7cf31ed5d53034ea9b8b98544d636dbaa0",
+      "canonical_path": "law_source/laws/CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK.md",
+      "law_id": "CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1039,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.OBJECT_DEFAULT_PRECEDENCE_AND_ONBOARDING_LOCK"
+    },
+    {
+      "body_id": "CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE",
+      "body_sha256": "b976c0bd59d0f436d4cace87e503372c3636dbabae7a1ce794b466ee72d644a4",
+      "canonical_path": "law_source/laws/CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE.md",
+      "law_id": "CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3008,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.OBJECT_VISIBILITY_AND_BOOT_EVIDENCE"
+    },
+    {
+      "body_id": "CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX",
+      "body_sha256": "5c2f0fe73c1eb4505a05d3e294dc5c68e994c61859564f33dd2e671602ec6cdc",
+      "canonical_path": "law_source/laws/CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX.md",
+      "law_id": "CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1123,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ONBOARDING_GEOMETRY_ROUTING_MATRIX"
+    },
+    {
+      "body_id": "CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY",
+      "body_sha256": "3ceba6c0cb2f542915f2883589bb997969bedf3fe4b30e633ccf4da646d916d0",
+      "canonical_path": "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md",
+      "law_id": "CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2744,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY"
+    },
+    {
+      "body_id": "CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING",
+      "body_sha256": "b28179021446b129d7f6174191682727c1791e20530f50d4c75302a69be290ea",
+      "canonical_path": "law_source/laws/CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING.md",
+      "law_id": "CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1765,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING"
+    },
+    {
+      "body_id": "CORE.LAW.ORBIT_TASK_MANAGEMENT",
+      "body_sha256": "c95dd205a275f21f85858ba0d0f0a69add93a5d13c69344daeff2f304b5ffe8c",
+      "canonical_path": "law_source/laws/CORE.LAW.ORBIT_TASK_MANAGEMENT.md",
+      "law_id": "CORE.LAW.ORBIT_TASK_MANAGEMENT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2504,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ORBIT_TASK_MANAGEMENT"
+    },
+    {
+      "body_id": "CORE.LAW.PATCH_SOURCE_UPLOAD_GATE",
+      "body_sha256": "a46fbbf703cee23e84cd7d3c8baa8dc7b954ea693152892963bf1d1e1ad033b4",
+      "canonical_path": "law_source/laws/CORE.LAW.PATCH_SOURCE_UPLOAD_GATE.md",
+      "law_id": "CORE.LAW.PATCH_SOURCE_UPLOAD_GATE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3301,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.PATCH_SOURCE_UPLOAD_GATE"
+    },
+    {
+      "body_id": "CORE.LAW.PROFILE_STACK_ROUTING",
+      "body_sha256": "b5c9a338750d7edab780f588f49e0715843cc5ea77aace5c95bb9f1110a0202b",
+      "canonical_path": "law_source/laws/CORE.LAW.PROFILE_STACK_ROUTING.md",
+      "law_id": "CORE.LAW.PROFILE_STACK_ROUTING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1489,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.PROFILE_STACK_ROUTING"
+    },
+    {
+      "body_id": "CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE",
+      "body_sha256": "728879641203c9ef353f507091a70243124d300e26e84f14958013f693fbba37",
+      "canonical_path": "law_source/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
+      "law_id": "CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1901,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE"
+    },
+    {
+      "body_id": "CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT",
+      "body_sha256": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
+      "canonical_path": "law_source/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md",
+      "law_id": "CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2136,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT"
+    },
+    {
+      "body_id": "CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION",
+      "body_sha256": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
+      "canonical_path": "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+      "law_id": "CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3199,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION"
+    },
+    {
+      "body_id": "CORE.LAW.RESOURCE_SCOPE_PIN",
+      "body_sha256": "9bb5c6cba5b640617d2a615266c80534ba8e901534567830346095439498b1d0",
+      "canonical_path": "law_source/laws/CORE.LAW.RESOURCE_SCOPE_PIN.md",
+      "law_id": "CORE.LAW.RESOURCE_SCOPE_PIN",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 996,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.RESOURCE_SCOPE_PIN"
+    },
+    {
+      "body_id": "CORE.LAW.RESPONSIVE_BINDING_APPROVAL",
+      "body_sha256": "5c06c55e09542c2efe38acb41aefc5cdada1e17dfe2169bda2d349f138449867",
+      "canonical_path": "law_source/laws/CORE.LAW.RESPONSIVE_BINDING_APPROVAL.md",
+      "law_id": "CORE.LAW.RESPONSIVE_BINDING_APPROVAL",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1867,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.RESPONSIVE_BINDING_APPROVAL"
+    },
+    {
+      "body_id": "CORE.LAW.ROUTER_COMPATIBILITY_SURFACE",
+      "body_sha256": "fdeef1e9b8534837e08de8c971c63c14522f6ddf3fb125d1e127edf15364656c",
+      "canonical_path": "law_source/laws/CORE.LAW.ROUTER_COMPATIBILITY_SURFACE.md",
+      "law_id": "CORE.LAW.ROUTER_COMPATIBILITY_SURFACE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 856,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.ROUTER_COMPATIBILITY_SURFACE"
+    },
+    {
+      "body_id": "CORE.LAW.RUNTIME_ALIGNMENT_STATE",
+      "body_sha256": "7aa766c572262ccb047d22bb118d0730572e9ae4dfd9ccc94bd4c96172e3e879",
+      "canonical_path": "law_source/laws/CORE.LAW.RUNTIME_ALIGNMENT_STATE.md",
+      "law_id": "CORE.LAW.RUNTIME_ALIGNMENT_STATE",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 36750,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.RUNTIME_ALIGNMENT_STATE"
+    },
+    {
+      "body_id": "CORE.LAW.RUNTIME_LOAD_INTEGRITY",
+      "body_sha256": "76665b589e4d769387b843486e9c57edd3a5ae4359f31aedd0fb76d142b2ffcb",
+      "canonical_path": "law_source/laws/CORE.LAW.RUNTIME_LOAD_INTEGRITY.md",
+      "law_id": "CORE.LAW.RUNTIME_LOAD_INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3115,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.RUNTIME_LOAD_INTEGRITY"
+    },
+    {
+      "body_id": "CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION",
+      "body_sha256": "54cb1a99d88a8f5962e450a13eb2e00d0ce5e844de393110d696cc5404952515",
+      "canonical_path": "law_source/laws/CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION.md",
+      "law_id": "CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 4568,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION"
+    },
+    {
+      "body_id": "CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING",
+      "body_sha256": "b982133e5dbe144d1d46addafb33f3e39c599691a1257f4897b9da1a62fbaa27",
+      "canonical_path": "law_source/laws/CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING.md",
+      "law_id": "CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1139,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.SPECIALIST_DOMAIN_PACKAGE_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.SPECIALIST_PROFILE_ROUTING",
+      "body_sha256": "a73e01425326c4e0339c87425308cb4499c6c1da5e80849f70cd03413fcfe755",
+      "canonical_path": "law_source/laws/CORE.LAW.SPECIALIST_PROFILE_ROUTING.md",
+      "law_id": "CORE.LAW.SPECIALIST_PROFILE_ROUTING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 904,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.SPECIALIST_PROFILE_ROUTING"
+    },
+    {
+      "body_id": "CORE.LAW.SYSTEM_MODIFIERS",
+      "body_sha256": "36f786b40bc6424e7d375bebf486ae76d589dac42a9e49a26152e9d8d76d2714",
+      "canonical_path": "law_source/laws/CORE.LAW.SYSTEM_MODIFIERS.md",
+      "law_id": "CORE.LAW.SYSTEM_MODIFIERS",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1473,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.SYSTEM_MODIFIERS"
+    },
+    {
+      "body_id": "CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY",
+      "body_sha256": "dbeb1a43978009609a57098d09055445cab821fdd1b004a93e705a93b0fa78e2",
+      "canonical_path": "law_source/laws/CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY.md",
+      "law_id": "CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 945,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.TOOL_GATEWAY_ENFORCEMENT_BOUNDARY"
+    },
+    {
+      "body_id": "CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY",
+      "body_sha256": "5d91190402eeadef42e26fe8764a467255cf70e09188165c46160bae3b40f27a",
+      "canonical_path": "law_source/laws/CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY.md",
+      "law_id": "CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2222,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.UNBOUND_PRIOR_EFFECT_RECOVERY"
+    },
+    {
+      "body_id": "CORE.LAW.VISIBLE_ARTIFACT_BINDING",
+      "body_sha256": "616d1af3e6685a974983cfce9596b375499db92dfd87e62b585ec2bd3741b967",
+      "canonical_path": "law_source/laws/CORE.LAW.VISIBLE_ARTIFACT_BINDING.md",
+      "law_id": "CORE.LAW.VISIBLE_ARTIFACT_BINDING",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 1010,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.VISIBLE_ARTIFACT_BINDING"
+    },
+    {
+      "body_id": "CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY",
+      "body_sha256": "5d38948470af48b6ab01e231788f27af799f2416e7680a37ae136078a49d41b9",
+      "canonical_path": "law_source/laws/CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY.md",
+      "law_id": "CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 2292,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY"
+    },
+    {
+      "body_id": "CORE.REGISTRY.FLOOR_INVARIANT",
+      "body_sha256": "4428ca25e6c85420975e53e2db79874663f7977b482fce8566c1b8ac0e7d914d",
+      "canonical_path": "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
+      "law_id": "CORE.REGISTRY.FLOOR_INVARIANT",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 12975,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.REGISTRY.FLOOR_INVARIANT"
+    },
+    {
+      "body_id": "CORE.REGISTRY.LAW_ID",
+      "body_sha256": "82dc310eaa91a67aea18cc2106f8c2699960a1465975dd6c970f99f7e07d56f3",
+      "canonical_path": "law_source/laws/CORE.REGISTRY.LAW_ID.md",
+      "law_id": "CORE.REGISTRY.LAW_ID",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 75605,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.REGISTRY.LAW_ID"
+    },
+    {
+      "body_id": "CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL",
+      "body_sha256": "42851649a6295a6b70867121681aafdee3ab55155ef232813d6fe9c29ba7c295",
+      "canonical_path": "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md",
+      "law_id": "CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 23777,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL"
+    },
+    {
+      "body_id": "CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY",
+      "body_sha256": "a0d7a89dc961c5cbf2a3836cd3de0febbef93325176513a62ff49d5a2f84a9c9",
+      "canonical_path": "law_source/laws/CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY.md",
+      "law_id": "CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY",
+      "lifecycle_state": "ACTIVE",
+      "sharing_class": "ONE_TO_ONE",
+      "size_bytes": 3181,
+      "source_anchor_ref": "AIR_LAW_SOURCE_MIGRATION_MAP_V1#CORE.REGISTRY.SPECIALIST_PACKAGE_INDEX_DISCOVERY"
+    }
+  ],
+  "law_identity_count": 83,
+  "law_registry_fingerprint_sha256": "915f3f3f03b23106de450b5f5a6480d2122114a21d58c7da32ab769df0cf4686",
+  "law_registry_ref": "law_source/AIR_LAW_ID_REGISTRY.json",
+  "package_id": "AIR_LAW_SOURCE_PACKAGE_V1",
+  "package_version": "1.0.0-AMRS4A2-R2-CANDIDATE",
+  "physical_body_count": 82,
+  "positive_execution_authority": "NONE",
+  "shared_body_groups": [
+    {
+      "body_id": "AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1",
+      "body_sha256": "2b678185eb61f2cc8311e03a48e0c384b36119cdb2b257930bcc6b1f0c18a0bb",
+      "canonical_path": "law_source/laws/AIR-LAW-BODY-HANDOFF-JSON-FILE-OUTPUT-V1.md",
+      "law_ids": [
+        "CORE.LAW.HANDOFF_FILE_DELIVERY",
+        "CORE.LAW.HANDOFF_JSON_FILE_OUTPUT"
+      ],
+      "size_bytes": 1662
+    }
+  ]
+}

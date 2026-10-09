@@ -1,0 +1,28 @@
+{
+  "changed_file_count": 3,
+  "added_file_count": 0,
+  "deleted_file_count": 0,
+  "changed_files": [
+    {
+      "path": "air_p/compiler/air_p_compiler_engine.py",
+      "pre_sha256": "8b199e687ee31d0428e35edc801a9c1428aca41cfc274cf8093543600f1b3f6b",
+      "pre_size_bytes": 181139,
+      "post_sha256": "ec3ac331d1c13a18fcb8fb4a6e3f2c0e594fee6aaa4bf10db6e7acf1631830e3",
+      "post_size_bytes": 181139
+    },
+    {
+      "path": "air_p/tests/test_air_p_compiler.py",
+      "pre_sha256": "7e15c7e21ff127a17f231468b9f32b0e6329e2a37e481febd16abbff23efa51b",
+      "pre_size_bytes": 58066,
+      "post_sha256": "babfcabc98996e64e2b6267d40bbf9835849f721ef41b81b6d3f86e6292b0605",
+      "post_size_bytes": 60816
+    },
+    {
+      "path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "pre_sha256": "ec13ccb79d2d46ff6c1952b948161ff8d0498488bd0ee9baeaef136370c1b86a",
+      "pre_size_bytes": 310463,
+      "post_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18",
+      "post_size_bytes": 312595
+    }
+  ]
+}

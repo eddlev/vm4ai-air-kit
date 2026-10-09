@@ -1,0 +1,56 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_CONTROL_GOVERNANCE_PROJECTIONS_V1",
+  "authority_class": "DERIVED_NONAUTHORITATIVE_PROJECTIONS",
+  "projections": [
+    {
+      "effect": "MAY_TIGHTEN_CORE_REQUIREMENTS",
+      "may_redefine_core": false,
+      "source_role": "GOVERNANCE_SUPPLEMENT"
+    },
+    {
+      "effect": "RENDER_CORE_STATE_AND_REQUIRED_OBJECTS",
+      "may_redefine_core": false,
+      "source_role": "CONTROL_SURFACE"
+    },
+    {
+      "effect": "SUPPLY_DEFAULTS_TYPED_EVENTS_AND_VALIDATION_REGISTRY",
+      "may_redefine_core": false,
+      "source_role": "DEFAULT_STARTER_PROFILE"
+    },
+    {
+      "effect": "PARITY_FIXTURE_ONLY",
+      "may_redefine_core": false,
+      "source_role": "RUNTIME_ROUTE_MAP"
+    },
+    {
+      "effect": "DERIVED_LAW_APPLICABILITY_MACHINE_ROUTER",
+      "may_redefine_core": false,
+      "source_role": "LAW_APPLICABILITY_ROUTER"
+    },
+    {
+      "effect": "DERIVED_COMPONENT_IDENTITY_METADATA_ONLY",
+      "may_redefine_core": false,
+      "source_role": "COMPONENT_METADATA_OVERLAY"
+    },
+    {
+      "effect": "PACKAGE_ENABLED_LAW_SOURCE_SEMANTIC_OWNER_AND_VALIDATION_INPUT",
+      "may_redefine_core": false,
+      "source_role": "LAW_SOURCE_PACKAGE_SCHEMA"
+    }
+  ],
+  "source_hashes": {
+    "COMPONENT_METADATA_OVERLAY": "553aec8171ae09272e2b133f1ff688c074068dd8007435384453f756fcb3dc03",
+    "CONTROL_SURFACE": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28",
+    "CORE_RUNTIME": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
+    "DEFAULT_STARTER_PROFILE": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18",
+    "GOVERNANCE_SUPPLEMENT": "24c5201961c419dece9035f112d5aa3e3b49460cc770656dfde44f7f3d705fd6",
+    "HANDOFF_CARD_TEMPLATE": "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122",
+    "LAW_APPLICABILITY_ROUTER": "ece1fb608ff43def479c2fa1633cf0b158276dc1b1c2b6ace800a2f88e69677a",
+    "LAW_SOURCE_FLOOR_INVARIANT_INDEX": "f9c84ef97386fa49506ebe2712dd41cb48a07443c218062690f592a80a53b009",
+    "LAW_SOURCE_LAW_BODY_INDEX": "d0aedaa34cf7b47bc9e4d620d04df1bf8adc4c13021d6aad7cfea4089b1ae296",
+    "LAW_SOURCE_LAW_ID_REGISTRY": "03935a1fafc72d7c406f0995644afe820e2118f787c97702fe6f4ffc74d23d24",
+    "LAW_SOURCE_PACKAGE_SCHEMA": "ef582abfa7433fdce0411b38d3ddbed0ca233124c0f80ad52abac0e39cca745f",
+    "PACKAGE_SCHEMA": "6c019b38ce3108657a2a11948f9fa68e52f171279da5496925c6ae4eb2bbd75e",
+    "RUNTIME_ROUTE_MAP": "c322f8d3ebd68594a506101d4fe0c783a4712b26c1f51ef20de8d5b8733d5817"
+  }
+}

@@ -1,0 +1,1 @@
+- AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING: attachment or availability never establishes selection, approval, compilation, or binding.

@@ -1,0 +1,1 @@
+- AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING: surfaced AIR objects are governance records for delivered output; they do not claim hidden reasoning or chain of thought.

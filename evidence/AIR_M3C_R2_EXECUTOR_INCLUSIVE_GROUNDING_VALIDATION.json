@@ -1,0 +1,175 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_M3C_R2_GROUNDING_EXECUTOR_INCLUSIVE_RELEASE_VALIDATION_V1",
+  "evidence_id": "AIR_M3C_R2_EXECUTOR_INCLUSIVE_GROUNDING_SET008_20260920_V1",
+  "evidence_class": "COMPOSITE_EXISTING_MODEL_HOST_PLUS_NEW_EXECUTOR_DETERMINISTIC_CONTRACT_VALIDATION",
+  "package_identity": "AIR_GROUNDING_SPECIALIST_PACKAGE_V2",
+  "foundation_identity": "AIR_FOUNDATION_2_6_3_OBJECT_CONTRACT_SET_008",
+  "generated_at": "2026-09-20T20:19:00Z",
+  "historical_model_host_behavioral_evidence": {
+    "evidence_id": "AIR_BEHAVIORAL_EVIDENCE_GROUNDING_SET008_20260917_V2",
+    "filename": "tests/AIR_GROUNDING_SET008_BEHAVIORAL_EVIDENCE_V2.json",
+    "sha256": "8675a95d211e6673191526fff3749e88d3d8a9273b2803d30357438850209a26",
+    "result": "PASS_REPLAYABLE_MODEL_HOST_EVIDENCE",
+    "executor_included_in_historical_model_host_pass": false,
+    "preservation_state": "PRESERVED_AS_HISTORICAL_NON_EXECUTOR_MODEL_HOST_EVIDENCE"
+  },
+  "current_component_receipts": {
+    "AIR_GROUNDING_DOMAIN_PACKAGE.json": {
+      "sha256": "0161981e9460d342ba74e4398cd20aaaafaf8152eebabe919249d175ffe0c569",
+      "size_bytes": 69128,
+      "line_count": 1152
+    },
+    "AIR_GROUNDING_EXECUTOR.json": {
+      "sha256": "6db97009abfd74508ac5030d03bfefd225c0c34f8c031ffdc4f401ca170a4a31",
+      "size_bytes": 34013,
+      "line_count": 671
+    },
+    "AIR_GROUNDING_METHOD_PACK.json": {
+      "sha256": "48ae89861458a66ed953d3adf88d942fe351a48d7de32237836e76595034f2d5",
+      "size_bytes": 82914,
+      "line_count": 1678
+    },
+    "AIR_GROUNDING_SPECIALIST.json": {
+      "sha256": "f2191936479438ec1dc872ab606da6a2ed132b42e2568c6abed69943b49811fd",
+      "size_bytes": 80192,
+      "line_count": 1396
+    }
+  },
+  "executor_contract_validation": {
+    "executor_filename": "AIR_GROUNDING_EXECUTOR.json",
+    "check_count": 14,
+    "pass_count": 14,
+    "checks": [
+      {
+        "check_id": "EXECUTOR_STATUS_VALIDATED",
+        "state": "PASS",
+        "observed": "V2_5_0_OBJECT_CONTRACT_SET_008_RESEAL_STATIC_VALIDATED_REPLAYABLE_BEHAVIORAL_VALIDATED_AVAILABLE_UNBOUND"
+      },
+      {
+        "check_id": "EXECUTOR_LAYER_NON_AGENT",
+        "state": "PASS",
+        "observed": "NON_AGENT_EXECUTOR_LAYER"
+      },
+      {
+        "check_id": "NO_INDEPENDENT_EXECUTION_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ACTIVE_BINDING_AUTHORITY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_ORBIT0_OCCUPANCY",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_APPROVAL",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "NO_SELF_BINDING",
+        "state": "PASS",
+        "observed": false
+      },
+      {
+        "check_id": "POSITIVE_AUTHORITY_REMAINS_ORBIT0_ARTIFACT",
+        "state": "PASS",
+        "observed": "SOLE_BOUND_ORBIT_0_AIR_ARTIFACT"
+      },
+      {
+        "check_id": "MANUAL_INVOCATION_DECLARED",
+        "state": "PASS",
+        "observed": "air grounding execute"
+      },
+      {
+        "check_id": "BOUNDED_OPERATION_DECLARED",
+        "state": "PASS",
+        "observed": "EXECUTE_ONE_TASK_SCOPED_GROUNDING_REVIEW_OPERATION"
+      },
+      {
+        "check_id": "EXECUTOR_REQUIRED_PACKAGE_MEMBER",
+        "state": "PASS",
+        "observed": [
+          "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+          "AIR_GROUNDING_METHOD_PACK.json",
+          "AIR_GROUNDING_SPECIALIST.json",
+          "AIR_GROUNDING_EXECUTOR.json"
+        ]
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_GROUNDING_DOMAIN_PACKAGE.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_GROUNDING_DOMAIN_PACKAGE_V2",
+            "filename": "AIR_GROUNDING_DOMAIN_PACKAGE.json",
+            "sha256": "0161981e9460d342ba74e4398cd20aaaafaf8152eebabe919249d175ffe0c569",
+            "size_bytes": 69128,
+            "line_count": 1152,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "0161981e9460d342ba74e4398cd20aaaafaf8152eebabe919249d175ffe0c569",
+            "size_bytes": 69128,
+            "line_count": 1152
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_GROUNDING_METHOD_PACK.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_GROUNDING_METHOD_PACK_V2",
+            "filename": "AIR_GROUNDING_METHOD_PACK.json",
+            "sha256": "48ae89861458a66ed953d3adf88d942fe351a48d7de32237836e76595034f2d5",
+            "size_bytes": 82914,
+            "line_count": 1678,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "48ae89861458a66ed953d3adf88d942fe351a48d7de32237836e76595034f2d5",
+            "size_bytes": 82914,
+            "line_count": 1678
+          }
+        }
+      },
+      {
+        "check_id": "DEPENDENCY_RECEIPT::AIR_GROUNDING_SPECIALIST.json",
+        "state": "PASS",
+        "observed": {
+          "declared": {
+            "designation": "AIR_GROUNDING_SPECIALIST_V2",
+            "filename": "AIR_GROUNDING_SPECIALIST.json",
+            "sha256": "f2191936479438ec1dc872ab606da6a2ed132b42e2568c6abed69943b49811fd",
+            "size_bytes": 80192,
+            "line_count": 1396,
+            "availability_state": "SUPPLIED_VALIDATED_AVAILABLE_UNBOUND"
+          },
+          "actual": {
+            "sha256": "f2191936479438ec1dc872ab606da6a2ed132b42e2568c6abed69943b49811fd",
+            "size_bytes": 80192,
+            "line_count": 1396
+          }
+        }
+      }
+    ],
+    "result": "PASS"
+  },
+  "current_release_validation": {
+    "executor_included": true,
+    "executor_lifecycle_state": "VALIDATED_AVAILABLE_UNBOUND_INTEGRAL_PACKAGE_COMPONENT",
+    "integral_package_component": true,
+    "authority_expansion": false,
+    "validation_composition": "HISTORICAL_MODEL_HOST_BEHAVIOR_FOR_NON_EXECUTOR_COMPONENTS_PLUS_CURRENT_DETERMINISTIC_EXECUTOR_CONTRACT_AND_MUTATION_VALIDATION",
+    "mutation_coverage_ref": "evidence/M3C_R2_EXECUTOR_MUTATION_TEST_REPORT.json"
+  },
+  "claim_boundary": "This evidence validates released package/component identity, Executor contract gates, dependency receipts and non-agent/no-independent-authority boundaries. It does not claim backend enforcement, live external effects, legal/compliance certification, or cross-host behavioral equivalence.",
+  "backend_validation_claimed": false,
+  "cross_host_equivalence_claimed": false,
+  "result": "PASS_EXISTING_REPLAYABLE_MODEL_HOST_PLUS_EXECUTOR_INCLUSIVE_DETERMINISTIC_CONTRACT_VALIDATION"
+}

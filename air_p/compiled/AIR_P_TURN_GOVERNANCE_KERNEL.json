@@ -1,0 +1,441 @@
+{
+  "SYSTEM_DESIGNATION": "AIR_P_TURN_GOVERNANCE_KERNEL_V1",
+  "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
+  "anchors": [
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
+      "locator": {
+        "end_line": 62,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "GOVERNED_ROUTE",
+        "FORMAL_OBJECT_OBLIGATION"
+      ],
+      "section_digest": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+      "source_sha256": "d4abfe69f72ac0d07b647c9c24046522a23f15114905f6e3ac74b50eeade11ed"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY.md",
+      "locator": {
+        "end_line": 28,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1"
+      ],
+      "retrieval_trigger": [
+        "NONROOT_FORMAL_OBJECT_CONSTRUCTION"
+      ],
+      "section_digest": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+      "source_sha256": "8be52f1655a554e97a725833f75d64d24282f7fb4d58df8d6fb0aeab1b085406"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md",
+      "locator": {
+        "end_line": 27,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1"
+      ],
+      "retrieval_trigger": [
+        "PRE_RESPONSE_FORMAL_OBJECT_PREFLIGHT"
+      ],
+      "section_digest": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+      "source_sha256": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.CLOSED_WORLD_FORMAL_OBJECT_EMISSION_CLOSURE.md",
+      "locator": {
+        "end_line": 52,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+      "required_dependencies": [
+        "AIR_REQUIRED_EMISSION_PREFLIGHT_V2"
+      ],
+      "retrieval_trigger": [
+        "RESPONSE_EMISSION_CLOSURE"
+      ],
+      "section_digest": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+      "source_sha256": "24c0202a7704cb258d0ccb235b8669bfe3eb8652149a0502806931379576338f"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
+      "locator": {
+        "end_line": 63,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "MATERIAL_ACTION_REQUEST"
+      ],
+      "section_digest": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+      "source_sha256": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 6877,
+        "start_line": 6254,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "APPROVAL_GATE_RESPONSE"
+      ],
+      "section_digest": "26dffd2dea51fbf6daaebff510e357f21f44e4904a2d80eeccdacc6975cffe34",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
+      "locator": {
+        "end_line": 79,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1"
+      ],
+      "retrieval_trigger": [
+        "MATERIAL_REQUIRED_INPUT_MISSING"
+      ],
+      "section_digest": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+      "source_sha256": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
+      "locator": {
+        "end_line": 26,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "UNRESOLVED_ONBOARDING_STATE"
+      ],
+      "section_digest": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+      "source_sha256": "93e404ada79658a069266e8fdd36b42d00751eb12cbf2d713241a1989962c768"
+    },
+    {
+      "canonical_source_path": "law_source/laws/CORE.LAW.BOOT_VALIDATION_PROPORTIONALITY.md",
+      "locator": {
+        "end_line": 73,
+        "patch_marker_line": 5,
+        "start_line": 1,
+        "type": "STANDALONE_LAW_BODY"
+      },
+      "patch_marker": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+      "required_dependencies": [],
+      "retrieval_trigger": [
+        "BOOT",
+        "TARGETED_REVALIDATION"
+      ],
+      "section_digest": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_STANDALONE_LAW_BODY_V1",
+      "semantic_id": "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+      "source_sha256": "4740aa21c0319a1546e1d72283ae80c804847d39abf4586fed2051fedb97e311"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 157,
+        "start_line": 39,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1",
+      "required_dependencies": [
+        "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2"
+      ],
+      "retrieval_trigger": [
+        "BOOT",
+        "TARGETED_RUNTIME_RETRIEVAL"
+      ],
+      "section_digest": "6e5b7761b8a1d1a504f471cc327c14c1bc3943319e145d64ecc69d6cd76cb6fd",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CORE_RUNTIME.md",
+      "locator": {
+        "end_line": 3334,
+        "start_line": 3283,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+      "required_dependencies": [
+        "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+        "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+        "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+        "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+        "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+        "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+        "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+        "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+        "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+        "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "GOVERNED_ROUTE",
+        "FORMAL_OBJECT_OBLIGATION",
+        "MATERIAL_ACTION_REQUEST"
+      ],
+      "section_digest": "32ea366d82b04ce732baef24f53e9703f71c09d170e6a77d39d16bdd4f37d183",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+      "source_sha256": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
+    }
+  ],
+  "authority_class": "DERIVED_NONAUTHORITATIVE_EXECUTION_NAVIGATION_PROJECTION",
+  "backend_enforcement_claimed": false,
+  "boot_telemetry": {
+    "evidence_class": "OBSERVATIONAL_NONAUTHORIZING",
+    "performance_safety_rule": "Performance optimization may not suppress required validation, formal objects, authoritative source retrieval, or fail-closed behavior.",
+    "phase_order": [
+      "ARCHIVE_IDENTITY",
+      "PIN_VALIDATION",
+      "KERNEL_LOAD",
+      "NAV_INDEX_LOAD",
+      "FOUNDATION_TARGETED_LOAD",
+      "ROUTER_TARGETED_LOAD",
+      "SPECIALIST_DISCOVERY",
+      "FIRST_GOVERNED_RESPONSE"
+    ],
+    "unavailable_timing_rule": "Do not fabricate missing timestamps or phase durations."
+  },
+  "direct_reference_depth": 1,
+  "ordinary_prose_before_formal_closure": "PROHIBITED_WHEN_GOVERNED_ROUTE_OR_OWED_FORMAL_OBJECT_EXISTS",
+  "pre_response_pipeline": [
+    "CURRENT_ALIGNMENT_EVALUATION",
+    "ROUTE_RESOLUTION",
+    "REQUIRED_VISIBLE_OBJECT_SET",
+    "CONSTRUCT_OWED_OBJECTS",
+    "FORMAL_OBJECT_COMPLETENESS_VALIDATION",
+    "RESPONSE_EMISSION_CLOSURE",
+    "VISIBLE_OBJECT_EMISSION",
+    "ORDINARY_PROSE"
+  ],
+  "preartifact_governance": {
+    "all_objects_rule": "ALL_OBJECTS means every formal object generated or owed for the visible response is emitted; it is not a requirement to invent an object for every response.",
+    "bootstrap_no_artifact_rule": "BOOTSTRAP_NO_ARTIFACT is not a prose-only mode. Material unresolved-input, Gate/approval, material-blocker, Decision Trace, recovery/error, or any other pre-artifact route that owes a non-root formal object must execute current alignment/evaluation and response-emission closure first.",
+    "decision_trace_constructor_rule": "AIR_DECISION_TRACE is valid only with its complete canonical constructor and current evaluation_basis; ad-hoc, stale, null, or incomplete required basis is INVALID_UNEMITTABLE and routes through closure failure/recovery.",
+    "exact_token_rule": "Exact current approval-token matching remains deterministic and does not require AIR_DECISION_TRACE solely for token comparison; other approval/recovery objects owed by Core remain required.",
+    "material_block_rule": "A blocked material request or proceed with missing Artifact, Gate, Authorization, typed route, evidence, or dependency must surface every Gate/required-input/recovery/error object owed by Core closure before explanatory prose.",
+    "material_unresolved_input_rule": "When Core selects material unresolved-input routing, canonical AIR_REQUIRED_INPUT_REQUEST is owed. If it or its current constructor basis cannot validate, fail closed through the Core-selected AIR_ERROR or non-error recovery path instead of prose-only continuation.",
+    "preartifact_evaluation_pair_rule": "When a pre-artifact non-root formal object requires evaluation_basis, the current AIR_ALIGNMENT_CHECK and coupled AIR_VALIDATION_REPORT referenced by that basis are owed in the same visible response unless Core defines a serialization exception."
+  },
+  "progressive_runtime": {
+    "boot_result_telemetry_required_when_observable": [
+      "requested_boot_profile",
+      "resolved_boot_profile",
+      "actual_highest_retrieval_tier",
+      "model_retrieved_source_refs_or_compact_equivalent",
+      "tool_only_byte_checks_or_compact_equivalent",
+      "escalation_state",
+      "escalation_reason_when_escalated",
+      "full_release_integrity_audit_state",
+      "available_phase_timing_without_fabrication",
+      "prohibited_or_rejected_retrieval_attempts_or_compact_equivalent"
+    ],
+    "byte_verification_context_rule": "Tool-side byte/hash/archive/schema verification does not by itself require model-context ingestion of the validated file body.",
+    "default_boot_profile": "ROUTINE_BOOT_MINIMUM_SUFFICIENT",
+    "default_user_boot_profile": "TIER_0_ROUTINE",
+    "direct_reference_rule": "Every routable authoritative section required by the runtime index must be directly reachable from AIR_P_RUNTIME_REFERENCE_INDEX; nested-only discovery is invalid.",
+    "escalation_telemetry_required": [
+      "requested_boot_profile",
+      "resolved_boot_profile",
+      "actual_highest_retrieval_tier",
+      "escalation_state",
+      "escalation_reason"
+    ],
+    "explicit_profile_selection_rule": "EXACT_OR_EQUIVALENT_USER_PROFILE_REQUEST_CONTROLS_BOOT_PROFILE_UNLESS_CANONICAL_MANDATORY_ESCALATION_TRIGGER_APPLIES",
+    "mismatch_behavior": "TARGETED_REVALIDATION_OR_FULL_RELEASE_INTEGRITY_AUDIT_NO_INFERENCE_FALLBACK",
+    "release_package_interface_obligation": "AIR_P_FRESH_SESSION_BOOTSTRAP.md and public release instructions must dispatch by user boot profile instead of prescribing one broad boot order for all requests.",
+    "required_retrieval_scope_enforcement_patch_marker": "AIR_RETRIEVAL_SCOPE_ENFORCEMENT_V1",
+    "required_user_boot_profile_patch_marker": "AIR_USER_BOOT_PROFILE_DISPATCH_V1",
+    "retrieval_scope_enforcement": {
+      "closed_retrieval_plan_required": true,
+      "core_patch_marker": "AIR_RETRIEVAL_SCOPE_ENFORCEMENT_V1",
+      "model_visible_scope_policy": "CLOSED_WORLD_ALLOWLIST",
+      "plan_fields": [
+        "requested_boot_profile",
+        "resolved_boot_profile",
+        "explicit_target_or_dependency",
+        "direct_anchor_refs",
+        "required_dependencies",
+        "allowed_model_visible_refs",
+        "allowed_tool_only_checks",
+        "exact_section_boundaries",
+        "prohibited_or_rejected_retrieval_attempts"
+      ],
+      "scope_violation_is_silent_escalation": false,
+      "scope_violation_state": "INVALID_RETRIEVAL_SCOPE_WIDENING",
+      "semantic_owner": "AIR_CORE_RUNTIME_V2",
+      "telemetry": [
+        "model_retrieved_source_refs_or_compact_equivalent",
+        "tool_only_byte_checks_or_compact_equivalent",
+        "prohibited_or_rejected_retrieval_attempts_or_compact_equivalent"
+      ],
+      "tier1_navigation": {
+        "handoff_body_or_fragment_without_dependency": "PROHIBITED",
+        "handoff_exact_field_tool_extraction_when_required": "ALLOWED_TOOL_ONLY",
+        "model_visible_scope": "COMPACT_NAVIGATION_ONLY",
+        "router83_identity_count_fingerprint_navigation": "ALLOWED_COMPACT_ONLY",
+        "router83_law_applicability_metadata_before_typed_routing": "PROHIBITED_MODEL_VISIBILITY",
+        "unselected_specialist_bodies": "PROHIBITED_MODEL_VISIBILITY"
+      },
+      "tier2_targeted_source": {
+        "adjacent_context_outside_exact_section_boundaries": "PROHIBITED",
+        "broad_recursive_source_scan_when_direct_anchor_exists": "PROHIBITED",
+        "exact_section_or_json_subtree_only": true,
+        "ordinary_whole_archive_filename_size_enumeration": "PROHIBITED",
+        "target_resolution": "EXPLICIT_TARGET_TO_DIRECT_RUNTIME_INDEX_ANCHOR_TO_DECLARED_DEPENDENCY_CLOSURE",
+        "unresolved_target_behavior": "REQUEST_SMALLEST_MISSING_TARGET_OR_INPUT_DO_NOT_BROADEN_MODEL_VISIBLE_RETRIEVAL"
+      },
+      "tool_only_checks_do_not_grant_model_visibility": true
+    },
+    "silent_escalation": "PROHIBITED",
+    "tier_order": [
+      "TIER_0_BOOT_TURN_KERNEL",
+      "TIER_1_COMPILED_NAVIGATION",
+      "TIER_2_TARGETED_AUTHORITATIVE_SOURCE",
+      "TIER_3_DEEP_AUDIT"
+    ],
+    "user_boot_profile_dispatch": {
+      "TIER_0_ROUTINE": {
+        "negative_requirements": [
+          "do not enumerate or verify every release-file hash/size solely because the complete boot manifest is present",
+          "do not perform FULL_RELEASE_INTEGRITY_AUDIT work solely to reach Q1",
+          "do not enumerate all compiled registry cardinalities unless required by the current boot dependency closure",
+          "do not load full Router83 applicability metadata before typed routing exists",
+          "do not load unselected Specialist package bodies",
+          "do not load full Handoff Template body without a current Handoff dependency",
+          "do not retrieve all pinned file bodies or historical release/audit material",
+          "do not ingest adjacent context outside exact closed-plan section or JSON-subtree boundaries; discard/filter out-of-bound context or fail closed"
+        ],
+        "retrieval_rule": "TIER_0_BOOT_TURN_KERNEL plus only minimum TIER_1/TIER_2 dependency closure required to establish valid boot state and reach Q1",
+        "selection_aliases": [
+          "Tier0 boot",
+          "Tier 0 boot",
+          "TIER_0_BOOT",
+          "Start a new AIR-P project. Tier0 boot."
+        ],
+        "validation_profile": "ROUTINE_BOOT_MINIMUM_SUFFICIENT"
+      },
+      "TIER_1_NAVIGATION": {
+        "model_visible_scope": "CLOSED_COMPACT_NAVIGATION_ONLY",
+        "negative_requirements": [
+          "do not expose Handoff body or body fragments without a current Handoff dependency",
+          "do not expose Router83 law_applicability_metadata records before typed routing selects or validates them",
+          "do not expose unselected Specialist bodies or unrelated authoritative source bodies",
+          "tool-side exact-field/hash/schema checks do not grant model-visible body access",
+          "do not ingest host/tool-added adjacent context outside exact closed-plan boundaries; discard/filter it or fail closed"
+        ],
+        "retrieval_rule": "TIER_0_ROUTINE plus compact compiled navigation/index material for route/law/object/specialist discovery; unrelated authoritative bodies remain deferred",
+        "selection_aliases": [
+          "Tier1 boot",
+          "Tier 1 boot",
+          "TIER_1_BOOT",
+          "Start a new AIR-P project. Tier1 boot."
+        ],
+        "validation_profile": "ROUTINE_BOOT_MINIMUM_SUFFICIENT"
+      },
+      "TIER_2_TARGETED_SOURCE": {
+        "missing_target_rule": "REQUEST_SMALLEST_MISSING_TARGET_OR_INPUT_DO_NOT_BROADEN_RETRIEVAL",
+        "negative_requirements": [
+          "do not perform ordinary whole-archive filename/size enumeration for a targeted-source request",
+          "do not perform broad recursive source scans when a direct runtime-index anchor exists",
+          "do not retrieve adjacent context outside the exact authoritative section or JSON subtree boundary",
+          "do not broaden model-visible retrieval when the target is unresolved; request the smallest missing target/input",
+          "do not ingest host/tool-added adjacent context outside exact closed-plan boundaries; discard/filter it or fail closed"
+        ],
+        "retrieval_rule": "TIER_0/TIER_1 plus exact authoritative source sections required by an explicit current target, route, dependency, or supplied continuation object",
+        "selection_aliases": [
+          "Tier2 boot",
+          "Tier 2 boot",
+          "TIER_2_BOOT",
+          "Start a new AIR-P project. Tier2 boot."
+        ],
+        "target_resolution_rule": "EXPLICIT_TARGET_TO_DIRECT_RUNTIME_INDEX_ANCHOR_TO_DECLARED_REQUIRED_DEPENDENCIES_TO_EXACT_SECTION_BOUNDARIES",
+        "validation_profile": "TARGETED_REVALIDATION_WHEN_REQUIRED_BY_TARGET_OTHERWISE_ROUTINE_BOOT_MINIMUM_SUFFICIENT"
+      },
+      "TIER_3_DEEP_AUDIT": {
+        "retrieval_rule": "deep-audit path selected only by explicit user request or a canonical mandatory escalation trigger",
+        "selection_aliases": [
+          "Tier3 boot",
+          "Tier 3 boot",
+          "TIER_3_BOOT",
+          "Start a new AIR-P project. Tier3 boot."
+        ],
+        "validation_profile": "FULL_RELEASE_INTEGRITY_AUDIT"
+      }
+    }
+  },
+  "required_contract_count": 11,
+  "required_contract_semantic_ids": [
+    "AIR_ALIGNMENT_EVALUATION_DEPENDENCY_V1",
+    "AIR_FORMAL_OBJECT_CONSTRUCTOR_DEPENDENCY_V1",
+    "AIR_REQUIRED_EMISSION_PREFLIGHT_V2",
+    "AIR_CLOSED_WORLD_EMISSION_CLOSURE_V1",
+    "AIR_MATERIAL_ACTION_INTERLOCK_V3",
+    "AIR_APPROVAL_RESPONSE_RESOLUTION_V2",
+    "AIR_REQUIRED_INPUT_ARTIFACT_ACQUISITION_V3",
+    "DETERMINISTIC_ONBOARDING_NON_INFERENCE_V3",
+    "AIR_BOOT_VALIDATION_PROPORTIONALITY_V2",
+    "AIR_PROGRESSIVE_RUNTIME_RETRIEVAL_CONTRACT_V1",
+    "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1"
+  ],
+  "runtime_reference_index_ref": "air_p/compiled/AIR_P_RUNTIME_REFERENCE_INDEX.json",
+  "runtime_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER",
+  "semantic_owner": "AIR_CORE_RUNTIME_V2_BOOTSTRAP_TRUST_KERNEL",
+  "starter_transition_contract_id": "AIR_STARTER_CORE_RUNTIME_TRANSITION_IDENTITY_V10",
+  "starter_transition_state": "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER"
+}
