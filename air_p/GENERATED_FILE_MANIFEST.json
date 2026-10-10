@@ -4,7 +4,7 @@
   "files": [
     {
       "path": "AIR_P_RUN_MANIFEST.json",
-      "sha256": "6782c7ffb32c9ed5d92f3753d98d383123db1712ad612faa34cbb1d6c18e6e3b",
+      "sha256": "28b49162b3a363dfd9a8a045044d42c565569ea7ab18f76cb235073d713a8218",
       "size_bytes": 2823
     },
     {
@@ -39,13 +39,13 @@
     },
     {
       "path": "compiled/AIR_P_CONTROL_GOVERNANCE_PROJECTIONS.json",
-      "sha256": "c749957c677e8bdf177d378914ec35a233ff6efd34f83a03c1061068d688cda0",
+      "sha256": "6a49e0a03e43c67fc1d46e96694732164cf3e1546e8faa763977aa8346477dde",
       "size_bytes": 2516
     },
     {
       "path": "compiled/AIR_P_DETERMINISTIC_VALIDATION_REGISTRY.json",
-      "sha256": "1923c36b22a0cf22540536f6ec236d339b5d2c762c22a1e938a398e221466225",
-      "size_bytes": 87686
+      "sha256": "99dad1f0fb19f0061797443e75c591ac7539d5f70de4552a5e9f4663e1f6ad85",
+      "size_bytes": 93794
     },
     {
       "path": "compiled/AIR_P_FORMAL_OBJECT_CONTRACT_REGISTRY.json",
@@ -69,8 +69,8 @@
     },
     {
       "path": "compiled/AIR_P_RUNTIME_REFERENCE_INDEX.json",
-      "sha256": "436d7596a5122a17ad9c9b5001221b482ae1639d7283b75a03feb1cd0ce92a0a",
-      "size_bytes": 16731
+      "sha256": "0e271e3471ce3a7da349dcf185c6fa652e1497687fad8c8bcd92612b62ae3f23",
+      "size_bytes": 18546
     },
     {
       "path": "compiled/AIR_P_SEMANTIC_BINDING_REGISTRY.json",
@@ -79,7 +79,7 @@
     },
     {
       "path": "compiled/AIR_P_SOURCE_MANIFEST.json",
-      "sha256": "d7bbb839a84fffa3046b31263d5257d5f632d99d25e8aaa564a9decff44b60f1",
+      "sha256": "ec44bb866bc8549cf6981607abcbb47d5034e45d1cf94b4f344ba387c536a5b5",
       "size_bytes": 6368
     },
     {
@@ -89,13 +89,13 @@
     },
     {
       "path": "evidence/AIR_P_COMPILATION_REPORT.json",
-      "sha256": "655d70680021cc075457f4590e6679f60e1ed7df44d57dcd2264ac2a9d220769",
+      "sha256": "a18e989d3943ea7b95acd09bb8faf7ef9df99c84b7e409408e50b269c14410d8",
       "size_bytes": 4113
     },
     {
       "path": "evidence/AIR_P_DETERMINISTIC_MUTATION_COVERAGE_REPORT.json",
-      "sha256": "0a2256594061f1256503e3f896ec3cadf3d26927af33e5507d25a6f5b59463f5",
-      "size_bytes": 48495
+      "sha256": "549d2a38c6f67c4de10b60e68cf7050743b04e8be38f4974cf340a9f0790c7e1",
+      "size_bytes": 50916
     },
     {
       "path": "evidence/AIR_P_MUTATION_TEST_REPORT.json",
@@ -104,7 +104,7 @@
     },
     {
       "path": "evidence/AIR_P_REPRODUCIBILITY_REPORT.json",
-      "sha256": "9263d8f2b51e8e46c82ae465d374a096b1fbc4a576be10890861451cb77ecfc3",
+      "sha256": "19d235a893e2fb6db0238e57bd4db7f00ef2f3b648259fb412df5a4b8c5e9cd0",
       "size_bytes": 9171
     },
     {
@@ -704,8 +704,8 @@
     },
     {
       "path": "tests/test_air_p_compiler.py",
-      "sha256": "babfcabc98996e64e2b6267d40bbf9835849f721ef41b81b6d3f86e6292b0605",
-      "size_bytes": 60816
+      "sha256": "00dbfa73bd08e41c567aedef0089a59b2177c894536b2dde503e0a74cf0c941d",
+      "size_bytes": 69948
     }
   ],
   "package_designation": "AIR_P_COMPLETE_COMPILATION_V1",

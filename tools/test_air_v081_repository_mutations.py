@@ -81,6 +81,22 @@ def main() -> None:
         p = d / "air_p/UNMANIFESTED.txt"; p.write_text("must fail closure\n", encoding="utf-8")
     add("V081-N12-UNMANIFESTED-RUNTIME-EXTRA", unmanifested_runtime_extra)
 
+    def drop_first_activation_latch(d: Path):
+        for rel in ("prompts/AIR_DEFAULT_STARTER_PROFILE.json", "source/prompts/AIR_DEFAULT_STARTER_PROFILE.json"):
+            p = d / rel; o = load(p)
+            o["compiler_contract"].pop("first_activation_emission_latch"); dump(p, o)
+    add("V081-N13-DROP-FIRST-ACTIVATION-LATCH", drop_first_activation_latch)
+
+    def drop_first_activation_anchor(d: Path):
+        p = d / "air_p/compiled/AIR_P_RUNTIME_REFERENCE_INDEX.json"; o = load(p)
+        o["anchors"] = [a for a in o["anchors"] if a["semantic_id"] != "AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1"]
+        o["anchor_count"] = len(o["anchors"]); dump(p, o)
+    add("V081-N14-DROP-FIRST-ACTIVATION-RUNTIME-ANCHOR", drop_first_activation_anchor)
+
+    def installed_law_body_drift(d: Path):
+        p = d / "air_p/law_package/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md"; p.write_bytes(p.read_bytes() + b"\nV081_MUTANT\n")
+    add("V081-N15-PINNED-LAW-BODY-DRIFT", installed_law_body_drift)
+
     killed = 0
     with tempfile.TemporaryDirectory(prefix="air-v081-mutations-") as td:
         base = Path(td)

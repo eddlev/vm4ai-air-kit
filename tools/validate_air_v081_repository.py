@@ -10,10 +10,32 @@ import tempfile
 from pathlib import Path
 
 EXPECTED_VERSION = "0.8.1"
-EXPECTED_SOURCE_TUPLE = "d4678f03448f35c713c11565069715c6fd168bda50601b04a445e86f0f0fce64"
-EXPECTED_DERIVED_FP = "729b585f9d2c5a41d273a08f8da313f24847d38c8c61063fb5b830bc215fc4c1"
-EXPECTED_CLIENT_RUNTIME_FP = "5b96ee3141ff8cea896c2a26129916ba063aaef6bcdf2df4ea16b9119e74637c"
+EXPECTED_SOURCE_REVISION = 133
+EXPECTED_SOURCE_TUPLE = "a7c4208d0bbbed201af504541809e183eeb5f4cac7755f91e00db84b388a9198"
+EXPECTED_DERIVED_FP = "404cb452c24c7627f91ea9aa211a3057b2335d8cd242a0de8349401b8accdf06"
+EXPECTED_CLIENT_RUNTIME_FP = "4c258a738db3b7129f9509cff1d73dfe1cbef099678327226bf69a508ca2c701"
 EXPECTED_RUNTIME_STATE = "R23_AMRS4F_PACKAGE_ENABLED_SEMANTIC_OWNER_CUTOVER"
+SOURCE_MANIFEST = f"release/AIR_CURRENT_PROJECT_SOURCE_MANIFEST_R{EXPECTED_SOURCE_REVISION}_V081_CANDIDATE.json"
+SOURCE_DELTA = f"release/SOURCE_DELTA_R131_TO_R{EXPECTED_SOURCE_REVISION}_V081_CANDIDATE.json"
+EXPECTED_SOURCE_DELTA_PATHS = {
+    "air_p/compiler/air_p_compiler_engine.py",
+    "air_p/compiler/compile_air_p.py",
+    "air_p/tests/test_air_p_compiler.py",
+    "prompts/AIR_CONTROL_SURFACE.md",
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+}
+README_STATUS_MARKER = "AIR Kit v0.8.1 release candidate"
+FIRST_ACTIVATION_CONTROL_ANCHOR = "AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1"
+FIRST_ACTIVATION_STARTER_ANCHOR = "AIR_STARTER_FIRST_ACTIVATION_EMISSION_LATCH_V1"
+FIRST_ACTIVATION_BUNDLE = [
+    "AIR_RUNTIME_BRIDGE",
+    "AIR_SESSION",
+    "AIR_PROJECT_INITIALIZATION_BRIEF",
+    "AIR_PROJECT_EXECUTION_MAP",
+    "AIR_ARTIFACT",
+]
+EXPECTED_RUNTIME_REFERENCE_ANCHORS = 19
+EXPECTED_OPERATIVE_SOURCE_BINDINGS = 25
 EXPECTED_CORE_SHA = "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588"
 EXPECTED_HANDOFF_SHA = "8d1c87d3d4d2b191301eec9f27e83ac1e550b0ba99bede5a5d576e9d52e5f122"
 EXPECTED_COMMANDS = {
@@ -118,6 +140,48 @@ def validate_starter(root: Path) -> None:
     req("discarded before model-visible ingestion" in guard, "adjacent-context discard rule missing")
     req(any("adjacent context" in x for x in dispatch["TIER_0_ROUTINE"]["negative_requirements"]), "Tier0 adjacent-context negative contract missing")
 
+    latch = starter["compiler_contract"]["first_activation_emission_latch"]
+    req(latch.get("activation_route") == "RT.ACTIVATE", "first-activation latch does not route through RT.ACTIVATE")
+    req(latch.get("first_activation_visible_bundle") == FIRST_ACTIVATION_BUNDLE, "first-activation visible bundle drift")
+    req(latch.get("minimum_mode_rule") == "REQUIRED_FIRST_ACTIVATION_OBJECTS_STILL_VISIBLE", "minimum mode may suppress first-activation objects")
+    req(latch.get("direct_control_anchor") == FIRST_ACTIVATION_CONTROL_ANCHOR, "first-activation Control anchor drift")
+    req(latch.get("direct_starter_anchor") == FIRST_ACTIVATION_STARTER_ANCHOR, "first-activation Starter anchor drift")
+    req(latch.get("backend_enforcement_claimed") is False, "first-activation latch claims backend enforcement")
+
+
+def validate_operative_source_bindings(root: Path) -> None:
+    starter = load_json(root / "source/prompts/AIR_DEFAULT_STARTER_PROFILE.json")
+    checks = starter["validation_contract"]["deterministic_contract_registry"]["checks"]
+    bound = [c for c in checks if "operative_source_binding" in c]
+    req(len(bound) == EXPECTED_OPERATIVE_SOURCE_BINDINGS, f"operative source binding count {len(bound)} is not {EXPECTED_OPERATIVE_SOURCE_BINDINGS}")
+    for check in bound:
+        binding = check["operative_source_binding"]
+        rel = binding["canonical_path"]
+        req(rel.startswith("law_source/") and check["file"] == rel, f"{check['check_id']} is not bound to a single law_source path")
+        for body in (root / "source" / rel, root / "air_p/law_package" / rel.removeprefix("law_source/")):
+            shown = body.relative_to(root).as_posix()
+            req(body.is_file(), f"{check['check_id']} source body missing {shown}")
+            raw = body.read_bytes()
+            req(len(raw) == binding["body_size_bytes"], f"{check['check_id']} source body size drift {shown}")
+            req(hashlib.sha256(raw).hexdigest() == binding["body_sha256"], f"{check['check_id']} source body hash drift {shown}")
+
+
+def validate_first_activation_navigation(root: Path) -> None:
+    control = (root / "source/prompts/AIR_CONTROL_SURFACE.md").read_text(encoding="utf-8")
+    req(f"Patch marker: {FIRST_ACTIVATION_CONTROL_ANCHOR}" in control, "Control first-activation latch marker missing")
+    index = load_json(root / "air_p/compiled/AIR_P_RUNTIME_REFERENCE_INDEX.json")
+    anchors = index["anchors"]
+    req(index["anchor_count"] == len(anchors) == EXPECTED_RUNTIME_REFERENCE_ANCHORS, "runtime reference index anchor count drift")
+    by_id = {a["semantic_id"]: a for a in anchors}
+    for anchor_id, rel in (
+        (FIRST_ACTIVATION_CONTROL_ANCHOR, "prompts/AIR_CONTROL_SURFACE.md"),
+        (FIRST_ACTIVATION_STARTER_ANCHOR, "prompts/AIR_DEFAULT_STARTER_PROFILE.json"),
+    ):
+        req(anchor_id in by_id, f"runtime reference index missing {anchor_id}")
+        anchor = by_id[anchor_id]
+        req(anchor["canonical_source_path"] == rel, f"{anchor_id} canonical source path drift")
+        req(anchor["source_sha256"] == sha(root / "source" / rel), f"{anchor_id} is not pinned to the current source")
+
 
 def validate_public_source_mirrors(root: Path) -> None:
     for rel in [
@@ -139,7 +203,7 @@ def validate_public_surface(root: Path) -> None:
     readme = (root / "README.md").read_text(encoding="utf-8")
     for command in EXPECTED_COMMANDS.values():
         req(command in readme, f"README missing command: {command}")
-    req("v0.8.1 source-synchronization candidate" in readme, "README candidate-state boundary missing")
+    req(README_STATUS_MARKER in readme, "README candidate-state boundary missing")
     workflow = (root / ".github/workflows/air-reproducibility.yml").read_text(encoding="utf-8")
     req("python3 tools/validate_air_suite.py" in workflow, "workflow does not call current validation suite")
     req("v074" not in workflow.lower() and "0.7.4" not in workflow, "workflow still routes to v0.7.4 authority")
@@ -206,9 +270,11 @@ def main() -> None:
     args = ap.parse_args()
     root = Path(args.root).resolve()
 
-    source_manifest = validate_manifest(root / "source", root / "release/AIR_CURRENT_PROJECT_SOURCE_MANIFEST_R131_V081_CANDIDATE.json", source_tuple=True, exact_closure=True)
+    source_manifest = validate_manifest(root / "source", root / SOURCE_MANIFEST, source_tuple=True, exact_closure=True)
     req(source_manifest.get("source_file_count") == 126, "source file count is not 126")
+    req(source_manifest.get("source_revision") == EXPECTED_SOURCE_REVISION, f"source manifest revision is not R{EXPECTED_SOURCE_REVISION}")
     client_runtime = validate_manifest(root, root / "release/AIR_V081_CLIENT_RUNTIME_MANIFEST.json")
+    req(client_runtime.get("source_revision") == EXPECTED_SOURCE_REVISION, f"client runtime manifest revision is not R{EXPECTED_SOURCE_REVISION}")
     client_runtime_paths = {x["path"] for x in client_runtime["files"]}
     observed_client_runtime_paths = {p.relative_to(root).as_posix() for p in (root / "air_p").rglob("*") if p.is_file()}
     req(observed_client_runtime_paths == client_runtime_paths, f"client runtime closure mismatch: extra={sorted(observed_client_runtime_paths-client_runtime_paths)} missing={sorted(client_runtime_paths-observed_client_runtime_paths)}")
@@ -222,15 +288,16 @@ def main() -> None:
     observed_specialist_paths.add("catalog/AIR_SPECIALIST_PACKAGE_INDEX.json")
     req(observed_specialist_paths == expected_specialist_paths, f"Specialist/evidence closure mismatch: extra={sorted(observed_specialist_paths-expected_specialist_paths)} missing={sorted(expected_specialist_paths-observed_specialist_paths)}")
 
-    delta = load_json(root / "release/SOURCE_DELTA_R130_TO_R131_V081_CANDIDATE.json")
-    req(delta.get("changed_file_count") == 3 and delta.get("added_file_count") == 0 and delta.get("deleted_file_count") == 0, "R130->R131 source delta scope drift")
-    req({x["path"] for x in delta["changed_files"]} == {
-        "air_p/compiler/air_p_compiler_engine.py",
-        "air_p/tests/test_air_p_compiler.py",
-        "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
-    }, "R130->R131 changed source path set drift")
+    delta = load_json(root / SOURCE_DELTA)
+    req(delta.get("changed_file_count") == len(EXPECTED_SOURCE_DELTA_PATHS) and delta.get("added_file_count") == 0 and delta.get("deleted_file_count") == 0, f"R131->R{EXPECTED_SOURCE_REVISION} source delta scope drift")
+    req({x["path"] for x in delta["changed_files"]} == EXPECTED_SOURCE_DELTA_PATHS, f"R131->R{EXPECTED_SOURCE_REVISION} changed source path set drift")
+    manifest_hashes = {x["path"]: x["sha256"] for x in source_manifest["files"]}
+    for change in delta["changed_files"]:
+        req(manifest_hashes.get(change["path"]) == change["post_sha256"], f"source delta post-state does not match manifest for {change['path']}")
 
     validate_starter(root)
+    validate_operative_source_bindings(root)
+    validate_first_activation_navigation(root)
     validate_versions(root)
     validate_public_source_mirrors(root)
     validate_public_surface(root)
@@ -238,6 +305,7 @@ def main() -> None:
         validate_compiler_and_checked_in_runtime(root)
 
     print("AIR v0.8.1 repository validation: PASS")
+    print("source_revision", f"R{EXPECTED_SOURCE_REVISION}")
     print("source_tuple", EXPECTED_SOURCE_TUPLE)
     print("derived_inventory", EXPECTED_DERIVED_FP)
     print("client_runtime_inventory", EXPECTED_CLIENT_RUNTIME_FP)

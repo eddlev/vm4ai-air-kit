@@ -278,10 +278,7 @@
     },
     {
       "check_id": "DC-CORE-FLOOR-026",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
@@ -354,11 +351,10 @@
     {
       "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
       "observed": {
-        "matches": [
-          "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md"
-        ],
+        "body_sha256": "3ceba6c0cb2f542915f2883589bb997969bedf3fe4b30e633ccf4da646d916d0",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -377,28 +373,19 @@
     },
     {
       "check_id": "DC-CORE-BOOT-ROUTINE",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-BOOT-TARGETED",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-BOOT-FULL",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
@@ -429,14 +416,10 @@
     {
       "check_id": "DC-CORE-FLOOR-027",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
-          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "09322b3649a967e716d413055a692ef7debaae0e1290cbb305bb40709e3c0717",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -537,14 +520,10 @@
     {
       "check_id": "DC-CORE-FLOOR-001",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
-          "law_source/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "9b9babe79dbba99b5e951f945ded67ebfde08f10ace5b69e4f94936ce1ea7819",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -552,13 +531,10 @@
     {
       "check_id": "DC-CORE-FLOOR-002",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "7f5dd69dd9bcea940ed4446b6f199ef5a4f7527cf9983ed45c407693aeb1f913",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -566,13 +542,10 @@
     {
       "check_id": "DC-CORE-FLOOR-003",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "4d60b6d76a6663a9e1fce58e4a4fa8493dedfbc993a9b6b84b9ee99b3497863b",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -580,13 +553,10 @@
     {
       "check_id": "DC-CORE-FLOOR-004",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "c13c092340b95437eb67f16081045a8b4ebb9b3ebf8c4ac10422ec45f408f622",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -594,13 +564,10 @@
     {
       "check_id": "DC-CORE-FLOOR-005",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "e44e1fb916ebe51d9fa38637186c63d6759e797b27f54565905f6d945bea9992",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -608,13 +575,10 @@
     {
       "check_id": "DC-CORE-FLOOR-006",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "7cfa14824dd4f030028e52f789ae73b7ab41ee0376a809f222f9f513502d67f5",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -622,17 +586,10 @@
     {
       "check_id": "DC-CORE-FLOOR-007",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
-          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
-          "law_source/laws/CORE.LAW.VISIBLE_CHANNEL_EMISSION_INTEGRITY.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
-        ],
+        "body_sha256": "76fc7152d85e1e278c80676beaa11648c452bf09c7e0eb17723b8eaa330ea0a7",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -640,13 +597,10 @@
     {
       "check_id": "DC-CORE-FLOOR-008",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "36b2585f8345af7335dc6be88283e5e7e0738507238d9d2b04ee94b1787dad3a",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -654,13 +608,10 @@
     {
       "check_id": "DC-CORE-FLOOR-009",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "0fdc741acb0ecaf1018b5e2c21336c238da46fbc67de98e042d2790e0ee1c12a",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -668,13 +619,10 @@
     {
       "check_id": "DC-CORE-FLOOR-010",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "9d0d361e27f047d9c380f27dd05335aab95001ee293aed572ad7771e58f921cf",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -682,14 +630,10 @@
     {
       "check_id": "DC-CORE-FLOOR-011",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
-          "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "3ba728b029ecc69dc1932e9e9e53eb5384384e715a2c1176517d567329440a04",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -697,13 +641,10 @@
     {
       "check_id": "DC-CORE-FLOOR-012",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "1a2b2acfa8a6f4029a76e9c7c56d87e4a382754a78d2a098c1405b5cc56de8bc",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -711,102 +652,67 @@
     {
       "check_id": "DC-CORE-FLOOR-013",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
-          "law_source/laws/CORE.LAW.ARTIFACT_SOLE_EXECUTION_BINDING.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "034c5e671b0f808cab74cc8de5a0149a51a3550dcaecb9b2ec492ffd218e80a0",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-014",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-015",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-016",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
-          "law_source/laws/CORE.LAW.AI_GOVERNANCE_SPECIALIST_PACKAGE_REGULATORY_EVIDENCE_ROUTING.md",
-          "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
-          "law_source/laws/CORE.LAW.RESPONSIVE_BINDING_APPROVAL.md",
-          "law_source/laws/CORE.LAW.SPECIALIST_CAPABILITY_RESOLUTION.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "5ab71fd4f8af26f7f51942459c94d1bb0764676e15b17312d869f01ede2bd917",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-017",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-018",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
-          "law_source/laws/CORE.LAW.ACTION_RECEIPT_RECONCILIATION.md",
-          "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
-        ],
+        "body_sha256": "a134bdee7d7d0c23e2099d4f273913ad49433d15b1e26e539ef7bb3942306791",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-019",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
     {
       "check_id": "DC-CORE-FLOOR-020",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
-          "law_source/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
-          "law_source/laws/CORE.LAW.ORBIT0_PROMPT_SIDE_ANCHORING.md",
-          "law_source/laws/CORE.LAW.PROMPT_RUNTIME_ACTIVATION_PERSISTENCE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "24a739479b7c1374e6eff2d43f78fc334ffb893758867d19f737f94c171c0805",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -814,20 +720,10 @@
     {
       "check_id": "DC-CORE-FLOOR-021",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
-          "law_source/laws/CORE.LAW.ACTIVE_STATE_RECONCILIATION.md",
-          "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
-          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
-          "law_source/laws/CORE.LAW.RUNTIME_ALIGNMENT_STATE.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md",
-          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
-        ],
+        "body_sha256": "f0170b756caad5a11e37206f47bbf91e2cbf9c575689c38f6c983b07f3ff9ec4",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -835,17 +731,10 @@
     {
       "check_id": "DC-CORE-FLOOR-022",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
-          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
-          "law_source/laws/CORE.LAW.MII_SEMANTIC_TRANSLATION_AND_FIDELITY.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
-        ],
+        "body_sha256": "a593472e960aca03e6d493733b0e2276fac1d53d05324e167828b85347c8e189",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -853,19 +742,10 @@
     {
       "check_id": "DC-CORE-FLOOR-023",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
-          "law_source/laws/CORE.LAW.DECISION_TRACE_JUSTIFICATION_AND_CLOSURE.md",
-          "law_source/laws/CORE.LAW.DETERMINISTIC_ONBOARDING_NON_INFERENCE.md",
-          "law_source/laws/CORE.LAW.MII_EPISTEMIC_SUFFICIENCY.md",
-          "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
-        ],
+        "body_sha256": "2f4c8ac0946f86b0e00c363548eac80168a27d83b4dca191b0132bc1c6d6af00",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -873,13 +753,10 @@
     {
       "check_id": "DC-CORE-FLOOR-024",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md"
-        ],
+        "body_sha256": "ff0512e58fd441f5af9ed4cb3bf280d460a9689beb2c359e01f4491af7ef5534",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -893,15 +770,10 @@
     {
       "check_id": "DC-CORE-FLOOR-028",
       "observed": {
-        "matches": [
-          "law_source/AIR_FLOOR_INVARIANT_INDEX.json",
-          "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
-          "law_source/laws/CORE.LAW.COGNITIVE_SCOPE_AUTHORITY_ISOLATION.md",
-          "law_source/laws/CORE.REGISTRY.FLOOR_INVARIANT.md",
-          "law_source/laws/CORE.REGISTRY.RUNTIME_ROUTE_DEPENDENCY_KERNEL.md"
-        ],
+        "body_sha256": "73a419868757d320b360c88035ea52d6f6c282ae78e30c0c1077a1dd26482357",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -944,15 +816,10 @@
     {
       "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
       "observed": {
-        "matches": [
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/laws/CORE.LAW.BEHAVIORAL_TRANSACTION_HARDENING_SET_005.md",
-          "law_source/laws/CORE.LAW.CONTROL_PLANE_SEMANTIC_NON_AUTHORITY.md",
-          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
-        ],
+        "body_sha256": "20e86c4f464dac637a24914a7afd5db88e88d4907259c7f5cbf224a5e3e3ca78",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -972,14 +839,10 @@
     {
       "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
       "observed": {
-        "matches": [
-          "law_source/AIR_LAW_ID_REGISTRY.json",
-          "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
-          "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
-          "law_source/laws/CORE.REGISTRY.LAW_ID.md"
-        ],
+        "body_sha256": "bc496eac22500c00a8079d45b5513bcdddf0477da0937ddca0d67cfabcb9da79",
         "present": true,
-        "source": "PACKAGE_ENABLED_CANONICAL_SOURCE_SET"
+        "reason": "PASS",
+        "source": "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md"
       },
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
@@ -1148,10 +1011,7 @@
     },
     {
       "check_id": "DC-CORE-R18-2-9-CONTRACT-PRESENT",
-      "observed": {
-        "present": true,
-        "source": "prompts/AIR_CORE_RUNTIME.md"
-      },
+      "observed": true,
       "operator": "TEXT_CONTAINS_LITERAL",
       "state": "PASS"
     },
@@ -1581,8 +1441,15 @@
       {
         "check_id": "DC-CORE-OPERATIVE-REGISTRY-PATH",
         "expected": "validation_contract.deterministic_contract_registry typed checks",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "3ceba6c0cb2f542915f2883589bb997969bedf3fe4b30e633ccf4da646d916d0",
+          "body_size_bytes": 2744,
+          "canonical_path": "law_source/laws/CORE.LAW.OPERATIVE_COMPATIBILITY_AUTHORITY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1661,8 +1528,15 @@
       {
         "check_id": "DC-CORE-FLOOR-027",
         "expected": "AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "09322b3649a967e716d413055a692ef7debaae0e1290cbb305bb40709e3c0717",
+          "body_size_bytes": 764,
+          "canonical_path": "law_source/floors/AIR-FLOOR-027-FAILURE-MODE-LEARNING-AND-RETRY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1790,92 +1664,183 @@
       {
         "check_id": "DC-CORE-FLOOR-001",
         "expected": "AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "9b9babe79dbba99b5e951f945ded67ebfde08f10ace5b69e4f94936ce1ea7819",
+          "body_size_bytes": 399,
+          "canonical_path": "law_source/floors/AIR-FLOOR-001-PROMPT-RUNTIME-ORIGIN-AND-PERSISTENCE.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-002",
         "expected": "AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "7f5dd69dd9bcea940ed4446b6f199ef5a4f7527cf9983ed45c407693aeb1f913",
+          "body_size_bytes": 126,
+          "canonical_path": "law_source/floors/AIR-FLOOR-002-BACKEND-VALIDATION-EVIDENCE-BOUNDARY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-003",
         "expected": "AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "4d60b6d76a6663a9e1fce58e4a4fa8493dedfbc993a9b6b84b9ee99b3497863b",
+          "body_size_bytes": 132,
+          "canonical_path": "law_source/floors/AIR-FLOOR-003-UNSUPPORTED-MATERIAL-CLAIMS-FAIL-CLOSED.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-004",
         "expected": "AIR-FLOOR-004-LOAD-INTEGRITY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "c13c092340b95437eb67f16081045a8b4ebb9b3ebf8c4ac10422ec45f408f622",
+          "body_size_bytes": 70,
+          "canonical_path": "law_source/floors/AIR-FLOOR-004-LOAD-INTEGRITY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-005",
         "expected": "AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "e44e1fb916ebe51d9fa38637186c63d6759e797b27f54565905f6d945bea9992",
+          "body_size_bytes": 131,
+          "canonical_path": "law_source/floors/AIR-FLOOR-005-RECEIVER-DELIVERY-STATE-INTEGRITY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-006",
         "expected": "AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "7cfa14824dd4f030028e52f789ae73b7ab41ee0376a809f222f9f513502d67f5",
+          "body_size_bytes": 180,
+          "canonical_path": "law_source/floors/AIR-FLOOR-006-SURFACED-GOVERNANCE-NOT-HIDDEN-REASONING.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-007",
         "expected": "AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "76fc7152d85e1e278c80676beaa11648c452bf09c7e0eb17723b8eaa330ea0a7",
+          "body_size_bytes": 839,
+          "canonical_path": "law_source/floors/AIR-FLOOR-007-REQUIRED-FORMAL-OBJECT-VISIBILITY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-008",
         "expected": "AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "36b2585f8345af7335dc6be88283e5e7e0738507238d9d2b04ee94b1787dad3a",
+          "body_size_bytes": 108,
+          "canonical_path": "law_source/floors/AIR-FLOOR-008-EXPLICIT-BINDING-AND-APPROVAL-SCOPE.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-009",
         "expected": "AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "0fdc741acb0ecaf1018b5e2c21336c238da46fbc67de98e042d2790e0ee1c12a",
+          "body_size_bytes": 144,
+          "canonical_path": "law_source/floors/AIR-FLOOR-009-ATTACHMENT-AVAILABILITY-NOT-BINDING.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-010",
         "expected": "AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "9d0d361e27f047d9c380f27dd05335aab95001ee293aed572ad7771e58f921cf",
+          "body_size_bytes": 136,
+          "canonical_path": "law_source/floors/AIR-FLOOR-010-SOURCE-AND-EXECUTION-CLAIM-EVIDENCE.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-011",
         "expected": "AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "3ba728b029ecc69dc1932e9e9e53eb5384384e715a2c1176517d567329440a04",
+          "body_size_bytes": 252,
+          "canonical_path": "law_source/floors/AIR-FLOOR-011-DETERMINISTIC-ONBOARDING-STATE.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-012",
         "expected": "AIR-FLOOR-012-LEGACY-V1-NON-BINDING",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "1a2b2acfa8a6f4029a76e9c7c56d87e4a382754a78d2a098c1405b5cc56de8bc",
+          "body_size_bytes": 91,
+          "canonical_path": "law_source/floors/AIR-FLOOR-012-LEGACY-V1-NON-BINDING.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-013",
         "expected": "AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "034c5e671b0f808cab74cc8de5a0149a51a3550dcaecb9b2ec492ffd218e80a0",
+          "body_size_bytes": 380,
+          "canonical_path": "law_source/floors/AIR-FLOOR-013-SOLE-ORBIT-0-ARTIFACT-EXECUTION-BINDING.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1895,8 +1860,15 @@
       {
         "check_id": "DC-CORE-FLOOR-016",
         "expected": "AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "5ab71fd4f8af26f7f51942459c94d1bb0764676e15b17312d869f01ede2bd917",
+          "body_size_bytes": 351,
+          "canonical_path": "law_source/floors/AIR-FLOOR-016-REQUIRED-INPUT-AND-ARTIFACT-ACQUISITION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1909,8 +1881,15 @@
       {
         "check_id": "DC-CORE-FLOOR-018",
         "expected": "AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "a134bdee7d7d0c23e2099d4f273913ad49433d15b1e26e539ef7bb3942306791",
+          "body_size_bytes": 611,
+          "canonical_path": "law_source/floors/AIR-FLOOR-018-MATERIAL-ACTION-AUTHORIZATION-AND-RECEIPT.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1923,36 +1902,71 @@
       {
         "check_id": "DC-CORE-FLOOR-020",
         "expected": "AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "24a739479b7c1374e6eff2d43f78fc334ffb893758867d19f737f94c171c0805",
+          "body_size_bytes": 336,
+          "canonical_path": "law_source/floors/AIR-FLOOR-020-ACTIVE-STATE-RECONCILIATION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-021",
         "expected": "AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "f0170b756caad5a11e37206f47bbf91e2cbf9c575689c38f6c983b07f3ff9ec4",
+          "body_size_bytes": 363,
+          "canonical_path": "law_source/floors/AIR-FLOOR-021-CURRENT-ALIGNMENT-EVALUATION-DEPENDENCY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-022",
         "expected": "AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "a593472e960aca03e6d493733b0e2276fac1d53d05324e167828b85347c8e189",
+          "body_size_bytes": 370,
+          "canonical_path": "law_source/floors/AIR-FLOOR-022-SEMANTIC-INTENT-AND-CONTEXT-FIDELITY.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-023",
         "expected": "AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "2f4c8ac0946f86b0e00c363548eac80168a27d83b4dca191b0132bc1c6d6af00",
+          "body_size_bytes": 356,
+          "canonical_path": "law_source/floors/AIR-FLOOR-023-EPISTEMIC-SUFFICIENCY-AND-CLARIFICATION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
         "check_id": "DC-CORE-FLOOR-024",
         "expected": "AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "ff0512e58fd441f5af9ed4cb3bf280d460a9689beb2c359e01f4491af7ef5534",
+          "body_size_bytes": 396,
+          "canonical_path": "law_source/floors/AIR-FLOOR-024-COGNITIVE-CONTRIBUTION-NONAUTHORITY-AND-BENCHMARK-COMPILATION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -1969,8 +1983,15 @@
       {
         "check_id": "DC-CORE-FLOOR-028",
         "expected": "AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "73a419868757d320b360c88035ea52d6f6c282ae78e30c0c1077a1dd26482357",
+          "body_size_bytes": 543,
+          "canonical_path": "law_source/floors/AIR-FLOOR-028-COGNITIVE-SCOPE-AUTHORITY-ISOLATION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -2025,8 +2046,15 @@
       {
         "check_id": "DC-CORE-DURABLE-PROVENANCE-LAW",
         "expected": "AIR_DURABLE_SURFACED_OBJECT_PROVENANCE_V1",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "20e86c4f464dac637a24914a7afd5db88e88d4907259c7f5cbf224a5e3e3ca78",
+          "body_size_bytes": 12639,
+          "canonical_path": "law_source/laws/CORE.LAW.DURABLE_SURFACED_OBJECT_PROVENANCE.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {
@@ -2049,8 +2077,15 @@
       {
         "check_id": "DC-CORE-HANDOFF-RUNTIME-DURABILITY-GENERATION-CONTRACT",
         "expected": "AIR_HANDOFF_RUNTIME_DURABILITY_AND_GENERATION_CONTRACT_V1",
-        "file": "prompts/AIR_CORE_RUNTIME.md",
+        "file": "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
         "on_failure": "FAIL_CLOSED",
+        "operative_source_binding": {
+          "body_sha256": "bc496eac22500c00a8079d45b5513bcdddf0477da0937ddca0d67cfabcb9da79",
+          "body_size_bytes": 7178,
+          "canonical_path": "law_source/laws/CORE.LAW.HANDOFF_RUNTIME_DURABILITY_GENERATION.md",
+          "contract_id": "AIR_POSTCUTOVER_DETERMINISTIC_CHECK_EXACT_SOURCE_OWNER_V1",
+          "semantic_owner": "AIR_LAW_SOURCE_PACKAGE_V1"
+        },
         "operator": "TEXT_CONTAINS_LITERAL"
       },
       {

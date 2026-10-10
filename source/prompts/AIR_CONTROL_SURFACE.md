@@ -3422,6 +3422,29 @@ Progressive-runtime presentation:
 - When boot telemetry is available, present phase timing compactly for `ARCHIVE_IDENTITY`, `PIN_VALIDATION`, `KERNEL_LOAD`, `NAV_INDEX_LOAD`, `FOUNDATION_TARGETED_LOAD`, `ROUTER_TARGETED_LOAD`, `SPECIALIST_DISCOVERY`, and `FIRST_GOVERNED_RESPONSE`; do not invent unavailable timing.
 
 ==================================================
+FIRST-ACTIVATION COMPLETION LATCH AND VISIBLE EMISSION
+==================================================
+
+Patch marker: AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1
+
+This is a Control renderer/dispatch mirror of existing Core first-activation authority. It creates no standalone execution authority, no new onboarding answers, and no permission to waive canonical validators, Artifact inception, approval, or binding.
+
+**End-of-onboarding latch (including Q6D):**
+- When the final required Q6 or Q6D answer is accepted and the Core-owned onboarding requirements are all resolved, set `ONBOARDING_COMPLETE_PENDING_RT_ACTIVATE`. Do not treat the final Q6/Q6D confirmation as permission to deliver the first domain proposal.
+- Under Q4=D, verify Q4D base selection and every required Q6D subchoice, including working agreement, execution granularity and revision presentation. Never infer a missing selection; an outstanding subchoice leaves onboarding unresolved. The ordinary Q6 path applies the same boundary after its own last required answer.
+- At this boundary resolve the canonical `RT.ACTIVATE` route, its Core-owned dependencies `DEP.CANONICAL_INTENT_SUFFICIENT`, `DEP.BENCHMARK_PRECHECK`, `DEP.EXACTLY_ONE_BINDABLE_ARTIFACT`, and `DEP.CURRENT_EVALUATION_BASIS`, plus release-selected law-source dependencies. The route map is discovery metadata; Core remains the semantic owner.
+- Before any domain-work response, complete the exact Core Artifact candidate/inception/precheck/binding transaction using current-session evidence. No earlier website handoff/approval or earlier incomplete emission may be inferred as current authority.
+
+**Atomic first-activation visibility gate:**
+- For `RT.ACTIVATE` first activation, construct and validate the full route-owed bundle: `AIR_RUNTIME_BRIDGE`, `AIR_SESSION`, `AIR_PROJECT_INITIALIZATION_BRIEF`, `AIR_PROJECT_EXECUTION_MAP`, and `AIR_ARTIFACT`, in the Core-authorized order and state epochs. The prebinding Artifact candidate and the bound Artifact must each satisfy Core's stage-specific visibility obligations when their lifecycle transition is selected.
+- Evaluate the current `RESPONSE_EMISSION_CLOSURE`, emitted-object ledger and any Core-owed alignment/validation pair. Emit each canonical formal object with its exact object-name line followed by a fenced `json` code block in the primary visible assistant response. Cards, tables, narrative summaries, hidden reasoning, files, and tool output do not discharge the duty.
+- `ALL_OBJECTS` remains the default unless a current explicit `air -o -min` selection or authorized handoff restoration proves otherwise. Neither visibility mode suppresses these five route-owed first-activation objects.
+- A complete user-visible emission and binding record must precede the first editorial checkpoint, implementation plan, or other task-domain continuation. If construction, required dependencies, source retrieval, Artifact precheck, binding, validation, or emission is missing/invalid, remain at `ACTIVATION_BLOCKED`, use the Core-selected canonical blocker/recovery outputs, and **do not** continue into ordinary project work.
+- If prior-turn emission was missed, record the process defect against that earlier turn and start a fresh current-state reconciliation; never backdate objects, binding, approvals, or compliance.
+
+**Direct retrieval rule:** At final Q6/Q6D selection, retrieve this marker and the Starter first-activation latch by their direct SHA-pinned navigation anchors, then resolve `RT.ACTIVATE` and the exact Core/law dependency closure. Neither a missing navigation anchor nor a retrieval failure permits conversational fallback.
+
+==================================================
 CLOSED-WORLD EMISSION RENDERER CONTRACT
 ==================================================
 

@@ -1,7 +1,7 @@
 {
   "SYSTEM_DESIGNATION": "AIR_P_RUNTIME_REFERENCE_INDEX_V1",
   "active_law_resolution_contract": "AIR_LAW_RESOLUTION_CONSTRUCTION_V2@2.0.0",
-  "anchor_count": 17,
+  "anchor_count": 19,
   "anchors": [
     {
       "canonical_source_path": "law_source/laws/CORE.LAW.ALIGNMENT_EVALUATION_DEPENDENCY.md",
@@ -251,7 +251,7 @@
       "section_digest": "346371047fb848750644509163f62b7a5eb8b16cc252654f4646935e125a4e2e",
       "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
       "semantic_id": "AIR_CONTROL_UNRESOLVED_OPTION_SEMANTIC_QUALIFIER_V1",
-      "source_sha256": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28"
+      "source_sha256": "8d37232f4784507bd52d141ceec9f75907cb37e9999a3111bfb2cb7dbe615fe0"
     },
     {
       "canonical_source_path": "prompts/AIR_CONTROL_SURFACE.md",
@@ -272,7 +272,50 @@
       "section_digest": "2f3d950f84e4402fdc4a32df1e31ae78fa4f7f9ca72745490f400b5414180e1e",
       "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
       "semantic_id": "AIR_CONTROL_TURN_KERNEL_PROGRESSIVE_RUNTIME_RENDERER_V1",
-      "source_sha256": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28"
+      "source_sha256": "8d37232f4784507bd52d141ceec9f75907cb37e9999a3111bfb2cb7dbe615fe0"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_CONTROL_SURFACE.md",
+      "locator": {
+        "end_line": 3446,
+        "start_line": 3424,
+        "type": "MARKDOWN_PATCH_SECTION"
+      },
+      "patch_marker": "AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1",
+      "required_dependencies": [
+        "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1",
+        "AIR_CONTROL_TURN_KERNEL_PROGRESSIVE_RUNTIME_RENDERER_V1"
+      ],
+      "retrieval_trigger": [
+        "LAST_REQUIRED_Q6_CHOICE_ACCEPTED",
+        "LAST_REQUIRED_Q6D_CHOICE_ACCEPTED",
+        "FIRST_ACTIVATION_PENDING"
+      ],
+      "section_digest": "2a6a7d20afc099f20cd1acb05717327a1b2f0fd496b6f90296be169acc63718b",
+      "section_digest_algorithm": "SHA256_UTF8_EXACT_SECTION_V1",
+      "semantic_id": "AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1",
+      "source_sha256": "8d37232f4784507bd52d141ceec9f75907cb37e9999a3111bfb2cb7dbe615fe0"
+    },
+    {
+      "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
+      "locator": {
+        "json_path": "$.compiler_contract.first_activation_emission_latch",
+        "type": "JSON_PATH"
+      },
+      "patch_marker": "first_activation_emission_latch",
+      "required_dependencies": [
+        "AIR_CONTROL_FIRST_ACTIVATION_EMISSION_LATCH_V1",
+        "AIR_TURN_GOVERNANCE_KERNEL_CONTRACT_V1"
+      ],
+      "retrieval_trigger": [
+        "LAST_REQUIRED_Q6_CHOICE_ACCEPTED",
+        "LAST_REQUIRED_Q6D_CHOICE_ACCEPTED",
+        "FIRST_ACTIVATION_PENDING"
+      ],
+      "section_digest": "3388971a3d8b747c499d58d4bf8e800f9cae16d25afaae997d719d72d322c77f",
+      "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
+      "semantic_id": "AIR_STARTER_FIRST_ACTIVATION_EMISSION_LATCH_V1",
+      "source_sha256": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
     },
     {
       "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
@@ -290,7 +333,7 @@
       "section_digest": "3069faff2a58835bda2137677b1bb891434e38093cf622cde91c8e8b4db0c378",
       "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
       "semantic_id": "AIR_STARTER_PROGRESSIVE_RUNTIME_RETRIEVAL_MIRROR",
-      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+      "source_sha256": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
     },
     {
       "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
@@ -308,7 +351,7 @@
       "section_digest": "20e15f179e9796c20a1ffda71d34e1c97715638a03a5d64a1d6ebd5e923684a8",
       "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
       "semantic_id": "AIR_STARTER_TURN_GOVERNANCE_KERNEL_MIRROR",
-      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+      "source_sha256": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
     },
     {
       "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
@@ -326,7 +369,7 @@
       "section_digest": "9ac0c4420548dd3a9ca789cf5558e5be0c8ad8f2bf62a7574aab5860e162dd07",
       "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
       "semantic_id": "AIR_STARTER_BOOT_RUNTIME_TELEMETRY_DEFAULTS",
-      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+      "source_sha256": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
     },
     {
       "canonical_source_path": "prompts/AIR_DEFAULT_STARTER_PROFILE.json",
@@ -345,7 +388,7 @@
       "section_digest": "ce85457d0b97a9542ce44b0a1c9e079bb0f36fd2d4248fd4e77a349614bcf3f3",
       "section_digest_algorithm": "SHA256_CANONICAL_JSON_V1",
       "semantic_id": "AIR_STARTER_CORE_RUNTIME_TRANSITION_IDENTITY_V10",
-      "source_sha256": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+      "source_sha256": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
     }
   ],
   "authority_class": "DERIVED_NONAUTHORITATIVE_NAVIGATION_TO_CANONICAL_SOURCE",
@@ -371,9 +414,9 @@
     "law_source/laws/CORE.LAW.MATERIAL_ACTION_INTERLOCK.md": "28d3469bed7c0b1a88456d7b83273194ce2d06aa32d0ae0244b258858740e8d3",
     "law_source/laws/CORE.LAW.REQUIRED_FORMAL_OBJECT_EMISSION_PREFLIGHT.md": "c6e9a6c778e6b2dd1134a8156134fab64bf95074d11205f29053789cf4269c7f",
     "law_source/laws/CORE.LAW.REQUIRED_INPUT_ARTIFACT_ACQUISITION.md": "cb6a65a8e02489071c8c2d3d6d3befa8491c3c197dc9fcb1d25fbfb48af25386",
-    "prompts/AIR_CONTROL_SURFACE.md": "797e47f506de62d6a71dbcec15f915e92374b0cc7391c7dd4b0ed2ca6cedca28",
+    "prompts/AIR_CONTROL_SURFACE.md": "8d37232f4784507bd52d141ceec9f75907cb37e9999a3111bfb2cb7dbe615fe0",
     "prompts/AIR_CORE_RUNTIME.md": "6007ab277ebcd0d59911fce6384a8ef417dbdd6f3eea38bfc71e39013b097588",
-    "prompts/AIR_DEFAULT_STARTER_PROFILE.json": "b1e1f78debcb9f003be167c256f652dc68c4dea0be7ef05bab24ad04f5727f18"
+    "prompts/AIR_DEFAULT_STARTER_PROFILE.json": "811351c68660ab290b3637f972fff4389ba1f1d9af72232bd0a9c7c65b53bbd0"
   },
   "stale_anchor_behavior": "TARGETED_REVALIDATION_OR_FULL_RELEASE_INTEGRITY_AUDIT_NO_INFERENCE_FALLBACK"
 }
