@@ -158,6 +158,12 @@ Specialists are not autonomous agents.
 
 A Specialist being present in the repository does not make it active. AIR evaluates task fit, validates the package, obtains any required approval, and binds the relevant capability to the active task.
 
+## BinLing source-routing integration (development)
+
+The planned full-stack AIR candidate will retain complete native source routing and may use optional, version-pinned compiled BinLing routing data after qualification. AIR will remain self-contained without access to the private BinLing implementation, a BinLing service or the historical BinLing VM. Routing data is not execution authority or proof of independent enforcement.
+
+See [AIR and BinLing integration requirements](docs/BINLING_INTEGRATION.md) for the planned resolution configurations, verification requirements and licensing boundary. This does not change the currently promoted release or its boot procedure.
+
 ## AIR's operating boundary
 
 AIR operates at the prompt/project-runtime layer.
